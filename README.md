@@ -1,13 +1,28 @@
 # onedark.nvim
-My personal One Dark port for Neovim, built on [Lush](https://github.com/rktjmp/lush.nvim)
-
-Contains **dark** and **light** color palettes.
+My personal One Dark port for Neovim, built on [Lush](https://github.com/rktjmp/lush.nvim).
 
 ### Dark
 ![Dark](screenshots/dark.png "Dark")
 
 ### Light
 ![Light](screenshots/light.png "Light")
+
+## Features
+- **Dark** and **light** versions
+- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- [LSP](https://github.com/neovim/nvim-lspconfig) support
+- Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
+- Plugins:
+    - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
+    - [Dashboard](https://github.com/glepnir/dashboard-nvim)
+    - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
+    - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+    - [nvim-compe](https://github.com/hrsh7th/nvim-compe)
+    - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+    - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+    - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+    - [vim-ultest](https://github.com/rcarriga/vim-ultest)
+    - [vim-startify](https://github.com/mhinz/vim-startify)
 
 ## Requirements
 - Neovim 0.5 or greater
@@ -48,7 +63,7 @@ vim.g.onedark_override = {
 By default, the theme has an opinionated choice on its use of bolds, italics and underlines. You can turn these off by using the following code:
 
 ```lua
-vim.g.onedark_settings= {
+vim.g.onedark_settings = {
     bold = false,
     italic = false,
     underline = false
