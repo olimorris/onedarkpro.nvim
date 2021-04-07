@@ -1,5 +1,5 @@
-# Onedark.nvim
-My personal One Dark port to Neovim, built on [Lush](https://github.com/rktjmp/lush.nvim)
+# onedark.nvim
+My personal One Dark port for Neovim, built on [Lush](https://github.com/rktjmp/lush.nvim)
 
 Contains **dark** and **light** color palettes.
 
