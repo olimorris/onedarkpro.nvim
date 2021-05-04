@@ -259,7 +259,7 @@ local theme = lush(function()
     LspDiagnosticsUnderlineInformation {fg = blue, gui = underline_strings},
     LspDiagnosticsDefaultHint {fg = cyan},
     LspDiagnosticsSignHint {fg = cyan},
-    LspDiagnosticsUnderlineHint {fg = gray, gui = underline_strings},
+    LspDiagnosticsUnderlineHint {gui = underline_strings},
     LspReferenceText {bg = selection_gray}, -- used for highlighting "text" references
     LspReferenceRead {LspReferenceText}, -- used for highlighting "read" references
     LspReferenceWrite {LspReferenceText}, -- used for highlighting "write" references
