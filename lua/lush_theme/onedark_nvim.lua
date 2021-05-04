@@ -489,7 +489,7 @@ local theme = lush(function()
     -- Plugins
 
     -- Bufferline
-    BufferCurrent {fg = fg1},
+    BufferCurrent {fg = purple},
     -- BufferCurrentIndex {},
     BufferCurrentMod {fg = purple},
     BufferCurrentSign {BufferCurrentMod},
