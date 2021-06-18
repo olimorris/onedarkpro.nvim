@@ -12,6 +12,7 @@ local colors = {
   white = "#abb2bf",
   black = "#1E1E1E",
   gray = "#4c4f55",
+  search_yellow = "#e2be7d",
   comment_gray = "#7e848f",
   selection_gray = "#3e4452",
   indentline_gray = "#3a4049",
@@ -27,6 +28,7 @@ local colors = {
   white_light = "#fafafa",
   black_light = "#6a6a6a",
   gray_light = "#bebebe",
+  search_yellow_light = "#e2be7d",
   comment_gray_light = "#9a9a9a",
   selection_gray_light = "#bfceff",
   indentline_gray_light = "#d3d3d3",
@@ -55,6 +57,7 @@ local cyan = colors.cyan
 local black = colors.black
 local white = colors.white
 local gray = colors.gray
+local search_yellow = colors.search_yellow
 local comment_gray = colors.comment_gray
 local selection_gray = colors.selection_gray
 local indentline_gray = colors.indentline_gray
@@ -67,7 +70,7 @@ if bg == nil then
   vim.o.background = bg
 end
 
--- -- color options
+-- color options
 if bg == 'light' then
   bg1 = colors.white_light
   fg1 = colors.black_light
@@ -81,6 +84,7 @@ if bg == 'light' then
   black = colors.black_light
   white = colors.white_light
   gray = colors.gray_light
+  search_yellow = colors.search_yellow
   comment_gray = colors.comment_gray_light
   selection_gray = colors.selection_gray_light
   indentline_gray = colors.indentline_gray_light
@@ -514,6 +518,12 @@ local theme = lush(function()
     dashboardCenter {fg = purple, gui = bold_strings},
     dashboardFooter {fg = blue},
     --dashboardShortCut {},
+
+    -- hlslens
+    HlSearchNear {bg = search_yellow, fg = bg1},
+    HlSearchLens {bg = gray},
+    HlSearchLensNear {HlSearchNear},
+    HlSearchFloat {HlSearchNear},
 
     -- Indent line
     IndentLine {fg = indentline_gray},
