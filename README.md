@@ -19,6 +19,7 @@ My personal One Dark port for Neovim, built on [Lush](https://github.com/rktjmp/
     - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
     - [nvim-compe](https://github.com/hrsh7th/nvim-compe)
     - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+    - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
     - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
     - [vim-ultest](https://github.com/rcarriga/vim-ultest)
