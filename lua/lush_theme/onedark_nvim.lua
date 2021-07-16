@@ -270,55 +270,75 @@ local theme = lush(function()
 
     -- Tree Sitter
     TSError {fg = red}, -- For syntax/parser errors.
-    TSPunctDelimiter     {fg = fg1}, -- For delimiters ie: `.`
-    TSPunctBracket       {fg = red}, -- For brackets and parens.
-    TSPunctSpecial       {fg = fg1}, -- For special punctutation that does not fall in the catagories before.
-    TSConstant           {fg = yellow}, -- For constants
-    TSConstBuiltin       {fg = yellow}, -- For constant that are built in the language: `nil` in Lua.
-    TSConstMacro         {fg = yellow}, -- For constants that are defined by macros: `NULL` in C.
-    TSString             {fg = green}, -- For strings.
-    TSStringRegex        {fg = green}, -- For regexes.
-    TSStringEscape       {fg = cyan}, -- For escape characters within a string.
-    TSCharacter          {fg = green}, -- For characters.
-    TSNumber             {fg = yellow}, -- For integers.
-    TSBoolean            {fg = yellow}, -- For booleans.
-    TSFloat              {fg = yellow}, -- For floats.
-    TSFunction           {fg = blue}, -- For function (calls and definitions).
-    TSFuncBuiltin        {fg = blue}, -- For builtin functions: `table.insert` in Lua.
-    TSFuncMacro          {fg = cyan}, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSParameter          {fg = yellow, gui = italic_strings}, -- For parameters of a function.
+
+    TSPunctDelimiter {fg = fg1}, -- For delimiters ie: `.`
+    TSPunctBracket {fg = red}, -- For brackets and parens.
+    TSPunctSpecial {fg = fg1}, -- For special punctutation that does not fall in the catagories before.
+
+    TSConstant {fg = yellow}, -- For constants
+    TSConstBuiltin {fg = yellow}, -- For constant that are built in the language: `nil` in Lua.
+    TSConstMacro {fg = yellow}, -- For constants that are defined by macros: `NULL` in C.
+    TSString {fg = green}, -- For strings.
+    TSStringRegex {fg = green}, -- For regexes.
+    TSStringEscape {fg = cyan}, -- For escape characters within a string.
+    TSStringSpecial {Special},
+    TSCharacter {fg = green}, -- For characters.
+    TSNumber {fg = yellow}, -- For integers.
+    TSBoolean {fg = yellow}, -- For booleans.
+    TSFloat {fg = yellow}, -- For floats.
+
+    TSFunction {fg = blue}, -- For function (calls and definitions).
+    TSFuncBuiltin {fg = blue}, -- For builtin functions: `table.insert` in Lua.
+    TSFuncMacro {fg = cyan}, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    TSParameter {fg = yellow, gui = italic_strings}, -- For parameters of a function.
     TSParameterReference {fg = yellow}, -- For references to parameters of a function.
-    TSMethod             {fg = blue}, -- For method calls and definitions.
-    TSField              {fg = red}, -- For fields.
-    TSProperty           {fg = red}, -- Same as `TSField`.
-    TSConstructor        {fg = cyan}, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
-    TSConditional        {fg = purple, gui = italic_strings}, -- For keywords related to conditionnals.
-    TSRepeat             {fg = purple, gui = italic_strings}, -- For keywords related to loops.
-    TSLabel              {fg = purple, gui = italic_strings}, -- For labels: `label:` in C and `:label:` in Lua.
-    TSOperator           {fg = cyan}, -- For any operator: `+`, but also `->` and `*` in C.
-    TSKeyword            {fg = purple, gui = bold_italic_strings}, -- For keywords that don't fall in previous categories.
-    TSKeywordFunction    {fg = green}, -- For keywords used to define a fuction.
-    TSException          {fg = green}, -- For exception related keywords.
-    TSType               {fg = yellow}, -- For types.
-    TSTypeBuiltin        {fg = red}, -- For builtin types (you guessed it, right ?).
-    TSNamespace          {fg = purple}, -- For identifiers referring to modules and namespaces.
-    TSInclude            {fg = purple, gui = italic_strings}, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    TSAnnotation         {fg = red}, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    TSText               {fg = fg1}, -- For strings considered text in a markup language.
-    TSStrong             {fg = yellow, gui = bold_strings}, -- For text to be represented with strong.
-    TSEmphasis           {fg = yellow, gui = italic_strings}, -- For text to be represented with emphasis.
-    TSUnderline          {fg = yellow, gui = underline_strings}, -- For text to be represented with an underline.
-    TSTitle              {fg = yellow}, -- Text that is part of a title.
-    TSLiteral            {fg = yellow}, -- Literal text.
-    TSURI                {fg = blue}, -- Any URI like a link or email.
-    TSVariable           {fg = fg1}, -- Any variable name that does not have another highlight.
+    TSMethod {fg = blue}, -- For method calls and definitions.
+    TSField {fg = red}, -- For fields.
+    TSProperty {fg = red}, -- Same as `TSField`.
+    TSConstructor {fg = cyan}, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
+    TSAnnotation {fg = red}, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+    TSAttribute {fg = purple},
+    TSNamespace {fg = purple}, -- For identifiers referring to modules and namespaces.
+    TSSymbol {fg = red},    -- For identifiers referring to symbols or atoms.
+
+    TSConditional {fg = purple, gui = italic_strings}, -- For keywords related to conditionnals.
+    TSRepeat {fg = purple, gui = italic_strings}, -- For keywords related to loops.
+    TSLabel {fg = purple, gui = italic_strings}, -- For labels: `label:` in C and `:label:` in Lua.
+    TSOperator {fg = cyan}, -- For any operator: `+`, but also `->` and `*` in C.
+    TSKeyword {fg = purple, gui = bold_italic_strings}, -- For keywords that don't fall in previous categories.
+    TSKeywordFunction {TSKeyword}, -- For keywords used to define a fuction.
+    TSKeywordOperator {fg = red},
+    TSKeywordReturn {TSKeyword}, -- The return...obviously
+    TSException {fg = green}, -- For exception related keywords.
+
+    TSType {fg = yellow}, -- For types.
+    TSTypeBuiltin {fg = red}, -- For builtin types (you guessed it, right ?).
+    TSInclude {fg = purple, gui = italic_strings}, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+
+    TSVariable {fg = fg1}, -- Any variable name that does not have another highlight.
     TSVariableBuiltin    {fg = yellow, gui = italic_strings}, -- Variable names that are defined by the languages, like `this` or `self`.
-    TSComment            {fg = comment_gray},    -- For comment blocks.
-    TSNone               {fg = yellow},    -- TODO: docs
-    TSSymbol             {fg = red},    -- For identifiers referring to symbols or atoms.
-    TSTag                {fg = red, gui = "NONE"},    -- Tags like html tag names.
-    TSTagDelimiter       {fg = fg1},    -- Tag delimiter like `<` `>` `/`
-    TSStrike             {fg = fg1},    -- For strikethrough text.
+
+    TSText {fg = fg1}, -- For strings considered text in a markup language.
+    TSStrong {fg = yellow, gui = bold_strings}, -- For text to be represented with strong.
+    TSEmphasis {fg = yellow, gui = italic_strings}, -- For text to be represented with emphasis.
+    TSUnderline {fg = yellow, gui = underline_strings}, -- For text to be represented with an underline.
+    TSStrike {fg = fg1},    -- For strikethrough text.
+    TSMath {fg = fg1},
+    TSTextReference {TSText},
+    TSEnvironment {Macro},
+    TSEnvironmentName {Type},
+    TSTitle {fg = yellow}, -- Text that is part of a title.
+    TSLiteral {fg = yellow}, -- Literal text.
+    TSURI {fg = blue}, -- Any URI like a link or email.
+
+    TSComment {fg = comment_gray},    -- For comment blocks.
+    TSNote {fg = yellow},    -- TODO: docs
+    TSWarning {Todo},
+    TSDanger {WarningMsg},
+
+    TSTag {fg = red, gui = "NONE"},    -- Tags like html tag names.
+    TSTagDelimiter {Delimiter},    -- Tag delimiter like `<` `>` `/`
+    TSTagAttribute {TSProperty},
 
     -- CSS
     cssAttrComma {fg = purple},
