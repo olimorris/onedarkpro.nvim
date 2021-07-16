@@ -530,7 +530,7 @@ local theme = lush(function()
     BufferInactiveMod {fg = gray},
     BufferInactiveSign {fg = bg1}, -- The inactive sign of a buffer
     -- BufferInactiveTarget {},
-    -- BufferTabpages {},
+    BufferTabpages {fg = purple}, -- The tab page indicator on the right
     BufferTabpageFill {fg = bg1}, -- The sign which marks the end of the bufferline
 
     -- Dashboard
