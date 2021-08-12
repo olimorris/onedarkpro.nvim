@@ -197,9 +197,9 @@ local theme = lush(function()
     -- SpellRare    {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine {bg = bg1, fg = fg1}, -- status line of current window
     StatusLineNC {bg = bg1, fg = fg1}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine {bg = bg1}, -- tab pages line, not active tab page label
-    TabLineFill  {bg = bg1, fg = comment_gray}, -- tab pages line, where there are no labels
-    -- TabLineSel {}, -- tab pages line, active tab page label
+    TabLine {bg = comment_gray}, -- tab pages line, not active tab page label
+    TabLineFill  {bg = comment_gray, fg = fg1}, -- tab pages line, where there are no labels
+    TabLineSel {bg = comment_gray}, -- tab pages line, active tab page label
     Title {fg = green}, -- titles for output from ":set all", ":autocmd" etc.
     Visual {bg = selection_gray}, -- Visual mode selection
     VisualNOS {Visual}, -- Visual mode selection when vim is "Not Owning the Selection".
@@ -225,18 +225,18 @@ local theme = lush(function()
     Operator       {fg = cyan}, -- "sizeof", "+", "*", etc.
     Keyword        {fg = red}, --  any other keyword
     Exception      {fg = purple}, --  try, catch, throw
--- 
+
     PreProc        {fg = yellow}, -- (preferred) generic Preprocessor
     Include        {fg = purple}, --  preprocessor #include
     Define         {fg = purple}, --   preprocessor #define
     Macro          {fg = purple}, --    same as Define
     PreCondit      {fg = yellow}, --  preprocessor #if, #else, #endif, etc.
--- 
+
     Type           {fg = yellow}, -- (preferred) int, long, char, etc.
     StorageClass   {fg = yellow}, -- static, register, volatile, etc.
     Structure      {fg = yellow}, --  struct, union, enum, etc.
     Typedef        {fg = yellow}, --  A typedef
--- 
+
     Special        {fg = blue}, -- (preferred) any special symbol
     SpecialChar    {fg = yellow}, --  special character in a constant
 --     Tag            {}, --    you can use CTRL-] on this
@@ -509,11 +509,9 @@ local theme = lush(function()
     scssMixin {sassMixing},
     scssSelectorName {fg = yellow},
     scssVariable {sassMixing},
-
-    -- Plugins
-
-    -- Bufferline
-    BufferCurrent {fg = purple},
+-------------------------------------PLUGINS------------------------------------
+    -- Barbar.nvim
+    BufferCurrent {fg = purple, bg = bg1},
     -- BufferCurrentIndex {},
     BufferCurrentMod {fg = purple},
     BufferCurrentSign {BufferCurrentMod},
@@ -525,13 +523,23 @@ local theme = lush(function()
     BufferVisibleSign {BufferVisibleMod},
     BufferVisibleIcon {BufferVisibleMod},
     -- BufferVisibleTarget {},
-    BufferInactive {fg = gray}, -- Buffer which is not active
+    BufferInactive {fg = gray, bg = bg1}, -- Buffer which is not active
     -- BufferInactiveIndex {},
     BufferInactiveMod {fg = gray},
     BufferInactiveSign {fg = bg1}, -- The inactive sign of a buffer
     -- BufferInactiveTarget {},
     BufferTabpages {fg = purple}, -- The tab page indicator on the right
     BufferTabpageFill {fg = bg1}, -- The sign which marks the end of the bufferline
+
+    -- Bufferline
+    BufferlineFill {bg = bg1, fg = bg1},
+    BufferlineBg {bg = bg1, fg = bg1},
+    BufferlineBufferSelected {bg = bg1, fg = purple},
+    BufferlineBufferVisible {bg = colorcolumn_gray, fg = purple},
+    BufferlinePickSelected {bg = colorcolumn_gray, fg = yellow},
+    BufferlinePickVisible {bg = colorcolumn_gray, fg = yellow},
+    BufferlineModifiedSelected {bg = bg1, fg = red},
+    BufferlineModifiedVisible {bg = colorcolumn_gray, fg = red},
 
     -- Dashboard
     -- dashboardHeader {},
@@ -665,6 +673,10 @@ local theme = lush(function()
     UltestInfo {fg = purple, gui = bold_strings},
    }
 end)
+
+-- Set highlight groups
+vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=" .. bg1)
+vim.cmd("autocmd ColorScheme * highlight FloatBorder guifg=" .. comment_gray)
 
 return theme
 
