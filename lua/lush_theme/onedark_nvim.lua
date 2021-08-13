@@ -532,13 +532,14 @@ local theme = lush(function()
     BufferTabpageFill {fg = bg1}, -- The sign which marks the end of the bufferline
 
     -- Bufferline
-    BufferlineFill {bg = bg1, fg = bg1},
+    BufferlineFill {bg = bg1},
     BufferlineBg {BufferlineFill},
-    BufferlineBufferSelected {bg = bg1, fg = purple},
+    BufferLineIndicatorSelected {fg = purple},
+    BufferlineBufferSelected {fg = purple},
     BufferlineBufferVisible {BufferlineBufferSelected},
-    BufferlinePickSelected {bg = bg1, fg = yellow},
+    BufferlinePickSelected {fg = yellow},
     BufferlinePickVisible {BufferlinePickSelected},
-    BufferlineModifiedSelected {bg = bg1, fg = red},
+    BufferlineModifiedSelected { fg = red},
     BufferlineModifiedVisible {BufferlineModifiedSelected},
 
     -- Dashboard
