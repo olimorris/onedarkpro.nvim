@@ -533,13 +533,13 @@ local theme = lush(function()
 
     -- Bufferline
     BufferlineFill {bg = bg1, fg = bg1},
-    BufferlineBg {bg = bg1, fg = bg1},
+    BufferlineBg {BufferlineFill},
     BufferlineBufferSelected {bg = bg1, fg = purple},
-    BufferlineBufferVisible {bg = colorcolumn_gray, fg = purple},
-    BufferlinePickSelected {bg = colorcolumn_gray, fg = yellow},
-    BufferlinePickVisible {bg = colorcolumn_gray, fg = yellow},
+    BufferlineBufferVisible {BufferlineBufferSelected},
+    BufferlinePickSelected {bg = bg1, fg = yellow},
+    BufferlinePickVisible {BufferlinePickSelected},
     BufferlineModifiedSelected {bg = bg1, fg = red},
-    BufferlineModifiedVisible {bg = colorcolumn_gray, fg = red},
+    BufferlineModifiedVisible {BufferlineModifiedSelected},
 
     -- Dashboard
     -- dashboardHeader {},
