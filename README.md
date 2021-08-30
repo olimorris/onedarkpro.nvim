@@ -1,7 +1,7 @@
 # onedark.nvim
 My personal onedark port for Neovim.
 
-**Please Note:** The previous version of this theme has been moved to the **lush** branch.
+> **Please Note:** The previous version of this theme has been moved to the **lush** branch of this repository.
 
 ## Styles
 
