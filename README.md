@@ -66,7 +66,7 @@ Use `onedark` for the dark and `onelight` for the light theme:
 ```lua
 local onedark = require('onedark')
 onedark.setup({
-    theme = 'onelight'
+  theme = 'onelight'
 })
 onedark.load()
 ```
@@ -78,13 +78,13 @@ Styles can be set using the following settings:
 ```lua
 local onedark = require('onedark')
 onedark.setup({
-    styles = {
-      comments = "italic",
-      functions = "NONE",
-      keywords = "bold,italic",
-      strings = "NONE",
-      variables = "NONE"
-    }
+  styles = {
+    comments = "italic",
+    functions = "NONE",
+    keywords = "bold,italic",
+    strings = "NONE",
+    variables = "NONE"
+  }
 })
 onedark.load()
 ```
@@ -95,23 +95,23 @@ Where **italic**, **bold**, **underline** and **NONE** are the settings accepted
 
 ### Overriding colors
 
-The theme has a colour pallette of 12 core colors with 7 additional colors for tems such as borders and indentlines. These colors can be found in the color files, located here.
+The theme has a colour pallette of 12 core colors with 7 additional colors for tems such as borders and indentlines. These colors can be found in the color files, located [here](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/colors).
 
 To override any of them, use the following settings as an example:
 
 ```lua
 local onedark = require('onedark')
 onedark.setup({
-	colors = {
-      red = '#FF0000'
- 	}
+  colors = {
+    red = '#FF0000'
+  }
 })
 onedark.load()
 ```
 
 ### Overriding highlight groups
 
-The theme uses a large array of highlight groups. These can be found in the `theme.lua` file which is located here.
+The theme uses a large array of highlight groups. These can be found in the `theme.lua` file which is located [here](https://github.com/olimorris/onedark.nvim/blob/master/lua/onedark/theme.lua).
 
 There are three ways to specify your own highlight groups:
 
@@ -124,11 +124,11 @@ These are outlined in the below snippet:
 ```lua
 local onedark = require('onedark')
 onedark.setup({
-	hlgroups = {
-      --Comment = {fg = '#FF0000'}, OR
-      --Comment = {fg = '${purple}'}, OR
-      Comment = {'Substitute'},
- 	}
+  hlgroups = {
+    --Comment = {fg = '#FF0000'}, OR
+    --Comment = {fg = '${purple}'}, OR
+    Comment = {'Substitute'},
+   }
 })
 onedark.load()
 ```
