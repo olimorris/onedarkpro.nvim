@@ -1,18 +1,29 @@
 # onedark.nvim
-My personal One Dark port for Neovim, built on [Lush](https://github.com/rktjmp/lush.nvim).
+My personal onedark port for Neovim.
+
+**Please Note:** The previous version of this theme has been moved to the **lush** branch.
+
+## Styles
 
 ### Dark
-![Dark](screenshots/dark.png "Dark")
+![Dark](https://user-images.githubusercontent.com/9512444/131382995-d2378741-954e-4f03-9b73-b514be3d4464.png "Dark")
 
 ### Light
-![Light](screenshots/light.png "Light")
+![Light](https://user-images.githubusercontent.com/9512444/131383409-e4686a46-8943-4e73-af57-14bba8863512.png "Light")
 
 ## Features
 - **Dark** and **light** versions
+- Options to specify styles for:
+    - Comments
+    - Functions
+    - Keywords
+    - Strings
+    - Variables
+- Override default colors and highlight groups
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
-- [LSP](https://github.com/neovim/nvim-lspconfig) support
+- [LSP](https://github.com/neovim/nvim-lspconfig) diagnostics support
 - Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
-- Plugins:
+- Support for populat plugins:
     - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
     - [Dashboard](https://github.com/glepnir/dashboard-nvim)
     - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
@@ -33,56 +44,102 @@ My personal One Dark port for Neovim, built on [Lush](https://github.com/rktjmp/
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-use {
-    'olimorris/onedark.nvim',
-    requires = 'rktjmp/lush.nvim'
-}
+use 'olimorris/onedark.nvim'
 ```
 
 ## Usage
 Add the following to your `init.lua` file to start using the theme:
 
 ```lua
-vim.o.background = 'dark'
-vim.g.colors_name = 'onedark_nvim'
+require('onedark').load()
 ```
-> Note: Changing the background to `light` will enable the light version of the theme
+Alternaively, if you're using vimscript:
+
+```lua
+colorscheme onedark
+```
+
+### Setting the specific theme
+
+Use `onedark` for the dark and `onelight` for the light theme:
+
+```lua
+local onedark = require('onedark')
+onedark.setup({
+    theme = 'onelight'
+})
+onedark.load()
+```
+
+### Styles
+
+Styles can be set using the following settings:
+
+```lua
+local onedark = require('onedark')
+onedark.setup({
+    styles = {
+      comments = "italic",
+      functions = "NONE",
+      keywords = "bold,italic",
+      strings = "NONE",
+      variables = "NONE"
+    }
+})
+onedark.load()
+```
+
+Where **italic**, **bold**, **underline** and **NONE** are the settings accepted by Neovim.
+
+> Also note that multiple styles can be passed using a comma. For example **bold,italic**.
 
 ### Overriding colors
-The theme's color palettes are separated into two; *dark* and *light*. Each palette has 13 colors with the light colors being specified with a `_light` suffix. The full colors can be seen in the `onedark_nvim.lua` file, [here](lua/lush_theme/onedark_nvim.lua).
 
-The colors can be overwritten by specifying an override attribute:
+The theme has a colour pallette of 12 core colors with 7 additional colors for tems such as borders and indentlines. These colors can be found in the color files, located here.
 
-```lua
-vim.g.onedark_override = {
-      red = "#FF0000",
-      red_light = "#e67780"
-}
-```
-
-### Bolds, italics and underlines
-By default, the theme has an opinionated choice on its use of bolds, italics and underlines. You can turn these off by using the following code:
+To override any of them, use the following settings as an example:
 
 ```lua
-vim.g.onedark_settings = {
-    bold = false,
-    italic = false,
-    underline = false
-}
+local onedark = require('onedark')
+onedark.setup({
+	colors = {
+      red = '#FF0000'
+ 	}
+})
+onedark.load()
 ```
 
-### Theme toggling
-You can use the example snippet to toggle between dark and light themes:
+### Overriding highlight groups
+
+The theme uses a large array of highlight groups. These can be found in the `theme.lua` file which is located here.
+
+There are three ways to specify your own highlight groups:
+
+1. Using specifc hex colors.
+2. Referencing the name of color variables from the color files; *and* 
+3. Referencing other highlight groups in the theme.
+
+These are outlined in the below snippet:
 
 ```lua
-function ThemeToggle()
-    if vim.api.nvim_get_option('background') == 'dark' then
-        vim.api.nvim_set_option('background', 'light')
-    else
-        vim.api.nvim_set_option('background', 'dark')
-    end
-end
+local onedark = require('onedark')
+onedark.setup({
+	hlgroups = {
+      --Comment = {fg = '#FF0000'}, OR
+      --Comment = {fg = '${purple}'}, OR
+      Comment = {'Substitute'},
+ 	}
+})
+onedark.load()
 ```
+
+## Credits
+
+The following themes were used, *heavily*, as an inspiration:
+
+* [Nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) - For the general functionality of the theme which I used as the base
+* [Onedark.vim](https://github.com/joshdick/onedark.vim) - For the colors and their appication
 
 ## License
+
 [MIT](https://github.com/olimorris/onedark.nvim/blob/master/LICENSE.md)
