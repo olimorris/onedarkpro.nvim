@@ -5,30 +5,30 @@ local M = {}
 function M.init()
 
   local colors = {
-      name          = "onedark",
+      name              = "onedark",
 
-      bg            = "#1E1E1E",
-      fg            = "#abb2bf",
+      -- Core colors
+      bg                = "#1E1E1E",
+      fg                = "#abb2bf",
+      red               = "#e06c75",
+      green             = "#98C379",
+      yellow            = "#ecbf6f",
+      blue              = "#61afef",
+      purple            = "#c678dd",
+      cyan              = "#56b6c2",
+      white             = "#abb2bf",
+      black             = "#1E1E1E",
+      gray              = "#4c4f55",
+      highlight         = "#e2be7d",
 
-      red           = "#e06c75",
-      green         = "#98C379",
-      yellow        = "#ecbf6f",
-      blue          = "#61afef",
-      purple        = "#c678dd",
-      cyan          = "#56b6c2",
-      white         = "#abb2bf",
-      black         = "#1E1E1E",
-      gray          = "#4c4f55",
-      
-      highlight     = "#e2be7d",
-
-      comment       = "#7e848f",
-      selection     = "#3e4452",
-      indentline    = "#3a4049",
-      color_column  = "#232323",
-      menu = utils.lighten('#1E1E1E', 0.85),
-      menu_scroll = utils.lighten('#1E1E1E', 0.90),
-      menu_scroll_thumb = "#61afef"
+      -- Unique colors that we need
+      comment           = utils.lighten('#4c4f55', 0.8),   -- based on gray
+      selection         = utils.lighten("#1E1E1E", 0.8),   -- based on bg
+      color_column      = utils.lighten("#1E1E1E", 0.97),  -- based on bg
+      indentline        = utils.lighten("#1E1E1E", 0.92),  -- based on bg
+      menu              = utils.lighten('#1E1E1E', 0.85),  -- based on bg
+      menu_scroll       = utils.lighten('#1E1E1E', 0.90),  -- based on bg
+      menu_scroll_thumb = utils.darken("#118dc3", 0.80)    -- based on blue
   }
 
   return colors
