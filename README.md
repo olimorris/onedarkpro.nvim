@@ -23,13 +23,14 @@ My personal onedark port for Neovim.
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - [LSP](https://github.com/neovim/nvim-lspconfig) diagnostics support
 - Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
-- Support for populat plugins:
+- Support for popular plugins:
     - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
     - [Dashboard](https://github.com/glepnir/dashboard-nvim)
     - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
     - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
     - [nvim-compe](https://github.com/hrsh7th/nvim-compe)
     - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+    - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
     - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
     - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -53,7 +54,7 @@ Add the following to your `init.lua` file to start using the theme:
 ```lua
 require('onedark').load()
 ```
-Alternaively, if you're using vimscript:
+Alternatively, if you're using vimscript:
 
 ```lua
 colorscheme onedark
