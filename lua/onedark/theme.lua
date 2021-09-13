@@ -29,7 +29,6 @@ function M.apply(colors, config)
         -- TermCursor   = {}, -- cursor in a focused terminal
         -- TermCursorNC = {}, -- cursor in an unfocused terminal
         ErrorMsg = {fg = c.red}, -- error messages on the command line
-        VertSplit = {fg = c.gray}, -- the column separating vertically split windows
         Folded = {fg = c.gray}, -- line used for closed folds
         -- FoldColumn = {}, -- 'foldcolumn'
         SignColumn = {bg = c.bg}, -- column where |signs| are displayed
@@ -61,6 +60,7 @@ function M.apply(colors, config)
         TabLineFill = {bg = c.comment, fg = c.fg}, -- tab pages line, where there are no labels
         TabLineSel = {bg = c.comment}, -- tab pages line, active tab page label
         Title = {fg = c.green}, -- titles for output from ":set all", ":autocmd" etc.
+        VertSplit = {fg = c.gray}, -- the column separating vertically split windows
         Visual = {bg = c.selection}, -- Visual mode selection
         VisualNOS = {'Visual'}, -- Visual mode selection when vim is "Not Owning the Selection".
         WarningMsg = {fg = c.yellow}, -- warning messages
