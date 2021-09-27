@@ -535,6 +535,12 @@ function M.apply(colors, config)
 		TelescopePromptPrefix = { fg = c.purple },
 		TelescopePrompt = { "TelescopeNormal" },
 
+		-- Trouble.nvim
+		TroubleCount = { bg = c.fg, fg = c.bg, style = "bold" },
+		TroubleFile = { fg = c.cyan },
+		TroubleFoldIcon = { fg = c.fg },
+		TroubleLocation = { fg = c.cyan },
+
 		-- Toggleterm
 		ToggleTerm = { bg = c.bg, fg = c.fg },
 		ToggleTermBorder = { fg = c.gray },
