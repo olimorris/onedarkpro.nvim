@@ -37,7 +37,7 @@ function M.apply(colors, config)
 		LineNr = { fg = c.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		CursorLineNr = { fg = c.purple, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		MatchParen = { fg = c.cyan, style = "underline" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg = { fg = c.gray }, -- 'showmode' message (e.g., "-- INSERT -- ")
+		ModeMsg = { "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea = { "ModeMsg" }, -- Area for messages and cmdline
 		MsgSeparator = { "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = c.green }, -- |more-prompt|
