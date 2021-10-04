@@ -57,9 +57,9 @@ function M.apply(colors, config)
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine = { bg = c.bg, fg = c.fg }, -- status line of current window
 		StatusLineNC = { bg = c.bg, fg = c.fg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		TabLine = { bg = c.comment }, -- tab pages line, not active tab page label
-		TabLineFill = { bg = c.comment, fg = c.fg }, -- tab pages line, where there are no labels
-		TabLineSel = { bg = c.comment }, -- tab pages line, active tab page label
+		TabLine = { bg = c.bg }, -- tab pages line, not active tab page label
+		TabLineFill = { bg = c.bg, fg = c.fg }, -- tab pages line, where there are no labels
+		TabLineSel = { bg = c.comment, fg = c.purple }, -- tab pages line, active tab page label
 		Title = { fg = c.green }, -- titles for output from ":set all", ":autocmd" etc.
 		VertSplit = { fg = c.gray }, -- the column separating vertically split windows
 		Visual = { bg = c.selection }, -- Visual mode selection
