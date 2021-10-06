@@ -14,7 +14,7 @@ function M.init()
 		yellow = "#eea825",
 		blue = "#118dc3",
 		purple = "#9a77cf",
-		cyan = "#56B6C2",
+		cyan = "#56b6c2",
 		white = "#fafafa",
 		black = "#6a6a6a",
 		gray = "#bebebe",

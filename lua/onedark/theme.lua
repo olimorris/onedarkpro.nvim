@@ -467,7 +467,7 @@ function M.apply(colors, config)
 		--nvim-compe and nvim-cmp
 		CompeDocumentation = { fg = c.fg, bg = c.menu },
 		CmpDocumentation = { fg = c.fg, bg = c.menu },
-		CmpDocumentationBorder = { bg = c.menu },
+		CmpDocumentationBorder = { fg = c.fg, bg = c.menu },
 
 		--nvim-dap
 		DebugBreakpoint = { fg = c.red },
