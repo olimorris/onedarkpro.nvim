@@ -1,7 +1,7 @@
 # onedark.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/136249473-56962319-8f08-4f88-8e5a-2b65c4a3f779.png" alt = "banner" />
+<img src="https://user-images.githubusercontent.com/9512444/136255115-2ab2706a-5dfb-44dd-9936-96961716827f.png" alt = "banner" />
 </p>
 <p align="center">
 <i>A dark and light theme for Neovim 0.5 and above, written in Lua<br>Comes complete with support for Treesitter's syntax highlighting and many popular plugins</i>
