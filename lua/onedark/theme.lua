@@ -468,6 +468,10 @@ function M.apply(colors, config)
 		CompeDocumentation = { fg = c.fg, bg = c.menu },
 		CmpDocumentation = { fg = c.fg, bg = c.menu },
 		CmpDocumentationBorder = { fg = c.fg, bg = c.menu },
+		CmpItemAbbr = { fg = c.fg },
+		CmpItemAbbrMatch = { fg = c.fg, style = config.styles.keywords },
+		CmpItemKind = { fg = c.blue },
+		CmpItemMenu = { fg = c.fg },
 
 		--nvim-dap
 		DebugBreakpoint = { fg = c.red },
