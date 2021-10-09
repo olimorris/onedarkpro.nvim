@@ -27,7 +27,7 @@ function M.init()
 		indentline = utils.darken("#fafafa", 0.93), -- based on bg
 		menu = utils.darken("#fafafa", 0.95), -- based on bg
 		menu_scroll = utils.darken("#fafafa", 0.90), -- based on bg
-		menu_scroll_thumb = utils.lighten("#118dc3", 0.80),  -- based on blue
+		menu_scroll_thumb = utils.lighten("#118dc3", 0.80), -- based on blue
 	}
 
 	return colors

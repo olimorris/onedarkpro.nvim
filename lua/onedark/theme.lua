@@ -20,6 +20,7 @@ function M.apply(colors, config)
 		-- CursorIM     = {bg = c.red}, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorColumn = { bg = c.gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		CursorLine = { bg = c.selection }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorLineNr = { fg = c.purple, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		Directory = { fg = c.blue }, -- directory names (and other special names in listings)
 		DiffAdd = { bg = c.green, fg = c.black }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = c.yellow, style = "underline" }, -- diff mode: Changed line |diff.txt|
@@ -35,7 +36,6 @@ function M.apply(colors, config)
 		IncSearch = { bg = c.selection, fg = c.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute = { bg = c.yellow, fg = c.bg }, -- |:substitute| replacement text highlighting
 		LineNr = { fg = c.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		CursorLineNr = { fg = c.purple, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		MatchParen = { fg = c.cyan, style = "underline" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		ModeMsg = { "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea = { "ModeMsg" }, -- Area for messages and cmdline
@@ -47,7 +47,7 @@ function M.apply(colors, config)
 		FloatBorder = { fg = c.gray },
 		NormalNC = { "Normal" }, -- normal text in non-current windows
 		Pmenu = { bg = c.menu }, -- Popup menu: normal item.
-		PmenuSel = { bg = c.green, fg = c.bg }, -- Popup menu: selected item.
+		PmenuSel = { bg = c.blue, fg = c.bg }, -- Popup menu: selected item.
 		PmenuSbar = { bg = c.menu_scroll }, -- Popup menu: scrollbar.
 		PmenuThumb = { bg = c.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
 		Question = { fg = c.gray }, -- |hit-enter| prompt and yes/no questions
