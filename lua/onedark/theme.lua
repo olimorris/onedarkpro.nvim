@@ -479,6 +479,7 @@ function M.apply(colors, config)
 		NvimDapVirtualText = { fg = c.cyan, style = "italic,underline" },
 
 		--nvim-tree
+		NvimTreeNormalNC = { bg = c.menu }, -- Color when nvim-tree is no longer in focus
 		NvimTreeRootFolder = { fg = c.purple, style = "bold" },
 		NvimTreeFolderName = { fg = c.blue },
 		NvimTreeIndentMarker = { fg = c.gray },
@@ -495,7 +496,6 @@ function M.apply(colors, config)
 		NvimTreeTomlIcon = { fg = c.yellow },
 		NvimTreeGitignoreIcon = { fg = c.red },
 		NvimTreeJsonIcon = { fg = c.green },
-
 		NvimTreeLuaIcon = { fg = c.blue },
 		NvimTreePythonIcon = { fg = c.yellow },
 		NvimTreeShellIcon = { fg = c.fg },
@@ -511,7 +511,7 @@ function M.apply(colors, config)
 		NvimTreeGitStaged = { fg = c.yellow },
 		NvimTreeGitMerge = { fg = c.cyan },
 		NvimTreeGitRenamed = { fg = c.yellow },
-		NvimTreeGitNew = { fg = c.purple },
+		NvimTreeGitNew = { fg = c.green },
 
 		-- Startify
 		StartifyBracket = { fg = c.fg },
