@@ -193,7 +193,7 @@ function util.terminal(theme)
 	vim.g.terminal_color_15 = theme.colors.white_br
 end
 
-function util.load(theme)
+function util.load(theme, exec_autocmd)
 	-- only needed to clear when not the default colorscheme
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
@@ -211,8 +211,10 @@ function util.load(theme)
 	if theme.config.terminal_colors then
 		util.terminal(theme)
 	end
-
-	vim.cmd([[doautocmd ColorScheme]])
+	
+	if exec_autocmd then
+		vim.cmd([[doautocmd ColorScheme]])
+	end
 end
 
 return util
