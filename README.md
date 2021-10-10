@@ -181,7 +181,7 @@ onedark.setup({
   highlight_cursorline = true
 })
 onedark.load()
-``
+```
 
 ## :clap: Credits
 
