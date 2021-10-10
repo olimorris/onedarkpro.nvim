@@ -1,10 +1,8 @@
-local utils = require("onedark.utils")
-
 local M = {}
 
 function M.apply(colors, config)
-	config = config or require("onedark.config").options
-	colors = colors or require("onedark.colors").load()
+	local config = config or require("onedark.config").options
+	local colors = colors or require("onedark.colors").load()
 
 	local theme = {}
 	theme.config = config

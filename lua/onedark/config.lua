@@ -4,11 +4,11 @@ M.options = {}
 local config = {
 	theme = "onedark", -- Which theme out of 'onedark' or 'onelight' should be used
 	styles = {
-		comments = "NONE", -- Style that is applied to comments: see `highlight-args` for options
-		functions = "NONE", -- Style that is applied to functions: see `highlight-args` for options
-		keywords = "NONE", -- Style that is applied to keywords: see `highlight-args` for options
-		strings = "NONE", -- Style that is applied to strings: see `highlight-args` for options
-		variables = "NONE", -- Style that is applied to variables: see `highlight-args` for options
+		comments = "NONE", -- Style that is applied to comments
+		functions = "NONE", -- Style that is applied to functions
+		keywords = "NONE", -- Style that is applied to keywords
+		strings = "NONE", -- Style that is applied to strings
+		variables = "NONE", -- Style that is applied to variables
 	},
 	colors = {}, -- Override default colors
 	hlgroups = {}, -- Override default highlight groups

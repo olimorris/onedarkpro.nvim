@@ -131,24 +131,6 @@ function util.highlight(group, color)
 	end
 end
 
-function util.print_table(tbl, indent)
-	-- require'pl.pretty'.dump(tbl)
-	if not indent then
-		indent = 0
-	end
-	for k, v in pairs(tbl) do
-		formatting = string.rep("  ", indent) .. k .. ": "
-		if type(v) == "table" then
-			print(formatting)
-			print_table(v, indent + 1)
-		elseif type(v) == "boolean" then
-			print(formatting .. tostring(v))
-		else
-			print(formatting .. v)
-		end
-	end
-end
-
 -- Simple string interpolation.
 --
 -- Example template: "${name} is ${value}"
