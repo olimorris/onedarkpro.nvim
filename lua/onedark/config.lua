@@ -12,13 +12,16 @@ local config = {
 	},
 	colors = {}, -- Override default colors
 	hlgroups = {}, -- Override default highlight groups
+	highlight_cursorline = false -- Set the cursorline highlighting
 }
 
 function M.set_options(opts)
 	opts = opts or {}
 	M.options = vim.tbl_deep_extend("force", {}, config, opts)
-end
 
-M.set_options(config)
+	if M.options.highlight_cursorline then
+		vim.wo.cursorline = true
+	end
+end
 
 return M

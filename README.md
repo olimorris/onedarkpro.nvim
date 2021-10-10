@@ -22,6 +22,7 @@
   - [Changing styles](#changing-styles)
   - [Changing default colors](#changing-default-colors)
   - [Customising highlight groups](#customizing-highlight-groups)
+  - [Enabling the cursorline](#enabling-the-cursorline)
 - [Credits](#clap-credits)
 - [License](#page_with_curl-license)
 
@@ -168,12 +169,26 @@ onedark.setup({
 onedark.load()
 ```
 
+### Enabling the cursorline
+Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
+
+```lua
+local onedark = require('onedark')
+onedark.setup({
+  colors = {
+    cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
+  },
+  highlight_cursorline = true
+})
+onedark.load()
+``
+
 ## :clap: Credits
 
 The following themes were used, *heavily*, as an inspiration:
 
 * [Nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) - For the general functionality of the theme which I used as the base
-* [Onedark.vim](https://github.com/joshdick/onedark.vim) - For the colors and their appication
+* [Onedark.vim](https://github.com/joshdick/onedark.vim) - For the colors and their application
 
 ## :page_with_curl: License
 

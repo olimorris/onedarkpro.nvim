@@ -23,6 +23,7 @@ function M.load(config)
 	}
 
 	-- Additional colors
+	colors.cursorline = utils.darken(colors.bg, 0.97)
 	colors.comment = utils.darken(colors.gray, 0.80)
 	colors.selection = utils.darken(colors.bg, 0.90)
 	colors.color_column = utils.darken(colors.bg, 0.98)
@@ -32,6 +33,11 @@ function M.load(config)
 	colors.menu_scroll_thumb = utils.lighten(colors.blue, 0.80)
 
 	utils.color_overrides(colors, config)
+
+	-- Override the cursorline color if the option is not enabled
+	if not config.highlight_cursorline then
+		colors.cursorline = colors.bg
+	end
 
 	return colors
 end

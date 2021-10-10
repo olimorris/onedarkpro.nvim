@@ -17,8 +17,8 @@ function M.apply(colors, config)
 		-- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 		-- CursorIM     = {bg = c.red}, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorColumn = { bg = c.gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorLine = { bg = c.selection }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-		CursorLineNr = { fg = c.purple, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		CursorLine = { bg = c.cursorline }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorLineNr = { bg = c.cursorline, fg = c.purple, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		Directory = { fg = c.blue }, -- directory names (and other special names in listings)
 		DiffAdd = { bg = c.green, fg = c.black }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = c.yellow, style = "underline" }, -- diff mode: Changed line |diff.txt|
