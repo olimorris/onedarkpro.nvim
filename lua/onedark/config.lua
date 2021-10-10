@@ -1,5 +1,5 @@
+local utils = require("onedark.utils")
 local M = {}
-M.options = {}
 
 local config = {
 	theme = "onedark", -- Which theme out of 'onedark' or 'onelight' should be used
@@ -15,9 +15,11 @@ local config = {
 	highlight_cursorline = false -- Set the cursorline highlighting
 }
 
+M.options = config
+
 function M.set_options(opts)
 	opts = opts or {}
-	M.options = vim.tbl_deep_extend("force", {}, config, opts)
+	M.options = utils.tbl_deep_extend(M.options, opts)
 
 	if M.options.highlight_cursorline then
 		vim.wo.cursorline = true
