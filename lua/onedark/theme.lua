@@ -479,7 +479,7 @@ function M.apply(colors, config)
 		NvimDapVirtualText = { fg = c.cyan, style = "italic,underline" },
 
 		--nvim-tree
-		NvimTreeNormalNC = { bg = c.menu }, -- Color when nvim-tree is no longer in focus
+		NvimTreeNormalNC = { bg = c.color_column }, -- Color when nvim-tree is no longer in focus
 		NvimTreeRootFolder = { fg = c.purple, style = "bold" },
 		NvimTreeFolderName = { fg = c.blue },
 		NvimTreeIndentMarker = { fg = c.gray },

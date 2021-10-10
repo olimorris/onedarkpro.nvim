@@ -23,7 +23,7 @@ function M.load(config)
 	}
 
 	-- Additional colors
-	colors.cursorline = utils.lighten(colors.bg, 0.9)
+	colors.cursorline = utils.lighten(colors.bg, 0.97)
 	colors.comment = utils.lighten(colors.gray, 0.8)
 	colors.selection = utils.lighten(colors.bg, 0.8)
 	colors.color_column = utils.lighten(colors.bg, 0.97)
