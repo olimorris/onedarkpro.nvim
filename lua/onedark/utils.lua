@@ -66,6 +66,20 @@ function util.invertColor(color)
 	return color
 end
 
+function util.tbl_deep_extend(...)
+	local lhs = {}
+	for _, rhs in ipairs({ ... }) do
+	  for k, v in pairs(rhs) do
+		if type(lhs[k]) == "table" and type(v) == "table" then
+		  lhs[k] = util.tbl_deep_extend(lhs[k], v)
+		else
+		  lhs[k] = v
+		end
+	  end
+	end
+	return lhs
+  end
+
 function util.color_overrides(colors, config)
 	if type(config.colors) == "table" then
 		for key, value in pairs(config.colors) do
@@ -204,7 +218,7 @@ function util.load(theme, exec_autocmd)
 	vim.g.colors_name = "onedark"
 
 	local hlgroups = util.template_table(theme.config.hlgroups, theme.colors)
-	local groups = vim.tbl_deep_extend("force", theme.groups, hlgroups)
+	local groups = util.tbl_deep_extend(theme.groups, hlgroups)
 
 	util.syntax(groups)
 
