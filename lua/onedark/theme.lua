@@ -49,7 +49,7 @@ function M.apply(colors, config)
 		PmenuSbar = { bg = c.menu_scroll }, -- Popup menu: scrollbar.
 		PmenuThumb = { bg = c.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
 		Question = { fg = c.gray }, -- |hit-enter| prompt and yes/no questions
-		-- QuickFixLine = {}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+		QuickFixLine = { bg = c.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search = { bg = c.gray }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
@@ -526,9 +526,9 @@ function M.apply(colors, config)
 		StartifySpecial = { fg = c.red },
 
 		-- Telescope
-		TelescopeSelection = { fg = c.purple },
+		TelescopeSelection = { bg = c.cursorline, fg = c.purple },
 		TelescopeSelectionCaret = { fg = c.purple },
-		TelescopeMultiSelection = { fg = c.comment },
+		TelescopeMultiSelection = { bg = c.cursorline, fg = c.comment },
 		TelescopeNormal = { fg = c.fg },
 		TelescopeBorder = { fg = c.comment },
 		TelescopePromptBorder = { "TelescopeBorder" },
@@ -538,10 +538,10 @@ function M.apply(colors, config)
 		TelescopePrompt = { "TelescopeNormal" },
 
 		-- Trouble.nvim
-		TroubleCount = { bg = c.fg, fg = c.bg, style = "bold" },
-		TroubleFile = { fg = c.cyan },
-		TroubleFoldIcon = { fg = c.fg },
-		TroubleLocation = { fg = c.cyan },
+		TroubleCount = { fg = c.purple, style = "bold" },
+		TroubleFile = { bg = "NONE", fg = c.cyan },
+		TroubleFoldIcon = { bg = "NONE", fg = c.fg },
+		TroubleLocation = { bg = "NONE", fg = c.cyan },
 
 		-- Toggleterm
 		ToggleTerm = { bg = c.bg, fg = c.fg },
