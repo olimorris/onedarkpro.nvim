@@ -10,6 +10,12 @@ util.bg = "#000000"
 util.fg = "#ffffff"
 util.day_brightness = 0.3
 
+function util.warn(...)
+	for _, msg in ipairs({ ... }) do
+		vim.cmd('echohl WarningMsg | echom "Onedark.nvim: ' .. msg .. '" | echohl NONE')
+	end
+end
+
 local hex_to_rgb = function(hex_str)
 	local hex = "[abcdef0-9][abcdef0-9]"
 	local pat = "^#(" .. hex .. ")(" .. hex .. ")(" .. hex .. ")$"
@@ -44,16 +50,6 @@ function util.lighten(hex, amount, fg)
 	return util.blend(hex, fg or util.fg, math.abs(amount))
 end
 
-function util.brighten(color, percentage)
-	local hsl = hsluv.hex_to_hsluv(color)
-	local larpSpace = 100 - hsl[3]
-	if percentage < 0 then
-		larpSpace = hsl[3]
-	end
-	hsl[3] = hsl[3] + larpSpace * percentage
-	return hsluv.hsluv_to_hex(hsl)
-end
-
 function util.invertColor(color)
 	if color ~= "NONE" then
 		local hsl = hsluv.hex_to_hsluv(color)
@@ -69,16 +65,16 @@ end
 function util.tbl_deep_extend(...)
 	local lhs = {}
 	for _, rhs in ipairs({ ... }) do
-	  for k, v in pairs(rhs) do
-		if type(lhs[k]) == "table" and type(v) == "table" then
-		  lhs[k] = util.tbl_deep_extend(lhs[k], v)
-		else
-		  lhs[k] = v
+		for k, v in pairs(rhs) do
+			if type(lhs[k]) == "table" and type(v) == "table" then
+				lhs[k] = util.tbl_deep_extend(lhs[k], v)
+			else
+				lhs[k] = v
+			end
 		end
-	  end
 	end
 	return lhs
-  end
+end
 
 function util.color_overrides(colors, config)
 	if type(config.colors) == "table" then
@@ -225,7 +221,7 @@ function util.load(theme, exec_autocmd)
 	if theme.config.terminal_colors then
 		util.terminal(theme)
 	end
-	
+
 	if exec_autocmd then
 		vim.cmd([[doautocmd ColorScheme]])
 	end

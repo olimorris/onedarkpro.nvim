@@ -22,11 +22,12 @@
 - [Installation](#package-installation)
 - [Configuration](#wrench-configuration)
   - [Setup](#setup)
-  - [Setting the dark or light theme](#setting-the-dark-or-light-theme)
-  - [Changing styles](#changing-styles)
-  - [Changing default colors](#changing-default-colors)
-  - [Customising highlight groups](#customizing-highlight-groups)
-  - [Enabling the cursorline](#enabling-the-cursorline)
+  - [Default configuration](#default-configuration)
+  - [Configuring the theme](#configuring-the-theme)
+  - [Configuring styles](#configuring-styles)
+  - [Configuring colors](#configuring-colors)
+  - [Configuring highlight groups](#configuring-highlight-groups)
+  - [Configuring options](#configuring-options)
 - [Credits](#clap-credits)
 - [License](#page_with_curl-license)
 
@@ -105,8 +106,34 @@ Alternatively, if you're using Vimscript:
 colorscheme onedark
 ```
 
-### Setting the dark or light theme
+### Default configuration
+The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedark.nvim/blob/master/lua/onedark/config.lua) file:
 
+```lua
+local onedark = require('onedark')
+onedark.setup({
+	theme = "onedark", -- Which theme out of 'onedark' or 'onelight' should be used
+	styles = {
+		comments = "NONE", -- Style that is applied to comments
+		functions = "NONE", -- Style that is applied to functions
+		keywords = "NONE", -- Style that is applied to keywords
+		strings = "NONE", -- Style that is applied to strings
+		variables = "NONE", -- Style that is applied to variables
+	},
+	colors = {}, -- Override default colors
+	hlgroups = {}, -- Override default highlight groups
+	options = {
+		bold = true, -- Use the themes opinionated bold styles?
+		italic = true, -- Use the themes opinionated italic styles?
+		underline = true, -- Use the themes opinionated underline styles?
+		undercurl = true, -- Use the themes opinionated undercurl styles?
+		highlight_cursorline = false, -- Use cursorline highlighting?
+	}
+})
+onedark.load()
+```
+
+### Configuring the theme
 Use either `onedark` or `onelight` for the dark and light themes, respectively.
 
 ```lua
@@ -118,8 +145,7 @@ onedark.setup({
 onedark.load()
 ```
 
-### Changing styles
-
+### Configuring styles
 Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedark.nvim/blob/master/lua/onedark/theme.lua) file alongside your desired style:
 
 ```lua
@@ -140,8 +166,7 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
-### Changing default colors
-
+### Configuring colors
 The theme has a palette of 12 core colors and 7 additional colors (for both light and dark themes). These colors can be found in the [color files](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
@@ -155,7 +180,7 @@ onedark.setup({
 onedark.load()
 ```
 
-### Customizing highlight groups
+### Configuring highlight groups
 The [theme](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
 1. Using specifc hex colors.
 2. Referencing the name of color variables from the color files; *and* 
@@ -173,7 +198,27 @@ onedark.setup({
 onedark.load()
 ```
 
-### Enabling the cursorline
+### Configuring options
+
+#### Formatting
+Alongside `styles`, the theme also has implements some minor opinions formatting. These can be found in the [theme.lua](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/theme.lua) file with `style` options containing `theme.*` values.
+
+The default options can be configured with the following:
+
+```lua
+local onedark = require('onedark')
+onedark.setup({
+  options = {
+    bold = true, -- Use the themes opinionated bold styles?
+		italic = true, -- Use the themes opinionated italic styles?
+		underline = true, -- Use the themes opinionated underline styles?
+		undercurl = true, -- Use the themes opinionated undercurl styles?
+  }
+})
+onedark.load()
+```
+
+#### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
 
 ```lua
@@ -182,7 +227,9 @@ onedark.setup({
   colors = {
     cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
   },
-  highlight_cursorline = true
+  options = {
+    highlight_cursorline = true
+  }
 })
 onedark.load()
 ```

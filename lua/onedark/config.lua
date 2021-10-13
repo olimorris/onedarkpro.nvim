@@ -12,7 +12,13 @@ local config = {
 	},
 	colors = {}, -- Override default colors
 	hlgroups = {}, -- Override default highlight groups
-	highlight_cursorline = false -- Set the cursorline highlighting
+	options = {
+		bold = true, -- Use the themes opinionated bold styles?
+		italic = true, -- Use the themes opinionated italic styles?
+		underline = true, -- Use the themes opinionated underline styles?
+		undercurl = true, -- Use the themes opinionated undercurl styles?
+		highlight_cursorline = false, -- Use cursorline highlighting?
+	},
 }
 
 M.options = config
@@ -22,6 +28,14 @@ function M.set_options(opts)
 	M.options = utils.tbl_deep_extend(M.options, opts)
 
 	if M.options.highlight_cursorline then
+		utils.warn(
+			"`highlight_cursorline` has been moved into the options table of your config",
+			"onedark.setup({ options = { highlight_cursorline = true } }) should now be called",
+			"See https://github.com/olimorris/onedark.nvim for more info"
+		)
+	end
+
+	if M.options.options.highlight_cursorline then
 		vim.wo.cursorline = true
 	end
 end

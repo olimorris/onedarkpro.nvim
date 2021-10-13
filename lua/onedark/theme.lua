@@ -9,6 +9,12 @@ function M.apply(colors, config)
 	theme.colors = colors
 	local c = theme.colors
 
+	theme.bold = config.options.bold and "bold" or "NONE"
+	theme.italic = config.options.italic and "italic" or "NONE"
+	theme.underline = config.options.underline and "underline" or "NONE"
+	theme.undercurl = config.options.undercurl and "undercurl" or "NONE"
+	theme.bold_italic = (theme.bold ~= "NONE" and theme.italic ~= "NONE") and "bold,italic" or "NONE"
+
 	theme.groups = {
 		ColorColumn = { bg = c.color_column }, -- used for the columns set with 'colorcolumn'
 		Comment = { fg = c.comment, style = config.styles.comments }, -- Comments
@@ -18,10 +24,10 @@ function M.apply(colors, config)
 		-- CursorIM     = {bg = c.red}, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorColumn = { bg = c.gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		CursorLine = { bg = c.cursorline }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-		CursorLineNr = { bg = c.cursorline, fg = c.purple, style = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		CursorLineNr = { bg = c.cursorline, fg = c.purple, style = theme.bold }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		Directory = { fg = c.blue }, -- directory names (and other special names in listings)
 		DiffAdd = { bg = c.green, fg = c.black }, -- diff mode: Added line |diff.txt|
-		DiffChange = { fg = c.yellow, style = "underline" }, -- diff mode: Changed line |diff.txt|
+		DiffChange = { fg = c.yellow, style = theme.underline }, -- diff mode: Changed line |diff.txt|
 		DiffDelete = { bg = c.red, fg = c.bg },
 		DiffText = { bg = c.yellow, fg = c.bg }, -- diff mode: Changed text within a changed line |diff.txt|
 		EndOfBuffer = { fg = c.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
@@ -34,7 +40,7 @@ function M.apply(colors, config)
 		IncSearch = { bg = c.selection, fg = c.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute = { bg = c.yellow, fg = c.bg }, -- |:substitute| replacement text highlighting
 		LineNr = { fg = c.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		MatchParen = { fg = c.cyan, style = "underline" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		MatchParen = { fg = c.cyan, style = theme.underline }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		ModeMsg = { "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea = { "ModeMsg" }, -- Area for messages and cmdline
 		MsgSeparator = { "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -103,10 +109,10 @@ function M.apply(colors, config)
 		SpecialComment = { fg = c.comment }, -- special things inside a comment
 		--     Debug = {}, -- debugging statements
 
-		Underlined = { style = "underline" }, -- (preferred) text that stands out, HTML links
-		Bold = { style = "bold" },
+		Underlined = { style = theme.underline }, -- (preferred) text that stands out, HTML links
+		Bold = { style = theme.bold },
 		-- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
-		Italic = { style = "italic" },
+		Italic = { style = theme.italic },
 		Error = { fg = c.red }, -- (preferred) any erroneous construct
 		Todo = { fg = c.purple }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
@@ -121,10 +127,10 @@ function M.apply(colors, config)
 		LspDiagnosticsSignInformation = { "LspDiagnosticsDefaultInformation" },
 		LspDiagnosticsSignHint = { "LspDiagnosticsDefaultHint" },
 
-		LspDiagnosticsUnderlineError = { fg = c.red, style = "undercurl" },
-		LspDiagnosticsUnderlineWarning = { fg = c.yellow, style = "undercurl" },
-		LspDiagnosticsUnderlineInformation = { fg = c.blue, style = "undercurl" },
-		LspDiagnosticsUnderlineHint = { style = "undercurl" },
+		LspDiagnosticsUnderlineError = { fg = c.red, style = theme.undercurl },
+		LspDiagnosticsUnderlineWarning = { fg = c.yellow, style = theme.undercurl },
+		LspDiagnosticsUnderlineInformation = { fg = c.blue, style = theme.undercurl },
+		LspDiagnosticsUnderlineHint = { style = theme.undercurl },
 
 		LspDiagnosticsVirtualTextError = { "LspDiagnosticsDefaultError" },
 		LspDiagnosticsVirtualTextWarning = { "LspDiagnosticsDefaultWarning" },
@@ -142,7 +148,7 @@ function M.apply(colors, config)
 		TSBoolean = { fg = c.yellow }, -- For booleans.
 		TSCharacter = { fg = c.green }, -- For characters.
 		TSComment = { "Comment" }, -- For comment blocks.
-		TSConditional = { fg = c.purple, style = "italic" }, -- For keywords related to conditionnals.
+		TSConditional = { fg = c.purple, style = theme.italic }, -- For keywords related to conditionnals.
 		TSConstant = { fg = c.yellow }, -- For constants
 		TSConstBuiltin = { fg = c.yellow }, -- For constant that are built in the language: `nil` in Lua.
 		TSConstMacro = { fg = c.yellow }, -- For constants that are defined by macros: `NULL` in C.
@@ -154,24 +160,24 @@ function M.apply(colors, config)
 		TSFunction = { fg = c.blue, style = config.styles.functions }, -- For function (calls and definitions).
 		TSFuncBuiltin = { fg = c.blue }, -- For builtin functions: `table.insert` in Lua.
 		TSFuncMacro = { fg = c.cyan }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-		TSInclude = { fg = c.purple, style = "italic" }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+		TSInclude = { fg = c.purple, style = theme.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSKeyword = { fg = c.purple, style = config.styles.keywords }, -- For keywords that don't fall in previous categories.
 		TSKeywordFunction = { "TSKeyword" }, -- For keywords used to define a fuction.
 		TSKeywordOperator = { fg = c.red }, -- For operators that are English words, e.g. `and`, `as`, `or`.
 		TSKeywordReturn = { "TSKeyword" }, -- for the `return` and `yield` keywords.
-		TSLabel = { fg = c.purple, style = "italic" }, -- For labels: `label:` in C and `:label:` in Lua.
+		TSLabel = { fg = c.purple, style = theme.italic }, -- For labels: `label:` in C and `:label:` in Lua.
 		TSMethod = { fg = c.blue }, -- For method calls and definitions.
 		TSNamespace = { fg = c.purple }, -- For identifiers referring to modules and namespaces.
 		-- TSNone = {},
 		TSNumber = { fg = c.yellow }, -- For integers.
 		TSOperator = { fg = c.cyan }, -- For any operator: `+`, but also `->` and `*` in C.
-		TSParameter = { fg = c.yellow, style = "italic" }, -- For parameters of a function.
+		TSParameter = { fg = c.yellow, style = theme.italic }, -- For parameters of a function.
 		TSParameterReference = { fg = c.yellow }, -- For references to parameters of a function.
 		TSProperty = { fg = c.red }, -- Same as `TSField`.
 		TSPunctDelimiter = { fg = c.fg }, -- For delimiters ie: `.`
 		TSPunctBracket = { fg = c.red }, -- For brackets and parens.
 		TSPunctSpecial = { fg = c.fg }, -- For special punctutation that does not fall in the catagories before.
-		TSRepeat = { fg = c.purple, style = "italic" }, -- For keywords related to loops.
+		TSRepeat = { fg = c.purple, style = theme.italic }, -- For keywords related to loops.
 		TSString = { fg = c.green, style = config.styles.strings }, -- For strings.
 		TSStringRegex = { fg = c.green, style = config.styles.strings }, -- For regexes.
 		TSStringEscape = { fg = c.cyan, style = config.styles.strings }, -- For escape characters within a string.
@@ -181,9 +187,9 @@ function M.apply(colors, config)
 		TSTagAttribute = { "TSProperty" }, -- For html tag attributes.
 		TSTagDelimiter = { "Delimiter" }, -- Tag delimiter like `<` `>` `/`
 		TSText = { fg = c.fg }, -- For strings considered text in a markup language.
-		TSStrong = { fg = c.yellow, style = "bold" }, -- For text to be represented with strong.
-		TSEmphasis = { fg = c.yellow, style = "italic" }, -- For text to be represented with emphasis.
-		TSUnderline = { fg = c.yellow, style = "underline" }, -- For text to be represented with an underline.
+		TSStrong = { fg = c.yellow, style = theme.bold }, -- For text to be represented with strong.
+		TSEmphasis = { fg = c.yellow, style = theme.italic }, -- For text to be represented with emphasis.
+		TSUnderline = { fg = c.yellow, style = theme.underline }, -- For text to be represented with an underline.
 		TSStrike = { fg = c.fg }, -- For strikethrough text.
 		TSTitle = { fg = c.yellow }, -- Text that is part of a title.
 		TSLiteral = { fg = c.yellow }, -- Literal text.
@@ -198,7 +204,7 @@ function M.apply(colors, config)
 		TSType = { fg = c.yellow }, -- For types.
 		TSTypeBuiltin = { fg = c.red }, -- For builtin types (you guessed it, right ?).
 		TSVariable = { style = config.styles.variables }, -- Any variable name that does not have another highlight.
-		TSVariableBuiltin = { fg = c.yellow, style = "italic" }, -- Variable names that are defined by the languages, like `this` or `self`.
+		TSVariableBuiltin = { fg = c.yellow, style = theme.italic }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		-- CSS
 		cssAttrComma = { fg = c.purple },
@@ -206,7 +212,7 @@ function M.apply(colors, config)
 		cssBraces = { fg = c.red },
 		cssClassName = { fg = c.yellow },
 		cssClassNameDot = { fg = c.yellow },
-		cssDefinition = { fg = c.purple, style = "bold,italic" },
+		cssDefinition = { fg = c.purple, style = theme.bold_italic },
 		cssFontAttr = { fg = c.yellow },
 		cssFontDescriptor = { "cssDefinition" },
 		cssFunctionName = { fg = c.blue },
@@ -234,10 +240,10 @@ function M.apply(colors, config)
 		GitGutterChangeDelete = { "diffRemoved" },
 
 		-- HTML
-		htmlArg = { fg = c.purple, style = "bold,italic" },
-		htmlBold = { fg = c.yellow, style = "bold" },
-		htmlItalic = { fg = c.purple, style = "italic" },
-		htmlLink = { fg = c.cyan, style = "underline" },
+		htmlArg = { fg = c.purple, style = theme.bold_italic },
+		htmlBold = { fg = c.yellow, style = theme.bold },
+		htmlItalic = { fg = c.purple, style = theme.italic },
+		htmlLink = { fg = c.cyan, style = theme.underline },
 		htmlH1 = { fg = c.red },
 		htmlH2 = { "htmlH1" },
 		htmlH3 = { "htmlH1" },
@@ -261,7 +267,7 @@ function M.apply(colors, config)
 		javaScriptRequire = { fg = c.cyan },
 		javaScriptReserved = { fg = c.purple },
 		---- https://github.com/pangloss/vim-javascript included in Vim-Polygot
-		jsArrowFunction = { fg = c.purple, style = "bold,italic" },
+		jsArrowFunction = { fg = c.purple, style = theme.bold_italic },
 		jsClassKeyword = { "jsArrowFunction" },
 		jsClassMethodType = { "jsArrowFunction" },
 		jsDocParam = { fg = c.blue },
@@ -302,7 +308,7 @@ function M.apply(colors, config)
 
 		-- Markdown
 		markdownBlockquote = { fg = c.comment },
-		markdownBold = { fg = c.yellow, style = "bold" },
+		markdownBold = { fg = c.yellow, style = theme.bold },
 		markdownCode = { fg = c.green },
 		markdownCodeBlock = { "markdownCode" },
 		markdownCodeDelimiter = { "markdownCode" },
@@ -314,27 +320,27 @@ function M.apply(colors, config)
 		markdownH6 = { "markdownH1" },
 		markdownHeadingDelimiter = { fg = c.red },
 		markdownHeadingRule = { "markdownBlockquote" },
-		markdownId = { fg = c.purple, style = "bold,italic" },
+		markdownId = { fg = c.purple, style = theme.bold_italic },
 		markdownIdDeclaration = { fg = c.blue },
 		markdownIdDelimiter = { "markdownId" },
-		markdownItalic = { fg = c.purple, style = "italic" },
+		markdownItalic = { fg = c.purple, style = theme.italic },
 		markdownLinkDelimiter = { fg = c.purple },
 		markdownLinkText = { fg = c.blue },
 		markdownListMarker = { fg = c.red },
 		markdownOrderedListMarker = { "markdownListMarker" },
 		markdownRule = { "markdownBlockquote" },
-		markdownUrl = { fg = c.cyan, style = "underline" },
+		markdownUrl = { fg = c.cyan, style = theme.underline },
 
 		-- Python
 		pythonNone = { fg = c.yellow },
 		pythonBoolean = { "pythonNone" },
 		pythonClass = { fg = c.yellow },
 		pythonParens = { fg = c.red },
-		pythonBuiltinObj = { fg = c.cyan, style = "bold" },
+		pythonBuiltinObj = { fg = c.cyan, style = theme.bold },
 		pythonSpaceError = { bg = c.red, fg = c.fg },
 		pythonString = { fg = c.green },
 		pythonDot = { fg = c.fg },
-		pythonImport = { fg = c.purple, style = "bold,italic" },
+		pythonImport = { fg = c.purple, style = theme.bold_italic },
 		pythonRepeat = { "pythonImport" },
 		pythonStatement = { "pythonImport" },
 		pythonOperator = { "pythonImport" },
@@ -342,7 +348,7 @@ function M.apply(colors, config)
 		-- Ruby
 		rubyBlockParameter = { fg = c.red },
 		rubyBlockParameterList = { "rubyBlockParameter" },
-		rubyClass = { fg = c.purple, style = "bold,italic" },
+		rubyClass = { fg = c.purple, style = theme.bold_italic },
 		rubyConstant = { fg = c.yellow },
 		rubyControl = { "rubyClass" },
 		rubyEscape = { fg = c.red },
@@ -361,7 +367,7 @@ function M.apply(colors, config)
 		-- SASS
 		sassidChar = { fg = c.red },
 		sassClassChar = { fg = c.yellow },
-		sassInclude = { fg = c.purple, style = "bold,italic" },
+		sassInclude = { fg = c.purple, style = theme.bold_italic },
 		sassMixing = { "sassInclude" },
 		sassMixinName = { fg = c.blue },
 		scssExtend = { "sassInclude" },
@@ -376,7 +382,7 @@ function M.apply(colors, config)
 		BufferCurrentMod = { fg = c.purple },
 		BufferCurrentSign = { "BufferCurrentMod" },
 		BufferCurrentIcon = { "BufferCurrentMod" },
-		BufferCurrentTarget = { bg = c.bg, fg = c.blue, style = "bold" },
+		BufferCurrentTarget = { bg = c.bg, fg = c.blue, style = theme.bold },
 		BufferVisible = { fg = c.gray },
 		BufferVisibleIndex = { "BufferVisible" },
 		BufferVisibleMod = { "BufferVisible" },
@@ -401,7 +407,7 @@ function M.apply(colors, config)
 		DapUISource = { fg = c.purple },
 		DapUIBreakpointsPath = { bg = c.yellow, fg = c.bg },
 		DapUIBreakpointsInfo = { fg = c.fg },
-		DapUIBreakpointsCurrentLine = { fg = c.yellow, style = "bold" },
+		DapUIBreakpointsCurrentLine = { fg = c.yellow, style = theme.bold },
 		DapUIBreakpointsLine = { "DapUIBreakpointsCurrentLine" },
 		DapUIWatchesEmpty = { bg = c.red, fg = c.bg },
 		DapUIWatchesValue = { fg = c.red },
@@ -409,7 +415,7 @@ function M.apply(colors, config)
 
 		-- Dashboard
 		-- dashboardHeader = {},
-		dashboardCenter = { fg = c.purple, style = "bold" },
+		dashboardCenter = { fg = c.purple, style = theme.bold },
 		dashboardFooter = { fg = c.blue },
 		--dashboardShortCut = {},
 
@@ -454,13 +460,13 @@ function M.apply(colors, config)
 		LspSagaCodeActionTruncateLine = { "NormalNC" },
 		LspSagaCodeActionContent = { "Normal" },
 		LspSagaRenamePromptPrefix = { fg = c.purple },
-		LspSagaRenameBorder = { style = "bold" },
-		LspSagaHoverBorder = { style = "bold" },
-		LspSagaSignatureHelpBorder = { style = "bold" },
-		LspSagaCodeActionBorder = { style = "bold" },
+		LspSagaRenameBorder = { style = theme.bold },
+		LspSagaHoverBorder = { style = theme.bold },
+		LspSagaSignatureHelpBorder = { style = theme.bold },
+		LspSagaCodeActionBorder = { style = theme.bold },
 		LspSagaAutoPreview = {},
-		LspSagaDefPreviewBorder = { style = "bold" },
-		LspLinesDiagBorder = { style = "bold" },
+		LspSagaDefPreviewBorder = { style = theme.bold },
+		LspLinesDiagBorder = { style = theme.bold },
 
 		--nvim-compe and nvim-cmp
 		CompeDocumentation = { fg = c.fg, bg = c.menu },
@@ -473,22 +479,22 @@ function M.apply(colors, config)
 
 		--nvim-dap
 		DebugBreakpoint = { fg = c.red },
-		DebugBreakpointLine = { fg = c.red, style = "underline" },
+		DebugBreakpointLine = { fg = c.red, style = theme.underline },
 		DebugHighlight = { fg = c.blue },
-		DebugHighlightLine = { fg = c.purple, style = "italic" },
-		NvimDapVirtualText = { fg = c.cyan, style = "italic,underline" },
+		DebugHighlightLine = { fg = c.purple, style = theme.italic },
+		NvimDapVirtualText = { fg = c.cyan, style = theme.italic },
 
 		--nvim-tree
 		NvimTreeNormalNC = { bg = c.color_column }, -- Color when nvim-tree is no longer in focus
 
-		NvimTreeSymlink = { fg = c.cyan, style = "underline" },
+		NvimTreeSymlink = { fg = c.cyan, style = theme.underline },
 		NvimTreeFolderName = { fg = c.blue },
-		NvimTreeRootFolder = { fg = c.purple, style = "bold" },
+		NvimTreeRootFolder = { fg = c.purple, style = theme.bold },
 		NvimTreeFolderIcon = { fg = c.purple },
 		NvimTreeEmptyFolderName = { fg = c.comment },
 		NvimTreeOpenedFolderName = { fg = c.purple },
-		NvimTreeExecFile = { fg = c.green, style = "bold,underline" },
-		NvimTreeOpenedFile = { fg = c.purple, style = "italic" },
+		NvimTreeExecFile = { fg = c.green, style = theme.bold },
+		NvimTreeOpenedFile = { fg = c.purple, style = theme.italic },
 		NvimTreeSpecialFile = { "Special" },
 		-- NvimTreeImageFile = {},
 		NvimTreeMarkdownFile = { fg = c.red },
@@ -520,12 +526,12 @@ function M.apply(colors, config)
 
 		-- Startify
 		StartifyBracket = { fg = c.fg },
-		StartifyFile = { fg = c.purple, style = "bold" },
+		StartifyFile = { fg = c.purple, style = theme.bold },
 		StartifyFooter = { fg = c.fg },
 		StartifyHeader = { fg = c.green },
 		StartifyNumber = { fg = c.yellow },
 		StartifyPath = { fg = c.gray },
-		StartifySection = { fg = c.blue, style = "bold,italic" },
+		StartifySection = { fg = c.blue, style = theme.bold_italic },
 		StartifySelect = { fg = c.cyan },
 		StartifySlash = { fg = c.gray },
 		StartifySpecial = { fg = c.red },
@@ -538,12 +544,12 @@ function M.apply(colors, config)
 		TelescopeBorder = { fg = c.comment },
 		TelescopePromptBorder = { "TelescopeBorder" },
 		TelescopePreviewBorder = { "TelescopeBorder" },
-		TelescopeMatching = { fg = c.green, style = "underline" },
+		TelescopeMatching = { fg = c.green, style = theme.underline },
 		TelescopePromptPrefix = { fg = c.purple },
 		TelescopePrompt = { "TelescopeNormal" },
 
 		-- Trouble.nvim
-		TroubleCount = { fg = c.purple, style = "bold" },
+		TroubleCount = { fg = c.purple, style = theme.bold },
 		TroubleFile = { bg = "NONE", fg = c.cyan },
 		TroubleFoldIcon = { bg = "NONE", fg = c.fg },
 		TroubleLocation = { bg = "NONE", fg = c.cyan },
@@ -557,7 +563,7 @@ function M.apply(colors, config)
 		UltestFail = { fg = c.red },
 		UltestRunning = { fg = c.yellow },
 		UltestBorder = { fg = c.comment },
-		UltestInfo = { fg = c.purple, style = "bold" },
+		UltestInfo = { fg = c.purple, style = theme.bold },
 	}
 
 	return theme
