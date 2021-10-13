@@ -480,38 +480,43 @@ function M.apply(colors, config)
 
 		--nvim-tree
 		NvimTreeNormalNC = { bg = c.color_column }, -- Color when nvim-tree is no longer in focus
-		NvimTreeRootFolder = { fg = c.purple, style = "bold" },
-		NvimTreeFolderName = { fg = c.blue },
-		NvimTreeIndentMarker = { fg = c.gray },
+
 		NvimTreeSymlink = { fg = c.cyan, style = "underline" },
+		NvimTreeFolderName = { fg = c.blue },
+		NvimTreeRootFolder = { fg = c.purple, style = "bold" },
 		NvimTreeFolderIcon = { fg = c.purple },
 		NvimTreeEmptyFolderName = { fg = c.comment },
+		NvimTreeOpenedFolderName = { fg = c.purple },
 		NvimTreeExecFile = { fg = c.green, style = "bold,underline" },
+		NvimTreeOpenedFile = { fg = c.purple, style = "italic" },
 		NvimTreeSpecialFile = { "Special" },
 		-- NvimTreeImageFile = {},
 		NvimTreeMarkdownFile = { fg = c.red },
+		NvimTreeIndentMarker = { fg = c.gray },
 
 		NvimTreeLicenseIcon = { fg = c.yellow },
 		NvimTreeYamlIcon = { fg = c.yellow },
 		NvimTreeTomlIcon = { fg = c.yellow },
 		NvimTreeGitignoreIcon = { fg = c.red },
 		NvimTreeJsonIcon = { fg = c.green },
+
 		NvimTreeLuaIcon = { fg = c.blue },
 		NvimTreePythonIcon = { fg = c.yellow },
 		NvimTreeShellIcon = { fg = c.fg },
+		NvimTreeJavascriptIcon = { fg = c.yellow },
 		NvimTreeCIcon = { fg = c.blue },
 		NvimTreeReactIcon = { fg = c.blue },
 		NvimTreeHtmlIcon = { fg = c.red },
 		NvimTreeRustIcon = { fg = c.fg },
 		NvimTreeTypescriptIcon = { fg = c.blue },
 		NvimTreeVimIcon = { fg = c.green },
-		NvimTreeJavascriptIcon = { fg = c.yellow },
 
 		NvimTreeGitDirty = { fg = c.red },
 		NvimTreeGitStaged = { fg = c.yellow },
 		NvimTreeGitMerge = { fg = c.cyan },
 		NvimTreeGitRenamed = { fg = c.yellow },
 		NvimTreeGitNew = { fg = c.green },
+		NvimTreeGitDeleted = { fg = c.red },
 
 		-- Startify
 		StartifyBracket = { fg = c.fg },
