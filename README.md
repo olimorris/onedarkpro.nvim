@@ -4,7 +4,11 @@
 <img src="https://user-images.githubusercontent.com/9512444/136255115-2ab2706a-5dfb-44dd-9936-96961716827f.png" alt = "banner" />
 </p>
 <p align="center">
-<i>A dark and light theme for Neovim 0.5 and above, written in Lua<br>Comes complete with support for Treesitter's syntax highlighting and many popular plugins</i>
+  <i>
+    A dark and light theme for Neovim 0.5 and above, written in Lua<br>
+    <b>Fully customisable with ability to override styles, colors and highlight groups</b><br>
+    Comes complete with support for <b>Treesitter</b> syntax highlighting and <b>many popular plugins</b>
+  </i>
 </p>
 
 ## :book: Table of Contents
@@ -132,7 +136,7 @@ onedark.setup({
 onedark.load()
 ```
 
-Where **italic**, **bold**, **underline** and **NONE** are possible configuration options.
+Where **italic**, **bold**, **underline** and **NONE** are possible values for styles.
 
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
