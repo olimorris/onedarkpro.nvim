@@ -1,3 +1,3 @@
 lua << EOF
-require("onedark").colorscheme_load()
+require("onedark").load()
 EOF

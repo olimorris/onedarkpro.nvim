@@ -15,11 +15,4 @@ function M.load(name)
 	utils.load(theme, true)
 end
 
-function M.colorscheme_load(name)
-	local colors = require("onedark.colors").load(name)
-	local theme = require("onedark.theme").apply(colors)
-
-	utils.load(theme, false)
-end
-
 return M
