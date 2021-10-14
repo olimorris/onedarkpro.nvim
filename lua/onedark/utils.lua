@@ -176,6 +176,11 @@ function util.terminal(theme)
 end
 
 function util.load(theme)
+	-- Prevent the double load problem
+	if vim.g.loaded_onedark == theme.colors.name then
+		return
+	end
+
 	-- only needed to clear when not the default colorscheme
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
@@ -219,6 +224,7 @@ function util.load(theme)
 		util.terminal(theme)
 	end
 
+	vim.g.loaded_onedark = theme.colors.name
 	vim.cmd([[doautocmd ColorScheme]])
 end
 
