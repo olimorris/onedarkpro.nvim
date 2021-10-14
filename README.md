@@ -112,23 +112,23 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedark = require('onedark')
 onedark.setup({
-	theme = "onedark", -- Which theme out of 'onedark' or 'onelight' should be used
-	styles = {
-		comments = "NONE", -- Style that is applied to comments
-		functions = "NONE", -- Style that is applied to functions
-		keywords = "NONE", -- Style that is applied to keywords
-		strings = "NONE", -- Style that is applied to strings
-		variables = "NONE", -- Style that is applied to variables
-	},
-	colors = {}, -- Override default colors
-	hlgroups = {}, -- Override default highlight groups
-	options = {
-		bold = true, -- Use the themes opinionated bold styles?
-		italic = true, -- Use the themes opinionated italic styles?
-		underline = true, -- Use the themes opinionated underline styles?
-		undercurl = true, -- Use the themes opinionated undercurl styles?
-		highlight_cursorline = false, -- Use cursorline highlighting?
-	}
+  theme = "onedark", -- The theme to be used (opts: 'onedark' or 'onelight')
+  colors = {}, -- Override default colors
+  hlgroups = {}, -- Override default highlight groups
+  styles = {
+      strings = "NONE", -- Style that is applied to strings
+      comments = "NONE", -- Style that is applied to comments
+      keywords = "NONE", -- Style that is applied to keywords
+      functions = "NONE", -- Style that is applied to functions
+      variables = "NONE", -- Style that is applied to variables
+  },
+  options = {
+      bold = true, -- Use the themes opinionated bold styles?
+      italic = true, -- Use the themes opinionated italic styles?
+      underline = true, -- Use the themes opinionated underline styles?
+      undercurl = true, -- Use the themes opinionated undercurl styles?
+      highlight_cursorline = false, -- Use cursorline highlighting?
+  }
 })
 onedark.load()
 ```
@@ -182,9 +182,9 @@ onedark.load()
 
 ### Configuring highlight groups
 The [theme](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
-1. Using specifc hex colors.
-2. Referencing the name of color variables from the color files; *and* 
-3. Referencing other highlight groups in the theme.
+1. Using specifc hex colors
+2. Referencing the name of color variables from the color files
+3. Linking to other highlight groups in the theme
 
 ```lua
 local onedark = require('onedark')
@@ -192,7 +192,7 @@ onedark.setup({
   hlgroups = {
     Comment = { fg = '#FF0000', bg = '#FFFF00' }, -- 1
     Comment = { fg = '${red}' bg = '${yellow}' }, -- 2
-    Comment = { 'Substitute' }, -- 3
+    Comment = { link = 'Substitute' }, -- 3
    }
 })
 onedark.load()

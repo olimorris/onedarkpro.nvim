@@ -114,7 +114,8 @@ function util.highlight(group, color)
 	local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
 	vim.cmd(hl)
-	if color.link then
+
+	if color.link and (color.fg == nil and color.bg == nil and color.sg == nil) then
 		vim.cmd("highlight! link " .. group .. " " .. color.link)
 	end
 end
@@ -150,13 +151,6 @@ end
 
 function util.syntax(tbl)
 	for group, colors in pairs(tbl) do
-		-- Allow highlight groups to reference each other by name
-		if colors.bg == nil and colors.fg == nil and colors.sp == nil and colors.style == nil then
-			if colors[1] ~= nil then
-				colors = tbl[colors[1]]
-			end
-		end
-
 		util.highlight(group, colors)
 	end
 end
@@ -171,17 +165,17 @@ function util.terminal(theme)
 	vim.g.terminal_color_6 = theme.colors.cyan
 	vim.g.terminal_color_7 = theme.colors.gray
 
-	vim.g.terminal_color_8 = theme.colors.black_br
-	vim.g.terminal_color_9 = theme.colors.red_br
-	vim.g.terminal_color_10 = theme.colors.green_br
-	vim.g.terminal_color_11 = theme.colors.yellow_br
-	vim.g.terminal_color_12 = theme.colors.blue_br
-	vim.g.terminal_color_13 = theme.colors.purple_br
-	vim.g.terminal_color_14 = theme.colors.cyan_br
-	vim.g.terminal_color_15 = theme.colors.white_br
+	vim.g.terminal_color_8 = theme.colors.black
+	vim.g.terminal_color_9 = theme.colors.red
+	vim.g.terminal_color_10 = theme.colors.green
+	vim.g.terminal_color_11 = theme.colors.yellow
+	vim.g.terminal_color_12 = theme.colors.blue
+	vim.g.terminal_color_13 = theme.colors.purple
+	vim.g.terminal_color_14 = theme.colors.cyan
+	vim.g.terminal_color_15 = theme.colors.gray
 end
 
-function util.load(theme, exec_autocmd)
+function util.load(theme)
 	-- only needed to clear when not the default colorscheme
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
@@ -191,18 +185,41 @@ function util.load(theme, exec_autocmd)
 	vim.o.termguicolors = true
 	vim.g.colors_name = "onedark"
 
+	-- Update the user's custom hlgroups with colors from the theme
 	local hlgroups = util.template_table(theme.config.hlgroups, theme.colors)
+
+	--[[
+	Due to recent configuration changes, we need to check if the user is not
+	using the "link =" annotations and warn them accordingly
+	]]
+	local warn = 0
+	for _, colors in pairs(hlgroups) do
+		-- require("core.utils").print_table(colors)
+		for key, _ in pairs(colors) do
+			if key ~= "fg" and key ~= "bg" and key ~= "sp" and key ~= "style" and key ~= "link" then
+				warn = warn + 1
+			end
+		end
+	end
+	if warn > 0 then
+		util.warn(
+			"Directly referencing highlight groups has now changed. Please use the `link` keyword",
+			"EXAMPLE: onedark.setup({ hlgroups = { ModeMsg = { link = 'LineNr' } } })",
+			"See https://github.com/olimorris/onedark.nvim for more info",
+			"-----------------------------------------------------------------------------------"
+		)
+	end
+
+	-- Merge the user's custom hlgroups with the theme's
 	local groups = util.tbl_deep_extend(theme.groups, hlgroups)
 
 	util.syntax(groups)
 
-	if theme.config.terminal_colors then
+	if theme.config.options.terminal_colors then
 		util.terminal(theme)
 	end
 
-	if exec_autocmd then
-		vim.cmd([[doautocmd ColorScheme]])
-	end
+	vim.cmd([[doautocmd ColorScheme]])
 end
 
 return util

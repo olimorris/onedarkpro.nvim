@@ -39,22 +39,22 @@ function M.apply(colors, config)
 		SignColumn = { bg = c.bg }, -- column where |signs| are displayed
 		IncSearch = { bg = c.selection, fg = c.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute = { bg = c.yellow, fg = c.bg }, -- |:substitute| replacement text highlighting
-		LineNr = { fg = c.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+		LineNr = { link = "Folded" }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		MatchParen = { fg = c.cyan, style = theme.underline }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg = { "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
-		MsgArea = { "ModeMsg" }, -- Area for messages and cmdline
-		MsgSeparator = { "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
+		ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
+		MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
+		MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = c.green }, -- |more-prompt|
 		NonText = { fg = c.gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal = { bg = c.bg, fg = c.fg }, -- normal text
-		NormalFloat = { "Normal" }, -- Normal text in floating windows.
-		FloatBorder = { fg = c.gray },
-		NormalNC = { "Normal" }, -- normal text in non-current windows
+		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
+		FloatBorder = { link = "Folded" },
+		NormalNC = { link = "Normal" }, -- normal text in non-current windows
 		Pmenu = { bg = c.menu }, -- Popup menu: normal item.
 		PmenuSel = { bg = c.blue, fg = c.bg }, -- Popup menu: selected item.
 		PmenuSbar = { bg = c.menu_scroll }, -- Popup menu: scrollbar.
 		PmenuThumb = { bg = c.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
-		Question = { fg = c.gray }, -- |hit-enter| prompt and yes/no questions
+		Question = { link = "Folded" }, -- |hit-enter| prompt and yes/no questions
 		QuickFixLine = { bg = c.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search = { bg = c.gray }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
@@ -65,9 +65,9 @@ function M.apply(colors, config)
 		TabLineFill = { bg = c.bg, fg = c.fg }, -- tab pages line, where there are no labels
 		TabLineSel = { bg = c.comment, fg = c.purple }, -- tab pages line, active tab page label
 		Title = { fg = c.green }, -- titles for output from ":set all", ":autocmd" etc.
-		VertSplit = { fg = c.gray }, -- the column separating vertically split windows
+		VertSplit = { link = "Folded" }, -- the column separating vertically split windows
 		Visual = { bg = c.selection }, -- Visual mode selection
-		VisualNOS = { "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
+		VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = c.yellow }, -- warning messages
 		Whitespace = { fg = c.comment }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		WildMenu = { bg = c.blue, fg = c.black }, -- current match in 'wildmenu' completion
@@ -122,24 +122,24 @@ function M.apply(colors, config)
 		LspDiagnosticsDefaultInformation = { fg = c.blue },
 		LspDiagnosticsDefaultHint = { fg = c.cyan },
 
-		LspDiagnosticsSignError = { "LspDiagnosticsDefaultError" },
-		LspDiagnosticsSignWarning = { "LspDiagnosticsDefaultWarning" },
-		LspDiagnosticsSignInformation = { "LspDiagnosticsDefaultInformation" },
-		LspDiagnosticsSignHint = { "LspDiagnosticsDefaultHint" },
+		LspDiagnosticsSignError = { link = "LspDiagnosticsDefaultError" },
+		LspDiagnosticsSignWarning = { link = "LspDiagnosticsDefaultWarning" },
+		LspDiagnosticsSignInformation = { link = "LspDiagnosticsDefaultInformation" },
+		LspDiagnosticsSignHint = { link = "LspDiagnosticsDefaultHint" },
 
 		LspDiagnosticsUnderlineError = { fg = c.red, style = theme.undercurl },
 		LspDiagnosticsUnderlineWarning = { fg = c.yellow, style = theme.undercurl },
 		LspDiagnosticsUnderlineInformation = { fg = c.blue, style = theme.undercurl },
 		LspDiagnosticsUnderlineHint = { style = theme.undercurl },
 
-		LspDiagnosticsVirtualTextError = { "LspDiagnosticsDefaultError" },
-		LspDiagnosticsVirtualTextWarning = { "LspDiagnosticsDefaultWarning" },
-		LspDiagnosticsVirtualTextInformation = { "LspDiagnosticsDefaultInformation" },
-		LspDiagnosticsVirtualTextHint = { "LspDiagnosticsDefaultHint" },
+		LspDiagnosticsVirtualTextError = { link = "LspDiagnosticsDefaultError" },
+		LspDiagnosticsVirtualTextWarning = { link = "LspDiagnosticsDefaultWarning" },
+		LspDiagnosticsVirtualTextInformation = { link = "LspDiagnosticsDefaultInformation" },
+		LspDiagnosticsVirtualTextHint = { link = "LspDiagnosticsDefaultHint" },
 
 		LspReferenceText = { bg = c.selection }, -- used for highlighting "text" references
-		LspReferenceRead = { "LspReferenceText" }, -- used for highlighting "read" references
-		LspReferenceWrite = { "LspReferenceText" }, -- used for highlighting "write" references
+		LspReferenceRead = { link = "LspReferenceText" }, -- used for highlighting "read" references
+		LspReferenceWrite = { link = "LspReferenceText" }, -- used for highlighting "write" references
 
 		-- TreeSitter
 		-- https://github.com/nvim-treesitter/nvim-treesitter/blob/fb5d6e04a87863d01a45dab2cbafec4e2a74822b/doc/nvim-treesitter.txt
@@ -147,7 +147,7 @@ function M.apply(colors, config)
 		TSAttribute = { fg = c.purple }, -- (unstable)
 		TSBoolean = { fg = c.yellow }, -- For booleans.
 		TSCharacter = { fg = c.green }, -- For characters.
-		TSComment = { "Comment" }, -- For comment blocks.
+		TSComment = { link = "Comment" }, -- For comment blocks.
 		TSConditional = { fg = c.purple, style = theme.italic }, -- For keywords related to conditionnals.
 		TSConstant = { fg = c.yellow }, -- For constants
 		TSConstBuiltin = { fg = c.yellow }, -- For constant that are built in the language: `nil` in Lua.
@@ -162,9 +162,9 @@ function M.apply(colors, config)
 		TSFuncMacro = { fg = c.cyan }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
 		TSInclude = { fg = c.purple, style = theme.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSKeyword = { fg = c.purple, style = config.styles.keywords }, -- For keywords that don't fall in previous categories.
-		TSKeywordFunction = { "TSKeyword" }, -- For keywords used to define a fuction.
+		TSKeywordFunction = { link = "TSKeyword" }, -- For keywords used to define a fuction.
 		TSKeywordOperator = { fg = c.red }, -- For operators that are English words, e.g. `and`, `as`, `or`.
-		TSKeywordReturn = { "TSKeyword" }, -- for the `return` and `yield` keywords.
+		TSKeywordReturn = { link = "TSKeyword" }, -- for the `return` and `yield` keywords.
 		TSLabel = { fg = c.purple, style = theme.italic }, -- For labels: `label:` in C and `:label:` in Lua.
 		TSMethod = { fg = c.blue }, -- For method calls and definitions.
 		TSNamespace = { fg = c.purple }, -- For identifiers referring to modules and namespaces.
@@ -181,11 +181,11 @@ function M.apply(colors, config)
 		TSString = { fg = c.green, style = config.styles.strings }, -- For strings.
 		TSStringRegex = { fg = c.green, style = config.styles.strings }, -- For regexes.
 		TSStringEscape = { fg = c.cyan, style = config.styles.strings }, -- For escape characters within a string.
-		TSStringSpecial = { "Special" }, -- For strings with special meaning that don't fit into the above categories.
+		TSStringSpecial = { link = "Special" }, -- For strings with special meaning that don't fit into the above categories.
 		TSSymbol = { fg = c.red }, -- For identifiers referring to symbols or atoms.
 		TSTag = { fg = c.red }, -- Tags like html tag names.
-		TSTagAttribute = { "TSProperty" }, -- For html tag attributes.
-		TSTagDelimiter = { "Delimiter" }, -- Tag delimiter like `<` `>` `/`
+		TSTagAttribute = { link = "TSProperty" }, -- For html tag attributes.
+		TSTagDelimiter = { link = "Delimiter" }, -- Tag delimiter like `<` `>` `/`
 		TSText = { fg = c.fg }, -- For strings considered text in a markup language.
 		TSStrong = { fg = c.yellow, style = theme.bold }, -- For text to be represented with strong.
 		TSEmphasis = { fg = c.yellow, style = theme.italic }, -- For text to be represented with emphasis.
@@ -195,9 +195,9 @@ function M.apply(colors, config)
 		TSLiteral = { fg = c.yellow }, -- Literal text.
 		TSURI = { fg = c.blue }, -- Any URI like a link or email.
 		TSMath = { fg = c.fg }, -- For LaTex-like math environments.
-		TSTextReference = { "TSText" }, -- For footnotes, text references, citations.
-		TSEnvironment = { "Macro" }, -- For text environments of markup languages.
-		TSEnvironmentName = { "Type" }, -- For the name/the string indicating the type of text environment.
+		TSTextReference = { link = "TSText" }, -- For footnotes, text references, citations.
+		TSEnvironment = { link = "Macro" }, -- For text environments of markup languages.
+		TSEnvironmentName = { link = "Type" }, -- For the name/the string indicating the type of text environment.
 		TSNote = { fg = c.fg }, -- Text representation of an informational note.
 		TSWarning = { fg = c.yellow }, -- Text representation of a warning note.
 		TSDanger = { fg = c.red }, -- Text representation of a danger note.
@@ -214,17 +214,17 @@ function M.apply(colors, config)
 		cssClassNameDot = { fg = c.yellow },
 		cssDefinition = { fg = c.purple, style = theme.bold_italic },
 		cssFontAttr = { fg = c.yellow },
-		cssFontDescriptor = { "cssDefinition" },
+		cssFontDescriptor = { link = "cssDefinition" },
 		cssFunctionName = { fg = c.blue },
 		cssIdentifier = { fg = c.blue },
-		cssImportant = { "cssDefinition" },
+		cssImportant = { link = "cssDefinition" },
 		cssInclude = { fg = c.fg },
-		cssIncludeKeyword = { "cssDefinition" },
+		cssIncludeKeyword = { link = "cssDefinition" },
 		cssMediaType = { fg = c.yellow },
 		cssProp = { fg = c.fg },
 		cssPseudoClassId = { fg = c.yellow },
-		cssSelectorOp = { "cssDefinition" },
-		cssSelectorOp2 = { "cssDefinition" },
+		cssSelectorOp = { link = "cssDefinition" },
+		cssSelectorOp2 = { link = "cssDefinition" },
 		cssTagName = { fg = c.red },
 
 		-- Git
@@ -234,10 +234,10 @@ function M.apply(colors, config)
 		diffFile = { fg = c.yellow },
 		diffNewFile = { fg = c.yellow },
 		diffLine = { fg = c.blue },
-		GitGutterAdd = { "diffAdded" },
-		GitGutterChange = { "diffChanged" },
-		GitGutterDelete = { "diffRemoved" },
-		GitGutterChangeDelete = { "diffRemoved" },
+		GitGutterAdd = { link = "diffAdded" },
+		GitGutterChange = { link = "diffChanged" },
+		GitGutterDelete = { link = "diffRemoved" },
+		GitGutterChangeDelete = { link = "diffRemoved" },
 
 		-- HTML
 		htmlArg = { fg = c.purple, style = theme.bold_italic },
@@ -245,15 +245,15 @@ function M.apply(colors, config)
 		htmlItalic = { fg = c.purple, style = theme.italic },
 		htmlLink = { fg = c.cyan, style = theme.underline },
 		htmlH1 = { fg = c.red },
-		htmlH2 = { "htmlH1" },
-		htmlH3 = { "htmlH1" },
-		htmlH4 = { "htmlH1" },
-		htmlH5 = { "htmlH1" },
-		htmlH6 = { "htmlH1" },
+		htmlH2 = { link = "htmlH1" },
+		htmlH3 = { link = "htmlH1" },
+		htmlH4 = { link = "htmlH1" },
+		htmlH5 = { link = "htmlH1" },
+		htmlH6 = { link = "htmlH1" },
 		htmlSpecialChar = { fg = c.yellow },
 		htmlSpecialTagName = { fg = c.red },
-		htmlTag = { "TSTag" },
-		htmlEndTag = { "htmlTag" },
+		htmlTag = { link = "TSTag" },
+		htmlEndTag = { link = "htmlTag" },
 		htmlTagN = { fg = c.red },
 		htmlTagName = { fg = c.red },
 		htmlTitle = { fg = c.fg },
@@ -268,25 +268,25 @@ function M.apply(colors, config)
 		javaScriptReserved = { fg = c.purple },
 		---- https://github.com/pangloss/vim-javascript included in Vim-Polygot
 		jsArrowFunction = { fg = c.purple, style = theme.bold_italic },
-		jsClassKeyword = { "jsArrowFunction" },
-		jsClassMethodType = { "jsArrowFunction" },
+		jsClassKeyword = { link = "jsArrowFunction" },
+		jsClassMethodType = { link = "jsArrowFunction" },
 		jsDocParam = { fg = c.blue },
 		jsDocTags = { fg = c.purple },
-		jsExport = { "jsArrowFunction" },
-		jsExportDefault = { "jsExport" },
-		jsExtendsKeyword = { "jsClassKeyword" },
-		jsFrom = { "jsExport" },
+		jsExport = { link = "jsArrowFunction" },
+		jsExportDefault = { link = "jsExport" },
+		jsExtendsKeyword = { link = "jsClassKeyword" },
+		jsFrom = { link = "jsExport" },
 		jsFuncCall = { fg = c.blue },
-		jsFunction = { "jsArrowFunction" },
+		jsFunction = { link = "jsArrowFunction" },
 		jsGenerator = { fg = c.yellow },
-		jsGlobalObjects = { "jsGenerator" },
-		jsImport = { "jsExport" },
-		jsModuleAs = { "jsExport" },
-		jsModuleWords = { "jsExport" },
-		jsModules = { "jsExport" },
+		jsGlobalObjects = { link = "jsGenerator" },
+		jsImport = { link = "jsExport" },
+		jsModuleAs = { link = "jsExport" },
+		jsModuleWords = { link = "jsExport" },
+		jsModules = { link = "jsExport" },
 		jsNull = { fg = c.yellow },
 		jsOperator = { fg = c.purple },
-		jsStorageClass = { "jsClassKeyword" },
+		jsStorageClass = { link = "jsClassKeyword" },
 		jsSuper = { fg = c.red },
 		jsTemplateBraces = { fg = c.red },
 		jsTemplateVar = { fg = c.green },
@@ -300,40 +300,40 @@ function M.apply(colors, config)
 		jsonNumber = { fg = c.yellow },
 		jsonQuote = { fg = c.fg },
 		jsonMissingCommaError = { fg = c.red, style = "reverse" },
-		jsonNoQuotesError = { "jsonMissingCommaError" },
-		jsonNumError = { "jsonMissingCommaError" },
+		jsonNoQuotesError = { link = "jsonMissingCommaError" },
+		jsonNumError = { link = "jsonMissingCommaError" },
 		jsonString = { fg = c.green },
-		jsonStringSQError = { "jsonMissingCommaError" },
-		jsonSemicolonError = { "jsonMissingCommaError" },
+		jsonStringSQError = { link = "jsonMissingCommaError" },
+		jsonSemicolonError = { link = "jsonMissingCommaError" },
 
 		-- Markdown
 		markdownBlockquote = { fg = c.comment },
 		markdownBold = { fg = c.yellow, style = theme.bold },
 		markdownCode = { fg = c.green },
-		markdownCodeBlock = { "markdownCode" },
-		markdownCodeDelimiter = { "markdownCode" },
+		markdownCodeBlock = { link = "markdownCode" },
+		markdownCodeDelimiter = { link = "markdownCode" },
 		markdownH1 = { fg = c.red },
-		markdownH2 = { "markdownH1" },
-		markdownH3 = { "markdownH1" },
-		markdownH4 = { "markdownH1" },
-		markdownH5 = { "markdownH1" },
-		markdownH6 = { "markdownH1" },
+		markdownH2 = { link = "markdownH1" },
+		markdownH3 = { link = "markdownH1" },
+		markdownH4 = { link = "markdownH1" },
+		markdownH5 = { link = "markdownH1" },
+		markdownH6 = { link = "markdownH1" },
 		markdownHeadingDelimiter = { fg = c.red },
-		markdownHeadingRule = { "markdownBlockquote" },
+		markdownHeadingRule = { link = "markdownBlockquote" },
 		markdownId = { fg = c.purple, style = theme.bold_italic },
 		markdownIdDeclaration = { fg = c.blue },
-		markdownIdDelimiter = { "markdownId" },
+		markdownIdDelimiter = { link = "markdownId" },
 		markdownItalic = { fg = c.purple, style = theme.italic },
 		markdownLinkDelimiter = { fg = c.purple },
 		markdownLinkText = { fg = c.blue },
 		markdownListMarker = { fg = c.red },
-		markdownOrderedListMarker = { "markdownListMarker" },
-		markdownRule = { "markdownBlockquote" },
+		markdownOrderedListMarker = { link = "markdownListMarker" },
+		markdownRule = { link = "markdownBlockquote" },
 		markdownUrl = { fg = c.cyan, style = theme.underline },
 
 		-- Python
 		pythonNone = { fg = c.yellow },
-		pythonBoolean = { "pythonNone" },
+		pythonBoolean = { link = "pythonNone" },
 		pythonClass = { fg = c.yellow },
 		pythonParens = { fg = c.red },
 		pythonBuiltinObj = { fg = c.cyan, style = theme.bold },
@@ -341,26 +341,26 @@ function M.apply(colors, config)
 		pythonString = { fg = c.green },
 		pythonDot = { fg = c.fg },
 		pythonImport = { fg = c.purple, style = theme.bold_italic },
-		pythonRepeat = { "pythonImport" },
-		pythonStatement = { "pythonImport" },
-		pythonOperator = { "pythonImport" },
+		pythonRepeat = { link = "pythonImport" },
+		pythonStatement = { link = "pythonImport" },
+		pythonOperator = { link = "pythonImport" },
 
 		-- Ruby
 		rubyBlockParameter = { fg = c.red },
-		rubyBlockParameterList = { "rubyBlockParameter" },
+		rubyBlockParameterList = { link = "rubyBlockParameter" },
 		rubyClass = { fg = c.purple, style = theme.bold_italic },
 		rubyConstant = { fg = c.yellow },
-		rubyControl = { "rubyClass" },
+		rubyControl = { link = "rubyClass" },
 		rubyEscape = { fg = c.red },
 		rubyFunction = { fg = c.blue },
 		rubyGlobalVariable = { fg = c.red },
 		rubyInclude = { fg = c.blue },
-		rubyIncluderubyGlobalVariable = { "rubyGlobalVariable" },
-		rubyInstanceVariable = { "rubyGlobalVariable" },
+		rubyIncluderubyGlobalVariable = { link = "rubyGlobalVariable" },
+		rubyInstanceVariable = { link = "rubyGlobalVariable" },
 		rubyInterpolation = { fg = c.cyan },
 		rubyInterpolationDelimiter = { fg = c.red },
 		rubyRegexp = { fg = c.cyan },
-		rubyRegexpDelimiter = { "rubyRegexp" },
+		rubyRegexpDelimiter = { link = "rubyRegexp" },
 		rubyStringDelimiter = { fg = c.green },
 		rubySymbol = { fg = c.cyan },
 
@@ -368,32 +368,32 @@ function M.apply(colors, config)
 		sassidChar = { fg = c.red },
 		sassClassChar = { fg = c.yellow },
 		sassInclude = { fg = c.purple, style = theme.bold_italic },
-		sassMixing = { "sassInclude" },
+		sassMixing = { link = "sassInclude" },
 		sassMixinName = { fg = c.blue },
-		scssExtend = { "sassInclude" },
-		scssImport = { "sassInclude" },
-		scssMixin = { "sassMixing" },
+		scssExtend = { link = "sassInclude" },
+		scssImport = { link = "sassInclude" },
+		scssMixin = { link = "sassMixing" },
 		scssSelectorName = { fg = c.yellow },
-		scssVariable = { "sassMixing" },
+		scssVariable = { link = "sassMixing" },
 
 		-- Barbar.nvim
 		BufferCurrent = { fg = c.purple, bg = c.bg },
-		BufferCurrentIndex = { "BufferCurrent" },
+		BufferCurrentIndex = { link = "BufferCurrent" },
 		BufferCurrentMod = { fg = c.purple },
-		BufferCurrentSign = { "BufferCurrentMod" },
-		BufferCurrentIcon = { "BufferCurrentMod" },
+		BufferCurrentSign = { link = "BufferCurrentMod" },
+		BufferCurrentIcon = { link = "BufferCurrentMod" },
 		BufferCurrentTarget = { bg = c.bg, fg = c.blue, style = theme.bold },
 		BufferVisible = { fg = c.gray },
-		BufferVisibleIndex = { "BufferVisible" },
-		BufferVisibleMod = { "BufferVisible" },
-		BufferVisibleSign = { "BufferVisibleMod" },
-		BufferVisibleIcon = { "BufferVisibleMod" },
-		BufferVisibleTarget = { "BufferCurrentTarget" },
-		BufferInactive = { "BufferVisible" }, -- Buffer which is not active
-		BufferInactiveIndex = { "BufferInactive" },
-		BufferInactiveMod = { "BufferInactive" },
+		BufferVisibleIndex = { link = "BufferVisible" },
+		BufferVisibleMod = { link = "BufferVisible" },
+		BufferVisibleSign = { link = "BufferVisibleMod" },
+		BufferVisibleIcon = { link = "BufferVisibleMod" },
+		BufferVisibleTarget = { link = "BufferCurrentTarget" },
+		BufferInactive = { link = "BufferVisible" }, -- Buffer which is not active
+		BufferInactiveIndex = { link = "BufferInactive" },
+		BufferInactiveMod = { link = "BufferInactive" },
 		BufferInactiveSign = { fg = c.bg }, -- The inactive sign of a buffer
-		BufferInactiveTarget = { "BufferCurrentTarget" },
+		BufferInactiveTarget = { link = "BufferCurrentTarget" },
 		BufferTabpages = { fg = c.purple }, -- The tab page indicator on the right
 		BufferTabpageFill = { fg = c.bg }, -- The sign which marks the end of the bufferline
 
@@ -408,7 +408,7 @@ function M.apply(colors, config)
 		DapUIBreakpointsPath = { bg = c.yellow, fg = c.bg },
 		DapUIBreakpointsInfo = { fg = c.fg },
 		DapUIBreakpointsCurrentLine = { fg = c.yellow, style = theme.bold },
-		DapUIBreakpointsLine = { "DapUIBreakpointsCurrentLine" },
+		DapUIBreakpointsLine = { link = "DapUIBreakpointsCurrentLine" },
 		DapUIWatchesEmpty = { bg = c.red, fg = c.bg },
 		DapUIWatchesValue = { fg = c.red },
 		DapUIWatchesError = { fg = c.red },
@@ -422,43 +422,43 @@ function M.apply(colors, config)
 		-- hlslens
 		HlSearchNear = { bg = c.highlight, fg = c.bg },
 		HlSearchLens = { bg = c.gray },
-		HlSearchLensNear = { "HlSearchNear" },
-		HlSearchFloat = { "HlSearchNear" },
+		HlSearchLensNear = { link = "HlSearchNear" },
+		HlSearchFloat = { link = "HlSearchNear" },
 
 		-- Indentline
 		IndentLine = { fg = c.indentline },
-		IndentBlanklineChar = { "IndentLine" },
-		IndentBlanklineSpaceChar = { "IndentLine" },
-		IndentBlanklineSpaceCharBlankline = { "IndentLine" },
-		IndentBlanklineContextChar = { "IndentLine" },
+		IndentBlanklineChar = { link = "IndentLine" },
+		IndentBlanklineSpaceChar = { link = "IndentLine" },
+		IndentBlanklineSpaceCharBlankline = { link = "IndentLine" },
+		IndentBlanklineContextChar = { link = "IndentLine" },
 
 		-- LSP Saga
-		LspSagaDiagnosticBorder = { "NormalNC" },
+		LspSagaDiagnosticBorder = { link = "NormalNC" },
 		LspSagaDiagnosticHeader = { fg = c.purple },
-		LspSagaDiagnosticTruncateLine = { "NormalNC" },
-		LspFloatWinBorder = { "NormalNC" },
-		LspSagaBorderTitle = { "Title" },
-		TargetWord = { "Error" },
-		ReferencesCount = { "Title" },
-		ReferencesIcon = { "Special" },
-		DefinitionCount = { "Title" },
+		LspSagaDiagnosticTruncateLine = { link = "NormalNC" },
+		LspFloatWinBorder = { link = "NormalNC" },
+		LspSagaBorderTitle = { link = "Title" },
+		TargetWord = { link = "Error" },
+		ReferencesCount = { link = "Title" },
+		ReferencesIcon = { link = "Special" },
+		DefinitionCount = { link = "Title" },
 		TargetFileName = { fg = c.comment },
-		DefinitionIcon = { "Special" },
-		ProviderTruncateLine = { "NormalNC" },
+		DefinitionIcon = { link = "Special" },
+		ProviderTruncateLine = { link = "NormalNC" },
 		SagaShadow = {},
-		LspSagaFinderSelection = { "Search" },
-		DiagnosticTruncateLine = { "NormalNC" },
-		DiagnosticError = { "LspDiagnosticsDefaultError" },
-		DiagnosticWarning = { "LspDiagnosticsDefaultWarning" },
-		DiagnosticInformation = { "LspDiagnosticsDefaultInformation" },
-		DiagnosticHint = { "LspDiagnosticsDefaultHint" },
-		DefinitionPreviewTitle = { "Title" },
-		LspSagaShTruncateLine = { "NormalNC" },
-		LspSagaDocTruncateLine = { "NormalNC" },
-		LineDiagTuncateLine = { "NormalNC" },
-		LspSagaCodeActionTitle = { "Title" },
-		LspSagaCodeActionTruncateLine = { "NormalNC" },
-		LspSagaCodeActionContent = { "Normal" },
+		LspSagaFinderSelection = { link = "Search" },
+		DiagnosticTruncateLine = { link = "NormalNC" },
+		DiagnosticError = { link = "LspDiagnosticsDefaultError" },
+		DiagnosticWarning = { link = "LspDiagnosticsDefaultWarning" },
+		DiagnosticInformation = { link = "LspDiagnosticsDefaultInformation" },
+		DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
+		DefinitionPreviewTitle = { link = "Title" },
+		LspSagaShTruncateLine = { link = "NormalNC" },
+		LspSagaDocTruncateLine = { link = "NormalNC" },
+		LineDiagTuncateLine = { link = "NormalNC" },
+		LspSagaCodeActionTitle = { link = "Title" },
+		LspSagaCodeActionTruncateLine = { link = "NormalNC" },
+		LspSagaCodeActionContent = { link = "Normal" },
 		LspSagaRenamePromptPrefix = { fg = c.purple },
 		LspSagaRenameBorder = { style = theme.bold },
 		LspSagaHoverBorder = { style = theme.bold },
@@ -467,6 +467,11 @@ function M.apply(colors, config)
 		LspSagaAutoPreview = {},
 		LspSagaDefPreviewBorder = { style = theme.bold },
 		LspLinesDiagBorder = { style = theme.bold },
+
+		--Marks.nvim
+		MarksSignHL = { bg = c.red, fg = c.bg },
+		MarkNumSignHL = { bg = c.red, fg = c.bg },
+		MarkVirtTextHL = { bg = c.purple, fg = c.bg },
 
 		--nvim-compe and nvim-cmp
 		CompeDocumentation = { fg = c.fg, bg = c.menu },
@@ -495,7 +500,7 @@ function M.apply(colors, config)
 		NvimTreeOpenedFolderName = { fg = c.purple },
 		NvimTreeExecFile = { fg = c.green, style = theme.bold },
 		NvimTreeOpenedFile = { fg = c.purple, style = theme.italic },
-		NvimTreeSpecialFile = { "Special" },
+		NvimTreeSpecialFile = { link = "Special" },
 		-- NvimTreeImageFile = {},
 		NvimTreeMarkdownFile = { fg = c.red },
 		NvimTreeIndentMarker = { fg = c.gray },
@@ -542,11 +547,11 @@ function M.apply(colors, config)
 		TelescopeMultiSelection = { bg = c.cursorline, fg = c.comment },
 		TelescopeNormal = { fg = c.fg },
 		TelescopeBorder = { fg = c.comment },
-		TelescopePromptBorder = { "TelescopeBorder" },
-		TelescopePreviewBorder = { "TelescopeBorder" },
+		TelescopePromptBorder = { link = "TelescopeBorder" },
+		TelescopePreviewBorder = { link = "TelescopeBorder" },
 		TelescopeMatching = { fg = c.green, style = theme.underline },
 		TelescopePromptPrefix = { fg = c.purple },
-		TelescopePrompt = { "TelescopeNormal" },
+		TelescopePrompt = { link = "TelescopeNormal" },
 
 		-- Trouble.nvim
 		TroubleCount = { fg = c.purple, style = theme.bold },
