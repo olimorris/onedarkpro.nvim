@@ -84,7 +84,7 @@
 <img src="https://user-images.githubusercontent.com/9512444/137557516-cad11b2d-7688-4956-83d2-60cf607374b4.png" alt="Light colors" />
 
 ### Comparison to One Dark Pro
-Comparison to the <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a> theme from VS Code:
+Comparison to the <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a> theme from VS Code:<br><br>
 <img src="https://user-images.githubusercontent.com/9512444/137559154-76309841-5f75-4f2e-a620-2e4aa4def002.png"
 alt="Comparison to One Dark Pro">
 
