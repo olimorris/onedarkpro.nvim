@@ -149,7 +149,7 @@ function util.template_table(table, values)
 	return table
 end
 
-function util.syntax(tbl)
+function util.set_syntax(tbl)
 	for group, colors in pairs(tbl) do
 		util.highlight(group, colors)
 	end
@@ -163,7 +163,7 @@ function util.terminal(theme)
 	vim.g.terminal_color_4 = theme.colors.blue
 	vim.g.terminal_color_5 = theme.colors.purple
 	vim.g.terminal_color_6 = theme.colors.cyan
-	vim.g.terminal_color_7 = theme.colors.gray
+	vim.g.terminal_color_7 = theme.colors.white
 
 	vim.g.terminal_color_8 = theme.colors.black
 	vim.g.terminal_color_9 = theme.colors.red
@@ -172,34 +172,33 @@ function util.terminal(theme)
 	vim.g.terminal_color_12 = theme.colors.blue
 	vim.g.terminal_color_13 = theme.colors.purple
 	vim.g.terminal_color_14 = theme.colors.cyan
-	vim.g.terminal_color_15 = theme.colors.gray
+	vim.g.terminal_color_15 = theme.colors.white
 end
 
 function util.load(theme)
-	-- Prevent the double load problem
+	-- Prevent double loading the theme
 	if vim.g.loaded_onedark == theme.colors.name then
 		return
 	end
 
-	-- only needed to clear when not the default colorscheme
+	-- Clear all highlights from other color schemes
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
 	end
 
 	vim.o.background = "dark"
 	vim.o.termguicolors = true
-	vim.g.colors_name = "onedark"
+	vim.g.colors_name = "onedark" -- We technically only have the one theme so this must be hardcoded as onedark
 
-	-- Update the user's custom hlgroups with colors from the theme
+	-- Replace color variables in the user's custom hlgroups
 	local hlgroups = util.template_table(theme.config.hlgroups, theme.colors)
 
 	--[[
-	Due to recent configuration changes, we need to check if the user is not
-	using the "link =" annotations and warn them accordingly
+	Due to recent configuration changes, we need to check if the user is using
+	the "link =" annotations correcrtly. If not, warn them accordingly
 	]]
 	local warn = 0
 	for _, colors in pairs(hlgroups) do
-		-- require("core.utils").print_table(colors)
 		for key, _ in pairs(colors) do
 			if key ~= "fg" and key ~= "bg" and key ~= "sp" and key ~= "style" and key ~= "link" then
 				warn = warn + 1
@@ -218,12 +217,14 @@ function util.load(theme)
 	-- Merge the user's custom hlgroups with the theme's
 	local groups = util.tbl_deep_extend(theme.groups, hlgroups)
 
-	util.syntax(groups)
+	util.set_syntax(groups)
+
 
 	if theme.config.options.terminal_colors then
 		util.terminal(theme)
 	end
 
+	-- Set the global load variable and trigger the colorscheme autocommand
 	vim.g.loaded_onedark = theme.colors.name
 	vim.cmd([[doautocmd ColorScheme]])
 end
