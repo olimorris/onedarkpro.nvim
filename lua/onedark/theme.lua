@@ -19,7 +19,7 @@ function M.apply(colors, config)
 		ColorColumn = { bg = c.color_column }, -- used for the columns set with 'colorcolumn'
 		Comment = { fg = c.comment, style = config.styles.comments }, -- Comments
 		-- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-		Cursor = { bg = c.blue, fg = c.bg }, -- character under the cursor
+		Cursor = { bg = c.black, fg = c.bg }, -- character under the cursor
 		-- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 		-- CursorIM     = {bg = c.red}, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorColumn = { bg = c.gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -45,7 +45,7 @@ function M.apply(colors, config)
 		MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
 		MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = c.green }, -- |more-prompt|
-		NonText = { fg = c.gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText = { link = "Folded" }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal = { bg = c.bg, fg = c.fg }, -- normal text
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 		FloatBorder = { link = "Folded" },
@@ -80,19 +80,19 @@ function M.apply(colors, config)
 		Boolean = { fg = c.orange }, -- a boolean constant: TRUE, false
 		Float = { fg = c.orange }, -- a floating point constant: 2.3e10
 
-		Identifier = { fg = c.purple, style = config.styles.variables }, -- (preferred) any variable name
+		Identifier = { fg = c.fg, style = config.styles.variables }, -- (preferred) any variable name
 		Function = { fg = c.yellow, style = config.styles.functions }, -- function name (also: methods for classes)
 
 		Statement = { fg = c.purple }, -- (preferred) any statement
-		Conditional = { fg = c.purple }, --  if, then, else, endif, switch, etc.
+		Conditional = { fg = c.purple, style = theme.italic }, --  if, then, else, endif, switch, etc.
 		Repeat = { fg = c.purple }, -- for, do, while, etc.
 		Label = { fg = c.red }, -- case, default, etc.
-		Operator = { fg = c.cyan }, -- "sizeof", "+", "*", etc.
-		Keyword = { fg = c.red, style = config.styles.keywords }, -- any other keyword
+		Operator = { fg = c.fg, style = theme.italic }, -- "sizeof", "+", "*", etc.
+		Keyword = { fg = c.purple, style = config.styles.keywords }, -- any other keyword
 		Exception = { fg = c.purple }, -- try, catch, throw
 
 		PreProc = { fg = c.yellow }, -- (preferred) generic Preprocessor
-		Include = { fg = c.purple }, -- preprocessor #include
+		Include = { fg = c.blue }, -- preprocessor #include
 		Define = { fg = c.purple }, -- preprocessor #define
 		Macro = { fg = c.purple }, -- same as Define
 		PreCondit = { fg = c.yellow }, -- preprocessor #if, #else, #endif, etc.
@@ -117,7 +117,7 @@ function M.apply(colors, config)
 		Todo = { fg = c.purple }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 		-- LSP
-		LspDiagnosticsDefaultError = { fg = c.red },
+		LspDiagnosticsDefaultError = { link = "Error" },
 		LspDiagnosticsDefaultWarning = { fg = c.yellow },
 		LspDiagnosticsDefaultInformation = { fg = c.blue },
 		LspDiagnosticsDefaultHint = { fg = c.cyan },
@@ -145,38 +145,38 @@ function M.apply(colors, config)
 		-- https://github.com/nvim-treesitter/nvim-treesitter/blob/fb5d6e04a87863d01a45dab2cbafec4e2a74822b/doc/nvim-treesitter.txt
 		TSAnnotation = { fg = c.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
 		TSAttribute = { fg = c.purple }, -- (unstable)
-		TSBoolean = { fg = c.yellow }, -- For booleans.
-		TSCharacter = { fg = c.green }, -- For characters.
+		TSBoolean = { link = "Boolean" }, -- For booleans.
+		TSCharacter = { link = "Character" }, -- For characters.
 		TSComment = { link = "Comment" }, -- For comment blocks.
-		TSConditional = { fg = c.purple, style = theme.italic }, -- For keywords related to conditionnals.
-		TSConstant = { fg = c.yellow }, -- For constants
-		TSConstMacro = { fg = c.yellow }, -- For constants that are defined by macros: `NULL` in C.
+		TSConditional = { link = "Conditional" }, -- For keywords related to conditionnals.
+		TSConstant = { link = "Constant" }, -- For constants
 		TSConstBuiltin = { fg = c.orange }, -- For constant that are built in the language: `nil` in Lua.
-		TSConstructor = { fg = c.cyan }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
-		TSError = { fg = c.red }, -- For syntax/parser errors.
-		TSException = { fg = c.green }, -- For exception related keywords.
-		TSField = { fg = c.red }, -- For fields.
-		TSFloat = { fg = c.yellow }, -- For floats.
+		TSConstMacro = { link = "Constant"}, -- For constants that are defined by macros: `NULL` in C.
+		TSConstructor = { fg = c.yellow }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
+		TSError = { link = "Error" }, -- For syntax/parser errors.
+		TSException = { link = "Exception" }, -- For exception related keywords.
+		TSField = { fg = c.fg }, -- For fields.
+		TSFloat = { link = "Float" }, -- For floats.
 		TSFunction = { fg = c.blue, style = config.styles.functions }, -- For function (calls and definitions).
-		TSFuncBuiltin = { fg = c.blue }, -- For builtin functions: `table.insert` in Lua.
-		TSFuncMacro = { fg = c.cyan }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-		TSInclude = { fg = c.purple, style = theme.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+		TSFuncBuiltin = { fg = c.yellow }, -- For builtin functions: `table.insert` in Lua.
+		TSFuncMacro = { fg = c.fg }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+		TSInclude = { fg = c.blue, style = theme.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSKeyword = { fg = c.purple, style = config.styles.keywords }, -- For keywords that don't fall in previous categories.
-		TSKeywordFunction = { link = "TSKeyword" }, -- For keywords used to define a fuction.
-		TSKeywordOperator = { fg = c.red }, -- For operators that are English words, e.g. `and`, `as`, `or`.
+		TSKeywordFunction = { fg = c.purple, style = config.styles.keywords }, -- For keywords used to define a fuction.
+		TSKeywordOperator = { fg = c.purple, style = theme.italic }, -- For operators that are English words, e.g. `and`, `as`, `or`.
 		TSKeywordReturn = { link = "TSKeyword" }, -- for the `return` and `yield` keywords.
 		TSLabel = { fg = c.purple, style = theme.italic }, -- For labels: `label:` in C and `:label:` in Lua.
 		TSMethod = { fg = c.blue }, -- For method calls and definitions.
-		TSNamespace = { fg = c.purple }, -- For identifiers referring to modules and namespaces.
+		TSNamespace = { fg = c.yellow }, -- For identifiers referring to modules and namespaces.
 		-- TSNone = {},
-		TSNumber = { fg = c.yellow }, -- For integers.
-		TSOperator = { fg = c.cyan }, -- For any operator: `+`, but also `->` and `*` in C.
-		TSParameter = { fg = c.yellow, style = theme.italic }, -- For parameters of a function.
-		TSParameterReference = { fg = c.yellow }, -- For references to parameters of a function.
+		TSNumber = { link = "Number" }, -- For integers.
+		TSOperator = { link = "Operator" }, -- For any operator: `+`, but also `->` and `*` in C.
+		TSParameter = { fg = c.red, style = theme.italic }, -- For parameters of a function.
+		TSParameterReference = { fg = c.fg }, -- For references to parameters of a function.
 		TSProperty = { fg = c.red }, -- Same as `TSField`.
 		TSPunctDelimiter = { fg = c.fg }, -- For delimiters ie: `.`
 		TSPunctBracket = { fg = c.red }, -- For brackets and parens.
-		TSPunctSpecial = { fg = c.fg }, -- For special punctutation that does not fall in the catagories before.
+		TSPunctSpecial = { fg = c.red }, -- For special punctutation that does not fall in the catagories before.
 		TSRepeat = { fg = c.purple, style = theme.italic }, -- For keywords related to loops.
 		TSString = { fg = c.green, style = config.styles.strings }, -- For strings.
 		TSStringRegex = { fg = c.green, style = config.styles.strings }, -- For regexes.
@@ -187,12 +187,12 @@ function M.apply(colors, config)
 		TSTagAttribute = { link = "TSProperty" }, -- For html tag attributes.
 		TSTagDelimiter = { link = "Delimiter" }, -- Tag delimiter like `<` `>` `/`
 		TSText = { fg = c.fg }, -- For strings considered text in a markup language.
-		TSStrong = { fg = c.yellow, style = theme.bold }, -- For text to be represented with strong.
-		TSEmphasis = { fg = c.yellow, style = theme.italic }, -- For text to be represented with emphasis.
-		TSUnderline = { fg = c.yellow, style = theme.underline }, -- For text to be represented with an underline.
+		TSStrong = { fg = c.fg, style = theme.bold }, -- For text to be represented with strong.
+		TSEmphasis = { fg = c.fg, style = theme.italic }, -- For text to be represented with emphasis.
+		TSUnderline = { fg = c.fg, style = theme.underline }, -- For text to be represented with an underline.
 		TSStrike = { fg = c.fg }, -- For strikethrough text.
-		TSTitle = { fg = c.yellow }, -- Text that is part of a title.
-		TSLiteral = { fg = c.yellow }, -- Literal text.
+		TSTitle = { fg = c.fg }, -- Text that is part of a title.
+		TSLiteral = { fg = c.fg }, -- Literal text.
 		TSURI = { fg = c.blue }, -- Any URI like a link or email.
 		TSMath = { fg = c.fg }, -- For LaTex-like math environments.
 		TSTextReference = { link = "TSText" }, -- For footnotes, text references, citations.
@@ -202,8 +202,8 @@ function M.apply(colors, config)
 		TSWarning = { fg = c.yellow }, -- Text representation of a warning note.
 		TSDanger = { fg = c.red }, -- Text representation of a danger note.
 		TSType = { fg = c.yellow }, -- For types.
-		TSVariable = { style = config.styles.variables }, -- Any variable name that does not have another highlight.
 		TSTypeBuiltin = { fg = c.orange }, -- For builtin types (you guessed it, right ?).
+		TSVariable = { fg = c.red, style = config.styles.variables }, -- Any variable name that does not have another highlight.
 		TSVariableBuiltin = { fg = c.yellow, style = theme.italic }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		-- CSS

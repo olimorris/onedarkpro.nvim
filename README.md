@@ -1,13 +1,14 @@
 # onedark.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/136255115-2ab2706a-5dfb-44dd-9936-96961716827f.png" alt = "banner" />
+<img src="https://user-images.githubusercontent.com/9512444/137557705-552567e4-a0f9-48e1-aa2a-8010b731d65d.png" alt="onedark.nvim" />
 </p>
 <p align="center">
   <i>
     A dark and light theme for Neovim 0.5 and above, written in Lua<br>
     <b>Fully customisable with ability to override styles, colors and highlight groups</b><br>
-    Comes complete with support for <b>Treesitter</b> syntax highlighting and <b>many popular plugins</b>
+    Comes complete with support for <b>Treesitter</b> syntax highlighting and <b>many popular plugins</b><br><br>
+      Inspired by VS Code's <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a>
   </i>
 </p>
 
@@ -17,7 +18,8 @@
 - [Screenshots](#camera-screenshots)
   - [Dark](#dark)
   - [Light](#light)
-  - [Color reference](#color-reference)
+  - [Color guide](#color-guide)
+  - [Comparison to One Dark Pro](#comparison-to-one-dark-pro)
 - [Requirements](#zap-requirements)
 - [Installation](#package-installation)
 - [Configuration](#wrench-configuration)
@@ -61,17 +63,30 @@
 
 ## :camera: Screenshots
 ### Dark
-![Dark](https://user-images.githubusercontent.com/9512444/131382995-d2378741-954e-4f03-9b73-b514be3d4464.png "Dark")
+#### Python
+<img src="https://user-images.githubusercontent.com/9512444/137556870-ee47b2ea-b9e2-4b56-8d82-2e99da249af4.png" alt="Dark Python" />
+
+#### React
+<img src="https://user-images.githubusercontent.com/9512444/137556833-f45452ff-e63b-421c-bf73-e867207972ed.png" alt="Dark React" />
 
 ### Light
-![Light](https://user-images.githubusercontent.com/9512444/131383409-e4686a46-8943-4e73-af57-14bba8863512.png "Light")
+#### Python
+<img src="https://user-images.githubusercontent.com/9512444/137556929-77ddb821-53fc-4bd7-a5dc-f0c67729249b.png" alt="Light Python" />
 
-### Color Reference
+#### React
+<img src="https://user-images.githubusercontent.com/9512444/137556949-0829b6e3-d1f6-453d-b225-1aae1d1ccfe0.png" alt="Light React" />
+
+### Color guide
 #### Dark
-<img src="https://user-images.githubusercontent.com/9512444/136249668-0939e37e-23e4-48a3-af1d-44fc7190e12e.png" alt="Dark colors" />
+<img src="https://user-images.githubusercontent.com/9512444/137557537-33bb3987-2ea4-4feb-8369-0c972efd3ac7.png" alt="Dark colors" />
 
 #### Light
-<img src="https://user-images.githubusercontent.com/9512444/136249706-990609bd-3404-4bbb-ae37-77de437f28dd.png" alt="Dark colors" />
+<img src="https://user-images.githubusercontent.com/9512444/137557516-cad11b2d-7688-4956-83d2-60cf607374b4.png" alt="Light colors" />
+
+### Comparison to One Dark Pro
+Comparison to the <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a> theme from VS Code:
+<img src="https://user-images.githubusercontent.com/9512444/137559154-76309841-5f75-4f2e-a620-2e4aa4def002.png"
+alt="Comparison to One Dark Pro">
 
 ## :zap: Requirements
 - Neovim 0.5 or greater
