@@ -425,6 +425,13 @@ function M.apply(colors, config)
 		HlSearchLensNear = { link = "HlSearchNear" },
 		HlSearchFloat = { link = "HlSearchNear" },
 
+		-- Hop.nvim
+		HopNextKey = { bg = c.green, fg = c.bg },
+		HopNextKey1 = { bg = c.yellow, fg = c.bg },
+		HopNextKey2 = { link = "HopNextKey1" },
+		HopUnmatched = { fg = c.gray },
+		HopCursor = { link = "Cursor" },
+
 		-- Indentline
 		IndentLine = { fg = c.indentline },
 		IndentBlanklineChar = { link = "IndentLine" },
@@ -468,12 +475,12 @@ function M.apply(colors, config)
 		LspSagaDefPreviewBorder = { style = theme.bold },
 		LspLinesDiagBorder = { style = theme.bold },
 
-		--Marks.nvim
-		MarksSignHL = { bg = c.red, fg = c.bg },
-		MarkNumSignHL = { bg = c.red, fg = c.bg },
-		MarkVirtTextHL = { bg = c.purple, fg = c.bg },
+		-- Marks.nvim
+		MarkSignHL = { fg = c.purple, bg = "NONE", style = theme.bold },
+		-- MarkSignNumHL = {  },
+		MarkVirtTextHL = { fg = c.gray, style = theme.italic },
 
-		--nvim-compe and nvim-cmp
+		-- nvim-compe and nvim-cmp
 		CompeDocumentation = { fg = c.fg, bg = c.menu },
 		CmpDocumentation = { fg = c.fg, bg = c.menu },
 		CmpDocumentationBorder = { fg = c.fg, bg = c.menu },
@@ -482,14 +489,14 @@ function M.apply(colors, config)
 		CmpItemKind = { fg = c.blue },
 		CmpItemMenu = { fg = c.fg },
 
-		--nvim-dap
+		-- nvim-dap
 		DebugBreakpoint = { fg = c.red },
 		DebugBreakpointLine = { fg = c.red, style = theme.underline },
 		DebugHighlight = { fg = c.blue },
 		DebugHighlightLine = { fg = c.purple, style = theme.italic },
 		NvimDapVirtualText = { fg = c.cyan, style = theme.italic },
 
-		--nvim-tree
+		-- nvim-tree
 		NvimTreeNormalNC = { bg = c.color_column }, -- Color when nvim-tree is no longer in focus
 
 		NvimTreeSymlink = { fg = c.cyan, style = theme.underline },
