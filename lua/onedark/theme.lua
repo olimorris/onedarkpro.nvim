@@ -76,9 +76,9 @@ function M.apply(colors, config)
 		Constant = { fg = c.cyan }, -- (preferred) any constant
 		String = { fg = c.green, style = config.styles.strings }, --   a string constant: "this is a string"
 		Character = { fg = c.green }, -- a character constant: 'c', '\n'
-		Number = { fg = c.yellow }, -- a number constant: 234, 0xff
-		Boolean = { fg = c.yellow }, -- a boolean constant: TRUE, false
-		Float = { fg = c.yellow }, -- a floating point constant: 2.3e10
+		Number = { fg = c.orange }, -- a number constant: 234, 0xff
+		Boolean = { fg = c.orange }, -- a boolean constant: TRUE, false
+		Float = { fg = c.orange }, -- a floating point constant: 2.3e10
 
 		Identifier = { fg = c.purple, style = config.styles.variables }, -- (preferred) any variable name
 		Function = { fg = c.yellow, style = config.styles.functions }, -- function name (also: methods for classes)
@@ -103,7 +103,7 @@ function M.apply(colors, config)
 		Typedef = { fg = c.yellow }, -- A typedef
 
 		Special = { fg = c.blue }, -- (preferred) any special symbol
-		SpecialChar = { fg = c.yellow }, -- special character in a constant
+		SpecialChar = { fg = c.orange }, -- special character in a constant
 		-- Tag = {}, -- you can use CTRL-] on this
 		Delimiter = { fg = c.fg }, -- character that needs attention
 		SpecialComment = { fg = c.comment }, -- special things inside a comment
@@ -150,8 +150,8 @@ function M.apply(colors, config)
 		TSComment = { link = "Comment" }, -- For comment blocks.
 		TSConditional = { fg = c.purple, style = theme.italic }, -- For keywords related to conditionnals.
 		TSConstant = { fg = c.yellow }, -- For constants
-		TSConstBuiltin = { fg = c.yellow }, -- For constant that are built in the language: `nil` in Lua.
 		TSConstMacro = { fg = c.yellow }, -- For constants that are defined by macros: `NULL` in C.
+		TSConstBuiltin = { fg = c.orange }, -- For constant that are built in the language: `nil` in Lua.
 		TSConstructor = { fg = c.cyan }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
 		TSError = { fg = c.red }, -- For syntax/parser errors.
 		TSException = { fg = c.green }, -- For exception related keywords.
@@ -202,27 +202,27 @@ function M.apply(colors, config)
 		TSWarning = { fg = c.yellow }, -- Text representation of a warning note.
 		TSDanger = { fg = c.red }, -- Text representation of a danger note.
 		TSType = { fg = c.yellow }, -- For types.
-		TSTypeBuiltin = { fg = c.red }, -- For builtin types (you guessed it, right ?).
 		TSVariable = { style = config.styles.variables }, -- Any variable name that does not have another highlight.
+		TSTypeBuiltin = { fg = c.orange }, -- For builtin types (you guessed it, right ?).
 		TSVariableBuiltin = { fg = c.yellow, style = theme.italic }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		-- CSS
 		cssAttrComma = { fg = c.purple },
 		cssAttributeSelector = { fg = c.green },
 		cssBraces = { fg = c.red },
-		cssClassName = { fg = c.yellow },
-		cssClassNameDot = { fg = c.yellow },
+		cssClassName = { fg = c.orange },
+		cssClassNameDot = { fg = c.orange },
 		cssDefinition = { fg = c.purple, style = theme.bold_italic },
-		cssFontAttr = { fg = c.yellow },
+		cssFontAttr = { fg = c.orange },
 		cssFontDescriptor = { link = "cssDefinition" },
 		cssFunctionName = { fg = c.blue },
 		cssIdentifier = { fg = c.blue },
 		cssImportant = { link = "cssDefinition" },
 		cssInclude = { fg = c.fg },
 		cssIncludeKeyword = { link = "cssDefinition" },
-		cssMediaType = { fg = c.yellow },
+		cssMediaType = { fg = c.orange },
 		cssProp = { fg = c.fg },
-		cssPseudoClassId = { fg = c.yellow },
+		cssPseudoClassId = { fg = c.orange },
 		cssSelectorOp = { link = "cssDefinition" },
 		cssSelectorOp2 = { link = "cssDefinition" },
 		cssTagName = { fg = c.red },
@@ -241,7 +241,7 @@ function M.apply(colors, config)
 
 		-- HTML
 		htmlArg = { fg = c.purple, style = theme.bold_italic },
-		htmlBold = { fg = c.yellow, style = theme.bold },
+		htmlBold = { fg = c.orange, style = theme.bold },
 		htmlItalic = { fg = c.purple, style = theme.italic },
 		htmlLink = { fg = c.cyan, style = theme.underline },
 		htmlH1 = { fg = c.red },
@@ -250,7 +250,7 @@ function M.apply(colors, config)
 		htmlH4 = { link = "htmlH1" },
 		htmlH5 = { link = "htmlH1" },
 		htmlH6 = { link = "htmlH1" },
-		htmlSpecialChar = { fg = c.yellow },
+		htmlSpecialChar = { link = "SpecialChar" },
 		htmlSpecialTagName = { fg = c.red },
 		htmlTag = { link = "TSTag" },
 		htmlEndTag = { link = "htmlTag" },
@@ -262,8 +262,8 @@ function M.apply(colors, config)
 		javascriptBraces = { fg = c.red },
 		javaScriptFunction = { fg = c.purple },
 		javaScriptIdentifier = { fg = c.purple },
-		javaScriptNull = { fg = c.yellow },
-		javaScriptNumber = { fg = c.yellow },
+		javaScriptNull = { fg = c.orange },
+		javaScriptNumber = { link = "Number" },
 		javaScriptRequire = { fg = c.cyan },
 		javaScriptReserved = { fg = c.purple },
 		---- https://github.com/pangloss/vim-javascript included in Vim-Polygot
@@ -284,20 +284,20 @@ function M.apply(colors, config)
 		jsModuleAs = { link = "jsExport" },
 		jsModuleWords = { link = "jsExport" },
 		jsModules = { link = "jsExport" },
-		jsNull = { fg = c.yellow },
+		jsNull = { fg = c.orange },
 		jsOperator = { fg = c.purple },
 		jsStorageClass = { link = "jsClassKeyword" },
 		jsSuper = { fg = c.red },
 		jsTemplateBraces = { fg = c.red },
 		jsTemplateVar = { fg = c.green },
 		jsThis = { fg = c.red },
-		jsUndefined = { fg = c.yellow },
+		jsUndefined = { fg = c.orange },
 
 		-- JSON
 		jsonCommentError = { fg = c.fg },
 		jsonKeyword = { fg = c.red },
-		jsonBoolean = { fg = c.yellow },
-		jsonNumber = { fg = c.yellow },
+		jsonBoolean = { link = "Boolean" },
+		jsonNumber = { link = "Number" },
 		jsonQuote = { fg = c.fg },
 		jsonMissingCommaError = { fg = c.red, style = "reverse" },
 		jsonNoQuotesError = { link = "jsonMissingCommaError" },
@@ -308,7 +308,7 @@ function M.apply(colors, config)
 
 		-- Markdown
 		markdownBlockquote = { fg = c.comment },
-		markdownBold = { fg = c.yellow, style = theme.bold },
+		markdownBold = { fg = c.orange, style = theme.bold },
 		markdownCode = { fg = c.green },
 		markdownCodeBlock = { link = "markdownCode" },
 		markdownCodeDelimiter = { link = "markdownCode" },
@@ -366,14 +366,14 @@ function M.apply(colors, config)
 
 		-- SASS
 		sassidChar = { fg = c.red },
-		sassClassChar = { fg = c.yellow },
+		sassClassChar = { fg = c.orange },
 		sassInclude = { fg = c.purple, style = theme.bold_italic },
 		sassMixing = { link = "sassInclude" },
 		sassMixinName = { fg = c.blue },
 		scssExtend = { link = "sassInclude" },
 		scssImport = { link = "sassInclude" },
 		scssMixin = { link = "sassMixing" },
-		scssSelectorName = { fg = c.yellow },
+		scssSelectorName = { fg = c.orange },
 		scssVariable = { link = "sassMixing" },
 
 		-- Barbar.nvim
