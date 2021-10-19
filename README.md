@@ -1,14 +1,14 @@
-# onedark.nvim
+# OneDarkPro.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/137557705-552567e4-a0f9-48e1-aa2a-8010b731d65d.png" alt="onedark.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/137961273-46abc097-4a7f-4dfb-8adc-b80191af9f6d.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
   <i>
     A dark and light theme for Neovim 0.5 and above, written in Lua<br>
     <b>Fully customisable with ability to override styles, colors and highlight groups</b><br>
     Comes complete with support for <b>Treesitter</b> syntax highlighting and <b>many popular plugins</b><br><br>
-      Inspired by VS Code's <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a>
+    Inspired by VS Code's <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a>
   </i>
 </p>
 
@@ -19,7 +19,7 @@
   - [Dark](#dark)
   - [Light](#light)
   - [Color guide](#color-guide)
-  - [Comparison to One Dark Pro](#comparison-to-one-dark-pro)
+  - [Comparison to VS Code's One Dark Pro](#comparison-to-vs-codes-one-dark-pro)
 - [Requirements](#zap-requirements)
 - [Installation](#package-installation)
 - [Configuration](#wrench-configuration)
@@ -30,6 +30,7 @@
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
   - [Configuring options](#configuring-options)
+  - [Helper functions](#helper-functions)
 - [Credits](#clap-credits)
 - [License](#page_with_curl-license)
 
@@ -42,7 +43,7 @@
     - Keywords
     - Strings
     - Variables
-- Override default colors and highlight groups
+- Override default styles, colors and highlight groups
 - Create custom highlight groups
 - [LSP](https://github.com/neovim/nvim-lspconfig) diagnostics support
 - Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
@@ -60,6 +61,7 @@
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
     - [vim-ultest](https://github.com/rcarriga/vim-ultest)
     - [vim-startify](https://github.com/mhinz/vim-startify)
+    - [WhichKey](https://github.com/folke/which-key.nvim)
 
 ## :camera: Screenshots
 ### Dark
@@ -78,15 +80,19 @@
 
 ### Color guide
 #### Dark
-<img src="https://user-images.githubusercontent.com/9512444/137557537-33bb3987-2ea4-4feb-8369-0c972efd3ac7.png" alt="Dark colors" />
+<img src="https://user-images.githubusercontent.com/9512444/137644013-2a03a2dd-b139-4d8f-b695-c92ce68ecff9.png" alt="Dark colors" />
 
 #### Light
-<img src="https://user-images.githubusercontent.com/9512444/137557516-cad11b2d-7688-4956-83d2-60cf607374b4.png" alt="Light colors" />
+<img src="https://user-images.githubusercontent.com/9512444/137644028-11cb1fdd-1578-4a8a-bda8-60cabff74fe3.png" alt="Light colors" />
 
-### Comparison to One Dark Pro
-Comparison to the <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a> theme from VS Code:<br><br>
-<img src="https://user-images.githubusercontent.com/9512444/137559154-76309841-5f75-4f2e-a620-2e4aa4def002.png"
-alt="Comparison to One Dark Pro">
+### Comparison to VS Code's One Dark Pro
+#### Python
+<img src="https://user-images.githubusercontent.com/9512444/137644278-deb6b7be-0e88-4863-9a6c-249f61eefca3.png" alt="Comparison to VS Code - Python" />
+
+#### React
+<img src="https://user-images.githubusercontent.com/9512444/137643933-409b873d-5b27-4dbc-8480-775e007f51c3.png" alt="Comparison to VS Code - React" />
+
+> **Note:** All screenshots have Treesitter highlighting enabled
 
 ## :zap: Requirements
 - Neovim 0.5 or greater
@@ -97,13 +103,14 @@ alt="Comparison to One Dark Pro">
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-use 'olimorris/onedark.nvim'
+use 'olimorris/onedarkpro.nvim'
 ```
 
 Alternatively, if you're using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
+
 ```lua
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'olimorris/onedark.nvim'
+  Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
 ```
 
@@ -117,12 +124,13 @@ require('onedark').load()
 ```
 
 Alternatively, if you're using Vimscript:
+
 ```lua
 colorscheme onedark
 ```
 
 ### Default configuration
-The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedark.nvim/blob/master/lua/onedark/config.lua) file:
+The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedark/config.lua) file is:
 
 ```lua
 local onedark = require('onedark')
@@ -161,7 +169,7 @@ onedark.load()
 ```
 
 ### Configuring styles
-Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedark.nvim/blob/master/lua/onedark/theme.lua) file alongside your desired style:
+Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedark/theme.lua) file alongside your desired styles:
 
 ```lua
 local onedark = require('onedark')
@@ -182,7 +190,7 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
 ### Configuring colors
-The theme has a palette of 12 core colors and 7 additional colors (for both light and dark themes). These colors can be found in the [color files](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/colors).
+The theme has a palette of 13 core colors and 7 additional colors (for both light and dark themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
@@ -196,7 +204,7 @@ onedark.load()
 ```
 
 ### Configuring highlight groups
-The [theme](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
+The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
 1. Using specifc hex colors
 2. Referencing the name of color variables from the color files
 3. Linking to other highlight groups in the theme
@@ -205,8 +213,8 @@ The [theme](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/th
 local onedark = require('onedark')
 onedark.setup({
   hlgroups = {
-    Comment = { fg = '#FF0000', bg = '#FFFF00' }, -- 1
-    Comment = { fg = '${red}' bg = '${yellow}' }, -- 2
+    Comment = { fg = '#FF0000', bg = '#FFFF00', style = "italic" }, -- 1
+    Comment = { fg = '${red}' bg = '${yellow}', style = "bold,italic" }, -- 2
     Comment = { link = 'Substitute' }, -- 3
    }
 })
@@ -216,9 +224,9 @@ onedark.load()
 ### Configuring options
 
 #### Formatting
-Alongside `styles`, the theme also has implements some minor opinions formatting. These can be found in the [theme.lua](https://github.com/olimorris/onedark.nvim/tree/master/lua/onedark/theme.lua) file with `style` options containing `theme.*` values.
+Alongside `styles`, the theme also applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark/theme.lua) file with `style` options containing `theme.*` values.
 
-The default options can be configured with the following:
+These can be configured with the following options:
 
 ```lua
 local onedark = require('onedark')
@@ -249,12 +257,27 @@ onedark.setup({
 onedark.load()
 ```
 
+### Helper functions
+
+#### Theme color tables
+To enable your plugins to match this theme, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
+
+```lua
+local colors = require("onedark").get_colors("onelight")
+print(colors.purple) -- #9a77cf
+```
+
+Changing the theme from `onelight` to `onedark` would return a new table of colors.
+
+> **Note:** Setting a `ColorScheme` autocommand which refreshes the configuration of your relevant plugin will ensure that they are using the correct colors from **One Dark Pro**
+
 ## :clap: Credits
 
 The following themes were used, *heavily*, as an inspiration:
 
-* [Nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) - For the general functionality of the theme which I used as the base
-* [Onedark.vim](https://github.com/joshdick/onedark.vim) - For the colors and their application
+* [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this theme
+* [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the general functionality of the theme which I used as the base
+* [onedark.vim](https://github.com/joshdick/onedark.vim) - For the original colors and their application in Neovim
 
 ## :page_with_curl: License
 

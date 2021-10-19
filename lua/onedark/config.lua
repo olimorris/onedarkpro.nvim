@@ -32,7 +32,7 @@ function M.set_options(opts)
 		utils.warn(
 			"`highlight_cursorline` has been moved into the options table of your config",
 			"EXAMPLE: onedark.setup({ options = { highlight_cursorline = true } })",
-			"See https://github.com/olimorris/onedark.nvim for more info",
+			"See https://github.com/olimorris/onedarkpro.nvim for more info",
 			"-----------------------------------------------------------------------------------"
 		)
 	end
