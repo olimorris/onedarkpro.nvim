@@ -10,9 +10,9 @@ function M.load(config)
 
 		bg = "#1e1e1e",
 		fg = "#abb2bf",
-		red = "#e86671",
+		red = "#e06c75",
 		orange = "#d19a66",
-		yellow = "#ecbf6f",
+		yellow = "#e5c07b",
 		green = "#98c379",
 		cyan = "#56b6c2",
 		blue = "#61afef",
