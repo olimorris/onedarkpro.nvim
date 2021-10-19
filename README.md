@@ -87,10 +87,10 @@
 
 ### Comparison to VS Code's One Dark Pro
 #### Python
-<img src="https://user-images.githubusercontent.com/9512444/137644278-deb6b7be-0e88-4863-9a6c-249f61eefca3.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/137963073-89b8b9fc-4b90-4843-8375-62401b7b2c5a.png" alt="Comparison to VS Code - Python" />
 
 #### React
-<img src="https://user-images.githubusercontent.com/9512444/137643933-409b873d-5b27-4dbc-8480-775e007f51c3.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/137963142-fca437cd-d31a-4eca-90d5-5e3e8a6e64af.png" alt="Comparison to VS Code - React" />
 
 > **Note:** All screenshots have Treesitter highlighting enabled
 
