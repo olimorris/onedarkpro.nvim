@@ -576,6 +576,13 @@ function M.apply(colors, config)
 		UltestRunning = { fg = c.yellow },
 		UltestBorder = { fg = c.comment },
 		UltestInfo = { fg = c.purple, style = theme.bold },
+
+		-- Which-key
+		WhichKey = { fg = c.purple, style = theme.bold },
+		WhichKeyDesc = { fg = c.fg },
+		WhichKeySeparator = { fg = c.green },
+		WhichKeyFloat = { bg = c.cursorline },
+		WhichKeyGroup = { fg = c.blue, style = theme.italic },
 	}
 
 	return theme
