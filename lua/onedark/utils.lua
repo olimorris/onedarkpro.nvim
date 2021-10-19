@@ -4,13 +4,13 @@ Borrowed from https://github.com/EdenEast/nightfox.nvim
 
 local hsluv = require("onedark.hsluv")
 
-local util = {}
+local utils = {}
 
-util.bg = "#000000"
-util.fg = "#ffffff"
-util.day_brightness = 0.3
+utils.bg = "#000000"
+utils.fg = "#ffffff"
+utils.day_brightness = 0.3
 
-function util.warn(...)
+function utils.warn(...)
 	for _, msg in ipairs({ ... }) do
 		vim.cmd('echohl WarningMsg | echom "Onedark.nvim: ' .. msg .. '" | echohl NONE')
 	end
@@ -30,7 +30,7 @@ end
 ---@param fg string foreground color
 ---@param bg string background color
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
-function util.blend(fg, bg, alpha)
+function utils.blend(fg, bg, alpha)
 	bg = hex_to_rgb(bg)
 	fg = hex_to_rgb(fg)
 
@@ -42,20 +42,20 @@ function util.blend(fg, bg, alpha)
 	return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
-function util.darken(hex, amount, bg)
-	return util.blend(hex, bg or util.bg, math.abs(amount))
+function utils.darken(hex, amount, bg)
+	return utils.blend(hex, bg or utils.bg, math.abs(amount))
 end
 
-function util.lighten(hex, amount, fg)
-	return util.blend(hex, fg or util.fg, math.abs(amount))
+function utils.lighten(hex, amount, fg)
+	return utils.blend(hex, fg or utils.fg, math.abs(amount))
 end
 
-function util.invertColor(color)
+function utils.invertColor(color)
 	if color ~= "NONE" then
 		local hsl = hsluv.hex_to_hsluv(color)
 		hsl[3] = 100 - hsl[3]
 		if hsl[3] < 40 then
-			hsl[3] = hsl[3] + (100 - hsl[3]) * util.day_brightness
+			hsl[3] = hsl[3] + (100 - hsl[3]) * utils.day_brightness
 		end
 		return hsluv.hsluv_to_hex(hsl)
 	end
@@ -63,12 +63,12 @@ function util.invertColor(color)
 end
 
 -- Merge multiple tables together
-function util.tbl_deep_extend(...)
+function utils.tbl_deep_extend(...)
 	local lhs = {}
 	for _, rhs in ipairs({ ... }) do
 		for k, v in pairs(rhs) do
 			if type(lhs[k]) == "table" and type(v) == "table" then
-				lhs[k] = util.tbl_deep_extend(lhs[k], v)
+				lhs[k] = utils.tbl_deep_extend(lhs[k], v)
 			else
 				lhs[k] = v
 			end
@@ -77,7 +77,7 @@ function util.tbl_deep_extend(...)
 	return lhs
 end
 
-function util.color_overrides(colors, config)
+function utils.color_overrides(colors, config)
 	if type(config.colors) == "table" then
 		for key, value in pairs(config.colors) do
 			if not colors[key] then
@@ -86,7 +86,7 @@ function util.color_overrides(colors, config)
 
 			-- Patch: https://github.com/ful1e5/onedark.nvim/issues/6
 			if type(colors[key]) == "table" then
-				util.color_overrides(colors[key], { colors = value })
+				utils.color_overrides(colors[key], { colors = value })
 			else
 				if value:lower() == "none" then
 					-- set to none
@@ -106,7 +106,7 @@ function util.color_overrides(colors, config)
 	end
 end
 
-function util.highlight(group, color)
+function utils.highlight(group, color)
 	local style = color.style and "gui=" .. color.style or "gui=NONE"
 	local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
 	local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
@@ -126,7 +126,7 @@ end
 --
 ---@param str string template string
 ---@param table table key value pairs to replace in the string
-function util.template(str, table)
+function utils.template(str, table)
 	return (str:gsub("($%b{})", function(w)
 		return table[w:sub(3, -2)] or w
 	end))
@@ -135,27 +135,27 @@ end
 -- Template values in a table recursivly
 ---@param table table the table to be replaced
 ---@param values table the values to be replaced by the template strings in the table passed in
-function util.template_table(table, values)
+function utils.template_table(table, values)
 	-- if the value passed is a string the return templated resolved string
 	if type(table) == "string" then
-		return util.template(table, values)
+		return utils.template(table, values)
 	end
 
 	-- If the table passed in is a table then iterate though the children and call template table
 	for key, value in pairs(table) do
-		table[key] = util.template_table(value, values)
+		table[key] = utils.template_table(value, values)
 	end
 
 	return table
 end
 
-function util.set_syntax(tbl)
+function utils.set_syntax(tbl)
 	for group, colors in pairs(tbl) do
-		util.highlight(group, colors)
+		utils.highlight(group, colors)
 	end
 end
 
-function util.terminal(theme)
+function utils.terminal(theme)
 	vim.g.terminal_color_0 = theme.colors.black
 	vim.g.terminal_color_1 = theme.colors.red
 	vim.g.terminal_color_2 = theme.colors.green
@@ -175,7 +175,7 @@ function util.terminal(theme)
 	vim.g.terminal_color_15 = theme.colors.white
 end
 
-function util.load(theme)
+function utils.load(theme)
 	-- Prevent double loading the theme
 	if vim.g.loaded_onedark == theme.colors.name then
 		return
@@ -191,7 +191,7 @@ function util.load(theme)
 	vim.g.colors_name = "onedark" -- We technically only have the one theme so this must be hardcoded as onedark
 
 	-- Replace color variables in the user's custom hlgroups
-	local hlgroups = util.template_table(theme.config.hlgroups, theme.colors)
+	local hlgroups = utils.template_table(theme.config.hlgroups, theme.colors)
 
 	--[[
 	Due to recent configuration changes, we need to check if the user is using
@@ -206,22 +206,21 @@ function util.load(theme)
 		end
 	end
 	if warn > 0 then
-		util.warn(
+		utils.warn(
 			"Directly referencing highlight groups has now changed. Please use the `link` keyword",
 			"EXAMPLE: onedark.setup({ hlgroups = { ModeMsg = { link = 'LineNr' } } })",
-			"See https://github.com/olimorris/onedark.nvim for more info",
+			"See https://github.com/olimorris/onedarkpro.nvim for more info",
 			"-----------------------------------------------------------------------------------"
 		)
 	end
 
 	-- Merge the user's custom hlgroups with the theme's
-	local groups = util.tbl_deep_extend(theme.groups, hlgroups)
+	local groups = utils.tbl_deep_extend(theme.groups, hlgroups)
 
-	util.set_syntax(groups)
-
+	utils.set_syntax(groups)
 
 	if theme.config.options.terminal_colors then
-		util.terminal(theme)
+		utils.terminal(theme)
 	end
 
 	-- Set the global load variable and trigger the colorscheme autocommand
@@ -229,4 +228,4 @@ function util.load(theme)
 	vim.cmd([[doautocmd ColorScheme]])
 end
 
-return util
+return utils
