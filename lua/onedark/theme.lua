@@ -87,7 +87,7 @@ function M.apply(colors, config)
 		Conditional = { fg = c.purple, style = theme.italic }, --  if, then, else, endif, switch, etc.
 		Repeat = { fg = c.purple }, -- for, do, while, etc.
 		Label = { fg = c.red }, -- case, default, etc.
-		Operator = { fg = c.fg, style = theme.italic }, -- "sizeof", "+", "*", etc.
+		Operator = { fg = c.cyan, style = theme.italic }, -- "sizeof", "+", "*", etc.
 		Keyword = { fg = c.purple, style = config.styles.keywords }, -- any other keyword
 		Exception = { fg = c.purple }, -- try, catch, throw
 
@@ -151,8 +151,8 @@ function M.apply(colors, config)
 		TSConditional = { link = "Conditional" }, -- For keywords related to conditionnals.
 		TSConstant = { link = "Constant" }, -- For constants
 		TSConstBuiltin = { fg = c.orange }, -- For constant that are built in the language: `nil` in Lua.
-		TSConstMacro = { link = "Constant"}, -- For constants that are defined by macros: `NULL` in C.
-		TSConstructor = { fg = c.yellow }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
+		TSConstMacro = { link = "Constant" }, -- For constants that are defined by macros: `NULL` in C.
+		TSConstructor = { fg = c.cyan }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
 		TSError = { link = "Error" }, -- For syntax/parser errors.
 		TSException = { link = "Exception" }, -- For exception related keywords.
 		TSField = { fg = c.fg }, -- For fields.
