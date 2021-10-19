@@ -15,4 +15,11 @@ function M.load(name)
 	utils.load(theme, true)
 end
 
+-- Helper function
+-- Get the color table for a specific theme (e.g. onedark/onelight). This is 
+-- useful when you wish to format a plugin with the same colors as the theme
+function M.get_colors(name)
+	return require("onedark.colors").load(name)
+end
+
 return M
