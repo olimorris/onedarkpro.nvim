@@ -1,25 +1,20 @@
-local utils = require("onedark.utils")
-
 local M = {}
 
--- Set the config variables for the theme
+--[[
+	As onedark.nvim has been renamed to OneDarkPro.nvim, it felt odd not to
+	change the naming in the configuration. For existing users, this would
+	break their setups. To work around this, we keep this file in place
+	and point to the OneDarkPro functions instead.
+]]
+
 function M.setup(opts)
-	require("onedark.config").set_options(opts)
+	return require("onedarkpro").setup(opts)
 end
-
--- Apply the theme colors and set the highlight groups
 function M.load(name)
-	local colors = require("onedark.colors").load(name)
-	local theme = require("onedark.theme").apply(colors)
-
-	utils.load(theme, true)
+	return require("onedarkpro").load(name)
 end
-
--- Helper function
--- Get the color table for a specific theme (e.g. onedark/onelight). This is 
--- useful when you wish to format a plugin with the same colors as the theme
 function M.get_colors(name)
-	return require("onedark.colors").load(name)
+	return require("onedarkpro").get_colors(name)
 end
 
 return M

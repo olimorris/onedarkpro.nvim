@@ -1,3 +1,3 @@
 lua << EOF
-require("onedark").load()
+require("onedarkpro").load()
 EOF

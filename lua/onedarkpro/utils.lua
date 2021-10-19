@@ -2,7 +2,7 @@
 Borrowed from https://github.com/EdenEast/nightfox.nvim
 ]]
 
-local hsluv = require("onedark.hsluv")
+local hsluv = require("onedarkpro.hsluv")
 
 local utils = {}
 
@@ -12,7 +12,7 @@ utils.day_brightness = 0.3
 
 function utils.warn(...)
 	for _, msg in ipairs({ ... }) do
-		vim.cmd('echohl WarningMsg | echom "Onedark.nvim: ' .. msg .. '" | echohl NONE')
+		vim.cmd('echohl WarningMsg | echom "OneDarkPro.nvim: ' .. msg .. '" | echohl NONE')
 	end
 end
 
@@ -208,7 +208,7 @@ function utils.load(theme)
 	if warn > 0 then
 		utils.warn(
 			"Directly referencing highlight groups has now changed. Please use the `link` keyword",
-			"EXAMPLE: onedark.setup({ hlgroups = { ModeMsg = { link = 'LineNr' } } })",
+			"EXAMPLE: onedarkpro.setup({ hlgroups = { ModeMsg = { link = 'LineNr' } } })",
 			"See https://github.com/olimorris/onedarkpro.nvim for more info",
 			"-----------------------------------------------------------------------------------"
 		)

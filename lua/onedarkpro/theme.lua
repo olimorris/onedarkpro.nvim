@@ -1,8 +1,8 @@
 local M = {}
 
 function M.apply(colors, config)
-	local config = config or require("onedark.config").options
-	local colors = colors or require("onedark.colors").load()
+	local config = config or require("onedarkpro.config").options
+	local colors = colors or require("onedarkpro.colors").load()
 
 	local theme = {}
 	theme.config = config
@@ -56,7 +56,7 @@ function M.apply(colors, config)
 		PmenuThumb = { bg = c.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
 		Question = { link = "Folded" }, -- |hit-enter| prompt and yes/no questions
 		QuickFixLine = { bg = c.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		Search = { bg = c.gray }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+		Search = { bg = c.gray, style = theme.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine = { bg = c.bg, fg = c.fg }, -- status line of current window

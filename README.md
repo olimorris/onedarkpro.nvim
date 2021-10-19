@@ -120,7 +120,7 @@ call plug#end()
 Add the following to your `init.lua` file to start using the theme:
 
 ```lua
-require('onedark').load()
+require('onedarkpro').load()
 ```
 
 Alternatively, if you're using Vimscript:
@@ -133,8 +133,8 @@ colorscheme onedark
 The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedark/config.lua) file is:
 
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   theme = "onedark", -- The theme to be used (opts: 'onedark' or 'onelight')
   colors = {}, -- Override default colors
   hlgroups = {}, -- Override default highlight groups
@@ -153,27 +153,27 @@ onedark.setup({
       highlight_cursorline = false, -- Use cursorline highlighting?
   }
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 ### Configuring the theme
 Use either `onedark` or `onelight` for the dark and light themes, respectively.
 
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   theme = 'onedark', -- Or
   theme = 'onelight'
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 ### Configuring styles
 Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedark/theme.lua) file alongside your desired styles:
 
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   styles = {
     comments = "italic",
     functions = "NONE",
@@ -182,7 +182,7 @@ onedark.setup({
     variables = "NONE"
   }
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 Where **italic**, **bold**, **underline** and **NONE** are possible values for styles.
@@ -194,13 +194,13 @@ The theme has a palette of 13 core colors and 7 additional colors (for both ligh
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   colors = {
     red = '#FF0000'
   }
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 ### Configuring highlight groups
@@ -210,15 +210,15 @@ The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark
 3. Linking to other highlight groups in the theme
 
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   hlgroups = {
     Comment = { fg = '#FF0000', bg = '#FFFF00', style = "italic" }, -- 1
     Comment = { fg = '${red}' bg = '${yellow}', style = "bold,italic" }, -- 2
     Comment = { link = 'Substitute' }, -- 3
    }
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 ### Configuring options
@@ -229,8 +229,8 @@ Alongside `styles`, the theme also applies some opinionated formatting to match 
 These can be configured with the following options:
 
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   options = {
     bold = true, -- Use the themes opinionated bold styles?
 		italic = true, -- Use the themes opinionated italic styles?
@@ -238,15 +238,15 @@ onedark.setup({
 		undercurl = true, -- Use the themes opinionated undercurl styles?
   }
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 #### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
 
 ```lua
-local onedark = require('onedark')
-onedark.setup({
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
   colors = {
     cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
   },
@@ -254,7 +254,7 @@ onedark.setup({
     highlight_cursorline = true
   }
 })
-onedark.load()
+onedarkpro.load()
 ```
 
 ### Helper functions
@@ -263,7 +263,7 @@ onedark.load()
 To enable your plugins to match this theme, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
 
 ```lua
-local colors = require("onedark").get_colors("onelight")
+local colors = require("onedarkpro").get_colors("onelight")
 print(colors.purple) -- #9a77cf
 ```
 

@@ -1,4 +1,4 @@
-local utils = require("onedark.utils")
+local utils = require("onedarkpro.utils")
 local M = {}
 
 local config = {
@@ -31,7 +31,7 @@ function M.set_options(opts)
 	if M.options.highlight_cursorline then
 		utils.warn(
 			"`highlight_cursorline` has been moved into the options table of your config",
-			"EXAMPLE: onedark.setup({ options = { highlight_cursorline = true } })",
+			"EXAMPLE: onedarkpro.setup({ options = { highlight_cursorline = true } })",
 			"See https://github.com/olimorris/onedarkpro.nvim for more info",
 			"-----------------------------------------------------------------------------------"
 		)
