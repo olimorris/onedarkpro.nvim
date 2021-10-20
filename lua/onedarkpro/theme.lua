@@ -538,6 +538,16 @@ function M.apply(colors, config)
 		NvimTreeGitNew = { fg = c.green },
 		NvimTreeGitDeleted = { fg = c.red },
 
+		-- Packer
+		packerFail = { fg = c.red },
+		packerOutput = { fg = c.fg },
+		packerSuccess = { fg = c.green },
+		packerWorking = { fg = c.yellow },
+		packerStatus = { fg = c.fg },
+		packerStatusCommit = { fg = c.fg },
+		packerStatusFail = { fg = c.red },
+		packerStatusSuccess = { fg = c.green },
+
 		-- Startify
 		StartifyBracket = { fg = c.fg },
 		StartifyFile = { fg = c.purple, style = theme.bold },
