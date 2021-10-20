@@ -49,19 +49,23 @@
 - Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
 - Support for popular plugins:
     - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
-    - [cokeline.nvim](https://github.com/noib3/cokeline.nvim)
     - [Dashboard](https://github.com/glepnir/dashboard-nvim)
+    - [Hop](https://github.com/phaazon/hop.nvim)
     - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
     - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+    - [marks.nvim](https://github.com/chentau/marks.nvim)
     - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
     - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
     - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
     - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
     - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+    - [packer.nvim](https://github.com/wbthomason/packer.nvim)
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+    - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+    - [Trouble](https://github.com/folke/trouble.nvim)
     - [vim-ultest](https://github.com/rcarriga/vim-ultest)
     - [vim-startify](https://github.com/mhinz/vim-startify)
-    - [WhichKey](https://github.com/folke/which-key.nvim)
+    - [Which Key](https://github.com/folke/which-key.nvim)
 
 ## :camera: Screenshots
 ### Dark
@@ -130,7 +134,7 @@ colorscheme onedark
 ```
 
 ### Default configuration
-The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedark/config.lua) file is:
+The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/config.lua) file is:
 
 ```lua
 local onedarkpro = require('onedarkpro')
@@ -169,7 +173,7 @@ onedarkpro.load()
 ```
 
 ### Configuring styles
-Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedark/theme.lua) file alongside your desired styles:
+Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/theme.lua) file alongside your desired styles:
 
 ```lua
 local onedarkpro = require('onedarkpro')
@@ -190,7 +194,7 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
 ### Configuring colors
-The theme has a palette of 13 core colors and 7 additional colors (for both light and dark themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark/colors).
+The theme has a palette of 13 core colors and 7 additional colors (for both light and dark themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
@@ -204,7 +208,7 @@ onedarkpro.load()
 ```
 
 ### Configuring highlight groups
-The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
+The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
 1. Using specifc hex colors
 2. Referencing the name of color variables from the color files
 3. Linking to other highlight groups in the theme
@@ -224,7 +228,7 @@ onedarkpro.load()
 ### Configuring options
 
 #### Formatting
-Alongside `styles`, the theme also applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedark/theme.lua) file with `style` options containing `theme.*` values.
+Alongside `styles`, the theme also applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
 
 These can be configured with the following options:
 
@@ -233,9 +237,9 @@ local onedarkpro = require('onedarkpro')
 onedarkpro.setup({
   options = {
     bold = true, -- Use the themes opinionated bold styles?
-		italic = true, -- Use the themes opinionated italic styles?
-		underline = true, -- Use the themes opinionated underline styles?
-		undercurl = true, -- Use the themes opinionated undercurl styles?
+    italic = true, -- Use the themes opinionated italic styles?
+    underline = true, -- Use the themes opinionated underline styles?
+    undercurl = true, -- Use the themes opinionated undercurl styles?
   }
 })
 onedarkpro.load()

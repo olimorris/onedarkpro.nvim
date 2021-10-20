@@ -376,6 +376,8 @@ function M.apply(colors, config)
 		scssSelectorName = { fg = c.orange },
 		scssVariable = { link = "sassMixing" },
 
+		-- Plugins
+
 		-- Barbar.nvim
 		BufferCurrent = { fg = c.purple, bg = c.bg },
 		BufferCurrentIndex = { link = "BufferCurrent" },
@@ -397,33 +399,11 @@ function M.apply(colors, config)
 		BufferTabpages = { fg = c.purple }, -- The tab page indicator on the right
 		BufferTabpageFill = { fg = c.bg }, -- The sign which marks the end of the bufferline
 
-		-- Dap UI
-		DapUIScope = { bg = c.blue, fg = c.bg },
-		DapUIType = { fg = c.blue },
-		DapUIDecoration = { fg = c.blue },
-		DapUIThread = { fg = c.purple },
-		DapUIStoppedThread = { bg = c.purple, fg = c.bg },
-		DapUIFrameName = { fg = c.fg },
-		DapUISource = { fg = c.purple },
-		DapUIBreakpointsPath = { bg = c.yellow, fg = c.bg },
-		DapUIBreakpointsInfo = { fg = c.fg },
-		DapUIBreakpointsCurrentLine = { fg = c.yellow, style = theme.bold },
-		DapUIBreakpointsLine = { link = "DapUIBreakpointsCurrentLine" },
-		DapUIWatchesEmpty = { bg = c.red, fg = c.bg },
-		DapUIWatchesValue = { fg = c.red },
-		DapUIWatchesError = { fg = c.red },
-
 		-- Dashboard
 		-- dashboardHeader = {},
 		dashboardCenter = { fg = c.purple, style = theme.bold },
 		dashboardFooter = { fg = c.blue },
 		--dashboardShortCut = {},
-
-		-- hlslens
-		HlSearchNear = { bg = c.highlight, fg = c.bg },
-		HlSearchLens = { bg = c.gray },
-		HlSearchLensNear = { link = "HlSearchNear" },
-		HlSearchFloat = { link = "HlSearchNear" },
 
 		-- Hop.nvim
 		HopNextKey = { bg = c.green, fg = c.bg },
@@ -475,7 +455,7 @@ function M.apply(colors, config)
 		LspSagaDefPreviewBorder = { style = theme.bold },
 		LspLinesDiagBorder = { style = theme.bold },
 
-		-- Marks.nvim
+		-- marks.nvim
 		MarkSignHL = { fg = c.purple, bg = "NONE", style = theme.bold },
 		-- MarkSignNumHL = {  },
 		MarkVirtTextHL = { fg = c.gray, style = theme.italic },
@@ -495,6 +475,28 @@ function M.apply(colors, config)
 		DebugHighlight = { fg = c.blue },
 		DebugHighlightLine = { fg = c.purple, style = theme.italic },
 		NvimDapVirtualText = { fg = c.cyan, style = theme.italic },
+
+		-- nvim-dap-ui
+		DapUIScope = { bg = c.blue, fg = c.bg },
+		DapUIType = { fg = c.blue },
+		DapUIDecoration = { fg = c.blue },
+		DapUIThread = { fg = c.purple },
+		DapUIStoppedThread = { bg = c.purple, fg = c.bg },
+		DapUIFrameName = { fg = c.fg },
+		DapUISource = { fg = c.purple },
+		DapUIBreakpointsPath = { bg = c.yellow, fg = c.bg },
+		DapUIBreakpointsInfo = { fg = c.fg },
+		DapUIBreakpointsCurrentLine = { fg = c.yellow, style = theme.bold },
+		DapUIBreakpointsLine = { link = "DapUIBreakpointsCurrentLine" },
+		DapUIWatchesEmpty = { bg = c.red, fg = c.bg },
+		DapUIWatchesValue = { fg = c.red },
+		DapUIWatchesError = { fg = c.red },
+
+		-- nvim-hlslens
+		HlSearchNear = { bg = c.highlight, fg = c.bg },
+		HlSearchLens = { bg = c.gray },
+		HlSearchLensNear = { link = "HlSearchNear" },
+		HlSearchFloat = { link = "HlSearchNear" },
 
 		-- nvim-tree
 		NvimTreeNormalNC = { bg = c.color_column }, -- Color when nvim-tree is no longer in focus
