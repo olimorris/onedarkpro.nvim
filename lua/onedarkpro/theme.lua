@@ -539,14 +539,12 @@ function M.apply(colors, config)
 		NvimTreeGitDeleted = { fg = c.red },
 
 		-- Packer
-		packerFail = { fg = c.red },
-		packerOutput = { fg = c.fg },
-		packerSuccess = { fg = c.green },
-		packerWorking = { fg = c.yellow },
-		packerStatus = { fg = c.fg },
-		packerStatusCommit = { fg = c.fg },
+		packerFail = { fg = c.red }, -- Icon when install/update fails
+		packerSuccess = { fg = c.green }, -- Icon when install/update is a success
+		packerWorking = { fg = c.yellow }, -- Icon when syncing
+		packerOutput = { fg = c.blue }, -- Text beneath plugin title (e.g. Commits)
 		packerStatusFail = { fg = c.red },
-		packerStatusSuccess = { fg = c.green },
+		packerStatusSuccess = { fg = c.green }, -- Plugin name when install/update is a success
 
 		-- Startify
 		StartifyBracket = { fg = c.fg },
