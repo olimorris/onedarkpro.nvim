@@ -174,9 +174,9 @@ function M.apply(colors, config)
 		TSParameter = { fg = c.red, style = theme.italic }, -- For parameters of a function.
 		TSParameterReference = { fg = c.fg }, -- For references to parameters of a function.
 		TSProperty = { fg = c.red }, -- Same as `TSField`.
-		TSPunctDelimiter = { fg = c.fg }, -- For delimiters ie: `.`
-		TSPunctBracket = { fg = c.red }, -- For brackets and parens.
-		TSPunctSpecial = { fg = c.red }, -- For special punctutation that does not fall in the catagories before.
+		TSPunctDelimiter = { link = "Delimiter" }, -- For delimiters ie: `.`
+		TSPunctBracket = { fg = c.fg }, -- For brackets and parens.
+		TSPunctSpecial = { fg = c.fg }, -- For special punctutation that does not fall in the catagories before.
 		TSRepeat = { fg = c.purple, style = theme.italic }, -- For keywords related to loops.
 		TSString = { fg = c.green, style = config.styles.strings }, -- For strings.
 		TSStringRegex = { fg = c.green, style = config.styles.strings }, -- For regexes.

@@ -84,17 +84,17 @@
 
 ### Color guide
 #### Dark
-<img src="https://user-images.githubusercontent.com/9512444/137644013-2a03a2dd-b139-4d8f-b695-c92ce68ecff9.png" alt="Dark colors" />
+<img src="https://user-images.githubusercontent.com/9512444/138352749-4500f5d7-87cd-485f-8640-d1e2910e45ba.png" alt="Dark colors" />
 
 #### Light
-<img src="https://user-images.githubusercontent.com/9512444/137644028-11cb1fdd-1578-4a8a-bda8-60cabff74fe3.png" alt="Light colors" />
+<img src="https://user-images.githubusercontent.com/9512444/138352643-382fccda-b33a-43a0-9397-abc15f792427.png" alt="Light colors" />
 
 ### Comparison to VS Code's One Dark Pro
 #### Python
-<img src="https://user-images.githubusercontent.com/9512444/137963073-89b8b9fc-4b90-4843-8375-62401b7b2c5a.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/138352820-2ba95c7e-b399-46f4-b6b4-f50f6ceaea34.png" alt="Comparison to VS Code - Python" />
 
 #### React
-<img src="https://user-images.githubusercontent.com/9512444/137963142-fca437cd-d31a-4eca-90d5-5e3e8a6e64af.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/138353070-59215e32-c7c2-458e-8454-0c1564e03d26.png" alt="Comparison to VS Code - React" />
 
 > **Note:** All screenshots have Treesitter highlighting enabled
 
