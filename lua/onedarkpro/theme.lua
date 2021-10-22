@@ -34,9 +34,9 @@ function M.apply(colors, config)
 		-- TermCursor   = {}, -- cursor in a focused terminal
 		-- TermCursorNC = {}, -- cursor in an unfocused terminal
 		ErrorMsg = { fg = c.red }, -- error messages on the command line
-		Folded = { fg = c.gray }, -- line used for closed folds
+		Folded = { bg = config.options.transparent and c.none or c.bg, fg = c.gray }, -- line used for closed folds
 		-- FoldColumn = {}, -- 'foldcolumn'
-		SignColumn = { bg = c.bg }, -- column where |signs| are displayed
+		SignColumn = { bg = config.options.transparent and c.none or c.bg }, -- column where |signs| are displayed
 		IncSearch = { bg = c.selection, fg = c.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute = { bg = c.yellow, fg = c.bg }, -- |:substitute| replacement text highlighting
 		LineNr = { link = "Folded" }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -46,7 +46,7 @@ function M.apply(colors, config)
 		MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = c.green }, -- |more-prompt|
 		NonText = { link = "Folded" }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		Normal = { bg = c.bg, fg = c.fg }, -- normal text
+		Normal = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- normal text
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 		FloatBorder = { link = "Folded" },
 		NormalNC = { link = "Normal" }, -- normal text in non-current windows
