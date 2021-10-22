@@ -21,6 +21,7 @@ function M.load(config)
 		black = "#1e1e1e",
 		gray = "#5c6370",
 		highlight = "#e2be7d",
+		none = "NONE",
 	}
 
 	-- Additional colors
