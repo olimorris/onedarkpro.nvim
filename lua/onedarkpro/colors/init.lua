@@ -11,6 +11,10 @@ M.themes = {
 function M.get_theme_colors(name)
 	name = name or require("onedarkpro.config").options.theme
 
+	if type(name) == "function" then
+		name = name()
+	end
+
 	if vim.tbl_contains(M.themes, name) then
 		return require("onedarkpro.colors." .. name).load()
 	end

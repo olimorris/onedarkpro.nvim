@@ -35,7 +35,7 @@
 - [License](#page_with_curl-license)
 
 ## :sparkles: Features
-- **Dark** and **light** versions
+- **Dark** and **light** versions - *onedark* and *onelight*
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - Options to specify styles for:
     - Comments
@@ -133,13 +133,27 @@ Alternatively, if you're using Vimscript:
 colorscheme onedarkpro
 ```
 
+> **Note:** You can use `vim.o.background` to select the theme
+
+```lua
+vim.o.background = "light" -- to load onelight
+require('onedarkpro').load()
+```
+
 ### Default configuration
 The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/config.lua) file is:
 
 ```lua
 local onedarkpro = require('onedarkpro')
 onedarkpro.setup({
-  theme = "onedark", -- The theme to be used (opts: 'onedark' or 'onelight')
+  -- The theme to be used. Can be either `onedark` or `onelight`. Leave blank to let `vim.o.background` dictate
+  theme = function()
+		if vim.o.background == "dark" then
+			return "onedark"
+		else
+			return "onelight"
+		end
+	end,
   colors = {}, -- Override default colors
   hlgroups = {}, -- Override default highlight groups
   styles = {
@@ -195,7 +209,7 @@ colors = {
 }
 ```
 #### Specifying new colors
-You can also specify new colors which will be merged into the theme's color palette:
+You can specify new colors which will be merged into the theme's color palette:
 ```lua
 colors = {
   my_new_red = '#f44336'
@@ -233,7 +247,7 @@ hlgroups = {
 ### Configuring options
 
 #### Formatting
-Alongside `styles`, the theme also applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
+Alongside `styles`, the theme applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
 
 These can be configured with the following options:
 
