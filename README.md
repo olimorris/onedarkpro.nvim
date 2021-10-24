@@ -130,7 +130,7 @@ require('onedarkpro').load()
 Alternatively, if you're using Vimscript:
 
 ```lua
-colorscheme onedark
+colorscheme onedarkpro
 ```
 
 ### Default configuration
@@ -165,29 +165,20 @@ onedarkpro.load()
 Use either `onedark` or `onelight` for the dark and light themes, respectively.
 
 ```lua
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  theme = 'onedark', -- Or
-  theme = 'onelight'
-})
-onedarkpro.load()
+theme = 'onedark', -- [onedark/onelight] 
 ```
 
 ### Configuring styles
 Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/theme.lua) file alongside your desired styles:
 
 ```lua
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  styles = {
-    comments = "italic",
-    functions = "NONE",
-    keywords = "bold,italic",
-    strings = "NONE",
-    variables = "NONE"
-  }
-})
-onedarkpro.load()
+styles = {
+  comments = "italic",
+  functions = "NONE",
+  keywords = "bold,italic",
+  strings = "NONE",
+  variables = "NONE"
+}
 ```
 
 Where **italic**, **bold**, **underline** and **NONE** are possible values for styles.
@@ -195,35 +186,48 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
 ### Configuring colors
-The theme has a palette of 13 core colors and 7 additional colors (for both light and dark themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/colors).
+The theme has a palette of 13 core colors and 7 additional colors (for both `onelight` and `onedark` themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  colors = {
-    red = '#FF0000'
-  }
-})
-onedarkpro.load()
+colors = {
+  red = '#FF0000'
+}
+```
+#### Specifying new colors
+You can also specify new colors which will be merged into the theme's color palette:
+```lua
+colors = {
+  my_new_red = '#f44336'
+}
+```
+> **Note:** Your custom colors can be referenced in highlight group overrides
+
+#### Specifying colors by theme
+You may wish to change the theme's default `bg` color, as an example. For the `onedark` and `onelight` themes, it would make sense to have separate colors for both. This can be achieved by specifying the theme name as a table, followed by the color:
+```lua
+colors = {
+  onelight = {
+    bg = "#00FF00", -- green
+  },
+  onedark = {
+    bg = "#FFFF00", -- yellow
+  },
+}
 ```
 
 ### Configuring highlight groups
 The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
 1. Using specifc hex colors
-2. Referencing the name of color variables from the color files
+2. Referencing the name of color variables
 3. Linking to other highlight groups in the theme
 
 ```lua
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  hlgroups = {
-    Comment = { fg = '#FF0000', bg = '#FFFF00', style = "italic" }, -- 1
-    Comment = { fg = '${red}' bg = '${yellow}', style = "bold,italic" }, -- 2
-    Comment = { link = 'Substitute' }, -- 3
-   }
-})
-onedarkpro.load()
+hlgroups = {
+  Comment = { fg = '#FF0000', bg = '#FFFF00', style = "italic" }, -- 1
+  Comment = { fg = '${my_new_red}' bg = '${yellow}', style = "bold,italic" }, -- 2
+  Comment = { link = 'Substitute' }, -- 3
+}
 ```
 
 ### Configuring options
@@ -234,32 +238,24 @@ Alongside `styles`, the theme also applies some opinionated formatting to match 
 These can be configured with the following options:
 
 ```lua
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  options = {
-    bold = true, -- Use the themes opinionated bold styles?
-    italic = true, -- Use the themes opinionated italic styles?
-    underline = true, -- Use the themes opinionated underline styles?
-    undercurl = true, -- Use the themes opinionated undercurl styles?
-  }
-})
-onedarkpro.load()
+options = {
+  bold = true, -- Use the themes opinionated bold styles?
+  italic = true, -- Use the themes opinionated italic styles?
+  underline = true, -- Use the themes opinionated underline styles?
+  undercurl = true, -- Use the themes opinionated undercurl styles?
+}
 ```
 
 #### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
 
 ```lua
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  colors = {
-    cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
-  },
-  options = {
-    highlight_cursorline = true
-  }
-})
-onedarkpro.load()
+colors = {
+  cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
+},
+options = {
+  highlight_cursorline = true
+}
 ```
 
 ### Helper functions

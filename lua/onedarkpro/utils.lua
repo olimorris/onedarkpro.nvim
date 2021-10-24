@@ -16,6 +16,9 @@ function utils.warn(...)
 	end
 end
 
+---Convert a hex color into an rgb
+---@param hex_str string
+---@return table
 local hex_to_rgb = function(hex_str)
 	local hex = "[abcdef0-9][abcdef0-9]"
 	local pat = "^#(" .. hex .. ")(" .. hex .. ")(" .. hex .. ")$"
@@ -27,6 +30,7 @@ local hex_to_rgb = function(hex_str)
 	return { tonumber(r, 16), tonumber(g, 16), tonumber(b, 16) }
 end
 
+---Blend colors together
 ---@param fg string foreground color
 ---@param bg string background color
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
@@ -42,27 +46,27 @@ function utils.blend(fg, bg, alpha)
 	return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
+---Darken a hex color
+---@param hex string
+---@param amount integer
+---@param bg string
+---@return table
 function utils.darken(hex, amount, bg)
 	return utils.blend(hex, bg or utils.bg, math.abs(amount))
 end
 
+---Lighten a hex color
+---@param hex string
+---@param amount integer
+---@param fg string
+---@return table
 function utils.lighten(hex, amount, fg)
 	return utils.blend(hex, fg or utils.fg, math.abs(amount))
 end
 
-function utils.invertColor(color)
-	if color ~= "NONE" then
-		local hsl = hsluv.hex_to_hsluv(color)
-		hsl[3] = 100 - hsl[3]
-		if hsl[3] < 40 then
-			hsl[3] = hsl[3] + (100 - hsl[3]) * utils.day_brightness
-		end
-		return hsluv.hsluv_to_hex(hsl)
-	end
-	return color
-end
-
--- Merge multiple tables together
+---Merge many tables together
+---@param ... table
+---@return table
 function utils.tbl_deep_extend(...)
 	local lhs = {}
 	for _, rhs in ipairs({ ... }) do
@@ -77,71 +81,86 @@ function utils.tbl_deep_extend(...)
 	return lhs
 end
 
+---Determine the theme's colors to be overriden
+---@param colors table
+---@param config table
+---@return nil
 function utils.color_overrides(colors, config)
 	if type(config.colors) == "table" then
 		for key, value in pairs(config.colors) do
-			if not colors[key] then
-				error("Color " .. key .. " does not exist")
-			end
-
-			-- Patch: https://github.com/ful1e5/onedark.nvim/issues/6
-			if type(colors[key]) == "table" then
-				utils.color_overrides(colors[key], { colors = value })
-			else
-				if value:lower() == "none" then
-					-- set to none
-					colors[key] = "NONE"
-				elseif string.sub(value, 1, 1) == "#" then
-					-- hex override
-					colors[key] = value
-				else
-					-- another group
-					if not colors[value] then
-						error("Color " .. value .. " does not exist")
+			-- check if the user has specified a table within the colors table
+			if type(config.colors[key]) == "table" then
+				-- only override colors if the key matches the name of the active theme
+				if key == colors.name then
+					for key, value in pairs(config.colors[key]) do
+						utils.set_or_create_color(colors, key, value)
 					end
-					colors[key] = colors[value]
 				end
+			else
+				utils.set_or_create_color(colors, key, value)
 			end
 		end
 	end
 end
 
-function utils.highlight(group, color)
+---Override the default colors within the theme or add the color to the theme
+---@param colors table
+---@param key string
+---@param value string
+---@return nil
+function utils.set_or_create_color(colors, key, value)
+	-- Patch: https://github.com/ful1e5/onedark.nvim/issues/6
+	if value:lower() == "none" then
+		colors[key] = "NONE"
+	elseif string.sub(value, 1, 1) == "#" then
+		-- hex override
+		colors[key] = value
+	else
+		-- create the new color
+		colors[key] = colors[value]
+	end
+end
+
+---Create the highlight groups from the theme
+---@param group string
+---@param color table
+---@return nil
+function utils.create_highlights(group, color)
 	local style = color.style and "gui=" .. color.style or "gui=NONE"
 	local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
 	local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
 	local sp = color.sp and "guisp=" .. color.sp or ""
 	local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
-	vim.cmd(hl)
-
-	if color.link and (color.fg == nil and color.bg == nil and color.sg == nil) then
+	if color.link and (color.fg == nil and color.bg == nil and color.sp == nil) then
 		vim.cmd("highlight! link " .. group .. " " .. color.link)
+	else
+		vim.cmd(hl)
 	end
 end
 
--- Simple string interpolation.
---
--- Example template: "${name} is ${value}"
---
+---Simple string interpolation.
+---Example template: "${name} is ${value}"
 ---@param str string template string
 ---@param table table key value pairs to replace in the string
+---@return table
 function utils.template(str, table)
 	return (str:gsub("($%b{})", function(w)
 		return table[w:sub(3, -2)] or w
 	end))
 end
 
--- Template values in a table recursivly
+---Template values in a table recursivly
 ---@param table table the table to be replaced
 ---@param values table the values to be replaced by the template strings in the table passed in
+---@return table
 function utils.template_table(table, values)
 	-- if the value passed is a string the return templated resolved string
 	if type(table) == "string" then
 		return utils.template(table, values)
 	end
 
-	-- If the table passed in is a table then iterate though the children and call template table
+	-- If the table passed in has a table then iterate though the children and call template table
 	for key, value in pairs(table) do
 		table[key] = utils.template_table(value, values)
 	end
@@ -149,12 +168,18 @@ function utils.template_table(table, values)
 	return table
 end
 
-function utils.set_syntax(tbl)
-	for group, colors in pairs(tbl) do
-		utils.highlight(group, colors)
+---Set the theme's syntax
+---@param highlight_groups table
+---@return nil
+function utils.set_syntax(highlight_groups)
+	for group, colors in pairs(highlight_groups) do
+		utils.create_highlights(group, colors)
 	end
 end
 
+---Set the terminal colors
+---@param theme table
+---@return nil
 function utils.terminal(theme)
 	vim.g.terminal_color_0 = theme.colors.black
 	vim.g.terminal_color_1 = theme.colors.red
