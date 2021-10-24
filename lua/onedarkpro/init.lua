@@ -2,24 +2,28 @@ local utils = require("onedarkpro.utils")
 
 local M = {}
 
--- Set the config variables for the theme
+---Set the config variables for the theme
+---@param opts table
+---@return table
 function M.setup(opts)
-	require("onedarkpro.config").set_options(opts)
+	return require("onedarkpro.config").set_options(opts)
 end
 
--- Apply the theme colors and set the highlight groups
+---Load the desired color groups with the theme
+---@param name string
+---@return table
 function M.load(name)
-	local colors = require("onedarkpro.colors").load(name)
+	local colors = require("onedarkpro.colors").get_theme_colors(name)
 	local theme = require("onedarkpro.theme").apply(colors)
 
-	utils.load(theme)
+	return utils.load(theme)
 end
 
--- Helper function
--- Get the color table for a specific theme (e.g. onedark/onelight). This is 
--- useful when you wish to format a plugin with the same colors as the theme
+---Get the color table for a specific theme (e.g. onedark/onelight).
+---@param name string
+---@return table
 function M.get_colors(name)
-	return require("onedarkpro.colors").load(name)
+	return require("onedarkpro.colors").get_theme_colors(name)
 end
 
 return M

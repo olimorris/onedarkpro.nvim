@@ -5,9 +5,10 @@ M.themes = {
 	"onelight",
 }
 
--- Return color table based on the name provided
--- If no name is provided then Onedark is returned
-function M.load(name)
+---Return color table based on the name provided
+---@param name string
+---@return table
+function M.get_theme_colors(name)
 	name = name or require("onedarkpro.config").options.theme
 
 	if vim.tbl_contains(M.themes, name) then
