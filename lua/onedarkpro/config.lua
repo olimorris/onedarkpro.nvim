@@ -2,7 +2,13 @@ local utils = require("onedarkpro.utils")
 local M = {}
 
 local config = {
-	theme = "onedark", -- The theme to be used (opts: 'onedark' or 'onelight')
+	theme = function() -- The theme to be used (opts: 'onedark' or 'onelight')
+		if vim.o.background == "dark" then
+			return "onedark"
+		else
+			return "onelight"
+		end
+	end,
 	colors = {}, -- Override default colors
 	hlgroups = {}, -- Override default highlight groups
 	styles = {
