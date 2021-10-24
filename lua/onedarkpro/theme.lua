@@ -5,7 +5,6 @@ local M = {}
 ---@param config table
 ---@return table theme
 function M.apply(colors, config)
-
 	local config = config or require("onedarkpro.config").options
 
 	local theme = {}

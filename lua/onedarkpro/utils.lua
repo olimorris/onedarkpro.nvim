@@ -212,6 +212,7 @@ function utils.load(theme)
 
 	vim.o.termguicolors = true
 	vim.g.colors_name = "onedarkpro"
+	vim.g.onedarkpro_style = theme.colors.name
 
 	-- Replace color variables in the user's custom hlgroups
 	local hlgroups = utils.template_table(theme.config.hlgroups, theme.colors)
