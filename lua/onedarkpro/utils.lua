@@ -200,20 +200,18 @@ function utils.terminal(theme)
 	vim.g.terminal_color_15 = theme.colors.white
 end
 
+---Load the desired theme
+---@param theme table
+---@return nil
 function utils.load(theme)
-	-- Prevent double loading the theme
-	if vim.g.loaded_onedark == theme.colors.name then
-		return
+	vim.cmd("hi clear")
+
+	if vim.fn.exists("syntax_on") then
+		vim.cmd("syntax reset")
 	end
 
-	-- Clear all highlights from other color schemes
-	if vim.g.colors_name then
-		vim.cmd("hi clear")
-	end
-
-	vim.o.background = "dark"
 	vim.o.termguicolors = true
-	vim.g.colors_name = "onedark" -- We technically only have the one theme so this must be hardcoded as onedark
+	vim.g.colors_name = "onedarkpro"
 
 	-- Replace color variables in the user's custom hlgroups
 	local hlgroups = utils.template_table(theme.config.hlgroups, theme.colors)
@@ -248,8 +246,7 @@ function utils.load(theme)
 		utils.terminal(theme)
 	end
 
-	-- Set the global load variable and trigger the colorscheme autocommand
-	vim.g.loaded_onedark = theme.colors.name
+	-- Trigger the colorscheme autocommand
 	vim.cmd([[doautocmd ColorScheme]])
 end
 
