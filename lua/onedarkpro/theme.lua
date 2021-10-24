@@ -1,8 +1,12 @@
 local M = {}
 
+---Apply the colors and the config file to the theme's highlight groups
+---@param colors table
+---@param config table
+---@return table theme
 function M.apply(colors, config)
+
 	local config = config or require("onedarkpro.config").options
-	local colors = colors or require("onedarkpro.colors").load()
 
 	local theme = {}
 	theme.config = config
@@ -59,10 +63,10 @@ function M.apply(colors, config)
 		Search = { bg = c.gray, style = theme.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-		StatusLine = { bg = c.bg, fg = c.fg }, -- status line of current window
-		StatusLineNC = { bg = c.bg, fg = c.fg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		TabLine = { bg = c.bg }, -- tab pages line, not active tab page label
-		TabLineFill = { bg = c.bg, fg = c.fg }, -- tab pages line, where there are no labels
+		StatusLine = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- status line of current window
+		StatusLineNC = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		TabLine = { bg = config.options.transparent and c.none or c.bg }, -- tab pages line, not active tab page label
+		TabLineFill = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- tab pages line, where there are no labels
 		TabLineSel = { bg = c.comment, fg = c.purple }, -- tab pages line, active tab page label
 		Title = { fg = c.green }, -- titles for output from ":set all", ":autocmd" etc.
 		VertSplit = { link = "Folded" }, -- the column separating vertically split windows
@@ -379,12 +383,12 @@ function M.apply(colors, config)
 		-- Plugins
 
 		-- Barbar.nvim
-		BufferCurrent = { fg = c.purple, bg = c.bg },
+		BufferCurrent = { fg = c.purple, bg = config.options.transparent and c.none or c.bg },
 		BufferCurrentIndex = { link = "BufferCurrent" },
 		BufferCurrentMod = { fg = c.purple },
 		BufferCurrentSign = { link = "BufferCurrentMod" },
 		BufferCurrentIcon = { link = "BufferCurrentMod" },
-		BufferCurrentTarget = { bg = c.bg, fg = c.blue, style = theme.bold },
+		BufferCurrentTarget = { bg = config.options.transparent and c.none or c.bg, fg = c.blue, style = theme.bold },
 		BufferVisible = { fg = c.gray },
 		BufferVisibleIndex = { link = "BufferVisible" },
 		BufferVisibleMod = { link = "BufferVisible" },
@@ -577,7 +581,7 @@ function M.apply(colors, config)
 		TroubleLocation = { bg = "NONE", fg = c.cyan },
 
 		-- Toggleterm
-		ToggleTerm = { bg = c.bg, fg = c.fg },
+		ToggleTerm = { bg = config.options.transparent and c.none or c.bg, fg = c.fg },
 		ToggleTermBorder = { fg = c.gray },
 
 		-- Ultest
