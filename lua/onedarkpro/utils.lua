@@ -1,15 +1,12 @@
---[[
-Borrowed from https://github.com/EdenEast/nightfox.nvim
-]]
-
-local hsluv = require("onedarkpro.hsluv")
-
 local utils = {}
 
 utils.bg = "#000000"
 utils.fg = "#ffffff"
 utils.day_brightness = 0.3
 
+---Print a warning message to the user
+---@param ... string
+---@return table
 function utils.warn(...)
 	for _, msg in ipairs({ ... }) do
 		vim.cmd('echohl WarningMsg | echom "OneDarkPro.nvim: ' .. msg .. '" | echohl NONE')
@@ -153,7 +150,7 @@ end
 ---Template values in a table recursivly
 ---@param table table the table to be replaced
 ---@param values table the values to be replaced by the template strings in the table passed in
----@return table
+---@return table table
 function utils.template_table(table, values)
 	-- if the value passed is a string the return templated resolved string
 	if type(table) == "string" then
@@ -204,6 +201,11 @@ end
 ---@param theme table
 ---@return nil
 function utils.load(theme)
+	-- Prevent double loading of theme
+	if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_style == theme.colors.name then
+		return
+	end
+
 	vim.cmd("hi clear")
 
 	if vim.fn.exists("syntax_on") then
