@@ -133,7 +133,7 @@ Alternatively, if you're using Vimscript:
 colorscheme onedarkpro
 ```
 
-> **Note:** You can use `vim.o.background` to select the theme
+> **Note:** You can use `vim.o.background` to set the theme
 
 ```lua
 vim.o.background = "light" -- to load onelight
@@ -146,15 +146,9 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require('onedarkpro')
 onedarkpro.setup({
-  -- The theme to be used. Can be either `onedark` or `onelight`. Leave blank to let `vim.o.background` dictate
-  theme = function()
-		if vim.o.background == "dark" then
-			return "onedark"
-		else
-			return "onelight"
-		end
-	end,
-  colors = {}, -- Override default colors
+  -- Override with "onedark" or "onelight". Alternatively, dont specify a value and let `vim.o.background` set the theme
+  theme = function(),
+  colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
   hlgroups = {}, -- Override default highlight groups
   styles = {
       strings = "NONE", -- Style that is applied to strings
@@ -181,6 +175,7 @@ Use either `onedark` or `onelight` for the dark and light themes, respectively.
 ```lua
 theme = 'onedark', -- [onedark/onelight] 
 ```
+If you don't specify any value for `theme`, then the current value of `vim.o.background` will be used to set the theme.
 
 ### Configuring styles
 Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/theme.lua) file alongside your desired styles:
@@ -218,14 +213,14 @@ colors = {
 > **Note:** Your custom colors can be referenced in highlight group overrides
 
 #### Specifying colors by theme
-You may wish to change the theme's default `bg` color, as an example. For the `onedark` and `onelight` themes, it would make sense to have separate colors for both. This can be achieved by specifying the theme name as a table, followed by the color:
+As an example, you may wish to change the theme's default `bg` color. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 ```lua
 colors = {
-  onelight = {
-    bg = "#00FF00", -- green
-  },
   onedark = {
     bg = "#FFFF00", -- yellow
+  },
+  onelight = {
+    bg = "#00FF00", -- green
   },
 }
 ```
