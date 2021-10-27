@@ -146,8 +146,7 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require('onedarkpro')
 onedarkpro.setup({
-  -- Override with "onedark" or "onelight". Alternatively, dont specify a value and let `vim.o.background` set the theme
-  theme = function(),
+  theme = "[onedark][onelight][nil]", -- Override with "onedark" or "onelight". Alternatively, don't specify a value and let `vim.o.background` set the theme
   colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
   hlgroups = {}, -- Override default highlight groups
   styles = {
