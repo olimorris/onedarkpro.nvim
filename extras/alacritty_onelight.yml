@@ -1,0 +1,33 @@
+# onedarkpro.nvim - onelight
+colors:
+  primary:
+    background: "#fafafa"
+    foreground: "#6a6a6a"
+
+  normal:
+    black: "#6a6a6a"
+    red: "#e05661"
+    green: "#1da912"
+    yellow: "#eea825"
+    blue: "#118dc3"
+    magenta: "#9a77cf"
+    cyan: "#56B6C2"
+    white: "#fafafa"
+  
+  bright:
+    black: "#5f5f5f"
+    red: "#e05661"
+    green: "#1da912"
+    yellow: "#eea825"
+    blue: "#118dc3"
+    magenta: "#9a77cf"
+    cyan: "#56B6C2"
+    white: "#fcfcfc"
+
+  cursor:
+    text: CellBackground
+    cursor: CellForeground # syntax-cursor-color
+
+  selection:
+    text: CellForeground
+    background: "#bfceff" # syntax-selection-color
