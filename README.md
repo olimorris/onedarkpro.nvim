@@ -30,6 +30,8 @@
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
   - [Configuring options](#configuring-options)
+- [Extras](#gift-extras)
+  - [Terminal themes](#terminal-themes)
   - [Helper functions](#helper-functions)
 - [Credits](#clap-credits)
 - [License](#page_with_curl-license)
@@ -254,9 +256,19 @@ options = {
 }
 ```
 
+#### Transparency
+The theme also supports transparent backgrounds:
+
+```lua
+options = {
+  transparent = true
+}
+```
+
+By setting the transparent option to `true`, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency can be applied by overriding the highlight groups.
+
 #### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
-
 ```lua
 colors = {
   cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
@@ -265,6 +277,11 @@ options = {
   highlight_cursorline = true
 }
 ```
+
+## :gift: Extras
+
+### Terminal themes
+The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/master/extras) folder.
 
 ### Helper functions
 
@@ -279,6 +296,20 @@ print(colors.purple) -- #9a77cf
 Changing the theme from `onelight` to `onedark` would return a new table of colors.
 
 > **Note:** Setting a `ColorScheme` autocommand which refreshes the configuration of your relevant plugin will ensure that they are using the correct colors from **One Dark Pro**
+
+#### Toggling between Onedark and Onelight
+To enable the easy switching between themes, the following helper function could be used:
+
+```lua
+function ToggleTheme()
+	if vim.o.background == "dark" then
+		vim.o.background = "light"
+	else
+		vim.o.background = "dark"
+	end
+	require("onedarkpro").load()
+end
+```
 
 ## :clap: Credits
 
