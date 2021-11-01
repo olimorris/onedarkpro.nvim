@@ -17,6 +17,7 @@ function M.apply(colors, config)
 	theme.underline = config.options.underline and "underline" or "NONE"
 	theme.undercurl = config.options.undercurl and "undercurl" or "NONE"
 	theme.bold_italic = (theme.bold ~= "NONE" and theme.italic ~= "NONE") and "bold,italic" or "NONE"
+	theme.transparency = (config.options.transparency or config.options.transparent) and "NONE" or c.bg
 
 	theme.groups = {
 		ColorColumn = { bg = c.color_column }, -- used for the columns set with 'colorcolumn'
@@ -37,9 +38,9 @@ function M.apply(colors, config)
 		-- TermCursor   = {}, -- cursor in a focused terminal
 		-- TermCursorNC = {}, -- cursor in an unfocused terminal
 		ErrorMsg = { fg = c.red }, -- error messages on the command line
-		Folded = { bg = config.options.transparent and c.none or c.bg, fg = c.gray }, -- line used for closed folds
+		Folded = { bg = theme.transparency, fg = c.gray }, -- line used for closed folds
 		-- FoldColumn = {}, -- 'foldcolumn'
-		SignColumn = { bg = config.options.transparent and c.none or c.bg }, -- column where |signs| are displayed
+		SignColumn = { bg = theme.transparency }, -- column where |signs| are displayed
 		IncSearch = { bg = c.selection, fg = c.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute = { bg = c.yellow, fg = c.bg }, -- |:substitute| replacement text highlighting
 		LineNr = { link = "Folded" }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -49,7 +50,7 @@ function M.apply(colors, config)
 		MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = c.green }, -- |more-prompt|
 		NonText = { link = "Folded" }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		Normal = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- normal text
+		Normal = { bg = theme.transparency, fg = c.fg }, -- normal text
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 		FloatBorder = { link = "Folded" },
 		NormalNC = { link = "Normal" }, -- normal text in non-current windows
@@ -62,10 +63,10 @@ function M.apply(colors, config)
 		Search = { bg = c.gray, style = theme.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-		StatusLine = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- status line of current window
-		StatusLineNC = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		TabLine = { bg = config.options.transparent and c.none or c.bg }, -- tab pages line, not active tab page label
-		TabLineFill = { bg = config.options.transparent and c.none or c.bg, fg = c.fg }, -- tab pages line, where there are no labels
+		StatusLine = { bg = theme.transparency, fg = c.fg }, -- status line of current window
+		StatusLineNC = { bg = theme.transparency, fg = c.fg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		TabLine = { bg = theme.transparency }, -- tab pages line, not active tab page label
+		TabLineFill = { bg = theme.transparency, fg = c.fg }, -- tab pages line, where there are no labels
 		TabLineSel = { bg = c.comment, fg = c.purple }, -- tab pages line, active tab page label
 		Title = { fg = c.green }, -- titles for output from ":set all", ":autocmd" etc.
 		VertSplit = { link = "Folded" }, -- the column separating vertically split windows
@@ -382,12 +383,12 @@ function M.apply(colors, config)
 		-- Plugins
 
 		-- Barbar.nvim
-		BufferCurrent = { fg = c.purple, bg = config.options.transparent and c.none or c.bg },
+		BufferCurrent = { fg = c.purple, bg = theme.transparency },
 		BufferCurrentIndex = { link = "BufferCurrent" },
 		BufferCurrentMod = { fg = c.purple },
 		BufferCurrentSign = { link = "BufferCurrentMod" },
 		BufferCurrentIcon = { link = "BufferCurrentMod" },
-		BufferCurrentTarget = { bg = config.options.transparent and c.none or c.bg, fg = c.blue, style = theme.bold },
+		BufferCurrentTarget = { bg = theme.transparency, fg = c.blue, style = theme.bold },
 		BufferVisible = { fg = c.gray },
 		BufferVisibleIndex = { link = "BufferVisible" },
 		BufferVisibleMod = { link = "BufferVisible" },
@@ -580,7 +581,7 @@ function M.apply(colors, config)
 		TroubleLocation = { bg = "NONE", fg = c.cyan },
 
 		-- Toggleterm
-		ToggleTerm = { bg = config.options.transparent and c.none or c.bg, fg = c.fg },
+		ToggleTerm = { bg = theme.transparency, fg = c.fg },
 		ToggleTermBorder = { fg = c.gray },
 
 		-- Ultest
