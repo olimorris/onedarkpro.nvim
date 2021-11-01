@@ -23,7 +23,7 @@ local config = {
 		italic = true, -- Use the themes opinionated italic styles?
 		underline = true, -- Use the themes opinionated underline styles?
 		undercurl = true, -- Use the themes opinionated undercurl styles?
-		transparent = false, -- Use a transparent background?
+		transparency = false, -- Use a transparent background?
 		terminal_colors = false, -- Use the 16 terminal colors instead?
 		highlight_cursorline = false, -- Use cursorline highlighting?
 	},

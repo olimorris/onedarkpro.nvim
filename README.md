@@ -261,11 +261,11 @@ The theme also supports transparent backgrounds:
 
 ```lua
 options = {
-  transparent = true
+  transparency = true
 }
 ```
 
-By setting the transparent option to `true`, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency can be applied by overriding the highlight groups.
+By setting the transparency option to `true`, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency can be applied by overriding the highlight groups.
 
 #### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
@@ -302,12 +302,12 @@ To enable the easy switching between themes, the following helper function could
 
 ```lua
 function ToggleTheme()
-	if vim.o.background == "dark" then
-		vim.o.background = "light"
-	else
-		vim.o.background = "dark"
-	end
-	require("onedarkpro").load()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+  require("onedarkpro").load()
 end
 ```
 

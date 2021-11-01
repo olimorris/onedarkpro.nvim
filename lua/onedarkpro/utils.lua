@@ -219,6 +219,15 @@ function utils.load(theme)
 	-- Replace color variables in the user's custom hlgroups
 	local hlgroups = utils.template_table(theme.config.hlgroups, theme.colors)
 
+	-- Merge the user's custom hlgroups with the theme's
+	local groups = utils.tbl_deep_extend(theme.groups, hlgroups)
+
+	utils.set_syntax(groups)
+
+	if theme.config.options.terminal_colors then
+		utils.terminal(theme)
+	end
+
 	--[[
 	Due to recent configuration changes, we need to check if the user is using
 	the "link =" annotations correcrtly. If not, warn them accordingly
@@ -240,13 +249,16 @@ function utils.load(theme)
 		)
 	end
 
-	-- Merge the user's custom hlgroups with the theme's
-	local groups = utils.tbl_deep_extend(theme.groups, hlgroups)
-
-	utils.set_syntax(groups)
-
-	if theme.config.options.terminal_colors then
-		utils.terminal(theme)
+	--[[
+		Warn the user about the deprecated transparent option
+	]]
+	if theme.config.options.transparent then
+		utils.warn(
+			"The `transparent` option has been renamed to `transparency` and will soon be deprecated.",
+			"EXAMPLE: onedarkpro.setup({ options = { transparency = true } })",
+			"See https://github.com/olimorris/onedarkpro.nvim for more info",
+			"-----------------------------------------------------------------------------------"
+		)
 	end
 
 	-- Trigger the colorscheme autocommand
