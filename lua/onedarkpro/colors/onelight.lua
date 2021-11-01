@@ -36,11 +36,6 @@ function M.load(config)
 
 	utils.color_overrides(colors, config)
 
-	-- Override the cursorline color if the option is not enabled
-	if not config.options.highlight_cursorline then
-		colors.cursorline = colors.bg
-	end
-
 	return colors
 end
 

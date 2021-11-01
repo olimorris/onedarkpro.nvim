@@ -17,8 +17,9 @@ function M.apply(colors, config)
 	theme.underline = config.options.underline and "underline" or "NONE"
 	theme.undercurl = config.options.undercurl and "undercurl" or "NONE"
 	theme.bold_italic = (theme.bold ~= "NONE" and theme.italic ~= "NONE") and "bold,italic" or "NONE"
+	theme.cursorline = (config.options.cursorline or config.options.highlight_cursorline) and c.cursorline or c.bg
 	theme.transparency = (config.options.transparency or config.options.transparent) and "NONE" or c.bg
-
+	
 	theme.groups = {
 		ColorColumn = { bg = c.color_column }, -- used for the columns set with 'colorcolumn'
 		Comment = { fg = c.comment, style = config.styles.comments }, -- Comments
@@ -27,8 +28,8 @@ function M.apply(colors, config)
 		-- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 		-- CursorIM     = {bg = c.red}, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorColumn = { bg = c.gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorLine = { bg = c.cursorline }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-		CursorLineNr = { bg = c.cursorline, fg = c.purple, style = theme.bold }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		CursorLine = { bg = theme.cursorline }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorLineNr = { bg = theme.cursorline, fg = c.purple, style = theme.bold }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		Directory = { fg = c.blue }, -- directory names (and other special names in listings)
 		DiffAdd = { bg = c.green, fg = c.black }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = c.yellow, style = theme.underline }, -- diff mode: Changed line |diff.txt|
@@ -59,7 +60,7 @@ function M.apply(colors, config)
 		PmenuSbar = { bg = c.menu_scroll }, -- Popup menu: scrollbar.
 		PmenuThumb = { bg = c.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
 		Question = { link = "Folded" }, -- |hit-enter| prompt and yes/no questions
-		QuickFixLine = { bg = c.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+		QuickFixLine = { bg = theme.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search = { bg = c.gray, style = theme.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
@@ -563,9 +564,9 @@ function M.apply(colors, config)
 		StartifySpecial = { fg = c.red },
 
 		-- Telescope
-		TelescopeSelection = { bg = c.cursorline, fg = c.purple },
+		TelescopeSelection = { bg = theme.cursorline, fg = c.purple },
 		TelescopeSelectionCaret = { fg = c.purple },
-		TelescopeMultiSelection = { bg = c.cursorline, fg = c.comment },
+		TelescopeMultiSelection = { bg = theme.cursorline, fg = c.comment },
 		TelescopeNormal = { fg = c.fg },
 		TelescopeBorder = { fg = c.comment },
 		TelescopePromptBorder = { link = "TelescopeBorder" },
@@ -595,7 +596,7 @@ function M.apply(colors, config)
 		WhichKey = { fg = c.purple, style = theme.bold },
 		WhichKeyDesc = { fg = c.fg },
 		WhichKeySeparator = { fg = c.green },
-		WhichKeyFloat = { bg = c.cursorline },
+		WhichKeyFloat = { bg = theme.cursorline },
 		WhichKeyGroup = { fg = c.blue, style = theme.italic },
 	}
 

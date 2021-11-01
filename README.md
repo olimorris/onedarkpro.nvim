@@ -163,8 +163,8 @@ onedarkpro.setup({
       italic = true, -- Use the themes opinionated italic styles?
       underline = true, -- Use the themes opinionated underline styles?
       undercurl = true, -- Use the themes opinionated undercurl styles?
+      cursorline = false, -- Use cursorline highlighting?
       transparent = false, -- Use a transparent background?
-      highlight_cursorline = false, -- Use cursorline highlighting?
   }
 })
 onedarkpro.load()
@@ -274,7 +274,7 @@ colors = {
   cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
 },
 options = {
-  highlight_cursorline = true
+  cursorline = true
 }
 ```
 

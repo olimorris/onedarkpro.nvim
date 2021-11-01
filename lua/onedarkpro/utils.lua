@@ -250,11 +250,31 @@ function utils.load(theme)
 	end
 
 	--[[
+		Warn the user about the deprecated cursorline option
+	]]
+	if theme.config.highlight_cursorline then
+		utils.warn(
+			"`highlight_cursorline` has been moved into the options table of your config and is now deprecated",
+			"EXAMPLE: onedarkpro.setup({ options = { highlight_cursorline = true } })",
+			"See https://github.com/olimorris/onedarkpro.nvim for more info",
+			"-----------------------------------------------------------------------------------"
+		)
+	end
+	if theme.config.options.highlight_cursorline then
+		utils.warn(
+			"`highlight_cursorline` has been renamed to `cursorline` and will soon be deprecated",
+			"EXAMPLE: onedarkpro.setup({ options = { cursorline = true } })",
+			"See https://github.com/olimorris/onedarkpro.nvim for more info",
+			"-----------------------------------------------------------------------------------"
+		)
+	end
+
+	--[[
 		Warn the user about the deprecated transparent option
 	]]
 	if theme.config.options.transparent then
 		utils.warn(
-			"The `transparent` option has been renamed to `transparency` and will soon be deprecated.",
+			"The `transparent` option has been renamed to `transparency` and will soon be deprecated",
 			"EXAMPLE: onedarkpro.setup({ options = { transparency = true } })",
 			"See https://github.com/olimorris/onedarkpro.nvim for more info",
 			"-----------------------------------------------------------------------------------"
