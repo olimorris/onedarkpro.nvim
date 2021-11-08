@@ -21,6 +21,9 @@ function M.load(config)
 		black = "#6a6a6a",
 		gray = "#bebebe",
 		highlight = "#e2be7d",
+		diff_add_bg = "#cae3e8",
+		diff_delete_bg = "#f5c6c6",
+		diff_text_bg = "#a6d0d8",
 		none = "NONE",
 	}
 

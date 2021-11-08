@@ -31,10 +31,10 @@ function M.apply(colors, config)
 		CursorLine = { bg = theme.cursorline }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLineNr = { bg = theme.cursorline, fg = c.purple, style = theme.bold }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		Directory = { fg = c.blue }, -- directory names (and other special names in listings)
-		DiffAdd = { bg = c.green, fg = c.black }, -- diff mode: Added line |diff.txt|
-		DiffChange = { fg = c.yellow, style = theme.underline }, -- diff mode: Changed line |diff.txt|
-		DiffDelete = { bg = c.red, fg = c.bg },
-		DiffText = { bg = c.yellow, fg = c.bg }, -- diff mode: Changed text within a changed line |diff.txt|
+		DiffAdd = { bg = c.diff_add_bg }, -- diff mode: Added line |diff.txt|
+		DiffChange = { style = theme.underline }, -- diff mode: Changed line |diff.txt|
+		DiffDelete = { bg = c.diff_delete_bg },
+		DiffText = { bg = c.diff_text_bg }, -- diff mode: Changed text within a changed line |diff.txt|
 		EndOfBuffer = { fg = c.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
 		-- TermCursor   = {}, -- cursor in a focused terminal
 		-- TermCursorNC = {}, -- cursor in an unfocused terminal
