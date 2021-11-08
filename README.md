@@ -313,6 +313,12 @@ end
 
 ## :clap: Credits
 
+### Contributors
+Thanks to the following contributors for their work on the theme:
+
+* [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
+
+### Inspiration
 The following themes were used, *heavily*, as an inspiration:
 
 * [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this theme
