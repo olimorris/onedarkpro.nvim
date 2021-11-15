@@ -21,21 +21,23 @@ function M.load(config)
 		black = "#1e1e1e",
 		gray = "#5c6370",
 		highlight = "#e2be7d",
-		diff_add_bg = "#003e4a",
-		diff_delete_bg = "#501b20",
-		diff_text_bg = "#005869",
 		none = "NONE",
 	}
 
 	-- Additional colors
-	colors.cursorline = utils.lighten(colors.bg, 0.97)
-	colors.comment = utils.lighten(colors.gray, 0.8)
-	colors.selection = utils.lighten(colors.bg, 0.8)
 	colors.color_column = utils.lighten(colors.bg, 0.97)
+	colors.comment = utils.lighten(colors.gray, 0.8)
+	colors.cursorline = utils.lighten(colors.bg, 0.97)
 	colors.indentline = utils.lighten(colors.bg, 0.92)
 	colors.menu = utils.lighten(colors.bg, 0.85)
 	colors.menu_scroll = utils.lighten(colors.bg, 0.90)
 	colors.menu_scroll_thumb = utils.darken(colors.blue, 0.80)
+	colors.selection = utils.lighten(colors.bg, 0.8)
+
+	-- Git diff
+	colors.diff_add_bg = "#003e4a"
+	colors.diff_delete_bg = "#501b20"
+	colors.diff_text_bg = "#005869"
 
 	utils.color_overrides(colors, config)
 

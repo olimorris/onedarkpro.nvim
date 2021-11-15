@@ -21,9 +21,6 @@ function M.load(config)
 		black = "#6a6a6a",
 		gray = "#bebebe",
 		highlight = "#e2be7d",
-		diff_add_bg = "#cae3e8",
-		diff_delete_bg = "#f5c6c6",
-		diff_text_bg = "#a6d0d8",
 		none = "NONE",
 	}
 
@@ -36,6 +33,11 @@ function M.load(config)
 	colors.menu = utils.darken(colors.bg, 0.95)
 	colors.menu_scroll = utils.darken(colors.bg, 0.90)
 	colors.menu_scroll_thumb = utils.lighten(colors.blue, 0.80)
+
+	-- Git diff
+	colors.diff_add_bg = "#cae3e8"
+	colors.diff_delete_bg = "#f5c6c6"
+	colors.diff_text_bg = "#a6d0d8"
 
 	utils.color_overrides(colors, config)
 
