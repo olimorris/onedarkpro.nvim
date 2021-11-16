@@ -18,8 +18,9 @@
 - [Screenshots](#camera-screenshots)
   - [Dark](#dark)
   - [Light](#light)
-  - [Color guide](#color-guide)
   - [Comparison to VS Code's One Dark Pro](#comparison-to-vs-codes-one-dark-pro)
+  - [Lualine](#lualine)
+  - [Color guide](#color-guide)
 - [Requirements](#zap-requirements)
 - [Installation](#package-installation)
 - [Configuration](#wrench-configuration)
@@ -84,15 +85,7 @@
 #### React
 <img src="https://user-images.githubusercontent.com/9512444/137556949-0829b6e3-d1f6-453d-b225-1aae1d1ccfe0.png" alt="Light React" />
 
-### Lualine
-<img src="https://user-images.githubusercontent.com/9512444/141862781-342c8cbb-027e-4ccf-b6c4-ddd0d0546122.gif" alt="Lualine" />
-
-### Color guide
-#### Dark
-<img src="https://user-images.githubusercontent.com/9512444/138352749-4500f5d7-87cd-485f-8640-d1e2910e45ba.png" alt="Dark colors" />
-
-#### Light
-<img src="https://user-images.githubusercontent.com/9512444/138352643-382fccda-b33a-43a0-9397-abc15f792427.png" alt="Light colors" />
+> **Note:** All screenshots have Treesitter highlighting enabled
 
 ### Comparison to VS Code's One Dark Pro
 #### Python
@@ -101,7 +94,19 @@
 #### React
 <img src="https://user-images.githubusercontent.com/9512444/138353070-59215e32-c7c2-458e-8454-0c1564e03d26.png" alt="Comparison to VS Code - React" />
 
-> **Note:** All screenshots have Treesitter highlighting enabled
+### Lualine
+#### Dark
+<img src="https://user-images.githubusercontent.com/9512444/141958202-77a8e021-d396-496d-87bf-2803bade6717.png" alt="Lualine Dark" />
+
+#### Light
+<img src="https://user-images.githubusercontent.com/9512444/141958282-b1ce4e97-a1a3-4d99-acc1-74ca510f7296.png" alt="Lualine Light" />
+
+### Color guide
+#### Dark
+<img src="https://user-images.githubusercontent.com/9512444/138352749-4500f5d7-87cd-485f-8640-d1e2910e45ba.png" alt="Dark colors" />
+
+#### Light
+<img src="https://user-images.githubusercontent.com/9512444/138352643-382fccda-b33a-43a0-9397-abc15f792427.png" alt="Light colors" />
 
 ## :zap: Requirements
 - Neovim 0.5 or greater
@@ -151,7 +156,7 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require('onedarkpro')
 onedarkpro.setup({
-  theme = "[onedark][onelight][nil]", -- Override with "onedark" or "onelight". Alternatively, don't specify a value and let `vim.o.background` set the theme
+  theme = function(), -- Override with "onedark" or "onelight". Alternatively, remove the option and the theme uses `vim.o.background` to determine
   colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
   hlgroups = {}, -- Override default highlight groups
   styles = {
@@ -167,7 +172,7 @@ onedarkpro.setup({
       underline = true, -- Use the themes opinionated underline styles?
       undercurl = true, -- Use the themes opinionated undercurl styles?
       cursorline = false, -- Use cursorline highlighting?
-      transparent = false, -- Use a transparent background?
+      transparency = false, -- Use a transparent background?
   }
 })
 onedarkpro.load()
