@@ -39,6 +39,11 @@ function M.load(config)
 	colors.diff_delete_bg = "#f5c6c6"
 	colors.diff_text_bg = "#a6d0d8"
 
+	-- Lualine colors
+	colors.bg_statusline = utils.darken(colors.bg, 0.95)
+	colors.fg_gutter = utils.darken(colors.bg, 0.90)
+	colors.fg_sidebar = colors.fg
+
 	utils.color_overrides(colors, config)
 
 	return colors

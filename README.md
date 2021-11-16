@@ -84,6 +84,9 @@
 #### React
 <img src="https://user-images.githubusercontent.com/9512444/137556949-0829b6e3-d1f6-453d-b225-1aae1d1ccfe0.png" alt="Light React" />
 
+### Lualine
+<img src="https://user-images.githubusercontent.com/9512444/141862781-342c8cbb-027e-4ccf-b6c4-ddd0d0546122.gif" alt="Lualine" />
+
 ### Color guide
 #### Dark
 <img src="https://user-images.githubusercontent.com/9512444/138352749-4500f5d7-87cd-485f-8640-d1e2910e45ba.png" alt="Dark colors" />
