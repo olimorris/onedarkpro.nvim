@@ -5,7 +5,7 @@ utils.fg = "#ffffff"
 utils.day_brightness = 0.3
 
 ---Print a warning message to the user
----@param ... string
+---@param... string
 ---@return table
 function utils.warn(...)
 	for _, msg in ipairs({ ... }) do
@@ -62,7 +62,7 @@ function utils.lighten(hex, amount, fg)
 end
 
 ---Merge many tables together
----@param ... table
+---@param... table
 ---@return table
 function utils.tbl_deep_extend(...)
 	local lhs = {}
@@ -78,7 +78,7 @@ function utils.tbl_deep_extend(...)
 	return lhs
 end
 
----Determine the theme's colors to be overriden
+---Set or override the default colors in the theme with the user's config
 ---@param colors table
 ---@param config table
 ---@return nil
@@ -94,13 +94,14 @@ function utils.color_overrides(colors, config)
 					end
 				end
 			else
+				-- otherwise just set them
 				utils.set_or_create_color(colors, key, value)
 			end
 		end
 	end
 end
 
----Override the default colors within the theme or add the color to the theme
+---Add a color to the colors table
 ---@param colors table
 ---@param key string
 ---@param value string

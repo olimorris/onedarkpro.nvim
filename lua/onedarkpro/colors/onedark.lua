@@ -44,6 +44,7 @@ function M.load(config)
 	colors.fg_gutter = utils.lighten(colors.bg, 0.90)
 	colors.fg_sidebar = colors.fg
 
+	-- Set the color table and include the users custom config
 	utils.color_overrides(colors, config)
 
 	return colors

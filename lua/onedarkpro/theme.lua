@@ -411,6 +411,7 @@ function M.apply(colors, config)
 		--dashboardShortCut = {},
 
 		-- Hop.nvim
+		-- https://github.com/phaazon/hop.nvim/blob/e3c9fc3ab1e1db6bfb4f19377c53d0e457e0e2e9/doc/hop.txt#L759
 		HopNextKey = { bg = c.green, fg = c.bg },
 		HopNextKey1 = { bg = c.yellow, fg = c.bg },
 		HopNextKey2 = { link = "HopNextKey1" },
@@ -418,6 +419,7 @@ function M.apply(colors, config)
 		HopCursor = { link = "Cursor" },
 
 		-- Indentline
+		-- https://github.com/lukas-reineke/indent-blankline.nvim/blob/caf7f61e94525bbd97e32f118efd6c0722430616/doc/indent_blankline.txt#L31
 		IndentLine = { fg = c.indentline },
 		IndentBlanklineChar = { link = "IndentLine" },
 		IndentBlanklineSpaceChar = { link = "IndentLine" },
@@ -461,6 +463,7 @@ function M.apply(colors, config)
 		LspLinesDiagBorder = { style = theme.bold },
 
 		-- marks.nvim
+		-- https://github.com/chentau/marks.nvim/blob/555e8265989aa13249e76fd229226fb74101f905/doc/marks-nvim.txt#L278
 		MarkSignHL = { fg = c.purple, bg = "NONE", style = theme.bold },
 		-- MarkSignNumHL = {  },
 		MarkVirtTextHL = { fg = c.gray, style = theme.italic },
