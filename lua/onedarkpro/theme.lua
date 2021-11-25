@@ -424,7 +424,8 @@ function M.apply(colors, config)
 		IndentBlanklineChar = { link = "IndentLine" },
 		IndentBlanklineSpaceChar = { link = "IndentLine" },
 		IndentBlanklineSpaceCharBlankline = { link = "IndentLine" },
-		IndentBlanklineContextChar = { link = "IndentLine" },
+		IndentBlanklineContextChar = { fg = c.purple },
+		IndentBlanklineContextStart = { style = "underline" },
 
 		-- LSP Saga
 		LspSagaDiagnosticBorder = { link = "NormalNC" },
