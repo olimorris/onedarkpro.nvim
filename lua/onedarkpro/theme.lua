@@ -19,7 +19,7 @@ function M.apply(colors, config)
 	theme.bold_italic = (theme.bold ~= "NONE" and theme.italic ~= "NONE") and "bold,italic" or "NONE"
 	theme.cursorline = (config.options.cursorline or config.options.highlight_cursorline) and c.cursorline or c.bg
 	theme.transparency = (config.options.transparency or config.options.transparent) and "NONE" or c.bg
-	
+
 	theme.groups = {
 		ColorColumn = { bg = c.color_column }, -- used for the columns set with 'colorcolumn'
 		Comment = { fg = c.comment, style = config.styles.comments }, -- Comments
@@ -36,8 +36,8 @@ function M.apply(colors, config)
 		DiffDelete = { bg = c.diff_delete_bg },
 		DiffText = { bg = c.diff_text_bg }, -- diff mode: Changed text within a changed line |diff.txt|
 		EndOfBuffer = { fg = c.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-		-- TermCursor   = {}, -- cursor in a focused terminal
-		-- TermCursorNC = {}, -- cursor in an unfocused terminal
+		TermCursor = { bg = c.purple }, -- cursor in a focused terminal
+		TermCursorNC = { bg = c.gray }, -- cursor in an unfocused terminal
 		ErrorMsg = { fg = c.red }, -- error messages on the command line
 		Folded = { bg = theme.transparency, fg = c.gray }, -- line used for closed folds
 		-- FoldColumn = {}, -- 'foldcolumn'
