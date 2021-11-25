@@ -290,7 +290,9 @@ options = {
 The theme supports changing the color of the main window in Neovim when focussed is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
-alt_normal_color = true
+options = {
+  alt_normal_color = true
+}
 ```
 
 > **Note:** This can be seen in the [Python screenshots](#python) above where `nvim-tree` is opened and out of focus
