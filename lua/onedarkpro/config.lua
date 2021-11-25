@@ -26,6 +26,7 @@ local config = {
 		cursorline = false, -- Use cursorline highlighting?
 		transparency = false, -- Use a transparent background?
 		terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+		alt_normal_color = false, -- When the window is out of focus, change the normal background?
 	},
 }
 

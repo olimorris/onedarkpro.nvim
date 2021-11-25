@@ -174,6 +174,7 @@ onedarkpro.setup({
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
       terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+      alt_normal_color = false, -- When the window is out of focus, change the normal background?
   }
 })
 onedarkpro.load()
@@ -266,7 +267,7 @@ options = {
 ```
 
 #### Transparency
-The theme also supports transparent backgrounds:
+The theme supports transparent backgrounds:
 
 ```lua
 options = {
@@ -277,13 +278,22 @@ options = {
 By setting the transparency option to `true`, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency can be applied by overriding the highlight groups.
 
 #### Terminal Colors
-The theme also supports changing the colors for Neovim's `:terminal`:
+The theme supports changing the colors for Neovim's `:terminal`:
 
 ```lua
 options = {
   terminal_colors = true
 }
 ```
+
+#### Alternate Normal Color
+The theme supports changing the color of the main window in Neovim when focussed is lost. For example, when a `telescope` or `packer` pop up appears:
+
+```lua
+alt_normal_color = true
+```
+
+> **Note:** This can be seen in the [Python screenshots](#python) above where `nvim-tree` is opened and out of focus
 
 #### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:

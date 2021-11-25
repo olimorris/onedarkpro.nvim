@@ -54,7 +54,10 @@ function M.apply(colors, config)
 		Normal = { bg = theme.transparency, fg = c.fg }, -- normal text
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 		FloatBorder = { link = "Folded" },
-		NormalNC = { link = "Normal" }, -- normal text in non-current windows
+		NormalNC = {
+			bg = config.options.transparency and c.none or config.options.alt_normal_color and c.color_column or c.bg,
+			fg = c.fg,
+		}, -- normal text in non-current windows
 		Pmenu = { bg = c.menu }, -- Popup menu: normal item.
 		PmenuSel = { bg = c.blue, fg = c.bg }, -- Popup menu: selected item.
 		PmenuSbar = { bg = c.menu_scroll }, -- Popup menu: scrollbar.
@@ -65,7 +68,10 @@ function M.apply(colors, config)
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine = { bg = theme.transparency, fg = c.fg }, -- status line of current window
-		StatusLineNC = { bg = theme.transparency, fg = c.fg }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		StatusLineNC = {
+			bg = config.options.transparency and c.none or config.options.alt_normal_color and c.color_column or c.bg,
+			fg = c.fg,
+		}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		TabLine = { bg = theme.transparency }, -- tab pages line, not active tab page label
 		TabLineFill = { bg = theme.transparency, fg = c.fg }, -- tab pages line, where there are no labels
 		TabLineSel = { bg = c.comment, fg = c.purple }, -- tab pages line, active tab page label
@@ -508,7 +514,7 @@ function M.apply(colors, config)
 		HlSearchFloat = { link = "HlSearchNear" },
 
 		-- nvim-tree
-		NvimTreeNormalNC = { bg = c.color_column }, -- Color when nvim-tree is no longer in focus
+		NvimTreeNormalNC = { bg = config.options.alt_normal_color and c.color_column or c.bg, }, -- Color when nvim-tree is no longer in focus
 
 		NvimTreeSymlink = { fg = c.cyan, style = theme.underline },
 		NvimTreeFolderName = { fg = c.blue },
