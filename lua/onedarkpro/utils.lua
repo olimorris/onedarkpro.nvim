@@ -225,6 +225,7 @@ function utils.load(theme)
 
 	utils.set_syntax(groups)
 
+	-- Colors for the Neovim terminal
 	if theme.config.options.terminal_colors then
 		utils.terminal(theme)
 	end

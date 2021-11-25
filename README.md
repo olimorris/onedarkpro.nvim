@@ -173,6 +173,7 @@ onedarkpro.setup({
       undercurl = true, -- Use the themes opinionated undercurl styles?
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
+      terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
   }
 })
 onedarkpro.load()
@@ -274,6 +275,15 @@ options = {
 ```
 
 By setting the transparency option to `true`, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency can be applied by overriding the highlight groups.
+
+#### Terminal Colors
+The theme also supports changing the colors for Neovim's `:terminal`:
+
+```lua
+options = {
+  terminal_colors = true
+}
+```
 
 #### Cursorline
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:

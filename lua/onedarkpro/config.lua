@@ -25,7 +25,7 @@ local config = {
 		undercurl = true, -- Use the themes opinionated undercurl styles?
 		cursorline = false, -- Use cursorline highlighting?
 		transparency = false, -- Use a transparent background?
-		terminal_colors = false, -- Use the 16 terminal colors instead?
+		terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
 	},
 }
 
