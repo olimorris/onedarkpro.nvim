@@ -166,7 +166,7 @@ function M.apply(colors, config)
 		TSConstructor = { fg = c.cyan }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
 		TSError = { link = "Error" }, -- For syntax/parser errors.
 		TSException = { link = "Exception" }, -- For exception related keywords.
-		TSField = { fg = c.fg }, -- For fields.
+		TSField = { fg = c.fg }, -- For fields (responsible for making YAML files look rubbish!)
 		TSFloat = { link = "Float" }, -- For floats.
 		TSFunction = { fg = c.blue, style = config.styles.functions }, -- For function (calls and definitions).
 		TSFuncBuiltin = { fg = c.yellow }, -- For builtin functions: `table.insert` in Lua.
@@ -475,14 +475,43 @@ function M.apply(colors, config)
 		-- MarkSignNumHL = {  },
 		MarkVirtTextHL = { fg = c.gray, style = theme.italic },
 
-		-- nvim-compe and nvim-cmp
-		CompeDocumentation = { fg = c.fg, bg = c.menu },
+		-- nvim-cmp
+		-- https://github.com/hrsh7th/nvim-cmp#highlights
+		-- https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/types/lsp.lua#L108
 		CmpDocumentation = { fg = c.fg, bg = c.menu },
 		CmpDocumentationBorder = { fg = c.fg, bg = c.menu },
+
 		CmpItemAbbr = { fg = c.fg },
-		CmpItemAbbrMatch = { fg = c.fg, style = config.styles.keywords },
-		CmpItemKind = { fg = c.blue },
+		CmpItemAbbrMatch = { fg = c.cyan, style = theme.bold_italic },
+		CmpItemAbbrMatchFuzzy = { fg = c.yellow },
+
 		CmpItemMenu = { fg = c.fg },
+		CmpItemKind = { fg = c.blue },
+		CmpItemKindText = { fg = c.fg },
+		CmpItemKindMethod = { fg = c.blue },
+		CmpItemKindFunction = { link = "CmpItemKindMethod" },
+		CmpItemKindConstructor = { fg = c.cyan },
+		CmpItemKindField = { fg = c.fg },
+		CmpItemKindVariable = { fg = c.red },
+		CmpItemKindClass = { fg = c.yellow },
+		CmpItemKindInterface = { link = "CmpItemKindClass" },
+		-- CmpItemKindModule = {},
+		CmpItemKindProperty = { fg = c.red },
+		-- CmpItemKindUnit = {},
+		CmpItemKindValue = { fg = c.orange },
+		-- CmpItemKindEnum = {},
+		CmpItemKindKeyword = { fg = c.purple },
+		CmpItemKindSnippet = { fg = c.green },
+		-- CmpItemKindVColor = {},
+		-- CmpItemKindFile = {},
+		-- CmpItemKindReference = {},
+		-- CmpItemKindFolder = {},
+		-- CmpItemKindEnumMember = {},
+		CmpItemKindConstant = { fg = c.green },
+		-- CmpItemKindStruct = {},
+		-- CmpItemKindEvent = {},
+		-- CmpItemKindOperator = {},
+		-- CmpItemKindTypeParameter = {},
 
 		-- nvim-dap
 		DebugBreakpoint = { fg = c.red },
@@ -514,7 +543,7 @@ function M.apply(colors, config)
 		HlSearchFloat = { link = "HlSearchNear" },
 
 		-- nvim-tree
-		NvimTreeNormalNC = { bg = config.options.alt_normal_color and c.color_column or c.bg, }, -- Color when nvim-tree is no longer in focus
+		NvimTreeNormalNC = { bg = config.options.alt_normal_color and c.color_column or c.bg }, -- Color when nvim-tree is no longer in focus
 
 		NvimTreeSymlink = { fg = c.cyan, style = theme.underline },
 		NvimTreeFolderName = { fg = c.blue },
