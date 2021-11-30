@@ -55,7 +55,7 @@ function M.apply(colors, config)
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 		FloatBorder = { link = "Folded" },
 		NormalNC = {
-			bg = config.options.transparency and c.none or config.options.alt_normal_color and c.color_column or c.bg,
+			bg = config.options.transparency and c.none or config.options.window_unfocussed_color and c.color_column or c.bg,
 			fg = c.fg,
 		}, -- normal text in non-current windows
 		Pmenu = { bg = c.menu }, -- Popup menu: normal item.
@@ -69,7 +69,7 @@ function M.apply(colors, config)
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine = { bg = theme.transparency, fg = c.fg }, -- status line of current window
 		StatusLineNC = {
-			bg = config.options.transparency and c.none or config.options.alt_normal_color and c.color_column or c.bg,
+			bg = config.options.transparency and c.none or config.options.window_unfocussed_color and c.color_column or c.bg,
 			fg = c.fg,
 		}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		TabLine = { bg = theme.transparency }, -- tab pages line, not active tab page label
@@ -543,7 +543,7 @@ function M.apply(colors, config)
 		HlSearchFloat = { link = "HlSearchNear" },
 
 		-- nvim-tree
-		NvimTreeNormalNC = { bg = config.options.alt_normal_color and c.color_column or c.bg }, -- Color when nvim-tree is no longer in focus
+		NvimTreeNormalNC = { bg = config.options.window_unfocussed_color and c.color_column or c.bg }, -- Color when nvim-tree is no longer in focus
 
 		NvimTreeSymlink = { fg = c.cyan, style = theme.underline },
 		NvimTreeFolderName = { fg = c.blue },

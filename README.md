@@ -174,7 +174,7 @@ onedarkpro.setup({
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
       terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-      alt_normal_color = false, -- When the window is out of focus, change the normal background?
+      window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
   }
 })
 onedarkpro.load()
@@ -286,12 +286,12 @@ options = {
 }
 ```
 
-#### Alternate Normal Color
+#### Window Focus Color
 The theme supports changing the color of the main window in Neovim when focussed is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
 options = {
-  alt_normal_color = true
+  window_unfocussed_color = true
 }
 ```
 
