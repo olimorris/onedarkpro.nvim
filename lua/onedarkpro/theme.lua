@@ -152,6 +152,27 @@ function M.apply(colors, config)
 		LspReferenceRead = { link = "LspReferenceText" }, -- used for highlighting "read" references
 		LspReferenceWrite = { link = "LspReferenceText" }, -- used for highlighting "write" references
 
+		-- Neovim 0.6+
+		DiagnosticDefaultError = { link = "LspDiagnosticsDefaultError" },
+		DiagnosticDefaultWarning = { link = "LspDiagnosticsDefaultWarning" },
+		DiagnosticDefaultInformation = { link = "LspDiagnosticsDefaultInformation" },
+		DiagnosticDefaultHint = { link = "LspDiagnosticsDefaultHint" },
+
+		DiagnosticSignError = { link = "LspDiagnosticsSignError" },
+		DiagnosticSignWarning = { link = "LspDiagnosticsSignWarning" },
+		DiagnosticSignInformation = { link = "LspDiagnosticsSignInformation" },
+		DiagnosticSignHint = { link = "LspDiagnosticsSignHint" },
+
+		DiagnosticUnderlineError = { link = "LspDiagnosticsUnderlineError" },
+		DiagnosticUnderlineWarning = { link = "LspDiagnosticsUnderlineWarning" },
+		DiagnosticUnderlineInformation = { link = "LspDiagnosticsUnderlineInformation" },
+		DiagnosticUnderlineHint = { link = "LspDiagnosticsUnderlineHint" },
+
+		DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
+		DiagnosticVirtualTextErrorVirtualTextWarning = { link = "LspDiagnosticsVirtualTextWarning" },
+		DiagnosticVirtualTextErrorVirtualTextInformation = { link = "LspDiagnosticsVirtualTextInformation" },
+		DiagnosticVirtualTextErrorVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
+
 		-- TreeSitter
 		-- https://github.com/nvim-treesitter/nvim-treesitter/blob/fb5d6e04a87863d01a45dab2cbafec4e2a74822b/doc/nvim-treesitter.txt
 		TSAnnotation = { fg = c.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
