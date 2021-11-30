@@ -55,7 +55,9 @@ function M.apply(colors, config)
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 		FloatBorder = { link = "Folded" },
 		NormalNC = {
-			bg = config.options.transparency and c.none or config.options.window_unfocussed_color and c.color_column or c.bg,
+			bg = config.options.transparency and c.none
+				or config.options.window_unfocussed_color and c.color_column
+				or c.bg,
 			fg = c.fg,
 		}, -- normal text in non-current windows
 		Pmenu = { bg = c.menu }, -- Popup menu: normal item.
@@ -69,7 +71,9 @@ function M.apply(colors, config)
 		-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine = { bg = theme.transparency, fg = c.fg }, -- status line of current window
 		StatusLineNC = {
-			bg = config.options.transparency and c.none or config.options.window_unfocussed_color and c.color_column or c.bg,
+			bg = config.options.transparency and c.none
+				or config.options.window_unfocussed_color and c.color_column
+				or c.bg,
 			fg = c.fg,
 		}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		TabLine = { bg = theme.transparency }, -- tab pages line, not active tab page label
@@ -153,25 +157,25 @@ function M.apply(colors, config)
 		LspReferenceWrite = { link = "LspReferenceText" }, -- used for highlighting "write" references
 
 		-- Neovim 0.6+
-		DiagnosticDefaultError = { link = "LspDiagnosticsDefaultError" },
-		DiagnosticDefaultWarning = { link = "LspDiagnosticsDefaultWarning" },
-		DiagnosticDefaultInformation = { link = "LspDiagnosticsDefaultInformation" },
-		DiagnosticDefaultHint = { link = "LspDiagnosticsDefaultHint" },
+		DiagnosticError = { link = "LspDiagnosticsDefaultError" },
+		DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
+		DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
+		DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
 
 		DiagnosticSignError = { link = "LspDiagnosticsSignError" },
-		DiagnosticSignWarning = { link = "LspDiagnosticsSignWarning" },
-		DiagnosticSignInformation = { link = "LspDiagnosticsSignInformation" },
+		DiagnosticSignWarn = { link = "LspDiagnosticsSignWarning" },
+		DiagnosticSignInfo = { link = "LspDiagnosticsSignInformation" },
 		DiagnosticSignHint = { link = "LspDiagnosticsSignHint" },
 
 		DiagnosticUnderlineError = { link = "LspDiagnosticsUnderlineError" },
-		DiagnosticUnderlineWarning = { link = "LspDiagnosticsUnderlineWarning" },
-		DiagnosticUnderlineInformation = { link = "LspDiagnosticsUnderlineInformation" },
+		DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
+		DiagnosticUnderlineInfo = { link = "LspDiagnosticsUnderlineInformation" },
 		DiagnosticUnderlineHint = { link = "LspDiagnosticsUnderlineHint" },
 
 		DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
-		DiagnosticVirtualTextErrorVirtualTextWarning = { link = "LspDiagnosticsVirtualTextWarning" },
-		DiagnosticVirtualTextErrorVirtualTextInformation = { link = "LspDiagnosticsVirtualTextInformation" },
-		DiagnosticVirtualTextErrorVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
+		DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
+		DiagnosticVirtualTextInfo = { link = "LspDiagnosticsVirtualTextInformation" },
+		DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
 
 		-- TreeSitter
 		-- https://github.com/nvim-treesitter/nvim-treesitter/blob/fb5d6e04a87863d01a45dab2cbafec4e2a74822b/doc/nvim-treesitter.txt
