@@ -533,7 +533,7 @@ function M.apply(colors, config)
 		-- CmpItemKindFolder = {},
 		-- CmpItemKindEnumMember = {},
 		CmpItemKindConstant = { fg = c.green },
-		-- CmpItemKindStruct = {},
+		CmpItemKindStruct = { fg = c.yellow },
 		-- CmpItemKindEvent = {},
 		-- CmpItemKindOperator = {},
 		-- CmpItemKindTypeParameter = {},
