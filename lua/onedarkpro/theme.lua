@@ -607,6 +607,15 @@ function M.apply(colors, config)
 		NvimTreeGitNew = { fg = c.green },
 		NvimTreeGitDeleted = { fg = c.red },
 
+		-- nvim-ts-rainbow
+		rainbowcol1 = { fg = c.red },
+		rainbowcol2 = { fg = c.yellow },
+		rainbowcol3 = { fg = c.orange },
+		rainbowcol4 = { fg = c.green },
+		rainbowcol5 = { fg = c.blue },
+		rainbowcol6 = { fg = c.cyan },
+		rainbowcol7 = { fg = c.purple },
+
 		-- Packer
 		packerFail = { fg = c.red }, -- Icon when install/update fails
 		packerSuccess = { fg = c.green }, -- Icon when install/update is a success

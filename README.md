@@ -62,6 +62,7 @@
     - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
     - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
     - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+    - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
     - [packer.nvim](https://github.com/wbthomason/packer.nvim)
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
     - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
