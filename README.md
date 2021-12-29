@@ -151,7 +151,7 @@ require('onedarkpro').load()
 ```
 
 ### Default configuration
-The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/config.lua) file is:
+The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/config.lua) file is:
 
 ```lua
 local onedarkpro = require('onedarkpro')
@@ -189,7 +189,7 @@ theme = 'onedark', -- [onedark/onelight]
 If you don't specify any value for `theme`, then the current value of `vim.o.background` will be used to set the theme.
 
 ### Configuring styles
-Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/master/lua/onedarkpro/theme.lua) file alongside your desired styles:
+Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/theme.lua) file alongside your desired styles:
 
 ```lua
 styles = {
@@ -206,7 +206,7 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
 ### Configuring colors
-The theme has a palette of 13 core colors and 7 additional colors (for both `onelight` and `onedark` themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/colors).
+The theme has a palette of 13 core colors and 7 additional colors (for both `onelight` and `onedark` themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
@@ -237,7 +237,7 @@ colors = {
 ```
 
 ### Configuring highlight groups
-The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
+The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
 1. Using specifc hex colors
 2. Referencing the name of color variables
 3. Linking to other highlight groups in the theme
@@ -253,7 +253,7 @@ hlgroups = {
 ### Configuring options
 
 #### Formatting
-Alongside `styles`, the theme applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/master/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
+Alongside `styles`, the theme applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
 
 These can be configured with the following options:
 
@@ -311,7 +311,7 @@ options = {
 ## :gift: Extras
 
 ### Terminal themes
-The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/master/extras) folder.
+The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
 ### Helper functions
 
@@ -357,4 +357,4 @@ The following themes were used, *heavily*, as an inspiration:
 
 ## :page_with_curl: License
 
-[MIT](https://github.com/olimorris/onedark.nvim/blob/master/LICENSE.md)
+[MIT](https://github.com/olimorris/onedark.nvim/blob/main/LICENSE.md)
