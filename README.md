@@ -53,7 +53,7 @@
 - Support for popular plugins:
     - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
     - [Dashboard](https://github.com/glepnir/dashboard-nvim)
-    - [Hop](https://github.com/phaazon/hop.nvim)
+    - [Hop.nvim](https://github.com/phaazon/hop.nvim)
     - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
     - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
     - [marks.nvim](https://github.com/chentau/marks.nvim)
@@ -64,11 +64,11 @@
     - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
     - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
     - [packer.nvim](https://github.com/wbthomason/packer.nvim)
+    - [Startify](https://github.com/mhinz/vim-startify)
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
     - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
     - [Trouble](https://github.com/folke/trouble.nvim)
-    - [vim-ultest](https://github.com/rcarriga/vim-ultest)
-    - [vim-startify](https://github.com/mhinz/vim-startify)
+    - [Ultest](https://github.com/rcarriga/vim-ultest)
     - [Which Key](https://github.com/folke/which-key.nvim)
 
 ## :camera: Screenshots

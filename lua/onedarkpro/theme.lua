@@ -648,15 +648,15 @@ function M.apply(colors, config)
 		TelescopePromptPrefix = { fg = c.purple },
 		TelescopePrompt = { link = "TelescopeNormal" },
 
+		-- Toggleterm
+		ToggleTerm = { bg = theme.transparency, fg = c.fg },
+		ToggleTermBorder = { fg = c.gray },
+
 		-- Trouble.nvim
 		TroubleCount = { fg = c.purple, style = theme.bold },
 		TroubleFile = { bg = "NONE", fg = c.cyan },
 		TroubleFoldIcon = { bg = "NONE", fg = c.fg },
 		TroubleLocation = { bg = "NONE", fg = c.cyan },
-
-		-- Toggleterm
-		ToggleTerm = { bg = theme.transparency, fg = c.fg },
-		ToggleTermBorder = { fg = c.gray },
 
 		-- Ultest
 		UltestPass = { fg = c.green },
