@@ -1,8 +1,9 @@
-local utils = require("onedarkpro.utils")
 local M = {}
 
-local config = {
-	theme = function() -- The theme to be used (opts: 'onedark' or 'onelight')
+-- Default options for the theme
+M.config = {
+	-- This enables the Neovim background to set either onedark or onelight
+	theme = function()
 		if vim.o.background == "dark" then
 			return "onedark"
 		else
@@ -11,6 +12,11 @@ local config = {
 	end,
 	colors = {}, -- Override default colors
 	hlgroups = {}, -- Override default highlight groups
+	plugins = { -- Enable/Disable specific plugins
+		native_lsp = true,
+		polygot = true,
+		treesitter = true,
+	},
 	styles = {
 		strings = "NONE", -- Style that is applied to strings
 		comments = "NONE", -- Style that is applied to comments
@@ -30,13 +36,18 @@ local config = {
 	},
 }
 
-M.options = config
+---Apply the users custom config on top of the default
+---@param user_config table
+---@return nil
+function M.set_config(user_config)
+	local utils = require("onedarkpro.utils")
 
-function M.set_options(opts)
-	opts = opts or {}
-	M.options = utils.tbl_deep_extend(M.options, opts)
+	-- Merge the config tables
+	user_config = user_config or {}
+	M.config = utils.tbl_deep_extend(M.config, user_config)
 
-	if M.options.options.highlight_cursorline or M.options.options.cursorline then
+	-- Enable the cursorline in Neovim
+	if M.config.options.highlight_cursorline or M.config.options.cursorline then
 		vim.wo.cursorline = true
 	end
 end

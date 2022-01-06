@@ -198,11 +198,18 @@ function utils.terminal(theme)
 	vim.g.terminal_color_15 = theme.colors.white
 end
 
+---Pretty print a table
+---@param tbl table
+---@return string
+function utils.print_table(tbl)
+	require("pl.pretty").dump(tbl)
+end
+
 ---Load the desired theme
 ---@param theme table
 ---@return nil
-function utils.load(theme)
-	-- Prevent double loading of theme
+function utils.load_theme(theme)
+	-- Prevent double loading of the theme
 	if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_style == theme.colors.name then
 		return
 	end
@@ -221,9 +228,9 @@ function utils.load(theme)
 	local hlgroups = utils.template_table(theme.config.hlgroups, theme.colors)
 
 	-- Merge the user's custom hlgroups with the theme's
-	local groups = utils.tbl_deep_extend(theme.groups, hlgroups)
+	local adjusted_hlgroups = utils.tbl_deep_extend(theme.hlgroups, hlgroups)
 
-	utils.set_syntax(groups)
+	utils.set_syntax(adjusted_hlgroups)
 
 	-- Colors for the Neovim terminal
 	if theme.config.options.terminal_colors then

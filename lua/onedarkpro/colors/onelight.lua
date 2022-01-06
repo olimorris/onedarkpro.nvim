@@ -3,7 +3,7 @@ local utils = require("onedarkpro.utils")
 local M = {}
 
 function M.load(config)
-	local config = config or require("onedarkpro.config").options
+	local config = config or require("onedarkpro.config").config
 
 	local colors = {
 		name = "onelight",

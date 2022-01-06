@@ -5,11 +5,12 @@ M.themes = {
 	"onelight",
 }
 
----Return color table based on the name provided
+---Return the color table for one of the two themes
 ---@param name string
 ---@return table
 function M.get_theme_colors(name)
-	name = name or require("onedarkpro.config").options.theme
+	-- require("onedarkpro.utils").print_table(require("onedarkpro.config").config.theme)
+	name = name or require("onedarkpro.config").config.theme
 
 	if type(name) == "function" then
 		name = name()

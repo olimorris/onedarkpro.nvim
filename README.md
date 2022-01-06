@@ -27,6 +27,7 @@
   - [Setup](#setup)
   - [Default configuration](#default-configuration)
   - [Configuring the theme](#configuring-the-theme)
+  - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
@@ -51,6 +52,7 @@
 - [LSP](https://github.com/neovim/nvim-lspconfig) diagnostics support
 - Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
 - Support for popular plugins:
+    - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
     - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
     - [Dashboard](https://github.com/glepnir/dashboard-nvim)
     - [Hop.nvim](https://github.com/phaazon/hop.nvim)
@@ -148,18 +150,23 @@ colorscheme onedarkpro
 
 ```lua
 vim.o.background = "light" -- to load onelight
-require('onedarkpro').load()
+require("onedarkpro").load()
 ```
 
 ### Default configuration
 The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/config.lua) file is:
 
 ```lua
-local onedarkpro = require('onedarkpro')
+local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-  theme = function(), -- Override with "onedark" or "onelight". Alternatively, remove the option and the theme uses `vim.o.background` to determine
+  theme = function(), -- Override with "onedark" or "onelight". Alternatively, don't set the option and the theme will use `vim.o.background` to determine what to load
   colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
   hlgroups = {}, -- Override default highlight groups
+  plugins = { -- Override which plugins highlight groups are loaded
+		native_lsp = true,
+		polygot = true,
+		treesitter = true,
+	},
   styles = {
       strings = "NONE", -- Style that is applied to strings
       comments = "NONE", -- Style that is applied to comments
@@ -185,9 +192,22 @@ onedarkpro.load()
 Use either `onedark` or `onelight` for the dark and light themes, respectively.
 
 ```lua
-theme = 'onedark', -- [onedark/onelight] 
+theme = "onedark", -- [onedark/onelight] 
 ```
 If you don't specify any value for `theme`, then the current value of `vim.o.background` will be used to set the theme.
+
+### Configuring plugins
+> **Note: This is still a WIP. I will be separating out plugins from the default theme in the coming weeks**
+
+By default, all the plugins supported by the theme are loaded at runtime. You can enable/disable specific plugins as follows:
+
+```lua
+plugins = {
+  native_lsp = true,
+	polygot = false,
+	treesitter = true,
+}
+```
 
 ### Configuring styles
 Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/theme.lua) file alongside your desired styles:
@@ -212,14 +232,14 @@ The theme has a palette of 13 core colors and 7 additional colors (for both `one
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
 colors = {
-  red = '#FF0000'
+  red = "#FF0000"
 }
 ```
 #### Specifying new colors
 You can specify new colors which will be merged into the theme's color palette:
 ```lua
 colors = {
-  my_new_red = '#f44336'
+  my_new_red = "#f44336"
 }
 ```
 > **Note:** Your custom colors can be referenced in highlight group overrides
@@ -239,15 +259,15 @@ colors = {
 
 ### Configuring highlight groups
 The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
-1. Using specifc hex colors
+1. Using specific hex colors
 2. Referencing the name of color variables
 3. Linking to other highlight groups in the theme
 
 ```lua
 hlgroups = {
-  Comment = { fg = '#FF0000', bg = '#FFFF00', style = "italic" }, -- 1
-  Comment = { fg = '${my_new_red}' bg = '${yellow}', style = "bold,italic" }, -- 2
-  Comment = { link = 'Substitute' }, -- 3
+  Comment = { fg = "#FF0000", bg = "#FFFF00", style = "italic" }, -- 1
+  Comment = { fg = "${my_new_red}" bg = "${yellow}", style = "bold,italic" }, -- 2
+  Comment = { link = "Substitute" }, -- 3
 }
 ```
 
@@ -302,7 +322,7 @@ options = {
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
 ```lua
 colors = {
-  cursorline = '#FF0000' -- This is optional. The default cursorline color is based on the background
+  cursorline = "#FF0000" -- This is optional. The default cursorline color is based on the background
 },
 options = {
   cursorline = true
