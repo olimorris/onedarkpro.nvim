@@ -11,10 +11,8 @@ end
 ---@param name string
 ---@return table
 function M.load(name)
-	local utils = require("onedarkpro.utils")
 	local theme = require("onedarkpro.theme").setup_theme(name)
-
-	return utils.load_theme(theme)
+	return require("onedarkpro.utils").load_theme(theme)
 end
 
 ---Get the color table for a specific theme (e.g. onedark/onelight).

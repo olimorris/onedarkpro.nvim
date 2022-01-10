@@ -35,9 +35,9 @@ function M.load(config)
 	colors.selection = utils.lighten(colors.bg, 0.8)
 
 	-- Git diff
-	colors.diff_add_bg = "#003e4a"
-	colors.diff_delete_bg = "#501b20"
-	colors.diff_text_bg = "#005869"
+	colors.diff_add = "#003e4a"
+	colors.diff_delete = "#501b20"
+	colors.diff_text = "#005869"
 
 	-- Lualine colors
 	colors.bg_statusline = utils.lighten(colors.bg, 0.95)

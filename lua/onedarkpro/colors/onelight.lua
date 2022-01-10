@@ -35,9 +35,9 @@ function M.load(config)
 	colors.menu_scroll_thumb = utils.lighten(colors.blue, 0.80)
 
 	-- Git diff
-	colors.diff_add_bg = "#cae3e8"
-	colors.diff_delete_bg = "#f5c6c6"
-	colors.diff_text_bg = "#a6d0d8"
+	colors.diff_add = "#cae3e8"
+	colors.diff_delete = "#f5c6c6"
+	colors.diff_text = "#a6d0d8"
 
 	-- Lualine colors
 	colors.bg_statusline = utils.darken(colors.bg, 0.95)
