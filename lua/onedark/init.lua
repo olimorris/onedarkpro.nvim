@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("onedarkpro.utils")
 
 --[[
 	As onedark.nvim has been renamed to OneDarkPro.nvim, it felt odd not to
@@ -7,13 +8,25 @@ local M = {}
 	and point to the OneDarkPro functions instead.
 ]]
 
-function M.setup(opts)
-	return require("onedarkpro").setup(opts)
+function M.setup(user_config)
+	utils.warn(
+		"Please reference `onedarkpro` instead of `onedark` in your config",
+		"This will be removed in the next update"
+	)
+	return require("onedarkpro").setup(user_config)
 end
 function M.load(name)
+	utils.warn(
+		"Please reference `onedarkpro` instead of `onedark` in your config",
+		"This will be removed in the next update"
+	)
 	return require("onedarkpro").load(name)
 end
 function M.get_colors(name)
+	utils.warn(
+		"Please reference `onedarkpro` instead of `onedark` in your config",
+		"This will be removed in the next update"
+	)
 	return require("onedarkpro").get_colors(name)
 end
 
