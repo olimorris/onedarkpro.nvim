@@ -197,17 +197,17 @@ theme = "onedark", -- [onedark/onelight]
 If you don't specify any value for `theme`, then the current value of `vim.o.background` will be used to set the theme.
 
 ### Configuring plugins
-> **Note: This is still a WIP. I will be separating out plugins from the default theme in the coming weeks**
-
-By default, all the plugins supported by the theme are loaded at runtime. You can enable/disable specific plugins as follows:
+By default, all the plugins supported by the theme are loaded at runtime. You can disable specific plugins as follows:
 
 ```lua
 plugins = {
-  native_lsp = true,
+  native_lsp = false,
 	polygot = false,
-	treesitter = true,
+	treesitter = false,
 }
 ```
+
+> **Note:** For a full list of plugins, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
 
 ### Configuring styles
 Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/theme.lua) file alongside your desired styles:
