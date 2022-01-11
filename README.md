@@ -123,7 +123,7 @@ Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
 use 'olimorris/onedarkpro.nvim'
 ```
 
-Alternatively, if you're using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
+Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```lua
 call plug#begin('~/.config/nvim/plugged')
@@ -134,19 +134,19 @@ call plug#end()
 ## :wrench: Configuration
 
 ### Setup
-Add the following to your `init.lua` file to start using the theme:
+Add the following to an `init.lua` file to start using the theme:
 
 ```lua
 require('onedarkpro').load()
 ```
 
-Alternatively, if you're using Vimscript:
+Alternatively, if using Vimscript:
 
 ```lua
 colorscheme onedarkpro
 ```
 
-> **Note:** You can use `vim.o.background` to set the theme
+> **Note:** The `vim.o.background` option may be used to set the theme
 
 ```lua
 vim.o.background = "light" -- to load onelight
@@ -194,23 +194,23 @@ Use either `onedark` or `onelight` for the dark and light themes, respectively.
 ```lua
 theme = "onedark", -- [onedark/onelight] 
 ```
-If you don't specify any value for `theme`, then the current value of `vim.o.background` will be used to set the theme.
+If no value is specified, the current value of `vim.o.background` will be used to set the theme.
 
 ### Configuring plugins
-By default, all the plugins supported by the theme are loaded at runtime. You can disable specific plugins as follows:
+By default, all the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
 ```lua
 plugins = {
   native_lsp = false,
-	polygot = false,
-	treesitter = false,
+  polygot = false,
+  treesitter = false,
 }
 ```
 
 > **Note:** For a full list of plugins, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
 
 ### Configuring styles
-Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/theme.lua) file alongside your desired styles:
+Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/theme.lua) file alongside any desired styles:
 
 ```lua
 styles = {
@@ -227,7 +227,7 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 > **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
 
 ### Configuring colors
-The theme has a palette of 13 core colors and 7 additional colors (for both `onelight` and `onedark` themes). These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
+The theme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 ```lua
@@ -236,16 +236,17 @@ colors = {
 }
 ```
 #### Specifying new colors
-You can specify new colors which will be merged into the theme's color palette:
+New colors may be specified which will then be merged into the theme's color palette:
 ```lua
 colors = {
   my_new_red = "#f44336"
 }
 ```
-> **Note:** Your custom colors can be referenced in highlight group overrides
+> **Note:** Custom colors can be referenced in highlight group overrides
 
 #### Specifying colors by theme
-As an example, you may wish to change the theme's default `bg` color. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
+It's possible to override default colors within the theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
+
 ```lua
 colors = {
   onedark = {
@@ -258,13 +259,13 @@ colors = {
 ```
 
 ### Configuring highlight groups
-The [theme](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) uses a large array of highlight groups. There are three ways to customize them:
+The [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file and [plugins](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins) use a large array of highlight groups. There are three ways to customize them:
 1. Using specific hex colors
 2. Referencing the name of color variables
 3. Linking to other highlight groups in the theme
 
 ```lua
-hlgroups = {
+hlgroups = { -- Overriding the Comment highlight group
   Comment = { fg = "#FF0000", bg = "#FFFF00", style = "italic" }, -- 1
   Comment = { fg = "${my_new_red}" bg = "${yellow}", style = "bold,italic" }, -- 2
   Comment = { link = "Substitute" }, -- 3
@@ -274,7 +275,7 @@ hlgroups = {
 ### Configuring options
 
 #### Formatting
-Alongside `styles`, the theme applies some opinionated formatting to match VS Code's One Dark Pro. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
+Alongside styles, the theme applies some opinionated formatting. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
 
 These can be configured with the following options:
 
@@ -296,7 +297,7 @@ options = {
 }
 ```
 
-By setting the transparency option to `true`, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency can be applied by overriding the highlight groups.
+By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline`  groups will have a `NONE` background color. Additional transparency may be achieved by overriding more highlight groups.
 
 #### Terminal Colors
 The theme supports changing the colors for Neovim's `:terminal`:
@@ -337,7 +338,7 @@ The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Ki
 ### Helper functions
 
 #### Theme color tables
-To enable your plugins to match this theme, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
+To enable plugins to match this theme, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
 
 ```lua
 local colors = require("onedarkpro").get_colors("onelight")
@@ -346,7 +347,7 @@ print(colors.purple) -- #9a77cf
 
 Changing the theme from `onelight` to `onedark` would return a new table of colors.
 
-> **Note:** Setting a `ColorScheme` autocommand which refreshes the configuration of your relevant plugin will ensure that they are using the correct colors from **One Dark Pro**
+> **Note:** Setting a `ColorScheme` autocommand which refreshes the configuration of the relevant plugin will ensure that they are using the correct colors from **One Dark Pro**
 
 #### Toggling between Onedark and Onelight
 To enable the easy switching between themes, the following helper function could be used:
@@ -370,11 +371,11 @@ Thanks to the following contributors for their work on the theme:
 * [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
 
 ### Inspiration
-The following themes were used, *heavily*, as an inspiration:
+The following themes were used as an inspiration:
 
 * [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this theme
-* [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the general functionality of the theme which I used as the base
-* [onedark.vim](https://github.com/joshdick/onedark.vim) - For the original colors and their application in Neovim
+* [Nightfox](https://github.com/EdenEast/nightfox.nvim) - Originally used the theme's layout and utilities however moved away quite significantly since 
+* [onedark.vim](https://github.com/joshdick/onedark.vim) - For the application of `onedark` colors in Neovim
 
 ## :page_with_curl: License
 
