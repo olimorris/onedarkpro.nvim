@@ -1,7 +1,7 @@
 # OneDarkPro.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/137961273-46abc097-4a7f-4dfb-8adc-b80191af9f6d.png" alt="OneDarkPro.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/149378444-6d8daa2c-ab0d-481e-9cc1-0399f8e04e75.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
   <i>
@@ -146,12 +146,14 @@ Alternatively, if using Vimscript:
 colorscheme onedarkpro
 ```
 
-> **Note:** The `vim.o.background` option may be used to set the theme
+The `vim.o.background` option may be used to set the theme:
 
 ```lua
+vim.o.background = "dark" -- to load onedark
 vim.o.background = "light" -- to load onelight
 require("onedarkpro").load()
 ```
+> **Note:** This assumes that no value for `theme` is set in the setup function (see below) 
 
 ### Default configuration
 The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/config.lua) file is:
@@ -159,14 +161,17 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-  theme = function(), -- Override with "onedark" or "onelight". Alternatively, don't set the option and the theme will use `vim.o.background` to determine what to load
-  colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
+  theme = function() 
+    -- Omitted for brevity
+  end, -- Pass in 'onedark' or 'onelight' as a string to select a specific theme
+  colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes by passing in a table
   hlgroups = {}, -- Override default highlight groups
   plugins = { -- Override which plugins highlight groups are loaded
-		native_lsp = true,
-		polygot = true,
-		treesitter = true,
-	},
+    native_lsp = true,
+    polygot = true,
+    treesitter = true,
+    -- Others omitted for brevity
+  },
   styles = {
       strings = "NONE", -- Style that is applied to strings
       comments = "NONE", -- Style that is applied to comments
@@ -376,6 +381,7 @@ The following themes were used as an inspiration:
 * [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this theme
 * [Nightfox](https://github.com/EdenEast/nightfox.nvim) - Originally used the theme's layout and utilities however moved away quite significantly since 
 * [onedark.vim](https://github.com/joshdick/onedark.vim) - For the application of `onedark` colors in Neovim
+* [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration :wink:
 
 ## :page_with_curl: License
 
