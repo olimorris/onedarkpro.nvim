@@ -1,7 +1,7 @@
 # OneDarkPro.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/149378444-6d8daa2c-ab0d-481e-9cc1-0399f8e04e75.png" alt="OneDarkPro.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/149407163-8fe8f952-3c29-487f-ab10-c844635f94ce.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
   <i>
@@ -75,41 +75,33 @@
 
 ## :camera: Screenshots
 ### Dark
-#### Python
-<img src="https://user-images.githubusercontent.com/9512444/137556870-ee47b2ea-b9e2-4b56-8d82-2e99da249af4.png" alt="Dark Python" />
-
-#### React
-<img src="https://user-images.githubusercontent.com/9512444/137556833-f45452ff-e63b-421c-bf73-e867207972ed.png" alt="Dark React" />
+<img src="https://user-images.githubusercontent.com/9512444/149405694-3716d755-8ed2-4378-ad5d-81a3e24ceb9b.png" alt="Dark" />
 
 ### Light
-#### Python
-<img src="https://user-images.githubusercontent.com/9512444/137556929-77ddb821-53fc-4bd7-a5dc-f0c67729249b.png" alt="Light Python" />
-
-#### React
-<img src="https://user-images.githubusercontent.com/9512444/137556949-0829b6e3-d1f6-453d-b225-1aae1d1ccfe0.png" alt="Light React" />
+<img src="https://user-images.githubusercontent.com/9512444/149405705-738c6af8-c11f-49ba-b789-d40a2cc4c17e.png" alt="Light" />
 
 > **Note:** All screenshots have Treesitter highlighting enabled
 
 ### Comparison to VS Code's One Dark Pro
 #### Python
-<img src="https://user-images.githubusercontent.com/9512444/138352820-2ba95c7e-b399-46f4-b6b4-f50f6ceaea34.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/149407422-3224a86d-fe00-4b1e-a0ff-22ec2874cac5.png" alt="Comparison to VS Code - Python" />
 
 #### React
-<img src="https://user-images.githubusercontent.com/9512444/138353070-59215e32-c7c2-458e-8454-0c1564e03d26.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/149407476-12e1a44a-f862-44b8-83f4-670df413a9ff.png" alt="Comparison to VS Code - React" />
 
 ### Lualine
 #### Dark
-<img src="https://user-images.githubusercontent.com/9512444/141958202-77a8e021-d396-496d-87bf-2803bade6717.png" alt="Lualine Dark" />
+<img src="https://user-images.githubusercontent.com/9512444/149409187-9538bda2-1b28-49ca-b71d-cb8cc6e1d67e.png" alt="Lualine Dark" />
 
 #### Light
-<img src="https://user-images.githubusercontent.com/9512444/141958282-b1ce4e97-a1a3-4d99-acc1-74ca510f7296.png" alt="Lualine Light" />
+<img src="https://user-images.githubusercontent.com/9512444/149409208-712c1a96-a439-4929-b7a7-ecb8d8b1c6f5.png" alt="Lualine Light" />
 
 ### Color guide
 #### Dark
-<img src="https://user-images.githubusercontent.com/9512444/138352749-4500f5d7-87cd-485f-8640-d1e2910e45ba.png" alt="Dark colors" />
+<img src="https://user-images.githubusercontent.com/9512444/149406202-f3e3335f-0f3a-46c5-8df1-55c7c1a8eac4.png" alt="Dark colors" />
 
 #### Light
-<img src="https://user-images.githubusercontent.com/9512444/138352643-382fccda-b33a-43a0-9397-abc15f792427.png" alt="Light colors" />
+<img src="https://user-images.githubusercontent.com/9512444/149406241-2f091619-879a-498c-a106-d86b1d8dfcd7.png" alt="Light colors" />
 
 ## :zap: Requirements
 - Neovim 0.5 or greater
@@ -161,16 +153,21 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-  theme = function() 
-    -- Omitted for brevity
-  end, -- Pass in 'onedark' or 'onelight' as a string to select a specific theme
+  -- Theme can be overwritten with 'onedark' or 'onelight' as a string!
+  theme = function()
+    if vim.o.background == "dark" then
+      return "onedark"
+    else
+      return "onelight"
+    end
+  end,
   colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes by passing in a table
   hlgroups = {}, -- Override default highlight groups
   plugins = { -- Override which plugins highlight groups are loaded
-    native_lsp = true,
-    polygot = true,
-    treesitter = true,
-    -- Others omitted for brevity
+      native_lsp = true,
+      polygot = true,
+      treesitter = true,
+      -- Others omitted for brevity
   },
   styles = {
       strings = "NONE", -- Style that is applied to strings
