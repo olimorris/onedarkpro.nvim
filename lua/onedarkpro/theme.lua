@@ -28,16 +28,16 @@ local function default_hlgroups()
 		SignColumn = { bg = theme.options.transparency }, -- column where |signs| are displayed
 		IncSearch = { bg = theme.colors.selection, fg = theme.colors.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute = { bg = theme.colors.yellow, fg = theme.colors.bg }, -- |:substitute| replacement text highlighting
-		LineNr = { link = "Folded" }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+		LineNr = { bg = theme.options.transparency, fg = theme.colors.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		MatchParen = { fg = theme.colors.cyan, style = theme.options.underline }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
 		MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = theme.colors.green }, -- |more-prompt|
-		NonText = { link = "Folded" }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText = { bg = theme.options.transparency, fg = theme.colors.gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal = { bg = theme.options.transparency, fg = theme.colors.fg }, -- normal text
 		NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
-		FloatBorder = { link = "Folded" },
+		FloatBorder = { bg = theme.options.transparency, fg = theme.colors.gray },
 		NormalNC = {
 			bg = theme.config.options.transparency and theme.colors.none
 				or theme.config.options.window_unfocussed_color and theme.colors.color_column
@@ -48,7 +48,7 @@ local function default_hlgroups()
 		PmenuSel = { bg = theme.colors.blue, fg = theme.colors.bg }, -- Popup menu: selected item.
 		PmenuSbar = { bg = theme.colors.menu_scroll }, -- Popup menu: scrollbar.
 		PmenuThumb = { bg = theme.colors.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
-		Question = { link = "Folded" }, -- |hit-enter| prompt and yes/no questions
+		Question = { bg = theme.options.transparency, fg = theme.colors.gray }, -- |hit-enter| prompt and yes/no questions
 		QuickFixLine = { bg = theme.options.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search = { bg = theme.colors.gray, style = theme.options.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
@@ -64,7 +64,7 @@ local function default_hlgroups()
 		TabLineFill = { bg = theme.options.transparency, fg = theme.colors.fg }, -- tab pages line, where there are no labels
 		TabLineSel = { bg = theme.colors.comment, fg = theme.colors.purple }, -- tab pages line, active tab page label
 		Title = { fg = theme.colors.green }, -- titles for output from ":set all", ":autocmd" ettheme.colors.
-		VertSplit = { link = "Folded" }, -- the column separating vertically split windows
+		VertSplit = { bg = theme.options.transparency, fg = theme.colors.gray }, -- the column separating vertically split windows
 		Visual = { bg = theme.colors.selection }, -- Visual mode selection
 		VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = theme.colors.yellow }, -- warning messages

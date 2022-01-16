@@ -1,13 +1,12 @@
 # OneDarkPro.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/149407163-8fe8f952-3c29-487f-ab10-c844635f94ce.png" alt="OneDarkPro.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/149496458-f7c6f560-9d31-4877-9267-ec02b7eff660.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
   <i>
-    A dark and light theme for Neovim 0.5 and above, written in Lua<br>
-    <b>Fully customisable with ability to override styles, colors and highlight groups</b><br>
-    Comes complete with support for <b>Treesitter</b> syntax highlighting and <b>many popular plugins</b><br><br>
+    Dark and light themes for Neovim 0.5 and above, written in Lua<br>
+    <b>Treesitter enabled / Fully customisable / Many popular plugins supported</b><br>
     Inspired by VS Code's <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a>
   </i>
 </p>
@@ -84,10 +83,10 @@
 
 ### Comparison to VS Code's One Dark Pro
 #### Python
-<img src="https://user-images.githubusercontent.com/9512444/149407422-3224a86d-fe00-4b1e-a0ff-22ec2874cac5.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/149497007-76f39b96-5803-44db-b0f2-ae76837c6040.png" alt="Comparison to VS Code - Python" />
 
 #### React
-<img src="https://user-images.githubusercontent.com/9512444/149407476-12e1a44a-f862-44b8-83f4-670df413a9ff.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/149497024-75d040d4-5983-4aae-a04a-415e0e70acce.png" alt="Comparison to VS Code - React" />
 
 ### Lualine
 #### Dark
