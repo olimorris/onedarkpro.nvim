@@ -4,12 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.get(theme)
-	return {
-		HlSearchNear = { bg = theme.colors.highlight, fg = theme.colors.bg },
-		HlSearchLens = { bg = theme.colors.gray },
-		HlSearchLensNear = { link = "HlSearchNear" },
-		HlSearchFloat = { link = "HlSearchNear" },
-	}
+    return {
+        HlSearchNear = { bg = theme.colors.highlight, fg = theme.colors.bg },
+        HlSearchLens = { bg = theme.colors.gray },
+        HlSearchLensNear = { link = "HlSearchNear" },
+        HlSearchFloat = { link = "HlSearchNear" }
+    }
 end
 
 return M

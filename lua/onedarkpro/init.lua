@@ -4,22 +4,22 @@ local M = {}
 ---@param user_config table
 ---@return table
 function M.setup(user_config)
-	return require("onedarkpro.config").set_config(user_config)
+    return require("onedarkpro.config").set_config(user_config)
 end
 
 ---Load the theme
 ---@param name string
 ---@return table
 function M.load(name)
-	local theme = require("onedarkpro.theme").setup_theme(name)
-	return require("onedarkpro.utils").load_theme(theme)
+    local theme = require("onedarkpro.theme").setup_theme(name)
+    return require("onedarkpro.utils").load_theme(theme)
 end
 
 ---Get the color table for a specific theme (e.g. onedark/onelight).
 ---@param name string
 ---@return table
 function M.get_colors(name)
-	return require("onedarkpro.colors").get_theme_colors(name)
+    return require("onedarkpro.colors").get_theme_colors(name)
 end
 
 return M

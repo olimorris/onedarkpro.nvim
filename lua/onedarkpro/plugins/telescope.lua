@@ -4,18 +4,27 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.get(theme)
-	return {
-		TelescopeSelection = { bg = theme.options.cursorline, fg = theme.colors.purple },
-		TelescopeSelectionCaret = { fg = theme.colors.purple },
-		TelescopeMultiSelection = { bg = theme.options.cursorline, fg = theme.colors.comment },
-		TelescopeNormal = { fg = theme.colors.fg },
-		TelescopeBorder = { fg = theme.colors.comment },
-		TelescopePromptBorder = { link = "TelescopeBorder" },
-		TelescopePreviewBorder = { link = "TelescopeBorder" },
-		TelescopeMatching = { fg = theme.colors.green, style = theme.options.underline },
-		TelescopePromptPrefix = { fg = theme.colors.purple },
-		TelescopePrompt = { link = "TelescopeNormal" },
-	}
+    return {
+        TelescopeSelection = {
+            bg = theme.options.cursorline,
+            fg = theme.colors.purple
+        },
+        TelescopeSelectionCaret = { fg = theme.colors.purple },
+        TelescopeMultiSelection = {
+            bg = theme.options.cursorline,
+            fg = theme.colors.comment
+        },
+        TelescopeNormal = { fg = theme.colors.fg },
+        TelescopeBorder = { fg = theme.colors.comment },
+        TelescopePromptBorder = { link = "TelescopeBorder" },
+        TelescopePreviewBorder = { link = "TelescopeBorder" },
+        TelescopeMatching = {
+            fg = theme.colors.green,
+            style = theme.options.underline
+        },
+        TelescopePromptPrefix = { fg = theme.colors.purple },
+        TelescopePrompt = { link = "TelescopeNormal" }
+    }
 end
 
 return M

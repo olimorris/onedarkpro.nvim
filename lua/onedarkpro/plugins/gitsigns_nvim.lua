@@ -4,11 +4,11 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.get(theme)
-	return {
-		GitSignsAdd = { link = "diffAdded" },
-		GitSignsChange = { link = "diffChanged" },
-		GitSignsDelete = { link = "diffRemoved" },
-	}
+    return {
+        GitSignsAdd = { link = "diffAdded" },
+        GitSignsChange = { link = "diffChanged" },
+        GitSignsDelete = { link = "diffRemoved" }
+    }
 end
 
 return M

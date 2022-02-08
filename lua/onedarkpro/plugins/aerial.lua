@@ -4,9 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.get(theme)
-	return {
-		AerialClass = { fg = theme.colors.purple, style = theme.options.bold_italic },
-	}
+    return {
+        AerialClass = {
+            fg = theme.colors.purple,
+            style = theme.options.bold_italic
+        }
+    }
 end
 
 return M
