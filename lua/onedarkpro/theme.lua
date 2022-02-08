@@ -90,7 +90,7 @@ local function default_hlgroups()
             fg = theme.colors.red,
             style = theme.config.styles.variables
         }, -- (preferred) any variable name
-        Faunction = {
+        Function = {
             fg = theme.colors.blue,
             style = theme.config.styles.functions
         }, -- function name (also: methods for classes)
@@ -109,7 +109,7 @@ local function default_hlgroups()
         PreProc = { fg = theme.colors.yellow }, -- (preferred) generic Preprocessor
         Include = { fg = theme.colors.purple }, -- preprocessor #include
         Define = { fg = theme.colors.purple }, -- preprocessor #define
-        Maacro = { fg = theme.colors.blue }, -- same as Define
+        Macro = { fg = theme.colors.blue }, -- same as Define
         PreCondit = { fg = theme.colors.yellow }, -- preprocessor #if, #else, #endif, ettheme.colors.
 
         Type = { fg = theme.colors.yellow }, -- (preferred) int, long, char, ettheme.colors.
