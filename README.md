@@ -208,6 +208,13 @@ plugins = {
 }
 ```
 
+You can also enable/disable all plugins:
+```lua
+plugins = {
+  all = false
+}
+```
+
 > **Note:** For a full list of plugins, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
 
 ### Configuring styles
