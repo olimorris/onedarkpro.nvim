@@ -1,11 +1,11 @@
 # onedarkpro.nvim - onedark
 colors:
   primary:
-    background: "#1e1e1e"
+    background: "#282c34"
     foreground: "#abb2bf"
 
   normal:
-    black: "#1e1e1e"
+    black: "#282c34"
     red: "#e06c75"
     green: "#98c379"
     yellow: "#e5c07b"

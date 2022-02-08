@@ -1,7 +1,7 @@
 # OneDarkPro.nvim
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/149496458-f7c6f560-9d31-4877-9267-ec02b7eff660.png" alt="OneDarkPro.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/153006413-ec7d37ad-c002-4a3f-8a68-5aafe37d7b1b.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
   <i>
@@ -74,7 +74,7 @@
 
 ## :camera: Screenshots
 ### Dark
-<img src="https://user-images.githubusercontent.com/9512444/149405694-3716d755-8ed2-4378-ad5d-81a3e24ceb9b.png" alt="Dark" />
+<img src="https://user-images.githubusercontent.com/9512444/153007000-af8c2611-aadd-41bc-b421-d1a8995c41f2.png" alt="Dark" />
 
 ### Light
 <img src="https://user-images.githubusercontent.com/9512444/149405705-738c6af8-c11f-49ba-b789-d40a2cc4c17e.png" alt="Light" />
@@ -83,14 +83,14 @@
 
 ### Comparison to VS Code's One Dark Pro
 #### Python
-<img src="https://user-images.githubusercontent.com/9512444/149497007-76f39b96-5803-44db-b0f2-ae76837c6040.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/153009886-6dac26cd-a3ce-4b7d-95d5-0922da9180b5.png" alt="Comparison to VS Code - Python" />
 
 #### React
-<img src="https://user-images.githubusercontent.com/9512444/149497024-75d040d4-5983-4aae-a04a-415e0e70acce.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/153010048-8ccae711-7695-48e9-ab4b-e2664f24d9e7.png" alt="Comparison to VS Code - React" />
 
 ### Lualine
 #### Dark
-<img src="https://user-images.githubusercontent.com/9512444/149409187-9538bda2-1b28-49ca-b71d-cb8cc6e1d67e.png" alt="Lualine Dark" />
+<img src="https://user-images.githubusercontent.com/9512444/153061323-19fd0bd2-5838-470f-9273-ea85a5813319.png" alt="Lualine Dark" />
 
 #### Light
 <img src="https://user-images.githubusercontent.com/9512444/149409208-712c1a96-a439-4929-b7a7-ecb8d8b1c6f5.png" alt="Lualine Light" />
@@ -176,10 +176,10 @@ onedarkpro.setup({
       variables = "NONE", -- Style that is applied to variables
   },
   options = {
-      bold = true, -- Use the themes opinionated bold styles?
-      italic = true, -- Use the themes opinionated italic styles?
-      underline = true, -- Use the themes opinionated underline styles?
-      undercurl = true, -- Use the themes opinionated undercurl styles?
+      bold = false, -- Use the themes opinionated bold styles?
+      italic = false, -- Use the themes opinionated italic styles?
+      underline = false, -- Use the themes opinionated underline styles?
+      undercurl = false, -- Use the themes opinionated undercurl styles?
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
       terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
@@ -198,7 +198,7 @@ theme = "onedark", -- [onedark/onelight]
 If no value is specified, the current value of `vim.o.background` will be used to set the theme.
 
 ### Configuring plugins
-By default, all the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
+By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
 ```lua
 plugins = {
@@ -208,7 +208,7 @@ plugins = {
 }
 ```
 
-You can also enable/disable all plugins:
+Alternatively, all of the plugins can be disabled at once:
 ```lua
 plugins = {
   all = false

@@ -8,7 +8,7 @@ function M.load(config)
     local colors = {
         name = "onedark",
 
-        bg = "#1e1e1e",
+        bg = "#282c34",
         fg = "#abb2bf",
         red = "#e06c75",
         orange = "#d19a66",

@@ -79,7 +79,7 @@ local function default_hlgroups()
         WildMenu = { bg = theme.colors.blue, fg = theme.colors.black }, -- current match in 'wildmenu' completion
 
         -- Syntax groups
-        Constant = { fg = theme.colors.cyan }, -- (preferred) any constant
+        Constant = { fg = theme.colors.orange }, -- (preferred) any constant
         String = { fg = theme.colors.green, style = theme.config.styles.strings }, --   a string constant: "this is a string"
         Character = { fg = theme.colors.green }, -- a character constant: 'c', '\n'
         Number = { fg = theme.colors.orange }, -- a number constant: 234, 0xff
@@ -87,11 +87,11 @@ local function default_hlgroups()
         Float = { fg = theme.colors.orange }, -- a floating point constant: 2.3e10
 
         Identifier = {
-            fg = theme.colors.fg,
+            fg = theme.colors.red,
             style = theme.config.styles.variables
         }, -- (preferred) any variable name
-        Function = {
-            fg = theme.colors.yellow,
+        Faunction = {
+            fg = theme.colors.blue,
             style = theme.config.styles.functions
         }, -- function name (also: methods for classes)
 
@@ -107,15 +107,15 @@ local function default_hlgroups()
         Exception = { fg = theme.colors.purple }, -- try, catch, throw
 
         PreProc = { fg = theme.colors.yellow }, -- (preferred) generic Preprocessor
-        Include = { fg = theme.colors.blue }, -- preprocessor #include
+        Include = { fg = theme.colors.purple }, -- preprocessor #include
         Define = { fg = theme.colors.purple }, -- preprocessor #define
-        Macro = { fg = theme.colors.purple }, -- same as Define
+        Maacro = { fg = theme.colors.blue }, -- same as Define
         PreCondit = { fg = theme.colors.yellow }, -- preprocessor #if, #else, #endif, ettheme.colors.
 
         Type = { fg = theme.colors.yellow }, -- (preferred) int, long, char, ettheme.colors.
         StorageClass = { fg = theme.colors.yellow }, -- static, register, volatile, ettheme.colors.
-        Structure = { fg = theme.colors.yellow }, -- struct, union, enum, ettheme.colors.
-        Typedef = { fg = theme.colors.yellow }, -- A typedef
+        Structure = { fg = theme.colors.purple }, -- struct, union, enum, ettheme.colors.
+        Typedef = { fg = theme.colors.purple }, -- A typedef
 
         Special = { fg = theme.colors.blue }, -- (preferred) any special symbol
         SpecialChar = { fg = theme.colors.orange }, -- special character in a constant
@@ -176,7 +176,7 @@ local function set_hlgroups()
 
     -- If a plugin has been enabled, then merge its hlgroups with the defaults
     for plugin in pairs(plugins) do
-        if plugins[plugin] or (plugins["all"] == true or plugins["all"] == nil) then
+        if plugins[plugin] or (plugins["all"] or plugins["all"] == nil) then
             load_plugin(plugin)
         end
         if plugins["all"] == false then

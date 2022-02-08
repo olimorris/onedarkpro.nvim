@@ -13,9 +13,9 @@ function M.get(theme)
         TSComment = { link = "Comment" }, -- For comment blocks.
         TSConditional = { link = "Conditional" }, -- For keywords related to conditionnals.
         TSConstant = { link = "Constant" }, -- For constants
-        TSConstBuiltin = { fg = theme.colors.orange }, -- For constant that are built in the language: `nil` in Lua.
+        TSConstBuiltin = { fg = theme.colors.purple }, -- For constant that are built in the language: `nil` in Lua.
         TSConstMacro = { link = "Constant" }, -- For constants that are defined by macros: `NULL` in theme.config.
-        TSConstructor = { fg = theme.colors.cyan }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
+        TSConstructor = { fg = theme.colors.yellow }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
         TSError = { link = "Error" }, -- For syntax/parser errors.
         TSException = { link = "Exception" }, -- For exception related keywords.
         TSField = { fg = theme.colors.fg }, -- For fields (responsible for making YAML files look rubbish!)
@@ -25,8 +25,8 @@ function M.get(theme)
             style = theme.config.styles.functions
         }, -- For function (calls and definitions).
         TSFuncBuiltin = { fg = theme.colors.yellow }, -- For builtin functions: `table.insert` in Lua.
-        TSFuncMacro = { fg = theme.colors.fg }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-        TSInclude = { fg = theme.colors.blue, style = theme.options.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+        TSFuncMacro = { fg = theme.colors.blue }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+        TSInclude = { fg = theme.colors.purple, style = theme.options.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
         TSKeyword = {
             fg = theme.colors.purple,
             style = theme.config.styles.keywords
@@ -47,7 +47,7 @@ function M.get(theme)
         TSNumber = { link = "Number" }, -- For integers.
         TSOperator = { link = "Operator" }, -- For any operator: `+`, but also `->` and `*` in theme.config.
         TSParameter = { fg = theme.colors.red, style = theme.options.italic }, -- For parameters of a function.
-        TSParameterReference = { fg = theme.colors.fg }, -- For references to parameters of a function.
+        TSParameterReference = { fg = theme.colors.red }, -- For references to parameters of a function.
         TSProperty = { fg = theme.colors.red }, -- Same as `TSField`.
         TSPunctDelimiter = { link = "Delimiter" }, -- For delimiters ie: `.`
         TSPunctBracket = { fg = theme.colors.fg }, -- For brackets and parens.
@@ -86,7 +86,7 @@ function M.get(theme)
         TSWarning = { fg = theme.colors.yellow }, -- Text representation of a warning note.
         TSDanger = { fg = theme.colors.red }, -- Text representation of a danger note.
         TSType = { fg = theme.colors.yellow }, -- For types.
-        TSTypeBuiltin = { fg = theme.colors.orange }, -- For builtin types (you guessed it, right ?).
+        TSTypeBuiltin = { fg = theme.colors.yellow }, -- For builtin types (you guessed it, right ?).
         TSVariable = {
             fg = theme.colors.red,
             style = theme.config.styles.variables
