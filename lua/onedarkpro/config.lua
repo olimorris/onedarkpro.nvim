@@ -10,8 +10,9 @@ M.config = {
             return "onelight"
         end
     end,
-    colors = {}, -- Override default colors
-    hlgroups = {}, -- Override default highlight groups
+    colors = nil, -- Override default colors
+    hlgroups = nil, -- Override default highlight groups
+    filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
     plugins = { -- Enable/Disable specific plugins
         aerial = true,
         barbar = true,

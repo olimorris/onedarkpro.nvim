@@ -30,6 +30,7 @@
   - [Configuring styles](#configuring-styles)
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
+  - [Configuring filetype highlight groups](#configuring-filetype-highlight-groups)
   - [Configuring options](#configuring-options)
 - [Extras](#gift-extras)
   - [Terminal themes](#terminal-themes)
@@ -160,8 +161,9 @@ onedarkpro.setup({
       return "onelight"
     end
   end,
-  colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes by passing in a table
-  hlgroups = {}, -- Override default highlight groups
+  colors = nil, -- Override default colors. Can specify colors for "onelight" or "onedark" themes by passing in a table
+  hlgroups = nil, -- Override default highlight groups
+  filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugins highlight groups are loaded
       native_lsp = true,
       polygot = true,
@@ -277,6 +279,20 @@ hlgroups = { -- Overriding the Comment highlight group
   Comment = { fg = "#FF0000", bg = "#FFFF00", style = "italic" }, -- 1
   Comment = { fg = "${my_new_red}" bg = "${yellow}", style = "bold,italic" }, -- 2
   Comment = { link = "Substitute" }, -- 3
+}
+```
+
+### Configuring filetype highlight groups
+The theme allows for specific highlight groups to be applied to specific filetypes, in much the same way as highlight groups are configured above:
+
+```lua
+filetype_hlgroups = {
+  yaml = {
+    TSField = { fg = "${red}" },
+  },
+  python = {
+    TSConstructor = { fg = "${bg}", bg = "${red}" },
+  }
 }
 ```
 
