@@ -264,9 +264,7 @@ function utils.load_theme(theme)
             "-----------------------------------------------------------------------------------")
     end
 
-    --[[
-		Warn the user about the deprecated cursorline option
-	]]
+    -- Warn the user about the deprecated cursorline option
     if theme.config.highlight_cursorline then
         utils.warn(
             "`highlight_cursorline` has been moved into the options table of your config and is now deprecated",
@@ -282,9 +280,7 @@ function utils.load_theme(theme)
             "-----------------------------------------------------------------------------------")
     end
 
-    --[[
-		Warn the user about the deprecated transparent option
-	]]
+    -- Warn the user about the deprecated transparent option
     if theme.config.options.transparent then
         utils.warn(
             "The `transparent` option has been renamed to `transparency` and will soon be deprecated",

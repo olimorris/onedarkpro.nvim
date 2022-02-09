@@ -170,17 +170,15 @@ local function set_hlgroups()
         if plugin == "all" then
             return
         end
-        hlgroups = vim.tbl_deep_extend("force", hlgroups,
-                            require("onedarkpro.plugins." .. plugin).get(theme))
+        hlgroups = vim.tbl_deep_extend("force", hlgroups, require(
+                                           "onedarkpro.plugins." .. plugin).get(
+                                           theme))
     end
 
-    -- If a plugin has been enabled, then merge its hlgroups with the defaults
-    for plugin in pairs(plugins) do
-        if plugins[plugin] or (plugins["all"] or plugins["all"] == nil) then
+    -- If a plugin has been enabled then we load it
+    for plugin, load in pairs(plugins) do
+        if load then
             load_plugin(plugin)
-        end
-        if plugins["all"] == false then
-            return hlgroups
         end
     end
 
