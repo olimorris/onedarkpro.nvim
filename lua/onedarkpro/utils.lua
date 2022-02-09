@@ -260,6 +260,11 @@ end
 ---@return nil
 function utils.set_fhlgroups()
     local filetype = vim.bo.filetype
+
+    if filetype == vim.g.theme_last_filetype then
+        return
+    end
+
     local hlgroups = vim.g.theme_hlgroups
     local fhlgroups = vim.g.theme_fhlgroups
 
@@ -278,17 +283,18 @@ function utils.set_fhlgroups()
 
     -- Apply the filetype hlgroups
     for group, colors in pairs(fhlgroups[filetype]) do
-        if fhlgroups[filetype] == nil then
-            fhlgroups[filetype] = {}
-        end
-        if fhlgroups[filetype][group] == nil then
-            fhlgroups[filetype][group] = colors
-        end
+        -- if fhlgroups[filetype] == nil then
+        --     fhlgroups[filetype] = {}
+        -- end
+        -- if fhlgroups[filetype][group] == nil then
+        --     fhlgroups[filetype][group] = colors
+        -- end
 
         utils.create_highlights(group, colors)
     end
+
+    vim.g.theme_last_filetype = filetype
     vim.g.theme_applied_fhlgroups = true
-    -- utils.print_table(fhlgroups)
 end
 
 ---Load the desired theme
