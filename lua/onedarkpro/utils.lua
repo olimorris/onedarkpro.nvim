@@ -257,11 +257,12 @@ local function intersect_groups(hlgroups, fhlgroups)
 end
 
 ---Set custom hlgroups based on the buffer filetype
+---@param string force  forcefully apply highlighting
 ---@return nil
-function utils.set_fhlgroups()
+function utils.set_fhlgroups(force)
     local filetype = vim.bo.filetype
 
-    if filetype == vim.g.theme_last_filetype then
+    if filetype == vim.g.theme_last_filetype and not force then
         return
     end
 
@@ -330,7 +331,7 @@ function utils.load_theme(theme)
         utils.terminal(theme)
     end
 
-    -- Set the autocommand to reload hlgroups for filetype
+    -- Configure any filetype highlight groups
     if theme.config.filetype_hlgroups then
         -- Replace the color variables with actual colors
         local fhlgroups = utils.template_table(theme.config.filetype_hlgroups,
@@ -339,23 +340,26 @@ function utils.load_theme(theme)
         -- Set a global variable so we may access the colors after loading
         vim.g.theme_fhlgroups = fhlgroups
         vim.g.theme_hlgroups = intersect_groups(adjusted_hlgroups, fhlgroups)
-
-        local autocmds = {
-            onedarkpro_filetype_hlgroups = {
-                {
-                    "BufEnter",
-                    "*",
-                    "lua require(\"onedarkpro.utils\").set_fhlgroups()"
-                }
-            }
-        }
-        utils.create_augroups(autocmds)
     end
 
-    --[[
-        Due to recent configuration changes, we need to check if the user is using
-        the "link =" annotations correcrtly. If not, warn them accordingly
-    ]]
+    -- Set the theme's autocommands
+    local autocmds = {
+        onedarkpro_theme_autocmds = {
+            {
+                "BufEnter",
+                "*",
+                "lua require(\"onedarkpro.utils\").set_fhlgroups()"
+            },
+            {
+                "ColorScheme",
+                "*",
+                "lua require(\"onedarkpro.utils\").set_fhlgroups(true)"
+            }
+        }
+    }
+    utils.create_augroups(autocmds)
+
+    -- Check if the user is using the "link =" annotations correctly
     local warn = 0
     for _, colors in pairs(hlgroups) do
         for key, _ in pairs(colors) do
@@ -398,7 +402,7 @@ function utils.load_theme(theme)
             "-----------------------------------------------------------------------------------")
     end
 
-    -- Trigger the colorscheme autocommand
+    -- Trigger an autocommand on loading the theme
     vim.cmd([[doautocmd ColorScheme]])
 end
 
