@@ -7,7 +7,7 @@
   <i>
     Dark and light themes for Neovim 0.5 and above, written in Lua<br>
     <b>Treesitter enabled / Fully customisable / Many popular plugins supported</b><br>
-    Inspired by VS Code's <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a>
+    Inspired by VS Code's <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a>
   </i>
 </p>
 
@@ -293,7 +293,7 @@ hlgroups = { -- Overriding the Comment highlight group
 ```
 
 ### Configuring filetype highlight groups
-The original <a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a> utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the theme:
+The original <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a> utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the theme:
 
 ```lua
 filetype_hlgroups = {
