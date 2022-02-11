@@ -156,7 +156,7 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-  -- Theme can be overwritten with 'onedark' or 'onelight' as a string!
+  -- Theme can be overwritten with 'onedark' or 'onelight' as a string
   theme = function()
     if vim.o.background == "dark" then
       return "onedark"
@@ -164,14 +164,14 @@ onedarkpro.setup({
       return "onelight"
     end
   end,
-  colors = nil, -- Override default colors. Can specify colors for "onelight" or "onedark" themes by passing in a table
+  colors = nil, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   hlgroups = nil, -- Override default highlight groups
   filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugins highlight groups are loaded
       native_lsp = true,
       polygot = true,
       treesitter = true,
-      -- Others omitted for brevity
+      -- NOTE: Other plugins have been omitted for brevity
   },
   styles = {
       strings = "NONE", -- Style that is applied to strings
@@ -307,6 +307,36 @@ filetype_hlgroups = {
 ```
 > **Note:** Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
 
+#### Ignoring filetypes and buffer types
+Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. If neccessary, the theme's default highlight groups are reapplied if the buffer filetype has no custom filetype highlights specified.
+
+When using common plugins such as [Telescope](https://github.com/nvim-telescope/telescope.nvim) or [Trouble](https://github.com/folke/trouble.nvim), additional windows with distinct filetypes are opened. This can cause the theme to reapply the default highlight groups since it detects a buffer filetype change. When closing the windows, the user's custom filetype highlight groups are then lost. To prevent this from happening, the theme has a table of filetypes and buffer types to ignore:
+
+```lua
+filetype_hlgroups_ignore = {
+  filetypes = {
+    "^aerial$",
+    "^alpha$",
+    "^fugitive$",
+    "^fugitiveblame$",
+    "^help$",
+    "^NvimTree$",
+    "^packer$",
+    "^qf$",
+    "^startify$",
+    "^startuptime$",
+    "^TelescopePrompt$",
+    "^TelescopeResults$",
+    "^terminal$",
+    "^toggleterm$",
+    "^undotree$"
+  },
+  buftypes = {
+    "^terminal$"
+  }
+```
+Additional filetypes and buffer types can be added in the config.
+
 ### Configuring options
 
 #### Formatting
@@ -409,10 +439,10 @@ local autocmds = {
 }
 require("onedarkpro.utils").create_augroups(autocmds)
 ```
-> **Note:** The autocommand is useful if their is deviation from the theme's default configuration
+> **Note:** The autocommand is useful if there is deviation from the theme's default configuration
 
 #### Configuring styles/colors/highlight groups based on the theme
-When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` are active. This can be achieved by applying a conditional in the configuration:
+When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
 ```lua
 hlgroups = {

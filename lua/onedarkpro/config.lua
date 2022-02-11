@@ -13,6 +13,26 @@ M.config = {
     colors = nil, -- Override default colors
     hlgroups = nil, -- Override default highlight groups
     filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
+    filetype_hlgroups_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
+        filetypes = {
+            "^aerial$",
+            "^alpha$",
+            "^fugitive$",
+            "^fugitiveblame$",
+            "^help$",
+            "^NvimTree$",
+            "^packer$",
+            "^qf$",
+            "^startify$",
+            "^startuptime$",
+            "^TelescopePrompt$",
+            "^TelescopeResults$",
+            "^terminal$",
+            "^toggleterm$",
+            "^undotree$"
+        },
+        buftypes = { "^terminal$" }
+    },
     plugins = { -- Enable/Disable specific plugins
         aerial = true,
         barbar = true,

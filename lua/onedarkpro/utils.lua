@@ -256,22 +256,44 @@ local function intersect_groups(hlgroups, fhlgroups)
     return retained_hlgroups
 end
 
----Set custom hlgroups based on the buffer filetype
----@param string force  forcefully apply highlighting
----@return nil
-function utils.set_fhlgroups(force)
+---Return true if any pattern in the tbl matches the provided value
+---@param tbl table
+---@param val string
+---@return boolean
+local function find_pattern_match(tbl, val)
+    return tbl and next(vim.tbl_filter(function(pattern)
+        return val:match(pattern)
+    end, tbl))
+end
+
+---Ignore a buffer based on the filetype or the buffertype
+-- @return boolean
+local function ignore_buffer()
+    local buftype = vim.bo.buftype
     local filetype = vim.bo.filetype
 
-    if filetype == vim.g.theme_last_filetype and not force then
+    return
+        find_pattern_match(vim.g.theme_fhlgroups_ignore.filetypes, filetype) or
+            find_pattern_match(vim.g.theme_fhlgroups_ignore.buftypes, buftype)
+end
+
+---Set custom hlgroups based on the buffer filetype
+---@param string force_apply  forcefully apply highlighting
+---@return nil
+function utils.set_fhlgroups(force_apply)
+    local filetype = vim.bo.filetype
+
+    if (filetype == vim.g.theme_last_filetype and not force_apply) or
+        ignore_buffer() or filetype == "" then
         return
     end
 
     local hlgroups = vim.g.theme_hlgroups
     local fhlgroups = vim.g.theme_fhlgroups
 
-    -- If the buffer filetype isn't in the user's config then we may need to
-    -- reapply the theme's hlgroups and override the previously applied
-    -- custom filetype hlgroups.
+    -- If the user has moved to a new buffer filetype and there are no specific
+    -- configs set, then we reapply the theme's default hlgroups to override
+    -- any previously applied ones
     if not fhlgroups[filetype] then
         if vim.g.theme_applied_fhlgroups then
             for group, colors in pairs(hlgroups) do
@@ -282,15 +304,7 @@ function utils.set_fhlgroups(force)
         return
     end
 
-    -- Apply the filetype hlgroups
     for group, colors in pairs(fhlgroups[filetype]) do
-        -- if fhlgroups[filetype] == nil then
-        --     fhlgroups[filetype] = {}
-        -- end
-        -- if fhlgroups[filetype][group] == nil then
-        --     fhlgroups[filetype][group] = colors
-        -- end
-
         utils.create_highlights(group, colors)
     end
 
@@ -337,27 +351,28 @@ function utils.load_theme(theme)
         local fhlgroups = utils.template_table(theme.config.filetype_hlgroups,
                                                theme.colors)
 
+        vim.g.theme_fhlgroups_ignore = theme.config.filetype_hlgroups_ignore
+
         -- Set a global variable so we may access the colors after loading
         vim.g.theme_fhlgroups = fhlgroups
         vim.g.theme_hlgroups = intersect_groups(adjusted_hlgroups, fhlgroups)
-    end
 
-    -- Set the theme's autocommands
-    local autocmds = {
-        onedarkpro_theme_autocmds = {
-            {
-                "BufEnter",
-                "*",
-                "lua require(\"onedarkpro.utils\").set_fhlgroups()"
-            },
-            {
-                "ColorScheme",
-                "*",
-                "lua require(\"onedarkpro.utils\").set_fhlgroups(true)"
+        local autocmds = {
+            onedarkpro_theme_autocmds = {
+                {
+                    "BufEnter",
+                    "*",
+                    "lua require(\"onedarkpro.utils\").set_fhlgroups()"
+                },
+                {
+                    "ColorScheme",
+                    "*",
+                    "lua require(\"onedarkpro.utils\").set_fhlgroups(true)"
+                }
             }
         }
-    }
-    utils.create_augroups(autocmds)
+        utils.create_augroups(autocmds)
+    end
 
     -- Check if the user is using the "link =" annotations correctly
     local warn = 0
