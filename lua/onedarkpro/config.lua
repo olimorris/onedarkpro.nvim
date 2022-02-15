@@ -10,8 +10,27 @@ M.config = {
             return "onelight"
         end
     end,
-    colors = {}, -- Override default colors
-    hlgroups = {}, -- Override default highlight groups
+    colors = nil, -- Override default colors
+    hlgroups = nil, -- Override default highlight groups
+    filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
+    filetype_hlgroups_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
+        filetypes = {
+            "^aerial$",
+            "^alpha$",
+            "^fugitive$",
+            "^fugitiveblame$",
+            "^help$",
+            "^NvimTree$",
+            "^packer$",
+            "^qf$",
+            "^startify$",
+            "^startuptime$",
+            "^terminal$",
+            "^toggleterm$",
+            "^undotree$"
+        },
+        buftypes = { "^terminal$" }
+    },
     plugins = { -- Enable/Disable specific plugins
         aerial = true,
         barbar = true,
@@ -66,6 +85,18 @@ function M.set_config(user_config)
     -- Merge the config tables
     user_config = user_config or {}
     M.config = utils.tbl_deep_extend(M.config, user_config)
+
+    -- Overwrite the default plugins config with the user's
+    if user_config.plugins then
+        for plugin, _ in pairs(M.config.plugins) do
+            if user_config.plugins["all"] == false then
+                M.config.plugins[plugin] = false
+            end
+            if user_config.plugins[plugin] then
+                M.config.plugins[plugin] = user_config.plugins[plugin]
+            end
+        end
+    end
 
     -- Enable the cursorline in Neovim
     if M.config.options.highlight_cursorline or M.config.options.cursorline then

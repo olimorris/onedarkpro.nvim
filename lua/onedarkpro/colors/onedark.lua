@@ -18,7 +18,7 @@ function M.load(config)
         blue = "#61afef",
         purple = "#c678dd",
         white = "#abb2bf",
-        black = "#1e1e1e",
+        black = "#282c34",
         gray = "#5c6370",
         highlight = "#e2be7d",
         none = "NONE"

@@ -210,6 +210,108 @@ function utils.print_table(tbl)
     require("pl.pretty").dump(tbl)
 end
 
+---Set an autocommand
+---Taken from https://github.com/norcalli/nvim_utils/blob/master/lua/nvim_utils.lua#L554-L567
+-- @param definitions table
+-- @return vim.api
+function utils.create_augroups(definitions)
+    for group_name, definition in pairs(definitions) do
+        vim.api.nvim_command("augroup " .. group_name)
+        vim.api.nvim_command("autocmd!")
+        for _, def in ipairs(definition) do
+            -- if type(def) == 'table' and type(def[#def]) == 'function' then
+            -- 	def[#def] = lua_callback(def[#def])
+            -- end
+            local command =
+                table.concat(vim.tbl_flatten { "autocmd", def }, " ")
+            vim.api.nvim_command(command)
+        end
+        vim.api.nvim_command("augroup END")
+    end
+end
+
+---When a user moves from a filetype with specific hlgroups to a filetype with
+---none, we need to apply the theme's default hlgroups. To make this less
+---expensive, we match the users configured filetype hlgroups to the theme's
+---@param table hlgroups   hlgroups from the theme + the user's config
+---@param table fhlgroups  hlgroups for filetypes from the user's config
+---@return table
+local function intersect_groups(hlgroups, fhlgroups)
+    -- Find the intersection between the tables and extract the common hlgroups
+    local matched_groups = {}
+    for filetype, _ in pairs(fhlgroups) do
+        for group, _ in pairs(fhlgroups[filetype]) do
+            if matched_groups[group] == nil then
+                matched_groups[group] = true
+            end
+        end
+    end
+
+    -- Then extract the matched groups from the theme's hlgroups
+    local retained_hlgroups = {}
+    for group, _ in pairs(matched_groups) do
+        retained_hlgroups[group] = hlgroups[group]
+    end
+
+    return retained_hlgroups
+end
+
+---Return true if any pattern in the tbl matches the provided value
+---@param tbl table
+---@param val string
+---@return boolean
+local function find_pattern_match(tbl, val)
+    return tbl and next(vim.tbl_filter(function(pattern)
+        return val:match(pattern)
+    end, tbl))
+end
+
+---Ignore a buffer based on the filetype or the buffertype
+-- @return boolean
+local function ignore_buffer()
+    local buftype = vim.bo.buftype
+    local filetype = vim.bo.filetype
+
+    return
+        find_pattern_match(vim.g.theme_fhlgroups_ignore.filetypes, filetype) or
+            find_pattern_match(vim.g.theme_fhlgroups_ignore.buftypes, buftype)
+end
+
+---Set custom hlgroups based on the buffer filetype
+---@param string force_apply  forcefully apply highlighting
+---@return nil
+function utils.set_fhlgroups(force_apply)
+    local filetype = vim.bo.filetype
+
+    if (filetype == vim.g.theme_last_filetype and not force_apply) or
+        ignore_buffer() or filetype == "" then
+        return
+    end
+
+    local hlgroups = vim.g.theme_hlgroups
+    local fhlgroups = vim.g.theme_fhlgroups
+
+    -- If the user has moved to a new buffer filetype and there are no specific
+    -- configs set, then we reapply the theme's default hlgroups to override
+    -- any previously applied ones
+    if not fhlgroups[filetype] then
+        if vim.g.theme_applied_fhlgroups then
+            for group, colors in pairs(hlgroups) do
+                utils.create_highlights(group, colors)
+            end
+            vim.g.theme_applied_fhlgroups = false
+        end
+        return
+    end
+
+    for group, colors in pairs(fhlgroups[filetype]) do
+        utils.create_highlights(group, colors)
+    end
+
+    vim.g.theme_last_filetype = filetype
+    vim.g.theme_applied_fhlgroups = true
+end
+
 ---Load the desired theme
 ---@param theme table
 ---@return nil
@@ -243,10 +345,36 @@ function utils.load_theme(theme)
         utils.terminal(theme)
     end
 
-    --[[
-	Due to recent configuration changes, we need to check if the user is using
-	the "link =" annotations correcrtly. If not, warn them accordingly
-	]]
+    -- Configure any filetype highlight groups
+    if theme.config.filetype_hlgroups then
+        -- Replace the color variables with actual colors
+        local fhlgroups = utils.template_table(theme.config.filetype_hlgroups,
+                                               theme.colors)
+
+        vim.g.theme_fhlgroups_ignore = theme.config.filetype_hlgroups_ignore
+
+        -- Set a global variable so we may access the colors after loading
+        vim.g.theme_fhlgroups = fhlgroups
+        vim.g.theme_hlgroups = intersect_groups(adjusted_hlgroups, fhlgroups)
+
+        local autocmds = {
+            onedarkpro_theme_autocmds = {
+                {
+                    "BufEnter",
+                    "*",
+                    "lua require(\"onedarkpro.utils\").set_fhlgroups()"
+                },
+                {
+                    "ColorScheme",
+                    "*",
+                    "lua require(\"onedarkpro.utils\").set_fhlgroups(true)"
+                }
+            }
+        }
+        utils.create_augroups(autocmds)
+    end
+
+    -- Check if the user is using the "link =" annotations correctly
     local warn = 0
     for _, colors in pairs(hlgroups) do
         for key, _ in pairs(colors) do
@@ -264,9 +392,7 @@ function utils.load_theme(theme)
             "-----------------------------------------------------------------------------------")
     end
 
-    --[[
-		Warn the user about the deprecated cursorline option
-	]]
+    -- Warn the user about the deprecated cursorline option
     if theme.config.highlight_cursorline then
         utils.warn(
             "`highlight_cursorline` has been moved into the options table of your config and is now deprecated",
@@ -282,9 +408,7 @@ function utils.load_theme(theme)
             "-----------------------------------------------------------------------------------")
     end
 
-    --[[
-		Warn the user about the deprecated transparent option
-	]]
+    -- Warn the user about the deprecated transparent option
     if theme.config.options.transparent then
         utils.warn(
             "The `transparent` option has been renamed to `transparency` and will soon be deprecated",
@@ -293,7 +417,7 @@ function utils.load_theme(theme)
             "-----------------------------------------------------------------------------------")
     end
 
-    -- Trigger the colorscheme autocommand
+    -- Trigger an autocommand on loading the theme
     vim.cmd([[doautocmd ColorScheme]])
 end
 
