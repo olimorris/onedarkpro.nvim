@@ -307,6 +307,8 @@ filetype_hlgroups = {
 ```
 > **Note:** Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
 
+> **Note:** Currently support for highlighting in Telescope's previewer is unavailable.
+
 #### Ignoring filetypes and buffer types
 Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. If neccessary, the theme's default highlight groups are reapplied if the buffer filetype has no custom filetype highlights specified.
 

@@ -25,8 +25,6 @@ M.config = {
             "^qf$",
             "^startify$",
             "^startuptime$",
-            "^TelescopePrompt$",
-            "^TelescopeResults$",
             "^terminal$",
             "^toggleterm$",
             "^undotree$"
