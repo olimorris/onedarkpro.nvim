@@ -28,24 +28,24 @@ function M.load(config)
     utils.color_overrides(colors, config)
 
     -- Additional colors
-    colors.cursorline = utils.darken(colors.bg, 0.97)
-    colors.color_column = utils.darken(colors.bg, 0.97)
-    colors.comment = utils.darken(colors.gray, 0.80)
-    colors.indentline = utils.darken(colors.bg, 0.93)
-    colors.menu = utils.darken(colors.bg, 0.95)
-    colors.menu_scroll = utils.darken(colors.bg, 0.90)
-    colors.menu_scroll_thumb = utils.lighten(colors.blue, 0.80)
-    colors.selection = utils.darken(colors.bg, 0.90)
+    colors.cursorline = colors.cursorline or utils.darken(colors.bg, 0.97)
+    colors.color_column = colors.color_column or utils.darken(colors.bg, 0.97)
+    colors.comment = colors.comment or utils.darken(colors.gray, 0.80)
+    colors.indentline = colors.indentline or utils.darken(colors.bg, 0.93)
+    colors.menu = colors.menu or utils.darken(colors.bg, 0.95)
+    colors.menu_scroll = colors.menu_scroll or utils.darken(colors.bg, 0.90)
+    colors.menu_scroll_thumb = colors.menu_scroll_thumb or utils.lighten(colors.blue, 0.80)
+    colors.selection = colors.selection or utils.darken(colors.bg, 0.90)
 
     -- Git diff
-    colors.diff_add = "#cae3e8"
-    colors.diff_delete = "#f5c6c6"
-    colors.diff_text = "#a6d0d8"
+    colors.diff_add = colors.diff_add or "#cae3e8"
+    colors.diff_delete = colors.diff_delete or "#f5c6c6"
+    colors.diff_text = colors.diff_text or "#a6d0d8"
 
     -- Lualine colors
-    colors.bg_statusline = utils.darken(colors.bg, 0.95)
-    colors.fg_gutter = utils.darken(colors.bg, 0.90)
-    colors.fg_sidebar = colors.fg
+    colors.bg_statusline = colors.bg_statusline or utils.darken(colors.bg, 0.95)
+    colors.fg_gutter = colors.fg_gutter or utils.darken(colors.bg, 0.90)
+    colors.fg_sidebar = colors.fg_sidebar or colors.fg
 
     return colors
 end
