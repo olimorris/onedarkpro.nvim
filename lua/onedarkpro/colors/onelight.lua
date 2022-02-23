@@ -24,15 +24,18 @@ function M.load(config)
         none = "NONE"
     }
 
+    -- Set the color table and include the users custom config
+    utils.color_overrides(colors, config)
+
     -- Additional colors
     colors.cursorline = utils.darken(colors.bg, 0.97)
+    colors.color_column = utils.darken(colors.bg, 0.97)
     colors.comment = utils.darken(colors.gray, 0.80)
-    colors.selection = utils.darken(colors.bg, 0.90)
-    colors.color_column = utils.darken(colors.bg, 0.98)
     colors.indentline = utils.darken(colors.bg, 0.93)
     colors.menu = utils.darken(colors.bg, 0.95)
     colors.menu_scroll = utils.darken(colors.bg, 0.90)
     colors.menu_scroll_thumb = utils.lighten(colors.blue, 0.80)
+    colors.selection = utils.darken(colors.bg, 0.90)
 
     -- Git diff
     colors.diff_add = "#cae3e8"
@@ -43,9 +46,6 @@ function M.load(config)
     colors.bg_statusline = utils.darken(colors.bg, 0.95)
     colors.fg_gutter = utils.darken(colors.bg, 0.90)
     colors.fg_sidebar = colors.fg
-
-    -- Set the color table and include the users custom config
-    utils.color_overrides(colors, config)
 
     return colors
 end
