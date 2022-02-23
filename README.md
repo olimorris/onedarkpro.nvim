@@ -164,9 +164,9 @@ onedarkpro.setup({
       return "onelight"
     end
   end,
-  colors = nil, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  hlgroups = nil, -- Override default highlight groups
-  filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
+  colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
+  hlgroups = {}, -- Override default highlight groups
+  filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugins highlight groups are loaded
       native_lsp = true,
       polygot = true,

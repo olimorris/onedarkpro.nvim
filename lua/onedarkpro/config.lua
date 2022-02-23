@@ -12,7 +12,7 @@ M.config = {
     end,
     colors = {}, -- Override default colors
     hlgroups = {}, -- Override default highlight groups
-    filetype_hlgroups = nil, -- Override default highlight groups for specific filetypes
+    filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
     filetype_hlgroups_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
         filetypes = {
             "^aerial$",

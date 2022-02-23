@@ -346,24 +346,26 @@ function utils.load_theme(theme)
     end
 
     -- Configure any filetype highlight groups
-    if theme.config.filetype_hlgroups then
+    local next = next -- next as a local var is most efficient
+    if next(theme.config.filetype_hlgroups) ~= nil then
         -- Replace the color variables with actual colors
         local fhlgroups = utils.template_table(theme.config.filetype_hlgroups,
                                                theme.colors)
 
-        vim.g.theme_fhlgroups_ignore = theme.config.filetype_hlgroups_ignore
-
-        -- Set a global variable so we may access the colors after loading
+        -- Set global vars to be accessed when moving between filetype buffers
         vim.g.theme_fhlgroups = fhlgroups
+        vim.g.theme_fhlgroups_ignore = theme.config.filetype_hlgroups_ignore
         vim.g.theme_hlgroups = intersect_groups(adjusted_hlgroups, fhlgroups)
 
         local autocmds = {
             onedarkpro_theme_autocmds = {
+                -- TODO: add additional events such as BufFilePost, BufDelete
                 {
                     "BufEnter",
                     "*",
                     "lua require(\"onedarkpro.utils\").set_fhlgroups()"
                 },
+                -- Brute force a refresh when the colorscheme changes
                 {
                     "ColorScheme",
                     "*",
