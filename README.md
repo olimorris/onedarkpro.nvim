@@ -34,7 +34,7 @@
   - [Configuring options](#configuring-options)
 - [Extras](#gift-extras)
   - [Terminal themes](#terminal-themes)
-  - [Helper functions](#helper-functions)
+  - [Helpers](#helpers)
 - [Credits](#clap-credits)
 - [License](#page_with_curl-license)
 
