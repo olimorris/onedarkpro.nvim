@@ -6,7 +6,7 @@ local M = {}
 function M.get(theme)
     return {
         ToggleTerm = { bg = theme.options.transparency, fg = theme.colors.fg },
-        ToggleTermBorder = { fg = theme.colors.gray }
+        ToggleTermBorder = { fg = theme.colors.gray },
     }
 end
 

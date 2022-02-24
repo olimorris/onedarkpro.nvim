@@ -13,30 +13,30 @@ function M.get(theme)
         LspDiagnosticsSignError = { link = "LspDiagnosticsDefaultError" },
         LspDiagnosticsSignWarning = { link = "LspDiagnosticsDefaultWarning" },
         LspDiagnosticsSignInformation = {
-            link = "LspDiagnosticsDefaultInformation"
+            link = "LspDiagnosticsDefaultInformation",
         },
         LspDiagnosticsSignHint = { link = "LspDiagnosticsDefaultHint" },
 
         LspDiagnosticsUnderlineError = {
             fg = theme.colors.red,
-            style = theme.options.undercurl
+            style = theme.options.undercurl,
         },
         LspDiagnosticsUnderlineWarning = {
             fg = theme.colors.yellow,
-            style = theme.options.undercurl
+            style = theme.options.undercurl,
         },
         LspDiagnosticsUnderlineInformation = {
             fg = theme.colors.blue,
-            style = theme.options.undercurl
+            style = theme.options.undercurl,
         },
         LspDiagnosticsUnderlineHint = { style = theme.options.undercurl },
 
         LspDiagnosticsVirtualTextError = { link = "LspDiagnosticsDefaultError" },
         LspDiagnosticsVirtualTextWarning = {
-            link = "LspDiagnosticsDefaultWarning"
+            link = "LspDiagnosticsDefaultWarning",
         },
         LspDiagnosticsVirtualTextInformation = {
-            link = "LspDiagnosticsDefaultInformation"
+            link = "LspDiagnosticsDefaultInformation",
         },
         LspDiagnosticsVirtualTextHint = { link = "LspDiagnosticsDefaultHint" },
 
@@ -63,9 +63,9 @@ function M.get(theme)
         DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
         DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
         DiagnosticVirtualTextInfo = {
-            link = "LspDiagnosticsVirtualTextInformation"
+            link = "LspDiagnosticsVirtualTextInformation",
         },
-        DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" }
+        DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
     }
 end
 

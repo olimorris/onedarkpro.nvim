@@ -8,7 +8,7 @@ function M.get(theme)
         TroubleCount = { fg = theme.colors.purple, style = theme.options.bold },
         TroubleFile = { bg = "NONE", fg = theme.colors.cyan },
         TroubleFoldIcon = { bg = "NONE", fg = theme.colors.fg },
-        TroubleLocation = { bg = "NONE", fg = theme.colors.cyan }
+        TroubleLocation = { bg = "NONE", fg = theme.colors.cyan },
     }
 end
 

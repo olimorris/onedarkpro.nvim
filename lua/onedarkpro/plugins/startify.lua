@@ -13,11 +13,11 @@ function M.get(theme)
         StartifyPath = { fg = theme.colors.gray },
         StartifySection = {
             fg = theme.colors.blue,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         StartifySelect = { fg = theme.colors.cyan },
         StartifySlash = { fg = theme.colors.gray },
-        StartifySpecial = { fg = theme.colors.red }
+        StartifySpecial = { fg = theme.colors.red },
     }
 end
 

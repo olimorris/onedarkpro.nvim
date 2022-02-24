@@ -10,7 +10,7 @@ function M.get(theme)
         packerWorking = { fg = theme.colors.yellow }, -- Icon when syncing
         packerOutput = { fg = theme.colors.blue }, -- Text beneath plugin title (e.g. Commits)
         packerStatusFail = { fg = theme.colors.red },
-        packerStatusSuccess = { fg = theme.colors.green } -- Plugin name when install/update is a success
+        packerStatusSuccess = { fg = theme.colors.green }, -- Plugin name when install/update is a success
     }
 end
 

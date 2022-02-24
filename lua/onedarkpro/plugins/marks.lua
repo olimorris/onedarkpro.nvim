@@ -9,10 +9,10 @@ function M.get(theme)
         MarkSignHL = {
             fg = theme.colors.purple,
             bg = "NONE",
-            style = theme.options.bold
+            style = theme.options.bold,
         },
         -- MarkSignNumHL = {  },
-        MarkVirtTextHL = { fg = theme.colors.gray, style = theme.options.italic }
+        MarkVirtTextHL = { fg = theme.colors.gray, style = theme.options.italic },
     }
 end
 

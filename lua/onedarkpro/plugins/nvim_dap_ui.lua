@@ -16,12 +16,12 @@ function M.get(theme)
         DapUIBreakpointsInfo = { fg = theme.colors.fg },
         DapUIBreakpointsCurrentLine = {
             fg = theme.colors.yellow,
-            style = theme.options.bold
+            style = theme.options.bold,
         },
         DapUIBreakpointsLine = { link = "DapUIBreakpointsCurrentLine" },
         DapUIWatchesEmpty = { bg = theme.colors.red, fg = theme.colors.bg },
         DapUIWatchesValue = { fg = theme.colors.red },
-        DapUIWatchesError = { fg = theme.colors.red }
+        DapUIWatchesError = { fg = theme.colors.red },
     }
 end
 

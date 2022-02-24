@@ -7,8 +7,8 @@ function M.get(theme)
     return {
         AerialClass = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
-        }
+            style = theme.options.bold_italic,
+        },
     }
 end
 

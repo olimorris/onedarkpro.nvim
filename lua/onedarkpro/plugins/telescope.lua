@@ -7,12 +7,12 @@ function M.get(theme)
     return {
         TelescopeSelection = {
             bg = theme.options.cursorline,
-            fg = theme.colors.purple
+            fg = theme.colors.purple,
         },
         TelescopeSelectionCaret = { fg = theme.colors.purple },
         TelescopeMultiSelection = {
             bg = theme.options.cursorline,
-            fg = theme.colors.comment
+            fg = theme.colors.comment,
         },
         TelescopeNormal = { fg = theme.colors.fg },
         TelescopeBorder = { fg = theme.colors.comment },
@@ -20,10 +20,10 @@ function M.get(theme)
         TelescopePreviewBorder = { link = "TelescopeBorder" },
         TelescopeMatching = {
             fg = theme.colors.green,
-            style = theme.options.underline
+            style = theme.options.underline,
         },
         TelescopePromptPrefix = { fg = theme.colors.purple },
-        TelescopePrompt = { link = "TelescopeNormal" }
+        TelescopePrompt = { link = "TelescopeNormal" },
     }
 end
 

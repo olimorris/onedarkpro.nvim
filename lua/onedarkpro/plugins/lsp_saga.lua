@@ -38,7 +38,7 @@ function M.get(theme)
         LspSagaCodeActionBorder = { style = theme.options.bold },
         LspSagaAutoPreview = {},
         LspSagaDefPreviewBorder = { style = theme.options.bold },
-        LspLinesDiagBorder = { style = theme.options.bold }
+        LspLinesDiagBorder = { style = theme.options.bold },
     }
 end
 

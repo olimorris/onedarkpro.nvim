@@ -9,7 +9,7 @@ function M.get(theme)
         WhichKeyDesc = { fg = theme.colors.fg },
         WhichKeySeparator = { fg = theme.colors.green },
         WhichKeyFloat = { bg = theme.options.cursorline },
-        WhichKeyGroup = { fg = theme.colors.blue, style = theme.options.italic }
+        WhichKeyGroup = { fg = theme.colors.blue, style = theme.options.italic },
     }
 end
 

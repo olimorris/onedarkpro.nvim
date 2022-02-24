@@ -18,7 +18,8 @@ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE A
 NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-]] local hsluv = {}
+]]
+local hsluv = {}
 
 local hexChars = "0123456789abcdef"
 
@@ -47,11 +48,9 @@ hsluv.get_bounds = function(l)
 
         for t = 0, 1 do
             local top1 = (284517 * m1 - 94839 * m3) * sub2
-            local top2 = (838422 * m3 + 769860 * m2 + 731718 * m1) * l * sub2 -
-                             769860 * t * l
+            local top2 = (838422 * m3 + 769860 * m2 + 731718 * m1) * l * sub2 - 769860 * t * l
             local bottom = (632260 * m3 - 126452 * m2) * sub2 + 126452 * t
-            table.insert(result,
-                         { slope = top1 / bottom, intercept = top2 / bottom })
+            table.insert(result, { slope = top1 / bottom, intercept = top2 / bottom })
         end
     end
     return result
@@ -113,7 +112,7 @@ hsluv.xyz_to_rgb = function(tuple)
     return {
         hsluv.from_linear(hsluv.dot_product(hsluv.m[1], tuple)),
         hsluv.from_linear(hsluv.dot_product(hsluv.m[2], tuple)),
-        hsluv.from_linear(hsluv.dot_product(hsluv.m[3], tuple))
+        hsluv.from_linear(hsluv.dot_product(hsluv.m[3], tuple)),
     }
 end
 
@@ -121,12 +120,12 @@ hsluv.rgb_to_xyz = function(tuple)
     local rgbl = {
         hsluv.to_linear(tuple[1]),
         hsluv.to_linear(tuple[2]),
-        hsluv.to_linear(tuple[3])
+        hsluv.to_linear(tuple[3]),
     }
     return {
         hsluv.dot_product(hsluv.minv[1], rgbl),
         hsluv.dot_product(hsluv.minv[2], rgbl),
-        hsluv.dot_product(hsluv.minv[3], rgbl)
+        hsluv.dot_product(hsluv.minv[3], rgbl),
     }
 end
 
@@ -327,12 +326,12 @@ end
 hsluv.m = {
     { 3.240969941904521, -1.537383177570093, -0.498610760293 },
     { -0.96924363628087, 1.87596750150772, 0.041555057407175 },
-    { 0.055630079696993, -0.20397695888897, 1.056971514242878 }
+    { 0.055630079696993, -0.20397695888897, 1.056971514242878 },
 }
 hsluv.minv = {
     { 0.41239079926595, 0.35758433938387, 0.18048078840183 },
     { 0.21263900587151, 0.71516867876775, 0.072192315360733 },
-    { 0.019330818715591, 0.11919477979462, 0.95053215224966 }
+    { 0.019330818715591, 0.11919477979462, 0.95053215224966 },
 }
 hsluv.refY = 1.0
 hsluv.refU = 0.19783000664283

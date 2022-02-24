@@ -7,7 +7,7 @@ function M.get(theme)
     return {
         -- dashboardHeader = {},
         dashboardCenter = { fg = theme.colors.purple, style = theme.options.bold },
-        dashboardFooter = { fg = theme.colors.blue }
+        dashboardFooter = { fg = theme.colors.blue },
         -- dashboardShortCut = {},
     }
 end

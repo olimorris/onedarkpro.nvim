@@ -6,17 +6,16 @@ local M = {}
 function M.get(theme)
     return {
         NvimTreeNormalNC = { -- Color when nvim-tree is no longer in focus
-            bg = theme.config.options.window_unfocussed_color and
-                theme.colors.color_column or theme.colors.bg
+            bg = theme.config.options.window_unfocussed_color and theme.colors.color_column or theme.colors.bg,
         },
         NvimTreeSymlink = {
             fg = theme.colors.cyan,
-            style = theme.options.underline
+            style = theme.options.underline,
         },
         NvimTreeFolderName = { fg = theme.colors.blue },
         NvimTreeRootFolder = {
             fg = theme.colors.purple,
-            style = theme.options.bold
+            style = theme.options.bold,
         },
         NvimTreeFolderIcon = { fg = theme.colors.purple },
         NvimTreeEmptyFolderName = { fg = theme.colors.comment },
@@ -24,7 +23,7 @@ function M.get(theme)
         NvimTreeExecFile = { fg = theme.colors.green, style = theme.options.bold },
         NvimTreeOpenedFile = {
             fg = theme.colors.purple,
-            style = theme.options.italic
+            style = theme.options.italic,
         },
         NvimTreeSpecialFile = { link = "Special" },
         -- NvimTreeImageFile = {},
@@ -53,7 +52,7 @@ function M.get(theme)
         NvimTreeGitMerge = { fg = theme.colors.cyan },
         NvimTreeGitRenamed = { fg = theme.colors.yellow },
         NvimTreeGitNew = { fg = theme.colors.green },
-        NvimTreeGitDeleted = { fg = theme.colors.red }
+        NvimTreeGitDeleted = { fg = theme.colors.red },
     }
 end
 

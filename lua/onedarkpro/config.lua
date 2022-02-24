@@ -27,9 +27,9 @@ M.config = {
             "^startuptime$",
             "^terminal$",
             "^toggleterm$",
-            "^undotree$"
+            "^undotree$",
         },
-        buftypes = { "^terminal$" }
+        buftypes = { "^terminal$" },
     },
     plugins = { -- Enable/Disable specific plugins
         aerial = true,
@@ -55,14 +55,14 @@ M.config = {
         treesitter = true,
         trouble_nvim = true,
         vim_ultest = true,
-        which_key_nvim = true
+        which_key_nvim = true,
     },
     styles = {
         strings = "NONE", -- Style that is applied to strings
         comments = "NONE", -- Style that is applied to comments
         keywords = "NONE", -- Style that is applied to keywords
         functions = "NONE", -- Style that is applied to functions
-        variables = "NONE" -- Style that is applied to variables
+        variables = "NONE", -- Style that is applied to variables
     },
     options = {
         bold = false, -- Use the themes opinionated bold styles?
@@ -72,8 +72,8 @@ M.config = {
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
         terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-        window_unfocussed_color = false -- When the window is out of focus, change the normal background?
-    }
+        window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
+    },
 }
 
 ---Apply the users custom config on top of the default
