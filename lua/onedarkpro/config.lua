@@ -55,7 +55,8 @@ M.config = {
         treesitter = true,
         trouble_nvim = true,
         vim_ultest = true,
-        which_key_nvim = true
+        which_key_nvim = true,
+        notify = true
     },
     styles = {
         strings = "NONE", -- Style that is applied to strings
