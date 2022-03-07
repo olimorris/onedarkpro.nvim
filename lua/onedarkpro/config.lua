@@ -20,6 +20,7 @@ M.config = {
             "^fugitive$",
             "^fugitiveblame$",
             "^help$",
+            "^minimap$",
             "^NvimTree$",
             "^packer$",
             "^qf$",
