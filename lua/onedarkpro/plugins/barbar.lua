@@ -7,7 +7,7 @@ function M.get(theme)
     return {
         BufferCurrent = {
             fg = theme.colors.purple,
-            bg = theme.options.transparency
+            bg = theme.options.transparency,
         },
         BufferCurrentIndex = { link = "BufferCurrent" },
         BufferCurrentMod = { fg = theme.colors.purple },
@@ -16,7 +16,7 @@ function M.get(theme)
         BufferCurrentTarget = {
             bg = theme.options.transparency,
             fg = theme.colors.blue,
-            style = theme.options.bold
+            style = theme.options.bold,
         },
         BufferVisible = { fg = theme.colors.gray },
         BufferVisibleIndex = { link = "BufferVisible" },
@@ -30,7 +30,7 @@ function M.get(theme)
         BufferInactiveSign = { fg = theme.colors.bg }, -- The inactive sign of a buffer
         BufferInactiveTarget = { link = "BufferCurrentTarget" },
         BufferTabpages = { fg = theme.colors.purple }, -- The tab page indicator on the right
-        BufferTabpageFill = { fg = theme.colors.bg } -- The sign which marks the end of the bufferline
+        BufferTabpageFill = { fg = theme.colors.bg }, -- The sign which marks the end of the bufferline
     }
 end
 

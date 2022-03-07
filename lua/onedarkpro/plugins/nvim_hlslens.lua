@@ -8,7 +8,7 @@ function M.get(theme)
         HlSearchNear = { bg = theme.colors.highlight, fg = theme.colors.bg },
         HlSearchLens = { bg = theme.colors.gray },
         HlSearchLensNear = { link = "HlSearchNear" },
-        HlSearchFloat = { link = "HlSearchNear" }
+        HlSearchFloat = { link = "HlSearchNear" },
     }
 end
 

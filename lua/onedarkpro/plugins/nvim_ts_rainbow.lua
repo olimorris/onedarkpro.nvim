@@ -11,7 +11,7 @@ function M.get(theme)
         rainbowcol4 = { fg = theme.colors.green },
         rainbowcol5 = { fg = theme.colors.blue },
         rainbowcol6 = { fg = theme.colors.cyan },
-        rainbowcol7 = { fg = theme.colors.purple }
+        rainbowcol7 = { fg = theme.colors.purple },
     }
 end
 

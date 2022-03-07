@@ -9,7 +9,7 @@ function M.get(theme)
         UltestFail = { fg = theme.colors.red },
         UltestRunning = { fg = theme.colors.yellow },
         UltestBorder = { fg = theme.colors.comment },
-        UltestInfo = { fg = theme.colors.purple, style = theme.options.bold }
+        UltestInfo = { fg = theme.colors.purple, style = theme.options.bold },
     }
 end
 

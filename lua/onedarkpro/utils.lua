@@ -9,8 +9,7 @@ utils.day_brightness = 0.3
 ---@return table
 function utils.warn(...)
     for _, msg in ipairs({ ... }) do
-        vim.cmd("echohl WarningMsg | echom \"OneDarkPro.nvim: " .. msg ..
-                    "\" | echohl NONE")
+        vim.cmd('echohl WarningMsg | echom "OneDarkPro.nvim: ' .. msg .. '" | echohl NONE')
     end
 end
 
@@ -22,8 +21,7 @@ local hex_to_rgb = function(hex_str)
     local pat = "^#(" .. hex .. ")(" .. hex .. ")(" .. hex .. ")$"
     hex_str = string.lower(hex_str)
 
-    assert(string.find(hex_str, pat) ~= nil,
-           "hex_to_rgb: invalid hex_str: " .. tostring(hex_str))
+    assert(string.find(hex_str, pat) ~= nil, "hex_to_rgb: invalid hex_str: " .. tostring(hex_str))
 
     local r, g, b = string.match(hex_str, pat)
     return { tonumber(r, 16), tonumber(g, 16), tonumber(b, 16) }
@@ -42,8 +40,7 @@ function utils.blend(fg, bg, alpha)
         return math.floor(math.min(math.max(0, ret), 255) + 0.5)
     end
 
-    return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2),
-                         blendChannel(3))
+    return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
 ---Darken a hex color
@@ -131,9 +128,7 @@ function utils.create_highlights(group, color)
     local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
     local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
     local sp = color.sp and "guisp=" .. color.sp or ""
-    local hl =
-        "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " ..
-            sp
+    local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
 
     if color.link and (color.fg == nil and color.bg == nil and color.sp == nil) then
         vim.cmd("highlight! link " .. group .. " " .. color.link)
@@ -222,8 +217,7 @@ function utils.create_augroups(definitions)
             -- if type(def) == 'table' and type(def[#def]) == 'function' then
             -- 	def[#def] = lua_callback(def[#def])
             -- end
-            local command =
-                table.concat(vim.tbl_flatten { "autocmd", def }, " ")
+            local command = table.concat(vim.tbl_flatten({ "autocmd", def }), " ")
             vim.api.nvim_command(command)
         end
         vim.api.nvim_command("augroup END")
@@ -272,9 +266,8 @@ local function ignore_buffer()
     local buftype = vim.bo.buftype
     local filetype = vim.bo.filetype
 
-    return
-        find_pattern_match(vim.g.theme_fhlgroups_ignore.filetypes, filetype) or
-            find_pattern_match(vim.g.theme_fhlgroups_ignore.buftypes, buftype)
+    return find_pattern_match(vim.g.theme_fhlgroups_ignore.filetypes, filetype)
+        or find_pattern_match(vim.g.theme_fhlgroups_ignore.buftypes, buftype)
 end
 
 ---Set custom hlgroups based on the buffer filetype
@@ -283,8 +276,7 @@ end
 function utils.set_fhlgroups(force_apply)
     local filetype = vim.bo.filetype
 
-    if (filetype == vim.g.theme_last_filetype and not force_apply) or
-        ignore_buffer() or filetype == "" then
+    if (filetype == vim.g.theme_last_filetype and not force_apply) or ignore_buffer() or filetype == "" then
         return
     end
 
@@ -317,8 +309,7 @@ end
 ---@return nil
 function utils.load_theme(theme)
     -- Prevent double loading of the theme
-    if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_style ==
-        theme.colors.name then
+    if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_style == theme.colors.name then
         return
     end
 
@@ -349,8 +340,7 @@ function utils.load_theme(theme)
     local next = next -- next as a local var is most efficient
     if next(theme.config.filetype_hlgroups) ~= nil then
         -- Replace the color variables with actual colors
-        local fhlgroups = utils.template_table(theme.config.filetype_hlgroups,
-                                               theme.colors)
+        local fhlgroups = utils.template_table(theme.config.filetype_hlgroups, theme.colors)
 
         -- Set global vars to be accessed when moving between filetype buffers
         vim.g.theme_fhlgroups = fhlgroups
@@ -363,15 +353,15 @@ function utils.load_theme(theme)
                 {
                     "BufEnter",
                     "*",
-                    "lua require(\"onedarkpro.utils\").set_fhlgroups()"
+                    'lua require("onedarkpro.utils").set_fhlgroups()',
                 },
                 -- Brute force a refresh when the colorscheme changes
                 {
                     "ColorScheme",
                     "*",
-                    "lua require(\"onedarkpro.utils\").set_fhlgroups(true)"
-                }
-            }
+                    'lua require("onedarkpro.utils").set_fhlgroups(true)',
+                },
+            },
         }
         utils.create_augroups(autocmds)
     end
@@ -380,8 +370,7 @@ function utils.load_theme(theme)
     local warn = 0
     for _, colors in pairs(hlgroups) do
         for key, _ in pairs(colors) do
-            if key ~= "fg" and key ~= "bg" and key ~= "sp" and key ~= "style" and
-                key ~= "link" then
+            if key ~= "fg" and key ~= "bg" and key ~= "sp" and key ~= "style" and key ~= "link" then
                 warn = warn + 1
             end
         end
@@ -391,7 +380,8 @@ function utils.load_theme(theme)
             "Directly referencing highlight groups has now changed. Please use the `link` keyword",
             "EXAMPLE: onedarkpro.setup({ hlgroups = { ModeMsg = { link = 'LineNr' } } })",
             "See https://github.com/olimorris/onedarkpro.nvim for more info",
-            "-----------------------------------------------------------------------------------")
+            "-----------------------------------------------------------------------------------"
+        )
     end
 
     -- Warn the user about the deprecated cursorline option
@@ -400,14 +390,16 @@ function utils.load_theme(theme)
             "`highlight_cursorline` has been moved into the options table of your config and is now deprecated",
             "EXAMPLE: onedarkpro.setup({ options = { highlight_cursorline = true } })",
             "See https://github.com/olimorris/onedarkpro.nvim for more info",
-            "-----------------------------------------------------------------------------------")
+            "-----------------------------------------------------------------------------------"
+        )
     end
     if theme.config.options.highlight_cursorline then
         utils.warn(
             "`highlight_cursorline` has been renamed to `cursorline` and will soon be deprecated",
             "EXAMPLE: onedarkpro.setup({ options = { cursorline = true } })",
             "See https://github.com/olimorris/onedarkpro.nvim for more info",
-            "-----------------------------------------------------------------------------------")
+            "-----------------------------------------------------------------------------------"
+        )
     end
 
     -- Warn the user about the deprecated transparent option
@@ -416,7 +408,8 @@ function utils.load_theme(theme)
             "The `transparent` option has been renamed to `transparency` and will soon be deprecated",
             "EXAMPLE: onedarkpro.setup({ options = { transparency = true } })",
             "See https://github.com/olimorris/onedarkpro.nvim for more info",
-            "-----------------------------------------------------------------------------------")
+            "-----------------------------------------------------------------------------------"
+        )
     end
 
     -- Trigger an autocommand on loading the theme

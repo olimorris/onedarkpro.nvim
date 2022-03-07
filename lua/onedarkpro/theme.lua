@@ -8,7 +8,7 @@ local function default_hlgroups()
         ColorColumn = { bg = theme.colors.color_column }, -- used for the columns set with 'colorcolumn'
         Comment = {
             fg = theme.colors.comment,
-            style = theme.config.styles.comments
+            style = theme.config.styles.comments,
         }, -- Comments
         -- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
         Cursor = { bg = theme.colors.black, fg = theme.colors.bg }, -- character under the cursor
@@ -19,7 +19,7 @@ local function default_hlgroups()
         CursorLineNr = {
             bg = theme.options.cursorline,
             fg = theme.colors.purple,
-            style = theme.options.bold
+            style = theme.options.bold,
         }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
         Directory = { fg = theme.colors.blue }, -- directory names (and other special names in listings)
         DiffAdd = { bg = theme.colors.diff_add }, -- diff mode: Added line |diff.txt|
@@ -46,10 +46,10 @@ local function default_hlgroups()
         NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
         FloatBorder = { bg = theme.options.transparency, fg = theme.colors.gray },
         NormalNC = {
-            bg = theme.config.options.transparency and theme.colors.none or
-                theme.config.options.window_unfocussed_color and
-                theme.colors.color_column or theme.colors.bg,
-            fg = theme.colors.fg
+            bg = theme.config.options.transparency and theme.colors.none
+                or theme.config.options.window_unfocussed_color and theme.colors.color_column
+                or theme.colors.bg,
+            fg = theme.colors.fg,
         }, -- normal text in non-current windows
         Pmenu = { bg = theme.colors.menu }, -- Popup menu: normal item.
         PmenuSel = { bg = theme.colors.blue, fg = theme.colors.bg }, -- Popup menu: selected item.
@@ -62,10 +62,10 @@ local function default_hlgroups()
         -- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
         StatusLine = { bg = theme.options.transparency, fg = theme.colors.fg }, -- status line of current window
         StatusLineNC = {
-            bg = theme.config.options.transparency and theme.colors.none or
-                theme.config.options.window_unfocussed_color and
-                theme.colors.color_column or theme.colors.bg,
-            fg = theme.colors.fg
+            bg = theme.config.options.transparency and theme.colors.none
+                or theme.config.options.window_unfocussed_color and theme.colors.color_column
+                or theme.colors.bg,
+            fg = theme.colors.fg,
         }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
         TabLine = { bg = theme.options.transparency }, -- tab pages line, not active tab page label
         TabLineFill = { bg = theme.options.transparency, fg = theme.colors.fg }, -- tab pages line, where there are no labels
@@ -88,11 +88,11 @@ local function default_hlgroups()
 
         Identifier = {
             fg = theme.colors.red,
-            style = theme.config.styles.variables
+            style = theme.config.styles.variables,
         }, -- (preferred) any variable name
         Function = {
             fg = theme.colors.blue,
-            style = theme.config.styles.functions
+            style = theme.config.styles.functions,
         }, -- function name (also: methods for classes)
 
         Statement = { fg = theme.colors.purple }, -- (preferred) any statement
@@ -102,7 +102,7 @@ local function default_hlgroups()
         Operator = { fg = theme.colors.cyan, style = theme.options.italic }, -- "sizeof", "+", "*", ettheme.colors.
         Keyword = {
             fg = theme.colors.purple,
-            style = theme.config.styles.keywords
+            style = theme.config.styles.keywords,
         }, -- any other keyword
         Exception = { fg = theme.colors.purple }, -- try, catch, throw
 
@@ -137,7 +137,7 @@ local function default_hlgroups()
         diffRemoved = { fg = theme.colors.red },
         diffFile = { fg = theme.colors.yellow },
         diffNewFile = { fg = theme.colors.yellow },
-        diffLine = { fg = theme.colors.blue }
+        diffLine = { fg = theme.colors.blue },
     }
 end
 
@@ -149,13 +149,12 @@ local function set_options()
         italic = theme.config.options.italic and "italic" or "NONE",
         underline = theme.config.options.underline and "underline" or "NONE",
         undercurl = theme.config.options.undercurl and "undercurl" or "NONE",
-        bold_italic = (bold ~= "NONE" and italic ~= "NONE") and "bold,italic" or
-            "NONE",
-        cursorline = (theme.config.options.cursorline or
-            theme.config.options.highlight_cursorline) and
-            theme.colors.cursorline or theme.colors.bg,
-        transparency = (theme.config.options.transparency or
-            theme.config.options.transparent) and "NONE" or theme.colors.bg
+        bold_italic = (bold ~= "NONE" and italic ~= "NONE") and "bold,italic" or "NONE",
+        cursorline = (theme.config.options.cursorline or theme.config.options.highlight_cursorline)
+                and theme.colors.cursorline
+            or theme.colors.bg,
+        transparency = (theme.config.options.transparency or theme.config.options.transparent) and "NONE"
+            or theme.colors.bg,
     }
 end
 
@@ -170,9 +169,7 @@ local function set_hlgroups()
         if plugin == "all" then
             return
         end
-        hlgroups = vim.tbl_deep_extend("force", hlgroups, require(
-                                           "onedarkpro.plugins." .. plugin).get(
-                                           theme))
+        hlgroups = vim.tbl_deep_extend("force", hlgroups, require("onedarkpro.plugins." .. plugin).get(theme))
     end
 
     -- If a plugin has been enabled then we load it

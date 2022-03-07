@@ -7,7 +7,7 @@ function M.get(theme)
     return {
         GitSignsAdd = { link = "diffAdded" },
         GitSignsChange = { link = "diffChanged" },
-        GitSignsDelete = { link = "diffRemoved" }
+        GitSignsDelete = { link = "diffRemoved" },
     }
 end
 

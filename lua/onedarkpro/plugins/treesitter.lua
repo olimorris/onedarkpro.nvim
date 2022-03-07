@@ -22,22 +22,22 @@ function M.get(theme)
         TSFloat = { link = "Float" }, -- For floats.
         TSFunction = {
             fg = theme.colors.blue,
-            style = theme.config.styles.functions
+            style = theme.config.styles.functions,
         }, -- For function (calls and definitions).
         TSFuncBuiltin = { fg = theme.colors.yellow }, -- For builtin functions: `table.insert` in Lua.
         TSFuncMacro = { fg = theme.colors.blue }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
         TSInclude = { fg = theme.colors.purple, style = theme.options.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
         TSKeyword = {
             fg = theme.colors.purple,
-            style = theme.config.styles.keywords
+            style = theme.config.styles.keywords,
         }, -- For keywords that don't fall in previous categories.
         TSKeywordFunction = {
             fg = theme.colors.purple,
-            style = theme.config.styles.keywords
+            style = theme.config.styles.keywords,
         }, -- For keywords used to define a fuction.
         TSKeywordOperator = {
             fg = theme.colors.purple,
-            style = theme.options.italic
+            style = theme.options.italic,
         }, -- For operators that are English words, e.g. `and`, `as`, `or`.
         TSKeywordReturn = { link = "TSKeyword" }, -- for the `return` and `yield` keywords.
         TSLabel = { fg = theme.colors.purple, style = theme.options.italic }, -- For labels: `label:` in C and `:label:` in Lua.
@@ -55,15 +55,15 @@ function M.get(theme)
         TSRepeat = { fg = theme.colors.purple, style = theme.options.italic }, -- For keywords related to loops.
         TSString = {
             fg = theme.colors.green,
-            style = theme.config.styles.strings
+            style = theme.config.styles.strings,
         }, -- For strings.
         TSStringRegex = {
             fg = theme.colors.green,
-            style = theme.config.styles.strings
+            style = theme.config.styles.strings,
         }, -- For regexes.
         TSStringEscape = {
             fg = theme.colors.cyan,
-            style = theme.config.styles.strings
+            style = theme.config.styles.strings,
         }, -- For escape characters within a string.
         TSStringSpecial = { link = "Special" }, -- For strings with special meaning that don't fit into the above categories.
         TSSymbol = { fg = theme.colors.red }, -- For identifiers referring to symbols or atoms.
@@ -89,12 +89,12 @@ function M.get(theme)
         TSTypeBuiltin = { fg = theme.colors.yellow }, -- For builtin types (you guessed it, right ?).
         TSVariable = {
             fg = theme.colors.red,
-            style = theme.config.styles.variables
+            style = theme.config.styles.variables,
         }, -- Any variable name that does not have another highlight.
         TSVariableBuiltin = {
             fg = theme.colors.yellow,
-            style = theme.options.italic
-        } -- Variable names that are defined by the languages, like `this` or `self`.
+            style = theme.options.italic,
+        }, -- Variable names that are defined by the languages, like `this` or `self`.
     }
 end
 

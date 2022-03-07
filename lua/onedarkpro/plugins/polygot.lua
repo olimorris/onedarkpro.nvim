@@ -13,7 +13,7 @@ function M.get(theme)
         cssClassNameDot = { fg = theme.colors.orange },
         cssDefinition = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         cssFontAttr = { fg = theme.colors.orange },
         cssFontDescriptor = { link = "cssDefinition" },
@@ -59,7 +59,7 @@ function M.get(theme)
         ---- https://github.com/pangloss/vim-javascript included in Vim-Polygot
         jsArrowFunction = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         jsClassKeyword = { link = "jsArrowFunction" },
         jsClassMethodType = { link = "jsArrowFunction" },
@@ -115,13 +115,13 @@ function M.get(theme)
         markdownHeadingRule = { link = "markdownBlockquote" },
         markdownId = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         markdownIdDeclaration = { fg = theme.colors.blue },
         markdownIdDelimiter = { link = "markdownId" },
         markdownItalic = {
             fg = theme.colors.purple,
-            style = theme.options.italic
+            style = theme.options.italic,
         },
         markdownLinkDelimiter = { fg = theme.colors.purple },
         markdownLinkText = { fg = theme.colors.blue },
@@ -141,7 +141,7 @@ function M.get(theme)
         pythonDot = { fg = theme.colors.fg },
         pythonImport = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         pythonRepeat = { link = "pythonImport" },
         pythonStatement = { link = "pythonImport" },
@@ -152,7 +152,7 @@ function M.get(theme)
         rubyBlockParameterList = { link = "rubyBlockParameter" },
         rubyClass = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         rubyConstant = { fg = theme.colors.yellow },
         rubyControl = { link = "rubyClass" },
@@ -174,7 +174,7 @@ function M.get(theme)
         sassClassChar = { fg = theme.colors.orange },
         sassInclude = {
             fg = theme.colors.purple,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         sassMixing = { link = "sassInclude" },
         sassMixinName = { fg = theme.colors.blue },
@@ -182,7 +182,7 @@ function M.get(theme)
         scssImport = { link = "sassInclude" },
         scssMixin = { link = "sassMixing" },
         scssSelectorName = { fg = theme.colors.orange },
-        scssVariable = { link = "sassMixing" }
+        scssVariable = { link = "sassMixing" },
     }
 end
 

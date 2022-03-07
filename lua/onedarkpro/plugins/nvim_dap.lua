@@ -8,17 +8,17 @@ function M.get(theme)
         DebugBreakpoint = { fg = theme.colors.red },
         DebugBreakpointLine = {
             fg = theme.colors.red,
-            style = theme.options.underline
+            style = theme.options.underline,
         },
         DebugHighlight = { fg = theme.colors.blue },
         DebugHighlightLine = {
             fg = theme.colors.purple,
-            style = theme.options.italic
+            style = theme.options.italic,
         },
         NvimDapVirtualText = {
             fg = theme.colors.cyan,
-            style = theme.options.italic
-        }
+            style = theme.options.italic,
+        },
     }
 end
 

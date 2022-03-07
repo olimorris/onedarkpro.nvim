@@ -12,7 +12,7 @@ function M.get(theme)
         CmpItemAbbr = { fg = theme.colors.fg },
         CmpItemAbbrMatch = {
             fg = theme.colors.cyan,
-            style = theme.options.bold_italic
+            style = theme.options.bold_italic,
         },
         CmpItemAbbrMatchFuzzy = { fg = theme.colors.yellow },
 
@@ -39,7 +39,7 @@ function M.get(theme)
         -- CmpItemKindFolder = {},
         -- CmpItemKindEnumMember = {},
         CmpItemKindConstant = { fg = theme.colors.green },
-        CmpItemKindStruct = { fg = theme.colors.yellow }
+        CmpItemKindStruct = { fg = theme.colors.yellow },
         -- CmpItemKindEvent = {},
         -- CmpItemKindOperator = {},
         -- CmpItemKindTypeParameter = {},

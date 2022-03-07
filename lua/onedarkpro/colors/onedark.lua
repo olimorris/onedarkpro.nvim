@@ -21,7 +21,7 @@ function M.load(config)
         black = "#282c34",
         gray = "#5c6370",
         highlight = "#e2be7d",
-        none = "NONE"
+        none = "NONE",
     }
 
     -- Set the color table and include the users custom config

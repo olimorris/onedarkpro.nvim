@@ -10,7 +10,7 @@ function M.get(theme)
         HopNextKey1 = { bg = theme.colors.yellow, fg = theme.colors.bg },
         HopNextKey2 = { link = "HopNextKey1" },
         HopUnmatched = { fg = theme.colors.gray },
-        HopCursor = { link = "Cursor" }
+        HopCursor = { link = "Cursor" },
     }
 end
 
