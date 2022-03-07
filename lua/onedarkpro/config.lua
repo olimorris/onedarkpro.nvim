@@ -43,6 +43,7 @@ M.config = {
         marks = true,
         native_lsp = true,
         neo_tree = true,
+        notify = true,
         nvim_cmp = true,
         nvim_dap = true,
         nvim_dap_ui = true,
