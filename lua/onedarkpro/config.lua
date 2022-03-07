@@ -41,6 +41,7 @@ M.config = {
         lsp_saga = true,
         marks = true,
         native_lsp = true,
+        neo_tree = true,
         nvim_cmp = true,
         nvim_dap = true,
         nvim_dap_ui = true,
