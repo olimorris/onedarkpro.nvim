@@ -99,6 +99,7 @@ function utils.color_overrides(colors, config)
             end
         end
     end
+    return colors
 end
 
 ---Add a color to the colors table
@@ -117,6 +118,7 @@ function utils.set_or_create_color(colors, key, value)
         -- create the new color
         colors[key] = colors[value]
     end
+    return colors
 end
 
 ---Create the highlight groups from the theme
@@ -227,8 +229,8 @@ end
 ---When a user moves from a filetype with specific hlgroups to a filetype with
 ---none, we need to apply the theme's default hlgroups. To make this less
 ---expensive, we match the users configured filetype hlgroups to the theme's
----@param table hlgroups   hlgroups from the theme + the user's config
----@param table fhlgroups  hlgroups for filetypes from the user's config
+---@param hlgroups  table   hlgroups from the theme + the user's config
+---@param fhlgroups table hlgroups for filetypes from the user's config
 ---@return table
 local function intersect_groups(hlgroups, fhlgroups)
     -- Find the intersection between the tables and extract the common hlgroups
