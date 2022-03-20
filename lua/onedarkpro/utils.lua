@@ -353,7 +353,7 @@ function utils.load_theme(theme)
             onedarkpro_theme_autocmds = {
                 -- TODO: add additional events such as BufFilePost, BufDelete
                 {
-                    "BufEnter",
+                    "BufEnter,BufRead",
                     "*",
                     'lua require("onedarkpro.utils").set_fhlgroups()',
                 },
