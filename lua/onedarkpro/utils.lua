@@ -139,30 +139,30 @@ function utils.create_highlights(group, color)
     end
 end
 
----Simple string interpolation.
----Example template: "${name} is ${value}"
----@param str string template string
+---Replace ${variables} in a table
+---Example replace_vars: "${name} is ${value}"
+---@param str string replace_vars string
 ---@param table table key value pairs to replace in the string
 ---@return table
-function utils.template(str, table)
+function utils.replace_vars(str, table)
     return (str:gsub("($%b{})", function(w)
         return table[w:sub(3, -2)] or w
     end))
 end
 
----Template values in a table recursivly
+---Replace variables in a table recursivly
 ---@param table table the table to be replaced
----@param values table the values to be replaced by the template strings in the table passed in
+---@param values table the values to be replaced by the replace_vars strings in the table passed in
 ---@return table table
-function utils.template_table(table, values)
+function utils.recursive_replace(table, values)
     -- if the value passed is a string the return templated resolved string
     if type(table) == "string" then
-        return utils.template(table, values)
+        return utils.replace_vars(table, values)
     end
 
-    -- If the table passed in has a table then iterate though the children and call template table
+    -- If the table passed in has a table then iterate though the children and call replace_vars table
     for key, value in pairs(table) do
-        table[key] = utils.template_table(value, values)
+        table[key] = utils.recursive_replace(value, values)
     end
 
     return table
@@ -273,7 +273,7 @@ local function ignore_buffer()
 end
 
 ---Set custom hlgroups based on the buffer filetype
----@param string force_apply  forcefully apply highlighting
+---@param force_apply string forcefully apply highlighting
 ---@return nil
 function utils.set_fhlgroups(force_apply)
     local filetype = vim.bo.filetype
@@ -321,12 +321,18 @@ function utils.load_theme(theme)
         vim.cmd("syntax reset")
     end
 
+    -- Preserve the users original configuration at load
+    if vim.g.colors_name == nil then
+        vim.g.onedarkpro_config = theme.config
+    end
+    local config = vim.g.onedarkpro_config or theme.config
+
     vim.o.termguicolors = true
     vim.g.colors_name = "onedarkpro"
     vim.g.onedarkpro_style = theme.colors.name
 
     -- Replace color variables in the user's custom hlgroups
-    local hlgroups = utils.template_table(theme.config.hlgroups, theme.colors)
+    local hlgroups = utils.recursive_replace(config.hlgroups, theme.colors)
 
     -- Merge the user's custom hlgroups with the theme's
     local adjusted_hlgroups = utils.tbl_deep_extend(theme.hlgroups, hlgroups)
@@ -340,13 +346,13 @@ function utils.load_theme(theme)
 
     -- Configure any filetype highlight groups
     local next = next -- next as a local var is most efficient
-    if next(theme.config.filetype_hlgroups) ~= nil then
+    if next(config.filetype_hlgroups) ~= nil then
         -- Replace the color variables with actual colors
-        local fhlgroups = utils.template_table(theme.config.filetype_hlgroups, theme.colors)
+        local fhlgroups = utils.recursive_replace(config.filetype_hlgroups, theme.colors)
 
         -- Set global vars to be accessed when moving between filetype buffers
         vim.g.theme_fhlgroups = fhlgroups
-        vim.g.theme_fhlgroups_ignore = theme.config.filetype_hlgroups_ignore
+        vim.g.theme_fhlgroups_ignore = config.filetype_hlgroups_ignore
         vim.g.theme_hlgroups = intersect_groups(adjusted_hlgroups, fhlgroups)
 
         local autocmds = {
