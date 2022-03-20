@@ -75,6 +75,7 @@ local function default_hlgroups()
         Visual = { bg = theme.colors.selection }, -- Visual mode selection
         VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
         WarningMsg = { fg = theme.colors.yellow }, -- warning messages
+        -- WinSeperator = { fg = theme.colors.bg },
         Whitespace = { fg = theme.colors.comment }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
         WildMenu = { bg = theme.colors.blue, fg = theme.colors.black }, -- current match in 'wildmenu' completion
 
