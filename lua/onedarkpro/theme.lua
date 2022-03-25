@@ -57,7 +57,7 @@ local function default_hlgroups()
         PmenuThumb = { bg = theme.colors.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
         Question = { bg = theme.options.transparency, fg = theme.colors.gray }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = { bg = theme.options.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-        Search = { bg = theme.colors.gray, style = theme.options.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+        Search = { bg = theme.colors.selection, fg = theme.colors.yellow, style = theme.options.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
         -- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
         -- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
         StatusLine = { bg = theme.options.transparency, fg = theme.colors.fg }, -- status line of current window
