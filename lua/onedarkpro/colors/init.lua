@@ -6,7 +6,6 @@ M.themes = { "onedark", "onelight" }
 ---@param name string
 ---@return table
 function M.get_theme_colors(name)
-    -- require("onedarkpro.utils").print_table(require("onedarkpro.config").config.theme)
     name = name or require("onedarkpro.config").config.theme
 
     if type(name) == "function" then
