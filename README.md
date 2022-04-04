@@ -15,11 +15,6 @@
 
 - [Features](#sparkles-features)
 - [Screenshots](#camera-screenshots)
-  - [Dark](#dark)
-  - [Light](#light)
-  - [Comparison to VS Code's One Dark Pro](#comparison-to-vs-codes-one-dark-pro)
-  - [Lualine](#lualine)
-  - [Color guide](#color-guide)
 - [Requirements](#zap-requirements)
 - [Installation](#package-installation)
 - [Configuration](#wrench-configuration)
@@ -164,8 +159,6 @@ vim.o.background = "dark" -- to load onedark
 vim.o.background = "light" -- to load onelight
 require("onedarkpro").load()
 ```
-
-> **Note:** This assumes that no value for `theme` is set in the setup function (see below)
 
 ### Default configuration
 
@@ -342,15 +335,17 @@ filetype_hlgroups = {
 }
 ```
 
+> **Note:** Currently support for highlighting in Telescope's previewer is unavailable.
+
 > **Note:** Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
 
-> **Note:** Currently support for highlighting in Telescope's previewer is unavailable.
+> **Note:** The excellent [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) plugin allows for greater customisation over arguments definitions and usages
 
 #### Ignoring filetypes and buffer types
 
-Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. If neccessary, the theme's default highlight groups are reapplied if the buffer filetype has no custom filetype highlights specified.
+Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. As the user moves between buffers, the theme checks for a filetype change and applies any new highlights as neccessary.
 
-When using common plugins such as [Telescope](https://github.com/nvim-telescope/telescope.nvim) or [Trouble](https://github.com/folke/trouble.nvim), additional windows with distinct filetypes are opened. This can cause the theme to reapply the default highlight groups since it detects a buffer filetype change. When closing the windows, the user's custom filetype highlight groups are then lost. To prevent this from happening, the theme has a table of filetypes and buffer types to ignore:
+When using common plugins such as [Telescope](https://github.com/nvim-telescope/telescope.nvim) or [Trouble](https://github.com/folke/trouble.nvim), additional windows with distinct filetypes are opened. This can cause the theme to reapply the default highlight groups as it detects a buffer filetype change. When closing the windows, the user's custom filetype highlight groups are then lost. To prevent this from happening, the theme has a table of filetypes and buffer types to ignore:
 
 ```lua
 filetype_hlgroups_ignore = {
