@@ -30,6 +30,16 @@ function M.get(theme)
         },
         NeoTreeIndentMarker = { fg = theme.colors.gray },
         NeoTreeTitleBar = { fg = theme.colors.bg, bg = theme.colors.gray },
+        NeoTreeFloatBorder = { fg = theme.colors.gray },
+
+        NeoTreeGitAdded = { fg = theme.colors.green },
+        NeoTreeGitConflict = { fg = theme.colors.blue },
+        NeoTreeGitDeleted = { fg = theme.colors.red },
+        NeoTreeGitModified = { fg = theme.colors.yellow },
+        NeoTreeGitIgnored = { fg = theme.colors.gray },
+        NeoTreeGitUntracked = { fg = theme.colors.gray },
+
+        NeoTreeModified = { fg = theme.colors.red },
     }
 end
 
