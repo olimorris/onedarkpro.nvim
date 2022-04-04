@@ -21,6 +21,8 @@ M.config = {
             "^fugitiveblame$",
             "^help$",
             "^minimap$",
+            "^neo--tree$",
+            "^neo--tree--popup$",
             "^NvimTree$",
             "^packer$",
             "^qf$",
