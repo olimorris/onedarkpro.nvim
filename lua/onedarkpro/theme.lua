@@ -31,7 +31,7 @@ local function default_hlgroups()
         TermCursorNC = { bg = theme.colors.gray }, -- cursor in an unfocused terminal
         ErrorMsg = { fg = theme.colors.red }, -- error messages on the command line
         Folded = { bg = theme.options.transparency, fg = theme.colors.gray }, -- line used for closed folds
-        -- FoldColumn = {}, -- 'foldcolumn'
+        FoldColumn = { bg = theme.options.transparency, fg = theme.colors.gray }, -- 'foldcolumn'
         SignColumn = { bg = theme.options.transparency }, -- column where |signs| are displayed
         IncSearch = { bg = theme.colors.selection, fg = theme.colors.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         Substitute = { bg = theme.colors.yellow, fg = theme.colors.bg }, -- |:substitute| replacement text highlighting
