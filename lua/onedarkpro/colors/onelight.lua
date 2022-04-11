@@ -44,7 +44,7 @@ function M.load(config)
 
     -- Lualine colors
     colors.bg_statusline = colors.bg_statusline or utils.darken(colors.bg, 0.95)
-    colors.fg_gutter = colors.fg_gutter or utils.darken(colors.bg, 0.90)
+    colors.fg_gutter = colors.fg_gutter or utils.darken(colors.bg, 0.70)
     colors.fg_sidebar = colors.fg_sidebar or colors.fg
 
     return colors
