@@ -47,6 +47,12 @@ function M.load(config)
     colors.fg_gutter = colors.fg_gutter or utils.darken(colors.bg, 0.70)
     colors.fg_sidebar = colors.fg_sidebar or colors.fg
 
+    -- Virtual text
+    colors.virtual_text_error = colors.virtual_text_error or utils.lighten(colors.red, 0.6)
+    colors.virtual_text_warning = colors.virtual_text_warning or utils.lighten(colors.yellow, 0.6)
+    colors.virtual_text_information = colors.virtual_text_information or utils.lighten(colors.blue, 0.6)
+    colors.virtual_text_hint = colors.virtual_text_hint or utils.lighten(colors.cyan, 0.6)
+
     return colors
 end
 

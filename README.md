@@ -44,6 +44,7 @@
   - Keywords
   - Strings
   - Variables
+  - Virtual text
 - Override default styles, colors, highlight groups and filetype highlight groups
 - Create custom highlight groups
 - [LSP](https://github.com/neovim/nvim-lspconfig) diagnostics support
@@ -192,6 +193,7 @@ onedarkpro.setup({
       keywords = "NONE", -- Style that is applied to keywords
       functions = "NONE", -- Style that is applied to functions
       variables = "NONE", -- Style that is applied to variables
+      virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
       bold = false, -- Use the themes opinionated bold styles?
@@ -259,7 +261,8 @@ styles = {
   functions = "NONE",
   keywords = "bold,italic",
   strings = "NONE",
-  variables = "NONE"
+  variables = "NONE",
+  virtual_text = "NONE"
 }
 ```
 

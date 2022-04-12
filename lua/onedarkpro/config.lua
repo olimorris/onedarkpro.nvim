@@ -68,6 +68,7 @@ M.config = {
         keywords = "NONE", -- Style that is applied to keywords
         functions = "NONE", -- Style that is applied to functions
         variables = "NONE", -- Style that is applied to variables
+        virtual_text = "NONE", -- Style that is applied to virtual text
     },
     options = {
         bold = false, -- Use the themes opinionated bold styles?
