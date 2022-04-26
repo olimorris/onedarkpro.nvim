@@ -228,7 +228,7 @@ The theme can be set as follows:
 theme = "onedark",
 ```
 
-If no value is specified, the value of `vim.o.background` will be used to set the theme with dark for `onedark` and light for `onelight`. For greater customisation with the `vim.o.background` option, the theme allows for default dark and light versions to be set:
+If no value is specified, the value of `vim.o.background` will be used to set the theme with dark setting `onedark` and light setting `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
 
 ```lua
 dark_theme = "onedark_vivid",
