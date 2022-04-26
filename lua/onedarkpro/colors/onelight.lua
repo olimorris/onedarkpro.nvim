@@ -1,9 +1,8 @@
-local utils = require("onedarkpro.utils")
-
 local M = {}
 
 function M.load(config)
     local config = config or require("onedarkpro.config").config
+    local utils = require("onedarkpro.utils")
 
     local colors = {
         name = "onelight",
@@ -24,7 +23,7 @@ function M.load(config)
         none = "NONE",
     }
 
-    -- Set the color table and include the users custom config
+    -- Allow colors to be overriden by the users config
     utils.color_overrides(colors, config)
 
     -- Additional colors

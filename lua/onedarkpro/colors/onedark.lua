@@ -1,9 +1,8 @@
-local utils = require("onedarkpro.utils")
-
 local M = {}
 
 function M.load(config)
     local config = config or require("onedarkpro.config").config
+    local utils = require("onedarkpro.utils")
 
     local colors = {
         name = "onedark",
@@ -24,7 +23,7 @@ function M.load(config)
         none = "NONE",
     }
 
-    -- Set the color table and include the users custom config
+    -- Allow colors to be overriden by the users config
     utils.color_overrides(colors, config)
 
     -- Additional colors
@@ -48,10 +47,10 @@ function M.load(config)
     colors.fg_sidebar = colors.fg_sidebar or colors.fg
 
     -- Virtual text
-    colors.virtual_text_error = colors.virtual_text_error or utils.darken(colors.red, 0.7)
-    colors.virtual_text_warning = colors.virtual_text_warning or utils.darken(colors.yellow, 0.7)
-    colors.virtual_text_information = colors.virtual_text_information or utils.darken(colors.blue, 0.7)
-    colors.virtual_text_hint = colors.virtual_text_hint or utils.darken(colors.cyan, 0.7)
+    colors.virtual_text_error = colors.virtual_text_error or utils.lighten(colors.red, 0.7)
+    colors.virtual_text_warning = colors.virtual_text_warning or utils.lighten(colors.yellow, 0.7)
+    colors.virtual_text_information = colors.virtual_text_information or utils.lighten(colors.blue, 0.7)
+    colors.virtual_text_hint = colors.virtual_text_hint or utils.lighten(colors.cyan, 0.8)
 
     return colors
 end

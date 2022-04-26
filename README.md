@@ -20,7 +20,7 @@
 - [Configuration](#wrench-configuration)
   - [Setup](#setup)
   - [Default configuration](#default-configuration)
-  - [Configuring the theme](#configuring-the-theme)
+  - [Configuring themes](#configuring-themes)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring colors](#configuring-colors)
@@ -77,11 +77,15 @@
 
 ### Dark
 
-<img src="https://user-images.githubusercontent.com/9512444/153007000-af8c2611-aadd-41bc-b421-d1a8995c41f2.png" alt="Dark" />
+<img src="https://user-images.githubusercontent.com/9512444/165271794-a18af19e-6fe6-4f8b-b35d-5d1d920a88ed.png" alt="Dark" />
 
 ### Light
 
-<img src="https://user-images.githubusercontent.com/9512444/149405705-738c6af8-c11f-49ba-b789-d40a2cc4c17e.png" alt="Light" />
+<img src="https://user-images.githubusercontent.com/9512444/165271845-1c34e332-de19-49ad-b75d-218acc3296bf.png" alt="Light" />
+
+### Vivid
+
+<img src="https://user-images.githubusercontent.com/9512444/165271863-e3aa6e8f-3e31-428b-9e3f-c6527b7d4244.png" alt="Vivid" />
 
 > **Note:** All screenshots have Treesitter highlighting enabled
 
@@ -89,7 +93,7 @@
 
 #### Python
 
-<img src="https://user-images.githubusercontent.com/9512444/153009886-6dac26cd-a3ce-4b7d-95d5-0922da9180b5.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/165272951-cc0bb91d-d599-46a8-bbe3-b4fcb5c4116c.png" alt="Comparison to VS Code - Python" />
 
 #### React
 
@@ -170,13 +174,15 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 ```lua
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
+  dark_theme = "onedark", -- The default dark theme
+  light_theme = "onelight", -- The default light theme
   -- Theme can be overwritten with 'onedark' or 'onelight' as a string
   theme = function()
-    if vim.o.background == "dark" then
-      return "onedark"
-    else
-      return "onelight"
-    end
+      if vim.o.background == "dark" then
+          return config.dark_theme
+      else
+          return config.light_theme
+      end
   end,
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   hlgroups = {}, -- Override default highlight groups
@@ -209,15 +215,25 @@ onedarkpro.setup({
 onedarkpro.load()
 ```
 
-### Configuring the theme
+### Configuring themes
 
-Use either `onedark` or `onelight` for the dark and light themes, respectively.
+Currently there are three themes available:
+* onedark
+* onelight
+* onedark_vivid
+
+The theme can be set as follows:
 
 ```lua
-theme = "onedark", -- Either "onedark" or "onelight"
+theme = "onedark",
 ```
 
-If no value is specified, the current value of `vim.o.background` will be used to set the theme.
+If no value is specified, the value of `vim.o.background` will be used to set the theme with dark for `onedark` and light for `onelight`. For greater customisation with the `vim.o.background` option, the theme allows for default dark and light versions to be set:
+
+```lua
+dark_theme = "onedark_vivid",
+light_theme = "onelight",
+```
 
 ### Configuring plugins
 

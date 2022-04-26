@@ -1,6 +1,10 @@
 local M = {}
 
-M.themes = { "onedark", "onelight" }
+M.themes = {
+    "onedark",
+    "onelight",
+    "onedark_vivid",
+}
 
 ---Return the color table for one of the two themes
 ---@param name string
@@ -16,6 +20,12 @@ function M.get_theme_colors(name)
         return require("onedarkpro.colors." .. name).load()
     end
 
+    -- NOTE: This file is loaded many times if the user calls the get_colors method
+    vim.cmd(
+        "echohl WarningMsg | echom \"OneDarkPro.nvim: Could not find theme '"
+            .. name
+            .. "'. Loading onedark instead\" | echohl NONE"
+    )
     return require("onedarkpro.colors.onedark").load()
 end
 

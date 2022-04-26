@@ -3,11 +3,13 @@ local M = {}
 -- Default options for the theme
 M.config = {
     -- This enables the Neovim background to set either onedark or onelight
+    dark_theme = "onedark", -- The default dark theme
+    light_theme = "onelight", -- The default light theme
     theme = function()
         if vim.o.background == "dark" then
-            return "onedark"
+            return M.config.dark_theme
         else
-            return "onelight"
+            return M.config.light_theme
         end
     end,
     colors = {}, -- Override default colors

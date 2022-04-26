@@ -19,7 +19,7 @@ end
 ---@param name string
 ---@return table
 function M.get_colors(name)
-    return require("onedarkpro.colors").get_theme_colors(name)
+    return vim.g.onedarkpro_colors or require("onedarkpro.colors").get_theme_colors(name)
 end
 
 return M
