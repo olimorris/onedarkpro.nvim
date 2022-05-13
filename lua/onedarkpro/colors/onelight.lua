@@ -1,32 +1,40 @@
 local M = {}
+local colors = {}
+local utils = {}
 
 function M.load(config)
     local config = config or require("onedarkpro.config").config
-    local utils = require("onedarkpro.utils")
+    utils = require("onedarkpro.utils")
 
-    local colors = {
-        name = "onelight",
+    colors.name = "onelight"
 
-        bg = "#fafafa",
-        fg = "#6a6a6a",
-        red = "#e05661",
-        orange = "#ee9025",
-        yellow = "#eea825",
-        green = "#1da912",
-        cyan = "#56b6c2",
-        blue = "#118dc3",
-        purple = "#9a77cf",
-        white = "#fafafa",
-        black = "#6a6a6a",
-        gray = "#bebebe",
-        highlight = "#e2be7d",
-        none = "NONE",
-    }
-
-    -- Allow colors to be overriden by the users config
+    M.base_colors()
     utils.color_overrides(colors, config)
+    M.additional_colors()
 
-    -- Additional colors
+    return colors
+end
+
+function M.base_colors()
+    colors.bg = "#fafafa"
+    colors.fg = "#6a6a6a"
+    colors.red = "#e05661"
+    colors.orange = "#ee9025"
+    colors.yellow = "#eea825"
+    colors.green = "#1da912"
+    colors.cyan = "#56b6c2"
+    colors.blue = "#118dc3"
+    colors.purple = "#9a77cf"
+    colors.white = "#fafafa"
+    colors.black = "#6a6a6a"
+    colors.gray = "#bebebe"
+    colors.highlight = "#e2be7d"
+    colors.none = "NONE"
+
+    return colors
+end
+
+function M.additional_colors()
     colors.cursorline = colors.cursorline or utils.darken(colors.bg, 0.97)
     colors.color_column = colors.color_column or utils.darken(colors.bg, 0.97)
     colors.comment = colors.comment or utils.darken(colors.gray, 0.80)
