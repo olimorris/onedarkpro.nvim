@@ -1,13 +1,11 @@
 local M = {}
 local colors = {}
-local utils = {}
+local utils = require("onedarkpro.utils")
 
 function M.load(config)
     local config = config or require("onedarkpro.config").config
-    utils = require("onedarkpro.utils")
 
     colors.name = "onedark"
-
     M.base_colors()
     utils.color_overrides(colors, config)
     M.additional_colors()

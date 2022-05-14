@@ -1,10 +1,9 @@
 local M = {}
 local colors = {}
-local utils = {}
+local utils = require("onedarkpro.utils")
 
 function M.load(config)
     local config = config or require("onedarkpro.config").config
-    utils = require("onedarkpro.utils")
     local onedark = require("onedarkpro.colors.onedark")
 
     colors = onedark.base_colors()
