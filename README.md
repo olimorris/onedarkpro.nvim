@@ -217,12 +217,15 @@ onedarkpro.setup({
 onedarkpro.load()
 ```
 
+> **Note:** If you wish to use the default config there is no need to copy the above into the setup function.
+
 ### Configuring themes
 
 Currently there are three themes available:
 * onedark
 * onelight
 * onedark_vivid
+* dark
 
 The theme can be set as follows:
 
