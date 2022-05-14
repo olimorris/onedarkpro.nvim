@@ -3,6 +3,7 @@
 <p align="center">
 <img src="https://user-images.githubusercontent.com/9512444/153006413-ec7d37ad-c002-4a3f-8a68-5aafe37d7b1b.png" alt="OneDarkPro.nvim" />
 </p>
+![MIT License](https://img.shields.io/github/license/olimorris/onedarkpro.nvim) [![Tests](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml)
 <p align="center">
   <i>
     Dark and light themes for Neovim 0.5 and above, written in Lua<br>
