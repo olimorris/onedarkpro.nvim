@@ -1,6 +1,7 @@
 local M = {}
 
 M.themes = {
+    "dark",
     "onedark",
     "onelight",
     "onedark_vivid",
