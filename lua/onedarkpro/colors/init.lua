@@ -1,9 +1,9 @@
 local M = {}
 
 M.themes = {
-    "dark",
     "onedark",
     "onelight",
+    "onedark_dark",
     "onedark_vivid",
 }
 

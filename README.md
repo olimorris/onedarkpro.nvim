@@ -77,17 +77,21 @@
 
 ## :camera: Screenshots
 
-### Dark
+### Onedark
 
-<img src="https://user-images.githubusercontent.com/9512444/165271794-a18af19e-6fe6-4f8b-b35d-5d1d920a88ed.png" alt="Dark" />
+<img src="https://user-images.githubusercontent.com/9512444/165271794-a18af19e-6fe6-4f8b-b35d-5d1d920a88ed.png" alt="Onedark" />
 
-### Light
+### Onelight
 
-<img src="https://user-images.githubusercontent.com/9512444/165271845-1c34e332-de19-49ad-b75d-218acc3296bf.png" alt="Light" />
+<img src="https://user-images.githubusercontent.com/9512444/165271845-1c34e332-de19-49ad-b75d-218acc3296bf.png" alt="Onelight" />
 
-### Vivid
+### Onedark Vivid
 
-<img src="https://user-images.githubusercontent.com/9512444/165271863-e3aa6e8f-3e31-428b-9e3f-c6527b7d4244.png" alt="Vivid" />
+<img src="https://user-images.githubusercontent.com/9512444/165271863-e3aa6e8f-3e31-428b-9e3f-c6527b7d4244.png" alt="Onedark Vivid" />
+
+### Onedark Dark
+
+<img src="https://user-images.githubusercontent.com/9512444/168618323-65168896-471e-4da3-ba41-9af0e35a48d2.png" alt="Onedark Dark" />
 
 > **Note:** All screenshots have Treesitter highlighting enabled
 
@@ -225,12 +229,12 @@ Currently there are three themes available:
 * onedark
 * onelight
 * onedark_vivid
-* dark
+* onedark_dark
 
 The theme can be set as follows:
 
 ```lua
-theme = "onedark",
+theme = "onedark", -- Or "onelight", "onedark_vivid", "onedark_dark"
 ```
 
 If no value is specified, the value of `vim.o.background` will be used to set the theme with dark setting `onedark` and light setting `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:

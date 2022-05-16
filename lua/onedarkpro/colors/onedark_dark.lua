@@ -7,7 +7,7 @@ function M.load(config)
     local onedark = require("onedarkpro.colors.onedark")
 
     colors = onedark.base_colors()
-    colors.name = "dark"
+    colors.name = "onedark_dark"
     colors.bg = "#000000"
     colors.black = "#000000"
     colors.gray = "#434852"
