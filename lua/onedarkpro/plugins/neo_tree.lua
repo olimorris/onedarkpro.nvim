@@ -6,7 +6,8 @@ local M = {}
 function M.get(theme)
     return {
         NeoTreeNormalNC = { -- Color when nvim-tree is no longer in focus
-            bg = theme.config.options.window_unfocussed_color and theme.colors.color_column or theme.colors.bg,
+            bg = theme.config.options.transparency and theme.options.transparency
+                or (theme.config.options.window_unfocussed_color and theme.colors.color_column or theme.colors.bg),
         },
         NeoTreeSymbolicLinkTarget = {
             fg = theme.colors.cyan,
