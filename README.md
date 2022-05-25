@@ -3,7 +3,7 @@
 ![MIT License](https://img.shields.io/github/license/olimorris/onedarkpro.nvim) [![Tests](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/170368705-f28eb1a1-539e-4c1b-982d-49b8686c4dcd.png" alt="OneDarkPro.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/170370341-8c07e0e6-3284-45d3-b73c-f0bdd487a634.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
   <i>
