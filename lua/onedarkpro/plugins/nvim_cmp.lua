@@ -9,13 +9,14 @@ function M.get(theme)
         CmpDocumentation = { fg = theme.colors.fg, bg = theme.colors.menu },
         CmpDocumentationBorder = { fg = theme.colors.fg, bg = theme.colors.menu },
 
-        CmpItemAbbr = { fg = theme.colors.style == "dark" and theme.colors.white or theme.colors.black },
+        CmpItemAbbr = { fg = theme.colors.fg },
+        CmpItemAbbrDeprecated = { fg = theme.colors.fg },
         CmpItemAbbrMatch = {
-            fg = theme.colors.cyan,
-            style = theme.options.bold_italic,
+            fg = theme.colors.blue,
+            style = theme.options.bold,
         },
-        CmpItemAbbrMatchFuzzy = { fg = theme.colors.cyan, style = theme.options.underline },
-        CmpItemMenu = { fg = theme.colors.fg },
+        CmpItemAbbrMatchFuzzy = { fg = theme.colors.blue, style = theme.options.underline },
+        CmpItemMenu = { fg = theme.colors.gray },
 
         CmpItemKindText = { fg = theme.colors.orange },
         CmpItemKindMethod = { fg = theme.colors.blue },

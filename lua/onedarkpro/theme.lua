@@ -68,7 +68,6 @@ local function default_hlgroups()
                 theme.colors.bg,
                 0.98
             )),
-            fg = theme.colors.fg,
         }, -- Popup menu: selected item.
         PmenuSbar = {
             bg = (theme.colors.style == "dark" and utils.lighten(theme.colors.bg, 0.97) or utils.darken(
