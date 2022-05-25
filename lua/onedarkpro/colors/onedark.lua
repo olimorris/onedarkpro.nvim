@@ -38,9 +38,6 @@ function M.additional_colors()
     colors.color_column = colors.color_column or utils.lighten(colors.bg, 0.97)
     colors.comment = colors.comment or utils.lighten(colors.gray, 0.80)
     colors.indentline = colors.indentline or utils.lighten(colors.bg, 0.93)
-    colors.menu = colors.menu or utils.lighten(colors.bg, 0.90)
-    colors.menu_scroll = colors.menu_scroll or utils.lighten(colors.bg, 0.95)
-    colors.menu_scroll_thumb = colors.menu_scroll_thumb or utils.darken(colors.blue, 0.80)
     colors.selection = colors.selection or utils.lighten(colors.bg, 0.8)
 
     -- Git diff
