@@ -8,6 +8,7 @@ function M.load(config)
 
     colors = onedark.base_colors()
     colors.name = "onedark_dark"
+    colors.style = "dark"
     colors.bg = "#000000"
     colors.black = "#000000"
     colors.gray = "#434852"

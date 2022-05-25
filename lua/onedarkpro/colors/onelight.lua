@@ -6,6 +6,7 @@ function M.load(config)
     local config = config or require("onedarkpro.config").config
 
     colors.name = "onelight"
+    colors.style = "light"
     M.base_colors()
     utils.color_overrides(colors, config)
     M.additional_colors()

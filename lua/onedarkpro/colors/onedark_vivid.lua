@@ -8,6 +8,7 @@ function M.load(config)
 
     colors = onedark.base_colors()
     colors.name = "onedark_vivid"
+    colors.style = "dark"
     colors.red = "#ef596f"
     colors.green = "#89ca78"
     colors.cyan = "#2bbac5"
