@@ -1,5 +1,6 @@
 local M = {}
 local theme = {}
+local utils = require("onedarkpro.utils")
 
 ---Apply the colors and the config file to the theme's highlight groups
 ---@return table theme
@@ -43,7 +44,12 @@ local function default_hlgroups()
         MoreMsg = { fg = theme.colors.green }, -- |more-prompt|
         NonText = { bg = theme.options.transparency, fg = theme.colors.gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
         Normal = { bg = theme.options.transparency, fg = theme.colors.fg }, -- normal text
-        NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
+        NormalFloat = {
+            bg = (theme.config.options.transparency and theme.colors.none or theme.colors.style == "dark" and utils.darken(theme.colors.bg, 0.85) or utils.darken(
+                theme.colors.bg,
+                0.95
+            )),
+        }, -- Normal text in floating windows.
         FloatBorder = { bg = theme.options.transparency, fg = theme.colors.gray },
         NormalNC = {
             bg = theme.config.options.transparency and theme.colors.none
@@ -51,10 +57,31 @@ local function default_hlgroups()
                 or theme.colors.bg,
             fg = theme.colors.fg,
         }, -- normal text in non-current windows
-        Pmenu = { bg = theme.colors.menu }, -- Popup menu: normal item.
-        PmenuSel = { bg = theme.colors.blue, fg = theme.colors.bg }, -- Popup menu: selected item.
-        PmenuSbar = { bg = theme.colors.menu_scroll }, -- Popup menu: scrollbar.
-        PmenuThumb = { bg = theme.colors.menu_scroll_thumb }, -- Popup menu: Thumb of the scrollbar.
+        Pmenu = {
+            bg = (theme.colors.style == "dark" and utils.darken(theme.colors.bg, 0.85) or utils.darken(
+                theme.colors.bg,
+                0.95
+            )),
+        }, -- Popup menu: normal item.
+        PmenuSel = {
+            bg = (theme.colors.style == "dark" and utils.lighten(theme.colors.bg, 0.97) or utils.darken(
+                theme.colors.bg,
+                0.98
+            )),
+            fg = theme.colors.fg,
+        }, -- Popup menu: selected item.
+        PmenuSbar = {
+            bg = (theme.colors.style == "dark" and utils.lighten(theme.colors.bg, 0.97) or utils.darken(
+                theme.colors.bg,
+                0.98
+            )),
+        }, -- Popup menu: scrollbar.
+        PmenuThumb = {
+            bg = (theme.colors.style == "dark" and utils.lighten(theme.colors.bg, 0.5) or utils.darken(
+                theme.colors.bg,
+                0.5
+            )),
+        }, -- Popup menu: Thumb of the scrollbar.
         Question = { bg = theme.options.transparency, fg = theme.colors.gray }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = { bg = theme.options.cursorline }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
         Search = { bg = theme.colors.selection, fg = theme.colors.yellow, style = theme.options.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
