@@ -89,6 +89,11 @@
 
 <img src="https://user-images.githubusercontent.com/9512444/165271845-1c34e332-de19-49ad-b75d-218acc3296bf.png" alt="Onelight" />
 
+**Telescope**
+
+<img src="https://user-images.githubusercontent.com/9512444/170541160-aaf8c8a4-d7f5-4bab-9f9d-777b869daffd.png
+" alt="Onelight Telescope" />
+
 ### Onedark Vivid
 
 <img src="https://user-images.githubusercontent.com/9512444/165271863-e3aa6e8f-3e31-428b-9e3f-c6527b7d4244.png" alt="Onedark Vivid" />
