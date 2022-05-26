@@ -10,7 +10,7 @@ function M.get(theme)
 
     if theme.colors.style == "dark" then
         telescope_prompt = theme.config.options.transparency and "NONE" or utils.lighten(theme.colors.bg, 0.97)
-        telescope_results = utheme.config.options.transparency and "NONE" or tils.darken(theme.colors.bg, 0.85)
+        telescope_results = theme.config.options.transparency and "NONE" or utils.darken(theme.colors.bg, 0.85)
     end
 
     return {
