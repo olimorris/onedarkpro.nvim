@@ -5,12 +5,12 @@ local utils = require("onedarkpro.utils")
 ---@param theme table
 ---@return table
 function M.get(theme)
-    local telescope_prompt = utils.darken(theme.colors.bg, 0.98)
-    local telescope_results = utils.darken(theme.colors.bg, 0.95)
+    local telescope_prompt = theme.options.transparency or utils.darken(theme.colors.bg, 0.98)
+    local telescope_results = theme.options.transparency or utils.darken(theme.colors.bg, 0.95)
 
     if theme.colors.style == "dark" then
-        telescope_prompt = utils.lighten(theme.colors.bg, 0.97)
-        telescope_results = utils.darken(theme.colors.bg, 0.85)
+        telescope_prompt = theme.options.transparency or utils.lighten(theme.colors.bg, 0.97)
+        telescope_results = utheme.options.transparency or tils.darken(theme.colors.bg, 0.85)
     end
 
     return {
