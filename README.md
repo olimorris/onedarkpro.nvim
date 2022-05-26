@@ -91,8 +91,7 @@
 
 **Telescope**
 
-<img src="https://user-images.githubusercontent.com/9512444/170541160-aaf8c8a4-d7f5-4bab-9f9d-777b869daffd.png
-" alt="Onelight Telescope" />
+<img src="https://user-images.githubusercontent.com/9512444/170541160-aaf8c8a4-d7f5-4bab-9f9d-777b869daffd.png" alt="Onelight Telescope" />
 
 ### Onedark Vivid
 
