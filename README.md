@@ -60,6 +60,7 @@
   - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
   - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
   - [marks.nvim](https://github.com/chentau/marks.nvim)
+  - [neotest](https://github.com/nvim-neotest/neotest)
   - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
   - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
   - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
