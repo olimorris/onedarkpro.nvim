@@ -285,25 +285,26 @@ function utils.set_fhlgroups(force_apply)
     local hlgroups = vim.g.theme_hlgroups
     local fhlgroups = vim.g.theme_fhlgroups
 
-    -- If the user has moved to a new buffer filetype and there are no specific
-    -- configs set, then we reapply the theme's default hlgroups to override
-    -- any previously applied ones
-    if not fhlgroups[filetype] then
+    -- If the user has moved to a buffer with a new filetype and there are no
+    -- specific configs set, then we reapply the theme's default hlgroups
+    if vim.g.theme_applied_fhlgroups and vim.g.theme_last_filetype ~= filetype then
         if vim.g.theme_applied_fhlgroups then
             for group, colors in pairs(hlgroups) do
                 utils.create_highlights(group, colors)
             end
+            vim.g.theme_last_filetype = filetype
             vim.g.theme_applied_fhlgroups = false
         end
-        return
     end
 
-    for group, colors in pairs(fhlgroups[filetype]) do
-        utils.create_highlights(group, colors)
-    end
+    if fhlgroups[filetype] then
+        for group, colors in pairs(fhlgroups[filetype]) do
+            utils.create_highlights(group, colors)
+        end
 
-    vim.g.theme_last_filetype = filetype
-    vim.g.theme_applied_fhlgroups = true
+        vim.g.theme_last_filetype = filetype
+        vim.g.theme_applied_fhlgroups = true
+    end
 end
 
 ---Load the desired theme
