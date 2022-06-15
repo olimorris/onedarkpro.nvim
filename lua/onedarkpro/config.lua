@@ -19,6 +19,7 @@ M.config = {
         filetypes = {
             "^aerial$",
             "^alpha$",
+            "^frecency$",
             "^fugitive$",
             "^fugitiveblame$",
             "^help$",
@@ -31,6 +32,7 @@ M.config = {
             "^qf$",
             "^startify$",
             "^startuptime$",
+            "^TelescopePrompt$",
             "^terminal$",
             "^toggleterm$",
             "^undotree$",
