@@ -363,13 +363,13 @@ function utils.load_theme(theme)
                 {
                     "BufEnter,BufRead",
                     "*",
-                    'lua require("onedarkpro.utils").set_fhlgroups()',
+                    'lua vim.schedule(function() require("onedarkpro.utils").set_fhlgroups() end)',
                 },
                 -- Brute force a refresh when the colorscheme changes
                 {
                     "ColorScheme",
                     "*",
-                    'lua require("onedarkpro.utils").set_fhlgroups(true)',
+                    'lua vim.schedule(function() require("onedarkpro.utils").set_fhlgroups(true) end)',
                 },
             },
         }
