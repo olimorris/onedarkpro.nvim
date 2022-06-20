@@ -16,11 +16,12 @@ A clear and concise description of what the bug is.
 **System information**
 - OS: [windows/linux/mac]
 - Neovim version (`nvim --version`):
+- onedarkpro config:
 ```lua
 -- Paste your onedarkpro config in here
 ```
 
-**To Reproduce**
+**To reproduce**
 Steps to reproduce the behavior:
 1. 
 2.
