@@ -42,6 +42,7 @@ M.config = {
     plugins = { -- Enable/Disable specific plugins
         aerial = true,
         barbar = true,
+        copilot = true,
         dashboard = true,
         gitsigns_nvim = true,
         hop = true,
