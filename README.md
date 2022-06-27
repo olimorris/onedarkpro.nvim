@@ -6,11 +6,8 @@
 <img src="https://user-images.githubusercontent.com/9512444/170370341-8c07e0e6-3284-45d3-b73c-f0bdd487a634.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
-  <i>
-    Dark and light themes for Neovim 0.5 and above, written in Lua<br>
-    <b>Treesitter enabled / Fully customisable / Many popular plugins supported</b><br>
+    Dark and light themes for Neovim 0.5+ with <b>Treesitter</b> support<br>
     Inspired by VS Code's <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a>
-  </i>
 </p>
 
 ## :book: Table of Contents
@@ -236,10 +233,11 @@ onedarkpro.load()
 ### Configuring themes
 
 Currently there are three themes available:
-* onedark
-* onelight
-* onedark_vivid
-* onedark_dark
+
+- onedark
+- onelight
+- onedark_vivid
+- onedark_dark
 
 The theme can be set as follows:
 
