@@ -30,8 +30,8 @@ function M.get(theme)
             style = theme.options.italic,
         },
         NeoTreeIndentMarker = { fg = theme.colors.gray },
-        NeoTreeTitleBar = { fg = theme.colors.bg, bg = theme.colors.gray },
-        NeoTreeFloatBorder = { fg = theme.colors.gray },
+        NeoTreeTitleBar = { fg = theme.colors.bg, bg = theme.colors.purple },
+        NeoTreeFloatTitle = { fg = theme.colors.bg, bg = theme.colors.purple },
 
         NeoTreeGitAdded = { fg = theme.colors.green },
         NeoTreeGitConflict = { fg = theme.colors.blue },
