@@ -2,16 +2,17 @@ local M = {}
 
 ---Setup the theme via the default config or the users own
 ---@param user_config table
----@return table
+---@return function
 function M.setup(user_config)
-    return require("onedarkpro.config").set_config(user_config)
+    require("onedarkpro.config").set_config(user_config)
+    return M.load()
 end
 
 ---Load the theme
 ---@param name string
 ---@return table
-function M.load(name)
-    local theme = require("onedarkpro.theme").setup_theme(name)
+function M.load()
+    local theme = require("onedarkpro.theme").setup_theme()
     return require("onedarkpro.utils").load_theme(theme)
 end
 

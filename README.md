@@ -163,7 +163,7 @@ call plug#end()
 Add the following to an `init.lua` file to start using the theme:
 
 ```lua
-require('onedarkpro').load()
+require('onedarkpro').setup()
 ```
 
 Alternatively, if using Vimscript:
@@ -177,7 +177,6 @@ The `vim.o.background` option may be used to set the theme:
 ```lua
 vim.o.background = "dark" -- to load onedark
 vim.o.background = "light" -- to load onelight
-require("onedarkpro").load()
 ```
 
 ### Default configuration
@@ -225,7 +224,6 @@ onedarkpro.setup({
       window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
   }
 })
-onedarkpro.load()
 ```
 
 > **Note:** If you wish to use the default config there is no need to copy the above into the setup function.
