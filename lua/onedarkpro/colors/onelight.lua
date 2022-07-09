@@ -36,7 +36,6 @@ end
 function M.additional_colors()
     colors.cursorline = colors.cursorline or utils.darken(colors.bg, 0.97)
     colors.color_column = colors.color_column or utils.darken(colors.bg, 0.97)
-    colors.comment = colors.comment or utils.darken(colors.gray, 0.80)
     colors.indentline = colors.indentline or utils.darken(colors.bg, 0.93)
     colors.selection = colors.selection or utils.darken(colors.bg, 0.90)
 

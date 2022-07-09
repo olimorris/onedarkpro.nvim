@@ -8,7 +8,7 @@ local function default_hlgroups()
     return {
         ColorColumn = { bg = theme.colors.color_column }, -- used for the columns set with 'colorcolumn'
         Comment = {
-            fg = theme.colors.comment,
+            fg = theme.colors.gray,
             style = theme.config.styles.comments,
         }, -- Comments
         -- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
