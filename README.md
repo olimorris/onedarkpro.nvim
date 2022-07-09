@@ -155,7 +155,7 @@ use({
 
 Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
 
-```lua
+```vim
 call plug#begin('~/.config/nvim/plugged')
   Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
