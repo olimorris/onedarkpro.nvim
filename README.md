@@ -145,7 +145,12 @@
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-use 'olimorris/onedarkpro.nvim'
+use({
+  "olimorris/onedarkpro.nvim",
+  config = function()
+    require("onedarkpro").setup()
+  end
+})
 ```
 
 Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
@@ -154,25 +159,14 @@ Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim
 call plug#begin('~/.config/nvim/plugged')
   Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
+colorscheme onedarkpro
 ```
 
 ## :wrench: Configuration
 
 ### Setup
 
-Add the following to an `init.lua` file to start using the theme:
-
-```lua
-require('onedarkpro').setup()
-```
-
-Alternatively, if using Vimscript:
-
-```lua
-colorscheme onedarkpro
-```
-
-The `vim.o.background` option may be used to set the theme:
+The `vim.o.background` option may be used to toggle the theme between its default light and dark variants:
 
 ```lua
 vim.o.background = "dark" -- to load onedark
@@ -184,8 +178,7 @@ vim.o.background = "light" -- to load onelight
 The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/config.lua) file is:
 
 ```lua
-local onedarkpro = require("onedarkpro")
-onedarkpro.setup({
+require("onedarkpro").setup({
   dark_theme = "onedark", -- The default dark theme
   light_theme = "onelight", -- The default light theme
   -- Theme can be overwritten with 'onedark' or 'onelight' as a string
