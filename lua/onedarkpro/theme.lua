@@ -212,9 +212,9 @@ end
 ---Setup the theme by setting the options and the highlight groups
 ---@param name string Optional: The name of the theme to load
 ---@return table theme
-function M.setup_theme()
+function M.setup_theme(name)
     theme.config = require("onedarkpro.config").config
-    theme.colors = require("onedarkpro.colors").get_theme_colors()
+    theme.colors = require("onedarkpro.colors").get_theme_colors(name)
     theme.options = set_options()
     theme.hlgroups = set_hlgroups()
 

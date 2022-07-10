@@ -149,6 +149,7 @@ use({
   "olimorris/onedarkpro.nvim",
   config = function()
     require("onedarkpro").setup()
+    require("onedarkpro").load()
   end
 })
 ```
@@ -171,6 +172,7 @@ The `vim.o.background` option may be used to toggle the theme between its defaul
 ```lua
 vim.o.background = "dark" -- to load onedark
 vim.o.background = "light" -- to load onelight
+require("onedarkpro").load()
 ```
 
 ### Default configuration
