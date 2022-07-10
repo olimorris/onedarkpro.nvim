@@ -149,7 +149,6 @@ use({
   "olimorris/onedarkpro.nvim",
   config = function()
     require("onedarkpro").setup()
-    require("onedarkpro").load()
   end
 })
 ```
@@ -160,7 +159,12 @@ Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim
 call plug#begin('~/.config/nvim/plugged')
   Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
-colorscheme onedarkpro
+```
+
+The theme can be loaded with:
+
+```lua
+vim.cmd("colorscheme onedarkpro")
 ```
 
 ## :wrench: Configuration
@@ -172,7 +176,6 @@ The `vim.o.background` option may be used to toggle the theme between its defaul
 ```lua
 vim.o.background = "dark" -- to load onedark
 vim.o.background = "light" -- to load onelight
-require("onedarkpro").load()
 ```
 
 ### Default configuration
@@ -183,7 +186,7 @@ The theme's default configuration as per the [config.lua](https://github.com/oli
 require("onedarkpro").setup({
   dark_theme = "onedark", -- The default dark theme
   light_theme = "onelight", -- The default light theme
-  -- Theme can be overwritten with 'onedark' or 'onelight' as a string
+  -- The theme function can be overwritten with a string value for the theme
   theme = function()
       if vim.o.background == "dark" then
           return config.dark_theme
@@ -195,13 +198,10 @@ require("onedarkpro").setup({
   hlgroups = {}, -- Override default highlight groups
   filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugins highlight groups are loaded
-      native_lsp = true,
-      polygot = true,
-      treesitter = true,
-      -- NOTE: Other plugins have been omitted for brevity
+      -- NOTE: Plugins have been omitted for brevity - Please see the plugins section of the README
   },
-  styles = {
-      strings = "NONE", -- Style that is applied to strings
+  styles = { -- Choose from "bold,italic,underline"
+      strings = "NONE", -- Style that is applied to strings. 
       comments = "NONE", -- Style that is applied to comments
       keywords = "NONE", -- Style that is applied to keywords
       functions = "NONE", -- Style that is applied to functions
