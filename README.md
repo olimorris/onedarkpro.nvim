@@ -3,11 +3,11 @@
 ![MIT License](https://img.shields.io/github/license/olimorris/onedarkpro.nvim) [![Tests](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/170370341-8c07e0e6-3284-45d3-b73c-f0bdd487a634.png" alt="OneDarkPro.nvim" />
+    Highly customisable Neovim theme. With support for custom colors, styles and filetype highlights. Support for Treesitter, LSP and a variety of plugins.<br>
+    Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 <p align="center">
-    Dark and light themes for Neovim 0.5+ with <b>Treesitter</b> support<br>
-    Inspired by VS Code's <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a>
+<img src="https://user-images.githubusercontent.com/9512444/178539095-e17ee384-a9b9-49bc-8b76-f3711074c88c.png" alt="OneDarkPro.nvim" />
 </p>
 
 ## :book: Table of Contents
@@ -78,27 +78,27 @@
 
 ### Onedark
 
-<img src="https://user-images.githubusercontent.com/9512444/165271794-a18af19e-6fe6-4f8b-b35d-5d1d920a88ed.png" alt="Onedark" />
+<img src="https://user-images.githubusercontent.com/9512444/178539204-1b4b6b2a-653c-4ed3-b2e4-d0ebfda18c00.png" alt="Onedark" />
 
 **Telescope**
 
-<img src="https://user-images.githubusercontent.com/9512444/170368257-c38c7d8e-a9da-49c9-bde7-aba412de3451.png" alt="Onedark Telescope" />
+<img src="https://user-images.githubusercontent.com/9512444/178539282-4914e2ce-b1e6-447b-92c2-f1efd4e25e86.png" alt="Onedark Telescope" />
 
 ### Onelight
 
-<img src="https://user-images.githubusercontent.com/9512444/165271845-1c34e332-de19-49ad-b75d-218acc3296bf.png" alt="Onelight" />
+<img src="https://user-images.githubusercontent.com/9512444/178539496-c98e2210-006d-4489-8f3d-eca9293f23bf.png" alt="Onelight" />
 
 **Telescope**
 
-<img src="https://user-images.githubusercontent.com/9512444/170541160-aaf8c8a4-d7f5-4bab-9f9d-777b869daffd.png" alt="Onelight Telescope" />
+<img src="https://user-images.githubusercontent.com/9512444/178539657-6740e567-02c9-46cc-8c18-ccc11f46223e.png" alt="Onelight Telescope" />
 
 ### Onedark Vivid
 
-<img src="https://user-images.githubusercontent.com/9512444/165271863-e3aa6e8f-3e31-428b-9e3f-c6527b7d4244.png" alt="Onedark Vivid" />
+<img src="https://user-images.githubusercontent.com/9512444/178539827-0f376e2c-37bd-4f38-8aa2-1d3115557ddc.png" alt="Onedark Vivid" />
 
 ### Onedark Dark
 
-<img src="https://user-images.githubusercontent.com/9512444/168618323-65168896-471e-4da3-ba41-9af0e35a48d2.png" alt="Onedark Dark" />
+<img src="https://user-images.githubusercontent.com/9512444/178539884-b9377c3c-6754-49d2-ae8d-b1d29d90519a.png" alt="Onedark Dark" />
 
 > **Note:** All screenshots have Treesitter highlighting enabled
 
@@ -106,11 +106,11 @@
 
 #### Python
 
-<img src="https://user-images.githubusercontent.com/9512444/165272951-cc0bb91d-d599-46a8-bbe3-b4fcb5c4116c.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/178540087-bda08b3c-fab3-422f-bcb2-46a521de4738.png" alt="Comparison to VS Code - Python" />
 
 #### React
 
-<img src="https://user-images.githubusercontent.com/9512444/153010048-8ccae711-7695-48e9-ab4b-e2664f24d9e7.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
 
 > **Note:** A greater likeness to `VS Code` can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
 
@@ -153,30 +153,23 @@ use({
 })
 ```
 
+The theme can then be loaded with:
+
+```lua
+vim.cmd("colorscheme onedarkpro")
+```
+
 Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
 call plug#begin('~/.config/nvim/plugged')
   Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
-```
 
-The theme can be loaded with:
-
-```lua
-vim.cmd("colorscheme onedarkpro")
+colorscheme onedarkpro
 ```
 
 ## :wrench: Configuration
-
-### Setup
-
-The `vim.o.background` option may be used to toggle the theme between its default light and dark variants:
-
-```lua
-vim.o.background = "dark" -- to load onedark
-vim.o.background = "light" -- to load onelight
-```
 
 ### Default configuration
 
@@ -201,7 +194,7 @@ require("onedarkpro").setup({
       -- NOTE: Plugins have been omitted for brevity - Please see the plugins section of the README
   },
   styles = { -- Choose from "bold,italic,underline"
-      strings = "NONE", -- Style that is applied to strings. 
+      strings = "NONE", -- Style that is applied to strings.
       comments = "NONE", -- Style that is applied to comments
       keywords = "NONE", -- Style that is applied to keywords
       functions = "NONE", -- Style that is applied to functions
@@ -225,20 +218,20 @@ require("onedarkpro").setup({
 
 ### Configuring themes
 
-Currently there are three themes available:
+Currently there are four themes available:
 
 - onedark
 - onelight
 - onedark_vivid
 - onedark_dark
 
-The theme can be set as follows:
+The default theme can be set as follows:
 
 ```lua
-theme = "onedark", -- Or "onelight", "onedark_vivid", "onedark_dark"
+theme = "onedark_vivid",
 ```
 
-If no value is specified, the value of `vim.o.background` will be used to set the theme with dark setting `onedark` and light setting `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
+If no value is specified, the value of `vim.o.background` will be used to set the theme with the default dark theme being `onedark` and light being `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
 
 ```lua
 dark_theme = "onedark_vivid",
@@ -294,8 +287,6 @@ styles = {
 
 Where **italic**, **bold**, **underline** and **NONE** are possible values for styles.
 
-> **Note:** Multiple styles can be passed using a comma. For example `bold,italic`
-
 ### Configuring colors
 
 The theme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
@@ -310,7 +301,7 @@ colors = {
 
 #### Specifying new colors
 
-New colors may be specified in the configuration which will then be merged into the theme's color palette:
+New colors may be specified which will then be merged into the theme's color palette:
 
 ```lua
 colors = {
