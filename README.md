@@ -3,11 +3,12 @@
 ![MIT License](https://img.shields.io/github/license/olimorris/onedarkpro.nvim) [![Tests](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml)
 
 <p align="center">
-    Highly customisable Neovim theme. With support for custom colors, styles and filetype highlights. Support for Treesitter, LSP and a variety of plugins.<br>
-    Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
+<img src="https://user-images.githubusercontent.com/9512444/178539095-e17ee384-a9b9-49bc-8b76-f3711074c88c.png" alt="OneDarkPro.nvim" />
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/178539095-e17ee384-a9b9-49bc-8b76-f3711074c88c.png" alt="OneDarkPro.nvim" />
+    Highly customisable Neovim theme. With support for custom colors, styles and filetype highlights<br>
+    Support for Treesitter, LSP and a variety of plugins<br>
+    Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 
 ## :book: Table of Contents
