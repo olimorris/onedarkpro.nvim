@@ -166,6 +166,12 @@ local function default_hlgroups()
         diffFile = { fg = theme.colors.yellow },
         diffNewFile = { fg = theme.colors.yellow },
         diffLine = { fg = theme.colors.blue },
+
+        -- Spelling
+        SpellBad = { fg = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellCap = { fg = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellLocal = { fg = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellRare = { fg = theme.colors.red, style = theme.options.undercurl_underline },
     }
 end
 
@@ -175,8 +181,9 @@ local function set_options()
     return {
         bold = theme.config.options.bold and "bold" or "NONE",
         italic = theme.config.options.italic and "italic" or "NONE",
-        underline = theme.config.options.underline and "underline" or "NONE",
         undercurl = theme.config.options.undercurl and "undercurl" or "NONE",
+        underline = theme.config.options.underline and "underline" or "NONE",
+        undercurl_underline = (theme.config.options.undercurl and "undercurl" or (theme.config.options.underline and "underline" or "NONE")),
         bold_italic = (bold ~= "NONE" and italic ~= "NONE") and "bold,italic" or "NONE",
         cursorline = (theme.config.options.cursorline or theme.config.options.highlight_cursorline)
                 and theme.colors.cursorline
