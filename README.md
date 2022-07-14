@@ -7,7 +7,7 @@
 </p>
 <p align="center">
     Highly customisable Neovim theme. With support for custom colors, styles and filetype highlights<br>
-    Support for Treesitter, LSP and a variety of plugins<br>
+    <i>Support for Treesitter, LSP and a variety of plugins</i><br>
     Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 
@@ -113,7 +113,7 @@
 
 <img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
 
-> **Note:** A greater likeness to `VS Code` can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
+> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
 
 ### Lualine
 
@@ -215,24 +215,22 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note:** If you wish to use the default config there is no need to copy the above into the setup function.
-
 ### Configuring themes
 
-Currently there are four themes available:
+Currently, there are four themes available:
 
-- onedark
-- onelight
-- onedark_vivid
-- onedark_dark
+- `onedark`
+- `onelight`
+- `onedark_vivid`
+- `onedark_dark`
 
-The default theme can be set as follows:
+A default theme can be set with:
 
 ```lua
 theme = "onedark_vivid",
 ```
 
-If no value is specified, the value of `vim.o.background` will be used to set the theme with the default dark theme being `onedark` and light being `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
+If no value is specified, the theme will use the values as per the default config. This results in the value of `vim.o.background` option to set the theme. With a dark background, the theme will use `onedark` and with a light background, `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
 
 ```lua
 dark_theme = "onedark_vivid",
@@ -240,6 +238,8 @@ light_theme = "onelight",
 ```
 
 ### Configuring plugins
+
+> **Note:** For a full list of plugins supported in the theme, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
 
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
@@ -269,11 +269,9 @@ plugins = {
 }
 ```
 
-> **Note:** For a full list of plugins supported in the theme, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
-
 ### Configuring styles
 
-Styles can be set by specifying the highlight group from the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/theme.lua) file (and any plugin files) alongside the desired style(s):
+Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to adding greater customisation to the theme. These styles may be configured as below:
 
 ```lua
 styles = {
@@ -302,7 +300,7 @@ colors = {
 
 #### Specifying new colors
 
-New colors may be specified which will then be merged into the theme's color palette:
+New colors may be defined which will then be merged into the theme's color palette:
 
 ```lua
 colors = {
