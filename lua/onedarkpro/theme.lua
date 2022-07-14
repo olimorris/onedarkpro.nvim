@@ -45,10 +45,11 @@ local function default_hlgroups()
         NonText = { bg = theme.options.transparency, fg = theme.colors.gray }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
         Normal = { bg = theme.options.transparency, fg = theme.colors.fg }, -- normal text
         NormalFloat = {
-            bg = (theme.config.options.transparency and theme.colors.none or theme.colors.style == "dark" and utils.darken(theme.colors.bg, 0.85) or utils.darken(
-                theme.colors.bg,
-                0.95
-            )),
+            bg = (
+                theme.config.options.transparency and theme.colors.none
+                or theme.colors.style == "dark" and utils.darken(theme.colors.bg, 0.85)
+                or utils.darken(theme.colors.bg, 0.95)
+            ),
         }, -- Normal text in floating windows.
         FloatBorder = { bg = theme.options.transparency, fg = theme.colors.gray },
         NormalNC = {
