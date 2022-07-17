@@ -27,7 +27,8 @@ onedarkpro.setup({
         },
         TestHighlightGroup = {
             fg = "${red}"
-        }
+        },
+        TestHighlightGroup2 = { link = "Statement" }
     }
 })
 vim.cmd [[colorscheme onedarkpro]]

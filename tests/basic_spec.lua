@@ -38,4 +38,9 @@ describe("Using the theme", function()
         assert.equals("TestHighlightGroup xxx guifg=#e06c75", output)
     end)
 
+
+    it("it should be able to link to other highlight groups", function()
+        local output = vim.api.nvim_exec("hi TestHighlightGroup2", true)
+        assert.equals("TestHighlightGroup2 xxx links to Statement", output)
+    end)
 end)
