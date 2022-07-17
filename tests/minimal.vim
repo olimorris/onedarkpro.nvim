@@ -15,7 +15,7 @@ onedarkpro.setup({
     colors = {
         onedark_vivid = {
             red = "#e06c75", -- Overwrite red to onedark's red
-            oli_color = "#FF00FF",
+            oli_color = "#ff00ff",
         }
     },
     hlgroups = {
