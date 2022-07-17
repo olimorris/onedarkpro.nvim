@@ -168,10 +168,10 @@ local function default_hlgroups()
         diffLine = { fg = theme.colors.blue },
 
         -- Spelling
-        SpellBad = { fg = theme.colors.red, style = theme.options.undercurl_underline },
-        SpellCap = { fg = theme.colors.red, style = theme.options.undercurl_underline },
-        SpellLocal = { fg = theme.colors.red, style = theme.options.undercurl_underline },
-        SpellRare = { fg = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellBad = { sp = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellCap = { sp = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellLocal = { sp = theme.colors.red, style = theme.options.undercurl_underline },
+        SpellRare = { sp = theme.colors.red, style = theme.options.undercurl_underline },
     }
 end
 
