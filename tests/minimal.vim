@@ -7,5 +7,32 @@ set runtimepath+=plenary.nvim,.
 set noswapfile
 set noundofile
 
+lua << EOF
+local onedarkpro = require("onedarkpro")
+onedarkpro.setup({
+    dark_theme = "onedark_vivid", -- The default dark theme
+    light_theme = "onelight", -- The default light theme
+    colors = {
+        onedark_vivid = {
+            red = "#e06c75", -- Overwrite red to onedark's red
+            oli_color = "#FF00FF",
+        }
+    },
+    hlgroups = {
+        Repeat = {
+            fg = "${blue}"
+        },
+        Statement = {
+            fg = "${oli_color}"
+        },
+        TestHighlightGroup = {
+            fg = "${red}"
+        }
+    }
+})
+vim.cmd [[colorscheme onedarkpro]]
+EOF
+
 runtime plugin/plenary.vim
 command Test PlenaryBustedDirectory tests {minimal_init = 'tests/minimal.vim'}
+
