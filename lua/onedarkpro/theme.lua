@@ -183,7 +183,9 @@ local function set_options()
         italic = theme.config.options.italic and "italic" or "NONE",
         undercurl = theme.config.options.undercurl and "undercurl" or "NONE",
         underline = theme.config.options.underline and "underline" or "NONE",
-        undercurl_underline = (theme.config.options.undercurl and "undercurl" or (theme.config.options.underline and "underline" or "NONE")),
+        undercurl_underline = (
+            theme.config.options.undercurl and "undercurl" or (theme.config.options.underline and "underline" or "NONE")
+        ),
         bold_italic = (bold ~= "NONE" and italic ~= "NONE") and "bold,italic" or "NONE",
         cursorline = (theme.config.options.cursorline or theme.config.options.highlight_cursorline)
                 and theme.colors.cursorline
