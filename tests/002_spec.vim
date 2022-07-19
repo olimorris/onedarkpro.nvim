@@ -43,5 +43,5 @@ vim.cmd [[colorscheme onedarkpro]]
 EOF
 
 runtime plugin/plenary.vim
-command Test PlenaryBustedDirectory tests {minimal_init = 'tests/minimal.vim'}
+command Test2 PlenaryBustedFile tests/002_spec.lua
 
