@@ -5,7 +5,7 @@ describe("Using the theme", function()
 
     it("Neovim should open with no errors", function()
         local content = vim.fn.getline(1, "$")
-        assert.equals("Test is working", content[1])
+        assert.equals("Hello World", content[1])
     end)
 
     it("it should set a global variable", function()
@@ -37,7 +37,6 @@ describe("Using the theme", function()
         local output = vim.api.nvim_exec("hi TestHighlightGroup", true)
         assert.equals("TestHighlightGroup xxx guifg=#e06c75", output)
     end)
-
 
     it("it should be able to link to other highlight groups", function()
         local output = vim.api.nvim_exec("hi TestHighlightGroup2", true)
