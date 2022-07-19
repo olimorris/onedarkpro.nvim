@@ -81,7 +81,7 @@
 
 <img src="https://user-images.githubusercontent.com/9512444/178539204-1b4b6b2a-653c-4ed3-b2e4-d0ebfda18c00.png" alt="Onedark" />
 
-**Telescope**
+**with Telescope**
 
 <img src="https://user-images.githubusercontent.com/9512444/178539282-4914e2ce-b1e6-447b-92c2-f1efd4e25e86.png" alt="Onedark Telescope" />
 
@@ -89,7 +89,7 @@
 
 <img src="https://user-images.githubusercontent.com/9512444/178539496-c98e2210-006d-4489-8f3d-eca9293f23bf.png" alt="Onelight" />
 
-**Telescope**
+**with Telescope**
 
 <img src="https://user-images.githubusercontent.com/9512444/178539657-6740e567-02c9-46cc-8c18-ccc11f46223e.png" alt="Onelight Telescope" />
 
@@ -129,11 +129,11 @@
 
 #### Dark
 
-<img src="https://user-images.githubusercontent.com/9512444/149406202-f3e3335f-0f3a-46c5-8df1-55c7c1a8eac4.png" alt="Dark colors" />
+<img src="https://user-images.githubusercontent.com/9512444/179700545-c8ac75ba-9469-45d6-a91b-6f35db4e5efb.png" alt="Dark colors" />
 
 #### Light
 
-<img src="https://user-images.githubusercontent.com/9512444/149406241-2f091619-879a-498c-a106-d86b1d8dfcd7.png" alt="Light colors" />
+<img src="https://user-images.githubusercontent.com/9512444/179700558-9ed5d35b-ff24-4dfb-a833-62f3dcb1c363.png" alt="Light colors" />
 
 ## :zap: Requirements
 
