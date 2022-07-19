@@ -12,6 +12,16 @@ local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
     dark_theme = "onedark_vivid", -- The default dark theme
     light_theme = "onelight", -- The default light theme
+    styles = {
+        variables = "bold"
+    },
+    options = {
+        italic = true,
+    },
+    plugins = {
+        all = false,
+        treesitter = true,
+    },
     colors = {
         onedark_vivid = {
             red = "#e06c75", -- Overwrite red to onedark's red

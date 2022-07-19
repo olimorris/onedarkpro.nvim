@@ -22,6 +22,16 @@ describe("Using the theme", function()
         assert.equals("Statement      xxx ctermfg=11 guifg=#ff00ff", output)
     end)
 
+    it("it should apply styles", function()
+        local output = vim.api.nvim_exec("hi Identifier", true)
+        assert.equals("Identifier     xxx cterm=bold ctermfg=14 gui=bold guifg=#e06c75", output)
+    end)
+
+    it("it should apply options", function()
+        local output = vim.api.nvim_exec("hi Conditional", true)
+        assert.equals("Conditional    xxx gui=italic guifg=#d55fde", output)
+    end)
+
     it("it should be able to overwrite existing colors", function()
         local output = vim.api.nvim_exec("hi Label", true)
         assert.equals("Label          xxx guifg=#e06c75", output)
@@ -41,5 +51,15 @@ describe("Using the theme", function()
     it("it should be able to link to other highlight groups", function()
         local output = vim.api.nvim_exec("hi TestHighlightGroup2", true)
         assert.equals("TestHighlightGroup2 xxx links to Statement", output)
+    end)
+
+    it("it should only apply highlights for plugins we have enabled", function()
+        -- Treesitter groups should be loaded
+        local output = vim.api.nvim_exec("hi TSAnnotation", true)
+        assert.equals("TSAnnotation   xxx guifg=#e06c75", output)
+
+        -- Do not set Aerial's highlight groups
+        local output = pcall(vim.api.nvim_exec, "hi AerialClass", true)
+        assert.equals(false, output)
     end)
 end)
