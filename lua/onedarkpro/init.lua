@@ -10,8 +10,8 @@ end
 ---Load the theme
 ---@param name string
 ---@return table
-function M.load(name)
-    local theme = require("onedarkpro.theme").setup_theme(name)
+function M.load()
+    local theme = require("onedarkpro.theme").setup_theme()
     return require("onedarkpro.utils").load_theme(theme)
 end
 
