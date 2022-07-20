@@ -12,7 +12,7 @@ local function default_hlgroups()
             style = theme.config.styles.comments,
         }, -- Comments
         -- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-        Cursor = { bg = theme.colors.black, fg = theme.colors.bg }, -- character under the cursor
+        Cursor = { bg = theme.colors.purple, fg = theme.colors.bg }, -- character under the cursor
         -- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
         -- CursorIM     = {bg = theme.colors.red}, -- like Cursor, but used when in IME mode |CursorIM|
         CursorColumn = { bg = theme.colors.gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
