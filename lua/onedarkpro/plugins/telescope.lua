@@ -29,14 +29,15 @@ function M.get(theme)
             fg = theme.colors.purple,
         },
 
-        TelescopePreviewTitle = { fg = telescope_results, bg = theme.colors.green },
-        TelescopeResultsTitle = { fg = telescope_results, bg = telescope_results },
+        TelescopePreviewTitle = { fg = theme.colors.bg, bg = theme.colors.green },
+        TelescopeResultsTitle = { fg = theme.colors.bg, bg = theme.colors.purple },
 
         TelescopePromptBorder = { fg = telescope_prompt, bg = telescope_prompt },
         TelescopePromptCounter = { fg = theme.colors.fg },
         TelescopePromptNormal = { fg = theme.colors.fg, bg = telescope_prompt },
         TelescopePromptPrefix = { fg = theme.colors.purple, bg = telescope_prompt },
-        TelescopePromptTitle = { fg = telescope_prompt, bg = theme.colors.purple },
+        TelescopePromptTitle = { fg = theme.colors.bg, bg = theme.colors.purple },
+
         -- TelescopePrompt = { link = "TelescopeNormal" },
     }
 end
