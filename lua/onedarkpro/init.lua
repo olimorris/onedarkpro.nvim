@@ -1,25 +1,85 @@
 local M = {}
 
----Setup the theme via the default config or the users own
----@param user_config table
----@return function
-function M.setup(user_config)
-    require("onedarkpro.config").set_config(user_config)
+local override = {}
+
+function override.colors(colors)
+    require("onedarkpro.override").colors = colors
 end
+
+function override.groups(groups)
+    require("onedarkpro.override").groups = groups
+end
+
+M.override = override
+
+---Setup the theme via the default config or the users own
+---@param opts table  User's config
+---@return nil
+function M.setup(opts)
+    opts = opts or {}
+    require("onedarkpro.config").setup(opts)
+
+    if opts.colors then
+        override.colors(opts.colors)
+    end
+
+    if opts.hlgroups then
+        override.groups(opts.hlgroups)
+    end
+end
+
+local highlight = {}
+
+function highlight.editor(editor)
+    require("onedarkpro.highlight").editor = editor
+end
+
+function highlight.syntax(syntax)
+    require("onedarkpro.highlight").syntax = syntax
+end
+
+function highlight.plugins(plugins)
+    require("onedarkpro.highlight").plugins = plugins
+end
+
+function highlight.user_defined(groups)
+    require("onedarkpro.highlight").user_defined = groups
+end
+
+M.highlight = highlight
 
 ---Load the theme
----@param name string
 ---@return table
 function M.load()
-    local theme = require("onedarkpro.theme").setup_theme()
-    return require("onedarkpro.utils").load_theme(theme)
+    local theme = require("onedarkpro.theme").load()
+    override = require("onedarkpro.override")
+
+    highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
+    highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme))
+    highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme))
+
+    if override.groups then
+        highlight.user_defined(
+            require("onedarkpro.utils.variable").replace_vars(
+                vim.deepcopy(override.groups),
+                require("onedarkpro.utils.collect").merge_tables(theme.palette, theme.generated)
+            )
+        )
+    end
+
+    return require("onedarkpro.main").load(theme)
 end
 
----Get the color table for a specific theme (e.g. onedark/onelight).
----@param name string
+---Get the color palette for a specific theme
+---@param theme string
 ---@return table
-function M.get_colors(name)
-    return vim.g.onedarkpro_colors or require("onedarkpro.colors").get_theme_colors(name)
+function M.get_colors(theme)
+    if vim.g.onedarkpro_colors and vim.g.onedarkpro_theme == theme then
+        return vim.g.onedarkpro_colors
+    end
+
+    local theme = require("onedarkpro.theme").load(theme)
+    return require("onedarkpro.utils.collect").merge_tables(theme.palette, theme.generated, theme.meta)
 end
 
 return M

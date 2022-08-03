@@ -9,6 +9,6 @@ describe("Using the theme", function()
     end)
 
     it("it should set a global variable", function()
-        assert.equals("onedark", vim.g.onedarkpro_style)
+        assert.equals("onedark", vim.g.onedarkpro_theme)
     end)
 end)

@@ -17,6 +17,7 @@ onedarkpro.setup({
     },
     options = {
         italic = true,
+        terminal_colors = true
     },
     plugins = {
         all = false,
@@ -26,6 +27,10 @@ onedarkpro.setup({
         onedark_vivid = {
             red = "#e06c75", -- Overwrite red to onedark's red
             oli_color = "#ff00ff",
+            diff_add = "#ff0000"
+        },
+        onelight = {
+            oli_color = "#f0f0f0",
         }
     },
     hlgroups = {
