@@ -33,9 +33,8 @@ describe("Using the theme", function()
     end)
 
     it("it should apply the theme's color palette", function()
-        local output = vim.api.nvim_get_hl_by_name("Normal", true)
-        assert.equals("#abb2bf", hex(output.foreground))
-        assert.equals("#282c34", hex(output.background))
+        local output = vim.api.nvim_exec("hi Normal", true)
+        assert.equals("Normal         xxx guifg=#abb2bf guibg=#282c34", output)
     end)
 
     it("it should create new colors", function()
@@ -106,14 +105,12 @@ describe("Using the theme", function()
     end)
 
     it("it changes colors and highlight groups when the background changes", function()
-        local output = vim.api.nvim_get_hl_by_name("Normal", true)
-        assert.equals("#abb2bf", hex(output.foreground))
-        assert.equals("#282c34", hex(output.background))
+        local output = vim.api.nvim_exec("hi Normal", true)
+        assert.equals("Normal         xxx guifg=#abb2bf guibg=#282c34", output)
 
         vim.o.background = "light"
-        local output = vim.api.nvim_get_hl_by_name("Normal", true)
-        assert.equals("#6a6a6a", hex(output.foreground))
-        assert.equals("#fafafa", hex(output.background))
+        local output = vim.api.nvim_exec("hi Normal", true)
+        assert.equals("Normal         xxx guifg=#6a6a6a guibg=#fafafa", output)
     end)
 
     it("it changes custom highlight groups when the background changes", function()
