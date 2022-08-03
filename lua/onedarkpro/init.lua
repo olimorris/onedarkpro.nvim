@@ -62,7 +62,7 @@ function M.load()
         highlight.user_defined(
             require("onedarkpro.utils.variable").replace_vars(
                 vim.deepcopy(override.groups),
-                require("onedarkpro.utils.collect").merge_tables(theme.palette, theme.generated)
+                require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
             )
         )
     end
@@ -79,7 +79,7 @@ function M.get_colors(theme)
     end
 
     local theme = require("onedarkpro.theme").load(theme)
-    return require("onedarkpro.utils.collect").merge_tables(theme.palette, theme.generated, theme.meta)
+    return require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
 return M

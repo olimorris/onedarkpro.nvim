@@ -126,12 +126,14 @@ local function set_plugins(plugin_list, opts)
     end
 end
 
+M.config = vim.deepcopy(defaults)
+
 ---Apply the users custom config on top of the default
 ---@param opts table
 ---@return nil
 function M.setup(opts)
     opts = opts or {}
-    M.config = utils.merge_tables(defaults, opts)
+    M.config = utils.deep_extend(defaults, opts)
 
     set_options(M.config.options)
 

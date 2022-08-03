@@ -27,7 +27,7 @@ return setmetatable({ reset = reset }, {
 
     __newindex = function(_, key, value)
         if store[key] then
-            store[key] = utils.merge_tables(store[key], value or {})
+            store[key] = utils.deep_extend(store[key], value or {})
             store.has_override = true
         end
     end,

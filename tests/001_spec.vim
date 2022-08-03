@@ -9,7 +9,6 @@ set noundofile
 
 lua << EOF
 local onedarkpro = require("onedarkpro")
-onedarkpro.setup()
 vim.cmd [[colorscheme onedarkpro]]
 EOF
 

@@ -56,7 +56,7 @@ local function set_info(theme)
     vim.g.onedarkpro_style = theme.meta.name
     vim.g.onedarkpro_theme = theme.meta.name
     vim.g.onedarkpro_colors =
-        require("onedarkpro.utils.collect").merge_tables(theme.palette, theme.generated, theme.meta)
+        require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
 ---Carry out the neccessary work to load the given theme
