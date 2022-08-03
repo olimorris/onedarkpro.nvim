@@ -1,24 +1,35 @@
-# OneDarkPro.nvim
-
-![MIT License](https://img.shields.io/github/license/olimorris/onedarkpro.nvim) [![Tests](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml)
-
 <p align="center">
 <img src="https://user-images.githubusercontent.com/9512444/178539095-e17ee384-a9b9-49bc-8b76-f3711074c88c.png" alt="OneDarkPro.nvim" />
 </p>
+
+<h1 align="center">OneDarkPro.nvim</h1>
+
 <p align="center">
-    Highly customisable Neovim theme. With support for custom colors, styles and filetype highlights<br>
-    <i>Support for Treesitter, LSP and a variety of plugins</i><br>
+<a href="https://github.com/olimorris/onedarkpro.nvim/stargazers"><img src="https://img.shields.io/github/stars/olimorris/onedarkpro.nvim?color=c678dd&logoColor=e06c75&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/onedarkpro.nvim/issues"><img src="https://img.shields.io/github/issues/olimorris/onedarkpro.nvim?color=%23d19a66&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/onedarkpro.nvim/blob/main/LICENSE"><img src="https://img.shields.io/github/license/olimorris/onedarkpro.nvim?color=%2361afef&style=for-the-badge"></a>
+<a href="https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml"><img src="https://img.shields.io/github/workflow/status/olimorris/onedarkpro.nvim/Tests?label=tests&style=for-the-badge"></a>
+</p>
+
+<p align="center">
+    Highly customisable Neovim colorschemes. With support for custom colors, styles and highlights by filetype<br>
     Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 
-## :book: Table of Contents
+<div align="center">
+  <h3>onedark</h3><img src="https://user-images.githubusercontent.com/9512444/178539204-1b4b6b2a-653c-4ed3-b2e4-d0ebfda18c00.png" alt="onedark" />
+  <h3>onelight</h3><img src="https://user-images.githubusercontent.com/9512444/178539496-c98e2210-006d-4489-8f3d-eca9293f23bf.png" alt="onelight" />
+  <h3>onedark vivid</h3><img src="https://user-images.githubusercontent.com/9512444/178539827-0f376e2c-37bd-4f38-8aa2-1d3115557ddc.png" alt="onedark vivid" />
+  <h3>onedark dark</h3><img src="https://user-images.githubusercontent.com/9512444/178539884-b9377c3c-6754-49d2-ae8d-b1d29d90519a.png" alt="onedark dark" />
+</div>
 
-- [Features](#sparkles-features)
-- [Screenshots](#camera-screenshots)
-- [Requirements](#zap-requirements)
-- [Installation](#package-installation)
-- [Configuration](#wrench-configuration)
-  - [Setup](#setup)
+## :book: Table of Contents<!-- omit in toc --> 
+
+- [:sparkles: Features](#sparkles-features)
+- [:zap: Requirements](#zap-requirements)
+- [:package: Installation](#package-installation)
+- [:rocket: Usage](#rocket-usage)
+- [:wrench: Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
   - [Configuring themes](#configuring-themes)
   - [Configuring plugins](#configuring-plugins)
@@ -27,113 +38,17 @@
   - [Configuring highlight groups](#configuring-highlight-groups)
   - [Configuring filetype highlight groups](#configuring-filetype-highlight-groups)
   - [Configuring options](#configuring-options)
-- [Extras](#gift-extras)
-  - [Terminal themes](#terminal-themes)
-  - [Helpers](#helpers)
-- [Credits](#clap-credits)
-- [License](#page_with_curl-license)
+- [:electric_plug: Supported Plugins](#electric_plug-supported-plugins)
+- [:microscope: Comparison to VS Code's One Dark Pro](#microscope-comparison-to-vs-codes-one-dark-pro)
+- [:gift: Extras](#gift-extras)
+- [:clap: Credits](#clap-credits)
 
 ## :sparkles: Features
 
-- **Dark** and **light** versions - _onedark_ and _onelight_
-- Supports **custom highlighting across filetypes**
-- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
-- Options to specify styles for:
-  - Comments
-  - Functions
-  - Keywords
-  - Strings
-  - Variables
-  - Virtual text
 - Override default styles, colors, highlight groups and filetype highlight groups
-- Create custom highlight groups
-- [LSP](https://github.com/neovim/nvim-lspconfig) diagnostics support
-- Support for a large array of [vim-polygot](https://github.com/sheerun/vim-polyglot) packs (pull requests welcome)
-- Support for popular plugins:
-  - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
-  - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
-  - [Copilot.vim](https://github.com/github/copilot.vim)
-  - [Dashboard](https://github.com/glepnir/dashboard-nvim)
-  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-  - [Hop.nvim](https://github.com/phaazon/hop.nvim)
-  - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
-  - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-  - [marks.nvim](https://github.com/chentau/marks.nvim)
-  - [Neotest](https://github.com/nvim-neotest/neotest)
-  - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
-  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-  - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-  - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
-  - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
-  - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
-  - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
-  - [packer.nvim](https://github.com/wbthomason/packer.nvim)
-  - [Startify](https://github.com/mhinz/vim-startify)
-  - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-  - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-  - [Trouble](https://github.com/folke/trouble.nvim)
-  - [Ultest](https://github.com/rcarriga/vim-ultest)
-  - [Which Key](https://github.com/folke/which-key.nvim)
-
-## :camera: Screenshots
-
-### Onedark
-
-<img src="https://user-images.githubusercontent.com/9512444/178539204-1b4b6b2a-653c-4ed3-b2e4-d0ebfda18c00.png" alt="Onedark" />
-
-**with Telescope**
-
-<img src="https://user-images.githubusercontent.com/9512444/178539282-4914e2ce-b1e6-447b-92c2-f1efd4e25e86.png" alt="Onedark Telescope" />
-
-### Onelight
-
-<img src="https://user-images.githubusercontent.com/9512444/178539496-c98e2210-006d-4489-8f3d-eca9293f23bf.png" alt="Onelight" />
-
-**with Telescope**
-
-<img src="https://user-images.githubusercontent.com/9512444/178539657-6740e567-02c9-46cc-8c18-ccc11f46223e.png" alt="Onelight Telescope" />
-
-### Onedark Vivid
-
-<img src="https://user-images.githubusercontent.com/9512444/178539827-0f376e2c-37bd-4f38-8aa2-1d3115557ddc.png" alt="Onedark Vivid" />
-
-### Onedark Dark
-
-<img src="https://user-images.githubusercontent.com/9512444/178539884-b9377c3c-6754-49d2-ae8d-b1d29d90519a.png" alt="Onedark Dark" />
-
-> **Note:** All screenshots have Treesitter highlighting enabled
-
-### Comparison to VS Code's One Dark Pro
-
-#### Python
-
-<img src="https://user-images.githubusercontent.com/9512444/178540087-bda08b3c-fab3-422f-bcb2-46a521de4738.png" alt="Comparison to VS Code - Python" />
-
-#### React
-
-<img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
-
-> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
-
-### Lualine
-
-#### Dark
-
-<img src="https://user-images.githubusercontent.com/9512444/153061323-19fd0bd2-5838-470f-9273-ea85a5813319.png" alt="Lualine Dark" />
-
-#### Light
-
-<img src="https://user-images.githubusercontent.com/9512444/149409208-712c1a96-a439-4929-b7a7-ecb8d8b1c6f5.png" alt="Lualine Light" />
-
-### Color guide
-
-#### Dark
-
-<img src="https://user-images.githubusercontent.com/9512444/179700545-c8ac75ba-9469-45d6-a91b-6f35db4e5efb.png" alt="Dark colors" />
-
-#### Light
-
-<img src="https://user-images.githubusercontent.com/9512444/179700558-9ed5d35b-ff24-4dfb-a833-62f3dcb1c363.png" alt="Light colors" />
+- Create custom highlight groups and highlight groups by filetypes
+- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- Support for many [popular plugins](#electric_plug-supported-plugins)
 
 ## :zap: Requirements
 
@@ -143,30 +58,22 @@
 
 ## :package: Installation
 
-Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
+Install with your package manager:
 
 ```lua
-use({
-  "olimorris/onedarkpro.nvim",
-  config = function()
-    require("onedarkpro").setup()
-  end
-})
+use "olimorris/onedarkpro.nvim" -- Packer
 ```
+```vim
+Plug 'olimorris/onedarkpro.nvim'  " Vim-Plug
+```
+## :rocket: Usage
 
-The theme can then be loaded with:
+Use the built-in `:colorscheme` command:
 
 ```lua
 vim.cmd("colorscheme onedarkpro")
 ```
-
-Alternatively, if using Vimscript and [vim-plug](https://github.com/junegunn/vim-plug):
-
 ```vim
-call plug#begin('~/.config/nvim/plugged')
-  Plug 'olimorris/onedarkpro.nvim'
-call plug#end()
-
 colorscheme onedarkpro
 ```
 
@@ -174,7 +81,7 @@ colorscheme onedarkpro
 
 ### Default configuration
 
-The theme's default configuration as per the [config.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/config.lua) file is:
+Only call the `setup` function to change the defaults:
 
 ```lua
 require("onedarkpro").setup({
@@ -191,8 +98,8 @@ require("onedarkpro").setup({
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   hlgroups = {}, -- Override default highlight groups
   filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
-  plugins = { -- Override which plugins highlight groups are loaded
-      -- NOTE: Plugins have been omitted for brevity - Please see the plugins section of the README
+  plugins = { -- Override which plugin highlight groups are loaded
+    -- ...
   },
   styles = { -- Choose from "bold,italic,underline"
       strings = "NONE", -- Style that is applied to strings.
@@ -203,13 +110,13 @@ require("onedarkpro").setup({
       virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
-      bold = false, -- Use the themes opinionated bold styles?
-      italic = false, -- Use the themes opinionated italic styles?
-      underline = false, -- Use the themes opinionated underline styles?
-      undercurl = false, -- Use the themes opinionated undercurl styles?
+      bold = false, -- Use the colorscheme's opinionated bold styles?
+      italic = false, -- Use the colorscheme's opinionated italic styles?
+      underline = false, -- Use the colorscheme's opinionated underline styles?
+      undercurl = false, -- Use the colorscheme's opinionated undercurl styles?
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
-      terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+      terminal_colors = false, -- Use the colorscheme's colors for Neovim's :terminal?
       window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
   }
 })
@@ -230,7 +137,7 @@ A default theme can be set with:
 theme = "onedark_vivid",
 ```
 
-If no value is specified, the theme will use the values as per the default config. This results in the value of `vim.o.background` option to set the theme. With a dark background, the theme will use `onedark` and with a light background, `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
+If no value is specified, the colorscheme will use the values as per the default config. This will use the `vim.o.background` option to set the theme. With a dark background, the theme will use `onedark` and with a light background, `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
 
 ```lua
 dark_theme = "onedark_vivid",
@@ -239,7 +146,7 @@ light_theme = "onelight",
 
 ### Configuring plugins
 
-> **Note:** For a full list of plugins supported in the theme, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
+> **Note:** For a full list of plugins supported, and their names, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
 
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
@@ -271,7 +178,7 @@ plugins = {
 
 ### Configuring styles
 
-Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to adding greater customisation to the theme. These styles may be configured as below:
+Within the colorscheme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of the colorscheme. These styles may be configured as below:
 
 ```lua
 styles = {
@@ -288,7 +195,7 @@ Where **italic**, **bold**, **underline** and **NONE** are possible values for s
 
 ### Configuring colors
 
-The theme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
+The colorscheme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 
@@ -300,7 +207,7 @@ colors = {
 
 #### Specifying new colors
 
-New colors may be defined which will then be merged into the theme's color palette:
+New colors may be defined which will then be merged into a theme's color palette:
 
 ```lua
 colors = {
@@ -312,7 +219,7 @@ colors = {
 
 #### Specifying colors by theme
 
-It's possible to override default colors within the theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
+It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 
 ```lua
 colors = {
@@ -343,7 +250,7 @@ hlgroups = { -- Overriding the Comment highlight group
 
 ### Configuring filetype highlight groups
 
-The original <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a> utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the theme:
+The original <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a> utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the colorscheme:
 
 ```lua
 filetype_hlgroups = {
@@ -364,9 +271,9 @@ filetype_hlgroups = {
 
 #### Ignoring filetypes and buffer types
 
-Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. As the user moves between buffers, the theme checks for a filetype change and applies any new highlights as neccessary.
+Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. As the user moves between buffers, the theme checks for a filetype change and applies any new highlights as necessary.
 
-When using common plugins such as [Telescope](https://github.com/nvim-telescope/telescope.nvim) or [Trouble](https://github.com/folke/trouble.nvim), additional windows with distinct filetypes are opened. This can cause the theme to reapply the default highlight groups as it detects a buffer filetype change. When closing the windows, the user's custom filetype highlight groups are then lost. To prevent this from happening, the theme has a table of filetypes and buffer types to ignore:
+When using common plugins such as [Telescope](https://github.com/nvim-telescope/telescope.nvim) or [Trouble](https://github.com/folke/trouble.nvim), additional windows with distinct filetypes are opened. This can cause the colorscheme to reapply the default highlight groups as it detects a buffer filetype change. When closing the windows, the user's custom filetype highlight groups are then lost. To prevent this from happening, the colorscheme has a table of filetypes and buffer types to ignore:
 
 ```lua
 filetype_hlgroups_ignore = {
@@ -398,22 +305,22 @@ Additional filetypes and buffer types can be added in the config.
 
 #### Formatting
 
-Alongside styles, the theme applies some opinionated formatting. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
+Alongside styles, the colorscheme applies some opinionated formatting. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
 
 These can be configured with the following options:
 
 ```lua
 options = {
-  bold = true, -- Use the themes opinionated bold styles?
-  italic = true, -- Use the themes opinionated italic styles?
-  underline = true, -- Use the themes opinionated underline styles?
-  undercurl = true -- Use the themes opinionated undercurl styles?
+  bold = true, -- Use the colorscheme's opinionated bold styles?
+  italic = true, -- Use the colorscheme's opinionated italic styles?
+  underline = true, -- Use the colorscheme's opinionated underline styles?
+  undercurl = true -- Use the colorscheme's opinionated undercurl styles?
 }
 ```
 
 #### Transparency
 
-The theme supports transparent backgrounds:
+The colorscheme supports transparent backgrounds:
 
 ```lua
 options = {
@@ -425,7 +332,7 @@ By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`
 
 #### Terminal Colors
 
-The theme supports changing the colors for Neovim's `:terminal`:
+The colorscheme supports changing the colors for Neovim's `:terminal`:
 
 ```lua
 options = {
@@ -435,7 +342,7 @@ options = {
 
 #### Window Focus Color
 
-The theme supports changing the color of the main window in Neovim when focussed is lost. For example, when a `telescope` or `packer` pop up appears:
+The colorscheme supports changing the color of the main window in Neovim when focussed is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
 options = {
@@ -447,7 +354,7 @@ options = {
 
 #### Cursorline
 
-Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
+Cursorline highlighting is supported in the colorscheme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
 
 ```lua
 colors = {
@@ -458,13 +365,55 @@ options = {
 }
 ```
 
+## :electric_plug: Supported Plugins
+
+The colorscheme supports the following plugins:
+  - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
+  - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
+  - [Copilot.vim](https://github.com/github/copilot.vim)
+  - [Dashboard](https://github.com/glepnir/dashboard-nvim)
+  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+  - [Hop.nvim](https://github.com/phaazon/hop.nvim)
+  - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
+  - [LSP](https://github.com/neovim/nvim-lspconfig)
+  - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+  - [marks.nvim](https://github.com/chentau/marks.nvim)
+  - [Neotest](https://github.com/nvim-neotest/neotest)
+  - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+  - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+  - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+  - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
+  - [nvim-notify](https://github.com/rcarriga/nvim-notify)
+  - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+  - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+  - [packer.nvim](https://github.com/wbthomason/packer.nvim)
+  - [polygot](https://github.com/sheerun/vim-polyglot)
+  - [Startify](https://github.com/mhinz/vim-startify)
+  - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+  - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+  - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+  - [Trouble](https://github.com/folke/trouble.nvim)
+  - [Vim Ultest](https://github.com/rcarriga/vim-ultest)
+  - [Which Key](https://github.com/folke/which-key.nvim)
+
+## :microscope: Comparison to VS Code's One Dark Pro
+
+### Python<!-- omit in toc -->
+<img src="https://user-images.githubusercontent.com/9512444/178540087-bda08b3c-fab3-422f-bcb2-46a521de4738.png" alt="Comparison to VS Code - Python" />
+
+### React<!-- omit in toc -->
+<img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
+
+> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
+
 ## :gift: Extras
 
-### Terminal themes
+### Terminal themes<!-- omit in toc -->
 
-The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
+The colorscheme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
-### Helpers
+### Helpers<!-- omit in toc -->
 
 #### Theme color tables
 
@@ -477,7 +426,7 @@ print(colors.purple) -- #9a77cf
 
 > **Note:** The global variable `vim.g.onedarkpro_style` automatically detects whether to use the `onedark` or `onelight` theme.
 
-#### Toggling between Onedark and Onelight
+#### Toggling between themes
 
 To enable the easy switching between themes, the following helper function could be used:
 
@@ -493,7 +442,7 @@ end
 
 #### Configuring styles/colors/highlight groups based on the theme
 
-When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
+When configuring the colorscheme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
 ```lua
 hlgroups = {
@@ -505,19 +454,16 @@ hlgroups = {
 
 ## :clap: Credits
 
-### Contributors
+### Contributors<!-- omit in toc -->
 
-Thanks to the following contributors for their work on the theme:
+Thanks to the following contributors for their work on the colorscheme:
 
 - [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
 
-### Inspiration
+### Inspiration<!-- omit in toc -->
 
-The following themes were used as an inspiration:
+The following colorschemes were used as an inspiration:
 
-- [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this theme
-- [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration :wink:
-
-## :page_with_curl: License
-
-[MIT](https://github.com/olimorris/onedark.nvim/blob/main/LICENSE.md)
+- [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this colorscheme
+- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the beautiful code base and structure
+- [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration
