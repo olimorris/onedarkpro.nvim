@@ -4,14 +4,14 @@ local store = {
     editor = {},
     syntax = {},
     plugins = {},
-    user_defined = {},
+    custom = {},
 }
 
 local function reset()
     store.editor = {}
     store.syntax = {}
     store.plugins = {}
-    store.user_defined = {}
+    store.custom = {}
 end
 
 return setmetatable({ reset = reset }, {

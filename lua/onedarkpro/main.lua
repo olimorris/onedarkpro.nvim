@@ -20,8 +20,8 @@ local function set_highlights()
     highlights.create(groups.syntax)
     highlights.create(groups.plugins)
 
-    if groups.user_defined then
-        highlights.create(groups.user_defined)
+    if groups.custom then
+        highlights.create(groups.custom)
     end
 end
 

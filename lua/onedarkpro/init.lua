@@ -42,8 +42,8 @@ function highlight.plugins(plugins)
     require("onedarkpro.highlight").plugins = plugins
 end
 
-function highlight.user_defined(groups)
-    require("onedarkpro.highlight").user_defined = groups
+function highlight.custom(groups)
+    require("onedarkpro.highlight").custom = groups
 end
 
 M.highlight = highlight
@@ -59,7 +59,7 @@ function M.load()
     highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme))
 
     if override.groups then
-        highlight.user_defined(
+        highlight.custom(
             require("onedarkpro.utils.variable").replace_vars(
                 vim.deepcopy(override.groups),
                 require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
