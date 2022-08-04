@@ -14,7 +14,9 @@ local defaults = {
         end
     end,
     colors = {}, -- Override default colors
+    -- TODO: Deprecate hlgroups in favour of highlights
     hlgroups = {}, -- Override default highlight groups
+    -- TODO: Deprecate filetype_hlgroups in favour of ft_highlights
     filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
     filetype_hlgroups_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
         filetypes = {

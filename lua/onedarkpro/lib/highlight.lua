@@ -14,6 +14,10 @@ local function valid_link(link)
     return link and link ~= ""
 end
 
+---Parse a comma separated styles string into a table
+---For example: "bold,italic" -> {bold = true, italic = true}"
+---@param style string
+---@return table
 local function parse_style(style)
     if not style or style == "NONE" then
         return {}

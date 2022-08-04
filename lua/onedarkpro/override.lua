@@ -8,13 +8,13 @@ local utils = require("onedarkpro.utils.collect")
 
 local store = {
     colors = {},
-    groups = {},
+    highlights = {},
     has_override = false,
 }
 
 local function reset()
     store.colors = {}
-    store.groups = {}
+    store.highlights = {}
     store.has_override = false
 end
 
