@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    Highly customisable Neovim colorschemes. With support for custom colors, styles and highlights by filetype<br>
+    Highly customisable Neovim colorscheme. With support for custom colors, styles and highlights by filetype<br>
     Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 
@@ -23,7 +23,7 @@
   <h3>onedark dark</h3><img src="https://user-images.githubusercontent.com/9512444/178539884-b9377c3c-6754-49d2-ae8d-b1d29d90519a.png" alt="onedark dark" />
 </div>
 
-## :book: Table of Contents<!-- omit in toc --> 
+## :book: Table of Contents<!-- omit in toc -->
 
 - [:sparkles: Features](#sparkles-features)
 - [:zap: Requirements](#zap-requirements)
@@ -81,7 +81,7 @@ colorscheme onedarkpro
 
 ### Default configuration
 
-Only call the `setup` function to change the defaults:
+A call to the `setup` function is only required if you wish to change the defaults:
 
 ```lua
 require("onedarkpro").setup({
@@ -234,7 +234,7 @@ colors = {
 
 ### Configuring highlight groups
 
-The [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file and [plugins](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins) use a large array of highlight groups. There are three ways to customize them:
+The [editor.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua) file and [plugins](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) use a large array of highlight groups. There are three ways to customize them:
 
 1. Using specific hex colors
 2. Referencing the name of color variables
@@ -375,7 +375,6 @@ The colorscheme supports the following plugins:
   - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
   - [Hop.nvim](https://github.com/phaazon/hop.nvim)
   - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
-  - [LSP](https://github.com/neovim/nvim-lspconfig)
   - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
   - [marks.nvim](https://github.com/chentau/marks.nvim)
   - [Neotest](https://github.com/nvim-neotest/neotest)
@@ -384,12 +383,13 @@ The colorscheme supports the following plugins:
   - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
   - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
   - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
+  - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
   - [nvim-notify](https://github.com/rcarriga/nvim-notify)
   - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
   - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
   - [packer.nvim](https://github.com/wbthomason/packer.nvim)
   - [polygot](https://github.com/sheerun/vim-polyglot)
-  - [Startify](https://github.com/mhinz/vim-startify)
+  - [startify](https://github.com/mhinz/vim-startify)
   - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
   - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
   - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
