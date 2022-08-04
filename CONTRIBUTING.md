@@ -58,5 +58,5 @@ return {
 > Reference the `editor.lua` and `syntax.lua` files to see how to add highlight groups and styles from a user's config
 - In `lua/onedarkpro/config.lua`, add the plugin to the `plugins` table and set it to `true` by default
   - The name of the plugin should be its filename without the `.lua` extension
-- Update `README.md` to include the new plugin and link to its official repository
+- Update the `README.md` file to include the new plugin and link to its official repository
 - Finally, create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)

@@ -25,11 +25,11 @@
 
 ## :book: Table of Contents<!-- omit in toc -->
 
-- [:sparkles: Features](#sparkles-features)
-- [:zap: Requirements](#zap-requirements)
-- [:package: Installation](#package-installation)
-- [:rocket: Usage](#rocket-usage)
-- [:wrench: Configuration](#wrench-configuration)
+- [Features](#sparkles-features)
+- [Requirements](#zap-requirements)
+- [Installation](#package-installation)
+- [Usage](#rocket-usage)
+- [Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
   - [Configuring themes](#configuring-themes)
   - [Configuring plugins](#configuring-plugins)
@@ -38,10 +38,10 @@
   - [Configuring highlight groups](#configuring-highlight-groups)
   - [Configuring filetype highlight groups](#configuring-filetype-highlight-groups)
   - [Configuring options](#configuring-options)
-- [:electric_plug: Supported Plugins](#electric_plug-supported-plugins)
-- [:microscope: Comparison to VS Code's One Dark Pro](#microscope-comparison-to-vs-codes-one-dark-pro)
-- [:gift: Extras](#gift-extras)
-- [:clap: Credits](#clap-credits)
+- [Supported Plugins](#electric_plug-supported-plugins)
+- [Comparison to VS Code's One Dark Pro](#microscope-comparison-to-vs-codes-one-dark-pro)
+- [Extras](#gift-extras)
+- [Credits](#clap-credits)
 
 ## :sparkles: Features
 
@@ -61,10 +61,10 @@
 Install with your package manager:
 
 ```lua
-use "olimorris/onedarkpro.nvim" -- Packer
+use "olimorris/onedarkpro.nvim"    -- Packer
 ```
 ```vim
-Plug 'olimorris/onedarkpro.nvim'  " Vim-Plug
+Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
 ```
 ## :rocket: Usage
 
@@ -263,11 +263,10 @@ filetype_hlgroups = {
 }
 ```
 
-> **Note:** Currently support for highlighting in Telescope's previewer is unavailable.
-
-> **Note:** Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
-
-> **Note:** The excellent [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) plugin allows for greater customisation over arguments definitions and usages
+> **Note:**
+> - Currently support for highlighting in Telescope's previewer is unavailable
+> - Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
+> - The excellent [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) plugin allows for greater customisation over arguments definitions and usages
 
 #### Ignoring filetypes and buffer types
 
