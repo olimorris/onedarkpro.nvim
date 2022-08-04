@@ -419,11 +419,11 @@ The colorscheme comes with [Alacritty](https://github.com/alacritty/alacritty) a
 To enable the theme's colors to be extracted and used elsewhere in the Neovim config, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
 
 ```lua
-local colors = require("onedarkpro").get_colors(vim.g.onedarkpro_style)
+local colors = require("onedarkpro").get_colors(vim.g.onedarkpro_theme)
 print(colors.purple) -- #9a77cf
 ```
 
-> **Note:** The global variable `vim.g.onedarkpro_style` automatically detects whether to use the `onedark` or `onelight` theme.
+> **Note:** The global variable `vim.g.onedarkpro_theme` automatically detects whether to use the `onedark` or `onelight` theme.
 
 #### Toggling between themes
 

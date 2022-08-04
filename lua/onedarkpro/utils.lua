@@ -21,6 +21,7 @@ end
 ---@param fg string foreground color
 ---@param bg string background color
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
+---@return string
 function M.blend(fg, bg, alpha)
     bg = hex_to_rgb(bg)
     fg = hex_to_rgb(fg)
@@ -37,7 +38,7 @@ end
 ---@param hex string
 ---@param amount integer
 ---@param bg string
----@return table
+---@return string
 function M.darken(hex, amount, bg)
     return M.blend(hex, bg or M.bg, math.abs(amount))
 end
@@ -46,7 +47,7 @@ end
 ---@param hex string
 ---@param amount integer
 ---@param fg string
----@return table
+---@return string
 function M.lighten(hex, amount, fg)
     return M.blend(hex, fg or M.fg, math.abs(amount))
 end
