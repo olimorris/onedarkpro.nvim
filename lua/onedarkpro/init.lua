@@ -10,6 +10,10 @@ function override.highlights(highlights)
     require("onedarkpro.override").highlights = highlights
 end
 
+function override.ft_highlights(highlights)
+    require("onedarkpro.override").ft_highlights = highlights
+end
+
 M.override = override
 
 ---Setup the theme via the default config or the users own
@@ -25,6 +29,10 @@ function M.setup(opts)
 
     if opts.hlgroups then
         override.highlights(opts.hlgroups)
+    end
+
+    if opts.filetype_hlgroups then
+        override.ft_highlights(opts.filetype_hlgroups)
     end
 end
 
@@ -42,8 +50,19 @@ function highlight.plugins(plugins)
     require("onedarkpro.highlight").plugins = plugins
 end
 
-function highlight.custom(groups)
-    require("onedarkpro.highlight").custom = groups
+function highlight.apply(highlights, theme)
+    return require("onedarkpro.utils.variable").replace_vars(
+        vim.deepcopy(highlights),
+        require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
+    )
+end
+
+function highlight.custom(highlights)
+    require("onedarkpro.highlight").custom = highlights
+end
+
+function highlight.ft(highlights)
+    require("onedarkpro.highlight").ft = highlights
 end
 
 M.highlight = highlight
@@ -59,12 +78,11 @@ function M.load()
     highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme))
 
     if override.highlights then
-        highlight.custom(
-            require("onedarkpro.utils.variable").replace_vars(
-                vim.deepcopy(override.highlights),
-                require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
-            )
-        )
+        highlight.custom(highlight.apply(override.highlights, theme))
+    end
+
+    if override.ft_highlights then
+        highlight.ft(highlight.apply(override.ft_highlights, theme))
     end
 
     return require("onedarkpro.main").load(theme)

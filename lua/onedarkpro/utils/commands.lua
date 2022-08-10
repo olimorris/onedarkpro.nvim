@@ -4,7 +4,7 @@ local M = {}
 ---Taken from https://github.com/norcalli/nvim_utils/blob/master/lua/nvim_utils.lua#L554-L567
 -- @param definitions table
 -- @return vim.api
-function M.create_augroups(definitions)
+function M.create(definitions)
     for group_name, definition in pairs(definitions) do
         vim.api.nvim_command("augroup " .. group_name)
         vim.api.nvim_command("autocmd!")

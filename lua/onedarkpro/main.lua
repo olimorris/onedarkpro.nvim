@@ -13,6 +13,7 @@ end
 ---Set the highlight groups
 ---@return nil
 local function set_highlights()
+    local next = next
     local groups = require("onedarkpro.highlight")
     local highlights = require("onedarkpro.lib.highlight")
 
@@ -20,8 +21,15 @@ local function set_highlights()
     highlights.create(groups.syntax)
     highlights.create(groups.plugins)
 
-    if groups.custom then
+    if next(groups.custom) ~= nil then
         highlights.create(groups.custom)
+    end
+
+    if next(groups.ft) ~= nil then
+        -- TODO: Make filetype highlights available for Neovim 0.7 only
+        if require("onedarkpro.utils").use_nvim_api or vim.g.onedark_testing then
+            require("onedarkpro.lib.ft_highlight").create()
+        end
     end
 end
 

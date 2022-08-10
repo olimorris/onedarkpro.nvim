@@ -52,7 +52,7 @@
 
 ## :zap: Requirements
 
-- Neovim 0.5 or greater
+- Neovim 0.5 or greater (0.7 or above for filetype highlights)
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 
@@ -264,6 +264,7 @@ filetype_hlgroups = {
 ```
 
 > **Note:**
+> - Neovim 0.7 or above is required for filetype highlights
 > - Currently support for highlighting in Telescope's previewer is unavailable
 > - Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
 > - The excellent [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) plugin allows for greater customisation over arguments definitions and usages

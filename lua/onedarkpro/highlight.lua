@@ -5,6 +5,7 @@ local store = {
     syntax = {},
     plugins = {},
     custom = {},
+    ft = {}
 }
 
 local function reset()
@@ -12,6 +13,7 @@ local function reset()
     store.syntax = {}
     store.plugins = {}
     store.custom = {}
+    store.ft = {}
 end
 
 return setmetatable({ reset = reset }, {
