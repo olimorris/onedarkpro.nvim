@@ -8,6 +8,7 @@ set noswapfile
 set noundofile
 
 lua << EOF
+vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
     dark_theme = "onedark_vivid", -- The default dark theme
@@ -44,14 +45,6 @@ onedarkpro.setup({
             fg = "${red}"
         },
         TestHighlightGroup2 = { link = "Statement" }
-    },
-    filetype_hlgroups = {
-        ruby = {
-            Function = { fg = "${green}" }
-        },
-        lua = {
-            Function = { fg = "${purple}" }
-        },
     },
 })
 vim.cmd [[colorscheme onedarkpro]]
