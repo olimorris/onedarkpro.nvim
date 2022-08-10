@@ -87,7 +87,7 @@ end
 ---@return nil
 function M.reset()
     store.highlights = require("onedarkpro.highlight").ft
-    M.create()
+    set_highlights()
 end
 
 return M
