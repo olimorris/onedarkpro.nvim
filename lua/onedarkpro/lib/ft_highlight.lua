@@ -38,16 +38,14 @@ local function set_autocmds()
     })
 end
 
-local function ignore(ft)
-    local bt = vim.bo.buftype
+---Determine if the filetype should be ignored
+---@return boolean
+local function ignore()
     local utils = require("onedarkpro.utils.collect")
     local config = require("onedarkpro.config").config
-    require('pl.pretty').dump(config.filetype_hlgroups_ignore.filetypes)
 
-    -- require('pl.pretty').dump(config.filetype_hlgroups_ignore.fileypes)
-
-    return utils.pattern_match(config.filetype_hlgroups_ignore.buftypes, bt)
-        or utils.pattern_match(config.filetype_hlgroups_ignore.fileypes, ft)
+    return utils.pattern_match(config.filetype_hlgroups_ignore.filetypes, vim.bo.filetype)
+        or utils.pattern_match(config.filetype_hlgroups_ignore.buftypes, vim.bo.buftype)
 end
 
 ---Apply the highlight namespace for the filetype
@@ -72,11 +70,7 @@ end
 function M.load()
     local ft = vim.bo.filetype
 
-    -- if ignore(ft) then
-    --     return
-    -- end
-
-    if store.last_filetype == ft then
+    if store.last_filetype == ft or ignore() then
         return
     end
 
