@@ -11,3 +11,4 @@ endif
 ifeq ($(NV_VERSION), 0.8)
 	nvim --headless --noplugin -u tests/003_spec.vim +Test3
 endif
+	nvim --headless --noplugin -u tests/004_spec.vim +Test4
