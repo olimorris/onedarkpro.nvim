@@ -26,7 +26,6 @@ local function set_highlights()
     end
 
     if next(groups.ft) ~= nil then
-        -- TODO: Make filetype highlights available for Neovim 0.7 only
         if require("onedarkpro.utils").use_nvim_api or vim.g.onedark_testing then
             require("onedarkpro.lib.ft_highlight").create()
         end
