@@ -40,7 +40,6 @@ local function generate(palette)
         -- Lualine colors
         bg_statusline = palette.bg_statusline or color.lighten(palette.bg, 0.95),
         fg_gutter = palette.fg_gutter or color.lighten(palette.bg, 0.70),
-        fg_sidebar = palette.fg_sidebar or palette.fg,
 
         -- Virtual text
         virtual_text_error = palette.virtual_text_error or color.lighten(palette.red, 0.7),
