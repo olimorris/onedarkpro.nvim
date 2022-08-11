@@ -26,7 +26,7 @@ end
 ---The autocmds which set the filetype highlights
 -- @return function
 local function set_autocmds()
-    local augroup = vim.api.nvim_create_augroup("onedarkpro", { clear = true })
+    local augroup = vim.api.nvim_create_augroup("OnedarkproFiletypeHighlights", { clear = true })
 
     vim.api.nvim_create_autocmd("BufEnter,BufRead", {
         group = augroup,
@@ -36,6 +36,18 @@ local function set_autocmds()
         group = augroup,
         command = [[lua vim.schedule(function() require("onedarkpro.lib.ft_highlight").reset() end)]],
     })
+end
+
+local function ignore(ft)
+    local bt = vim.bo.buftype
+    local utils = require("onedarkpro.utils.collect")
+    local config = require("onedarkpro.config").config
+    require('pl.pretty').dump(config.filetype_hlgroups_ignore.filetypes)
+
+    -- require('pl.pretty').dump(config.filetype_hlgroups_ignore.fileypes)
+
+    return utils.pattern_match(config.filetype_hlgroups_ignore.buftypes, bt)
+        or utils.pattern_match(config.filetype_hlgroups_ignore.fileypes, ft)
 end
 
 ---Apply the highlight namespace for the filetype
@@ -59,6 +71,10 @@ end
 ---@return nil|function
 function M.load()
     local ft = vim.bo.filetype
+
+    -- if ignore(ft) then
+    --     return
+    -- end
 
     if store.last_filetype == ft then
         return

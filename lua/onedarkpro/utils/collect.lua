@@ -17,11 +17,21 @@ function M.deep_extend(...)
     return lhs
 end
 
+---Return true if any pattern in the tbl matches the provided value
+---@param tbl table
+---@param val string
+---@return boolean
+function M.pattern_match(tbl, val)
+    return tbl and next(vim.tbl_filter(function(pattern)
+        return val:match(pattern)
+    end, tbl))
+end
+
 ---Pretty print a table
 ---@param tbl table
----@return string
+---@return table
 function M.print_table(tbl)
-    require("pl.pretty").dump(tbl)
+    return require("pl.pretty").dump(tbl)
 end
 
 return M

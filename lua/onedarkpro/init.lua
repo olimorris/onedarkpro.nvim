@@ -34,6 +34,8 @@ function M.setup(opts)
     if opts.filetype_hlgroups then
         override.ft_highlights(opts.filetype_hlgroups)
     end
+
+    require("onedarkpro.lib.deprecate").check(opts)
 end
 
 local highlight = {}
