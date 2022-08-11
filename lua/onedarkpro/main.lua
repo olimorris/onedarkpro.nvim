@@ -26,7 +26,7 @@ local function set_highlights()
     end
 
     if next(groups.ft) ~= nil then
-        if require("onedarkpro.utils.init").use_nvim_api or vim.g.onedark_testing then
+        if require("onedarkpro.utils.init").use_nvim_api then
             require("onedarkpro.lib.ft_highlight").create()
         end
     end

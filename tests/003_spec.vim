@@ -8,7 +8,6 @@ set noswapfile
 set noundofile
 
 lua << EOF
-vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
     plugins = {
