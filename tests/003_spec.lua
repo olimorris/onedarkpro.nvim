@@ -27,6 +27,10 @@ local function set_filetype(ft)
     end
 end
 
+local function check_version()
+    return vim.fn.has("nvim-0.7")
+end
+
 local util = require("plenary.async.util")
 local async = require("plenary.async.tests")
 
@@ -39,6 +43,10 @@ async.describe("Using the theme", function()
     end)
 
     async.it("in a Ruby file, highlights should be applied", function()
+        if not check_version() then
+            return
+        end
+
         set_filetype("ruby")
         util.scheduler()
 
@@ -52,6 +60,10 @@ async.describe("Using the theme", function()
     end)
 
     async.it("in a Lua file, highlights should be applied", function()
+        if not check_version() then
+            return
+        end
+
         set_filetype("lua")
         util.scheduler()
 
@@ -65,6 +77,10 @@ async.describe("Using the theme", function()
     end)
 
     async.it("in a Python file, the default highlights should be restored", function()
+        if not check_version() then
+            return
+        end
+
         set_filetype("python")
         util.scheduler()
 
