@@ -2,13 +2,12 @@ local M = {}
 
 local store = {
     highlights = require("onedarkpro.highlight").ft,
-    has_been_applied = false,
     default_highlights = {},
     filetypes = {},
     last_filetype = nil,
 }
 
----Create a unique namespace for each individual filetype
+---Create a unique namespace for each filetype group
 ---@return nil
 local function set_filetypes()
     for filetype, _ in pairs(store.highlights) do
@@ -16,7 +15,7 @@ local function set_filetypes()
     end
 end
 
----Set the filetype highlights in their own custom namespace
+---Map filetype highlights to their respective namespaces
 ---@return nil
 local function set_highlights()
     for ft, ns in pairs(store.filetypes) do
@@ -24,31 +23,24 @@ local function set_highlights()
     end
 end
 
----Set autocommands to async trigger the highlights
+---The autocmds which set the filetype highlights
 -- @return function
 local function set_autocmds()
-    local autocmds = {
-        onedarkpro_theme_autocmds = {
-            -- TODO: add additional events such as BufFilePost, BufDelete
-            {
-                "BufEnter,BufRead",
-                "*",
-                'lua vim.schedule(function() require("onedarkpro.lib.ft_highlight").load() end)',
-            },
-            {
-                "ColorScheme",
-                "*",
-                'lua vim.schedule(function() require("onedarkpro.lib.ft_highlight").reset() end)',
-            },
-        },
-    }
+    local augroup = vim.api.nvim_create_augroup("onedarkpro", { clear = true })
 
-    return require("onedarkpro.utils.commands").create(autocmds)
+    vim.api.nvim_create_autocmd("BufEnter,BufRead", {
+        group = augroup,
+        command = [[lua vim.schedule(function() require("onedarkpro.lib.ft_highlight").load() end)]],
+    })
+    vim.api.nvim_create_autocmd("ColorScheme", {
+        group = augroup,
+        command = [[lua vim.schedule(function() require("onedarkpro.lib.ft_highlight").reset() end)]],
+    })
 end
 
 ---Apply the highlight namespace for the filetype
----@param ns number
----@param ft string
+---@param ns number namespace
+---@param ft string filetype
 ---@return function
 local function apply_ns(ns, ft)
     store.last_filetype = ft
@@ -72,15 +64,7 @@ function M.load()
         return
     end
 
-    if store.filetypes[ft] == nil then
-        store.has_been_applied = false
-        apply_ns(0, ft)
-    end
-
-    if store.filetypes[ft] then
-        store.has_been_applied = true
-        apply_ns(store.filetypes[ft], ft)
-    end
+    return apply_ns(store.filetypes[ft] and store.filetypes[ft] or 0, ft)
 end
 
 ---Reset the highlights when the colorscheme changes
