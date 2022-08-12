@@ -67,7 +67,7 @@ local function set_info(theme)
 end
 
 ---Carry out the neccessary work to load the given theme
----@param theme table|nil  the theme to load
+---@param theme table  the theme to load
 ---@return nil
 function M.load(theme)
     -- Prevent double loading of the theme
