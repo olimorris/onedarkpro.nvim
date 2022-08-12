@@ -41,18 +41,19 @@
 - [Supported Plugins](#electric_plug-supported-plugins)
 - [Comparison to VS Code's One Dark Pro](#microscope-comparison-to-vs-codes-one-dark-pro)
 - [Extras](#gift-extras)
+- [FAQs](#question-faqs)
 - [Credits](#clap-credits)
 
 ## :sparkles: Features
 
-- Override default styles, colors, highlight groups and filetype highlight groups
-- Create custom highlight groups and highlight groups by filetypes
+- Override default styles, colors and highlight groups
+- Create custom highlight groups and even highlight groups by filetypes
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - Support for many [popular plugins](#electric_plug-supported-plugins)
 
 ## :zap: Requirements
 
-- Neovim 0.5 or greater (0.7 or above for filetype highlights)
+- Neovim 0.5+ (0.7+ for filetype highlights)
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 
@@ -137,7 +138,7 @@ A default theme can be set with:
 theme = "onedark_vivid",
 ```
 
-If no value is specified, the colorscheme will use the values as per the default config. This will use the `vim.o.background` option to set the theme. With a dark background, the theme will use `onedark` and with a light background, `onelight`. For greater customisation with the `vim.o.background` option, default dark and light themes can be set:
+If no value is specified, the colorscheme will use the values as per the default config which uses `vim.o.background` to set the theme. With a dark background, the theme will use `onedark` and with a light background, `onelight`. For greater customisation with `vim.o.background`, default dark and light themes can be set:
 
 ```lua
 dark_theme = "onedark_vivid",
@@ -145,8 +146,6 @@ light_theme = "onelight",
 ```
 
 ### Configuring plugins
-
-> **Note:** For a full list of plugins supported, and their names, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/plugins)
 
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
@@ -176,6 +175,8 @@ plugins = {
 }
 ```
 
+> **Note:** For a full list of plugins supported, and their names, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins)
+
 ### Configuring styles
 
 Within the colorscheme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of the colorscheme. These styles may be configured as below:
@@ -191,11 +192,11 @@ styles = {
 }
 ```
 
-Where **italic**, **bold**, **underline** and **NONE** are possible values for styles.
+| **Note:** See the [Neovim help](https://neovim.io/doc/user/api.html#nvim_set_hl()) for a full list of styles
 
 ### Configuring colors
 
-The colorscheme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [color files](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/colors).
+The colorscheme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
 The default colors can be changed by specifying the name of the color and the new hex code:
 
@@ -215,7 +216,7 @@ colors = {
 }
 ```
 
-> **Note:** Custom colors can also be referenced when creating custom highlight group overrides in `hlgroups`
+> **Note:** Custom colors can also be referenced when creating custom highlight group overrides
 
 #### Specifying colors by theme
 
@@ -234,17 +235,18 @@ colors = {
 
 ### Configuring highlight groups
 
-The [editor.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua) file and [plugins](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) use a large array of highlight groups. There are three ways to customize them:
+The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or *override* them:
 
 1. Using specific hex colors
 2. Referencing the name of color variables
 3. Linking to other highlight groups in the theme
 
 ```lua
-hlgroups = { -- Overriding the Comment highlight group
-  Comment = { fg = "#FF0000", bg = "#FFFF00", style = "italic" }, -- 1
-  Comment = { fg = "${my_new_red}" bg = "${yellow}", style = "bold,italic" }, -- 2
-  Comment = { link = "Substitute" } -- 3
+hlgroups = {
+  -- Overriding the Comment highlight group
+  Comment = { fg = "#FF0000", bg = "#FFFF00", style = "italic" }, -- Option 1
+  Comment = { fg = "${my_new_red}" bg = "${yellow}", style = "bold,italic" }, -- Option 2
+  Comment = { link = "Substitute" } -- Option 3
 }
 ```
 
@@ -271,9 +273,7 @@ filetype_hlgroups = {
 
 #### Ignoring filetypes and buffer types
 
-Filetype highlight groups work by detecting the filetype of the current buffer and checking the user's config to determine if any should be applied. As the user moves between buffers, the theme checks for a filetype change and applies any new highlights as necessary.
-
-When using common plugins such as [Telescope](https://github.com/nvim-telescope/telescope.nvim) or [Trouble](https://github.com/folke/trouble.nvim), additional windows with distinct filetypes are opened. This can cause the colorscheme to reapply the default highlight groups as it detects a buffer filetype change. When closing the windows, the user's custom filetype highlight groups are then lost. To prevent this from happening, the colorscheme has a table of filetypes and buffer types to ignore:
+Filetype highlights may be preserverd when moving between specific buffer or filetypes. The default types are:
 
 ```lua
 filetype_hlgroups_ignore = {
@@ -328,7 +328,7 @@ options = {
 }
 ```
 
-By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline` groups will have a `NONE` background color. Additional transparency may be achieved by overriding more highlight groups.
+By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline` groups will have `NONE` as the background color. Additional transparency may be achieved by overriding more highlight groups.
 
 #### Terminal Colors
 
@@ -368,34 +368,34 @@ options = {
 ## :electric_plug: Supported Plugins
 
 The colorscheme supports the following plugins:
-  - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
-  - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
-  - [Copilot.vim](https://github.com/github/copilot.vim)
-  - [Dashboard](https://github.com/glepnir/dashboard-nvim)
-  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-  - [Hop.nvim](https://github.com/phaazon/hop.nvim)
-  - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua)
-  - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-  - [marks.nvim](https://github.com/chentau/marks.nvim)
-  - [Neotest](https://github.com/nvim-neotest/neotest)
-  - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
-  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-  - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-  - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
-  - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens)
-  - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-  - [nvim-notify](https://github.com/rcarriga/nvim-notify)
-  - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
-  - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
-  - [packer.nvim](https://github.com/wbthomason/packer.nvim)
-  - [polygot](https://github.com/sheerun/vim-polyglot)
-  - [startify](https://github.com/mhinz/vim-startify)
-  - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-  - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-  - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-  - [Trouble](https://github.com/folke/trouble.nvim)
-  - [Vim Ultest](https://github.com/rcarriga/vim-ultest)
-  - [Which Key](https://github.com/folke/which-key.nvim)
+  - [aerial.nvim](https://github.com/stevearc/aerial.nvim) (`aerial`)
+  - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
+  - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
+  - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
+  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns_nvim`)
+  - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
+  - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
+  - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
+  - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
+  - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
+  - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
+  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) (`nvim_cmp`)
+  - [nvim-dap](https://github.com/mfussenegger/nvim-dap) (`nvim_dap`)
+  - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) (`nvim_dap_ui`)
+  - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) (`nvim_hlslens`)
+  - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) (`native_lsp`)
+  - [nvim-notify](https://github.com/rcarriga/nvim-notify) (`nvim_notify`)
+  - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) (`nvim_tree`)
+  - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) (`nvim_ts_rainbow`)
+  - [packer.nvim](https://github.com/wbthomason/packer.nvim) (`packer`)
+  - [polygot](https://github.com/sheerun/vim-polyglot) (`polygot`)
+  - [startify](https://github.com/mhinz/vim-startify) (`startify`)
+  - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (`telescope`)
+  - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (`toggleterm`)
+  - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (`treesitter`)
+  - [Trouble](https://github.com/folke/trouble.nvim) (`trouble_nvim`)
+  - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
+  - [Which Key](https://github.com/folke/which-key.nvim) (`which_key_nvim`)
 
 ## :microscope: Comparison to VS Code's One Dark Pro
 
@@ -408,6 +408,9 @@ The colorscheme supports the following plugins:
 > **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
 
 ## :gift: Extras
+### Lualine<!-- omit in toc -->
+The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine
+folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
 
 ### Terminal themes<!-- omit in toc -->
 
@@ -424,7 +427,7 @@ local colors = require("onedarkpro").get_colors(vim.g.onedarkpro_theme)
 print(colors.purple) -- #9a77cf
 ```
 
-> **Note:** The global variable `vim.g.onedarkpro_theme` automatically detects whether to use the `onedark` or `onelight` theme.
+> **Note:** The global variable `vim.g.onedarkpro_theme` represents the currently loaded theme
 
 #### Toggling between themes
 
@@ -451,6 +454,11 @@ hlgroups = {
   }
 }
 ```
+
+## :question: FAQs
+
+#### I want to change X highlight group but I don't know what it is. How do I find out?
+If you're using Treesitter then install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
 
 ## :clap: Credits
 
