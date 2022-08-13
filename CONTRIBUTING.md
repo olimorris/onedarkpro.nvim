@@ -37,14 +37,14 @@ end
 
 return M
 ```
-- Highlight groups can be added with:
+- Highlight groups can be added like so:
 ```lua
 TelescopeSelection = {
     bg = theme.palette.bg,
     fg = theme.palette.purple,
 }
 ```
-> See `lua/onedarkpro/themes/onedark.lua` for the list of available colors
+> See `lua/onedarkpro/themes/onedark.lua` for the list of available colors in the themes
 - To incorporate styles from a user's config:
 ```lua
 local config = require("onedarkpro.config").config
@@ -56,7 +56,15 @@ return {
 }
 ```
 > Reference the `editor.lua` and `syntax.lua` files to see how to add highlight groups and styles from a user's config
-- In `lua/onedarkpro/config.lua`, add the plugin to the `plugins` table and set it to `true` by default
-  - The name of the plugin should be its filename without the `.lua` extension
-- Update the `README.md` file to include the new plugin and link to its official repository
+- To load the plugin by default, go to `lua/onedarkpro/config.lua` and add the plugin to the `plugins` table and set it to `true` by default:
+```lua
+plugins = {
+    aerial = true,
+    barbar = true,
+    -- ...
+    my_new_plugin = true,
+},
+```
+> **Note:** The name of the plugin should be its filename without the `.lua` extension
+- Update the `README.md` file to include the new plugin. Please follow the existing format
 - Finally, create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)

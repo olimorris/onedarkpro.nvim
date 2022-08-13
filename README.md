@@ -69,13 +69,13 @@ Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
 ```
 ## :rocket: Usage
 
-Use the built-in `:colorscheme` command:
+Use the built-in `:colorscheme` command to load:
 
 ```lua
-vim.cmd("colorscheme onedarkpro")
+vim.cmd("colorscheme onedarkpro")  -- Lua
 ```
 ```vim
-colorscheme onedarkpro
+colorscheme onedarkpro             " Vimscript
 ```
 
 ## :wrench: Configuration
@@ -138,7 +138,7 @@ A default theme can be set with:
 theme = "onedark_vivid",
 ```
 
-If no value is specified, the colorscheme will use the values as per the default config which uses `vim.o.background` to set the theme. With a dark background, the theme will use `onedark` and with a light background, `onelight`. For greater customisation with `vim.o.background`, default dark and light themes can be set:
+If no value is specified, the colorscheme will use the values as per the default config which uses `vim.o.background`. With a dark background, the theme will use `onedark` and with a light background, `onelight`, by default. For greater customisation with `vim.o.background`, default dark and light themes can be set:
 
 ```lua
 dark_theme = "onedark_vivid",
@@ -175,7 +175,7 @@ plugins = {
 }
 ```
 
-> **Note:** For a full list of plugins supported, and their names, see the plugins [folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins)
+> **Note:** For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
 
 ### Configuring styles
 
@@ -196,9 +196,9 @@ styles = {
 
 ### Configuring colors
 
-The colorscheme has a palette of 13 core colors alongside many additional ones used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
+The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
-The default colors can be changed by specifying the name of the color and the new hex code:
+The default colors can be changed by specifying the name of the color and a new hex code:
 
 ```lua
 colors = {
@@ -208,7 +208,7 @@ colors = {
 
 #### Specifying new colors
 
-New colors may be defined which will then be merged into a theme's color palette:
+New colors may be created which will then be merged into a theme's color palette:
 
 ```lua
 colors = {
@@ -237,26 +237,33 @@ colors = {
 
 The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or *override* them:
 
-1. Using specific hex colors
-2. Referencing the name of color variables
-3. Linking to other highlight groups in the theme
-
+1. Using specific hex colors:
 ```lua
 hlgroups = {
-  -- Overriding the Comment highlight group
-  Comment = { fg = "#FF0000", bg = "#FFFF00", style = "italic" }, -- Option 1
-  Comment = { fg = "${my_new_red}" bg = "${yellow}", style = "bold,italic" }, -- Option 2
-  Comment = { link = "Substitute" } -- Option 3
+  Comment = { fg = "#FF0000", bg = "#FFFF00" }
+}
+```
+2. Referencing the name of colors:
+```lua
+hlgroups = {
+  Comment = { fg = "${my_new_red}" bg = "${yellow}" }
+}
+```
+3. Linking to other highlight groups:
+```lua
+hlgroups = {
+  Comment = { link = "Substitute" }
 }
 ```
 
 ### Configuring filetype highlight groups
 
-The original <a href="https://binaryify.github.io/OneDark-Pro">One Dark Pro</a> utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the colorscheme:
+The original [One Dark Pro](https://binaryify.github.io/OneDark-Pro) utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the colorscheme:
 
 ```lua
 filetype_hlgroups = {
-  yaml = { -- Use the filetype as per the `set filetype?` command
+  -- Use the filetype as per the `set filetype?` command
+  yaml = {
     TSField = { fg = "${red}" }
   },
   python = {
@@ -266,14 +273,15 @@ filetype_hlgroups = {
 ```
 
 > **Note:**
-> - Neovim 0.7 or above is required for filetype highlights
+> - Neovim 0.7+ is required for filetype highlights
 > - Currently support for highlighting in Telescope's previewer is unavailable
 > - Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
 > - The excellent [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) plugin allows for greater customisation over arguments definitions and usages
 
 #### Ignoring filetypes and buffer types
 
-Filetype highlights may be preserverd when moving between specific buffer or filetypes. The default types are:
+Certain file and buffer types may be ignored to prevent filetype highlights being overwritten when navigating to a new
+buffer. The default types to be ignored are:
 
 ```lua
 filetype_hlgroups_ignore = {
@@ -299,15 +307,11 @@ filetype_hlgroups_ignore = {
   }
 ```
 
-Additional filetypes and buffer types can be added in the config.
-
 ### Configuring options
 
 #### Formatting
 
-Alongside styles, the colorscheme applies some opinionated formatting. These can be found in the [theme.lua](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/theme.lua) file with `style` options containing `theme.*` values.
-
-These can be configured with the following options:
+Alongside styles, the colorscheme applies some opinionated formatting. These can be configured with the following options:
 
 ```lua
 options = {
@@ -332,7 +336,7 @@ By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`
 
 #### Terminal Colors
 
-The colorscheme supports changing the colors for Neovim's `:terminal`:
+The colorscheme supports changing the colors for Neovim's `:terminal` to the current theme:
 
 ```lua
 options = {
@@ -350,7 +354,7 @@ options = {
 }
 ```
 
-> **Note:** This can be seen in the [Python screenshots](#python) above where `nvim-tree` is opened and out of focus
+> **Note:** This can be seen in the screenshots above where `nvim-tree` is opened and out of focus
 
 #### Cursorline
 
