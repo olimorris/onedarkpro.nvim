@@ -2,6 +2,11 @@
 
 Pull requests to add [new plugins](#adding-new-plugins) or to update highlight groups are welcome.
 
+By default, the theme stays close to the original [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) theme. Therefore, changes to the color palette are unlikely to be accepted.
+
+With the new rewrite, the addition of new themes to the color scheme is much easier and I would be happy to consider
+them.
+
 ## Guidelines
 
 The following is a set of guidelines for contributing to this project:
