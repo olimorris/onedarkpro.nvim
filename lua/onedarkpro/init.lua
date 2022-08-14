@@ -70,7 +70,7 @@ end
 M.highlight = highlight
 
 ---Load the theme
----@return table
+---@return nil
 function M.load()
     local theme = require("onedarkpro.theme").load()
     override = require("onedarkpro.override")
@@ -91,14 +91,14 @@ function M.load()
 end
 
 ---Get the color palette for a specific theme
----@param theme string
+---@param theme_name string
 ---@return table
-function M.get_colors(theme)
-    if vim.g.onedarkpro_colors and vim.g.onedarkpro_theme == theme then
+function M.get_colors(theme_name)
+    if vim.g.onedarkpro_colors then
         return vim.g.onedarkpro_colors
     end
 
-    local theme = require("onedarkpro.theme").load(theme)
+    local theme = require("onedarkpro.theme").load(theme_name)
     return require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
