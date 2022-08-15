@@ -1,7 +1,8 @@
+local utils = require("onedarkpro.utils.collect")
 local M = {}
 
 -- Default options for the theme
-M.config = {
+local defaults = {
     -- This enables the Neovim background to set either onedark or onelight
     dark_theme = "onedark", -- The default dark theme
     light_theme = "onelight", -- The default light theme
@@ -13,7 +14,9 @@ M.config = {
         end
     end,
     colors = {}, -- Override default colors
+    -- TODO: Deprecate hlgroups in favour of highlights
     hlgroups = {}, -- Override default highlight groups
+    -- TODO: Deprecate filetype_hlgroups in favour of ft_highlights
     filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
     filetype_hlgroups_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
         filetypes = {
@@ -52,11 +55,11 @@ M.config = {
         native_lsp = true,
         neotest = true,
         neo_tree = true,
-        notify = true,
         nvim_cmp = true,
         nvim_dap = true,
         nvim_dap_ui = true,
         nvim_hlslens = true,
+        nvim_notify = true,
         nvim_tree = true,
         nvim_ts_rainbow = true,
         packer = true,
@@ -89,31 +92,55 @@ M.config = {
     },
 }
 
----Apply the users custom config on top of the default
----@param user_config table
----@return nil
-function M.set_config(user_config)
-    local utils = require("onedarkpro.utils")
-
-    -- Merge the config tables
-    user_config = user_config or {}
-    M.config = utils.tbl_deep_extend(M.config, user_config)
-
-    -- Overwrite the default plugins config with the user's
-    if user_config.plugins then
-        for plugin, _ in pairs(M.config.plugins) do
-            if user_config.plugins["all"] == false then
-                M.config.plugins[plugin] = false
-            end
-            if user_config.plugins[plugin] then
-                M.config.plugins[plugin] = user_config.plugins[plugin]
-            end
-        end
+---Set the theme's options
+---@return table
+local function set_options(opts)
+    if opts.cursorline then
+        vim.wo.cursorline = true
     end
 
-    -- Enable the cursorline in Neovim
-    if M.config.options.highlight_cursorline or M.config.options.cursorline then
-        vim.wo.cursorline = true
+    M.config.options = {
+        bold = opts.bold and "bold" or "NONE",
+        italic = opts.italic and "italic" or "NONE",
+        undercurl = opts.undercurl and "undercurl" or "NONE",
+        underline = opts.underline and "underline" or "NONE",
+        undercurl_underline = (opts.undercurl and "undercurl" or (opts.underline and "underline" or "NONE")),
+        bold_italic = (opts.bold ~= "NONE" and opts.italic ~= "NONE") and "bold,italic" or "NONE",
+        cursorline = opts.cursorline or opts.highlight_cursorline,
+        transparency = opts.transparency or opts.transparent,
+        terminal_colors = opts.terminal_colors,
+        window_unfocussed_color = opts.window_unfocussed_color,
+    }
+
+    return M.config.options
+end
+
+---Set the plugins to load with the theme
+---@return nil
+local function set_plugins(plugin_list, opts)
+    for plugin, _ in pairs(plugin_list) do
+        if opts["all"] == false then
+            M.config.plugins[plugin] = false
+        end
+        if opts[plugin] then
+            M.config.plugins[plugin] = opts[plugin]
+        end
+    end
+end
+
+M.config = vim.deepcopy(defaults)
+
+---Apply the users custom config on top of the default
+---@param opts table
+---@return nil
+function M.setup(opts)
+    opts = opts or {}
+    M.config = utils.deep_extend(defaults, opts)
+
+    set_options(M.config.options)
+
+    if opts.plugins then
+        set_plugins(M.config.plugins, opts.plugins)
     end
 end
 
