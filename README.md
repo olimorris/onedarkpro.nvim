@@ -388,6 +388,7 @@ The colorscheme supports the following plugins:
   - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) (`nvim_dap_ui`)
   - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) (`nvim_hlslens`)
   - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) (`native_lsp`)
+  - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (`nvim_navic`)
   - [nvim-notify](https://github.com/rcarriga/nvim-notify) (`nvim_notify`)
   - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) (`nvim_tree`)
   - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) (`nvim_ts_rainbow`)

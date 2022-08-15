@@ -59,6 +59,7 @@ local defaults = {
         nvim_dap = true,
         nvim_dap_ui = true,
         nvim_hlslens = true,
+        nvim_navic = true,
         nvim_notify = true,
         nvim_tree = true,
         nvim_ts_rainbow = true,
