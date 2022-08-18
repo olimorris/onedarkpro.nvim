@@ -51,10 +51,14 @@ end
 ---Apply the highlight namespace for the filetype
 ---@param ns number namespace
 ---@param ft string filetype
----@return function
+---@return nil|function
 local function apply_ns(ns, ft)
     store.last_filetype = ft
-    return vim.api.nvim__set_hl_ns(ns)
+
+    local ok, _ = pcall(vim.api.nvim__set_hl_ns, ns)
+    if not ok then
+        return vim.api.nvim_set_hl_ns(ns)
+    end
 end
 
 ---Create the autocmds which trigger the application of filetype highlights
