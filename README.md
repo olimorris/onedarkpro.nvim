@@ -97,8 +97,8 @@ require("onedarkpro").setup({
       end
   end,
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  hlgroups = {}, -- Override default highlight groups
-  filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
+  highlights = {}, -- Override default highlight groups
+  ft_highlights = {}, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugin highlight groups are loaded
     -- ...
   },
@@ -132,7 +132,7 @@ Currently, there are four themes available:
 - `onedark_vivid`
 - `onedark_dark`
 
-A default theme can be set with:
+A default main theme can be set with:
 
 ```lua
 theme = "onedark_vivid",
@@ -239,19 +239,19 @@ The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkp
 
 1. Using specific hex colors:
 ```lua
-hlgroups = {
+highlights = {
   Comment = { fg = "#FF0000", bg = "#FFFF00" }
 }
 ```
 2. Referencing the name of colors:
 ```lua
-hlgroups = {
+highlights = {
   Comment = { fg = "${my_new_red}" bg = "${yellow}" }
 }
 ```
 3. Linking to other highlight groups:
 ```lua
-hlgroups = {
+highlights = {
   Comment = { link = "Substitute" }
 }
 ```
@@ -261,7 +261,7 @@ hlgroups = {
 The original [One Dark Pro](https://binaryify.github.io/OneDark-Pro) utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the colorscheme:
 
 ```lua
-filetype_hlgroups = {
+ft_highlights = {
   -- Use the filetype as per the `set filetype?` command
   yaml = {
     TSField = { fg = "${red}" }
@@ -284,7 +284,7 @@ Certain file and buffer types may be ignored to prevent filetype highlights bein
 buffer. The default types to be ignored are:
 
 ```lua
-filetype_hlgroups_ignore = {
+ft_highlights_ignore = {
   filetypes = {
     "^aerial$",
     "^alpha$",
@@ -453,7 +453,7 @@ end
 When configuring the colorscheme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
 ```lua
-hlgroups = {
+highlights = {
   TSField = {
     fg = (vim.o.background == "dark" and "${red}" or "${green}")
   }

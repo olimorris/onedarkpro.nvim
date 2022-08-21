@@ -14,11 +14,9 @@ local defaults = {
         end
     end,
     colors = {}, -- Override default colors
-    -- TODO: Deprecate hlgroups in favour of highlights
-    hlgroups = {}, -- Override default highlight groups
-    -- TODO: Deprecate filetype_hlgroups in favour of ft_highlights
-    filetype_hlgroups = {}, -- Override default highlight groups for specific filetypes
-    filetype_hlgroups_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
+    highlights = {}, -- Override default highlight groups
+    ft_highlights = {}, -- Override default highlight groups for specific filetypes
+    ft_highlights_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
         filetypes = {
             "^aerial$",
             "^alpha$",
@@ -110,7 +108,6 @@ local function set_options(opts)
         cursorline = opts.cursorline or opts.highlight_cursorline,
         transparency = opts.transparency or opts.transparent,
         terminal_colors = opts.terminal_colors,
-        -- keep unfocussed (typo) to prevent breaking existing config
         window_unfocused_color = opts.window_unfocused_color or opts.window_unfocussed_color,
     }
 

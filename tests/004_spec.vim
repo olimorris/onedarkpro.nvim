@@ -17,7 +17,7 @@ local palette = {
 local p = palette
 onedarkpro.setup({
     theme = "onedark",
-    hlgroups = {
+    highlights = {
         Pmenu = { fg = p.fg, bg = p.pmenu },
         NormalFloat = { link = 'Pmenu' },
     },

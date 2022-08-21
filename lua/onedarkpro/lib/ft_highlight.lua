@@ -44,20 +44,27 @@ local function ignore()
     local utils = require("onedarkpro.utils.collect")
     local config = require("onedarkpro.config").config
 
-    return utils.pattern_match(config.filetype_hlgroups_ignore.filetypes, vim.bo.filetype)
-        or utils.pattern_match(config.filetype_hlgroups_ignore.buftypes, vim.bo.buftype)
+    if config.filetype_hlgroups_ignore then
+        local ft_ignore = config.filetype_hlgroups_ignore.filetypes
+        local buf_ignore = config.filetype_hlgroups_ignore.buftypes
+    else
+        local ft_ignore = config.ft_highlights_ignore.filetypes
+        local buf_ignore = config.ft_highlights_ignore.buftypes
+    end
+
+    return utils.pattern_match(ft_ignore, vim.bo.filetype) or utils.pattern_match(buf_ignore, vim.bo.buftype)
 end
 
 ---Apply the highlight namespace for the filetype
 ---@param ns number namespace
 ---@param ft string filetype
----@return nil|function
+---@return nil
 local function apply_ns(ns, ft)
     store.last_filetype = ft
 
-    local ok, _ = pcall(vim.api.nvim__set_hl_ns, ns)
+    local ok = pcall(vim.api.nvim__set_hl_ns, ns)
     if not ok then
-        return vim.api.nvim_set_hl_ns(ns)
+        vim.api.nvim_set_hl_ns(ns)
     end
 end
 

@@ -27,12 +27,12 @@ function M.setup(opts)
         override.colors(opts.colors)
     end
 
-    if opts.hlgroups then
-        override.highlights(opts.hlgroups)
+    if opts.hlgroups or opts.highlights then
+        override.highlights(opts.hlgroups or opts.highlights)
     end
 
-    if opts.filetype_hlgroups then
-        override.ft_highlights(opts.filetype_hlgroups)
+    if opts.filetype_hlgroups or opts.ft_highlights then
+        override.ft_highlights(opts.filetype_hlgroups or opts.ft_highlights)
     end
 
     require("onedarkpro.lib.deprecate").check(opts)

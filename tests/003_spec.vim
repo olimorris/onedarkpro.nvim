@@ -14,7 +14,7 @@ onedarkpro.setup({
         all = false,
         treesitter = true,
     },
-    filetype_hlgroups = {
+    ft_highlights = {
       ruby = {
         Comment = { fg = "${green}", bg = "${green}" },
         Function = { fg = "${green}", bg = "${green}" },

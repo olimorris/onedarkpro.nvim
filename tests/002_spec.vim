@@ -34,7 +34,7 @@ onedarkpro.setup({
             oli_color = "#f0f0f0",
         }
     },
-    hlgroups = {
+    highlights = {
         Repeat = {
             fg = "${blue}"
         },
