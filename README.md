@@ -88,14 +88,6 @@ A call to the `setup` function is only required if you wish to change the defaul
 require("onedarkpro").setup({
   dark_theme = "onedark", -- The default dark theme
   light_theme = "onelight", -- The default light theme
-  -- The theme function can be overwritten with a string value for the theme
-  theme = function()
-      if vim.o.background == "dark" then
-          return config.dark_theme
-      else
-          return config.light_theme
-      end
-  end,
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   highlights = {}, -- Override default highlight groups
   ft_highlights = {}, -- Override default highlight groups for specific filetypes
