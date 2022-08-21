@@ -358,7 +358,7 @@ options = {
 
 #### Cursorline
 
-Cursorline highlighting is supported in the colorscheme using a `cursorline` color (which may of course be overriden). This can be enabled with the following:
+Cursorline highlighting is supported in the colorscheme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
 
 ```lua
 colors = {

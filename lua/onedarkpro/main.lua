@@ -66,7 +66,7 @@ local function set_info(theme)
         require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
----Carry out the neccessary work to load the given theme
+---Carry out the necessary work to load the given theme
 ---@param theme table  the theme to load
 ---@return nil
 function M.load(theme)

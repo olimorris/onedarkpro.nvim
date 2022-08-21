@@ -27,7 +27,7 @@ function M.groups(theme)
             style = config.styles.functions,
         }, -- For function (calls and definitions).
         TSFuncBuiltin = { fg = theme.palette.yellow }, -- For builtin functions: `table.insert` in Lua.
-        TSFuncMacro = { fg = theme.palette.blue }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+        TSFuncMacro = { fg = theme.palette.blue }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
         TSInclude = { fg = theme.palette.purple, style = config.options.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
         TSKeyword = {
             fg = theme.palette.purple,
@@ -36,7 +36,7 @@ function M.groups(theme)
         TSKeywordFunction = {
             fg = theme.palette.purple,
             style = config.styles.keywords,
-        }, -- For keywords used to define a fuction.
+        }, -- For keywords used to define a function.
         TSKeywordOperator = {
             fg = theme.palette.purple,
             style = config.options.italic,
@@ -53,7 +53,7 @@ function M.groups(theme)
         TSProperty = { fg = theme.palette.red }, -- Same as `TSField`.
         TSPunctDelimiter = { link = "Delimiter" }, -- For delimiters ie: `.`
         TSPunctBracket = { fg = theme.palette.fg }, -- For brackets and parens.
-        TSPunctSpecial = { fg = theme.palette.fg }, -- For special punctutation that does not fall in the catagories before.
+        TSPunctSpecial = { fg = theme.palette.fg }, -- For special punctutation that does not fall in the categories before.
         TSRepeat = { fg = theme.palette.purple, style = config.options.italic }, -- For keywords related to loops.
         TSString = {
             fg = theme.palette.green,
