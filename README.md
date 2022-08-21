@@ -92,7 +92,7 @@ require("onedarkpro").setup({
   highlights = {}, -- Override default highlight groups
   ft_highlights = {}, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugin highlight groups are loaded
-    -- ...
+    -- See the [Supported Plugins](#electric_plug-supported-plugins) section for a list of supported plugins
   },
   styles = { -- Choose from "bold,italic,underline"
       strings = "NONE", -- Style that is applied to strings.
