@@ -12,7 +12,7 @@ local function replace_var(str, table)
 end
 
 
----Replace variables in a table recursivly
+---Replace variables in a table recursively
 ---@param table table the table to be replaced
 ---@param values table the values to be replaced by the replace_vars strings in the table passed in
 ---@return table

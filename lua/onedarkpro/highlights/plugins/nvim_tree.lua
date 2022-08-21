@@ -8,7 +8,8 @@ function M.groups(theme)
 
     return {
         NvimTreeNormalNC = { -- Color when nvim-tree is no longer in focus
-            bg = config.options.transparency and "NONE" or (config.options.window_unfocussed_color and theme.generated.color_column or theme.palette.bg),
+            bg = config.options.transparency and "NONE"
+                or (config.options.window_unfocused_color and theme.generated.color_column or theme.palette.bg),
         },
         NvimTreeSymlink = {
             fg = theme.palette.cyan,

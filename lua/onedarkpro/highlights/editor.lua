@@ -39,7 +39,7 @@ function M.groups(theme)
         Normal = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- normal text
         NormalNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocussed_color and theme.generated.color_column
+                or config.options.window_unfocused_color and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- normal text in non-current windows
@@ -83,14 +83,14 @@ function M.groups(theme)
         StatusLine = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- status line of current window
         StatusLineNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocussed_color and theme.generated.color_column
+                or config.options.window_unfocused_color and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
         TabLine = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- tab pages line, not active tab page label
         TabLineFill = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
         TabLineSel = { bg = theme.palette.gray, fg = theme.palette.purple }, -- tab pages line, active tab page label
-                TermCursor = { bg = theme.palette.purple }, -- cursor in a focused terminal
+        TermCursor = { bg = theme.palette.purple }, -- cursor in a focused terminal
         TermCursorNC = { bg = theme.palette.gray }, -- cursor in an unfocused terminal
         Title = { fg = theme.palette.green }, -- titles for output from ":set all", ":autocmd"
         Visual = { bg = theme.generated.selection }, -- Visual mode selection
@@ -99,7 +99,7 @@ function M.groups(theme)
         WinBar = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg },
         WinBarNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocussed_color and theme.generated.color_column
+                or config.options.window_unfocused_color and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         },
