@@ -92,7 +92,7 @@ require("onedarkpro").setup({
   highlights = {}, -- Override default highlight groups
   ft_highlights = {}, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugin highlight groups are loaded
-    -- See the [Supported Plugins](#electric_plug-supported-plugins) section for a list of supported plugins
+    -- See the Supported Plugins section for a list of available plugins
   },
   styles = { -- Choose from "bold,italic,underline"
       strings = "NONE", -- Style that is applied to strings.
@@ -368,7 +368,7 @@ The colorscheme supports the following plugins:
   - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
   - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
   - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
-  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns_nvim`)
+  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
   - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
   - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
   - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
@@ -390,9 +390,9 @@ The colorscheme supports the following plugins:
   - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (`telescope`)
   - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (`toggleterm`)
   - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (`treesitter`)
-  - [Trouble](https://github.com/folke/trouble.nvim) (`trouble_nvim`)
+  - [Trouble](https://github.com/folke/trouble.nvim) (`trouble`)
   - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
-  - [Which Key](https://github.com/folke/which-key.nvim) (`which_key_nvim`)
+  - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
 
 ## :microscope: Comparison to VS Code's One Dark Pro
 
