@@ -73,18 +73,18 @@ M.highlight = highlight
 ---@return nil
 function M.load()
     local theme = require("onedarkpro.theme").load()
-    override = require("onedarkpro.override")
+    local override_mod = require("onedarkpro.override")
 
     highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
     highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme))
     highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme))
 
-    if override.highlights then
-        highlight.custom(highlight.apply(override.highlights, theme))
+    if override_mod.highlights then
+        highlight.custom(highlight.apply(override_mod.highlights, theme))
     end
 
-    if override.ft_highlights then
-        highlight.ft(highlight.apply(override.ft_highlights, theme))
+    if override_mod.ft_highlights then
+        highlight.ft(highlight.apply(override_mod.ft_highlights, theme))
     end
 
     return require("onedarkpro.main").load(theme)
