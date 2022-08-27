@@ -82,7 +82,7 @@ colorscheme onedarkpro             " Vimscript
 
 ### Default configuration
 
-A call to the `setup` function is only required if you wish to change the defaults:
+A call to the `setup` function is only required if you wish to change the default values listed below:
 
 ```lua
 require("onedarkpro").setup({
@@ -114,6 +114,7 @@ require("onedarkpro").setup({
   }
 })
 ```
+> **Note:** You only need to include values that you wish to change from the defaults!
 
 ### Configuring themes
 
