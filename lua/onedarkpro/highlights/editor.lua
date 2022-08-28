@@ -118,10 +118,10 @@ function M.groups(theme)
         diffLine = { fg = theme.palette.blue },
 
         -- Spelling
-        SpellBad = { sp = theme.palette.red, style = config.options.undercurl_underline },
-        SpellCap = { sp = theme.palette.red, style = config.options.undercurl_underline },
-        SpellLocal = { sp = theme.palette.red, style = config.options.undercurl_underline },
-        SpellRare = { sp = theme.palette.red, style = config.options.undercurl_underline },
+        SpellBad = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
+        SpellCap = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
+        SpellLocal = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl", },
+        SpellRare = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
     }
 end
 
