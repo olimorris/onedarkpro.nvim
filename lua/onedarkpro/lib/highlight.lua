@@ -47,6 +47,7 @@ function M.neovim_hl(highlights, ns_id)
             values.fg = opts.fg
             values.bg = opts.bg
             values.sp = opts.sp
+            values.blend = opts.blend
             vim.api.nvim_set_hl(ns_id, group, values)
         end
     end
