@@ -61,6 +61,7 @@ local defaults = {
         nvim_notify = true,
         nvim_tree = true,
         nvim_ts_rainbow = true,
+        op_nvim = true,
         packer = true,
         polygot = true,
         startify = true,
