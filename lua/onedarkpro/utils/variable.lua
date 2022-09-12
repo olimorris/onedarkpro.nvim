@@ -22,6 +22,10 @@ function M.replace_vars(table, values)
         return replace_var(table, values)
     end
 
+    if type(table) == "number" then
+        return table
+    end
+
     -- If the table passed in has a table then iterate though the children and call replace_vars table
     for key, value in pairs(table) do
         table[key] = M.replace_vars(value, values)

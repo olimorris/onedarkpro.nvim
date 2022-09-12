@@ -63,12 +63,13 @@ function M.vim_hl(highlights)
         else
             vim.cmd(
                 string.format(
-                    "highlight %s guifg=%s guibg=%s gui=%s guisp=%s",
+                    "highlight %s guifg=%s guibg=%s gui=%s guisp=%s blend=%s",
                     group,
                     validate(opts.fg),
                     validate(opts.bg),
                     validate(opts.style),
-                    validate(opts.sp)
+                    validate(opts.sp),
+                    validate(opts.blend)
                 )
             )
         end
