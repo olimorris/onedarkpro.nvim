@@ -43,19 +43,12 @@ function M.groups(theme)
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- normal text in non-current windows
-        NormalFloat = {
-            bg = (config.options.transparency and "NONE" or theme.meta.light == false and color.darken(
-                theme.palette.bg,
-                0.85
-            ) or color.darken(theme.palette.bg, 0.95)),
-        }, -- Normal text in floating windows.
-        FloatBorder = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray },
-        Pmenu = {
-            bg = (theme.meta.light == false and color.darken(theme.palette.bg, 0.85) or color.darken(
-                theme.palette.bg,
-                0.95
-            )),
-        }, -- Popup menu: normal item.
+        NormalFloat = { bg = config.options.transparency and "NONE" or theme.generated.float_bg }, -- Normal text in floating windows.
+        FloatBorder = {
+            bg = config.options.transparency and "NONE" or theme.generated.float_bg,
+            fg = theme.palette.gray,
+        },
+        Pmenu = { bg = theme.generated.float_bg }, -- Popup menu: normal item.
         PmenuSel = {
             bg = (theme.meta.light == false and color.lighten(theme.palette.bg, 0.97) or color.darken(
                 theme.palette.bg,
@@ -120,7 +113,7 @@ function M.groups(theme)
         -- Spelling
         SpellBad = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
         SpellCap = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
-        SpellLocal = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl", },
+        SpellLocal = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
         SpellRare = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
     }
 end

@@ -32,6 +32,7 @@ local function generate(palette)
         color_column = palette.color_column or color.darken(palette.bg, 0.97),
         indentline = palette.indentline or color.darken(palette.bg, 0.93),
         selection = palette.selection or color.darken(palette.bg, 0.90),
+        float_bg = palette.float_bg or color.darken(palette.bg, 0.95),
 
         -- Git diff
         diff_add = palette.diff_add or "#cae3e8",
