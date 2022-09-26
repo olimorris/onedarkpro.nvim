@@ -3,7 +3,12 @@ description: For general issues, questions or feature requests
 assignees: olimorris
 
 body:
-    - type: markdown
+    - type: textarea
+      id: description
       attributes:
-        value: |
-          Please detail the issue below
+        label: Issue/Question/Feature request
+        description: Please include the detail of your issue below
+        placeholder: Your issue
+      validations:
+        required: true
+
