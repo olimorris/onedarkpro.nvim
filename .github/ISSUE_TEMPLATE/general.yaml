@@ -1,0 +1,9 @@
+name: General (non bug) issue
+description: For general issues, questions or feature requests
+assignees: olimorris
+
+body:
+    - type: markdown
+      attributes:
+        value: |
+          Please detail the issue below

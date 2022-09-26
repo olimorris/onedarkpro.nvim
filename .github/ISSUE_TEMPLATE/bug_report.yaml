@@ -77,11 +77,11 @@ body:
           end
           ```
 
-          Once you've updated for your onedarkpro config, run Neovim with this command:
+          Once you've updated for your config, run Neovim with this command:
           ```bash
           nvim --clean -u minimal.lua
           ```
-          > Note: You may need to restart Neovim with the command above
+          > **Note:** You may need to restart Neovim with the command above
 
     - type: textarea
       id: onedarkpro-config
@@ -140,7 +140,7 @@ body:
         label: Final checks
         description: |
           Before you submit, please make sure you have completed the following steps:
-          > Note: I will likely ask you to do these before I look at this issue
+          > **Note**: I will likely ask you to do these before I look at this issue
         options:
           - label: I have made sure this is not a duplicate issue
             required: true
