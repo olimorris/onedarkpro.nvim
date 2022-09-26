@@ -8,13 +8,16 @@ body:
     - type: markdown
       attributes:
         value: |
-          Thanks for taking the time to fill out this bug report! This form may seem onerous but it makes a resolution much quicker for you and I.
+          Thanks for taking the time to fill out this bug report!
 
+          This form may seem onerous but it makes a resolution much quicker for you and I.
     - type: markdown
       attributes:
         value: |
-          Test and run Neovim with the minimal config below, saving to `minimal.lua`:
+          ## Test with a `minimal.lua` file
+          I know the temptation is to skip this step but please don't. So many issues with this theme are caused by other plugins overwriting highlight groups. This step helps to determine if the issue is actually with the plugin.
 
+          Firstly, test and run Neovim with the minimal config below, saving to a `minimal.lua` file and adding any additional plugins you may need:
           ```lua
           -- ignore default config and plugins
           vim.opt.runtimepath:remove(vim.fn.expand("~/.config/nvim"))
@@ -49,6 +52,8 @@ body:
               use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
               use("olimorris/onedarkpro.nvim")
 
+              -- Add any additional plugins here
+
               if install_plugins then
                   packer.sync()
               end
@@ -72,25 +77,47 @@ body:
           end
           ```
 
-          Run Neovim with this command:
+          Once you've updated for your onedarkpro config, run Neovim with this command:
           ```bash
           nvim --clean -u minimal.lua
           ```
+          > Note: You may need to restart Neovim with the command above
+
     - type: textarea
       id: onedarkpro-config
       attributes:
-        label: Onedarkpro config
-        description: Paste your onedarkpro config here
-        placeholder: Your config here
+        label: Your OneDarkPro config
+        description: Please paste your specific OneDarkPro config
+        placeholder: |
+          ```lua
+          -- Your onedarkpro config here
+          ```
       validations:
         required: true
+
+    - type: textarea
+      id: errors
+      attributes:
+        label: Error messages
+        description: Please paste any error messages
+        placeholder: |
+          ```lua
+          -- Error messages here
+          ```
+      validations:
+        required: false
 
     - type: textarea
       id: bug
       attributes:
         label: Describe the bug
-        description: Describe the bug you're experiencing
-        placeholder: Bug information here
+        description: Please describe the bug and include any screenshots
+        placeholder: |
+          ### What I expect to happen
+          [Your text here]
+
+          ### What actually happens
+          [Your text here]
       validations:
         required: true
 
@@ -98,7 +125,7 @@ body:
       id: reproduce
       attributes:
         label: Reproduce the bug
-        description: Include the steps to reproduce the bug
+        description: Please include the steps to reproduce the bug
         placeholder: |
           Steps to reproduce:
           1.
@@ -111,11 +138,13 @@ body:
       id: final-checks
       attributes:
         label: Final checks
-        description: Before you submit, please make sure to check the following boxes
+        description: |
+          Before you submit, please make sure you have completed the following steps:
+          > Note: I will likely ask you to do these before I look at this issue
         options:
           - label: I have made sure this is not a duplicate issue
             required: true
           - label: I have made sure this issue exists in the latest version of the plugin
             required: true
-          - label: I have tested with the `minimal.lua` config file and still get the issue
+          - label: I have tested with the `minimal.lua` config file above and still get the issue
             required: true
