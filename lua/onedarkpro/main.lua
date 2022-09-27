@@ -66,6 +66,22 @@ local function set_info(theme)
         require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
+---Adds autocommands that apply highlight to non-focus windows
+---Used when the `window_unfocused_color` option is enabled, to apply inactive styles to areas such as the gutter
+---@return nil
+local function add_unfocused_window_autocmds()
+    local NCHighlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC"
+    local OneDarkPro_HighlightGutterNC = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
+    vim.api.nvim_create_autocmd("WinLeave", {
+        group = OneDarkPro_HighlightGutterNC,
+        command = "set winhighlight=" .. NCHighlights,
+    })
+    vim.api.nvim_create_autocmd("WinEnter", {
+        group = OneDarkPro_HighlightGutterNC,
+        command = "set winhighlight-=" .. NCHighlights,
+    })
+end
+
 ---Carry out the necessary work to load the given theme
 ---@param theme table  the theme to load
 ---@return nil
@@ -81,6 +97,10 @@ function M.load(theme)
 
     if require("onedarkpro.config").config.options.terminal_colors then
         set_terminal_colors(theme)
+    end
+
+    if require("onedarkpro.config").config.options.window_unfocused_color then
+        add_unfocused_window_autocmds()
     end
 end
 

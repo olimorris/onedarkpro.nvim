@@ -17,6 +17,7 @@ function M.groups(theme)
             fg = theme.palette.purple,
             style = config.options.bold,
         }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+        CursorLineNrNC = { bg = theme.generated.color_column, fg = theme.palette.gray }, -- CursorLineNr for inactive windows
         Directory = { fg = theme.palette.blue }, -- directory names (and other special names in listings)
         DiffAdd = { bg = theme.generated.diff_add }, -- diff mode: Added line |diff.txt|
         DiffChange = { style = config.options.underline }, -- diff mode: Changed line |diff.txt|
@@ -28,8 +29,16 @@ function M.groups(theme)
         Folded = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- line used for closed folds
         FoldColumn = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- 'foldcolumn'
         SignColumn = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- column where |signs| are displayed
+        SignColumnNC = {
+            bg = config.options.transparency and "NONE" or theme.generated.color_column,
+            fg = theme.palette.gray,
+        }, -- SignColumn for inactive windows
         Substitute = { bg = theme.palette.yellow, fg = theme.palette.bg }, -- |:substitute| replacement text highlighting
         LineNr = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+        LineNrNC = {
+            bg = config.options.transparency and "NONE" or theme.generated.color_column,
+            fg = theme.palette.gray,
+        }, -- LineNr for inactive windows
         MatchParen = { fg = theme.palette.cyan, style = config.options.underline }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
         ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
         MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
