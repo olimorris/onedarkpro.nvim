@@ -1,5 +1,5 @@
-name: Bug report
-description: File a bug report
+name: Bugs or configuration issues
+description: For any potential bugs or issues with configuring the plugin
 title: "[Bug]: "
 labels: ["bug"]
 assignees: olimorris
@@ -17,7 +17,7 @@ body:
           ## Test with a `minimal.lua` file
           I know the temptation is to skip this step but please don't. So many issues with this theme are caused by other plugins overwriting highlight groups. This step helps to determine if the issue is actually with the plugin.
 
-          Firstly, test and run Neovim with the minimal config below, saving to a `minimal.lua` file and adding any additional plugins you may need:
+          Firstly, test and run Neovim with the minimal config below. Be sure to add your OneDarkPro config, saving to a `minimal.lua` file and adding any additional plugins you may need:
           ```lua
           -- ignore default config and plugins
           vim.opt.runtimepath:remove(vim.fn.expand("~/.config/nvim"))
@@ -45,10 +45,9 @@ body:
               compile_path = test_dir .. "/plugin/packer_compiled.lua",
           })
 
+          -- install plugins
           packer.startup(function(use)
-              -- Packer can manage itself
               use("wbthomason/packer.nvim")
-
               use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
               use("olimorris/onedarkpro.nvim")
 
@@ -59,6 +58,7 @@ body:
               end
           end)
 
+          -- setup treesitter
           local ok, treesitter = pcall(require, "nvim-treesitter.configs")
           if ok then
               treesitter.setup({
@@ -68,20 +68,21 @@ body:
               })
           end
 
+          -- setup onedarkpro
           local ok, onedarkpro = pcall(require, "onedarkpro")
           if ok then
               onedarkpro.setup({
-                  -- Your onedarkpro config here
+                -- Your onedarkpro config here
               })
               vim.cmd("colorscheme onedarkpro")
           end
           ```
 
           Once you've updated for your config, run Neovim with this command:
-          ```bash
+          ```sh
           nvim --clean -u minimal.lua
           ```
-          > **Note:** You may need to restart Neovim with the command above
+          > **Note:** You may need to do this a couple of times for Treesitter to fully download and sync
 
     - type: textarea
       id: onedarkpro-config
@@ -99,7 +100,7 @@ body:
       id: errors
       attributes:
         label: Error messages
-        description: Please paste any error messages
+        description: Please paste any error messages you receive
         placeholder: |
           ```lua
           -- Error messages here
@@ -147,4 +148,6 @@ body:
           - label: I have made sure this issue exists in the latest version of the plugin
             required: true
           - label: I have tested with the `minimal.lua` config file above and still get the issue
+            required: true
+          - label: I have confirmed that Treesitter is working correctly by running `:checkhealth treesitter`
             required: true

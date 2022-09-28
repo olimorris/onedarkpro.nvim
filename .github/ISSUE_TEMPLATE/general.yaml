@@ -1,12 +1,17 @@
 name: General (non bug) issue
-description: For general issues, questions or feature requests
+description: For general issues, questions or enhancements. Not for bugs or configuration issues
 assignees: olimorris
 
 body:
+    - type: markdown
+      attributes:
+        value: |
+          > **Note:** Please do not use this template if you are having issues using the plugin. We have a dedicated issue template specifically for that purpose.
+
     - type: textarea
       id: description
       attributes:
-        label: Issue/Question/Feature request
+        label: Issue/Question/Enhancement
         description: Please include the detail of your issue below
         placeholder: Your issue
       validations:
