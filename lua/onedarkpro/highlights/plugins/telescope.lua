@@ -16,8 +16,14 @@ function M.groups(theme)
             bg = config.cursorline,
             fg = theme.palette.gray,
         },
-        TelescopeNormal = { fg = theme.palette.fg },
-        TelescopeBorder = { fg = theme.palette.gray },
+        TelescopeNormal = {
+            bg = config.options.transparency and "NONE" or theme.generated.float_bg,
+            fg = theme.palette.fg,
+        },
+        TelescopeBorder = {
+            bg = config.options.transparency and "NONE" or theme.generated.float_bg,
+            fg = theme.palette.gray,
+        },
         TelescopePromptBorder = { link = "TelescopeBorder" },
         TelescopePreviewBorder = { link = "TelescopeBorder" },
         TelescopeMatching = { fg = theme.palette.green },
