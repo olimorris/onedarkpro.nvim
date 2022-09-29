@@ -70,7 +70,7 @@ end
 ---Used when the `window_unfocused_color` option is enabled, to apply inactive styles to areas such as the gutter
 ---@return nil
 local function add_unfocused_window_autocmds()
-    local NCHighlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC"
+    local NCHighlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC"
     local OneDarkPro_HighlightGutterNC = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
     vim.api.nvim_create_autocmd("WinLeave", {
         group = OneDarkPro_HighlightGutterNC,
