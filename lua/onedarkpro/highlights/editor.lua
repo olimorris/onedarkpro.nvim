@@ -27,6 +27,10 @@ function M.groups(theme)
         ErrorMsg = { fg = theme.palette.red }, -- error messages on the command line
         VertSplit = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- the column separating vertically split windows
         Folded = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- line used for closed folds
+        FoldedNC = {
+            bg = config.options.transparency and "NONE" or theme.generated.color_column,
+            fg = theme.palette.gray,
+        }, -- Folded for inactive windows
         FoldColumn = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- 'foldcolumn'
         SignColumn = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- column where |signs| are displayed
         SignColumnNC = {
