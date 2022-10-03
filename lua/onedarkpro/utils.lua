@@ -1,4 +1,3 @@
---TODO: MOVE THIS FILE INTO UTILS.INIT
 local M = {}
 
 M.bg = "#000000"
@@ -24,6 +23,14 @@ end
 ---@param alpha number number between 0 and 1. 0 results in bg, 1 results in fg
 ---@return string
 function M.blend(fg, bg, alpha)
+    local dep = require("onedarkpro.utils.deprecate")
+    dep.write(
+        "  The ",
+        { "onedarkpro/utils.lua", "WarningMsg" },
+        " file will soon be removed. Please use ",
+        { "onedarkpro/lib/color.lua", "WarningMsg" }
+    )
+
     bg = hex_to_rgb(bg)
     fg = hex_to_rgb(fg)
 
