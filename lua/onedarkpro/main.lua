@@ -58,7 +58,7 @@ end
 ---Set vim global variables for use outside of the theme
 ---@param theme table the theme to use
 ---@return nil
-local function set_info(theme)
+local function set_theme_info(theme)
     vim.g.colors_name = "onedarkpro"
     vim.g.onedarkpro_style = theme.meta.name
     vim.g.onedarkpro_theme = theme.meta.name
@@ -72,6 +72,7 @@ end
 local function add_unfocused_window_autocmds()
     local NCHighlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC"
     local OneDarkPro_HighlightGutterNC = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
+
     vim.api.nvim_create_autocmd("WinLeave", {
         group = OneDarkPro_HighlightGutterNC,
         command = "set winhighlight=" .. NCHighlights,
@@ -91,13 +92,16 @@ function M.load(theme)
         return
     end
 
-    setup_neovim()
-    set_highlights()
-    set_info(theme)
+    if not vim.g.onedarkpro_cache_loaded then
+        setup_neovim()
+        set_highlights()
 
-    if require("onedarkpro.config").config.options.terminal_colors then
-        set_terminal_colors(theme)
+        if require("onedarkpro.config").config.options.terminal_colors then
+            set_terminal_colors(theme)
+        end
     end
+
+    set_theme_info(theme)
 
     if require("onedarkpro.config").config.options.window_unfocused_color then
         add_unfocused_window_autocmds()

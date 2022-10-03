@@ -1,6 +1,7 @@
 local M = {}
 
 local override = {}
+local caching = false
 
 function override.colors(colors)
     require("onedarkpro.override").colors = colors
@@ -22,6 +23,10 @@ M.override = override
 function M.setup(opts)
     opts = opts or {}
     require("onedarkpro.config").setup(opts)
+
+    if opts.caching then
+        caching = true
+    end
 
     if opts.colors then
         override.colors(opts.colors)
@@ -70,10 +75,16 @@ end
 M.highlight = highlight
 
 ---Load the theme
+---@param cache_loaded boolean  a flag for if theme was loaded from the cache
 ---@return nil
-function M.load()
+function M.load(cache_loaded)
     local theme = require("onedarkpro.theme").load()
+    local cache = require("onedarkpro.lib.cache")
     local override_mod = require("onedarkpro.override")
+
+    if caching and cache.exists(theme.meta.name) and not cache_loaded then
+        return cache.load(theme)
+    end
 
     highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
     highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme))
@@ -100,6 +111,20 @@ function M.get_colors(theme_name)
 
     local theme = require("onedarkpro.theme").load(theme_name)
     return require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
+end
+
+---Cache a user's config
+---@return nil
+function M.cache()
+    require("onedarkpro.lib.cache").generate()
+    return vim.notify("[OneDarkPro] Cache generated!")
+end
+
+---Delete a user's cache
+---@return nil
+function M.clean()
+    require("onedarkpro.lib.cache").clean()
+    return vim.notify("[OneDarkPro] Cache cleaned!")
 end
 
 return M

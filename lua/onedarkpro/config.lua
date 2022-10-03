@@ -3,7 +3,6 @@ local M = {}
 
 -- Default options for the theme
 local defaults = {
-    -- This enables the Neovim background to set either onedark or onelight
     dark_theme = "onedark", -- The default dark theme
     light_theme = "onelight", -- The default light theme
     theme = function()
@@ -13,6 +12,9 @@ local defaults = {
             return M.config.light_theme
         end
     end,
+    caching = false, -- Use caching for the theme?
+    auto_generate_cache = false, -- Automatically generate the cache file when changing theme?
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
     ft_highlights = {}, -- Override default highlight groups for specific filetypes
