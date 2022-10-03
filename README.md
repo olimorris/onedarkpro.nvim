@@ -380,12 +380,14 @@ options = {
 
 To enable a faster load time, the colorscheme supports caching. This works by caching highlight groups to disk instead
 of processing them in realtime for a `ColorScheme` event. Initial testing suggests you may see a 3x improvement in
-boot time if you have a complex configuration.
+the colorscheme's boot time if you have a complex configuration.
 
 To enable caching:
 
 ```lua
-caching = true
+require("onedarkpro").setup({
+  caching = true
+})
 ```
 
 > **Note:** The default path to the cache is `~/.cache/nvim/onedarkpro/`. This can be changed with the `cache_path`
