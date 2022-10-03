@@ -93,7 +93,7 @@ function M.vim_hl(highlights, cached_output)
             local link_output = fmt("highlight! link %s %s", name, opts.link)
 
             if type(cached_output) == "table" then
-                table.insert(cached_output, link_output)
+                table.insert(cached_output, "vim.cmd(\"" .. link_output .. "\")")
             else
                 vim.cmd(link_output)
             end
@@ -109,7 +109,7 @@ function M.vim_hl(highlights, cached_output)
             )
 
             if type(cached_output) == "table" then
-                table.insert(cached_output, group_output)
+                table.insert(cached_output, "vim.cmd(\"" .. group_output .. "\")")
             else
                 vim.cmd(group_output)
             end

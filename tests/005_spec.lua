@@ -23,168 +23,168 @@ if vim.g.colors_name then
   vim.cmd("hi clear")
 end
 
-highlight Bold guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Boolean guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Character guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight ColorColumn guifg=NONE guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight Comment guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Conditional guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Constant guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Cursor guifg=#282c34 guibg=#c678dd gui=NONE guisp=NONE blend=NONE
-highlight CursorColumn guifg=NONE guibg=#5c6370 gui=NONE guisp=NONE blend=NONE
-highlight CursorLine guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight CursorLineNr guifg=#c678dd guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight CursorLineNrNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight Define guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Delimiter guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight DiffAdd guifg=NONE guibg=#003e4a gui=NONE guisp=NONE blend=NONE
-highlight DiffChange guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight DiffDelete guifg=NONE guibg=#501b20 gui=NONE guisp=NONE blend=NONE
-highlight DiffText guifg=NONE guibg=#005869 gui=NONE guisp=NONE blend=NONE
-highlight Directory guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight EndOfBuffer guifg=#282c34 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Error guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight ErrorMsg guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Exception guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Float guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight FloatBorder guifg=#5c6370 guibg=#22252C gui=NONE guisp=NONE blend=NONE
-highlight FoldColumn guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight Folded guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight FoldedNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight Function guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Identifier guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight IncSearch guifg=#e5c07b guibg=#53565D gui=NONE guisp=NONE blend=NONE
-highlight Include guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Italic guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Keyword guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Label guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight LineNr guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight LineNrNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight Macro guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight MatchParen guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight MoreMsg guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight NonText guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight Normal guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight NormalFloat guifg=NONE guibg=#22252C gui=NONE guisp=NONE blend=NONE
-highlight NormalNC guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight Number guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight OneDarkPro guifg=#FF0000 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Operator guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Pmenu guifg=NONE guibg=#22252C gui=NONE guisp=NONE blend=NONE
-highlight PmenuSbar guifg=NONE guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight PmenuSel guifg=NONE guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight PmenuThumb guifg=NONE guibg=#94969A gui=NONE guisp=NONE blend=NONE
-highlight PreCondit guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight PreProc guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Question guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight QuickFixLine guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight Repeat guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Search guifg=#e5c07b guibg=#53565D gui=NONE guisp=NONE blend=NONE
-highlight SignColumn guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight SignColumnNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE
-highlight Special guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight SpecialChar guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight SpecialComment guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight SpellBad guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE
-highlight SpellCap guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE
-highlight SpellLocal guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE
-highlight SpellRare guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE
-highlight Statement guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight StatusLine guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight StatusLineNC guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight StorageClass guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight String guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Structure guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Substitute guifg=#282c34 guibg=#e5c07b gui=NONE guisp=NONE blend=NONE
-highlight TSAnnotation guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSAttribute guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSConstBuiltin guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSConstructor guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSDanger guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSEmphasis guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSField guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSFuncBuiltin guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSFuncMacro guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSFunction guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSInclude guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSKeyword guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSKeywordFunction guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSKeywordOperator guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSLabel guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSLiteral guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSMath guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSMethod guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSNamespace guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSNote guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSParameter guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSParameterReference guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSProperty guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSPunctBracket guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSPunctSpecial guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSRepeat guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSStrike guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSString guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSStringEscape guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSStringRegex guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSStrong guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSSymbol guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSTag guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSText guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSTitle guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSType guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSTypeBuiltin guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSURI guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSUnderline guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSVariable guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSVariableBuiltin guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TSWarning guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight TabLine guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight TabLineFill guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight TabLineSel guifg=#c678dd guibg=#5c6370 gui=NONE guisp=NONE blend=NONE
-highlight TermCursor guifg=NONE guibg=#c678dd gui=NONE guisp=NONE blend=NONE
-highlight TermCursorNC guifg=NONE guibg=#5c6370 gui=NONE guisp=NONE blend=NONE
-highlight Title guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Todo guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Type guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Typedef guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Underlined guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight VertSplit guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight Visual guifg=NONE guibg=#53565D gui=NONE guisp=NONE blend=NONE
-highlight WarningMsg guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight Whitespace guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight WildMenu guifg=#282c34 guibg=#61afef gui=NONE guisp=NONE blend=NONE
-highlight WinBar guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight WinBarNC guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight WinSeparator guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE
-highlight diffAdded guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight diffChanged guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight diffFile guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight diffLine guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight diffNewFile guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight diffRemoved guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE
-highlight! link ModeMsg Normal
-highlight! link MsgArea ModeMsg
-highlight! link MsgSeparator ModeMsg
-highlight! link TSBoolean Boolean
-highlight! link TSCharacter Character
-highlight! link TSComment Comment
-highlight! link TSConditional Conditional
-highlight! link TSConstMacro Constant
-highlight! link TSConstant Constant
-highlight! link TSEnvironment Macro
-highlight! link TSEnvironmentName Type
-highlight! link TSError Error
-highlight! link TSException Exception
-highlight! link TSFloat Float
-highlight! link TSKeywordReturn TSKeyword
-highlight! link TSNumber Number
-highlight! link TSOperator Operator
-highlight! link TSPunctDelimiter Delimiter
-highlight! link TSStringSpecial Special
-highlight! link TSTagAttribute TSProperty
-highlight! link TSTagDelimiter Delimiter
-highlight! link TSTextReference TSText
-highlight! link VisualNOS Visual
+vim.cmd("highlight Bold guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Boolean guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Character guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight ColorColumn guifg=NONE guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Comment guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Conditional guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Constant guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Cursor guifg=#282c34 guibg=#c678dd gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight CursorColumn guifg=NONE guibg=#5c6370 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight CursorLine guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight CursorLineNr guifg=#c678dd guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight CursorLineNrNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Define guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Delimiter guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight DiffAdd guifg=NONE guibg=#003e4a gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight DiffChange guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight DiffDelete guifg=NONE guibg=#501b20 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight DiffText guifg=NONE guibg=#005869 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Directory guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight EndOfBuffer guifg=#282c34 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Error guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight ErrorMsg guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Exception guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Float guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight FloatBorder guifg=#5c6370 guibg=#22252C gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight FoldColumn guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Folded guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight FoldedNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Function guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Identifier guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight IncSearch guifg=#e5c07b guibg=#53565D gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Include guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Italic guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Keyword guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Label guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight LineNr guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight LineNrNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Macro guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight MatchParen guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight MoreMsg guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight NonText guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Normal guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight NormalFloat guifg=NONE guibg=#22252C gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight NormalNC guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Number guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight OneDarkPro guifg=#FF0000 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Operator guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Pmenu guifg=NONE guibg=#22252C gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight PmenuSbar guifg=NONE guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight PmenuSel guifg=NONE guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight PmenuThumb guifg=NONE guibg=#94969A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight PreCondit guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight PreProc guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Question guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight QuickFixLine guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Repeat guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Search guifg=#e5c07b guibg=#53565D gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight SignColumn guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight SignColumnNC guifg=#5c6370 guibg=#2E323A gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Special guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight SpecialChar guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight SpecialComment guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight SpellBad guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE")
+vim.cmd("highlight SpellCap guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE")
+vim.cmd("highlight SpellLocal guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE")
+vim.cmd("highlight SpellRare guifg=#e06c75 guibg=NONE gui=undercurl guisp=#e06c75 blend=NONE")
+vim.cmd("highlight Statement guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight StatusLine guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight StatusLineNC guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight StorageClass guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight String guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Structure guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Substitute guifg=#282c34 guibg=#e5c07b gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSAnnotation guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSAttribute guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSConstBuiltin guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSConstructor guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSDanger guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSEmphasis guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSField guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSFuncBuiltin guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSFuncMacro guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSFunction guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSInclude guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSKeyword guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSKeywordFunction guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSKeywordOperator guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSLabel guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSLiteral guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSMath guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSMethod guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSNamespace guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSNote guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSParameter guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSParameterReference guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSProperty guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSPunctBracket guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSPunctSpecial guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSRepeat guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSStrike guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSString guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSStringEscape guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSStringRegex guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSStrong guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSSymbol guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSTag guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSText guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSTitle guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSType guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSTypeBuiltin guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSURI guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSUnderline guifg=#abb2bf guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSVariable guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSVariableBuiltin guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TSWarning guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TabLine guifg=NONE guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TabLineFill guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TabLineSel guifg=#c678dd guibg=#5c6370 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TermCursor guifg=NONE guibg=#c678dd gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight TermCursorNC guifg=NONE guibg=#5c6370 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Title guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Todo guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Type guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Typedef guifg=#c678dd guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Underlined guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight VertSplit guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Visual guifg=NONE guibg=#53565D gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight WarningMsg guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight Whitespace guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight WildMenu guifg=#282c34 guibg=#61afef gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight WinBar guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight WinBarNC guifg=#abb2bf guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight WinSeparator guifg=#5c6370 guibg=#282c34 gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight diffAdded guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight diffChanged guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight diffFile guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight diffLine guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight diffNewFile guifg=#e5c07b guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight diffRemoved guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight! link ModeMsg Normal")
+vim.cmd("highlight! link MsgArea ModeMsg")
+vim.cmd("highlight! link MsgSeparator ModeMsg")
+vim.cmd("highlight! link TSBoolean Boolean")
+vim.cmd("highlight! link TSCharacter Character")
+vim.cmd("highlight! link TSComment Comment")
+vim.cmd("highlight! link TSConditional Conditional")
+vim.cmd("highlight! link TSConstMacro Constant")
+vim.cmd("highlight! link TSConstant Constant")
+vim.cmd("highlight! link TSEnvironment Macro")
+vim.cmd("highlight! link TSEnvironmentName Type")
+vim.cmd("highlight! link TSError Error")
+vim.cmd("highlight! link TSException Exception")
+vim.cmd("highlight! link TSFloat Float")
+vim.cmd("highlight! link TSKeywordReturn TSKeyword")
+vim.cmd("highlight! link TSNumber Number")
+vim.cmd("highlight! link TSOperator Operator")
+vim.cmd("highlight! link TSPunctDelimiter Delimiter")
+vim.cmd("highlight! link TSStringSpecial Special")
+vim.cmd("highlight! link TSTagAttribute TSProperty")
+vim.cmd("highlight! link TSTagDelimiter Delimiter")
+vim.cmd("highlight! link TSTextReference TSText")
+vim.cmd("highlight! link VisualNOS Visual")
 
 -------------------------------------// END ------------------------------------
 ]]
