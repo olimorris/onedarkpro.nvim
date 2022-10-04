@@ -31,7 +31,6 @@ local function set_highlights_block(block)
     highlight_block = highlights.create(groups.plugins, highlight_block)
     highlight_block = highlights.create(groups.custom, highlight_block)
 
-    table.sort(highlight_block)
     table.insert(block, table.concat(highlight_block, "\n"))
     table.insert(block, "")
 
