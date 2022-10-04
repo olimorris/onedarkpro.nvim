@@ -143,6 +143,8 @@ body:
           Before you submit, please make sure you have completed the following steps:
           > **Note**: I will likely ask you to do these before I look at this issue
         options:
+          - label: I have made sure that the colorscheme's caching is not the issue
+            required: true
           - label: I have made sure this is not a duplicate issue
             required: true
           - label: I have made sure this issue exists in the latest version of the plugin
