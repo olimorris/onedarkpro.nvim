@@ -98,7 +98,12 @@ function M.load(cache_loaded)
         highlight.ft(highlight.apply(override_mod.ft_highlights, theme))
     end
 
-    return require("onedarkpro.main").load(theme)
+    require("onedarkpro.main").load(theme)
+
+    -- If a user has set caching to be true but doesn't yet have a cache file, create one
+    if caching and not cache.exists(theme.meta.name) then
+        return cache.generate()
+    end
 end
 
 ---Get the color palette for a specific theme
