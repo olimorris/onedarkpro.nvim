@@ -50,7 +50,7 @@ end
 ---@param contents table
 ---@return nil
 local function write_cache(contents)
-    require("onedarkpro.utils.init").ensure_dir(config.cache_path)
+    require("onedarkpro.utils.path").ensure_dir(config.cache_path)
 
     local file = io.open(cache_file(), "w")
     if file then
@@ -80,6 +80,7 @@ function M.generate()
     table.insert(cache, header_block)
     table.insert(cache, clear_highlights_block)
     set_highlights_block(cache)
+    --TODO: Add terminal colors
     table.insert(cache, footer_block)
 
     if cache == nil then
