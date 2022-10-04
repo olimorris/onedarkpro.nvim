@@ -1,5 +1,8 @@
 local M = {}
 
+---Determine the maximum length of a string in a table
+---@param tbl table
+---@return integer
 local function get_max_length(tbl)
     local max_length = 0
 
@@ -12,18 +15,20 @@ local function get_max_length(tbl)
     return max_length
 end
 
+---Show the theme's colors in a scratch buffer
+---@return nil
 function M.show()
     local buf = vim.api.nvim_create_buf(true, true)
-
     local max_length = get_max_length(vim.g.onedarkpro_colors)
 
     local line = 0
     for color, hex in pairs(vim.g.onedarkpro_colors) do
-        local whitespace = max_length - #color
-        vim.api.nvim_buf_set_lines(buf, line, (line + 1), false, {
-            color .. string.rep(" ", whitespace) .. " = \"" .. tostring(hex) .. "\""
-        })
-        line = line + 1
+        if color ~= "none" and color ~= "name" and color ~= "light" then
+            vim.api.nvim_buf_set_lines(buf, line, (line + 1), false, {
+                color .. string.rep(" ", max_length - #color) .. ' = "' .. tostring(hex) .. '"',
+            })
+            line = line + 1
+        end
     end
 
     vim.api.nvim_buf_set_option(buf, "modifiable", false)
