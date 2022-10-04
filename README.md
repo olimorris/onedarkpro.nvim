@@ -473,6 +473,7 @@ print(colors.purple) -- #9a77cf
 
 > **Note:** The global variable `vim.g.onedarkpro_theme` represents the currently loaded theme
 
+You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 #### Toggling between themes
 
 To enable the easy switching between themes, the following helper function could be used:
