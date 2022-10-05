@@ -30,6 +30,7 @@ local function set_highlights_block(block, sort)
     -- Create the cache in the same way the theme creates highlight groups
     highlight_block = highlights.create(groups.editor, highlight_block)
     highlight_block = highlights.create(groups.syntax, highlight_block)
+    highlight_block = highlights.create(groups.filetypes, highlight_block)
     highlight_block = highlights.create(groups.plugins, highlight_block)
     highlight_block = highlights.create(groups.custom, highlight_block)
 

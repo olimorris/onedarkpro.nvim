@@ -32,11 +32,11 @@
 - [Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
   - [Configuring themes](#configuring-themes)
-  - [Configuring plugins](#configuring-plugins)
-  - [Configuring styles](#configuring-styles)
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
-  - [Configuring filetype highlight groups](#configuring-filetype-highlight-groups)
+  - [Configuring filetypes](#configuring-filetypes)
+  - [Configuring plugins](#configuring-plugins)
+  - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
   - [Configuring caching](#configuring-caching)
 - [Supported Plugins](#electric_plug-supported-plugins)
@@ -96,8 +96,13 @@ require("onedarkpro").setup({
   caching = false, -- Use caching for the theme?
   cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  highlights = {}, -- Override default highlight groups
-  ft_highlights = {}, -- Override default highlight groups for specific filetypes
+  highlights = {}, -- Override default highlight and/or filetype groups
+  filetypes = { -- Override which filetype highlight groups are loaded
+      markdown = true,
+      python = true,
+      ruby = true,
+      yaml = true,
+  },
   plugins = { -- Override which plugin highlight groups are loaded
     -- See the Supported Plugins section for a list of available plugins
   },
@@ -145,6 +150,129 @@ If no value is specified, the colorscheme will use the values as per the default
 dark_theme = "onedark_vivid",
 light_theme = "onelight",
 ```
+
+### Configuring colors
+
+The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
+
+The default colors can be changed by specifying the name of the color and a new hex code:
+
+```lua
+colors = {
+  red = "#FF0000"
+}
+```
+
+#### Specifying new colors
+
+New colors may be created which will then be merged into a theme's color palette:
+
+```lua
+colors = {
+  my_new_red = "#f44336"
+}
+```
+
+> **Note:** Custom colors can also be referenced when creating custom highlight group overrides
+
+#### Specifying colors by theme
+
+It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
+
+```lua
+colors = {
+  onedark = {
+    bg = "#FFFF00" -- yellow
+  },
+  onelight = {
+    bg = "#00FF00" -- green
+  }
+}
+```
+
+### Configuring highlight groups
+
+The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua), [filetype](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or _override_ them:
+
+1. Using specific hex colors:
+
+```lua
+highlights = {
+  Comment = { fg = "#FF0000", bg = "#FFFF00" }
+}
+```
+
+2. Referencing the name of colors:
+
+```lua
+highlights = {
+  Comment = { fg = "${my_new_red}" bg = "${yellow}" }
+}
+```
+
+3. Linking to other highlight groups:
+
+```lua
+highlights = {
+  Comment = { link = "Substitute" }
+}
+```
+
+### Configuring filetypes
+
+Similarly to the original VS Code theme, this colorscheme has opinionated highlighting for filetypes. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
+
+- markdown
+- python
+- ruby
+- yaml
+
+> **Note:** Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide
+> if you would like add support for new filetypes.
+
+Specific filetypes can be disabled as follows:
+
+```lua
+filetypes = {
+  markdown = false,
+  ruby = false,
+}
+```
+
+Alternatively, all of the filetpes can be disabled at once:
+
+```lua
+filetypes = {
+  all = false
+}
+```
+
+Or, all of the filetypes can be disabled with only a select few enabled:
+
+```lua
+filetypes = {
+  all = false
+  markdown = true
+  ruby = true,
+}
+```
+
+#### Adding or modifying filetype highlights
+
+It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by
+adding them as custom highlight groups in the colorscheme:
+
+```lua
+highlights = {
+  ["@field.yaml"] = { fg = "${blue}", style = "italic" }
+}
+```
+
+To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section below for instructions on
+using Treesitter Playground. In recent versions of Treesitter, specifying the highlight group (such as `field` in the
+example above) with the filetype (such as `yaml`) will apply the filetype highlight.
+
+> **Note:** The colorscheme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
 ### Configuring plugins
 
@@ -194,125 +322,6 @@ styles = {
 ```
 
 | **Note:** See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
-
-### Configuring colors
-
-The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
-
-The default colors can be changed by specifying the name of the color and a new hex code:
-
-```lua
-colors = {
-  red = "#FF0000"
-}
-```
-
-#### Specifying new colors
-
-New colors may be created which will then be merged into a theme's color palette:
-
-```lua
-colors = {
-  my_new_red = "#f44336"
-}
-```
-
-> **Note:** Custom colors can also be referenced when creating custom highlight group overrides
-
-#### Specifying colors by theme
-
-It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
-
-```lua
-colors = {
-  onedark = {
-    bg = "#FFFF00" -- yellow
-  },
-  onelight = {
-    bg = "#00FF00" -- green
-  }
-}
-```
-
-### Configuring highlight groups
-
-The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or _override_ them:
-
-1. Using specific hex colors:
-
-```lua
-highlights = {
-  Comment = { fg = "#FF0000", bg = "#FFFF00" }
-}
-```
-
-2. Referencing the name of colors:
-
-```lua
-highlights = {
-  Comment = { fg = "${my_new_red}" bg = "${yellow}" }
-}
-```
-
-3. Linking to other highlight groups:
-
-```lua
-highlights = {
-  Comment = { link = "Substitute" }
-}
-```
-
-### Configuring filetype highlight groups
-
-The original [One Dark Pro](https://binaryify.github.io/OneDark-Pro) utilises custom highlights based on filetype to achieve its distinctive look. This can also be achieved within the colorscheme:
-
-```lua
-ft_highlights = {
-  -- Use the filetype as per the `set filetype?` command
-  yaml = {
-    TSField = { fg = "${red}" }
-  },
-  python = {
-    TSConstructor = { fg = "${bg}", bg = "${red}" }
-  }
-}
-```
-
-> **Note:**
->
-> - Neovim 0.7+ is required for filetype highlights
-> - Currently support for highlighting in Telescope's previewer is unavailable
-> - Please see [this issue](https://github.com/olimorris/onedarkpro.nvim/issues/24) for how other users are configuring their theme by filetype
-> - The excellent [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) plugin allows for greater customisation over arguments definitions and usages
-
-#### Ignoring filetypes and buffer types
-
-Certain file and buffer types may be ignored to prevent filetype highlights being overwritten when navigating to a new
-buffer. The default types to be ignored are:
-
-```lua
-ft_highlights_ignore = {
-  filetypes = {
-    "^aerial$",
-    "^alpha$",
-    "^fugitive$",
-    "^fugitiveblame$",
-    "^help$",
-    "^NvimTree$",
-    "^packer$",
-    "^qf$",
-    "^startify$",
-    "^startuptime$",
-    "^TelescopePrompt$",
-    "^TelescopeResults$",
-    "^terminal$",
-    "^toggleterm$",
-    "^undotree$"
-  },
-  buftypes = {
-    "^terminal$"
-  }
-```
 
 ### Configuring options
 
@@ -477,6 +486,7 @@ print(colors.purple) -- #9a77cf
 > **Note:** The global variable `vim.g.onedarkpro_theme` represents the currently loaded theme
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
+
 #### Toggling between themes
 
 To enable the easy switching between themes, the following helper function could be used:
@@ -510,6 +520,7 @@ highlights = {
 If you're using Treesitter then install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
 
 #### I want to automatically generate the cache file. How do I do it?
+
 This can be achieved by creating a `ColorScheme` autocommand that runs the `:OnedarkproCache` command. The author uses
 this to automatically generate a new cache file when a new theme is toggled.
 

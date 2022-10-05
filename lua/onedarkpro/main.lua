@@ -19,6 +19,7 @@ local function set_highlights()
 
     highlights.create(groups.editor)
     highlights.create(groups.syntax)
+    highlights.create(groups.filetypes)
     highlights.create(groups.plugins)
 
     if next(groups.custom) ~= nil then

@@ -13,7 +13,6 @@ local defaults = {
         end
     end,
     caching = false, -- Use caching for the theme?
-    auto_generate_cache = false, -- Automatically generate the cache file when changing theme?
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
@@ -41,6 +40,12 @@ local defaults = {
             "^undotree$",
         },
         buftypes = { "^terminal$" },
+    },
+    filetypes = { -- Enable/Disable specific plugins
+        markdown = true,
+        python = true,
+        ruby = true,
+        yaml = true,
     },
     plugins = { -- Enable/Disable specific plugins
         aerial = true,
@@ -117,15 +122,17 @@ local function set_options(opts)
     return M.config.options
 end
 
----Set the plugins to load with the theme
+---Load files based on the user's config
+---@param files table
+---@param user_config table
 ---@return nil
-local function set_plugins(plugin_list, opts)
-    for plugin, _ in pairs(plugin_list) do
-        if opts["all"] == false then
-            M.config.plugins[plugin] = false
+local function load_files(files, user_config)
+    for file, _ in pairs(files) do
+        if user_config["all"] == false then
+            files[file] = false
         end
-        if opts[plugin] then
-            M.config.plugins[plugin] = opts[plugin]
+        if user_config[file] then
+            files[file] = user_config[file]
         end
     end
 end
@@ -141,8 +148,12 @@ function M.setup(opts)
 
     set_options(M.config.options)
 
+    if opts.filetypes then
+        load_files(M.config.filetypes, opts.filetypes)
+    end
+
     if opts.plugins then
-        set_plugins(M.config.plugins, opts.plugins)
+        load_files(M.config.plugins, opts.plugins)
     end
 end
 

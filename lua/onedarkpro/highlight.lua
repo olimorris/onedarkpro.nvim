@@ -3,6 +3,7 @@ local utils = require("onedarkpro.utils.collect")
 local store = {
     editor = {},
     syntax = {},
+    filetypes = {},
     plugins = {},
     custom = {},
     ft = {}
@@ -11,6 +12,7 @@ local store = {
 local function reset()
     store.editor = {}
     store.syntax = {}
+    store.filetypes = {}
     store.plugins = {}
     store.custom = {}
     store.ft = {}

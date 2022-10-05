@@ -32,6 +32,13 @@ function M.check(opts)
             { "ft_highlights_ignore", "WarningMsg" }
         )
     end
+    if opts.ft_highlights or opts.filetype_hlgroups then
+        dep.write(
+            "  ",
+            { "Filetype highlights", "WarningMsg" },
+            " - They are now built into the plugin. Please see the appropriate section in the README"
+        )
+    end
     if opts.options and opts.options.window_unfocussed_color then
         dep.write(
             "  ",

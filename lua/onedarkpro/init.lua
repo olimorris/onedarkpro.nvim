@@ -53,6 +53,10 @@ function highlight.syntax(syntax)
     require("onedarkpro.highlight").syntax = syntax
 end
 
+function highlight.filetypes(filetypes)
+    require("onedarkpro.highlight").filetypes = filetypes
+end
+
 function highlight.plugins(plugins)
     require("onedarkpro.highlight").plugins = plugins
 end
@@ -88,6 +92,7 @@ function M.load(cache_loaded)
 
     highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
     highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme))
+    highlight.filetypes(require("onedarkpro.highlights.filetype").groups(theme))
     highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme))
 
     if override_mod.highlights then

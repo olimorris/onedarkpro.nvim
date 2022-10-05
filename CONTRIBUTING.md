@@ -22,6 +22,52 @@ The following is a set of guidelines for contributing to this project:
   - Also consider how the end user will consume your new feature. It's often easier to start with the API and work backwards
 - Consider the use of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to make your commit messages more descriptive
 
+## Adding new filetypes
+To add new support for filetypes in the colorscheme:
+
+- Create the filetype file in `lua/onedarkpro/highlights/filetypes/`
+- The filetype should implement the following interface:
+```lua
+local M = {}
+
+---Get the highlight groups for the filetype
+---@param theme table
+---@return table
+function M.groups(theme)
+    return {
+    -- Add your filetype highlight groups here
+    }
+end
+
+return M
+```
+- Highlight groups can be added like so:
+```lua
+return {
+    ["@function.call.ruby"] = { fg = theme.palette.blue },
+}
+```
+> See the `README` for information on how to determine highlight groups
+- To incorporate styles from a user's config:
+```lua
+local config = require("onedarkpro.config").config
+return {
+    ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
+}
+```
+- To load the filetype by default, go to `lua/onedarkpro/config.lua` and add the filetype to the `filetypes` table and set it to `true` by default:
+```lua
+filetypes = {
+    markdown = true,
+    python = true,
+    -- ...
+    my_new_filetype = true,
+},
+```
+> **Note:** The name of the filetype should be its filename without the `.lua` extension
+- Update the `README.md` file to list the new filetype. Please follow the existing format
+- Finally, create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) and be sure to include a screenshot of the language in both VS Code and Neovim (after your modifications)
+
 ## Adding new plugins
 
 It can be difficult to keep track of all of the amazing new plugins which enter the Neovim ecosystem. To add support for a new plugin in the colorscheme:
