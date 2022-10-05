@@ -19,8 +19,10 @@ local footer_block = [[
 --TODO: Add terminal colours to cache
 
 ---Generate the highlight groups that will be cached
+---@param block table The block to append highlight groups to
+---@param sort boolean Sort the table?
 ---@return table
-local function set_highlights_block(block)
+local function set_highlights_block(block, sort)
     local highlight_block = {}
     local groups = require("onedarkpro.highlight")
     local highlights = require("onedarkpro.lib.highlight")
@@ -31,6 +33,9 @@ local function set_highlights_block(block)
     highlight_block = highlights.create(groups.plugins, highlight_block)
     highlight_block = highlights.create(groups.custom, highlight_block)
 
+    if sort then
+        table.sort(highlight_block)
+    end
     table.insert(block, table.concat(highlight_block, "\n"))
     table.insert(block, "")
 
@@ -66,10 +71,13 @@ function M.exists(theme)
 end
 
 ---Generate the cache file
+---@param sort boolean Sort the highlight block?
 ---@return nil
-function M.generate()
-    -- In this scenario, a user has a cache file generated and has loaded from it
-    -- They then change their config and want to regenerate the cache
+function M.generate(sort)
+    -- In this scenario, a user has loaded from a cache file and then wishes
+    -- to regenerate the cache after altering their config. Because the
+    -- caching process skips the colour scheme's loading procedure
+    -- we must ensure we load it fully before generating again
     if vim.g.onedarkpro_cache_loaded then
         require("onedarkpro").load(true)
     end
@@ -78,7 +86,7 @@ function M.generate()
 
     table.insert(cache, header_block)
     table.insert(cache, clear_highlights_block)
-    set_highlights_block(cache)
+    set_highlights_block(cache, sort)
     --TODO: Add terminal colors
     table.insert(cache, footer_block)
 
