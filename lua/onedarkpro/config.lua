@@ -97,6 +97,7 @@ local defaults = {
         terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
         window_unfocused_color = false, -- When the window is out of focus, change the normal background?
     },
+    mute_deprecations = false
 }
 
 ---Set the theme's options

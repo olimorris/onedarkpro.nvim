@@ -6,7 +6,7 @@ local M = {
 ---@param opts table  User's config
 ---@return nil
 function M.check(opts)
-    if M.checked then
+    if M.checked or require("onedarkpro.config").config.mute_deprecations then
         return
     end
 
