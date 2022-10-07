@@ -18,6 +18,7 @@ function M.groups(theme)
             style = config.options.bold,
         }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
         CursorLineNrNC = { bg = theme.generated.color_column, fg = theme.palette.gray }, -- CursorLineNr for inactive windows
+        CursorLineNrNCQuickFix = { bg = theme.palette.bg, fg = theme.palette.purple }, -- CursorLineNr for inactive quickfix windows
         Directory = { fg = theme.palette.blue }, -- directory names (and other special names in listings)
         DiffAdd = { bg = theme.generated.diff_add }, -- diff mode: Added line |diff.txt|
         DiffChange = { style = config.options.underline }, -- diff mode: Changed line |diff.txt|
@@ -82,6 +83,7 @@ function M.groups(theme)
         }, -- Popup menu: Thumb of the scrollbar.
         Question = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = { bg = config.options.cursorline and theme.generated.cursorline or theme.palette.bg }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+        QuickFixLineNC = { bg = theme.palette.bg }, -- QuickFixLine, for inactive windows
         Search = { bg = theme.generated.selection, fg = theme.palette.yellow, style = config.options.underline }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
         -- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
         -- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.

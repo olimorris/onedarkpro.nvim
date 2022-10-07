@@ -72,15 +72,23 @@ end
 ---@return nil
 local function add_unfocused_window_autocmds()
     local NCHighlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC"
-    local OneDarkPro_HighlightGutterNC = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
+    local QuickFixNCHighlights =
+        "CursorLineNr:CursorLineNrNCQuickFix,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC,QuickFixLine:QuickFixLineNC"
+    local OneDarkPro_HighlightNC = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
 
     vim.api.nvim_create_autocmd("WinLeave", {
-        group = OneDarkPro_HighlightGutterNC,
-        command = "set winhighlight=" .. NCHighlights,
+        group = OneDarkPro_HighlightNC,
+        callback = function()
+            local highlights = vim.bo.filetype == "qf" and QuickFixNCHighlights or NCHighlights
+            vim.cmd("set winhighlight=" .. highlights)
+        end,
     })
     vim.api.nvim_create_autocmd("WinEnter", {
-        group = OneDarkPro_HighlightGutterNC,
-        command = "set winhighlight-=" .. NCHighlights,
+        group = OneDarkPro_HighlightNC,
+        callback = function()
+            local highlights = vim.bo.filetype == "qf" and QuickFixNCHighlights or NCHighlights
+            vim.cmd("set winhighlight-=" .. highlights)
+        end,
     })
 end
 
