@@ -13,7 +13,7 @@ function M.groups(theme)
         ["@parameter.markdown"] = { fg = theme.palette.fg },
         ["@punctuation.special.markdown"] = { fg = theme.palette.red },
         ["@punctuation.delimiter.markdown"] = { fg = theme.palette.gray },
-        ["@uri.markdown"] = { fg = theme.palette.gray },
+        ["@text.uri.markdown"] = { fg = theme.palette.green },
     }
 end
 

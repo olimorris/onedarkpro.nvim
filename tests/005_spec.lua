@@ -37,7 +37,7 @@ vim.cmd("highlight @symbol.ruby guifg=#56b6c2 guibg=NONE gui=NONE guisp=NONE ble
 vim.cmd("highlight @text.literal.markdown guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
 vim.cmd("highlight @text.reference.markdown guifg=#61afef guibg=NONE gui=NONE guisp=NONE blend=NONE")
 vim.cmd("highlight @text.title.markdown guifg=#e06c75 guibg=NONE gui=NONE guisp=NONE blend=NONE")
-vim.cmd("highlight @uri.markdown guifg=#5c6370 guibg=NONE gui=NONE guisp=NONE blend=NONE")
+vim.cmd("highlight @text.uri.markdown guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
 vim.cmd("highlight Bold guifg=NONE guibg=NONE gui=NONE guisp=NONE blend=NONE")
 vim.cmd("highlight Boolean guifg=#d19a66 guibg=NONE gui=NONE guisp=NONE blend=NONE")
 vim.cmd("highlight Character guifg=#98c379 guibg=NONE gui=NONE guisp=NONE blend=NONE")
