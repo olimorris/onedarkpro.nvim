@@ -6,7 +6,7 @@ local M = {
 ---@param opts table  User's config
 ---@return nil
 function M.check(opts)
-    if M.checked or require("onedarkpro.config").config.mute_deprecations then
+    if M.checked then
         return
     end
 
@@ -32,7 +32,7 @@ function M.check(opts)
             { "ft_highlights_ignore", "WarningMsg" }
         )
     end
-    if opts.ft_highlights or opts.filetype_hlgroups then
+    if (opts.ft_highlights or opts.filetype_hlgroups) and not require("onedarkpro.config").config.mute_deprecations then
         dep.write(
             "  ",
             { "Filetype highlights", "WarningMsg" },
@@ -56,12 +56,7 @@ function M.check(opts)
         )
     end
     if opts.options and opts.options.transparent then
-        dep.write(
-            "  ",
-            { "transparent", "WarningMsg" },
-            " has been renamed to ",
-            { "transparency", "WarningMsg" }
-        )
+        dep.write("  ", { "transparent", "WarningMsg" }, " has been renamed to ", { "transparency", "WarningMsg" })
     end
 
     if (opts.filetype_hlgroups or opts.ft_highlights) and not utils.use_nvim_api then
