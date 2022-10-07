@@ -11,7 +11,7 @@ function M.check(opts)
     end
 
     local dep = require("onedarkpro.utils.deprecate")
-    local utils = require("onedarkpro.utils.init")
+    local utils = require("onedarkpro.utils")
 
     if opts.hlgroups then
         dep.write("  ", { "hlgroups", "WarningMsg" }, " has been renamed to ", { "highlights", "WarningMsg" })
