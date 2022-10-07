@@ -23,7 +23,7 @@ local function get_theme(theme)
 end
 
 ---Load a theme and apply user overrides
----@param theme string (optional)
+---@param theme? string (optional)
 ---@return table
 function M.load(theme)
     theme = get_theme(theme or require("onedarkpro.config").config.theme)

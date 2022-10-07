@@ -79,7 +79,7 @@ end
 M.highlight = highlight
 
 ---Load the theme
----@param cache_loaded boolean  a flag for if theme was loaded from the cache
+---@param cache_loaded? boolean  a flag for if theme was loaded from the cache
 ---@return nil
 function M.load(cache_loaded)
     local theme = require("onedarkpro.theme").load()

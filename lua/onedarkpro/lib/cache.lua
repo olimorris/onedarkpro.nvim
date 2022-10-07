@@ -20,7 +20,7 @@ local footer_block = [[
 
 ---Generate the highlight groups that will be cached
 ---@param block table The block to append highlight groups to
----@param sort boolean Sort the table?
+---@param sort? boolean Sort the table
 ---@return table
 local function set_highlights_block(block, sort)
     local highlight_block = {}
@@ -44,7 +44,7 @@ local function set_highlights_block(block, sort)
 end
 
 ---The path to the cache file
----@param theme string
+---@param theme? string
 ---@return string
 local function cache_file(theme)
     theme = theme or vim.g.onedarkpro_theme
@@ -72,7 +72,7 @@ function M.exists(theme)
 end
 
 ---Generate the cache file
----@param sort boolean Sort the highlight block?
+---@param sort? boolean Sort the highlight block?
 ---@return nil
 function M.generate(sort)
     -- In this scenario, a user has loaded from a cache file and then wishes

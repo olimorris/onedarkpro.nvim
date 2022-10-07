@@ -48,8 +48,8 @@ end
 
 ---Create highlights the new Neovim way
 ---@param highlights table the highlights that should be created
----@param ns_id integer the namespace id
----@param cached_output table (optional) the table where the highlights should be output to
+---@param ns_id? integer the namespace id
+---@param cached_output? table the table where the highlights should be output to
 ---@return table|nil
 function M.neovim_hl(highlights, ns_id, cached_output)
     ns_id = ns_id or 0
@@ -85,7 +85,7 @@ end
 
 ---Create highlights the old school vim way
 ---@param highlights table
----@param cached_output table (optional) the table where the highlights should be output to
+---@param cached_output? table the table where the highlights should be output to
 ---@return table|nil
 function M.vim_hl(highlights, cached_output)
     for name, opts in pairs(highlights) do
@@ -123,8 +123,8 @@ end
 
 ---Create highlight groups
 ---@param highlights table
----@param output table (optional) table to output to
----@return table
+---@param output? table (optional) table to output to
+---@return table|nil
 function M.create(highlights, output)
     local utils = require("onedarkpro.utils")
 
