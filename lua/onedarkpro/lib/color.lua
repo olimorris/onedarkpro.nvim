@@ -2,7 +2,7 @@ local M = {}
 
 local defaults = {
     bg = "#000000",
-    fg = "#ffffff"
+    fg = "#ffffff",
 }
 
 ---Convert a hex color into an rgb
@@ -39,7 +39,7 @@ end
 ---Darken a hex color
 ---@param hex string
 ---@param amount number
----@param bg string
+---@param bg? string
 ---@return string
 function M.darken(hex, amount, bg)
     return M.blend(hex, bg or defaults.bg, math.abs(amount))
@@ -48,7 +48,7 @@ end
 ---Lighten a hex color
 ---@param hex string
 ---@param amount number
----@param fg string
+---@param fg? string
 ---@return string
 function M.lighten(hex, amount, fg)
     return M.blend(hex, fg or defaults.fg, math.abs(amount))
