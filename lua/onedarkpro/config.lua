@@ -46,6 +46,7 @@ local defaults = {
         python = true,
         ruby = true,
         rust = true,
+        toml = true,
         yaml = true,
     },
     plugins = { -- Enable/Disable specific plugins
