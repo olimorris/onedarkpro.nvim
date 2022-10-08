@@ -45,6 +45,7 @@ local defaults = {
         markdown = true,
         python = true,
         ruby = true,
+        rust = true,
         yaml = true,
     },
     plugins = { -- Enable/Disable specific plugins
