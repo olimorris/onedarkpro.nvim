@@ -1,6 +1,10 @@
 local M = {}
 
 function M.groups(theme)
+    if not require("onedarkpro.utils").use_filetype_highlights then
+        return
+    end
+
     local groups = {}
     local filetypes = require("onedarkpro.config").config.filetypes
 
