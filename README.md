@@ -220,7 +220,9 @@ highlights = {
 
 ### Configuring filetypes
 
-New for Neovim 0.8.0 (or greater), and similarly to the original VS Code theme, the colorscheme has opinionated highlighting for filetypes. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
+> **Note:** For Neovim 0.8 or above.
+
+The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
 - markdown
 - python
