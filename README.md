@@ -227,6 +227,8 @@ The colorscheme supports opinionated highlighting for filetypes, just like the o
 - markdown
 - python
 - ruby
+- rust
+- toml
 - yaml
 
 > **Note:** Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide
