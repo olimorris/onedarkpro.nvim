@@ -39,8 +39,9 @@ local function generate(palette)
         diff_text = palette.diff_text or "#005869",
 
         -- Lualine colors
-        bg_statusline = palette.bg_statusline or color.lighten(palette.bg, 0.95),
-        fg_gutter = palette.fg_gutter or color.lighten(palette.bg, 0.70),
+        bg_statusline = palette.bg_statusline or color.darken(palette.bg, 0.85),
+        fg_gutter = palette.fg_gutter or color.lighten(palette.bg, 0.90),
+        fg_gutter_inactive = palette.fg_gutter_inactive or palette.fg,
 
         -- Virtual text
         virtual_text_error = palette.virtual_text_error or color.lighten(palette.red, 0.7),

@@ -1,4 +1,5 @@
 local colors = require("onedarkpro").get_colors()
+local config = require("onedarkpro.config").config
 
 local onedarkpro = {}
 
@@ -28,10 +29,11 @@ onedarkpro.replace = {
     b = { bg = colors.fg_gutter, fg = colors.red },
 }
 
+local inactive_bg = config.options.window_unfocused_color and colors.color_column or colors.bg
 onedarkpro.inactive = {
-    a = { bg = colors.bg_statusline, fg = colors.blue },
-    b = { bg = colors.bg_statusline, fg = colors.fg_gutter, gui = "bold" },
-    c = { bg = colors.bg_statusline, fg = colors.fg_gutter },
+    a = { bg = inactive_bg, fg = colors.blue },
+    b = { bg = inactive_bg, fg = colors.fg_gutter_inactive, gui = "bold" },
+    c = { bg = inactive_bg, fg = colors.fg_gutter_inactive },
 }
 
 return onedarkpro
