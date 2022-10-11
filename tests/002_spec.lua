@@ -48,7 +48,7 @@ describe("Using the theme", function()
     end)
 
     it("it should apply options", function()
-        local output = vim.api.nvim_get_hl_by_name("Conditional", true)
+        local output = vim.api.nvim_get_hl_by_name("Italic", true)
         assert.equals(true, output.italic)
     end)
 

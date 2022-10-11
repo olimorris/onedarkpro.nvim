@@ -7,16 +7,16 @@ function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     return {
-        -- https://github.com/nvim-treesitter/nvim-treesitter/blob/fb5d6e04a87863d01a45dab2cbafec4e2a74822b/doc/nvim-treesitter.txt
+        -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt
         TSAnnotation = { fg = theme.palette.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
         TSAttribute = { fg = theme.palette.purple }, -- (unstable)
         TSBoolean = { link = "Boolean" }, -- For booleans.
         TSCharacter = { link = "Character" }, -- For characters.
         TSComment = { link = "Comment" }, -- For comment blocks.
-        TSConditional = { link = "Conditional" }, -- For keywords related to conditionnals.
-        TSConstant = { link = "Constant" }, -- For constants
-        TSConstBuiltin = { fg = theme.palette.purple }, -- For constant that are built in the language: `nil` in Lua.
-        TSConstMacro = { link = "Constant" }, -- For constants that are defined by macros: `NULL` in theme.config.
+        TSConditional = { fg = theme.palette.purple, style = config.styles.conditionals }, -- For keywords related to conditionnals.
+        TSConstant = { fg = theme.palette.orange, style = config.styles.constants }, -- For constants
+        TSConstBuiltin = { fg = theme.palette.purple, style = config.styles.constants }, -- For constant that are built in the language: `nil` in Lua.
+        TSConstMacro = { link = "TSConstant" }, -- For constants that are defined by macros: `NULL` in theme.config.
         TSConstructor = { fg = theme.palette.yellow }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
         TSError = { link = "Error" }, -- For syntax/parser errors.
         TSException = { link = "Exception" }, -- For exception related keywords.
@@ -46,8 +46,8 @@ function M.groups(theme)
         TSMethod = { fg = theme.palette.blue }, -- For method calls and definitions.
         TSNamespace = { fg = theme.palette.yellow }, -- For identifiers referring to modules and namespaces.
         -- TSNone = {},
-        TSNumber = { link = "Number" }, -- For integers.
-        TSOperator = { link = "Operator" }, -- For any operator: `+`, but also `->` and `*` in theme.config.
+        TSNumber = { fg = theme.palette.orange, style = config.styles.numbers }, -- Numeric literals that don't fit into other categories.
+        TSOperator = { fg = theme.palette.cyan, style = config.styles.operators }, -- For any operator: `+`, but also `->` and `*` in theme.config.
         TSParameter = { fg = theme.palette.red, style = config.options.italic }, -- For parameters of a function.
         TSParameterReference = { fg = theme.palette.red }, -- For references to parameters of a function.
         TSProperty = { fg = theme.palette.red }, -- Same as `TSField`.
@@ -87,8 +87,8 @@ function M.groups(theme)
         TSNote = { fg = theme.palette.fg }, -- Text representation of an informational note.
         TSWarning = { fg = theme.palette.yellow }, -- Text representation of a warning note.
         TSDanger = { fg = theme.palette.red }, -- Text representation of a danger note.
-        TSType = { fg = theme.palette.yellow }, -- For types.
-        TSTypeBuiltin = { fg = theme.palette.yellow }, -- For builtin types (you guessed it, right ?).
+        TSType = { fg = theme.palette.yellow, style = config.styles.types }, -- Type (and class) definitions and annotations.
+        TSTypeBuiltin = { fg = theme.palette.yellow, style = config.styles.types }, -- Built-in types: `i32` in Rust.
         TSVariable = {
             fg = theme.palette.red,
             style = config.styles.variables,

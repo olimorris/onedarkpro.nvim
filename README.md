@@ -110,11 +110,16 @@ require("onedarkpro").setup({
     -- See the Supported Plugins section for a list of available plugins
   },
   styles = { -- Choose from "bold,italic,underline"
-      strings = "NONE", -- Style that is applied to strings.
+      types = "NONE", -- Style that is applied to types
+      numbers = "NONE", -- Style that is applied to numbers
+      strings = "NONE", -- Style that is applied to strings
       comments = "NONE", -- Style that is applied to comments
       keywords = "NONE", -- Style that is applied to keywords
+      constants = "NONE", -- Style that is applied to constants
       functions = "NONE", -- Style that is applied to functions
+      operators = "NONE", -- Style that is applied to operators
       variables = "NONE", -- Style that is applied to variables
+      conditionals = "NONE", -- Style that is applied to conditionals
       virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
@@ -324,12 +329,17 @@ Within the colorscheme, collections of highlight groups have been grouped togeth
 
 ```lua
 styles = {
-  comments = "italic",
-  functions = "NONE",
-  keywords = "bold,italic",
+  types = "NONE",
+  numbers = "NONE",
   strings = "NONE",
+  comments = "italic",
+  keywords = "bold,italc",
+  constants = "NONE",
+  functions = "italic",
+  operators = "NONE",
   variables = "NONE",
-  virtual_text = "NONE"
+  conditionals = "italic",
+  virtual_text = "NONE",
 }
 ```
 
