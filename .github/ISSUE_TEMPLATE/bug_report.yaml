@@ -8,14 +8,12 @@ body:
     - type: markdown
       attributes:
         value: |
-          Thanks for taking the time to fill out this bug report!
-
-          This form may seem onerous but it makes a resolution much quicker for you and I.
+          Thanks for taking the time to fill out this bug report! This form may seem onerous but it makes a resolution much quicker for you and I.
     - type: markdown
       attributes:
         value: |
           ## Test with a `minimal.lua` file
-          I know the temptation is to skip this step but please don't. So many issues with this theme are caused by other plugins overwriting highlight groups. This step helps to determine if the issue is actually with the plugin.
+          I know the temptation is to skip this step but please don't. So many issues with the colorscheme are caused by other plugins overwriting highlight groups. This step helps to determine if the issue is actually with the plugin.
 
           Firstly, test and run Neovim with the minimal config below. Be sure to add your OneDarkPro config, saving to a `minimal.lua` file and adding any additional plugins you may need:
           ```lua
@@ -141,7 +139,6 @@ body:
         label: Final checks
         description: |
           Before you submit, please make sure you have completed the following steps:
-          > **Note**: I will likely ask you to do these before I look at this issue
         options:
           - label: I have made sure that the colorscheme's caching is not the issue
             required: true
