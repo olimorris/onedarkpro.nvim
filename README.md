@@ -34,7 +34,7 @@
   - [Configuring themes](#configuring-themes)
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
-  - [Configuring filetypes](#configuring-filetypes)
+  - [Configuring filetypes](#configuring-filetype-highlighting)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
@@ -55,7 +55,7 @@
 
 ## :zap: Requirements
 
-- Neovim 0.5+ (0.7+ for filetype highlights)
+- Neovim 0.5+ (0.8+ for filetype highlights)
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 
@@ -225,9 +225,9 @@ highlights = {
 }
 ```
 
-### Configuring filetypes
+### Configuring filetype highlighting
 
-> **Note:** For Neovim 0.8 or above.
+> **Note: Filetype highlighting only works in Neovim 0.8 and above**
 
 The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
@@ -239,8 +239,7 @@ The colorscheme supports opinionated highlighting for filetypes, just like the o
 - toml
 - yaml
 
-> **Note:** Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide
-> if you would like add support for new filetypes.
+Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
 
 Specific filetypes can be disabled as follows:
 
