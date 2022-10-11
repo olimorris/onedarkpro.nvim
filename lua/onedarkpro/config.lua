@@ -42,6 +42,7 @@ local defaults = {
         buftypes = { "^terminal$" },
     },
     filetypes = { -- Enable/Disable specific plugins
+        javascript = true,
         markdown = true,
         python = true,
         ruby = true,
