@@ -4,11 +4,9 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
         -- dashboardHeader = {},
-        dashboardCenter = { fg = theme.palette.purple, style = config.options.bold },
+        dashboardCenter = { fg = theme.palette.purple },
         dashboardFooter = { fg = theme.palette.blue },
         -- dashboardShortCut = {},
     }

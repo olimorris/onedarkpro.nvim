@@ -96,21 +96,26 @@ local defaults = {
         virtual_text = "NONE", -- Style that is applied to virtual text
     },
     options = {
-        bold = false, -- Use the themes opinionated bold styles?
-        italic = false, -- Use the themes opinionated italic styles?
-        underline = false, -- Use the themes opinionated underline styles?
-        undercurl = false, -- Use the themes opinionated undercurl styles?
+        bold = true, -- Use bold styles?
+        italic = true, -- Use italic styles?
+        underline = true, -- Use underline styles?
+        undercurl = true, -- Use undercurl styles?
+
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
         terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
         window_unfocused_color = false, -- When the window is out of focus, change the normal background?
     },
-    mute_deprecations = false
+    mute_deprecations = false, -- Don't show deprecation warnings for the *older* filetype highlights
 }
 
 ---Set the theme's options
 ---@return table
 local function set_options(opts)
+    if not opts then
+        opts = defaults
+    end
+
     if opts.cursorline then
         vim.wo.cursorline = true
     end
@@ -155,8 +160,6 @@ function M.setup(opts)
     opts = opts or {}
     M.config = utils.deep_extend(defaults, opts)
 
-    set_options(M.config.options)
-
     if opts.filetypes then
         load_files(M.config.filetypes, opts.filetypes)
     end
@@ -164,6 +167,21 @@ function M.setup(opts)
     if opts.plugins then
         load_files(M.config.plugins, opts.plugins)
     end
+end
+
+---A user may load the colorscheme without the setup function. This ensures that
+---any options (which are essential to filetype highlights) are set and also
+---returns the default configuration as a table for later consumption
+---@return table|nil
+function M.init()
+    if vim.g.onedarkpro_config_set then
+        return M.config
+    end
+
+    set_options(M.config.options)
+    vim.g.onedarkpro_config_set = true
+
+    return M.config
 end
 
 return M

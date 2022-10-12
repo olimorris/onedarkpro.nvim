@@ -4,8 +4,6 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
         LspSagaDiagnosticBorder = { link = "NormalNC" },
         LspSagaDiagnosticHeader = { fg = theme.palette.purple },
@@ -30,13 +28,13 @@ function M.groups(theme)
         LspSagaCodeActionTruncateLine = { link = "NormalNC" },
         LspSagaCodeActionContent = { link = "Normal" },
         LspSagaRenamePromptPrefix = { fg = theme.palette.purple },
-        LspSagaRenameBorder = { style = config.options.bold },
-        LspSagaHoverBorder = { style = config.options.bold },
-        LspSagaSignatureHelpBorder = { style = config.options.bold },
-        LspSagaCodeActionBorder = { style = config.options.bold },
-        LspSagaAutoPreview = {},
-        LspSagaDefPreviewBorder = { style = config.options.bold },
-        LspLinesDiagBorder = { style = config.options.bold },
+        -- LspSagaRenameBorder = {},
+        -- LspSagaHoverBorder = {},
+        -- LspSagaSignatureHelpBorder = {},
+        -- LspSagaCodeActionBorder = {},
+        -- LspSagaAutoPreview = {},
+        -- LspSagaDefPreviewBorder = {},
+        -- LspLinesDiagBorder = {},
     }
 end
 

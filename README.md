@@ -349,14 +349,14 @@ styles = {
 
 #### Formatting
 
-Alongside styles, the colorscheme applies some opinionated formatting. These can be configured with the following options:
+Alongside styles, the colorscheme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
 
 ```lua
 options = {
-  bold = true, -- Use the colorscheme's opinionated bold styles?
-  italic = true, -- Use the colorscheme's opinionated italic styles?
-  underline = true, -- Use the colorscheme's opinionated underline styles?
-  undercurl = true -- Use the colorscheme's opinionated undercurl styles?
+  bold = true,
+  italic = false,
+  underline = false,
+  undercurl = true
 }
 ```
 

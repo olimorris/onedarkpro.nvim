@@ -4,11 +4,11 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
-        OpSidebarHeader = { fg = theme.palette.fg, style = config.options.bold },
-        OpSidebarItem = { fg = theme.palette.fg, style = config.options.italic },
+        OpSidebarHeader = { fg = theme.palette.fg },
+        OpSidebarItem = { fg = theme.palette.fg },
         OpSidebarFavoriteIcon = { fg = theme.palette.orange },
         OpSidebarIconDefault = { fg = theme.palette.blue },
     }

@@ -4,11 +4,11 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         -- Neovim 0.6+
-        DiagnosticError = { fg = theme.palette.red },
+        -- DiagnosticError = { fg = theme.palette.red },
         DiagnosticWarn = { fg = theme.palette.yellow },
         DiagnosticInfo = { fg = theme.palette.blue },
         DiagnosticHint = { fg = theme.palette.cyan },

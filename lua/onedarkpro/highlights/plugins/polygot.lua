@@ -4,8 +4,6 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
         -- CSS
         cssAttrComma = { fg = theme.palette.purple },
@@ -13,10 +11,7 @@ function M.groups(theme)
         cssBraces = { fg = theme.palette.red },
         cssClassName = { fg = theme.palette.orange },
         cssClassNameDot = { fg = theme.palette.orange },
-        cssDefinition = {
-            fg = theme.palette.purple,
-            style = config.options.bold_italic,
-        },
+        cssDefinition = { fg = theme.palette.purple },
         cssFontAttr = { fg = theme.palette.orange },
         cssFontDescriptor = { link = "cssDefinition" },
         cssFunctionName = { fg = theme.palette.blue },
@@ -32,10 +27,10 @@ function M.groups(theme)
         cssTagName = { fg = theme.palette.red },
 
         -- HTML
-        htmlArg = { fg = theme.palette.purple, style = config.options.bold_italic },
-        htmlBold = { fg = theme.palette.orange, style = config.options.bold },
-        htmlItalic = { fg = theme.palette.purple, style = config.options.italic },
-        htmlLink = { fg = theme.palette.cyan, style = config.options.underline },
+        htmlArg = { fg = theme.palette.purple },
+        htmlBold = { fg = theme.palette.orange },
+        htmlItalic = { fg = theme.palette.purple },
+        htmlLink = { fg = theme.palette.cyan },
         htmlH1 = { fg = theme.palette.red },
         htmlH2 = { link = "htmlH1" },
         htmlH3 = { link = "htmlH1" },
@@ -59,10 +54,7 @@ function M.groups(theme)
         javaScriptRequire = { fg = theme.palette.cyan },
         javaScriptReserved = { fg = theme.palette.purple },
         ---- https://github.com/pangloss/vim-javascript included in Vim-Polygot
-        jsArrowFunction = {
-            fg = theme.palette.purple,
-            style = config.options.bold_italic,
-        },
+        jsArrowFunction = { fg = theme.palette.purple },
         jsClassKeyword = { link = "jsArrowFunction" },
         jsClassMethodType = { link = "jsArrowFunction" },
         jsDocParam = { fg = theme.palette.blue },
@@ -103,7 +95,7 @@ function M.groups(theme)
 
         -- Markdown
         markdownBlockquote = { fg = theme.palette.gray },
-        markdownBold = { fg = theme.palette.orange, style = config.options.bold },
+        markdownBold = { fg = theme.palette.orange },
         markdownCode = { fg = theme.palette.green },
         markdownCodeBlock = { link = "markdownCode" },
         markdownCodeDelimiter = { link = "markdownCode" },
@@ -115,36 +107,27 @@ function M.groups(theme)
         markdownH6 = { link = "markdownH1" },
         markdownHeadingDelimiter = { fg = theme.palette.red },
         markdownHeadingRule = { link = "markdownBlockquote" },
-        markdownId = {
-            fg = theme.palette.purple,
-            style = config.options.bold_italic,
-        },
+        markdownId = { fg = theme.palette.purple },
         markdownIdDeclaration = { fg = theme.palette.blue },
         markdownIdDelimiter = { link = "markdownId" },
-        markdownItalic = {
-            fg = theme.palette.purple,
-            style = config.options.italic,
-        },
+        markdownItalic = { fg = theme.palette.purple },
         markdownLinkDelimiter = { fg = theme.palette.purple },
         markdownLinkText = { fg = theme.palette.blue },
         markdownListMarker = { fg = theme.palette.red },
         markdownOrderedListMarker = { link = "markdownListMarker" },
         markdownRule = { link = "markdownBlockquote" },
-        markdownUrl = { fg = theme.palette.cyan, style = config.options.underline },
+        markdownUrl = { fg = theme.palette.cyan },
 
         -- Python
         pythonNone = { fg = theme.palette.yellow },
         pythonBoolean = { link = "pythonNone" },
         pythonClass = { fg = theme.palette.yellow },
         pythonParens = { fg = theme.palette.red },
-        pythonBuiltinObj = { fg = theme.palette.cyan, style = config.options.bold },
+        pythonBuiltinObj = { fg = theme.palette.cyan },
         pythonSpaceError = { bg = theme.palette.red, fg = theme.palette.fg },
         pythonString = { fg = theme.palette.green },
         pythonDot = { fg = theme.palette.fg },
-        pythonImport = {
-            fg = theme.palette.purple,
-            style = config.options.bold_italic,
-        },
+        pythonImport = { fg = theme.palette.purple },
         pythonRepeat = { link = "pythonImport" },
         pythonStatement = { link = "pythonImport" },
         pythonOperator = { link = "pythonImport" },
@@ -152,10 +135,7 @@ function M.groups(theme)
         -- Ruby
         rubyBlockParameter = { fg = theme.palette.red },
         rubyBlockParameterList = { link = "rubyBlockParameter" },
-        rubyClass = {
-            fg = theme.palette.purple,
-            style = config.options.bold_italic,
-        },
+        rubyClass = { fg = theme.palette.purple },
         rubyConstant = { fg = theme.palette.yellow },
         rubyControl = { link = "rubyClass" },
         rubyEscape = { fg = theme.palette.red },
@@ -174,10 +154,7 @@ function M.groups(theme)
         -- SASS
         sassidChar = { fg = theme.palette.red },
         sassClassChar = { fg = theme.palette.orange },
-        sassInclude = {
-            fg = theme.palette.purple,
-            style = config.options.bold_italic,
-        },
+        sassInclude = { fg = theme.palette.purple },
         sassMixing = { link = "sassInclude" },
         sassMixinName = { fg = theme.palette.blue },
         scssExtend = { link = "sassInclude" },

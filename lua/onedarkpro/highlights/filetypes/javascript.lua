@@ -4,14 +4,17 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
-        ["@constructor.javascript"] = { fg = theme.palette.yellow, style = "NONE" },
+        ["@constructor.javascript"] = { fg = theme.palette.yellow },
+        ["@keyword.javascript"] = { fg = theme.palette.purple },
+        ["@keyword.return.javascript"] = { fg = theme.palette.purple },
         ["@method.javascript"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@method.call.javascript"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@punctuation.bracket.javascript"] = { fg = theme.palette.yellow },
         ["@variable.javascript"] = { fg = theme.palette.red, style = config.options.italic },
+        ["@variable.builtin.javascript"] = { fg = theme.palette.yellow, style = config.options.italic },
     }
 end
 

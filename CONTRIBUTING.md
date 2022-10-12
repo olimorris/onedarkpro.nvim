@@ -50,7 +50,7 @@ return {
 > See the `README` for information on how to determine highlight groups
 - To incorporate styles from a user's config:
 ```lua
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config").init()
 return {
     ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
 }
@@ -98,7 +98,7 @@ TelescopeSelection = {
 > See `lua/onedarkpro/themes/onedark.lua` for the list of available colors in the themes
 - To incorporate styles from a user's config:
 ```lua
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config").init()
 return {
     AerialClass = {
         fg = theme.palette.purple,

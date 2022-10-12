@@ -4,19 +4,14 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
         StartifyBracket = { fg = theme.palette.fg },
-        StartifyFile = { fg = theme.palette.purple, style = config.options.bold },
+        StartifyFile = { fg = theme.palette.purple },
         StartifyFooter = { fg = theme.palette.fg },
         StartifyHeader = { fg = theme.palette.green },
         StartifyNumber = { fg = theme.palette.yellow },
         StartifyPath = { fg = theme.palette.gray },
-        StartifySection = {
-            fg = theme.palette.blue,
-            style = config.options.bold_italic,
-        },
+        StartifySection = { fg = theme.palette.blue },
         StartifySelect = { fg = theme.palette.cyan },
         StartifySlash = { fg = theme.palette.gray },
         StartifySpecial = { fg = theme.palette.red },

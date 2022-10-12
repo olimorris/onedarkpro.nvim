@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         DapUIScope = { bg = theme.palette.blue, fg = theme.palette.bg },
@@ -19,10 +19,7 @@ function M.groups(theme)
         DapUISource = { fg = theme.palette.purple },
         DapUIBreakpointsPath = { bg = theme.palette.yellow, fg = theme.palette.bg },
         DapUIBreakpointsInfo = { fg = theme.palette.fg },
-        DapUIBreakpointsCurrentLine = {
-            fg = theme.palette.yellow,
-            style = config.options.bold,
-        },
+        DapUIBreakpointsCurrentLine = { fg = theme.palette.yellow },
         DapUIBreakpointsLine = { link = "DapUIBreakpointsCurrentLine" },
         DapUIWatchesEmpty = { bg = theme.palette.red, fg = theme.palette.bg },
         DapUIWatchesValue = { fg = theme.palette.red },

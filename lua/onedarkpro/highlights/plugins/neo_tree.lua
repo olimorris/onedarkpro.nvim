@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         NeoTreeNormalNC = { -- Color when nvim-tree is no longer in focus
@@ -13,14 +13,10 @@ function M.groups(theme)
         },
         NeoTreeSymbolicLinkTarget = {
             fg = theme.palette.cyan,
-            style = config.options.underline,
         },
         NeoTreeDirectoryName = { fg = theme.palette.blue },
         NeoTreeDirectoryIcon = { fg = theme.palette.purple },
-        NeoTreeRootName = {
-            fg = theme.palette.purple,
-            style = config.options.bold,
-        },
+        NeoTreeRootName = { fg = theme.palette.purple },
         NeoTreeFileIcon = {
             fg = theme.palette.blue,
         },
@@ -29,7 +25,6 @@ function M.groups(theme)
         },
         NeoTreeFileNameOpened = {
             fg = theme.palette.purple,
-            style = config.options.italic,
         },
         NeoTreeIndentMarker = { fg = theme.palette.gray },
         NeoTreeTitleBar = { fg = theme.palette.bg, bg = theme.palette.purple },

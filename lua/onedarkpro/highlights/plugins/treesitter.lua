@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt
@@ -28,7 +28,7 @@ function M.groups(theme)
         }, -- For function (calls and definitions).
         TSFuncBuiltin = { fg = theme.palette.yellow }, -- For builtin functions: `table.insert` in Lua.
         TSFuncMacro = { fg = theme.palette.blue }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
-        TSInclude = { fg = theme.palette.purple, style = config.options.italic }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+        TSInclude = { fg = theme.palette.purple }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
         TSKeyword = {
             fg = theme.palette.purple,
             style = config.styles.keywords,
@@ -39,22 +39,21 @@ function M.groups(theme)
         }, -- For keywords used to define a function.
         TSKeywordOperator = {
             fg = theme.palette.purple,
-            style = config.options.italic,
         }, -- For operators that are English words, e.g. `and`, `as`, `or`.
         TSKeywordReturn = { link = "TSKeyword" }, -- for the `return` and `yield` keywords.
-        TSLabel = { fg = theme.palette.purple, style = config.options.italic }, -- For labels: `label:` in C and `:label:` in Lua.
+        TSLabel = { fg = theme.palette.purple }, -- For labels: `label:` in C and `:label:` in Lua.
         TSMethod = { fg = theme.palette.blue }, -- For method calls and definitions.
         TSNamespace = { fg = theme.palette.yellow }, -- For identifiers referring to modules and namespaces.
         -- TSNone = {},
         TSNumber = { fg = theme.palette.orange, style = config.styles.numbers }, -- Numeric literals that don't fit into other categories.
         TSOperator = { fg = theme.palette.cyan, style = config.styles.operators }, -- For any operator: `+`, but also `->` and `*` in theme.config.
-        TSParameter = { fg = theme.palette.red, style = config.options.italic }, -- For parameters of a function.
+        TSParameter = { fg = theme.palette.red }, -- For parameters of a function.
         TSParameterReference = { fg = theme.palette.red }, -- For references to parameters of a function.
         TSProperty = { fg = theme.palette.red }, -- Same as `TSField`.
         TSPunctDelimiter = { link = "Delimiter" }, -- For delimiters ie: `.`
         TSPunctBracket = { fg = theme.palette.fg }, -- For brackets and parens.
         TSPunctSpecial = { fg = theme.palette.fg }, -- For special punctutation that does not fall in the categories before.
-        TSRepeat = { fg = theme.palette.purple, style = config.options.italic }, -- For keywords related to loops.
+        TSRepeat = { fg = theme.palette.purple }, -- For keywords related to loops.
         TSString = {
             fg = theme.palette.green,
             style = config.styles.strings,
@@ -73,9 +72,9 @@ function M.groups(theme)
         TSTagAttribute = { link = "TSProperty" }, -- For html tag attributes.
         TSTagDelimiter = { link = "Delimiter" }, -- Tag delimiter like `<` `>` `/`
         TSText = { fg = theme.palette.fg }, -- For strings considered text in a markup language.
-        TSStrong = { fg = theme.palette.fg, style = config.options.bold }, -- For text to be represented with strong.
-        TSEmphasis = { fg = theme.palette.fg, style = config.options.italic }, -- For text to be represented with emphasis.
-        TSUnderline = { fg = theme.palette.fg, style = config.options.underline }, -- For text to be represented with an underline.
+        TSStrong = { link = "Bold" }, -- For text to be represented with strong.
+        -- TSEmphasis = { }, -- For text to be represented with emphasis.
+        TSUnderline = { link = "Underlined" }, -- For text to be represented with an underline.
         TSStrike = { fg = theme.palette.fg }, -- For strikethrough text.
         TSTitle = { fg = theme.palette.fg }, -- Text that is part of a title.
         TSLiteral = { fg = theme.palette.fg }, -- Literal text.
@@ -95,7 +94,6 @@ function M.groups(theme)
         }, -- Any variable name that does not have another highlight.
         TSVariableBuiltin = {
             fg = theme.palette.yellow,
-            style = config.options.italic,
         }, -- Variable names that are defined by the languages, like `this` or `self`.
     }
 end

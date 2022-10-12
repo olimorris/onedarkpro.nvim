@@ -4,23 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
         DebugBreakpoint = { fg = theme.palette.red },
-        DebugBreakpointLine = {
-            fg = theme.palette.red,
-            style = config.options.underline,
-        },
+        DebugBreakpointLine = { fg = theme.palette.red },
         DebugHighlight = { fg = theme.palette.blue },
-        DebugHighlightLine = {
-            fg = theme.palette.purple,
-            style = config.options.italic,
-        },
-        NvimDapVirtualText = {
-            fg = theme.palette.cyan,
-            style = config.options.italic,
-        },
+        DebugHighlightLine = { fg = theme.palette.purple },
+        NvimDapVirtualText = { fg = theme.palette.cyan },
     }
 end
 

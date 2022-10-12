@@ -48,8 +48,13 @@ describe("Using the theme", function()
     end)
 
     it("it should apply options", function()
-        local output = vim.api.nvim_get_hl_by_name("Italic", true)
+        local output = vim.api.nvim_get_hl_by_name("@variable.javascript", true)
         assert.equals(true, output.italic)
+    end)
+
+    it("it should not apply options that are false", function()
+        local output = vim.api.nvim_get_hl_by_name("@function.ruby", true)
+        assert.equals(nil, output.bold)
     end)
 
     it("it should be able to overwrite existing colors", function()

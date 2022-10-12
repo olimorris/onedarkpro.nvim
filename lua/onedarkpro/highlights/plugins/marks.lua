@@ -10,10 +10,9 @@ function M.groups(theme)
         MarkSignHL = {
             fg = theme.palette.purple,
             bg = "NONE",
-            style = config.options.bold,
         },
         -- MarkSignNumHL = {  },
-        MarkVirtTextHL = { fg = theme.palette.gray, style = config.options.italic },
+        MarkVirtTextHL = { fg = theme.palette.gray },
     }
 end
 

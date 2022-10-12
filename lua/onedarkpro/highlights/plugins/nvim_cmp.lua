@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         -- https://github.com/hrsh7th/nvim-cmp/blob/main/doc/cmp.txt
@@ -13,11 +13,8 @@ function M.groups(theme)
 
         CmpItemAbbr = { fg = theme.palette.fg },
         CmpItemAbbrDeprecated = { fg = theme.palette.fg },
-        CmpItemAbbrMatch = {
-            fg = theme.palette.blue,
-            style = config.options.bold,
-        },
-        CmpItemAbbrMatchFuzzy = { fg = theme.palette.blue, style = config.options.underline },
+        CmpItemAbbrMatch = { fg = theme.palette.blue },
+        CmpItemAbbrMatchFuzzy = { fg = theme.palette.blue },
         CmpItemMenu = { fg = theme.palette.gray },
 
         CmpItemKindText = { fg = theme.palette.orange },

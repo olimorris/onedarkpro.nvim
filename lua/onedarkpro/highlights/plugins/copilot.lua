@@ -4,10 +4,8 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
-        CopilotSuggestion = { fg = theme.palette.gray, style = config.options.italic },
+        CopilotSuggestion = { fg = theme.palette.gray },
     }
 end
 

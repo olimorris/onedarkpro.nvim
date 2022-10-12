@@ -4,30 +4,21 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         NvimTreeNormalNC = { -- Color when nvim-tree is no longer in focus
             bg = config.options.transparency and "NONE"
                 or (config.options.window_unfocused_color and theme.generated.color_column or theme.palette.bg),
         },
-        NvimTreeSymlink = {
-            fg = theme.palette.cyan,
-            style = config.options.underline,
-        },
+        NvimTreeSymlink = { fg = theme.palette.cyan },
         NvimTreeFolderName = { fg = theme.palette.blue },
-        NvimTreeRootFolder = {
-            fg = theme.palette.purple,
-            style = config.options.bold,
-        },
+        NvimTreeRootFolder = { fg = theme.palette.purple },
         NvimTreeFolderIcon = { fg = theme.palette.purple },
         NvimTreeEmptyFolderName = { fg = theme.palette.gray },
         NvimTreeOpenedFolderName = { fg = theme.palette.purple },
-        NvimTreeExecFile = { fg = theme.palette.green, style = config.options.bold },
-        NvimTreeOpenedFile = {
-            fg = theme.palette.purple,
-            style = config.options.italic,
-        },
+        NvimTreeExecFile = { fg = theme.palette.green },
+        NvimTreeOpenedFile = { fg = theme.palette.purple },
         NvimTreeSpecialFile = { link = "Special" },
         -- NvimTreeImageFile = {},
         NvimTreeMarkdownFile = { fg = theme.palette.red },

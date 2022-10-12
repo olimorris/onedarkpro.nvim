@@ -1,7 +1,7 @@
 local M = {}
 
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         Comment = {
@@ -54,10 +54,10 @@ function M.groups(theme)
         SpecialComment = { fg = theme.palette.gray }, -- special things inside a comment
         --     Debug = {}, -- debugging statements
 
-        Underlined = { style = config.options.underline }, -- (preferred) text that stands out, HTML links
-        Bold = { style = config.options.bold },
+        Underlined = { style = "underline" }, -- (preferred) text that stands out, HTML links
+        Bold = { style = "bold" },
         -- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
-        Italic = { style = config.options.italic },
+        Italic = { style = "italic" },
 
         Error = { fg = theme.palette.red }, -- (preferred) any erroneous construct
         Todo = { fg = theme.palette.purple }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX

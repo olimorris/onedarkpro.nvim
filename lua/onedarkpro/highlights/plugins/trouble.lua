@@ -4,12 +4,10 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
-
     return {
         TroubleNormal = { bg = "NONE" },
 
-        TroubleCount = { fg = theme.palette.purple, style = config.options.bold },
+        TroubleCount = { fg = theme.palette.purple },
         TroubleFile = { fg = theme.palette.cyan },
         TroubleFoldIcon = { fg = theme.palette.fg },
         TroubleLocation = { fg = theme.palette.cyan },

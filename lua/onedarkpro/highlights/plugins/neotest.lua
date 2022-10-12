@@ -4,10 +4,10 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
-        NeotestAdapterName = { fg = theme.palette.purple, style = config.options.bold },
+        NeotestAdapterName = { fg = theme.palette.purple },
         -- NeotestBorder not implemented yet
         NeotestDir = { fg = theme.palette.cyan },
         NeotestExpandMarker = { fg = theme.palette.gray },
@@ -15,10 +15,9 @@ function M.groups(theme)
         NeotestFile = { fg = theme.palette.cyan },
         NeotestFocused = {
             bg = (config.options.cursorline and theme.generated.cursorline or "NONE"),
-            style = config.options.bold,
         },
         NeotestIndent = { fg = theme.palette.fg },
-        NeotestNamespace = { fg = theme.palette.blue, style = config.options.bold },
+        NeotestNamespace = { fg = theme.palette.blue },
         NeotestPassed = { fg = theme.palette.green },
         NeotestRunning = { fg = theme.palette.yellow },
         NeotestSkipped = { fg = theme.palette.cyan },

@@ -7,19 +7,19 @@ function M.groups(theme)
     return {
         NotifyERRORBorder = { fg = theme.palette.red },
         NotifyERRORIcon = { fg = theme.palette.red },
-        NotifyERRORTitle = { fg = theme.palette.red, style = "italic" },
+        NotifyERRORTitle = { fg = theme.palette.red },
         NotifyWARNBorder = { fg = theme.palette.yellow },
         NotifyWARNIcon = { fg = theme.palette.yellow },
-        NotifyWARNTitle = { fg = theme.palette.yellow, style = "italic" },
+        NotifyWARNTitle = { fg = theme.palette.yellow },
         NotifyINFOBorder = { fg = theme.palette.blue },
         NotifyINFOIcon = { fg = theme.palette.blue },
-        NotifyINFOTitle = { fg = theme.palette.blue, style = "italic" },
+        NotifyINFOTitle = { fg = theme.palette.blue },
         NotifyDEBUGBorder = { fg = theme.palette.purple },
         NotifyDEBUGIcon = { fg = theme.palette.purple },
-        NotifyDEBUGTitle = { fg = theme.palette.purple, style = "italic" },
+        NotifyDEBUGTitle = { fg = theme.palette.purple },
         NotifyTRACEBorder = { fg = theme.palette.orange },
         NotifyTRACEIcon = { fg = theme.palette.orange },
-        NotifyTRACETitle = { fg = theme.palette.orange, style = "italic" },
+        NotifyTRACETitle = { fg = theme.palette.orange },
     }
 end
 

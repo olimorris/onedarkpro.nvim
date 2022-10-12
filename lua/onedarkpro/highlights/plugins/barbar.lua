@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config").init()
 
     return {
         BufferCurrent = {
@@ -18,7 +18,6 @@ function M.groups(theme)
         BufferCurrentTarget = {
             bg = config.options.transparency and "NONE" or theme.palette.bg,
             fg = theme.palette.blue,
-            style = config.options.bold,
         },
         BufferVisible = { fg = theme.palette.gray },
         BufferVisibleIndex = { link = "BufferVisible" },
