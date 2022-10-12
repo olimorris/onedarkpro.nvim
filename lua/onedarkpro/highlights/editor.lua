@@ -88,7 +88,7 @@ function M.groups(theme)
         -- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
         -- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
         IncSearch = { bg = theme.generated.selection, fg = theme.palette.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-        StatusLine = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- status line of current window
+        StatusLine = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
         StatusLineNC = {
             bg = config.options.transparency and "NONE"
                 or config.options.window_unfocused_color and theme.generated.color_column
