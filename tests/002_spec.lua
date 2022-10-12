@@ -4,6 +4,8 @@ local hex = function(n)
     end
 end
 
+local utils = require("onedarkpro.utils")
+
 local function parse_style(style)
     if not style or style == "NONE" then
         return {}
@@ -47,15 +49,17 @@ describe("Using the theme", function()
         assert.equals(true, output.bold)
     end)
 
-    it("it should apply options", function()
-        local output = vim.api.nvim_get_hl_by_name("@variable.javascript", true)
-        assert.equals(true, output.italic)
-    end)
+    if utils.use_filetype_highlights then
+        it("it should apply options", function()
+            local output = vim.api.nvim_get_hl_by_name("@variable.javascript", true)
+            assert.equals(true, output.italic)
+        end)
 
-    it("it should not apply options that are false", function()
-        local output = vim.api.nvim_get_hl_by_name("@function.ruby", true)
-        assert.equals(nil, output.bold)
-    end)
+        it("it should not apply options that are false", function()
+            local output = vim.api.nvim_get_hl_by_name("@function.ruby", true)
+            assert.equals(nil, output.bold)
+        end)
+    end
 
     it("it should be able to overwrite existing colors", function()
         local output = vim.api.nvim_get_hl_by_name("Label", true)
