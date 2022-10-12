@@ -87,7 +87,11 @@ function M.load(cache_loaded)
     local override_mod = require("onedarkpro.override")
 
     if caching and cache.exists(theme.meta.name) and not cache_loaded then
-        return cache.load(theme)
+        local ok, loaded_cache = pcall(cache.load, theme)
+        if ok then
+            return loaded_cache
+        end
+        -- TODO: Add logging here
     end
 
     highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
