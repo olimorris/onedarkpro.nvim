@@ -84,14 +84,21 @@ M.highlight = highlight
 function M.load(cache_loaded)
     local theme = require("onedarkpro.theme").load()
     local cache = require("onedarkpro.lib.cache")
+    local logger = require("onedarkpro.utils.logging")
     local override_mod = require("onedarkpro.override")
 
     if caching and cache.exists(theme.meta.name) and not cache_loaded then
+        logger:set_level(require("onedarkpro.config").config.log_level)
+        logger.debug("CACHE: Preparing to load")
+
         local ok, loaded_cache = pcall(cache.load, theme)
         if ok then
+            logger.debug("CACHE: Completed load")
             return loaded_cache
         end
-        -- TODO: Add logging here
+
+        logger.debug("CACHE: Could not be loaded", loaded_cache)
+        vim.notify("[OneDarkPro.nvim] Could not load from cache. It might be corrupted", vim.log.levels.WARN)
     end
 
     highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
