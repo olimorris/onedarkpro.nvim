@@ -412,6 +412,8 @@ options = {
 To enable a faster load time, the colorscheme supports caching. This works by caching highlight groups to disk instead
 of processing them when Neovim starts. Initial testing suggests you may see a 3x improvement in the colorscheme's boot time if you have a complex configuration.
 
+Note that with caching enabled, if you change your theme config (e.g., custom highlights), you must reload your updated config and then regenerate the cache before your change will take effect.
+
 To enable caching:
 
 ```lua
