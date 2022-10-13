@@ -8,7 +8,7 @@ function M.groups(theme)
 
     return {
         -- Neovim 0.6+
-        -- DiagnosticError = { fg = theme.palette.red },
+        DiagnosticError = { fg = theme.palette.red },
         DiagnosticWarn = { fg = theme.palette.yellow },
         DiagnosticInfo = { fg = theme.palette.blue },
         DiagnosticHint = { fg = theme.palette.cyan },
