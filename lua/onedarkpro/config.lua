@@ -180,11 +180,6 @@ function M.init()
     end
 
     set_options(M.config.options)
-
-    local logger = require("onedarkpro.utils.logging")
-    logger:set_level(M.config.log_level)
-    logger.trace("Configuration complete")
-
     vim.g.onedarkpro_config_set = true
 
     return M.config

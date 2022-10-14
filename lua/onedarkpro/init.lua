@@ -22,23 +22,34 @@ M.override = override
 ---@return nil
 function M.setup(opts)
     opts = opts or {}
-    require("onedarkpro.config").setup(opts)
+
+    local logger = require("onedarkpro.utils.logging")
+    local config = require("onedarkpro.config")
+
+    config.setup(opts)
+    logger:set_level(config.config.log_level)
+    logger.debug("Setting configuration")
 
     if opts.caching then
         caching = true
     end
 
     if opts.colors then
+        logger.debug("Overriding colors")
         override.colors(opts.colors)
     end
 
     if opts.hlgroups or opts.highlights then
+        logger.debug("Overriding highlight groups")
         override.highlights(opts.hlgroups or opts.highlights)
     end
 
     if opts.filetype_hlgroups or opts.ft_highlights then
+        logger.debug("Setting old filetype highlights")
         override.ft_highlights(opts.filetype_hlgroups or opts.ft_highlights)
     end
+
+    logger.debug("Configuration set:", config.config)
 
     require("onedarkpro.lib.deprecate").check(opts)
 end
@@ -87,10 +98,10 @@ function M.load(cache_loaded)
     local logger = require("onedarkpro.utils.logging")
     local override_mod = require("onedarkpro.override")
 
-    if caching and cache.exists(theme.meta.name) and not cache_loaded then
-        logger:set_level(require("onedarkpro.config").config.log_level)
-        logger.debug("CACHE: Preparing to load")
+    logger:set_level(require("onedarkpro.config").config.log_level)
+    logger.debug("Begin theme load:", theme)
 
+    if caching and cache.exists(theme.meta.name) and not cache_loaded then
         local ok, loaded_cache = pcall(cache.load, theme)
         if ok then
             logger.debug("CACHE: Completed load")
@@ -118,6 +129,7 @@ function M.load(cache_loaded)
 
     -- If a user has set caching to be true but doesn't yet have a cache file, create one
     if caching and not cache.exists(theme.meta.name) then
+        logger.debug("CACHE: Automatically create the cache file")
         return cache.generate()
     end
 end

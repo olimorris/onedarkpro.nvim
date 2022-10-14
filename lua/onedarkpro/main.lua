@@ -1,8 +1,13 @@
+local logger = require("onedarkpro.utils.logging")
+logger:set_level(require("onedarkpro.config").config.log_level)
+
 local M = {}
 
 ---Clear highlights and set the syntax
 ---@return nil
 local function setup_neovim()
+    logger.debug("Clear highlights and set termguicolors")
+
     if vim.g.colors_name then
         vim.cmd("hi clear")
     end
@@ -17,6 +22,7 @@ local function set_highlights()
     local groups = require("onedarkpro.highlight")
     local highlights = require("onedarkpro.lib.highlight")
 
+    logger.debug("Set highlights")
     highlights.create(groups.editor)
     highlights.create(groups.syntax)
     highlights.create(groups.filetypes)
@@ -60,6 +66,8 @@ end
 ---@param theme table the theme to use
 ---@return nil
 local function set_theme_info(theme)
+    logger.debug("Set theme info")
+
     vim.g.colors_name = "onedarkpro"
     vim.g.onedarkpro_style = theme.meta.name
     vim.g.onedarkpro_theme = theme.meta.name
@@ -98,6 +106,7 @@ end
 function M.load(theme)
     -- Prevent double loading of the theme
     if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_theme == theme.meta.name then
+        logger.debug("Loading complete")
         return
     end
 
@@ -115,6 +124,8 @@ function M.load(theme)
     if require("onedarkpro.config").config.options.window_unfocused_color then
         add_unfocused_window_autocmds()
     end
+
+    logger.debug("Loading complete")
 end
 
 return M
