@@ -238,7 +238,7 @@ vim.api.nvim_set_hl(0, "diffRemoved", { fg = "#e06c75" })
 
         local file = io.open(require("onedarkpro.config").config.cache_path .. "onedark.lua", "r"):read("*all")
         -- file:close()
-        assert.are.same(file, expected)
+        assert.are.same(expected, file)
     end)
 
     async.it("it should be able to delete the cache file", function()
