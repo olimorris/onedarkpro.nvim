@@ -44,6 +44,7 @@ local defaults = {
     filetypes = { -- Enable/Disable specific plugins
         javascript = true,
         markdown = true,
+        php = true,
         python = true,
         ruby = true,
         rust = true,
@@ -185,4 +186,3 @@ function M.init()
 end
 
 return M
-

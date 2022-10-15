@@ -100,6 +100,7 @@ require("onedarkpro").setup({
   filetypes = { -- Override which filetype highlight groups are loaded
       javascript = true,
       markdown = true,
+      php = true,
       python = true,
       ruby = true,
       rust = true,
@@ -238,6 +239,7 @@ The colorscheme supports opinionated highlighting for filetypes, just like the o
 
 - javascript
 - markdown
+- php
 - python
 - ruby
 - rust
