@@ -1,7 +1,7 @@
 local M = {}
 
 function M.groups(theme)
-    if not require("onedarkpro.utils").use_filetype_highlights then
+    if not require("onedarkpro.utils").has_nvim_08 then
         return
     end
 

@@ -128,7 +128,7 @@ end
 function M.create(highlights, output)
     local utils = require("onedarkpro.utils")
 
-    if utils.use_nvim_api then
+    if utils.has_nvim_07 then
         return M.neovim_hl(highlights, 0, output)
     end
 

@@ -49,7 +49,7 @@ describe("Using the theme", function()
         assert.equals(true, output.bold)
     end)
 
-    if utils.use_filetype_highlights then
+    if utils.has_nvim_08 then
         it("it should apply options", function()
             local output = vim.api.nvim_get_hl_by_name("@variable.javascript", true)
             assert.equals(true, output.italic)
