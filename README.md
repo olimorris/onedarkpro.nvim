@@ -40,7 +40,7 @@
   - [Configuring options](#configuring-options)
   - [Configuring caching](#configuring-caching)
 - [Supported Plugins](#electric_plug-supported-plugins)
-- [Screenshots](#camera-flash-screenshots)
+- [Screenshots](#camera_flash-screenshots)
 - [Extras](#gift-extras)
 - [FAQs](#question-faqs)
 - [Credits](#clap-credits)
@@ -482,19 +482,19 @@ The colorscheme supports the following plugins:
 
 ### Lua
 
-<img src="https://user-images.githubusercontent.com/9512444/196161463-58005620-6a41-4f01-8628-ffbf2b8b155a.png" alt="Lua" />
+<img src="https://user-images.githubusercontent.com/9512444/196185422-3f0bfe75-772e-40ff-9ca8-b26e1eff13dc.png" alt="Lua" />
 
 ### Python
 
-<img src="https://user-images.githubusercontent.com/9512444/196161421-8ace2057-537e-41b0-a242-a71ff826f6c1.png" alt="Python" />
+<img src="https://user-images.githubusercontent.com/9512444/196185335-8fb99002-227d-42e2-a2d4-b3cf9fc21a17.png" alt="Python" />
 
 ### Javascript/React
 
-<img src="https://user-images.githubusercontent.com/9512444/196161451-ae4095aa-cdcc-4a77-8a3f-88343ea40a47.png" alt="Javascript/React" />
+<img src="https://user-images.githubusercontent.com/9512444/196185397-a963a7b7-c7e3-45ff-b1bd-bd9344e9616a.png" alt="Javascript/React" />
 
 ### Ruby
 
-<img src="https://user-images.githubusercontent.com/9512444/196162030-471c0f38-12e2-4a63-b1cd-8abad1818bce.png" alt="Ruby" />
+<img src="https://user-images.githubusercontent.com/9512444/196185441-6cba7191-63d0-4dd3-abde-12b99ed4bec6.png" alt="Ruby" />
 
 ## :gift: Extras
 
