@@ -59,6 +59,7 @@ local defaults = {
         gitsigns = true,
         hop = true,
         indentline = true,
+        leap = true,
         lsp_saga = true,
         marks = true,
         native_lsp = true,
