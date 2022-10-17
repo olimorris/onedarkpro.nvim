@@ -23,7 +23,10 @@ The following is a set of guidelines for contributing to this project:
 - Consider the use of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to make your commit messages more descriptive
 
 ## Adding new filetypes
-New filetypes should stay as close to the original VS Code theme as possible. To add new support for filetypes in the colorscheme:
+New filetypes should stay as close to the original VS Code theme as possible. This means that the opinionated styles (such
+as bolds and italics) _must_ be included.
+
+To add new support for filetypes in the colorscheme:
 
 - Create a code snippet in the language you're adding support for and load it in VS Code and Neovim
 - Save the snippet in the `examples` dir
@@ -54,14 +57,14 @@ return {
 }
 ```
 > See the [README](https://github.com/olimorris/onedarkpro.nvim#question-faqs) for information on how to determine which highlight groups should be included
-- To match the bold and italics from VS Code, you may incorporate styles:
+- To match the bold and italics from VS Code, you can incorporate styles:
 ```lua
 local config = require("onedarkpro.config").init()
 return {
     ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
 }
 ```
-> Possible options are `bold`, `italic`, `bold_italic`, `undercurl`, `underline`, `NONE`
+> Possible options are `bold`, `italic`, `bold_italic`, `undercurl`, `underline`, `none`
 
 - To load the filetype by default, go to `lua/onedarkpro/config.lua` and add the filetype to the `filetypes` table and set it to `true` by default:
 ```lua

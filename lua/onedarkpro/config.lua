@@ -125,6 +125,7 @@ local function set_options(opts)
     end
 
     M.config.options = {
+        none = "NONE",
         bold = opts.bold and "bold" or "NONE",
         italic = opts.italic and "italic" or "NONE",
         undercurl = opts.undercurl and "undercurl" or "NONE",
