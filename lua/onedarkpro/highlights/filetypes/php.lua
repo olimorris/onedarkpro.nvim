@@ -10,9 +10,8 @@ function M.groups(theme)
         ["@method.php"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@method.call.php"] = { link = "@method.php" },
         ["@function.builtin.php"] = { fg = theme.palette.cyan },
-        ["@keyword.php"] = { fg = theme.palette.purple, style = "NONE" },
-        ["@keyword.return.php"] = { link = "@keyword.php" },
         ["@namespace.php"] = { fg = theme.palette.yellow, style = config.options.bold },
+        ["@constant.builtin.php"] = { fg = theme.palette.orange },
     }
 end
 
