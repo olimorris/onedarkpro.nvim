@@ -101,6 +101,7 @@ require("onedarkpro").setup({
     javascript = true,
     lua = true,
     markdown = true,
+    php = true,
     python = true,
     ruby = true,
     rust = true,
@@ -241,6 +242,7 @@ The colorscheme supports opinionated highlighting for filetypes, just like the o
 - `javascript`
 - `lua`
 - `markdown`
+- `php`
 - `python`
 - `ruby`
 - `rust`
