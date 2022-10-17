@@ -23,7 +23,7 @@
   <h3>onedark dark</h3><img src="https://user-images.githubusercontent.com/9512444/178539884-b9377c3c-6754-49d2-ae8d-b1d29d90519a.png" alt="onedark dark" />
 </div>
 
-## :book: Table of Contents<!-- omit in toc -->
+## :book: Table of Contents
 
 - [Features](#sparkles-features)
 - [Requirements](#zap-requirements)
@@ -40,7 +40,7 @@
   - [Configuring options](#configuring-options)
   - [Configuring caching](#configuring-caching)
 - [Supported Plugins](#electric_plug-supported-plugins)
-- [Comparison to VS Code's One Dark Pro](#microscope-comparison-to-vs-codes-one-dark-pro)
+- [Screenshots](#camera-flash-screenshots)
 - [Extras](#gift-extras)
 - [FAQs](#question-faqs)
 - [Credits](#clap-credits)
@@ -238,14 +238,14 @@ highlights = {
 
 The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
-- javascript
-- lua
-- markdown
-- python
-- ruby
-- rust
-- toml
-- yaml
+- `javascript`
+- `lua`
+- `markdown`
+- `python`
+- `ruby`
+- `rust`
+- `toml`
+- `yaml`
 
 Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
 
@@ -258,7 +258,7 @@ filetypes = {
 }
 ```
 
-Alternatively, all of the filetpes can be disabled at once:
+Alternatively, all of the filetypes can be disabled:
 
 ```lua
 filetypes = {
@@ -266,7 +266,7 @@ filetypes = {
 }
 ```
 
-Or, all of the filetypes can be disabled with only a select few enabled:
+Or, all of the filetypes can be disabled with a select few enabled:
 
 ```lua
 filetypes = {
@@ -306,7 +306,7 @@ plugins = {
 }
 ```
 
-Alternatively, all of the plugins can be disabled at once:
+Alternatively, all of the plugins can be disabled:
 
 ```lua
 plugins = {
@@ -314,7 +314,7 @@ plugins = {
 }
 ```
 
-Or, all of the plugins can be disabled with only a select few enabled:
+Or, all of the plugins can be disabled with a select few enabled:
 
 ```lua
 plugins = {
@@ -477,30 +477,36 @@ The colorscheme supports the following plugins:
 - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
 - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
 
-## :microscope: Comparison to VS Code's One Dark Pro
+## :camera_flash: Screenshots
 
-### Python<!-- omit in toc -->
+### Lua
 
-<img src="https://user-images.githubusercontent.com/9512444/178540087-bda08b3c-fab3-422f-bcb2-46a521de4738.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/196161463-58005620-6a41-4f01-8628-ffbf2b8b155a.png" alt="Lua" />
 
-### React<!-- omit in toc -->
+### Python
 
-<img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/196161421-8ace2057-537e-41b0-a242-a71ff826f6c1.png" alt="Python" />
 
-> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlighting)
+### Javascript/React
+
+<img src="https://user-images.githubusercontent.com/9512444/196161451-ae4095aa-cdcc-4a77-8a3f-88343ea40a47.png" alt="Javascript/React" />
+
+### Ruby
+
+<img src="https://user-images.githubusercontent.com/9512444/196162030-471c0f38-12e2-4a63-b1cd-8abad1818bce.png" alt="Ruby" />
 
 ## :gift: Extras
 
-### Lualine<!-- omit in toc -->
+### Lualine
 
 The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine
 folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
 
-### Terminal themes<!-- omit in toc -->
+### Terminal themes
 
 The colorscheme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
-### Helpers<!-- omit in toc -->
+### Helpers
 
 #### Theme color tables
 
@@ -554,14 +560,14 @@ this to automatically generate a new cache file when a new theme is toggled.
 
 ## :clap: Credits
 
-### Contributors<!-- omit in toc -->
+### Contributors
 
 Thanks to the following contributors for their work on the colorscheme:
 
 - [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
 - [mrjones2014](https://github.com/mrjones2014) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mrjones2014)
 
-### Inspiration<!-- omit in toc -->
+### Inspiration
 
 The following colorschemes were used as an inspiration:
 

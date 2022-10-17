@@ -1,13 +1,13 @@
 # Contributing
 
-Pull requests to add [new plugins](#adding-new-plugins) or to update highlight groups are welcome.
+- [Adding new filetypes](#adding-new-filetypes)
+- [Adding new plugins](#adding-new-plugins)
 
 By default, the theme stays close to the original [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) theme. Therefore, changes to the color palette are unlikely to be accepted.
 
-With the new rewrite, the addition of new themes to the color scheme is much easier and I would be happy to consider
-them.
+With the new rewrite, the addition of new themes to the color scheme is much easier and I would be happy to consider them.
 
-## Guidelines
+### Guidelines
 
 The following is a set of guidelines for contributing to this project:
 
@@ -16,7 +16,7 @@ The following is a set of guidelines for contributing to this project:
 - Run `make test` prior to submitting a pull request to ensure the tests are passing
   - If you're adding functionality, please ensure you have written [plenary](https://github.com/nvim-lua/plenary.nvim/blob/master/TESTS_README.md) tests for it
 
-## Recommendations
+### Recommendations
 
 - If you're adding new functionality, it may be worth opening an issue to discuss the design of the new feature
   - Also consider how the end user will consume your new feature. It's often easier to start with the API and work backwards
