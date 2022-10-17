@@ -45,6 +45,7 @@ local defaults = {
         javascript = true,
         lua = true,
         markdown = true,
+        php = true,
         python = true,
         ruby = true,
         rust = true,
