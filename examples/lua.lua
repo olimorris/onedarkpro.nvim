@@ -1,188 +1,184 @@
-local utils = require("onedarkpro.utils.collect")
-local M = {}
+local async = require("neotest.async")
+local lib = require("neotest.lib")
+local logger = require("neotest.logging")
+local utils = require("neotest-rspec.utils")
 
--- Default options for the theme
-local defaults = {
-    dark_theme = "onedark", -- The default dark theme
-    light_theme = "onelight", -- The default light theme
-    theme = function()
-        if vim.o.background == "dark" then
-            return M.config.dark_theme
-        else
-            return M.config.light_theme
-        end
-    end,
-    caching = false, -- Use caching for the theme?
-    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
-    colors = {}, -- Override default colors
-    highlights = {}, -- Override default highlight groups
-    ft_highlights = {}, -- Override default highlight groups for specific filetypes
-    ft_highlights_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
-        filetypes = {
-            "^aerial$",
-            "^alpha$",
-            "^frecency$",
-            "^fugitive$",
-            "^fugitiveblame$",
-            "^help$",
-            "^minimap$",
-            "^neotest--summary$",
-            "^neo--tree$",
-            "^neo--tree--popup$",
-            "^NvimTree$",
-            "^packer$",
-            "^qf$",
-            "^startify$",
-            "^startuptime$",
-            "^TelescopePrompt$",
-            "^terminal$",
-            "^toggleterm$",
-            "^undotree$",
-        },
-        buftypes = { "^terminal$" },
-    },
-    filetypes = { -- Enable/Disable specific plugins
-        javascript = true,
-        markdown = true,
-        php = true,
-        python = true,
-        ruby = true,
-        rust = true,
-        toml = true,
-        yaml = true,
-    },
-    plugins = { -- Enable/Disable specific plugins
-        aerial = true,
-        barbar = true,
-        copilot = true,
-        dashboard = true,
-        gitsigns = true,
-        hop = true,
-        indentline = true,
-        lsp_saga = true,
-        marks = true,
-        native_lsp = true,
-        neotest = true,
-        neo_tree = true,
-        nvim_cmp = true,
-        nvim_dap = true,
-        nvim_dap_ui = true,
-        nvim_hlslens = true,
-        nvim_navic = true,
-        nvim_notify = true,
-        nvim_tree = true,
-        nvim_ts_rainbow = true,
-        op_nvim = true,
-        packer = true,
-        polygot = true,
-        startify = true,
-        telescope = true,
-        toggleterm = true,
-        treesitter = true,
-        trouble = true,
-        vim_ultest = true,
-        which_key = true,
-    },
-    styles = {
-        types = "NONE", -- Style that is applied to types
-        numbers = "NONE", -- Style that is applied to numbers
-        strings = "NONE", -- Style that is applied to strings
-        comments = "NONE", -- Style that is applied to comments
-        keywords = "NONE", -- Style that is applied to keywords
-        constants = "NONE", -- Style that is applied to constants
-        functions = "NONE", -- Style that is applied to functions
-        operators = "NONE", -- Style that is applied to operators
-        variables = "NONE", -- Style that is applied to variables
-        conditionals = "NONE", -- Style that is applied to conditionals
-        virtual_text = "NONE", -- Style that is applied to virtual text
-    },
-    options = {
-        bold = true, -- Use bold styles?
-        italic = true, -- Use italic styles?
-        underline = true, -- Use underline styles?
-        undercurl = true, -- Use undercurl styles?
+---@class neotest.Adapter
+---@field name string
+local NeotestAdapter = { name = "neotest-rspec" }
 
-        cursorline = false, -- Use cursorline highlighting?
-        transparency = false, -- Use a transparent background?
-        terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-        window_unfocused_color = false, -- When the window is out of focus, change the normal background?
-    },
-    mute_deprecations = false, -- Don't show deprecation warnings for the *older* filetype highlights
-}
+---Find the project root directory given a current directory to work from.
+---Should no root be found, the adapter can still be used in a non-project context if a test file matches.
+---@async
+---@param dir string @Directory to treat as cwd
+---@return string | nil @Absolute root dir of test suite
+NeotestAdapter.root = lib.files.match_root_pattern("Gemfile", ".rspec", ".gitignore")
 
----Set the theme's options
----@return table
-local function set_options(opts)
-    if not opts then
-        opts = defaults
-    end
-
-    if opts.cursorline then
-        vim.wo.cursorline = true
-    end
-
-    M.config.options = {
-        bold = opts.bold and "bold" or "NONE",
-        italic = opts.italic and "italic" or "NONE",
-        undercurl = opts.undercurl and "undercurl" or "NONE",
-        underline = opts.underline and "underline" or "NONE",
-        undercurl_underline = (opts.undercurl and opts.underline) and "underline,undercurl" or "NONE",
-        bold_italic = (opts.bold and opts.italic) and "bold,italic" or "NONE",
-        cursorline = opts.cursorline or opts.highlight_cursorline,
-        transparency = opts.transparency or opts.transparent,
-        terminal_colors = opts.terminal_colors,
-        window_unfocused_color = opts.window_unfocused_color or opts.window_unfocussed_color,
-    }
-
-    return M.config.options
+---@async
+---@param file_path string
+---@return boolean
+function NeotestAdapter.is_test_file(file_path)
+  return vim.endswith(file_path, "_spec.rb")
 end
 
----Load files based on the user's config
----@param files table
----@param user_config table
----@return nil
-local function load_files(files, user_config)
-    for file, _ in pairs(files) do
-        if user_config["all"] == false then
-            files[file] = false
-        end
-        if user_config[file] then
-            files[file] = user_config[file]
-        end
-    end
+---Given a file path, parse all the tests within it.
+---@async
+---@param file_path string Absolute file path
+---@return neotest.Tree | nil
+function NeotestAdapter.discover_positions(path)
+  local query = [[
+    ((call
+      method: (identifier) @func_name (#match? @func_name "^(describe|context|feature)$")
+      arguments: (argument_list (_) @namespace.name)
+    )) @namespace.definition
+
+    ((call
+      method: (identifier) @func_name (#match? @func_name "^(it|scenario)$")
+      arguments: (argument_list (_) @test.name)
+    )) @test.definition
+
+    ((call
+      method: (identifier) @func_name (#eq? @func_name "it")
+      block: (block (_) @test.name)
+    )) @test.definition
+  ]]
+
+  return lib.treesitter.parse_positions(path, query, {
+    nested_tests = true,
+    require_namespaces = true,
+    position_id = "require('neotest-rspec.utils').generate_treesitter_id",
+  })
 end
 
-M.config = vim.deepcopy(defaults)
-
----Apply the users custom config on top of the default
----@param opts table
----@return nil
-function M.setup(opts)
-    opts = opts or {}
-    M.config = utils.deep_extend(defaults, opts)
-
-    if opts.filetypes then
-        load_files(M.config.filetypes, opts.filetypes)
-    end
-
-    if opts.plugins then
-        load_files(M.config.plugins, opts.plugins)
-    end
+---@param test_name string
+---@return string
+local function clean_test_name(test_name)
+  if string.sub(test_name, -1) == '"' or string.sub(test_name, -1) == "'" then
+    test_name = test_name:sub(1, -2)
+  end
+  if string.sub(test_name, 1, 1) == '"' or string.sub(test_name, 1, 1) == "'" then
+    test_name = test_name:sub(2, #test_name)
+  end
+  return test_name
 end
 
----A user may load the colorscheme without the setup function. This ensures that
----any options (which are essential to filetype highlights) are set and also
----returns the default configuration as a table for later consumption
----@return table|nil
-function M.init()
-    if vim.g.onedarkpro_config_set then
-        return M.config
-    end
-
-    set_options(M.config.options)
-    vim.g.onedarkpro_config_set = true
-
-    return M.config
+---@return string
+local function get_rspec_cmd()
+  return vim.tbl_flatten({
+    "bundle",
+    "exec",
+    "rspec",
+  })
 end
 
-return M
+---@param args neotest.RunArgs
+---@return neotest.RunSpec | nil
+function NeotestAdapter.build_spec(args)
+  local position = args.tree:data()
+  local results_path = async.fn.tempname()
+
+  local script_args = vim.tbl_flatten({
+    "-f",
+    "json",
+    "-o",
+    results_path,
+    "-f",
+    "progress",
+  })
+
+  local function run_by_filename()
+    table.insert(script_args, position.path)
+  end
+
+  local function run_by_test_name()
+    table.insert(
+      script_args,
+      vim.tbl_flatten({
+        "-e",
+        clean_test_name(position.name),
+      })
+    )
+  end
+
+  local function run_by_line_number()
+    table.insert(
+      script_args,
+      vim.tbl_flatten({
+        position.path .. ":" .. tonumber(position.range[1] + 1),
+      })
+    )
+  end
+
+  if position.type == "file" then
+    run_by_filename()
+  end
+
+  if position.type == "test" or (position.type == "namespace" and vim.bo.filetype ~= "neotest-summary") then
+    run_by_line_number()
+  end
+
+  if position.type == "dir" and vim.bo.filetype == "neotest-summary" then
+    run_by_filename()
+  end
+
+  local command = vim.tbl_flatten({
+    get_rspec_cmd(),
+    script_args,
+  })
+
+  return {
+    command = command,
+    context = {
+      results_path = results_path,
+    },
+  }
+end
+
+---@async
+---@param spec neotest.RunSpec
+---@param result neotest.StrategyResult
+---@param tree neotest.Tree
+---@return neotest.Result[]
+function NeotestAdapter.results(spec, result, tree)
+  local output_file = spec.context.results_path
+
+  local ok, data = pcall(lib.files.read, output_file)
+  if not ok then
+    logger.error("No test output file found:", output_file)
+    return {}
+  end
+
+  local ok, parsed_data = pcall(vim.json.decode, data, { luanil = { object = true } })
+  if not ok then
+    logger.error("Failed to parse test output:", output_file)
+    return {}
+  end
+
+  local ok, results = pcall(utils.parse_json_output, parsed_data, output_file)
+  if not ok then
+    logger.error("Failed to get test results:", output_file)
+    return {}
+  end
+
+  return results
+end
+
+local is_callable = function(obj)
+  return type(obj) == "function" or (type(obj) == "table" and obj.__call)
+end
+
+setmetatable(NeotestAdapter, {
+  __call = function(_, opts)
+    if is_callable(opts.rspec_cmd) then
+      get_rspec_cmd = opts.rspec_cmd
+    elseif opts.rspec_cmd then
+      get_rspec_cmd = function()
+        return opts.rspec_cmd
+      end
+    end
+    return NeotestAdapter
+  end,
+})
+
+return NeotestAdapter
+

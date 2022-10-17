@@ -23,7 +23,7 @@
   <h3>onedark dark</h3><img src="https://user-images.githubusercontent.com/9512444/178539884-b9377c3c-6754-49d2-ae8d-b1d29d90519a.png" alt="onedark dark" />
 </div>
 
-## :book: Table of Contents<!-- omit in toc -->
+## :book: Table of Contents
 
 - [Features](#sparkles-features)
 - [Requirements](#zap-requirements)
@@ -34,13 +34,13 @@
   - [Configuring themes](#configuring-themes)
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
-  - [Configuring filetypes](#configuring-filetype-highlighting)
+  - [Configuring filetype highlighting](#configuring-filetype-highlighting)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
   - [Configuring caching](#configuring-caching)
 - [Supported Plugins](#electric_plug-supported-plugins)
-- [Comparison to VS Code's One Dark Pro](#microscope-comparison-to-vs-codes-one-dark-pro)
+- [Screenshots](#camera-flash-screenshots)
 - [Extras](#gift-extras)
 - [FAQs](#question-faqs)
 - [Credits](#clap-credits)
@@ -98,40 +98,42 @@ require("onedarkpro").setup({
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   highlights = {}, -- Override default highlight and/or filetype groups
   filetypes = { -- Override which filetype highlight groups are loaded
-      javascript = true,
-      markdown = true,
-      php = true,
-      python = true,
-      ruby = true,
-      rust = true,
-      toml = true,
-      yaml = true,
+    javascript = true,
+    lua = true,
+    markdown = true,
+    php = true,
+    python = true,
+    ruby = true,
+    rust = true,
+    toml = true,
+    yaml = true,
   },
   plugins = { -- Override which plugin highlight groups are loaded
     -- See the Supported Plugins section for a list of available plugins
   },
   styles = { -- Choose from "bold,italic,underline"
-      types = "NONE", -- Style that is applied to types
-      numbers = "NONE", -- Style that is applied to numbers
-      strings = "NONE", -- Style that is applied to strings
-      comments = "NONE", -- Style that is applied to comments
-      keywords = "NONE", -- Style that is applied to keywords
-      constants = "NONE", -- Style that is applied to constants
-      functions = "NONE", -- Style that is applied to functions
-      operators = "NONE", -- Style that is applied to operators
-      variables = "NONE", -- Style that is applied to variables
-      conditionals = "NONE", -- Style that is applied to conditionals
-      virtual_text = "NONE", -- Style that is applied to virtual text
+    types = "NONE", -- Style that is applied to types
+    numbers = "NONE", -- Style that is applied to numbers
+    strings = "NONE", -- Style that is applied to strings
+    comments = "NONE", -- Style that is applied to comments
+    keywords = "NONE", -- Style that is applied to keywords
+    constants = "NONE", -- Style that is applied to constants
+    functions = "NONE", -- Style that is applied to functions
+    operators = "NONE", -- Style that is applied to operators
+    variables = "NONE", -- Style that is applied to variables
+    conditionals = "NONE", -- Style that is applied to conditionals
+    virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
-      bold = false, -- Use the colorscheme's opinionated bold styles?
-      italic = false, -- Use the colorscheme's opinionated italic styles?
-      underline = false, -- Use the colorscheme's opinionated underline styles?
-      undercurl = false, -- Use the colorscheme's opinionated undercurl styles?
-      cursorline = false, -- Use cursorline highlighting?
-      transparency = false, -- Use a transparent background?
-      terminal_colors = false, -- Use the colorscheme's colors for Neovim's :terminal?
-      window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+    bold = true, -- Use bold styles?
+    italic = true, -- Use italic styles?
+    underline = true, -- Use underline styles?
+    undercurl = true, -- Use undercurl styles?
+
+    cursorline = false, -- Use cursorline highlighting?
+    transparency = false, -- Use a transparent background?
+    terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+    window_unfocused_color = false, -- When the window is out of focus, change the normal background?
   }
 })
 ```
@@ -237,14 +239,15 @@ highlights = {
 
 The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
-- javascript
-- markdown
-- php
-- python
-- ruby
-- rust
-- toml
-- yaml
+- `javascript`
+- `lua`
+- `markdown`
+- `php`
+- `python`
+- `ruby`
+- `rust`
+- `toml`
+- `yaml`
 
 Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
 
@@ -257,7 +260,7 @@ filetypes = {
 }
 ```
 
-Alternatively, all of the filetpes can be disabled at once:
+Alternatively, all of the filetypes can be disabled:
 
 ```lua
 filetypes = {
@@ -265,7 +268,7 @@ filetypes = {
 }
 ```
 
-Or, all of the filetypes can be disabled with only a select few enabled:
+Or, all of the filetypes can be disabled with a select few enabled:
 
 ```lua
 filetypes = {
@@ -305,7 +308,7 @@ plugins = {
 }
 ```
 
-Alternatively, all of the plugins can be disabled at once:
+Alternatively, all of the plugins can be disabled:
 
 ```lua
 plugins = {
@@ -313,7 +316,7 @@ plugins = {
 }
 ```
 
-Or, all of the plugins can be disabled with only a select few enabled:
+Or, all of the plugins can be disabled with a select few enabled:
 
 ```lua
 plugins = {
@@ -452,6 +455,7 @@ The colorscheme supports the following plugins:
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
+- [leap.nvim](https://github.com/ggandor/leap.nvim)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
@@ -476,30 +480,36 @@ The colorscheme supports the following plugins:
 - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
 - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
 
-## :microscope: Comparison to VS Code's One Dark Pro
+## :camera_flash: Screenshots
 
-### Python<!-- omit in toc -->
+### Lua
 
-<img src="https://user-images.githubusercontent.com/9512444/178540087-bda08b3c-fab3-422f-bcb2-46a521de4738.png" alt="Comparison to VS Code - Python" />
+<img src="https://user-images.githubusercontent.com/9512444/196161463-58005620-6a41-4f01-8628-ffbf2b8b155a.png" alt="Lua" />
 
-### React<!-- omit in toc -->
+### Python
 
-<img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
+<img src="https://user-images.githubusercontent.com/9512444/196161421-8ace2057-537e-41b0-a242-a71ff826f6c1.png" alt="Python" />
 
-> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
+### Javascript/React
+
+<img src="https://user-images.githubusercontent.com/9512444/196161451-ae4095aa-cdcc-4a77-8a3f-88343ea40a47.png" alt="Javascript/React" />
+
+### Ruby
+
+<img src="https://user-images.githubusercontent.com/9512444/196162030-471c0f38-12e2-4a63-b1cd-8abad1818bce.png" alt="Ruby" />
 
 ## :gift: Extras
 
-### Lualine<!-- omit in toc -->
+### Lualine
 
 The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine
 folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
 
-### Terminal themes<!-- omit in toc -->
+### Terminal themes
 
 The colorscheme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
-### Helpers<!-- omit in toc -->
+### Helpers
 
 #### Theme color tables
 
@@ -553,14 +563,14 @@ this to automatically generate a new cache file when a new theme is toggled.
 
 ## :clap: Credits
 
-### Contributors<!-- omit in toc -->
+### Contributors
 
 Thanks to the following contributors for their work on the colorscheme:
 
 - [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
 - [mrjones2014](https://github.com/mrjones2014) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mrjones2014)
 
-### Inspiration<!-- omit in toc -->
+### Inspiration
 
 The following colorschemes were used as an inspiration:
 

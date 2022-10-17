@@ -39,14 +39,14 @@ function M.setup(opts)
         override.colors(opts.colors)
     end
 
-    if opts.hlgroups or opts.highlights then
+    if opts.highlights then
         logger.debug("Overriding highlight groups")
-        override.highlights(opts.hlgroups or opts.highlights)
+        override.highlights(opts.highlights)
     end
 
-    if opts.filetype_hlgroups or opts.ft_highlights then
+    if opts.ft_highlights then
         logger.debug("Setting old filetype highlights")
-        override.ft_highlights(opts.filetype_hlgroups or opts.ft_highlights)
+        override.ft_highlights(opts.ft_highlights)
     end
 
     logger.debug("Configuration set:", config.config)

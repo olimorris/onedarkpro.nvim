@@ -1,5 +1,4 @@
 local logger = require("onedarkpro.utils.logging")
-logger:set_level(require("onedarkpro.config").config.log_level)
 
 local M = {}
 
@@ -33,7 +32,7 @@ local function set_highlights()
     end
 
     if next(groups.ft) ~= nil then
-        if require("onedarkpro.utils").use_nvim_api then
+        if require("onedarkpro.utils").has_nvim_07 then
             require("onedarkpro.lib.ft_highlight").create()
         end
     end
