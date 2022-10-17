@@ -43,6 +43,7 @@ local defaults = {
     },
     filetypes = { -- Enable/Disable specific plugins
         javascript = true,
+        lua = true,
         markdown = true,
         python = true,
         ruby = true,

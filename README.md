@@ -34,7 +34,7 @@
   - [Configuring themes](#configuring-themes)
   - [Configuring colors](#configuring-colors)
   - [Configuring highlight groups](#configuring-highlight-groups)
-  - [Configuring filetypes](#configuring-filetype-highlighting)
+  - [Configuring filetype highlighting](#configuring-filetype-highlighting)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
@@ -98,39 +98,41 @@ require("onedarkpro").setup({
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   highlights = {}, -- Override default highlight and/or filetype groups
   filetypes = { -- Override which filetype highlight groups are loaded
-      javascript = true,
-      markdown = true,
-      python = true,
-      ruby = true,
-      rust = true,
-      toml = true,
-      yaml = true,
+    javascript = true,
+    lua = true,
+    markdown = true,
+    python = true,
+    ruby = true,
+    rust = true,
+    toml = true,
+    yaml = true,
   },
   plugins = { -- Override which plugin highlight groups are loaded
     -- See the Supported Plugins section for a list of available plugins
   },
   styles = { -- Choose from "bold,italic,underline"
-      types = "NONE", -- Style that is applied to types
-      numbers = "NONE", -- Style that is applied to numbers
-      strings = "NONE", -- Style that is applied to strings
-      comments = "NONE", -- Style that is applied to comments
-      keywords = "NONE", -- Style that is applied to keywords
-      constants = "NONE", -- Style that is applied to constants
-      functions = "NONE", -- Style that is applied to functions
-      operators = "NONE", -- Style that is applied to operators
-      variables = "NONE", -- Style that is applied to variables
-      conditionals = "NONE", -- Style that is applied to conditionals
-      virtual_text = "NONE", -- Style that is applied to virtual text
+    types = "NONE", -- Style that is applied to types
+    numbers = "NONE", -- Style that is applied to numbers
+    strings = "NONE", -- Style that is applied to strings
+    comments = "NONE", -- Style that is applied to comments
+    keywords = "NONE", -- Style that is applied to keywords
+    constants = "NONE", -- Style that is applied to constants
+    functions = "NONE", -- Style that is applied to functions
+    operators = "NONE", -- Style that is applied to operators
+    variables = "NONE", -- Style that is applied to variables
+    conditionals = "NONE", -- Style that is applied to conditionals
+    virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
-      bold = false, -- Use the colorscheme's opinionated bold styles?
-      italic = false, -- Use the colorscheme's opinionated italic styles?
-      underline = false, -- Use the colorscheme's opinionated underline styles?
-      undercurl = false, -- Use the colorscheme's opinionated undercurl styles?
-      cursorline = false, -- Use cursorline highlighting?
-      transparency = false, -- Use a transparent background?
-      terminal_colors = false, -- Use the colorscheme's colors for Neovim's :terminal?
-      window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+    bold = true, -- Use bold styles?
+    italic = true, -- Use italic styles?
+    underline = true, -- Use underline styles?
+    undercurl = true, -- Use undercurl styles?
+
+    cursorline = false, -- Use cursorline highlighting?
+    transparency = false, -- Use a transparent background?
+    terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+    window_unfocused_color = false, -- When the window is out of focus, change the normal background?
   }
 })
 ```
@@ -237,6 +239,7 @@ highlights = {
 The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
 - javascript
+- lua
 - markdown
 - python
 - ruby
@@ -484,7 +487,7 @@ The colorscheme supports the following plugins:
 
 <img src="https://user-images.githubusercontent.com/9512444/178540105-73dd2fa9-282b-4332-8bae-1ba26a8551cc.png" alt="Comparison to VS Code - React" />
 
-> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlight-groups)
+> **Note:** A greater likeness to Visual Studio Code can be achieved by using the theme's ability to [customise highlight groups by filetype](#configuring-filetype-highlighting)
 
 ## :gift: Extras
 
