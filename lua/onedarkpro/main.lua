@@ -1,5 +1,4 @@
 local logger = require("onedarkpro.utils.logging")
-logger:set_level(require("onedarkpro.config").config.log_level)
 
 local M = {}
 

@@ -44,13 +44,8 @@ local function ignore()
     local utils = require("onedarkpro.utils.collect")
     local config = require("onedarkpro.config").config
 
-    if config.filetype_hlgroups_ignore then
-        local ft_ignore = config.filetype_hlgroups_ignore.filetypes
-        local buf_ignore = config.filetype_hlgroups_ignore.buftypes
-    else
-        local ft_ignore = config.ft_highlights_ignore.filetypes
-        local buf_ignore = config.ft_highlights_ignore.buftypes
-    end
+    local ft_ignore = config.ft_highlights_ignore.filetypes
+    local buf_ignore = config.ft_highlights_ignore.buftypes
 
     return utils.pattern_match(ft_ignore, vim.bo.filetype) or utils.pattern_match(buf_ignore, vim.bo.buftype)
 end

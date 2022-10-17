@@ -129,10 +129,10 @@ local function set_options(opts)
         underline = opts.underline and "underline" or "NONE",
         undercurl_underline = (opts.undercurl and opts.underline) and "underline,undercurl" or "NONE",
         bold_italic = (opts.bold and opts.italic) and "bold,italic" or "NONE",
-        cursorline = opts.cursorline or opts.highlight_cursorline,
-        transparency = opts.transparency or opts.transparent,
+        cursorline = opts.cursorline,
+        transparency = opts.transparency,
         terminal_colors = opts.terminal_colors,
-        window_unfocused_color = opts.window_unfocused_color or opts.window_unfocussed_color,
+        window_unfocused_color = opts.window_unfocused_color
     }
 
     return M.config.options
