@@ -7,7 +7,7 @@ function M.groups(theme)
     local config = require("onedarkpro.config").init()
 
     return {
-        ["@comment.lua"] = { fg = theme.palette.gray, style = config.options.italic },
+        ["@comment.lua"] = { fg = theme.palette.comment, style = config.options.italic },
         ["@function.builtin.lua"] = { fg = theme.palette.cyan, style = config.options.bold },
         ["@function.call.lua"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@field.lua"] = { fg = theme.palette.fg },

@@ -5,7 +5,7 @@ function M.groups(theme)
 
     return {
         Comment = {
-            fg = theme.palette.gray,
+            fg = theme.palette.comment,
             style = config.styles.comments,
         }, -- Comments
         Constant = { fg = theme.palette.orange, style = config.styles.constants }, -- (preferred) any constant
@@ -51,7 +51,7 @@ function M.groups(theme)
         SpecialChar = { fg = theme.palette.orange }, -- special character in a constant
         -- Tag = {}, -- you can use CTRL-] on this
         Delimiter = { fg = theme.palette.fg }, -- character that needs attention
-        SpecialComment = { fg = theme.palette.gray }, -- special things inside a comment
+        SpecialComment = { fg = theme.palette.comment }, -- special things inside a comment
         --     Debug = {}, -- debugging statements
 
         Underlined = { style = "underline" }, -- (preferred) text that stands out, HTML links
