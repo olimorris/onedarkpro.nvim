@@ -18,6 +18,7 @@ local palette = {
     black = "#6a6a6a",
     gray = "#bebebe",
     highlight = "#e2be7d",
+    comment = "#9b9fa6",
     none = "NONE",
 }
 

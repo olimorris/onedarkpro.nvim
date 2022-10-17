@@ -74,6 +74,6 @@ async.describe("Using the theme", function()
         assert.equals(hex(output.foreground), "#61afef")
 
         local output = vim.api.nvim_get_hl_by_name("Comment", true)
-        assert.equals(hex(output.foreground), "#5c6370")
+        assert.equals(hex(output.foreground), "#7f848e")
     end)
 end)
