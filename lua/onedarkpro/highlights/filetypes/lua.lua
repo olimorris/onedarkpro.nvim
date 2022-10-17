@@ -15,7 +15,7 @@ function M.groups(theme)
         ["@keyword.lua"] = { fg = theme.palette.purple },
         ["@keyword.operator.lua"] = { fg = theme.palette.fg },
         ["@method.lua"] = { fg = theme.palette.blue, style = config.options.bold },
-        ["@operator.lua"] = { fg = theme.palette.fg },
+        ["@operator.lua"] = { fg = theme.palette.purple, style = config.options.italic },
         ["@parameter.lua"] = { fg = theme.palette.fg, style = config.options.italic },
         ["@punctuation.bracket.lua"] = { fg = theme.palette.orange },
     }
