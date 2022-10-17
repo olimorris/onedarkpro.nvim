@@ -88,7 +88,9 @@ describe("Using the theme", function()
 
     it("it should only apply highlights for plugins we have enabled", function()
         -- Treesitter groups should be loaded
-        local output = vim.api.nvim_get_hl_by_name("TSAnnotation", true)
+        local ts_group = utils.has_nvim_08 and "@annotation" or "TSAnnotation"
+        output = vim.api.nvim_get_hl_by_name(ts_group, true)
+
         assert.equals("#e06c75", hex(output.foreground))
 
         -- Do not set Aerial's highlight groups
