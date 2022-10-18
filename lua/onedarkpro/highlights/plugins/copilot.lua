@@ -7,7 +7,7 @@ function M.groups(theme)
     local config = require("onedarkpro.config").init()
 
     return {
-        CopilotSuggestion = { fg = theme.palette.gray, style = config.options.italic },
+        CopilotSuggestion = { fg = theme.palette.gray, style = config.styles.virtual_text },
     }
 end
 
