@@ -11,10 +11,10 @@ function M.groups(theme)
         ["@function.builtin.lua"] = { fg = theme.palette.cyan, style = config.options.bold },
         ["@function.call.lua"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@field.lua"] = { fg = theme.palette.fg },
-        ["@keyword.lua"] = { fg = theme.palette.purple },
+        ["@keyword.lua"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@keyword.operator.lua"] = { fg = theme.palette.fg },
         ["@method.lua"] = { fg = theme.palette.blue, style = config.options.bold },
-        ["@operator.lua"] = { fg = theme.palette.fg },
+        ["@operator.lua"] = { fg = theme.palette.fg, style = config.styles.operators },
         ["@parameter.lua"] = { fg = theme.palette.fg, style = config.options.italic },
         ["@punctuation.bracket.lua"] = { fg = theme.palette.orange },
     }

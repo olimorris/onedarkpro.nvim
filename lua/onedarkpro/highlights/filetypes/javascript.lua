@@ -8,7 +8,7 @@ function M.groups(theme)
 
     return {
         ["@constructor.javascript"] = { fg = theme.palette.yellow },
-        ["@keyword.javascript"] = { fg = theme.palette.purple },
+        ["@keyword.javascript"] = { fg = theme.palette.purple, style = config.styles.keywords},
         ["@keyword.return.javascript"] = { fg = theme.palette.purple },
         ["@method.javascript"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@method.call.javascript"] = { fg = theme.palette.blue, style = config.options.bold },
