@@ -57,14 +57,16 @@ return {
 }
 ```
 > See the [README](https://github.com/olimorris/onedarkpro.nvim#question-faqs) for information on how to determine which highlight groups should be included
-- To match the bold and italics from VS Code, you can incorporate styles:
+- To match the bold and italics from VS Code, you can incorporate styles based on a user's configuration options:
 ```lua
 local config = require("onedarkpro.config").init()
 return {
     ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
 }
 ```
-> Possible options are `bold`, `italic`, `bold_italic`, `undercurl`, `underline`, `none`
+> **Note:** Possible options are `bold`, `italic`, `bold_italic`, `undercurl`, `underline`, `none`
+- For highlight groups that do not have any styling in VS Code, you should allow for the user to apply their own custom styles (as per the [README](https://github.com/olimorris/onedarkpro.nvim#configuring-styles))
+- This would then fallback to `style = config.styles.functions` for a highlight group such as `["@function.ruby]`
 
 - To load the filetype by default, go to `lua/onedarkpro/config.lua` and add the filetype to the `filetypes` table and set it to `true` by default:
 ```lua
