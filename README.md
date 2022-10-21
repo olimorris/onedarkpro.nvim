@@ -83,6 +83,12 @@ vim.cmd("colorscheme onedarkpro")  -- Lua
 colorscheme onedarkpro             " Vimscript
 ```
 
+Other useful commands:
+
+- `:OnedarkproCache` generates a fresh cache file for the current colorscheme
+- `:OnedarkproClean` will remove the cache file from disk for the current colorscheme
+- `:OnedarkproColors` will output all of the colors in the current colorscheme to a scratch buffer
+
 ## :wrench: Configuration
 
 ### Default configuration
