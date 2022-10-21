@@ -8,12 +8,12 @@ function M.groups(theme)
 
     return {
         TelescopeSelection = {
-            bg = config.cursorline,
+            bg = config.options.cursorline and theme.generated.cursorline or theme.palette.bg,
             fg = theme.palette.purple,
         },
         TelescopeSelectionCaret = { fg = theme.palette.purple },
         TelescopeMultiSelection = {
-            bg = config.cursorline,
+            bg = config.options.cursorline and theme.generated.cursorline or theme.palette.bg,
             fg = theme.palette.gray,
         },
         TelescopeNormal = {
