@@ -100,9 +100,10 @@ local function add_unfocused_window_autocmds()
 end
 
 ---Carry out the necessary work to load the given theme
----@param theme table  the theme to load
+---@param theme table
+---@param config table
 ---@return nil
-function M.load(theme)
+function M.load(theme, config)
     -- Prevent double loading of the theme
     if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_theme == theme.meta.name then
         logger.debug("Loading complete")
@@ -113,14 +114,14 @@ function M.load(theme)
         setup_neovim()
         set_highlights()
 
-        if require("onedarkpro.config").config.options.terminal_colors then
+        if config.options.terminal_colors then
             set_terminal_colors(theme)
         end
     end
 
     set_theme_info(theme)
 
-    if require("onedarkpro.config").config.options.window_unfocused_color then
+    if config.options.window_unfocused_color then
         add_unfocused_window_autocmds()
     end
 

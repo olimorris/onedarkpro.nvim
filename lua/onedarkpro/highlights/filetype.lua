@@ -1,5 +1,9 @@
 local M = {}
 
+---Get the highlight groups for filetype highlights
+---@param theme table
+---@param config table
+---@return table|nil
 function M.groups(theme, config)
     if not require("onedarkpro.utils").has_nvim_08 then
         return

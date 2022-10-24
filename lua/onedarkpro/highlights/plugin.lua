@@ -1,5 +1,9 @@
 local M = {}
 
+---Get the highlight groups for plugin highlights
+---@param theme table
+---@param config table
+---@return table|nil
 function M.groups(theme, config)
     local groups = {}
     local plugins = config.plugins

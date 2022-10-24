@@ -2,6 +2,7 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
+---@param config table
 ---@return table
 function M.groups(theme, config)
     return {
@@ -16,26 +17,17 @@ function M.groups(theme, config)
         DiagnosticSignInfo = { fg = theme.palette.blue },
         DiagnosticSignHint = { fg = theme.palette.cyan },
 
-        DiagnosticUnderlineError = {
-            fg = theme.palette.red,
-            style = config.options.undercurl,
-        },
-        DiagnosticUnderlineWarn = {
-            fg = theme.palette.yellow,
-            style = config.options.undercurl,
-        },
-        DiagnosticUnderlineInfo = {
-            fg = theme.palette.blue,
-            style = config.options.undercurl,
-        },
-        DiagnosticUnderlineHint = {
-            fg = theme.palette.cyan,
-            style = config.options.undercurl,
-        },
+        DiagnosticUnderlineError = { fg = theme.palette.red, style = config.options.undercurl },
+        DiagnosticUnderlineWarn = { fg = theme.palette.yellow, style = config.options.undercurl },
+        DiagnosticUnderlineInfo = { fg = theme.palette.blue, style = config.options.undercurl },
+        DiagnosticUnderlineHint = { fg = theme.palette.cyan, style = config.options.undercurl },
 
         DiagnosticVirtualTextError = { fg = theme.generated.virtual_text_error, style = config.styles.virtual_text },
         DiagnosticVirtualTextWarn = { fg = theme.generated.virtual_text_warning, style = config.styles.virtual_text },
-        DiagnosticVirtualTextInfo = { fg = theme.generated.virtual_text_information, style = config.styles.virtual_text },
+        DiagnosticVirtualTextInfo = {
+            fg = theme.generated.virtual_text_information,
+            style = config.styles.virtual_text,
+        },
         DiagnosticVirtualTextHint = { fg = theme.generated.virtual_text_hint, style = config.styles.virtual_text },
 
         -- Neovim 0.5

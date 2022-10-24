@@ -48,6 +48,7 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
+---@param config table
 ---@return table
 function M.groups(theme, config)
     return {
@@ -110,6 +111,7 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
+---@param config table
 ---@return table
 function M.groups(theme, config)
     return {

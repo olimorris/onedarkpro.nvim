@@ -47,11 +47,12 @@
 
 ## :sparkles: Features
 
-- Override default styles, colors and highlight groups
-- Create custom highlight groups and even highlight groups by filetypes
-- Cache your configuration to improve startup times
+- Filetype highlights
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - Support for many [popular plugins](#electric_plug-supported-plugins)
+- Override everything! Default styles, colors, highlight groups and filetype groups
+- Create custom highlight groups and even highlight groups by filetypes
+- Cache your configuration to improve startup times
 
 ## :zap: Requirements
 

@@ -2,6 +2,7 @@ local M = {}
 
 ---Set the highlight groups for the new treesitter groups
 ---@param theme table
+---@param config table
 ---@return table
 local function treesitter_new(theme, config)
     return {
@@ -71,6 +72,7 @@ end
 
 ---Set the highlight groups for the old, `TS*` style treesitter groups
 ---@param theme table
+---@param config table
 ---@return table
 local function treesitter_old(theme, config)
     return {
@@ -139,6 +141,7 @@ end
 
 ---Get the highlight groups for the plugin
 ---@param theme table
+---@param config table
 ---@return table
 function M.groups(theme, config)
     if require("onedarkpro.utils").has_nvim_08 then

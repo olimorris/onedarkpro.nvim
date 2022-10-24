@@ -99,7 +99,7 @@ function M.load(cache_loaded)
     local cache = require("onedarkpro.lib.cache")
     local override_mod = require("onedarkpro.override")
 
-    logger:set_level(require("onedarkpro.config").config.log_level)
+    logger:set_level(config.log_level)
     logger.debug("Begin theme load:", theme)
 
     if caching and cache.exists(theme.meta.name) and not cache_loaded then
@@ -126,7 +126,7 @@ function M.load(cache_loaded)
         highlight.ft(highlight.apply(override_mod.ft_highlights, theme))
     end
 
-    require("onedarkpro.main").load(theme)
+    require("onedarkpro.main").load(theme, config)
 
     -- If a user has set caching to be true but doesn't yet have a cache file, create one
     if caching and not cache.exists(theme.meta.name) then

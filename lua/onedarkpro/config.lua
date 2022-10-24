@@ -177,7 +177,7 @@ end
 ---A user may load the colorscheme without the setup function. This ensures that
 ---any options (which are essential to filetype highlights) are set and also
 ---returns the default configuration as a table for later consumption
----@return table|nil
+---@return table
 function M.init()
     if vim.g.onedarkpro_config_set then
         return M.config

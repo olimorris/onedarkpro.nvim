@@ -2,6 +2,7 @@ local M = {}
 
 ---Get the highlight group for the plugin
 ---@param theme table
+---@param config table
 ---@return table
 function M.groups(theme, config)
     return {
