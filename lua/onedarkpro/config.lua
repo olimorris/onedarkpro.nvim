@@ -165,6 +165,8 @@ function M.setup(opts)
     opts = opts or {}
     M.config = utils.deep_extend(defaults, opts)
 
+    set_options(M.config.options)
+
     if opts.filetypes then
         load_files(M.config.filetypes, opts.filetypes)
     end
@@ -172,6 +174,8 @@ function M.setup(opts)
     if opts.plugins then
         load_files(M.config.plugins, opts.plugins)
     end
+
+    vim.g.onedarkpro_config_set = true
 end
 
 ---A user may load the colorscheme without the setup function. This ensures that
