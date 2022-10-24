@@ -3,9 +3,7 @@ local M = {}
 ---Get the highlight groups for the plugin
 ---@param theme table
 ---@return table
-function M.groups(theme)
-    local config = require("onedarkpro.config").init()
-
+function M.groups(theme, config)
     return {
         OpSidebarHeader = { fg = theme.palette.fg },
         OpSidebarItem = { fg = theme.palette.fg },

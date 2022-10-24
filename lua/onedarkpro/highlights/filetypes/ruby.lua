@@ -3,9 +3,7 @@ local M = {}
 ---Get the highlight groups for the filetype
 ---@param theme table
 ---@return table
-function M.groups(theme)
-    local config = require("onedarkpro.config").init()
-
+function M.groups(theme, config)
     return {
         ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
         ["@function.call.ruby"] = { fg = theme.palette.blue, style = config.options.bold },

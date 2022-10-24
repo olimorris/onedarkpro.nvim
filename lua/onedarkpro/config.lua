@@ -135,7 +135,7 @@ local function set_options(opts)
         cursorline = opts.cursorline,
         transparency = opts.transparency,
         terminal_colors = opts.terminal_colors,
-        window_unfocused_color = opts.window_unfocused_color
+        window_unfocused_color = opts.window_unfocused_color,
     }
 
     return M.config.options

@@ -3,7 +3,7 @@ local M = {}
 ---Get the highlight groups for the plugin
 ---@param theme table
 ---@return table
-function M.groups(theme)
+function M.groups(theme, config)
     return {
         LspSagaDiagnosticBorder = { link = "NormalNC" },
         LspSagaDiagnosticHeader = { fg = theme.palette.purple },

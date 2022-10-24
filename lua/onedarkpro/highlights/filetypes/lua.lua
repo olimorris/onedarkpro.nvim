@@ -3,9 +3,7 @@ local M = {}
 ---Get the highlight groups for the filetype
 ---@param theme table
 ---@return table
-function M.groups(theme)
-    local config = require("onedarkpro.config").init()
-
+function M.groups(theme, config)
     return {
         ["@comment.lua"] = { fg = theme.palette.comment, style = config.options.italic },
         ["@function.builtin.lua"] = { fg = theme.palette.cyan, style = config.options.bold },

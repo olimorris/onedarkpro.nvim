@@ -3,7 +3,7 @@ local M = {}
 ---Get the highlight groups for the filetype
 ---@param theme table
 ---@return table
-function M.groups(theme)
+function M.groups(theme, config)
     return {
         ["@field.yaml"] = { fg = theme.palette.red },
         ["@function.call.yaml"] = { fg = theme.palette.green },

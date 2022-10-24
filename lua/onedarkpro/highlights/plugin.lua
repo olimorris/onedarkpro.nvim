@@ -1,14 +1,14 @@
 local M = {}
 
-function M.groups(theme)
+function M.groups(theme, config)
     local groups = {}
-    local plugins = require("onedarkpro.config").config.plugins
+    local plugins = config.plugins
 
     local function load_plugin(plugin)
         if plugin == "all" then
             return
         end
-        groups = vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.plugins." .. plugin).groups(theme))
+        groups = vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.plugins." .. plugin).groups(theme, config))
     end
 
     for plugin, load in pairs(plugins) do

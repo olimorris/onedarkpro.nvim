@@ -1,8 +1,7 @@
 local M = {}
 
-function M.groups(theme)
+function M.groups(theme, config)
     local color = require("onedarkpro.lib.color")
-    local config = require("onedarkpro.config").init()
 
     return {
         ColorColumn = { bg = theme.generated.color_column }, -- used for the columns set with 'colorcolumn'

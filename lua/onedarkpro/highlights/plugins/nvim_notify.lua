@@ -3,7 +3,7 @@ local M = {}
 ---Get the highlight group for the plugin
 ---@param theme table
 ---@return table
-function M.groups(theme)
+function M.groups(theme, config)
     return {
         NotifyERRORBorder = { fg = theme.palette.red },
         NotifyERRORIcon = { fg = theme.palette.red },

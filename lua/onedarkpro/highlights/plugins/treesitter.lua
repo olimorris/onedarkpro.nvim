@@ -1,10 +1,9 @@
 local M = {}
-local config = require("onedarkpro.config").init()
 
 ---Set the highlight groups for the new treesitter groups
 ---@param theme table
 ---@return table
-local function treesitter_new(theme)
+local function treesitter_new(theme, config)
     return {
         ["@annotation"] = { fg = theme.palette.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
         ["@attribute"] = { fg = theme.palette.purple }, -- (unstable)
@@ -73,7 +72,7 @@ end
 ---Set the highlight groups for the old, `TS*` style treesitter groups
 ---@param theme table
 ---@return table
-local function treesitter_old(theme)
+local function treesitter_old(theme, config)
     return {
         TSAnnotation = { fg = theme.palette.red },
         TSAttribute = { fg = theme.palette.purple },
@@ -141,12 +140,12 @@ end
 ---Get the highlight groups for the plugin
 ---@param theme table
 ---@return table
-function M.groups(theme)
+function M.groups(theme, config)
     if require("onedarkpro.utils").has_nvim_08 then
-        return treesitter_new(theme)
+        return treesitter_new(theme, config)
     end
 
-    return treesitter_old(theme)
+    return treesitter_old(theme, config)
 end
 
 return M

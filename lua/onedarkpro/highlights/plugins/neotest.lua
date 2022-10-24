@@ -3,9 +3,7 @@ local M = {}
 ---Get the highlight groups for the plugin
 ---@param theme table
 ---@return table
-function M.groups(theme)
-    local config = require("onedarkpro.config").init()
-
+function M.groups(theme, config)
     return {
         NeotestAdapterName = { fg = theme.palette.purple },
         -- NeotestBorder not implemented yet

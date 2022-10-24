@@ -2,6 +2,7 @@ local M = {}
 
 local override = {}
 local caching = false
+local logger = require("onedarkpro.utils.logging")
 
 function override.colors(colors)
     require("onedarkpro.override").colors = colors
@@ -23,7 +24,6 @@ M.override = override
 function M.setup(opts)
     opts = opts or {}
 
-    local logger = require("onedarkpro.utils.logging")
     local config = require("onedarkpro.config")
 
     config.setup(opts)
@@ -94,8 +94,9 @@ M.highlight = highlight
 ---@return nil
 function M.load(cache_loaded)
     local theme = require("onedarkpro.theme").load()
+    local config = require("onedarkpro.config").init()
+
     local cache = require("onedarkpro.lib.cache")
-    local logger = require("onedarkpro.utils.logging")
     local override_mod = require("onedarkpro.override")
 
     logger:set_level(require("onedarkpro.config").config.log_level)
@@ -112,10 +113,10 @@ function M.load(cache_loaded)
         vim.notify("[OneDarkPro.nvim] Could not load from cache. It might be corrupted", vim.log.levels.WARN)
     end
 
-    highlight.editor(require("onedarkpro.highlights.editor").groups(theme))
-    highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme))
-    highlight.filetypes(require("onedarkpro.highlights.filetype").groups(theme))
-    highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme))
+    highlight.editor(require("onedarkpro.highlights.editor").groups(theme, config))
+    highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme, config))
+    highlight.filetypes(require("onedarkpro.highlights.filetype").groups(theme, config))
+    highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme, config))
 
     if override_mod.highlights then
         highlight.custom(highlight.apply(override_mod.highlights, theme))

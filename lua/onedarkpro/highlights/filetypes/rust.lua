@@ -3,9 +3,7 @@ local M = {}
 ---Get the highlight groups for the filetype
 ---@param theme table
 ---@return table
-function M.groups(theme)
-    local config = require("onedarkpro.config").init()
-
+function M.groups(theme, config)
     return {
         ["@constant.builtin.rust"] = { fg = theme.palette.cyan },
         ["@field.rust"] = { fg = theme.palette.red },

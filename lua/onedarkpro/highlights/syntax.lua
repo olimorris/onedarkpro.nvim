@@ -1,8 +1,6 @@
 local M = {}
 
-function M.groups(theme)
-    local config = require("onedarkpro.config").init()
-
+function M.groups(theme, config)
     return {
         Comment = {
             fg = theme.palette.comment,
