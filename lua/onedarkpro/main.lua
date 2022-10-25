@@ -114,14 +114,14 @@ function M.load(theme, config)
         setup_neovim()
         set_highlights()
 
-        if config.options.terminal_colors then
+        if config and config.options.terminal_colors then
             set_terminal_colors(theme)
         end
     end
 
     set_theme_info(theme)
 
-    if config.options.window_unfocused_color then
+    if config and config.options.window_unfocused_color then
         add_unfocused_window_autocmds()
     end
 
