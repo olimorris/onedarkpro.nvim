@@ -116,12 +116,14 @@ function M.clean()
 end
 
 ---Load the cache file
+---@param theme table
+---@param config table
 ---@return nil
-function M.load(theme)
+function M.load(theme, config)
     vim.cmd("luafile " .. cache_file(theme.meta.name))
     vim.g.onedarkpro_cache_loaded = true
 
-    require("onedarkpro.main").load(theme)
+    require("onedarkpro.main").load(theme, config)
 end
 
 return M

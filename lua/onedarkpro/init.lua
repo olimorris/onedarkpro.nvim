@@ -103,7 +103,7 @@ function M.load(cache_loaded)
     logger.debug("Begin theme load:", theme)
 
     if caching and cache.exists(theme.meta.name) and not cache_loaded then
-        local ok, loaded_cache = pcall(cache.load, theme)
+        local ok, loaded_cache = pcall(cache.load, theme, config)
         if ok then
             logger.debug("CACHE: Completed load")
             return loaded_cache
