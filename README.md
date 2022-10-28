@@ -462,7 +462,7 @@ The colorscheme supports the following plugins:
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
-- [leap.nvim](https://github.com/ggandor/leap.nvim)
+- [leap.nvim](https://github.com/ggandor/leap.nvim) (`leap`)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
