@@ -50,6 +50,7 @@ local defaults = {
         ruby = true,
         rust = true,
         toml = true,
+        vue = true,
         yaml = true,
     },
     plugins = { -- Enable/Disable specific plugins

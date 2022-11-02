@@ -113,6 +113,7 @@ require("onedarkpro").setup({
     ruby = true,
     rust = true,
     toml = true,
+    vue = true,
     yaml = true,
   },
   plugins = { -- Override which plugin highlight groups are loaded
@@ -254,6 +255,7 @@ The colorscheme supports opinionated highlighting for filetypes, just like the o
 - `ruby`
 - `rust`
 - `toml`
+- `vue`
 - `yaml`
 
 Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
