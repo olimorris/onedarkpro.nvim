@@ -74,7 +74,7 @@ local function write_cache(contents)
 end
 
 ---Check if a cache for the current theme exists
----@param theme string
+---@param theme? string
 ---@return boolean
 function M.exists(theme)
     return (vim.fn.filereadable(cache_file(theme)) ~= 0)
