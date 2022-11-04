@@ -87,7 +87,7 @@ local function add_unfocused_window_autocmds()
         group = OneDarkPro_HighlightNC,
         callback = function()
             local highlights = vim.bo.filetype == "qf" and QuickFixNCHighlights or NCHighlights
-            vim.cmd("set winhighlight=" .. highlights)
+            vim.cmd("set winhighlight+=" .. highlights)
         end,
     })
     vim.api.nvim_create_autocmd("WinEnter", {
