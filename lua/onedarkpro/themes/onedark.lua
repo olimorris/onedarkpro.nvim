@@ -28,10 +28,10 @@ local function generate(palette)
     local color = require("onedarkpro.lib.color")
 
     return {
-        cursorline = palette.cursorline or color.lighten(palette.bg, 0.97),
-        color_column = palette.color_column or color.lighten(palette.bg, 0.97),
+        cursorline = palette.cursorline or "#2d313b",
+        color_column = palette.color_column or "#2d313b",
         indentline = palette.indentline or color.lighten(palette.bg, 0.93),
-        selection = palette.selection or color.lighten(palette.bg, 0.8),
+        selection = palette.selection or "#414858",
         float_bg = palette.float_bg or color.darken(palette.bg, 0.85),
 
         -- Git diff
