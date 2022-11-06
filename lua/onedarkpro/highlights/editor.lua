@@ -99,7 +99,7 @@ function M.groups(theme, config)
         }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
         TabLine = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- tab pages line, not active tab page label
         TabLineFill = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
-        TabLineSel = { bg = theme.palette.gray, fg = theme.palette.purple }, -- tab pages line, active tab page label
+        TabLineSel = { bg = theme.palette.purple, fg = theme.palette.bg }, -- tab pages line, active tab page label
         TermCursor = { bg = theme.palette.purple }, -- cursor in a focused terminal
         TermCursorNC = { bg = theme.palette.gray }, -- cursor in an unfocused terminal
         Title = { fg = theme.palette.green }, -- titles for output from ":set all", ":autocmd"
