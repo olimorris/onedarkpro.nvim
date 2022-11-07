@@ -6,7 +6,6 @@ local store = {
     filetypes = {},
     plugins = {},
     custom = {},
-    ft = {}
 }
 
 local function reset()
@@ -15,7 +14,6 @@ local function reset()
     store.filetypes = {}
     store.plugins = {}
     store.custom = {}
-    store.ft = {}
 end
 
 return setmetatable({ reset = reset }, {

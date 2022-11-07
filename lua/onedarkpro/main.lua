@@ -30,12 +30,6 @@ local function set_highlights()
     if next(groups.custom) ~= nil then
         highlights.create(groups.custom)
     end
-
-    if next(groups.ft) ~= nil then
-        if require("onedarkpro.utils").has_nvim_07 then
-            require("onedarkpro.lib.ft_highlight").create()
-        end
-    end
 end
 
 ---Set the terminal colors

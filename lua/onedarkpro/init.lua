@@ -12,10 +12,6 @@ function override.highlights(highlights)
     require("onedarkpro.override").highlights = highlights
 end
 
-function override.ft_highlights(highlights)
-    require("onedarkpro.override").ft_highlights = highlights
-end
-
 M.override = override
 
 ---Setup the theme via the default config or the users own
@@ -42,11 +38,6 @@ function M.setup(opts)
     if opts.highlights then
         logger.debug("Overriding highlight groups")
         override.highlights(opts.highlights)
-    end
-
-    if opts.ft_highlights then
-        logger.debug("Setting old filetype highlights")
-        override.ft_highlights(opts.ft_highlights)
     end
 
     logger.debug("Configuration set:", config.config)
@@ -83,10 +74,6 @@ function highlight.custom(highlights)
     require("onedarkpro.highlight").custom = highlights
 end
 
-function highlight.ft(highlights)
-    require("onedarkpro.highlight").ft = highlights
-end
-
 M.highlight = highlight
 
 ---Load the theme
@@ -120,10 +107,6 @@ function M.load(cache_loaded)
 
     if override_mod.highlights then
         highlight.custom(highlight.apply(override_mod.highlights, theme))
-    end
-
-    if override_mod.ft_highlights then
-        highlight.ft(highlight.apply(override_mod.ft_highlights, theme))
     end
 
     require("onedarkpro.main").load(theme, config)

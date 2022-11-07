@@ -16,31 +16,6 @@ local defaults = {
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
-    ft_highlights = {}, -- Override default highlight groups for specific filetypes
-    ft_highlights_ignore = { -- Filetypes which are ignored when applying filetype highlight groups
-        filetypes = {
-            "^aerial$",
-            "^alpha$",
-            "^frecency$",
-            "^fugitive$",
-            "^fugitiveblame$",
-            "^help$",
-            "^minimap$",
-            "^neotest--summary$",
-            "^neo--tree$",
-            "^neo--tree--popup$",
-            "^NvimTree$",
-            "^packer$",
-            "^qf$",
-            "^startify$",
-            "^startuptime$",
-            "^TelescopePrompt$",
-            "^terminal$",
-            "^toggleterm$",
-            "^undotree$",
-        },
-        buftypes = { "^terminal$" },
-    },
     filetypes = { -- Enable/Disable specific plugins
         javascript = true,
         lua = true,

@@ -10,6 +10,7 @@ set noundofile
 lua << EOF
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
     plugins = {
         all = false,
         treesitter = true,
@@ -19,15 +20,6 @@ onedarkpro.setup({
     },
     highlights = {
       OneDarkPro = { fg = "${my_new_red}" }
-    },
-    ft_highlights = {
-      ruby = {
-        Comment = { fg = "${green}", bg = "${green}" }, Function = { fg = "${green}", bg = "${green}" },
-      },
-      lua = {
-        Comment = { fg = "${purple}", bg = "${purple}" },
-        Function = { fg = "${purple}", bg = "${purple}" },
-      },
     },
 })
 vim.cmd [[colorscheme onedarkpro]]
