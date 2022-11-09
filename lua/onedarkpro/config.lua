@@ -18,6 +18,7 @@ local defaults = {
     highlights = {}, -- Override default highlight groups
     filetypes = { -- Enable/Disable specific plugins
         javascript = true,
+        javascriptreact = true,
         lua = true,
         markdown = true,
         php = true,

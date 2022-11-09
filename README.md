@@ -106,6 +106,7 @@ require("onedarkpro").setup({
   highlights = {}, -- Override default highlight and/or filetype groups
   filetypes = { -- Override which filetype highlight groups are loaded
     javascript = true,
+    javascriptreact = true,
     lua = true,
     markdown = true,
     php = true,
@@ -249,6 +250,7 @@ highlights = {
 The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
 - `javascript`
+- `javascriptreact`
 - `lua`
 - `markdown`
 - `php`
