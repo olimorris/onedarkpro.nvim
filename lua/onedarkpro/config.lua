@@ -27,6 +27,7 @@ local defaults = {
         rust = true,
         toml = true,
         typescript = true,
+        typescriptreact = true,
         vue = true,
         yaml = true,
     },

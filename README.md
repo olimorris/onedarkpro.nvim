@@ -115,6 +115,7 @@ require("onedarkpro").setup({
     rust = true,
     toml = true,
     typescript = true,
+    typescriptreact = true,
     vue = true,
     yaml = true,
   },
@@ -259,6 +260,7 @@ The colorscheme supports opinionated highlighting for filetypes, just like the o
 - `rust`
 - `toml`
 - `typescript`
+- `typescriptreact`
 - `vue`
 - `yaml`
 
