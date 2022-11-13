@@ -10,6 +10,7 @@ local function treesitter_new(theme, config)
         ["@attribute"] = { fg = theme.palette.purple }, -- (unstable)
         ["@boolean"] = { link = "Boolean" }, -- For booleans.
         ["@character"] = { link = "Character" }, -- For characters.
+        ["@character.special"] = { fg = theme.palette.purple }, -- For characters.
         ["@comment"] = { link = "Comment" }, -- For comment blocks.
         ["@conditional"] = { fg = theme.palette.purple, style = config.styles.conditionals }, -- For keywords related to conditionnals.
         ["@constant"] = { fg = theme.palette.orange, style = config.styles.constants }, -- For constants
@@ -21,6 +22,7 @@ local function treesitter_new(theme, config)
         ["@field"] = { fg = theme.palette.fg }, -- For fields (responsible for making YAML files look rubbish!)
         ["@float"] = { link = "Float" }, -- For floats.
         ["@function"] = { fg = theme.palette.blue, style = config.styles.functions }, -- For function (calls and definitions).
+        ["@function.call"] = { link = "@function" }, -- For function (calls and definitions).
         ["@function.builtin"] = { fg = theme.palette.yellow }, -- For builtin functions: `table.insert` in Lua.
         ["@function.macro"] = { fg = theme.palette.blue }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
         ["@include"] = { fg = theme.palette.purple }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
@@ -30,6 +32,7 @@ local function treesitter_new(theme, config)
         ["@keyword.return"] = { link = "@keyword" }, -- for the `return` and `yield` keywords.
         ["@label"] = { fg = theme.palette.purple }, -- For labels: `label:` in C and `:label:` in Lua.
         ["@method"] = { fg = theme.palette.blue }, -- For method calls and definitions.
+        ["@method.call"] = { link = "@method" }, -- For method calls and definitions.
         ["@namespace"] = { fg = theme.palette.yellow }, -- For identifiers referring to modules and namespaces.
         ["@number"] = { fg = theme.palette.orange, style = config.styles.numbers }, -- Numeric literals that don't fit into other categories.
         ["@operator"] = { fg = theme.palette.cyan, style = config.styles.operators }, -- For any operator: `+`, but also `->` and `*` in theme.config.
@@ -39,7 +42,7 @@ local function treesitter_new(theme, config)
         ["@punctuation.delimiter"] = { link = "Delimiter" }, -- For delimiters ie: `.`
         ["@punctuation.bracket"] = { fg = theme.palette.fg }, -- For brackets and parens.
         ["@punctuation.special"] = { fg = theme.palette.fg }, -- For special punctutation that does not fall in the categories before.
-        ["@repeat"] = { fg = theme.palette.purple }, -- For keywords related to loops.
+        ["@repeat"] = { link = "Repeat" }, -- For keywords related to loops.
         ["@string"] = { fg = theme.palette.green, style = config.styles.strings }, -- For strings.
         ["@string.regex"] = { fg = theme.palette.green, style = config.styles.strings }, -- For regexes.
         ["@string.escape"] = { fg = theme.palette.cyan, style = config.styles.strings }, -- For escape characters within a string.
@@ -80,6 +83,7 @@ local function treesitter_old(theme, config)
         TSAttribute = { fg = theme.palette.purple },
         TSBoolean = { link = "Boolean" },
         TSCharacter = { link = "Character" },
+        TSCharacterSpecial = { fg = theme.palette.purple },
         TSComment = { link = "Comment" },
         TSConditional = { fg = theme.palette.purple, style = config.styles.conditionals },
         TSConstant = { fg = theme.palette.orange, style = config.styles.constants },
@@ -91,6 +95,7 @@ local function treesitter_old(theme, config)
         TSField = { fg = theme.palette.fg },
         TSFloat = { link = "Float" },
         TSFunction = { fg = theme.palette.blue, style = config.styles.functions },
+        TSFunctionCall = { link = "TSFunction" },
         TSFuncBuiltin = { fg = theme.palette.yellow },
         TSFuncMacro = { fg = theme.palette.blue },
         TSInclude = { fg = theme.palette.purple },
@@ -100,6 +105,7 @@ local function treesitter_old(theme, config)
         TSKeywordReturn = { link = "TSKeyword" },
         TSLabel = { fg = theme.palette.purple },
         TSMethod = { fg = theme.palette.blue },
+        TSMethodCall = { link = "TSMethod" },
         TSNamespace = { fg = theme.palette.yellow },
         TSNumber = { fg = theme.palette.orange, style = config.styles.numbers },
         TSOperator = { fg = theme.palette.cyan, style = config.styles.operators },
@@ -109,7 +115,7 @@ local function treesitter_old(theme, config)
         TSPunctDelimiter = { link = "Delimiter" },
         TSPunctBracket = { fg = theme.palette.fg },
         TSPunctSpecial = { fg = theme.palette.fg },
-        TSRepeat = { fg = theme.palette.purple },
+        TSRepeat = { link = "Repeat" },
         TSString = { fg = theme.palette.green, style = config.styles.strings },
         TSStringRegex = { fg = theme.palette.green, style = config.styles.strings },
         TSStringEscape = { fg = theme.palette.cyan, style = config.styles.strings },
