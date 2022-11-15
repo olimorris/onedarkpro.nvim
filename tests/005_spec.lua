@@ -119,6 +119,7 @@ vim.api.nvim_set_hl(0, "@punctuation.delimiter.markdown_inline", { fg = "#d19a66
 vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#abb2bf" })
 vim.api.nvim_set_hl(0, "@punctuation.special.markdown", { fg = "#e06c75" })
 vim.api.nvim_set_hl(0, "@repeat", { link = "Repeat" })
+vim.api.nvim_set_hl(0, "@storageclass.rust", { link = "@keyword" })
 vim.api.nvim_set_hl(0, "@string", { fg = "#98c379" })
 vim.api.nvim_set_hl(0, "@string.escape", { fg = "#56b6c2" })
 vim.api.nvim_set_hl(0, "@string.regex", { fg = "#98c379" })
