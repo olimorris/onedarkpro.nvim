@@ -474,6 +474,7 @@ The colorscheme supports the following plugins:
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) (`nvim_cmp`)
+- [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf) (`nvim_bqf`)
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap) (`nvim_dap`)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) (`nvim_dap_ui`)
 - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) (`nvim_hlslens`)

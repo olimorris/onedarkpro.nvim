@@ -45,6 +45,7 @@ local defaults = {
         neotest = true,
         neo_tree = true,
         nvim_cmp = true,
+        nvim_bqf = true,
         nvim_dap = true,
         nvim_dap_ui = true,
         nvim_hlslens = true,
