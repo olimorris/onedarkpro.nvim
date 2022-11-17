@@ -15,6 +15,11 @@ local function get_theme(theme)
         theme = theme()
     end
 
+    local logger = require("onedarkpro.utils.logging")
+    if logger:has_level() then
+        logger.debug("Getting theme: " .. theme)
+    end
+
     if vim.tbl_contains(M.themes, theme) then
         return theme
     end

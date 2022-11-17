@@ -104,6 +104,10 @@ function Logger:set_level(level)
   )
 end
 
+function Logger:has_level()
+  return type(self._level) == "number"
+end
+
 -- function Logger:get_filename()
 --   return self._filename
 -- end
