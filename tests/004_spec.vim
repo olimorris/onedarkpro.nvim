@@ -8,20 +8,18 @@ set noswapfile
 set noundofile
 
 lua << EOF
-vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
-local palette = {
-    fg = '#abb2bf',
-    pmenu = '#333841',
-}
-local p = palette
 onedarkpro.setup({
-    theme = "onedark",
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
+    plugins = {
+        all = false,
+        treesitter = true,
+    },
+    colors = {
+      my_new_red = "#FF0000",
+    },
     highlights = {
-        Pmenu = { fg = p.fg, bg = p.pmenu },
-        NormalFloat = { link = 'Pmenu' },
-        Normal = { bg = p.pmenu },
-        ModeMsg = { bg = "${red}", blend = 100 }
+      OneDarkPro = { fg = "${my_new_red}" }
     },
 })
 vim.cmd [[colorscheme onedarkpro]]
