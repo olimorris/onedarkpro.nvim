@@ -1,28 +1,19 @@
 local M = {}
 
-local override = {}
 local caching = false
 local logger = require("onedarkpro.utils.logging")
 
-function override.colors(colors)
-    require("onedarkpro.override").colors = colors
-end
-
-function override.highlights(highlights)
-    require("onedarkpro.override").highlights = highlights
-end
-
-M.override = override
-
----Setup the theme via the default config or the users own
----@param opts table  User's config
+---Allow the user to override the default configuration
+---@param opts table  The user's config
 ---@return nil
 function M.setup(opts)
     opts = opts or {}
 
     local config = require("onedarkpro.config")
+    local override = require("onedarkpro.override")
 
     config.setup(opts)
+
     logger:set_level(config.config.log_level)
     logger.debug("Config: Start")
 
@@ -31,60 +22,29 @@ function M.setup(opts)
     end
 
     if opts.colors then
-        override.colors(opts.colors)
         logger.debug("Config: Overriding colors")
+        override.colors = opts.colors
     end
 
     if opts.highlights then
-        override.highlights(opts.highlights)
         logger.debug("Config: Overriding highlight groups")
+        override.highlights = opts.highlights
     end
 
-
-    require("onedarkpro.lib.deprecate").check(opts)
     logger.debug("Config: End", config.config)
 end
 
-local highlight = {}
-
-function highlight.editor(editor)
-    require("onedarkpro.highlight").editor = editor
-end
-
-function highlight.syntax(syntax)
-    require("onedarkpro.highlight").syntax = syntax
-end
-
-function highlight.filetypes(filetypes)
-    require("onedarkpro.highlight").filetypes = filetypes
-end
-
-function highlight.plugins(plugins)
-    require("onedarkpro.highlight").plugins = plugins
-end
-
-function highlight.apply(highlights, theme)
-    return require("onedarkpro.utils.variable").replace_vars(
-        vim.deepcopy(highlights),
-        require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
-    )
-end
-
-function highlight.custom(highlights)
-    require("onedarkpro.highlight").custom = highlights
-end
-
-M.highlight = highlight
-
 ---Load the theme
----@param cache_loaded? boolean  a flag for if theme was loaded from the cache
+---@param cache_loaded? boolean  Has the theme already been loaded from the cache?
 ---@return nil
 function M.load(cache_loaded)
+    -- TODO: Pass the theme from the config to the theme.load function
     local theme = require("onedarkpro.theme").load()
-    local config = require("onedarkpro.config").init()
+    local config = require("onedarkpro.config").init() -- If the setup function is bypassed, this loads the default config
 
     local cache = require("onedarkpro.lib.cache")
-    local override_mod = require("onedarkpro.override")
+    local override = require("onedarkpro.override")
+    local highlights = require("onedarkpro.highlight")
 
     logger:set_level(config.log_level)
     logger.debug("Begin theme load:", theme)
@@ -100,13 +60,16 @@ function M.load(cache_loaded)
         vim.notify("[OneDarkPro.nvim] Could not load from cache. It might be corrupted", vim.log.levels.WARN)
     end
 
-    highlight.editor(require("onedarkpro.highlights.editor").groups(theme, config))
-    highlight.syntax(require("onedarkpro.highlights.syntax").groups(theme, config))
-    highlight.filetypes(require("onedarkpro.highlights.filetype").groups(theme, config))
-    highlight.plugins(require("onedarkpro.highlights.plugin").groups(theme, config))
+    highlights.editor = require("onedarkpro.highlights.editor").groups(theme, config)
+    highlights.syntax = require("onedarkpro.highlights.syntax").groups(theme, config)
+    highlights.filetypes = require("onedarkpro.highlights.filetype").groups(theme, config)
+    highlights.plugins = require("onedarkpro.highlights.plugin").groups(theme, config)
 
-    if override_mod.highlights then
-        highlight.custom(highlight.apply(override_mod.highlights, theme))
+    if override.highlights then
+        highlights.custom = require("onedarkpro.utils.variable").replace_vars(
+            vim.deepcopy(override.highlights),
+            require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
+        )
     end
 
     require("onedarkpro.main").load(theme, config)
