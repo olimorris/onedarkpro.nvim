@@ -24,25 +24,25 @@ function M.setup(opts)
 
     config.setup(opts)
     logger:set_level(config.config.log_level)
-    logger.debug("Setting configuration")
+    logger.debug("Config: Start")
 
     if opts.caching then
         caching = true
     end
 
     if opts.colors then
-        logger.debug("Overriding colors")
         override.colors(opts.colors)
+        logger.debug("Config: Overriding colors")
     end
 
     if opts.highlights then
-        logger.debug("Overriding highlight groups")
         override.highlights(opts.highlights)
+        logger.debug("Config: Overriding highlight groups")
     end
 
-    logger.debug("Configuration set:", config.config)
 
     require("onedarkpro.lib.deprecate").check(opts)
+    logger.debug("Config: End", config.config)
 end
 
 local highlight = {}

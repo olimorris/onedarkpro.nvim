@@ -2,7 +2,7 @@ local logger = require("onedarkpro.utils.logging")
 
 local M = {}
 
----Clear highlights and set the syntax
+---Commands to run to setup Neovim before applying highlights
 ---@return nil
 local function setup_neovim()
     logger.debug("Clear highlights and set termguicolors")
@@ -21,13 +21,17 @@ local function set_highlights()
     local groups = require("onedarkpro.highlight")
     local highlights = require("onedarkpro.lib.highlight")
 
-    logger.debug("Set highlights")
+    logger.debug("Set editor highlights")
     highlights.create(groups.editor)
+    logger.debug("Set syntax highlights")
     highlights.create(groups.syntax)
+    logger.debug("Set filetype highlights")
     highlights.create(groups.filetypes)
+    logger.debug("Set plugin highlights")
     highlights.create(groups.plugins)
 
     if next(groups.custom) ~= nil then
+        logger.debug("Set custom highlights")
         highlights.create(groups.custom)
     end
 end
@@ -36,6 +40,8 @@ end
 ---@param theme table
 ---@return nil
 local function set_terminal_colors(theme)
+    logger.debug("Set terminal colors")
+
     vim.g.terminal_color_0 = theme.palette.black
     vim.g.terminal_color_1 = theme.palette.red
     vim.g.terminal_color_2 = theme.palette.green
@@ -72,20 +78,23 @@ end
 ---Used when the `window_unfocused_color` option is enabled, to apply inactive styles to areas such as the gutter
 ---@return nil
 local function add_unfocused_window_autocmds()
+    logger.debug("Setting autocommands")
+
     local NCHighlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC"
     local QuickFixNCHighlights =
         "CursorLineNr:CursorLineNrNCQuickFix,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC,QuickFixLine:QuickFixLineNC"
-    local OneDarkPro_HighlightNC = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
+
+    local group = vim.api.nvim_create_augroup("OneDarkPro_HighlightGutterNC", { clear = true })
 
     vim.api.nvim_create_autocmd("WinLeave", {
-        group = OneDarkPro_HighlightNC,
+        group = group,
         callback = function()
             local highlights = vim.bo.filetype == "qf" and QuickFixNCHighlights or NCHighlights
             vim.cmd("set winhighlight+=" .. highlights)
         end,
     })
     vim.api.nvim_create_autocmd("WinEnter", {
-        group = OneDarkPro_HighlightNC,
+        group = group,
         callback = function()
             local highlights = vim.bo.filetype == "qf" and QuickFixNCHighlights or NCHighlights
             vim.cmd("set winhighlight-=" .. highlights)
