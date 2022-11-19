@@ -80,7 +80,14 @@ function M.neovim_hl(highlights, ns_id, cached_output)
                     string.format([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(values))
                 )
             else
-                vim.api.nvim_set_hl(ns_id, name, values)
+                local ok = pcall(vim.api.nvim_set_hl, ns_id, name, values)
+                if not ok then
+                    vim.notify(
+                        "[OneDarkPro.nvim] Error setting the '" .. name .. "' highlight group",
+                        vim.log.levels.WARN
+                    )
+                    logger.debug("HIGHLIGHTS: Could not set " .. name)
+                end
             end
         end
     end
