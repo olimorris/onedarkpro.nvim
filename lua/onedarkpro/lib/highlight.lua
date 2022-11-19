@@ -1,5 +1,4 @@
 local M = {}
-local fmt = string.format
 
 ---Validate the value from the opts table
 ---@param input string
@@ -39,11 +38,11 @@ local function expand_values(tbl)
     local values = {}
     for k, v in pairs(tbl) do
         local q = type(v) == "string" and [["]] or ""
-        table.insert(values, fmt([[%s = %s%s%s]], k, q, v, q))
+        table.insert(values, string.format([[%s = %s%s%s]], k, q, v, q))
     end
 
     table.sort(values)
-    return fmt([[{ %s }]], table.concat(values, ", "))
+    return string.format([[{ %s }]], table.concat(values, ", "))
 end
 
 ---Create highlights the new Neovim way
@@ -57,7 +56,10 @@ function M.neovim_hl(highlights, ns_id, cached_output)
     for name, opts in pairs(highlights) do
         if valid_link(opts.link) then
             if type(cached_output) == "table" then
-                table.insert(cached_output, fmt([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, opts.link))
+                table.insert(
+                    cached_output,
+                    string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, opts.link)
+                )
             else
                 vim.api.nvim_set_hl(0, name, {
                     link = opts.link,
@@ -71,7 +73,10 @@ function M.neovim_hl(highlights, ns_id, cached_output)
             values.blend = opts.blend
 
             if type(cached_output) == "table" then
-                table.insert(cached_output, fmt([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(values)))
+                table.insert(
+                    cached_output,
+                    string.format([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(values))
+                )
             else
                 vim.api.nvim_set_hl(ns_id, name, values)
             end
@@ -90,15 +95,15 @@ end
 function M.vim_hl(highlights, cached_output)
     for name, opts in pairs(highlights) do
         if valid_link(opts.link) then
-            local link_output = fmt("highlight! link %s %s", name, opts.link)
+            local link_output = string.format("highlight! link %s %s", name, opts.link)
 
             if type(cached_output) == "table" then
-                table.insert(cached_output, "vim.cmd(\"" .. link_output .. "\")")
+                table.insert(cached_output, 'vim.cmd("' .. link_output .. '")')
             else
                 vim.cmd(link_output)
             end
         else
-            local group_output = fmt(
+            local group_output = string.format(
                 "highlight %s guifg=%s guibg=%s gui=%s guisp=%s blend=%s",
                 name,
                 validate(opts.fg),
@@ -109,7 +114,7 @@ function M.vim_hl(highlights, cached_output)
             )
 
             if type(cached_output) == "table" then
-                table.insert(cached_output, "vim.cmd(\"" .. group_output .. "\")")
+                table.insert(cached_output, 'vim.cmd("' .. group_output .. '")')
             else
                 vim.cmd(group_output)
             end
