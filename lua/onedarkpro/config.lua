@@ -1,5 +1,5 @@
-local utils = require("onedarkpro.utils.collect")
 local M = {}
+M.user_opts = {}
 
 -- Default options for the theme
 local defaults = {
@@ -91,17 +91,14 @@ local defaults = {
 }
 
 ---Set the theme's options
+---@param opts table
 ---@return table
 local function set_options(opts)
-    if not opts then
-        opts = defaults
-    end
-
     if opts.cursorline then
         vim.wo.cursorline = true
     end
 
-    M.config.options = {
+    return {
         none = "NONE",
         bold = opts.bold and "bold" or "NONE",
         italic = opts.italic and "italic" or "NONE",
@@ -114,61 +111,45 @@ local function set_options(opts)
         terminal_colors = opts.terminal_colors,
         window_unfocused_color = opts.window_unfocused_color,
     }
-
-    return M.config.options
 end
 
----Load files based on the user's config
+---Determine the filetypes or plugins that should be loaded
 ---@param files table
----@param user_config table
----@return nil
-local function load_files(files, user_config)
+---@param override table
+---@return table
+local function load_files(files, override)
     for file, _ in pairs(files) do
-        if user_config["all"] == false then
+        if override["all"] == false then
             files[file] = false
         end
-        if user_config[file] then
-            files[file] = user_config[file]
+        if override[file] then
+            files[file] = override[file]
         end
     end
+
+    return files
 end
 
-M.config = vim.deepcopy(defaults)
-
----Apply the users custom config on top of the default
----@param opts table
----@return nil
-function M.setup(opts)
-    opts = opts or {}
-    M.config = utils.deep_extend(defaults, opts)
+---Setup the theme's as per the configuration
+---@return table
+function M.setup()
+    local utils = require("onedarkpro.utils.collect")
     local logger = require("onedarkpro.utils.logging")
 
-    set_options(M.config.options)
+    M.config = utils.deep_extend(vim.deepcopy(defaults), M.user_opts)
 
-    if opts.filetypes then
-        load_files(M.config.filetypes, opts.filetypes)
-    end
+    M.config.options = set_options(M.config.options)
     logger.debug("CONFIG: Set options")
 
-    if opts.plugins then
-        load_files(M.config.plugins, opts.plugins)
+    if M.user_opts.filetypes then
+        M.config.filetypes = load_files(M.config.filetypes, M.user_opts.filetypes)
         logger.debug("CONFIG: Set filetypes")
     end
 
-    vim.g.onedarkpro_config_set = true
-end
-
----A user may load the colorscheme without the setup function. This ensures that
----any options (which are essential to filetype highlights) are set and also
----returns the default configuration as a table for later consumption
----@return table
-function M.init()
-    if vim.g.onedarkpro_config_set then
-        return M.config
+    if M.user_opts.plugins then
+        M.config.plugins = load_files(M.config.plugins, M.user_opts.plugins)
+        logger.debug("CONFIG: Set plugins")
     end
-
-    set_options(M.config.options)
-    vim.g.onedarkpro_config_set = true
 
     return M.config
 end

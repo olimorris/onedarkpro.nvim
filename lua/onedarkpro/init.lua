@@ -1,6 +1,8 @@
 local M = {}
 
-local caching = false
+local config = require("onedarkpro.config")
+local override = require("onedarkpro.override")
+
 vim.g.onedarkpro_log_level = "error"
 local logger = require("onedarkpro.utils.logging")
 
@@ -9,15 +11,8 @@ local logger = require("onedarkpro.utils.logging")
 ---@return nil
 function M.setup(opts)
     opts = opts or {}
+    config.user_opts = opts
 
-    local config = require("onedarkpro.config")
-    local override = require("onedarkpro.override")
-
-    config.setup(opts)
-
-
-    if opts.caching then
-        caching = true
     -- Set the log level based on the deprecated config option
     if opts.log_level then
         vim.g.onedarkpro_log_level = opts.log_level
@@ -25,6 +20,7 @@ function M.setup(opts)
 
     logger:set_level(vim.g.onedarkpro_log_level)
     logger.debug("CONFIG: Start")
+
     if opts.colors then
         logger.debug("CONFIG: Overriding colors")
         override.colors = opts.colors
@@ -34,26 +30,24 @@ function M.setup(opts)
         logger.debug("CONFIG: Overriding highlight groups")
         override.highlights = opts.highlights
     end
-
 end
 
 ---Load the theme
 ---@param cache_loaded? boolean  Has the theme already been loaded from the cache?
 ---@return nil
 function M.load(cache_loaded)
-    -- TODO: Pass the theme from the config to the theme.load function
-    local theme = require("onedarkpro.theme").load()
-    local config = require("onedarkpro.config").init() -- If the setup function is bypassed, this loads the default config
     logger:set_level(vim.g.onedarkpro_log_level)
 
+    local config = config.setup()
     logger.debug("CONFIG:", config)
+
+    local theme = require("onedarkpro.theme").load(config.theme)
     logger.debug("THEME:", theme)
+
     local cache = require("onedarkpro.lib.cache")
-    local override = require("onedarkpro.override")
     local highlights = require("onedarkpro.highlight")
 
-
-    if caching and cache.exists(theme.meta.name) and not cache_loaded then
+    if config.caching and cache.exists(theme.meta.name) and not cache_loaded then
         local ok, loaded_cache = pcall(cache.load, theme, config)
         if ok then
             logger.debug("CACHE: Completed load")
@@ -61,7 +55,10 @@ function M.load(cache_loaded)
         end
 
         logger.debug("CACHE: Could not be loaded", loaded_cache)
-        vim.notify("[OneDarkPro.nvim] Could not load from cache. It might be corrupted", vim.log.levels.WARN)
+        vim.notify(
+            "[OneDarkPro.nvim] Could not load from the cache. It may be corrupted. Please generate the cache again",
+            vim.log.levels.WARN
+        )
     end
 
     highlights.editor = require("onedarkpro.highlights.editor").groups(theme, config)
@@ -79,7 +76,7 @@ function M.load(cache_loaded)
     require("onedarkpro.main").load(theme, config)
 
     -- If a user has set caching to be true but doesn't yet have a cache file, create one
-    if caching and not cache.exists(theme.meta.name) then
+    if config.caching and not cache.exists(theme.meta.name) then
         logger.debug("CACHE: Automatically create the cache file")
         return cache.generate()
     end
