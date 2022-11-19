@@ -1,6 +1,11 @@
 local util = require("plenary.async.util")
-
 local async = require("plenary.async.tests")
+
+local hex = function(n)
+    if n then
+        return string.format("#%06x", n)
+    end
+end
 
 describe("Using the cache", function()
     async.before_each(function()
