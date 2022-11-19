@@ -17,10 +17,10 @@
 </p>
 
 <div align="center">
-  <h3>onedark</h3><img src="https://user-images.githubusercontent.com/9512444/197142107-e7ae293b-1afa-499d-87c9-71531eb59930.png" alt="onedark" />
-  <h3>onelight</h3><img src="https://user-images.githubusercontent.com/9512444/197142172-3466567e-650c-4ffa-af0d-50d29a789575.png" alt="onelight" />
-  <h3>onedark_vivid</h3><img src="https://user-images.githubusercontent.com/9512444/197142228-3baacc62-dc43-4600-8c4f-224639e1e635.png" alt="onedark vivid" />
-  <h3>onedark_dark</h3><img src="https://user-images.githubusercontent.com/9512444/197142302-e1de9d96-7e7e-474b-a318-870417e2741b.png" alt="onedark dark" />
+  <h3>Onedark</h3><img src="https://user-images.githubusercontent.com/9512444/197142107-e7ae293b-1afa-499d-87c9-71531eb59930.png" alt="onedark" />
+  <h3>Onelight</h3><img src="https://user-images.githubusercontent.com/9512444/197142172-3466567e-650c-4ffa-af0d-50d29a789575.png" alt="onelight" />
+  <h3>Onedark Vivid</h3><img src="https://user-images.githubusercontent.com/9512444/197142228-3baacc62-dc43-4600-8c4f-224639e1e635.png" alt="onedark vivid" />
+  <h3>Onedark Dark</h3><img src="https://user-images.githubusercontent.com/9512444/197142302-e1de9d96-7e7e-474b-a318-870417e2741b.png" alt="onedark dark" />
 </div>
 
 ## :book: Table of Contents
@@ -47,9 +47,10 @@
 
 ## :sparkles: Features
 
-- Filetype highlights
-- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- Filetype highlighting to match the original VS Code theme
 - Support for many [popular plugins](#electric_plug-supported-plugins)
+- Apply styles to `types`, `keywords` and `function` highlight groups
 - Override everything! Default styles, colors, highlight groups and filetype groups
 - Create custom highlight groups and even highlight groups by filetypes
 - Cache your configuration to improve startup times
@@ -84,7 +85,7 @@ vim.cmd("colorscheme onedarkpro")  -- Lua
 colorscheme onedarkpro             " Vimscript
 ```
 
-Other useful commands:
+Additional commands:
 
 - `:OnedarkproCache` generates a fresh cache file for the current colorscheme
 - `:OnedarkproClean` will remove the cache file from disk for the current colorscheme
@@ -165,16 +166,14 @@ A default theme can be set with:
 theme = "onedark_vivid",
 ```
 
-If no value is specified, the colorscheme will use the value of the `dark_theme` and/or `light_theme` config option; with
-`vim.o.background` being used to determine whether to use the dark or light theme:
+If no value is specified, the colorscheme will use the value of the `dark_theme` and/or `light_theme` config option; with `vim.o.background` being used to determine whether to use the dark or light theme:
 
 ```lua
 dark_theme = "onedark_dark",
 light_theme = "onelight",
 ```
 
-For users who wish to have a light theme during daylight hours and a dark theme during the night, it is recommended to
-_not_ set a value for `theme` and instead use the `dark_theme` and `light_theme` options.
+For users who wish to have a light theme during daylight hours and a dark theme during the night, it is recommended to _not_ set a value for `theme` and instead use the `dark_theme` and `light_theme` options.
 
 ### Configuring colors
 
@@ -293,8 +292,7 @@ filetypes = {
 
 #### Adding or modifying filetype highlights
 
-It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by
-adding them as custom highlight groups in the colorscheme:
+It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the colorscheme:
 
 ```lua
 highlights = {
@@ -304,8 +302,7 @@ highlights = {
 
 In the example above, we have set the `field` treesitter highlight group to be blue, but only when the filetype is `yaml`. More information can be found via `:h treesitter-highlight-groups`.
 
-To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on
-using Treesitter Playground.
+To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
 > **Note:** The colorscheme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
@@ -427,10 +424,9 @@ options = {
 
 ### Configuring caching
 
-To enable a faster load time, the colorscheme supports caching. This works by caching highlight groups to disk instead
-of processing them when Neovim starts. Initial testing suggests you may see a 3x improvement in the colorscheme's boot time if you have a complex configuration.
+To enable a faster load time, the colorscheme supports caching. This works by caching highlight groups to disk instead of setting them when Neovim starts. Initial testing suggests you may see a 3x improvement in the colorscheme's boot time if you have a complex configuration. If you load all filetypes and plugins, you'll likely see a greater impact.
 
-Note that with caching enabled, if you change your theme config (e.g., custom highlights), you must reload your updated config and then regenerate the cache before your change will take effect.
+> **Note:** With caching enabled, if you change your theme config you will not see the effect of the new changes unless you re-generate the cache.
 
 To enable caching:
 
@@ -440,16 +436,9 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note:** The default path to the cache is `~/.cache/nvim/onedarkpro/`. This can be changed with the `cache_path`
-> config variable
-
 #### Generating a cache
 
-A cache can be generated by running `:OnedarkproCache`. The colorscheme will then detect if a cache is present when
-Neovim starts.
-
-> **Note:** The cache will be automatically generated if `caching = true` and no cache file is present; but it will not
-> regenerate automatically
+A cache can be generated by running `:OnedarkproCache`. The colorscheme will then detect if a cache is present when Neovim starts.
 
 To automatically re-generate the cache, an autocommand unique to your configuration should be used.
 
@@ -516,8 +505,7 @@ The colorscheme supports the following plugins:
 
 ### Lualine
 
-The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine
-folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
+The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
 
 ### Terminal themes
 
@@ -572,12 +560,11 @@ If you're using Treesitter then install [Playground](https://github.com/nvim-tre
 
 #### I want to automatically generate the cache file. How do I do it?
 
-This can be achieved by creating a `ColorScheme` autocommand that runs the `:OnedarkproCache` command. The author uses
-this to automatically generate a new cache file when a new theme is toggled.
+This can be achieved by creating an autocommand that runs the `:OnedarkproCache` command. This will be dependant on how you have setup your Neovim config.
 
-#### Something in my config isn't working but when I run Neovim with the `minimal.lua` file, everything works. How can I debug it?
+#### Something in my config isn't working. How can I debug it?
 
-You can set `vim.g.onedarkpro_log_level = "debug"` before the color scheme loads and view the output logs at `~/.local/state/nvim/onedarkpro.log`. Chances are there is something conflicting with your configuration or a plugin is loading before the colorscheme has.
+You can set `vim.g.onedarkpro_log_level = "debug"` before the colorscheme loads and view the output logs at `~/.local/state/nvim/onedarkpro.log`. Chances are there is something conflicting with your configuration or a plugin is loading before the colorscheme has.
 
 ## :clap: Credits
 
@@ -593,5 +580,5 @@ Thanks to the following contributors for their work on the colorscheme:
 The following colorschemes were used as an inspiration:
 
 - [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this colorscheme
-- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the beautiful code base and structure
+- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the initial structure of the code base
 - [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration
