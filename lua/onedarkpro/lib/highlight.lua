@@ -1,3 +1,5 @@
+local logger = require("onedarkpro.utils.logging")
+
 local M = {}
 
 ---Validate the value from the opts table

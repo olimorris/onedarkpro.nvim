@@ -88,8 +88,6 @@ local defaults = {
         terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
         window_unfocused_color = false, -- When the window is out of focus, change the normal background?
     },
-    log_level = "error", -- The log level: "trace", "debug", "info", "warn", "error"
-    mute_deprecations = false, -- Don't show deprecation warnings for the *older* filetype highlights
 }
 
 ---Set the theme's options
@@ -143,15 +141,18 @@ M.config = vim.deepcopy(defaults)
 function M.setup(opts)
     opts = opts or {}
     M.config = utils.deep_extend(defaults, opts)
+    local logger = require("onedarkpro.utils.logging")
 
     set_options(M.config.options)
 
     if opts.filetypes then
         load_files(M.config.filetypes, opts.filetypes)
     end
+    logger.debug("CONFIG: Set options")
 
     if opts.plugins then
         load_files(M.config.plugins, opts.plugins)
+        logger.debug("CONFIG: Set filetypes")
     end
 
     vim.g.onedarkpro_config_set = true

@@ -1,6 +1,7 @@
 local M = {}
 
 local caching = false
+vim.g.onedarkpro_log_level = "error"
 local logger = require("onedarkpro.utils.logging")
 
 ---Allow the user to override the default configuration
@@ -14,24 +15,26 @@ function M.setup(opts)
 
     config.setup(opts)
 
-    logger:set_level(config.config.log_level)
-    logger.debug("Config: Start")
 
     if opts.caching then
         caching = true
+    -- Set the log level based on the deprecated config option
+    if opts.log_level then
+        vim.g.onedarkpro_log_level = opts.log_level
     end
 
+    logger:set_level(vim.g.onedarkpro_log_level)
+    logger.debug("CONFIG: Start")
     if opts.colors then
-        logger.debug("Config: Overriding colors")
+        logger.debug("CONFIG: Overriding colors")
         override.colors = opts.colors
     end
 
     if opts.highlights then
-        logger.debug("Config: Overriding highlight groups")
+        logger.debug("CONFIG: Overriding highlight groups")
         override.highlights = opts.highlights
     end
 
-    logger.debug("Config: End", config.config)
 end
 
 ---Load the theme
@@ -41,13 +44,14 @@ function M.load(cache_loaded)
     -- TODO: Pass the theme from the config to the theme.load function
     local theme = require("onedarkpro.theme").load()
     local config = require("onedarkpro.config").init() -- If the setup function is bypassed, this loads the default config
+    logger:set_level(vim.g.onedarkpro_log_level)
 
+    logger.debug("CONFIG:", config)
+    logger.debug("THEME:", theme)
     local cache = require("onedarkpro.lib.cache")
     local override = require("onedarkpro.override")
     local highlights = require("onedarkpro.highlight")
 
-    logger:set_level(config.log_level)
-    logger.debug("Begin theme load:", theme)
 
     if caching and cache.exists(theme.meta.name) and not cache_loaded then
         local ok, loaded_cache = pcall(cache.load, theme, config)

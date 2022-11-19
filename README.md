@@ -575,6 +575,10 @@ If you're using Treesitter then install [Playground](https://github.com/nvim-tre
 This can be achieved by creating a `ColorScheme` autocommand that runs the `:OnedarkproCache` command. The author uses
 this to automatically generate a new cache file when a new theme is toggled.
 
+#### Something in my config isn't working but when I run Neovim with the `minimal.lua` file, everything works. How can I debug it?
+
+You can set `vim.g.onedarkpro_log_level = "debug"` before the color scheme loads and view the output logs at `~/.local/state/nvim/onedarkpro.log`. Chances are there is something conflicting with your configuration or a plugin is loading before the colorscheme has.
+
 ## :clap: Credits
 
 ### Contributors

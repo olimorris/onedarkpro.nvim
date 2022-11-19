@@ -1,6 +1,5 @@
 -- Taken from the excellent:
 -- https://github.com/nvim-neotest/neotest/blob/master/lua/neotest/logging.lua
-local config = require("onedarkpro.config").config
 local loggers = {}
 local log_date_format = "%FT%H:%M:%SZ%z"
 
@@ -41,7 +40,7 @@ function Logger.new(filename, opts)
     return table.concat(vim.tbl_flatten({ ... }), path_sep)
   end
 
-  logger._level = opts.level or config.log_level
+  logger._level = opts.level or vim.g.onedarkpro_log_level
   local ok, logpath = pcall(vim.fn.stdpath, "log")
   if not ok then
     logpath = vim.fn.stdpath("cache")

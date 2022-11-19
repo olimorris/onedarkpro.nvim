@@ -21,17 +21,17 @@ local function set_highlights()
     local groups = require("onedarkpro.highlight")
     local highlights = require("onedarkpro.lib.highlight")
 
-    logger.debug("Set editor highlights")
+    logger.debug("HIGHLIGHTS: Set editor highlights")
     highlights.create(groups.editor)
-    logger.debug("Set syntax highlights")
+    logger.debug("HIGHLIGHTS: Set syntax highlights")
     highlights.create(groups.syntax)
-    logger.debug("Set filetype highlights")
+    logger.debug("HIGHLIGHTS: Set filetype highlights")
     highlights.create(groups.filetypes)
-    logger.debug("Set plugin highlights")
+    logger.debug("HIGHLIGHTS: Set plugin highlights")
     highlights.create(groups.plugins)
 
     if next(groups.custom) ~= nil then
-        logger.debug("Set custom highlights")
+        logger.debug("HIGHLIGHTS: Set custom highlights")
         highlights.create(groups.custom)
     end
 end
@@ -40,7 +40,7 @@ end
 ---@param theme table
 ---@return nil
 local function set_terminal_colors(theme)
-    logger.debug("Set terminal colors")
+    logger.debug("HIGHLIGHTS: Set terminal colors")
 
     vim.g.terminal_color_0 = theme.palette.black
     vim.g.terminal_color_1 = theme.palette.red
@@ -109,7 +109,7 @@ end
 function M.load(theme, config)
     -- Prevent double loading of the theme
     if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_theme == theme.meta.name then
-        logger.debug("Loading complete")
+        logger.debug("Theme already loaded!")
         return
     end
 
@@ -128,7 +128,7 @@ function M.load(theme, config)
         add_unfocused_window_autocmds()
     end
 
-    logger.debug("Loading complete")
+    logger.debug("Theme loaded!")
 end
 
 return M
