@@ -26,7 +26,7 @@ end
 ---@param theme? string (optional)
 ---@return table
 function M.load(theme)
-    theme = get_theme(theme or require("onedarkpro.config").config.theme)
+    theme = get_theme(theme or require("onedarkpro.config").theme)
     theme = require("onedarkpro.themes." .. theme)
 
     if require("onedarkpro.override").has_override then
