@@ -83,7 +83,7 @@ function M.load(cache_loaded)
 end
 
 ---Get the color palette for a specific theme
----@param theme_name string
+---@param theme_name? string
 ---@return table
 function M.get_colors(theme_name)
     if vim.g.onedarkpro_colors then
