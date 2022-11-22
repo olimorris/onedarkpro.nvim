@@ -2,9 +2,8 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
         StartifyBracket = { fg = theme.palette.fg },
         StartifyFile = { fg = theme.palette.purple },

@@ -3,15 +3,15 @@ NV_VERSION := $(shell nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 all: test
 
 test:
-	nvim --headless --noplugin -u tests/001_spec.vim +Test1
-	nvim --headless --noplugin -u tests/002_spec.vim +Test2
-	nvim --headless --noplugin -u tests/003_spec.vim +Test3
-	nvim --headless --noplugin -u tests/005_spec.vim +Test5
+	nvim --headless --noplugin -u tests/basic_spec.vim +BasicSpec
+	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec
+	nvim --headless --noplugin -u tests/link_groups_spec.vim +LinkGroupsSpec
+	nvim --headless --noplugin -u tests/source_spec.vim +SourceSpec
 ifeq ($(NV_VERSION), 0.8)
-	nvim --headless --noplugin -u tests/004_spec.vim +Test4
-	nvim --headless --noplugin -u tests/006_spec.vim +Test6
+	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
+	nvim --headless --noplugin -u tests/load_files_spec.vim +LoadFilesSpec
 endif
 ifeq ($(NV_VERSION), 0.9)
-	nvim --headless --noplugin -u tests/004_spec.vim +Test4
-	nvim --headless --noplugin -u tests/006_spec.vim +Test6
+	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
+	nvim --headless --noplugin -u tests/load_files_spec.vim +LoadFilesSpec
 endif

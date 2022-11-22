@@ -10,14 +10,21 @@ set noundofile
 lua << EOF
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
     plugins = {
         all = false,
         treesitter = true,
     },
+    colors = {
+      my_new_red = "#FF0000",
+    },
+    highlights = {
+      OneDarkPro = { fg = "${my_new_red}" }
+    },
 })
-vim.cmd [[colorscheme onedarkpro]]
+vim.cmd [[colorscheme onedark]]
 EOF
 
 runtime plugin/plenary.vim
-command Test5 PlenaryBustedFile tests/005_spec.lua
+command CacheSpec PlenaryBustedFile tests/cache_spec.lua
 

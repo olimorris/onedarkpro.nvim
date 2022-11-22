@@ -1,11 +1,11 @@
 local M = {}
 
 ---Get the highlight groups for the editor
----@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups()
     local color = require("onedarkpro.lib.color")
+    local theme = require("onedarkpro.theme").theme
+    local config = require("onedarkpro.config").options
 
     return {
         ColorColumn = { bg = theme.generated.color_column }, -- used for the columns set with 'colorcolumn'

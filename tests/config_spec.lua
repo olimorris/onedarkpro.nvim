@@ -6,23 +6,11 @@ end
 
 local utils = require("onedarkpro.utils")
 
-local function parse_style(style)
-    if not style or style == "NONE" then
-        return {}
-    end
-
-    local result = {}
-    for token in string.gmatch(style, "([^,]+)") do
-        result[token] = true
-    end
-
-    return result
-end
-
 describe("Using the theme", function()
     before_each(function()
+        -- Ensure that when we've switched to the light theme, we turn it back to dark
+        vim.cmd([[colorscheme onedark_vivid]])
         vim.cmd(":e tests/stubs/test.txt")
-        vim.o.background = "dark"
     end)
 
     it("Neovim should open with no errors", function()
@@ -89,12 +77,12 @@ describe("Using the theme", function()
     it("it should only apply highlights for plugins we have enabled", function()
         -- Treesitter groups should be loaded
         local ts_group = utils.has_nvim_08 and "@annotation" or "TSAnnotation"
-        output = vim.api.nvim_get_hl_by_name(ts_group, true)
+        local output = vim.api.nvim_get_hl_by_name(ts_group, true)
 
         assert.equals("#e06c75", hex(output.foreground))
 
         -- Do not set Aerial's highlight groups
-        local output = pcall(vim.api.nvim_exec, "hi AerialClass", true)
+        output = pcall(vim.api.nvim_exec, "hi AerialClass", true)
         assert.equals(false, output)
     end)
 
@@ -111,7 +99,7 @@ describe("Using the theme", function()
     it("it changes the theme when the background changes", function()
         assert.equals("onedark_vivid", vim.g.onedarkpro_theme)
 
-        vim.o.background = "light"
+        vim.cmd([[colorscheme onelight]])
         assert.equals("onelight", vim.g.onedarkpro_theme)
     end)
 
@@ -119,8 +107,8 @@ describe("Using the theme", function()
         local output = vim.api.nvim_exec("hi Normal", true)
         assert.equals("Normal         xxx guifg=#abb2bf guibg=#282c34", output)
 
-        vim.o.background = "light"
-        local output = vim.api.nvim_exec("hi Normal", true)
+        vim.cmd([[colorscheme onelight]])
+        output = vim.api.nvim_exec("hi Normal", true)
         assert.equals("Normal         xxx guifg=#6a6a6a guibg=#fafafa", output)
     end)
 
@@ -128,8 +116,8 @@ describe("Using the theme", function()
         local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
         assert.equals("#e06c75", hex(output.foreground))
 
-        vim.o.background = "light"
-        local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
+        vim.cmd([[colorscheme onelight]])
+        output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
         assert.equals("#e05661", hex(output.foreground))
     end)
 end)

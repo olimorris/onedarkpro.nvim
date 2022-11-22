@@ -8,19 +8,25 @@ set noswapfile
 set noundofile
 
 lua << EOF
+vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
+local palette = {
+    fg = '#abb2bf',
+    pmenu = '#333841',
+}
+local p = palette
 onedarkpro.setup({
-    filetypes = {
-        ruby = false
-    },
-    plugins = {
-        all = false,
-        treesitter = true,
+    theme = "onedark",
+    highlights = {
+        Pmenu = { fg = p.fg, bg = p.pmenu },
+        NormalFloat = { link = 'Pmenu' },
+        Normal = { bg = p.pmenu },
+        ModeMsg = { bg = "${red}", blend = 100 }
     },
 })
 vim.cmd [[colorscheme onedarkpro]]
 EOF
 
 runtime plugin/plenary.vim
-command Test6 PlenaryBustedFile tests/006_spec.lua
+command LinkGroupsSpec PlenaryBustedFile tests/link_groups_spec.lua
 

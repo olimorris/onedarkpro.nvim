@@ -2,9 +2,8 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     -- https://github.com/ggandor/leap.nvim/blob/a9d3232b178fddabb6660dc19abf40e05d6841b0/doc/leap.txt#L344-L386
     return {
         LeapMatch = { bg = theme.palette.purple, fg = theme.palette.bg },

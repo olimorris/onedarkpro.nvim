@@ -2,12 +2,12 @@ local M = {}
 
 ---Get the highlight groups for filetype highlights
 ---@param theme table
----@param config table
 ---@return table|nil
-function M.groups(theme, config)
+function M.groups(theme)
     if not require("onedarkpro.utils").has_nvim_08 then
         return
     end
+    local config = require("onedarkpro.config").options
 
     local groups = {}
     local filetypes = config.filetypes
@@ -16,7 +16,7 @@ function M.groups(theme, config)
         if filetype == "all" then
             return
         end
-        groups = vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.filetypes." .. filetype).groups(theme, config))
+        groups = vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.filetypes." .. filetype).groups(theme))
     end
 
     for filetype, load in pairs(filetypes) do

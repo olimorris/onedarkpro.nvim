@@ -1,18 +1,6 @@
-local M = {}
-M.user_opts = {}
+local M = { theme = "onedark", is_setup = false }
 
--- Default options for the theme
 local defaults = {
-    dark_theme = "onedark", -- The default dark theme
-    light_theme = "onelight", -- The default light theme
-    theme = function()
-        if vim.o.background == "dark" then
-            return M.config.dark_theme
-        else
-            return M.config.light_theme
-        end
-    end,
-    caching = false, -- Use caching for the theme?
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
@@ -90,15 +78,16 @@ local defaults = {
     },
 }
 
+M.options = vim.deepcopy(defaults)
+
 ---Set the theme's options
 ---@param opts table
----@return table
 local function set_options(opts)
     if opts.cursorline then
         vim.wo.cursorline = true
     end
 
-    return {
+    M.options.options = {
         none = "NONE",
         bold = opts.bold and "bold" or "NONE",
         italic = opts.italic and "italic" or "NONE",
@@ -130,28 +119,45 @@ local function load_files(files, override)
     return files
 end
 
----Setup the theme's as per the configuration
----@return table
-function M.setup()
+---Set the theme to use
+---@param theme string
+function M.set_theme(theme)
+    M.theme = theme
+end
+
+---Setup the configuration for the theme
+---@param opts? table
+function M.setup(opts)
+    opts = opts or {}
     local utils = require("onedarkpro.utils.collect")
     local logger = require("onedarkpro.utils.logging")
 
-    M.config = utils.deep_extend(vim.deepcopy(defaults), M.user_opts)
+    M.options = utils.deep_extend(M.options, opts)
 
-    M.config.options = set_options(M.config.options)
+    set_options(opts.options or {})
     logger.debug("CONFIG: Set options")
 
-    if M.user_opts.filetypes then
-        M.config.filetypes = load_files(M.config.filetypes, M.user_opts.filetypes)
+    --TODO: Remove this when we remove dark_theme and light_theme --------------
+    if not M.theme then
+        if vim.o.background == "dark" then
+            M.theme = opts.dark_theme or "onedark"
+        else
+            M.theme = opts.light_theme or "onelight"
+        end
+    end
+    --//------------------------------------------------------------------------
+
+    if opts.filetypes then
+        M.options.filetypes = load_files(M.options.filetypes, opts.filetypes)
         logger.debug("CONFIG: Set filetypes")
     end
 
-    if M.user_opts.plugins then
-        M.config.plugins = load_files(M.config.plugins, M.user_opts.plugins)
+    if opts.plugins then
+        M.options.plugins = load_files(M.options.plugins, opts.plugins)
         logger.debug("CONFIG: Set plugins")
     end
 
-    return M.config
+    M.is_setup = true
 end
 
 return M

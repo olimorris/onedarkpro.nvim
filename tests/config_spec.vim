@@ -11,8 +11,6 @@ lua << EOF
 vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-    dark_theme = "onedark_vivid", -- The default dark theme
-    light_theme = "onelight", -- The default light theme
     styles = {
         variables = "bold"
     },
@@ -48,9 +46,9 @@ onedarkpro.setup({
         TestHighlightGroup2 = { link = "Statement" }
     },
 })
-vim.cmd [[colorscheme onedarkpro]]
+vim.cmd [[colorscheme onedark_vivid]]
 EOF
 
 runtime plugin/plenary.vim
-command Test2 PlenaryBustedFile tests/002_spec.lua
+command ConfigSpec PlenaryBustedFile tests/config_spec.lua
 

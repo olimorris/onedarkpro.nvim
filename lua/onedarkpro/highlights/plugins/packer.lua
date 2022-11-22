@@ -2,9 +2,8 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
         packerFail = { fg = theme.palette.red }, -- Icon when install/update fails
         packerSuccess = { fg = theme.palette.green }, -- Icon when install/update is a success

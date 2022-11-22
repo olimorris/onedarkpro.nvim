@@ -2,9 +2,8 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
         -- https://github.com/hrsh7th/nvim-cmp/blob/main/doc/cmp.txt
         CmpDocumentation = { fg = theme.palette.fg, bg = theme.palette.menu },

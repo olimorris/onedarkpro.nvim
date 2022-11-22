@@ -9,9 +9,15 @@ set noundofile
 
 lua << EOF
 local onedarkpro = require("onedarkpro")
+onedarkpro.setup({
+    plugins = {
+        all = false,
+        treesitter = true,
+    },
+})
 vim.cmd [[colorscheme onedarkpro]]
 EOF
 
 runtime plugin/plenary.vim
-command Test1 PlenaryBustedFile tests/001_spec.lua
+command SourceSpec PlenaryBustedFile tests/source_spec.lua
 

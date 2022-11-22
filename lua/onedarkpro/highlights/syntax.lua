@@ -2,9 +2,10 @@ local M = {}
 
 ---Get the highlight groups syntax related highlight group
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").options
+
     return {
         Comment = { fg = theme.palette.comment, style = config.styles.comments }, -- Comments
         Constant = { fg = theme.palette.orange, style = config.styles.constants }, -- (preferred) any constant

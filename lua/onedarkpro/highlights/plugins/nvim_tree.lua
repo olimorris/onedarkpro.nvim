@@ -2,9 +2,10 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").options
+
     return {
         NvimTreeNormalNC = { -- Color when nvim-tree is no longer in focus
             bg = config.options.transparency and "NONE"

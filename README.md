@@ -78,11 +78,11 @@ Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
 Use the built-in `:colorscheme` command to load:
 
 ```lua
-vim.cmd("colorscheme onedarkpro")  -- Lua
+vim.cmd("colorscheme onedark")        -- Lua
 ```
 
 ```vim
-colorscheme onedarkpro             " Vimscript
+colorscheme onedark                   " Vimscript
 ```
 
 Additional commands:
@@ -99,9 +99,6 @@ A call to the `setup` function is only required if you wish to change the defaul
 
 ```lua
 require("onedarkpro").setup({
-  dark_theme = "onedark", -- The default dark theme
-  light_theme = "onelight", -- The default light theme
-  caching = false, -- Use caching for the theme?
   cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   highlights = {}, -- Override default highlight and/or filetype groups
@@ -147,6 +144,8 @@ require("onedarkpro").setup({
     window_unfocused_color = false, -- When the window is out of focus, change the normal background?
   }
 })
+
+vim.cmd("colorscheme onedark")
 ```
 
 > **Note:** You only need to include values that you wish to change from the defaults!
@@ -160,20 +159,11 @@ Currently, there are four themes available:
 - `onedark_vivid`
 - `onedark_dark`
 
-A default theme can be set with:
+A theme can be set with:
 
 ```lua
-theme = "onedark_vivid",
+vim.cmd([[colorscheme onedark]])
 ```
-
-If no value is specified, the colorscheme will use the value of the `dark_theme` and/or `light_theme` config option; with `vim.o.background` being used to determine whether to use the dark or light theme:
-
-```lua
-dark_theme = "onedark_dark",
-light_theme = "onelight",
-```
-
-For users who wish to have a light theme during daylight hours and a dark theme during the night, it is recommended to _not_ set a value for `theme` and instead use the `dark_theme` and `light_theme` options.
 
 ### Configuring colors
 
@@ -533,9 +523,9 @@ To enable the easy switching between dark and light themes, the following helper
 ```lua
 function ToggleTheme()
   if vim.o.background == "dark" then
-    vim.o.background = "light"
+    vim.cmd([[colorscheme onelight]])
   else
-    vim.o.background = "dark"
+    vim.cmd([[colorscheme onedark]])
   end
 end
 ```

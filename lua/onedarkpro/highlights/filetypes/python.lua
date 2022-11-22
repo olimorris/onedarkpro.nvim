@@ -2,9 +2,10 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").options
+
     return {
         ["@constructor.python"] = { fg = theme.palette.cyan, style = config.options.bold },
         ["@conditional.python"] = { fg = theme.palette.purple, style = config.options.italic },

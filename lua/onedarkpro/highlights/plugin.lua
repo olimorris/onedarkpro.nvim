@@ -2,9 +2,10 @@ local M = {}
 
 ---Get the highlight groups for plugin highlights
 ---@param theme table
----@param config table
 ---@return table|nil
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").options
+
     local groups = {}
     local plugins = config.plugins
 
@@ -12,7 +13,7 @@ function M.groups(theme, config)
         if plugin == "all" then
             return
         end
-        groups = vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.plugins." .. plugin).groups(theme, config))
+        groups = vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.plugins." .. plugin).groups(theme))
     end
 
     for plugin, load in pairs(plugins) do
