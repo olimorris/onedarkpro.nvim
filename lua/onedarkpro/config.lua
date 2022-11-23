@@ -78,7 +78,7 @@ local defaults = {
     },
 }
 
-M.options = vim.deepcopy(defaults)
+M.config = vim.deepcopy(defaults)
 
 ---Set the theme's options
 ---@param opts table
@@ -87,7 +87,7 @@ local function set_options(opts)
         vim.wo.cursorline = true
     end
 
-    M.options.options = {
+    return {
         none = "NONE",
         bold = opts.bold and "bold" or "NONE",
         italic = opts.italic and "italic" or "NONE",
@@ -132,9 +132,8 @@ function M.setup(opts)
     local utils = require("onedarkpro.utils.collect")
     local logger = require("onedarkpro.utils.logging")
 
-    M.options = utils.deep_extend(M.options, opts)
-
-    set_options(opts.options or {})
+    M.config = utils.deep_extend(M.config, opts)
+    M.config.options = set_options(M.config.options)
     logger.debug("CONFIG: Set options")
 
     --TODO: Remove this when we remove dark_theme and light_theme --------------
@@ -148,12 +147,12 @@ function M.setup(opts)
     --//------------------------------------------------------------------------
 
     if opts.filetypes then
-        M.options.filetypes = load_files(M.options.filetypes, opts.filetypes)
+        M.config.filetypes = load_files(M.config.filetypes, opts.filetypes)
         logger.debug("CONFIG: Set filetypes")
     end
 
     if opts.plugins then
-        M.options.plugins = load_files(M.options.plugins, opts.plugins)
+        M.config.plugins = load_files(M.config.plugins, opts.plugins)
         logger.debug("CONFIG: Set plugins")
     end
 
