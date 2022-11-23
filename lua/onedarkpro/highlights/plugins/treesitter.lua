@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 local function treesitter_new(theme)
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     return {
         ["@annotation"] = { fg = theme.palette.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
@@ -78,7 +78,7 @@ end
 ---@param theme table
 ---@return table
 local function treesitter_old(theme)
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     return {
         TSAnnotation = { fg = theme.palette.red },

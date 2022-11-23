@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     return {
         ["@text.literal.markdown_inline"] = { fg = theme.palette.green },

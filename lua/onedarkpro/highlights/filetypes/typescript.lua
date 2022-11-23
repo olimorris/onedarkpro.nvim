@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     return {
         ["@function.typescript"] = { fg = theme.palette.blue, style = config.options.bold },

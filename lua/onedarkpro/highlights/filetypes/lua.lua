@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     return {
         ["@comment.lua"] = { fg = theme.palette.comment, style = config.options.italic },

@@ -107,7 +107,7 @@ end
 ---@param config table
 ---@return nil
 function M.load(theme)
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     -- Prevent double loading of the theme
     if vim.g.colors_name == "onedarkpro" and vim.g.onedarkpro_theme == theme.meta.name then

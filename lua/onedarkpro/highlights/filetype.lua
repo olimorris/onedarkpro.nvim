@@ -7,7 +7,7 @@ function M.groups(theme)
     if not require("onedarkpro.utils").has_nvim_08 then
         return
     end
-    local config = require("onedarkpro.config").options
+    local config = require("onedarkpro.config").config
 
     local groups = {}
     local filetypes = config.filetypes

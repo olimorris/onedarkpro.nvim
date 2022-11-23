@@ -18,6 +18,8 @@ function M.setup(opts)
     end
     logger:set_level(vim.g.onedarkpro_log_level)
 
+    --TODO: Check cache at this point
+
     logger.debug("CONFIG: Start")
     config.setup(opts)
 
@@ -32,8 +34,6 @@ function M.setup(opts)
     end
 
     logger.debug("CONFIG:", config)
-
-    --TODO: Move compilation check to here
 end
 
 ---Load the color scheme
