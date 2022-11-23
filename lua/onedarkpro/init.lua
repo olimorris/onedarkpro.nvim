@@ -6,16 +6,11 @@ local override = require("onedarkpro.override")
 vim.g.onedarkpro_log_level = "error"
 local logger = require("onedarkpro.utils.logging")
 
----Setup the theme
+---Setup the color scheme
 ---@param opts table
----@return nil
 function M.setup(opts)
     opts = opts or {}
 
-    -- Set the log level based on the deprecated config option
-    if opts.log_level then
-        vim.g.onedarkpro_log_level = opts.log_level
-    end
     logger:set_level(vim.g.onedarkpro_log_level)
 
     --TODO: Check cache at this point
@@ -40,6 +35,8 @@ end
 function M.load()
     logger:set_level(vim.g.onedarkpro_log_level)
 
+    --TODO: Check cache at this point
+
     -- For when the user does not call the setup function
     if not config.is_setup then
         config.setup()
@@ -51,9 +48,9 @@ function M.load()
     local highlights = require("onedarkpro.highlight")
 
     highlights.editor = require("onedarkpro.highlights.editor").groups()
-    highlights.syntax = require("onedarkpro.highlights.syntax").groups(theme)
-    highlights.filetypes = require("onedarkpro.highlights.filetype").groups(theme)
-    highlights.plugins = require("onedarkpro.highlights.plugin").groups(theme)
+    highlights.syntax = require("onedarkpro.highlights.syntax").groups()
+    highlights.filetypes = require("onedarkpro.highlights.filetype").groups()
+    highlights.plugins = require("onedarkpro.highlights.plugin").groups()
 
     if override.highlights then
         highlights.custom = require("onedarkpro.utils.variable").replace_vars(

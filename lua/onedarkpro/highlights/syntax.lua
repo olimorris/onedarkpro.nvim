@@ -1,9 +1,9 @@
 local M = {}
 
 ---Get the highlight groups syntax related highlight group
----@param theme table
 ---@return table
-function M.groups(theme)
+function M.groups()
+    local theme = require("onedarkpro.theme").theme
     local config = require("onedarkpro.config").config
 
     return {

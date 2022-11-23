@@ -82,6 +82,7 @@ M.config = vim.deepcopy(defaults)
 
 ---Set the theme's options
 ---@param opts table
+---@return table
 local function set_options(opts)
     if opts.cursorline then
         vim.wo.cursorline = true
