@@ -1,10 +1,16 @@
 local M = {}
 
+M.themes = {
+    "onedark",
+    "onelight",
+    "onedark_vivid",
+    "onedark_dark",
+}
+
 ---Load a theme and apply any user color overrides
 ---@return table
-function M.load()
-    local config = require("onedarkpro.config")
-    local theme = require("onedarkpro.themes." .. config.theme)
+function M.load(theme)
+    theme = require("onedarkpro.themes." .. theme)
 
     -- Apply user color overrides directly to the theme
     if require("onedarkpro.override").has_override then
@@ -16,8 +22,7 @@ function M.load()
         theme.generated = theme.generated(theme.palette)
     end
 
-    M.theme = theme
-    return M.theme
+    return theme
 end
 
 return M

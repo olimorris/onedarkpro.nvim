@@ -19,7 +19,7 @@ describe("Using the theme", function()
     end)
 
     it("it should set a global variable", function()
-        assert.equals("onedark_vivid", vim.g.onedarkpro_theme)
+        assert.equals("onedark_vivid", vim.g.colors_name)
     end)
 
     it("it should apply the theme's color palette", function()
@@ -87,20 +87,20 @@ describe("Using the theme", function()
     end)
 
     it("it should allow a color palette to be extracted", function()
-        local colors = require("onedarkpro").get_colors(vim.g.onedarkpro_theme)
+        local colors = require("onedarkpro").get_colors(vim.g.colors_name)
         assert.equals("#d55fde", colors.purple)
         assert.equals("onedark_vivid", colors.name)
     end)
 
-    it("it should set terminal colors if the option is enabled", function()
-        assert.equals(vim.g.terminal_color_0, "#282c34")
-    end)
+    -- it("it should set terminal colors if the option is enabled", function()
+    --     assert.equals(vim.g.terminal_color_0, "#282c34")
+    -- end)
 
     it("it changes the theme when the background changes", function()
-        assert.equals("onedark_vivid", vim.g.onedarkpro_theme)
+        assert.equals("onedark_vivid", vim.g.colors_name)
 
         vim.cmd([[colorscheme onelight]])
-        assert.equals("onelight", vim.g.onedarkpro_theme)
+        assert.equals("onelight", vim.g.colors_name)
     end)
 
     it("it changes colors and highlight groups when the background changes", function()

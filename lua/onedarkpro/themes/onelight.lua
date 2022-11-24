@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-parameter
 local meta = {
     name = "onelight",
-    light = true,
+    background = "light"
 }
 
 local palette = {

@@ -49,24 +49,12 @@ end
 
 ---Create highlights the new Neovim way
 ---@param highlights table the highlights that should be created
----@param ns_id? integer the namespace id
----@param cached_output? table the table where the highlights should be output to
----@return table|nil
-function M.neovim_hl(highlights, ns_id, cached_output)
-    ns_id = ns_id or 0
-
+function M.neovim_hl(highlights)
     for name, opts in pairs(highlights) do
         if valid_link(opts.link) then
-            if type(cached_output) == "table" then
-                table.insert(
-                    cached_output,
-                    string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, opts.link)
-                )
-            else
-                vim.api.nvim_set_hl(0, name, {
-                    link = opts.link,
-                })
-            end
+            vim.api.nvim_set_hl(0, name, {
+                link = opts.link,
+            })
         else
             local values = parse_style(opts.style)
             values.fg = opts.fg
@@ -74,43 +62,22 @@ function M.neovim_hl(highlights, ns_id, cached_output)
             values.sp = opts.sp
             values.blend = opts.blend
 
-            if type(cached_output) == "table" then
-                table.insert(
-                    cached_output,
-                    string.format([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(values))
-                )
-            else
-                local ok = pcall(vim.api.nvim_set_hl, ns_id, name, values)
-                if not ok then
-                    vim.notify(
-                        "[OneDarkPro.nvim] Error setting the '" .. name .. "' highlight group",
-                        vim.log.levels.WARN
-                    )
-                    logger.debug("HIGHLIGHTS: Could not set " .. name)
-                end
+            local ok = pcall(vim.api.nvim_set_hl, 0, name, values)
+            if not ok then
+                vim.notify("[OneDarkPro.nvim] Error setting the '" .. name .. "' highlight group", vim.log.levels.WARN)
+                logger.debug("HIGHLIGHTS: Could not set " .. name)
             end
         end
-    end
-
-    if type(cached_output) == "table" then
-        return cached_output
     end
 end
 
 ---Create highlights the old school vim way
 ---@param highlights table
----@param cached_output? table the table where the highlights should be output to
----@return table|nil
-function M.vim_hl(highlights, cached_output)
+function M.vim_hl(highlights)
     for name, opts in pairs(highlights) do
         if valid_link(opts.link) then
             local link_output = string.format("highlight! link %s %s", name, opts.link)
-
-            if type(cached_output) == "table" then
-                table.insert(cached_output, 'vim.cmd("' .. link_output .. '")')
-            else
-                vim.cmd(link_output)
-            end
+            vim.cmd(link_output)
         else
             local group_output = string.format(
                 "highlight %s guifg=%s guibg=%s gui=%s guisp=%s blend=%s",
@@ -122,31 +89,22 @@ function M.vim_hl(highlights, cached_output)
                 validate(opts.blend)
             )
 
-            if type(cached_output) == "table" then
-                table.insert(cached_output, 'vim.cmd("' .. group_output .. '")')
-            else
-                vim.cmd(group_output)
-            end
+            vim.cmd(group_output)
         end
-    end
-
-    if type(cached_output) == "table" then
-        return cached_output
     end
 end
 
 ---Create highlight groups
 ---@param highlights table
----@param output? table (optional) table to output to
 ---@return table|nil
-function M.create(highlights, output)
+function M.create(highlights)
     local utils = require("onedarkpro.utils")
 
     if utils.has_nvim_07 then
-        return M.neovim_hl(highlights, 0, output)
+        return M.neovim_hl(highlights)
     end
 
-    return M.vim_hl(highlights, output)
+    return M.vim_hl(highlights)
 end
 
 return M

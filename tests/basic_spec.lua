@@ -14,6 +14,6 @@ describe("Using the colorscheme without calling setup,", function()
     end)
 
     it("a global variable should be set", function()
-        assert.equals("onedark", vim.g.onedarkpro_theme)
+        assert.equals("onedark", vim.g.colors_name)
     end)
 end)

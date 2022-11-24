@@ -1,7 +1,8 @@
 local M = { theme = "onedark", is_setup = false }
 
 local defaults = {
-    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
+    cache_suffix = "_cached",
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
     filetypes = { -- Enable/Disable specific plugins
@@ -122,20 +123,20 @@ end
 
 ---Set the theme to use
 ---@param theme string
+---@return nil
 function M.set_theme(theme)
     M.theme = theme
 end
 
 ---Setup the configuration for the theme
 ---@param opts? table
+---@return nil
 function M.setup(opts)
     opts = opts or {}
-    local utils = require("onedarkpro.utils.collect")
-    local logger = require("onedarkpro.utils.logging")
+    local utils = require("onedarkpro.utils")
 
     M.config = utils.deep_extend(M.config, opts)
     M.config.options = set_options(M.config.options)
-    logger.debug("CONFIG: Set options")
 
     --TODO: Remove this when we remove dark_theme and light_theme --------------
     if not M.theme then
@@ -149,15 +150,25 @@ function M.setup(opts)
 
     if opts.filetypes then
         M.config.filetypes = load_files(M.config.filetypes, opts.filetypes)
-        logger.debug("CONFIG: Set filetypes")
     end
 
     if opts.plugins then
         M.config.plugins = load_files(M.config.plugins, opts.plugins)
-        logger.debug("CONFIG: Set plugins")
     end
 
     M.is_setup = true
+end
+
+---Get information relating to where the cache is stored
+---@param opts? table
+---@return string,string
+function M.get_cached_info(opts)
+    local utils = require("onedarkpro.utils")
+
+    local theme = opts and opts.theme or M.theme
+    local cache_path = opts and opts.cache_path or M.config.cache_path
+
+    return cache_path, utils.join_paths(cache_path, theme .. M.config.cache_suffix)
 end
 
 return M

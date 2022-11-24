@@ -11,6 +11,7 @@ lua << EOF
 vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_test/"),
     styles = {
         variables = "bold"
     },

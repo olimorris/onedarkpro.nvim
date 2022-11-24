@@ -1,6 +1,6 @@
 local meta = {
     name = "onedark_dark",
-    light = false,
+    background = "dark"
 }
 
 local palette = {

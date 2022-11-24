@@ -6,15 +6,24 @@ local override = require("onedarkpro.override")
 vim.g.onedarkpro_log_level = "error"
 local logger = require("onedarkpro.utils.logging")
 
----Setup the color scheme
+---Compile all the themes into cached files
+function M.cache()
+    local cache = require("onedarkpro.lib.cache")
+    local themes = require("onedarkpro.theme").themes
+    local compiler = require("onedarkpro.lib.compile")
+
+    for _, theme in ipairs(themes) do
+        local t = { theme = theme }
+        cache.write(t, compiler.compile(t))
+    end
+end
+
+---Setup the colorscheme
 ---@param opts table
 function M.setup(opts)
     opts = opts or {}
 
     logger:set_level(vim.g.onedarkpro_log_level)
-
-    --TODO: Check cache at this point
-
     logger.debug("CONFIG: Start")
     config.setup(opts)
 
@@ -29,63 +38,55 @@ function M.setup(opts)
     end
 
     logger.debug("CONFIG:", config)
+
+    --TODO: Check if the cached file is adequate or should be compiled
+
+    --TODO: If not adequate, compile and cache it
+    M.cache()
 end
 
----Load the color scheme
+---Load the colorscheme
 function M.load()
     logger:set_level(vim.g.onedarkpro_log_level)
-
-    --TODO: Check cache at this point
 
     -- For when the user does not call the setup function
     if not config.is_setup then
         config.setup()
     end
 
-    local theme = require("onedarkpro.theme").load()
-    logger.debug("THEME:", theme)
+    --TODO: Load the compile file
+    local _, compiled_file = config.get_cached_info()
+    local f = loadfile(compiled_file)
 
-    local highlights = require("onedarkpro.highlight")
-
-    highlights.editor = require("onedarkpro.highlights.editor").groups()
-    highlights.syntax = require("onedarkpro.highlights.syntax").groups()
-    highlights.filetypes = require("onedarkpro.highlights.filetype").groups()
-    highlights.plugins = require("onedarkpro.highlights.plugin").groups()
-
-    if override.highlights then
-        highlights.custom = require("onedarkpro.utils.variable").replace_vars(
-            vim.deepcopy(override.highlights),
-            require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
-        )
+    --TODO: If that fails, then compile and then load the compile file
+    if not f then
+        M.cache()
+        f = loadfile(compiled_file)
     end
 
-    require("onedarkpro.main").load(theme)
+    f()
 end
 
 ---Get the color palette for a specific theme
 ---@return table
 function M.get_colors()
-    if vim.g.onedarkpro_colors then
-        return vim.g.onedarkpro_colors
-    end
-
-    --TEST: Write a test for this
-    local theme = require("onedarkpro.theme").load()
-    return require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
+    local theme = require("onedarkpro.theme").load(config.theme)
+    return require("onedarkpro.utils").deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
----Cache a user's config
----@return nil
-function M.cache()
-    require("onedarkpro.lib.cache").generate()
-    return vim.notify("[OneDarkPro] Cache generated!")
-end
-
----Delete a user's cache
----@return nil
-function M.clean()
-    require("onedarkpro.lib.cache").clean()
-    return vim.notify("[OneDarkPro] Cache cleaned!")
-end
+-- ---Cache a user's config
+-- ---@return nil
+-- function M.cache()
+--     -- require("onedarkpro.lib.cache").generate()
+--     --TODO: Compile and generate the cache
+--     return vim.notify("[OneDarkPro] Cache generated!")
+-- end
+--
+-- ---Delete a user's cache
+-- ---@return nil
+-- function M.clean()
+--     require("onedarkpro.lib.cache").clean()
+--     return vim.notify("[OneDarkPro] Cache cleaned!")
+-- end
 
 return M

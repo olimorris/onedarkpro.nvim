@@ -1,10 +1,10 @@
 local M = {}
 
 ---Get the highlight groups for the editor
+---@param theme table
 ---@return table
-function M.groups()
+function M.groups(theme)
     local color = require("onedarkpro.lib.color")
-    local theme = require("onedarkpro.theme").theme
     local config = require("onedarkpro.config").config
 
     return {

@@ -10,6 +10,7 @@ set noundofile
 lua << EOF
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_test/"),
     plugins = {
         all = false,
         treesitter = true,

@@ -4,7 +4,7 @@
 --I've further simplified it to *try* and make it more concise
 --]]
 
-local utils = require("onedarkpro.utils.collect")
+local utils = require("onedarkpro.utils")
 
 local store = {
     colors = {},

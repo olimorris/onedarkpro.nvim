@@ -1,9 +1,9 @@
 local M = {}
 
 ---Get the highlight groups for plugin highlights
+---@param theme table
 ---@return table|nil
-function M.groups()
-    local theme = require("onedarkpro.theme").theme
+function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     local groups = {}
