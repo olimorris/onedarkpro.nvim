@@ -23,21 +23,15 @@ end
 function M.setup(opts)
     opts = opts or {}
 
-    logger:set_level(vim.g.onedarkpro_log_level)
-    logger.debug("CONFIG: Start")
     config.setup(opts)
 
     if opts.colors then
-        logger.debug("CONFIG: Overriding colors")
         override.colors = opts.colors
     end
 
     if opts.highlights then
-        logger.debug("CONFIG: Overriding highlight groups")
         override.highlights = opts.highlights
     end
-
-    logger.debug("CONFIG:", config)
 
     --TODO: Check if the cached file is adequate or should be compiled
 
@@ -47,8 +41,6 @@ end
 
 ---Load the colorscheme
 function M.load()
-    logger:set_level(vim.g.onedarkpro_log_level)
-
     -- For when the user does not call the setup function
     if not config.is_setup then
         config.setup()
