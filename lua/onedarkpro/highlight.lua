@@ -1,5 +1,5 @@
 local utils = require("onedarkpro.utils")
-local config = require("onedarkpro.config").config
+local override = require("onedarkpro.override")
 
 local M = {}
 
@@ -14,9 +14,9 @@ function M.groups(theme)
 
     local groups = utils.deep_extend(editor, syntax, plugins, filetypes)
 
-    if config.highlights then
+    if override.highlights then
         local custom =
-            utils.replace_vars(vim.deepcopy(config.highlights), utils.deep_extend(theme.palette, theme.generated))
+            utils.replace_vars(vim.deepcopy(override.highlights), utils.deep_extend(theme.palette, theme.generated))
         groups = utils.deep_replace(groups, custom)
     end
 
