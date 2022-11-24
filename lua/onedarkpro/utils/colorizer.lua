@@ -18,11 +18,12 @@ end
 ---Show the theme's colors in a scratch buffer
 ---@return nil
 function M.show()
+    local colors = require("onedarkpro").get_colors()
     local buf = vim.api.nvim_create_buf(true, true)
-    local max_length = get_max_length(vim.g.onedarkpro_colors)
+    local max_length = get_max_length(colors)
 
     local line = 0
-    for color, hex in pairs(vim.g.onedarkpro_colors) do
+    for color, hex in pairs(colors) do
         if color ~= "none" and color ~= "name" and color ~= "light" then
             vim.api.nvim_buf_set_lines(buf, line, (line + 1), false, {
                 color .. string.rep(" ", max_length - #color) .. ' = "' .. tostring(hex) .. '"',
