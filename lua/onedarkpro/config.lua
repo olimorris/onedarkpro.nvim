@@ -1,3 +1,5 @@
+local utils = require("onedarkpro.utils")
+
 local M = { theme = "onedark", is_setup = false }
 
 local defaults = {
@@ -102,22 +104,21 @@ local function set_options(opts)
     }
 end
 
----Determine if the files should be loaded
+---Determine the filetypes or plugins that should be loaded
 ---@param files table
+---@param override table
 ---@return table
-local function load_files(files)
-    local list = vim.deepcopy(files)
-
+local function load_files(files, override)
     for file, _ in pairs(files) do
-        if files["all"] == false then
+        if override["all"] == false then
             files[file] = false
         end
-        if list[file] then
-            list[file] = files[file]
+        if override[file] then
+            files[file] = override[file]
         end
     end
 
-    return list
+    return files
 end
 
 ---Set the theme to use
@@ -137,38 +138,35 @@ end
 ---@param opts? table
 ---@return nil
 function M.setup(opts)
-    local utils = require("onedarkpro.utils")
-    opts = utils.deep_extend(defaults, opts) or vim.deepcopy(defaults)
-    opts.options = set_options(opts.options)
+    local config = utils.deep_extend(defaults, opts) or vim.deepcopy(defaults)
+    config.options = set_options(config.options)
 
     --TODO: Remove this when we remove dark_theme and light_theme from the config
     if not M.theme then
         if vim.o.background == "dark" then
-            M.theme = opts.dark_theme or "onedark"
+            M.theme = config.dark_theme or "onedark"
         else
-            M.theme = opts.light_theme or "onelight"
+            M.theme = config.light_theme or "onelight"
         end
     end
     --//------------------------------------------------------------------------
 
-    if opts.filetypes then
-        opts.filetypes = load_files(opts.filetypes)
+    if opts and opts.filetypes then
+        config.filetypes = load_files(config.filetypes, opts.filetypes)
     end
 
-    if opts.plugins then
-        opts.plugins = load_files(opts.plugins)
+    if opts and opts.plugins then
+        config.plugins = load_files(config.plugins, opts.plugins)
     end
 
     M.is_setup = true
-    M.config = opts
+    M.config = config
 end
 
 ---Get information relating to where the cache is stored
 ---@param opts? table
 ---@return string,string
 function M.get_cached_info(opts)
-    local utils = require("onedarkpro.utils")
-
     local theme = opts and opts.theme or M.theme
     local cache_path = opts and opts.cache_path or M.config.cache_path
 
