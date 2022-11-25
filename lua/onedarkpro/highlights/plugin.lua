@@ -1,6 +1,6 @@
 local M = {}
 
----Get the highlight groups for plugin highlights
+---Set the highlight groups for plugin highlights
 ---@param theme table
 ---@return table|nil
 function M.groups(theme)

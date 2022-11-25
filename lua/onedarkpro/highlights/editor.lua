@@ -1,6 +1,6 @@
 local M = {}
 
----Get the highlight groups for the editor
+---Set the highlight groups for the editor
 ---@param theme table
 ---@return table
 function M.groups(theme)

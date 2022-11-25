@@ -1,6 +1,6 @@
 local M = {}
 
----Get the highlight groups syntax related highlight group
+---Set the highlight groups syntax related highlight group
 ---@param theme table
 ---@return table
 function M.groups(theme)
