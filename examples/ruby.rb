@@ -15,7 +15,6 @@ module JsonApi
       def document_hash
         {}.tap do |hash|
           hash.merge!(data_hash) if @data != :no_data
-          # TODO: Add other hashes: included, relationships etc
         end
       end
 
