@@ -31,9 +31,9 @@
 - [Usage](#rocket-usage)
 - [Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
-  - [Configuring themes](#configuring-themes)
-  - [Configuring colors](#configuring-colors)
-  - [Configuring highlight groups](#configuring-highlight-groups)
+  - [Setting a theme](#setting-a-theme)
+  - [Overridng colors](#overriding-colors)
+  - [Overriding highlight groups](#overriding-highlight-groups)
   - [Configuring filetype highlighting](#configuring-filetype-highlighting)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
@@ -100,26 +100,15 @@ A call to the `setup` function is only required if you wish to change the defaul
 ```lua
 require("onedarkpro").setup({
   cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
-  colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  highlights = {}, -- Override default highlight and/or filetype groups
+  colors = {}, -- Override default colors or create your own
+  highlights = {}, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
-    javascript = true,
-    lua = true,
-    markdown = true,
-    php = true,
-    python = true,
-    ruby = true,
-    rust = true,
-    toml = true,
-    typescript = true,
-    typescriptreact = true,
-    vue = true,
-    yaml = true,
+    -- See the 'Configuring filetype highlights' section for the available list
   },
   plugins = { -- Override which plugin highlight groups are loaded
-    -- See the Supported Plugins section for a list of available plugins
+    -- See the 'Supported plugins' section for the available list
   },
-  styles = { -- Choose from "bold,italic,underline"
+  styles = { -- For example, to apply bold and italic, use "bold,italic"
     types = "NONE", -- Style that is applied to types
     numbers = "NONE", -- Style that is applied to numbers
     strings = "NONE", -- Style that is applied to strings
@@ -148,9 +137,7 @@ require("onedarkpro").setup({
 vim.cmd("colorscheme onedark")
 ```
 
-> **Note:** You only need to include values that you wish to change from the defaults!
-
-### Configuring themes
+### Setting a theme
 
 Currently, there are four themes available:
 
@@ -165,9 +152,9 @@ A theme can be set with:
 vim.cmd([[colorscheme onedark]])
 ```
 
-### Configuring colors
+### Overriding colors
 
-The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
+The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
 The default colors can be changed by specifying the name of the color and a new hex code:
 
@@ -189,7 +176,7 @@ colors = {
 
 > **Note:** Custom colors can also be referenced when creating custom highlight group overrides
 
-#### Specifying colors by theme
+#### Specifying colors by theme or background
 
 It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 
@@ -204,7 +191,20 @@ colors = {
 }
 ```
 
-### Configuring highlight groups
+Alternatively, you can specify colors by the theme's background color:
+
+```lua
+colors = {
+  dark = {
+    bg = "#FFFF00" -- yellow
+  },
+  light = {
+    bg = "#00FF00" -- green
+  }
+}
+```
+
+### Overriding highlight groups
 
 The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua), [filetype](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or _override_ them:
 
