@@ -66,6 +66,10 @@ local function neovim_highlights(name, values)
     return string.format([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(val))
 end
 
+---Form highlights using plain 'ol vim commands
+---@param name string the highlight group name
+---@param values table the highlight group values
+---@return string
 local function vim_highlights(name, values)
     if should_link(values.link) then
         return string.format("highlight! link %s %s", name, values.link)
@@ -90,7 +94,11 @@ function M.compile(opts)
     local theme = require("onedarkpro.theme").load(opts.theme or config.theme)
     local groups = require("onedarkpro.highlight").groups(theme)
 
-    -- https://www.gammon.com.au/scripts/doc.php?lua=string.dump
+    --Encase the theme's logic in a function which can then be executed with
+    --the string.dump function, converting it into a binary representation
+    --(source: https://www.gammon.com.au/scripts/doc.php?lua=string.dump)
+    --The binary is then assigned to a compiled property which can be used
+    --for caching to disk later on in the theme's lifecycle
     local lines = {
         string.format(
             [[
@@ -105,7 +113,12 @@ vim.o.background = "%s"
         ),
     }
 
-    --TODO: Add in terminal colors
+    if config.config.options.terminal_colors then
+        local terminal_colours = require("onedarkpro.highlights.terminal").groups(theme)
+        for name, value in pairs(terminal_colours) do
+            table.insert(lines, string.format([[vim.g.%s = "%s"]], name, value))
+        end
+    end
 
     for name, values in pairs(groups) do
         if utils.has_nvim_07 then
@@ -119,9 +132,11 @@ vim.o.background = "%s"
 
     table.insert(lines, [[end)]])
 
-    -- https://www.lua.org/pil/8.html
+    --Use load (or loadstring) to compile the lua code but don't execute it
+    --The use of assert ensures that errors in the compiled code bubble up
+    --(source: https://www.lua.org/pil/8.html)
     local ld = load or loadstring
-    return ld(table.concat(lines, "\n"), "=")()
+    return assert(ld(table.concat(lines, "\n"), "="))()
 end
 
 return M
