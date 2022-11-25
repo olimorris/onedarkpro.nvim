@@ -13,7 +13,12 @@ describe("Using the colorscheme without calling setup,", function()
         assert.equals("ErrorMsg       xxx guifg=#e06c75", output)
     end)
 
-    it("a global variable should be set", function()
+    it("it should set a global variable", function()
         assert.equals("onedark", vim.g.colors_name)
+    end)
+
+    it("it should be able to get the theme's colors", function()
+        local colors = require("onedarkpro").get_colors()
+        assert.equals("#c678dd", colors.purple)
     end)
 end)

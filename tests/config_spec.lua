@@ -92,9 +92,9 @@ describe("Using the theme", function()
         assert.equals("onedark_vivid", colors.name)
     end)
 
-    -- it("it should set terminal colors if the option is enabled", function()
-    --     assert.equals(vim.g.terminal_color_0, "#282c34")
-    -- end)
+    it("it should set terminal colors if the option is enabled", function()
+        assert.equals(vim.g.terminal_color_0, "#282c34")
+    end)
 
     it("it changes the theme when the background changes", function()
         assert.equals("onedark_vivid", vim.g.colors_name)
