@@ -1,12 +1,10 @@
+local config = require("onedarkpro.config")
+
 local M = {}
 
-local config = require("onedarkpro.config")
-local override = require("onedarkpro.override")
-
 vim.g.onedarkpro_log_level = "error"
-local logger = require("onedarkpro.utils.logging")
 
----Compile all the themes into cached files
+---Compile all the themes and cache them
 function M.cache()
     local cache = require("onedarkpro.lib.cache")
     local themes = require("onedarkpro.theme").themes
@@ -14,24 +12,21 @@ function M.cache()
 
     for _, theme in ipairs(themes) do
         local t = { theme = theme }
-        cache.write(t, compiler.compile(t))
+        compiler.compile(t)
+        cache.write(t)
     end
+end
+
+function M.reset()
+    require("onedarkpro.config").reset()
+    require("onedarkpro.override").reset()
 end
 
 ---Setup the colorscheme
 ---@param opts table
 function M.setup(opts)
     opts = opts or {}
-
     config.setup(opts)
-
-    if opts.colors then
-        override.colors = opts.colors
-    end
-
-    if opts.highlights then
-        override.highlights = opts.highlights
-    end
 
     --TODO: Check if the cached file is adequate or should be compiled
 
@@ -40,6 +35,7 @@ function M.setup(opts)
 end
 
 ---Load the colorscheme
+---@return function|nil
 function M.load()
     -- For when the user does not call the setup function
     if not config.is_setup then
@@ -56,10 +52,15 @@ function M.load()
         f = loadfile(compiled_file)
     end
 
-    f()
+    if f then
+        return f()
+    end
+
+    --TODO: Add error message about not loading
+    return
 end
 
----Get the color palette for a specific theme
+---Get the color palette for the current theme
 ---@return table
 function M.get_colors()
     local theme = require("onedarkpro.theme").load(config.theme)
