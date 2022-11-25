@@ -1,3 +1,5 @@
+local config = require("onedarkpro.config").config
+
 local M = {}
 
 M.themes = {
@@ -14,7 +16,7 @@ function M.load(theme)
     theme = require("onedarkpro.themes." .. theme)
 
     -- Apply user color overrides directly to the theme
-    if require("onedarkpro.override").has_override then
+    if config.colors then
         theme.palette = require("onedarkpro.lib.palette").override(theme.palette, theme.meta)
     end
 

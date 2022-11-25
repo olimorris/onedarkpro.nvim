@@ -1,3 +1,5 @@
+local colors = require("onedarkpro.config").config.colors
+
 local M = {}
 
 ---Override a theme's default color palette with a user's config
@@ -5,18 +7,16 @@ local M = {}
 ---@param theme table  The theme's meta data
 ---@return table
 function M.override(palette, theme)
-    local ovr = require("onedarkpro.override").colors
-
-    for key, value in pairs(ovr) do
-        if type(value) == "table" then
+    for name, color in pairs(colors) do
+        if type(color) == "table" then
             -- Allows a user to specify colors by theme name or background color
-            if key == theme.name or key == theme.background then
-                for key, value in pairs(value) do
-                    palette[key] = value
+            if name == theme.name or name == theme.background then
+                for k, v in pairs(color) do
+                    palette[k] = v
                 end
             end
         else
-            palette[key] = value
+            palette[name] = color
         end
     end
 

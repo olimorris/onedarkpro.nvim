@@ -74,12 +74,10 @@ local defaults = {
 
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
-        terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+        terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
         window_unfocused_color = false, -- When the window is out of focus, change the normal background?
     },
 }
-
-M.config = vim.deepcopy(defaults)
 
 ---Set the theme's options
 ---@param opts table
@@ -104,21 +102,22 @@ local function set_options(opts)
     }
 end
 
----Determine the filetypes or plugins that should be loaded
+---Determine if the files should be loaded
 ---@param files table
----@param override table
 ---@return table
-local function load_files(files, override)
+local function load_files(files)
+    local list = vim.deepcopy(files)
+
     for file, _ in pairs(files) do
-        if override["all"] == false then
+        if files["all"] == false then
             files[file] = false
         end
-        if override[file] then
-            files[file] = override[file]
+        if list[file] then
+            list[file] = files[file]
         end
     end
 
-    return files
+    return list
 end
 
 ---Set the theme to use
@@ -128,17 +127,21 @@ function M.set_theme(theme)
     M.theme = theme
 end
 
+---Reset the config to the default values
+---@return nil
+function M.reset()
+    M.config = vim.deepcopy(defaults)
+end
+
 ---Setup the configuration for the theme
 ---@param opts? table
 ---@return nil
 function M.setup(opts)
-    opts = opts or {}
     local utils = require("onedarkpro.utils")
+    opts = utils.deep_extend(defaults, opts) or vim.deepcopy(defaults)
+    opts.options = set_options(opts.options)
 
-    M.config = utils.deep_extend(M.config, opts)
-    M.config.options = set_options(M.config.options)
-
-    --TODO: Remove this when we remove dark_theme and light_theme --------------
+    --TODO: Remove this when we remove dark_theme and light_theme from the config
     if not M.theme then
         if vim.o.background == "dark" then
             M.theme = opts.dark_theme or "onedark"
@@ -149,14 +152,15 @@ function M.setup(opts)
     --//------------------------------------------------------------------------
 
     if opts.filetypes then
-        M.config.filetypes = load_files(M.config.filetypes, opts.filetypes)
+        opts.filetypes = load_files(opts.filetypes)
     end
 
     if opts.plugins then
-        M.config.plugins = load_files(M.config.plugins, opts.plugins)
+        opts.plugins = load_files(opts.plugins)
     end
 
     M.is_setup = true
+    M.config = opts
 end
 
 ---Get information relating to where the cache is stored
