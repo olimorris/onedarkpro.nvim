@@ -136,7 +136,7 @@ end
 
 ---Setup the configuration for the theme
 ---@param opts? table
----@return nil
+---@return table
 function M.setup(opts)
     local config = utils.deep_extend(defaults, opts or {})
     config.options = set_options(config.options)
@@ -161,14 +161,17 @@ function M.setup(opts)
 
     M.is_setup = true
     M.config = config
+
+    return config
 end
 
 ---Get information relating to where the cache is stored
 ---@param opts? table
 ---@return string,string
 function M.get_cached_info(opts)
-    local theme = opts and opts.theme or M.theme
-    local cache_path = opts and opts.cache_path or M.config.cache_path
+    opts = opts or {}
+    local theme = opts.theme or M.theme
+    local cache_path = opts.cache_path or M.config.cache_path
 
     return cache_path, utils.join_paths(cache_path, theme .. M.config.cache_suffix)
 end
