@@ -39,13 +39,13 @@ describe("Using the theme", function()
 
     if utils.has_nvim_08 then
         it("it should apply options", function()
-            local output = vim.api.nvim_get_hl_by_name("@variable.javascript", true)
-            assert.equals(true, output.italic)
+            local output = vim.api.nvim_get_hl_by_name("CursorLine", true)
+            assert.equals("#2e323a", hex(output.background))
         end)
 
         it("it should not apply options that are false", function()
-            local output = vim.api.nvim_get_hl_by_name("@function.ruby", true)
-            assert.equals(nil, output.bold)
+            local output = vim.api.nvim_get_hl_by_name("VertSplit", true)
+            assert.equals("#282c34", hex(output.background))
         end)
     end
 
@@ -74,15 +74,19 @@ describe("Using the theme", function()
         assert.equals("TestHighlightGroup2 xxx links to Statement", output)
     end)
 
-    it("it should only apply highlights for plugins we have enabled", function()
-        -- Treesitter groups should be loaded
-        local ts_group = utils.has_nvim_08 and "@annotation" or "TSAnnotation"
-        local output = vim.api.nvim_get_hl_by_name(ts_group, true)
+    it("it should be able to load plugins that we have enabled", function()
+        local output = pcall(vim.api.nvim_exec, "hi OpSidebarHeader", true)
+        assert.equals(true, output)
 
-        assert.equals("#e06c75", hex(output.foreground))
-
-        -- Do not set Aerial's highlight groups
         output = pcall(vim.api.nvim_exec, "hi AerialClass", true)
+        assert.equals(false, output)
+    end)
+
+    it("it should be able to load filetypes that we have enabled", function()
+        local output = pcall(vim.api.nvim_exec, "hi @variable.javascript", true)
+        assert.equals(true, output)
+
+        output = pcall(vim.api.nvim_exec, "hi @function.ruby", true)
         assert.equals(false, output)
     end)
 

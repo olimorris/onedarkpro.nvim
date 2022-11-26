@@ -7,11 +7,9 @@ test:
 	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec
 	nvim --headless --noplugin -u tests/link_groups_spec.vim +LinkGroupsSpec
 	nvim --headless --noplugin -u tests/source_spec.vim +SourceSpec
-ifeq ($(NV_VERSION), 0.8)
-	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
-	nvim --headless --noplugin -u tests/load_files_spec.vim +LoadFilesSpec
-endif
-ifeq ($(NV_VERSION), 0.9)
-	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
-	nvim --headless --noplugin -u tests/load_files_spec.vim +LoadFilesSpec
-endif
+# ifeq ($(NV_VERSION), 0.8)
+# 	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
+# endif
+# ifeq ($(NV_VERSION), 0.9)
+# 	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
+# endif

@@ -8,7 +8,6 @@ set noswapfile
 set noundofile
 
 lua << EOF
-vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_test/"),
@@ -18,10 +17,16 @@ onedarkpro.setup({
     options = {
         bold = false,
         italic = true,
-        terminal_colors = true
+        terminal_colors = true,
+        cursorline = true
+    },
+    filetypes = {
+        all = false,
+        javascript = true,
     },
     plugins = {
         all = false,
+        op_nvim = true,
         treesitter = true,
     },
     colors = {

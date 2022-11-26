@@ -8,7 +8,6 @@ set noswapfile
 set noundofile
 
 lua << EOF
-local onedarkpro = require("onedarkpro")
 vim.cmd [[colorscheme onedarkpro]]
 EOF
 

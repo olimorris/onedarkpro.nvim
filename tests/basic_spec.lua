@@ -3,6 +3,11 @@ describe("Using the colorscheme without calling setup,", function()
         vim.cmd(":e tests/stubs/test.txt")
     end)
 
+    after_each(function()
+        -- This is essential to make sure that config changes are properly applied
+        require("onedarkpro").clean()
+    end)
+
     it("there should be no errors", function()
         local content = vim.fn.getline(1, "$")
         assert.equals("Hello World", content[1])
@@ -20,5 +25,15 @@ describe("Using the colorscheme without calling setup,", function()
     it("it should be able to get the theme's colors", function()
         local colors = require("onedarkpro").get_colors()
         assert.equals("#c678dd", colors.purple)
+    end)
+
+    it("it should be able to load plugins", function()
+        local output = vim.api.nvim_exec("hi OpSidebarHeader ", true)
+        assert.equals("OpSidebarHeader xxx guifg=#abb2bf", output)
+    end)
+
+    it("it should be able to load filetypes", function()
+        local output = vim.api.nvim_exec("hi @variable.javascript", true)
+        assert.equals("@variable.javascript xxx cterm=italic gui=italic guifg=#e06c75", output)
     end)
 end)
