@@ -13,6 +13,11 @@ describe("Using the theme", function()
         vim.cmd(":e tests/stubs/test.txt")
     end)
 
+    after_each(function()
+        -- This is essential to make sure that config changes are properly applied
+        require("onedarkpro").clean()
+    end)
+
     it("Neovim should open with no errors", function()
         local content = vim.fn.getline(1, "$")
         assert.equals("Hello World", content[1])

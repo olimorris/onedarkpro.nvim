@@ -10,6 +10,11 @@ describe("Using the theme", function()
         vim.o.background = "dark"
     end)
 
+    after_each(function()
+        -- This is essential to make sure that config changes are properly applied
+        require("onedarkpro").clean()
+    end)
+
     it("it should link highlight groups together", function()
         local output = vim.api.nvim_get_hl_by_name("NormalFloat", true)
         assert.equals(hex(output.foreground), "#abb2bf")
