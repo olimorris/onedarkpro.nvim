@@ -5,6 +5,7 @@ local M = {}
 vim.g.onedarkpro_log_level = "error"
 
 ---Compile all the themes and cache them
+---@return nil
 function M.cache()
     local cache = require("onedarkpro.lib.cache")
     local themes = require("onedarkpro.theme").themes
@@ -17,6 +18,20 @@ function M.cache()
     end
 end
 
+---Clean the cache files from disk
+---@return nil
+function M.clean()
+    local cache = require("onedarkpro.lib.cache")
+    local themes = require("onedarkpro.theme").themes
+
+    for _, theme in ipairs(themes) do
+        local t = { theme = theme }
+        cache.clean(t)
+    end
+end
+
+---Reset the configuration to the default values
+---@return nil
 function M.reset()
     require("onedarkpro.config").reset()
     require("onedarkpro.override").reset()
@@ -24,6 +39,7 @@ end
 
 ---Setup the colorscheme
 ---@param opts table
+---@return nil
 function M.setup(opts)
     opts = opts or {}
     config.setup(opts)
@@ -66,20 +82,5 @@ function M.get_colors()
     local theme = require("onedarkpro.theme").load(config.theme)
     return require("onedarkpro.utils").deep_extend(theme.palette, theme.generated, theme.meta)
 end
-
--- ---Cache a user's config
--- ---@return nil
--- function M.cache()
---     -- require("onedarkpro.lib.cache").generate()
---     --TODO: Compile and generate the cache
---     return vim.notify("[OneDarkPro] Cache generated!")
--- end
---
--- ---Delete a user's cache
--- ---@return nil
--- function M.clean()
---     require("onedarkpro.lib.cache").clean()
---     return vim.notify("[OneDarkPro] Cache cleaned!")
--- end
 
 return M
