@@ -138,7 +138,7 @@ end
 ---@param opts? table
 ---@return nil
 function M.setup(opts)
-    local config = utils.deep_extend(defaults, opts) or vim.deepcopy(defaults)
+    local config = utils.deep_extend(defaults, opts or {})
     config.options = set_options(config.options)
 
     --TODO: Remove this when we remove dark_theme and light_theme from the config
