@@ -1,10 +1,9 @@
----@diagnostic disable: missing-parameter
 local meta = {
     name = "onelight",
     background = "light"
 }
 
-local palette = {
+local default_colors = {
     bg = "#fafafa",
     fg = "#6a6a6a",
     red = "#e05661",
@@ -23,40 +22,40 @@ local palette = {
 }
 
 ---Colors which are generated depending on the values in the palette
----@param palette table the theme's color palette
+---@param colors table the theme's color palette
 ---@return table
-local function generate(palette)
+local function generate(colors)
     local color = require("onedarkpro.lib.color")
 
     return {
-        cursorline = palette.cursorline or color.darken(palette.bg, 0.97),
-        color_column = palette.color_column or color.darken(palette.bg, 0.97),
-        indentline = palette.indentline or color.darken(palette.bg, 0.93),
-        selection = palette.selection or color.darken(palette.bg, 0.90),
-        float_bg = palette.float_bg or color.darken(palette.bg, 0.95),
+        cursorline = colors.cursorline or color.darken(colors.bg, 0.97),
+        color_column = colors.color_column or color.darken(colors.bg, 0.97),
+        indentline = colors.indentline or color.darken(colors.bg, 0.93),
+        selection = colors.selection or color.darken(colors.bg, 0.90),
+        float_bg = colors.float_bg or color.darken(colors.bg, 0.95),
 
         -- Git diff
-        diff_add = palette.diff_add or "#cae3e8",
-        diff_delete = palette.diff_delete or "#f5c6c6",
-        diff_text = palette.diff_text or "#a6d0d8",
+        diff_add = colors.diff_add or "#cae3e8",
+        diff_delete = colors.diff_delete or "#f5c6c6",
+        diff_text = colors.diff_text or "#a6d0d8",
 
         -- Lualine colors
-        bg_statusline = palette.bg_statusline or color.darken(palette.bg, 0.97),
-        fg_gutter = palette.fg_gutter or color.darken(palette.bg, 0.90),
-        fg_gutter_inactive = palette.fg_gutter_inactive or palette.fg,
+        bg_statusline = colors.bg_statusline or color.darken(colors.bg, 0.97),
+        fg_gutter = colors.fg_gutter or color.darken(colors.bg, 0.90),
+        fg_gutter_inactive = colors.fg_gutter_inactive or colors.fg,
 
         -- Virtual text
-        virtual_text_error = palette.virtual_text_error or color.lighten(palette.red, 0.6),
-        virtual_text_warning = palette.virtual_text_warning or color.lighten(palette.yellow, 0.6),
-        virtual_text_information = palette.virtual_text_information or color.lighten(palette.blue, 0.6),
-        virtual_text_hint = palette.virtual_text_hint or color.lighten(palette.cyan, 0.6),
+        virtual_text_error = colors.virtual_text_error or color.lighten(colors.red, 0.6),
+        virtual_text_warning = colors.virtual_text_warning or color.lighten(colors.yellow, 0.6),
+        virtual_text_information = colors.virtual_text_information or color.lighten(colors.blue, 0.6),
+        virtual_text_hint = colors.virtual_text_hint or color.lighten(colors.cyan, 0.6),
     }
 end
 
 return {
     meta = meta,
-    palette = palette,
-    generated = function(palette)
-        return generate(palette)
+    palette = default_colors,
+    generated = function()
+        return generate(default_colors)
     end,
 }
