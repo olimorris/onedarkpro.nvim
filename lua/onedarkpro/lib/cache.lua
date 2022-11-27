@@ -1,20 +1,21 @@
-local utils = require("onedarkpro.utils")
 local config = require("onedarkpro.config")
+local file = require("onedarkpro.utils.file")
 
 local M = {}
 
+function M.is_valid(opts) end
+
 ---Cache the compiled theme to disk
----@param opts table
----@return nil|boolean
+---@param opts table Should contain the theme
+---@return nil|function
 function M.write(opts)
     local cache_path, cache_file = config.get_cached_info(opts)
 
-    utils.ensure_dir(cache_path)
-    local file = io.open(cache_file, "wb")
+    file.ensure_dir(cache_path)
+    local f = file.write(cache_file, require("onedarkpro").compiled)
 
-    if file then
-        file:write(require("onedarkpro").compiled)
-        return file:close()
+    if not f then
+        error("Could not write to cache file for " .. opts.theme)
     end
 end
 

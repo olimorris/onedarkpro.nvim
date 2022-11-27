@@ -8,19 +8,10 @@ set noswapfile
 set noundofile
 
 lua << EOF
+require("onedarkpro.config").reset()
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_test/"),
-    plugins = {
-        all = false,
-        treesitter = true,
-    },
-    colors = {
-      my_new_red = "#FF0000",
-    },
-    highlights = {
-      OneDarkPro = { fg = "${my_new_red}" }
-    },
 })
 vim.cmd [[colorscheme onedark]]
 EOF
