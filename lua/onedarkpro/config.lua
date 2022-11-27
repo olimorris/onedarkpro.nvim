@@ -1,9 +1,10 @@
-local utils = require("onedarkpro.utils")
+local util = require("onedarkpro.utils")
+local file = require("onedarkpro.utils.file")
 
 local M = { theme = "onedark", is_setup = false }
 
 local defaults = {
-    cache_suffix = "_cached",
+    cache_suffix = "_compiled",
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
@@ -131,14 +132,14 @@ end
 ---Reset the config to the default values
 ---@return nil
 function M.reset()
-    M.config = vim.deepcopy(defaults)
+    M.config = util.deep_copy(defaults)
 end
 
 ---Setup the configuration for the theme
 ---@param opts? table
----@return table
+---@return nil
 function M.setup(opts)
-    local config = utils.deep_extend(defaults, opts or {})
+    local config = util.deep_extend(util.deep_copy(defaults), opts)
     config.options = set_options(config.options)
 
     --TODO: Remove this when we remove dark_theme and light_theme from the config
@@ -162,7 +163,7 @@ function M.setup(opts)
     M.is_setup = true
     M.config = config
 
-    return config
+    --TODO: Create hash of the config
 end
 
 ---Get information relating to where the cache is stored
@@ -173,7 +174,12 @@ function M.get_cached_info(opts)
     local theme = opts.theme or M.theme
     local cache_path = opts.cache_path or M.config.cache_path
 
-    return cache_path, utils.join_paths(cache_path, theme .. M.config.cache_suffix)
+    return cache_path, file.join_paths(cache_path, theme .. M.config.cache_suffix)
+end
+
+function M.hash()
+    local hash = require("onedarkpro.lib.hash").generate(M.config)
+    return hash and hash or 0
 end
 
 return M

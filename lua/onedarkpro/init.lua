@@ -43,6 +43,7 @@ end
 function M.setup(opts)
     opts = opts or {}
     config.setup(opts)
+    -- require('pl.pretty').dump(config.config)
 
     --TODO: Check if the cached file is adequate or should be compiled
 
@@ -58,11 +59,9 @@ function M.load()
         config.setup()
     end
 
-    --TODO: Load the compile file
     local _, compiled_file = config.get_cached_info()
     local f = loadfile(compiled_file)
 
-    --TODO: If that fails, then compile and then load the compile file
     if not f then
         M.cache()
         f = loadfile(compiled_file)
@@ -72,8 +71,7 @@ function M.load()
         return f()
     end
 
-    --TODO: Add error message about not loading
-    return
+    error("Could not load the colorscheme")
 end
 
 ---Get the color palette for the current theme

@@ -3,47 +3,6 @@ local M = {}
 M.has_nvim_07 = vim.fn.has("nvim-0.7") == 1
 M.has_nvim_08 = vim.fn.has("nvim-0.8") == 1
 
-if jit ~= nil then
-    M.is_windows = jit.os == "Windows"
-else
-    M.is_windows = package.config:sub(1, 1) == "\\"
-end
-
----Get the separator for file paths
----@return string
-function M.get_separator()
-    if M.is_windows then
-        return "\\"
-    end
-    return "/"
-end
-
----Check that a given path exists and create it if not
----@param path string
-function M.ensure_dir(path)
-    os.execute(string.format("mkdir %s %s", M.is_windows and "" or "-p", path))
-end
-
----Determine if a given path exists
----@param path string
----@return boolean
-function M.exists(path)
-    local f = io.open(path, "r")
-    if f ~= nil then
-        io.close(f)
-        return true
-    else
-        return false
-    end
-end
-
----Join multiple paths together
----@return string
-function M.join_paths(...)
-    local separator = M.get_separator()
-    return table.concat({ ... }, separator)
-end
-
 ---Merges recursively two or more map-like tables
 ---@param...any Two or more map-like tables
 ---@return table Merged table
@@ -59,6 +18,29 @@ function M.deep_extend(...)
         end
     end
     return lhs
+end
+
+---Create a copy of a deeply nested table
+---@param obj table
+---@param seen? table
+---@return table
+function M.deep_copy(obj, seen)
+    if type(obj) ~= "table" then
+        return obj
+    end
+    if seen and seen[obj] then
+        return seen[obj]
+    end
+
+    local s = seen or {}
+    local res = {}
+    s[obj] = res
+
+    for k, v in pairs(obj) do
+        res[M.deep_copy(k, s)] = M.deep_copy(v, s)
+    end
+
+    return setmetatable(res, getmetatable(obj))
 end
 
 ---Replaces values from one table with values from another
