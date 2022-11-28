@@ -1,4 +1,4 @@
-local utils = require("onedarkpro.utils")
+local util = require("onedarkpro.utils")
 local config = require("onedarkpro.config")
 
 local M = {}
@@ -121,7 +121,7 @@ vim.o.background = "%s"
     end
 
     for name, values in pairs(groups) do
-        if utils.has_nvim_07 then
+        if util.has_nvim_07 then
             table.insert(lines, neovim_highlights(name, values))
         else
             table.insert(lines, vim_highlights(name, values))

@@ -1,4 +1,4 @@
-local utils = require("onedarkpro.utils")
+local util = require("onedarkpro.utils")
 local config = require("onedarkpro.config").config
 
 local M = {}
@@ -7,7 +7,7 @@ local M = {}
 ---@param theme table
 ---@return table|nil
 function M.groups(theme)
-    if not utils.has_nvim_08 then
+    if not util.has_nvim_08 then
         return
     end
 

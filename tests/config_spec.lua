@@ -4,7 +4,7 @@ local hex = function(n)
     end
 end
 
-local utils = require("onedarkpro.utils")
+local util = require("onedarkpro.utils")
 
 describe("Using the theme", function()
     before_each(function()
@@ -42,7 +42,7 @@ describe("Using the theme", function()
         assert.equals(true, output.bold)
     end)
 
-    if utils.has_nvim_08 then
+    if util.has_nvim_08 then
         it("it should apply options", function()
             local output = vim.api.nvim_get_hl_by_name("CursorLine", true)
             assert.equals("#2e323a", hex(output.background))
