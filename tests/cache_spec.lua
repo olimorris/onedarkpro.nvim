@@ -6,36 +6,40 @@ local hash = nil
 
 describe("Using the cache", function()
     before_each(function()
+        require("onedarkpro").clean()
         tbl = {
             colors = {},
             highlights = {},
             filetypes = {
+                vue = true,
                 javascript = true,
                 lua = true,
-                markdown = true,
-                php = true,
                 python = true,
                 ruby = true,
+                markdown = true,
+                typescriptreact = true,
                 rust = true,
                 toml = true,
+                php = true,
                 typescript = true,
-                typescriptreact = true,
-                vue = true,
                 yaml = true,
             },
         }
-        hash = require("onedarkpro.lib.hash").generate(tbl)
+        require("onedarkpro.lib.hash").hash(tbl)
+        hash = require("onedarkpro.lib.hash").hash(tbl)
     end)
 
-    it("deep tables should always return the SAME hash value", function()
-        assert.equals(423509938, hash)
+    it("the SAME table should always return the SAME hash", function()
+        assert.equals(1031236655, hash)
     end)
 
-    it("deep tables should always return a DIFFERENT hash value", function()
+    it("a MODIFIED table should return a DIFFERENT hash", function()
         tbl.colors = {
             red = "#ff0000",
         }
-        assert.not_equals(hash, require("onedarkpro.lib.hash").generate(tbl))
+        require("onedarkpro.lib.hash").hash(tbl)
+        require("onedarkpro.lib.hash").hash(tbl)
+        assert.not_equals(hash, require("onedarkpro.lib.hash").hash(tbl))
     end)
 
     -- it("the hash should stay the same if the config doesn't change", function()
