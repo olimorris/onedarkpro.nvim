@@ -6,14 +6,14 @@ local b = bit or bit32
 
 local M = {}
 
----Sort a table by key
----@param tbl table
----@param f? function
----@return function
-local function sort_table(tbl, f)
+function M.sort_table(tbl, f)
     local a = {}
     for n in pairs(tbl) do
-        table.insert(a, n)
+        if type(n) == "table" then
+            M.sort_table(n, f)
+        else
+            table.insert(a, n)
+        end
     end
     table.sort(a, f)
     local i = 0 -- iterator variable
@@ -29,9 +29,9 @@ local function sort_table(tbl, f)
 end
 
 ---Hash a string
----@param str string
+---@param str any
 ---@return string
-local hash_str = function(str) -- MurmurOAAT_32, https://stackoverflow.com/questions/7666509/hash-function-for-string
+local hash_str = function(str)
     local hash = 0x12345678
     local tbl = { string.byte(str, 1, #str) }
     for i = 1, #tbl do
@@ -43,23 +43,22 @@ local hash_str = function(str) -- MurmurOAAT_32, https://stackoverflow.com/quest
 end
 
 ---Generate a hash from a table
----@param data any
+---@param tbl table
 ---@return string
-function M.generate(data)
-    local t = type(data)
+function M.hash(tbl)
+    local t = type(tbl)
     if t == "boolean" then
-        return hash_str(data and "1" or "0")
+        return hash_str(tbl and "1" or "0")
     elseif t == "string" then
-        return hash_str(data)
+        return hash_str(tbl)
     elseif t == "number" then
-        return tostring(data)
+        return tostring(tbl)
     elseif t == "function" then
-        return hash_str(string.dump(data))
+        return hash_str(string.dump(tbl))
     else
         local hash = 0
-        -- If we don't sort the table by key, then the hash will be different for the same table
-        for k, v in sort_table(data) do
-            hash = b.bxor(hash, hash_str(k .. ":" .. M.generate(v)))
+        for k, v in pairs(tbl) do
+            hash = b.bxor(hash, hash_str(k .. ":" .. M.hash(v)))
         end
         return hash
     end
