@@ -4,6 +4,7 @@ local file = require("onedarkpro.utils.file")
 local M = { theme = "onedark", is_setup = false }
 
 local defaults = {
+    caching = true, -- Enable caching
     cache_suffix = "_compiled",
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
     colors = {}, -- Override default colors
@@ -110,12 +111,12 @@ end
 ---@param override table
 ---@return table
 local function load_files(files, override)
-    for file, _ in pairs(files) do
+    for f, _ in pairs(files) do
         if override["all"] == false then
-            files[file] = false
+            files[f] = false
         end
-        if override[file] then
-            files[file] = override[file]
+        if override[f] then
+            files[f] = override[f]
         end
     end
 
@@ -139,31 +140,29 @@ end
 ---@param opts? table
 ---@return nil
 function M.setup(opts)
-    local config = util.deep_extend(util.deep_copy(defaults), opts)
-    config.options = set_options(config.options)
+    opts = opts or {}
+    M.config = util.deep_extend(vim.deepcopy(defaults), opts)
+    M.config.options = set_options(M.config.options)
 
     --TODO: Remove this when we remove dark_theme and light_theme from the config
     if not M.theme then
         if vim.o.background == "dark" then
-            M.theme = config.dark_theme or "onedark"
+            M.theme = M.config.dark_theme or "onedark"
         else
-            M.theme = config.light_theme or "onelight"
+            M.theme = M.config.light_theme or "onelight"
         end
     end
     --//------------------------------------------------------------------------
 
     if opts and opts.filetypes then
-        config.filetypes = load_files(config.filetypes, opts.filetypes)
+        M.config.filetypes = load_files(M.config.filetypes, opts.filetypes)
     end
 
     if opts and opts.plugins then
-        config.plugins = load_files(config.plugins, opts.plugins)
+        M.config.plugins = load_files(M.config.plugins, opts.plugins)
     end
 
     M.is_setup = true
-    M.config = config
-
-    --TODO: Create hash of the config
 end
 
 ---Get information relating to where the cache is stored
@@ -177,8 +176,10 @@ function M.get_cached_info(opts)
     return cache_path, file.join_paths(cache_path, theme .. M.config.cache_suffix)
 end
 
+---Create a hash from the config
+---@return string
 function M.hash()
-    local hash = require("onedarkpro.lib.hash").generate(M.config)
+    local hash = require("onedarkpro.lib.hash").hash(M.config)
     return hash and hash or 0
 end
 
