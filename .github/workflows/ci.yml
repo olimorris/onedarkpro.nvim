@@ -1,33 +1,49 @@
-name: Tests
+name: Continuous Integration
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-# Cancel any in-progress CI runs for a PR if it is updated
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
-  cancel-in-progress: true
+    branches:
+      - main
+      - dev
+  pull_request: ~
 
 jobs:
-  unit_tests:
-    name: unit tests
+  # Taken from the amazing work of:
+  # https://github.com/EdenEast/nightfox.nvim/blob/main/.github/workflows/ci.yml
+  fingerprint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate fingerprint
+        run: make fingerprint
+
+      - name: Check if fingerprint changed
+        id: check_fp
+        run: |
+          [[ -n $(git diff-index HEAD --) ]] && status="commit" || status="skip"
+          echo "::set-output name=status::$status"
+      - if: steps.check_fp.outputs.status == 'commit'
+        name: Commit fingerprint
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update fingerprint'
+          commit_author: Author <actions@github.com>
+
+  tests:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             url: https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             url: https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             url: https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             url: https://github.com/neovim/neovim/releases/download/v0.6.0/nvim-linux64.tar.gz
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             url: https://github.com/neovim/neovim/releases/download/v0.5.0/nvim-linux64.tar.gz
 
     steps:
