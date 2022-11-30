@@ -1,6 +1,12 @@
 NV_VERSION := $(shell nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+FP_FILE = ./lua/onedarkpro/fingerprint.lua
 
-all: test
+fp := $(shell git ls-files -- './lua/*' './colors/*' './plugin/*' | grep -v 'fingerprint.lua' | git hash-object --stdin-paths | git hash-object --stdin)
+
+all: fingerprint test
+
+fingerprint:
+	echo "return [[$(fp)]]" > $(FP_FILE)
 
 cache:
 	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec

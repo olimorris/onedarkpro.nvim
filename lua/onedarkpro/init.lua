@@ -1,5 +1,5 @@
 local config = require("onedarkpro.config")
-local themes = require("onedarkpro.theme").themes
+local file = require("onedarkpro.utils.file")
 
 local M = {}
 
@@ -7,9 +7,8 @@ local M = {}
 ---@return nil
 function M.cache()
     local cache = require("onedarkpro.lib.cache")
+    local themes = require("onedarkpro.theme").themes
     local compiler = require("onedarkpro.lib.compile")
-
-    --TODO: Determine if the theme has already been created
 
     for _, theme in ipairs(themes) do
         local t = { theme = theme }
@@ -22,10 +21,10 @@ end
 ---@return nil
 function M.clean()
     local cache = require("onedarkpro.lib.cache")
+    local themes = require("onedarkpro.theme").themes
 
     for _, theme in ipairs(themes) do
-        local t = { theme = theme }
-        cache.clean(t)
+        cache.clean({ theme = theme })
     end
 end
 
@@ -40,39 +39,51 @@ end
 ---@param opts table
 ---@return nil
 function M.setup(opts)
+    local cache_required = false
     config.setup(opts)
-    -- Must come after the config is setup
-    local cached = require("onedarkpro.lib.cache")
 
-    if cached.user_config__expired() then
-        cached.user_config()
-        M.cache()
+    local cache_path, _ = config.get_cached_info()
+
+    --BUG: Have to run hash twice to get consistent hash
+    config.hash()
+
+    -- Check the user config hash
+    local hash_config_path = file.join_paths(cache_path, "user_config_hash")
+    local current_hash = tostring(config.hash())
+    local stored_hash = tostring(file.read(hash_config_path))
+
+    if not stored_hash or current_hash ~= stored_hash then
+        cache_required = true
+        file.write(hash_config_path, current_hash)
     end
 
-    if cached.fingerprint__invalid() then M.cache() end
+    -- Check the colorscheme's fingerprint
+    local fingerprint_path = file.join_paths(cache_path, "fingerprint")
+    local current_fingerprint = require("onedarkpro.fingerprint")
+    local stored_fingerprint = file.read(fingerprint_path)
+
+    if not stored_fingerprint or current_fingerprint ~= stored_fingerprint then
+        cache_required = true
+        file.write(fingerprint_path, current_fingerprint)
+    end
+
+    if cache_required then
+        M.cache()
+    end
 end
 
 ---Load a theme
 ---@return nil
 function M.load()
-    local cached = require("onedarkpro.lib.cache")
-
-    --TODO: REMOVE THIS
-    M.cache()
-
     -- Some users may not call the setup method. In this case we need to load
     -- the config with the defaults. We also need to determine if the theme
     -- has been cached and compile and cache for all themes if it hasn't
-    if not config.is_setup then
-        --TODO: Cache user config hash
-        --TODO: Cache fingerprint
-        config.setup()
-    end
-    if cached.theme__missing(config.theme) then M.cache() end
+    if not config.is_setup then config.setup() end
 
-    local _, cached_file = config.get_cached_info()
+    local _, cached_theme = config.get_cached_info()
+    if not file.exists(cached_theme) then M.cache() end
 
-    local theme = loadfile(cached_file)
+    local theme = loadfile(cached_theme)
     if not theme then
         error("Could not load the cache file")
         return

@@ -3,8 +3,6 @@ local file = require("onedarkpro.utils.file")
 
 local M = {}
 
-function M.is_valid(opts) end
-
 ---Cache the compiled theme to disk
 ---@param opts table Should contain the theme
 ---@return nil|function
@@ -14,9 +12,7 @@ function M.write(opts)
     file.ensure_dir(cache_path)
     local f = file.write(cache_file, require("onedarkpro").compiled)
 
-    if not f then
-        error("Could not write to cache file for " .. opts.theme)
-    end
+    if not f then error("Could not write to cache file for " .. opts.theme) end
 end
 
 ---Clean the given file from disk

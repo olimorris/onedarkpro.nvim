@@ -1,5 +1,4 @@
 local util = require("onedarkpro.utils")
-local file = require("onedarkpro.utils.file")
 
 local M = { theme = "onedark", is_setup = false }
 
@@ -84,13 +83,13 @@ local defaults = {
     },
 }
 
+M.config = vim.deepcopy(defaults)
+
 ---Set the theme's options
 ---@param opts table
 ---@return table
 local function set_options(opts)
-    if opts.cursorline then
-        vim.wo.cursorline = true
-    end
+    if opts.cursorline then vim.wo.cursorline = true end
 
     return {
         none = "NONE",
@@ -113,12 +112,8 @@ end
 ---@return table
 local function load_files(files, override)
     for f, _ in pairs(files) do
-        if override["all"] == false then
-            files[f] = false
-        end
-        if override[f] then
-            files[f] = override[f]
-        end
+        if override["all"] == false then files[f] = false end
+        if override[f] then files[f] = override[f] end
     end
 
     return files
@@ -142,7 +137,7 @@ end
 ---@return nil
 function M.setup(opts)
     opts = opts or {}
-    M.config = util.deep_extend(vim.deepcopy(defaults), opts)
+    M.config = util.deep_extend(M.config, opts)
     M.config.options = set_options(M.config.options)
 
     --TODO: Remove this when we remove dark_theme and light_theme from the config
@@ -155,13 +150,9 @@ function M.setup(opts)
     end
     --//------------------------------------------------------------------------
 
-    if opts and opts.filetypes then
-        M.config.filetypes = load_files(M.config.filetypes, opts.filetypes)
-    end
+    if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
 
-    if opts and opts.plugins then
-        M.config.plugins = load_files(M.config.plugins, opts.plugins)
-    end
+    if opts and opts.plugins then M.config.plugins = load_files(M.config.plugins, opts.plugins) end
 
     M.is_setup = true
 end
@@ -170,11 +161,15 @@ end
 ---@param opts? table
 ---@return string,string
 function M.get_cached_info(opts)
+    local file = require("onedarkpro.utils.file")
+
     opts = opts or {}
+
     local theme = opts.theme or M.theme
     local cache_path = opts.cache_path or M.config.cache_path
+    local theme_path = file.join_paths(cache_path, theme .. M.config.cache_suffix)
 
-    return cache_path, file.join_paths(cache_path, theme .. M.config.cache_suffix)
+    return cache_path, theme_path
 end
 
 ---Create a hash from the config
