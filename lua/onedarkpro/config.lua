@@ -4,8 +4,8 @@ local M = { theme = "onedark", is_setup = false }
 
 local defaults = {
     caching = true, -- Enable caching
-    cache_suffix = "_compiled",
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
+    cache_suffix = "_compiled",
     colors = {}, -- Override default colors
     highlights = {}, -- Override default highlight groups
     filetypes = { -- Enable/Disable specific plugins

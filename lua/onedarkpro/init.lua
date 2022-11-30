@@ -39,8 +39,14 @@ end
 ---@param opts table
 ---@return nil
 function M.setup(opts)
-    local cache_required = false
+    local should_cache = false
     config.setup(opts)
+
+    -- Allow users to bypass the hashing and generate themes everytime
+    if not config.config.caching then
+        M.cache()
+        return
+    end
 
     local cache_path, _ = config.get_cached_info()
 
@@ -53,7 +59,7 @@ function M.setup(opts)
     local stored_hash = tostring(file.read(hash_config_path))
 
     if not stored_hash or current_hash ~= stored_hash then
-        cache_required = true
+        should_cache = true
         file.write(hash_config_path, current_hash)
     end
 
@@ -63,13 +69,11 @@ function M.setup(opts)
     local stored_fingerprint = file.read(fingerprint_path)
 
     if not stored_fingerprint or current_fingerprint ~= stored_fingerprint then
-        cache_required = true
+        should_cache = true
         file.write(fingerprint_path, current_fingerprint)
     end
 
-    if cache_required then
-        M.cache()
-    end
+    if should_cache then M.cache() end
 end
 
 ---Load a theme
