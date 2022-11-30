@@ -29,6 +29,7 @@ local defaults = {
         copilot = true,
         dashboard = true,
         gitsigns = true,
+        glance = true,
         hop = true,
         indentline = true,
         leap = true,

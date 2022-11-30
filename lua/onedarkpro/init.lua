@@ -1,15 +1,15 @@
 local config = require("onedarkpro.config")
+local themes = require("onedarkpro.theme").themes
 
 local M = {}
-
-vim.g.onedarkpro_log_level = "error"
 
 ---Compile all the themes and cache them
 ---@return nil
 function M.cache()
     local cache = require("onedarkpro.lib.cache")
-    local themes = require("onedarkpro.theme").themes
     local compiler = require("onedarkpro.lib.compile")
+
+    --TODO: Determine if the theme has already been created
 
     for _, theme in ipairs(themes) do
         local t = { theme = theme }
@@ -18,11 +18,10 @@ function M.cache()
     end
 end
 
----Clean the cache files from disk
+---Clean all the cache files
 ---@return nil
 function M.clean()
     local cache = require("onedarkpro.lib.cache")
-    local themes = require("onedarkpro.theme").themes
 
     for _, theme in ipairs(themes) do
         local t = { theme = theme }
@@ -30,7 +29,7 @@ function M.clean()
     end
 end
 
----Reset the configuration to the default values
+---Reset the colorscheme to the default values
 ---@return nil
 function M.reset()
     require("onedarkpro.config").reset()
@@ -41,44 +40,55 @@ end
 ---@param opts table
 ---@return nil
 function M.setup(opts)
-    opts = opts or {}
     config.setup(opts)
-    -- require('pl.pretty').dump(config.config)
+    -- Must come after the config is setup
+    local cached = require("onedarkpro.lib.cache")
 
-    --TODO: Check if the cached file is adequate or should be compiled
+    if cached.user_config__expired() then
+        cached.user_config()
+        M.cache()
+    end
 
-    --TODO: If not adequate, compile and cache it
-    M.cache()
+    if cached.fingerprint__invalid() then M.cache() end
 end
 
----Load the colorscheme
----@return function|nil
+---Load a theme
+---@return nil
 function M.load()
-    -- For when the user does not call the setup function
+    local cached = require("onedarkpro.lib.cache")
+
+    --TODO: REMOVE THIS
+    M.cache()
+
+    -- Some users may not call the setup method. In this case we need to load
+    -- the config with the defaults. We also need to determine if the theme
+    -- has been cached and compile and cache for all themes if it hasn't
     if not config.is_setup then
+        --TODO: Cache user config hash
+        --TODO: Cache fingerprint
         config.setup()
     end
+    if cached.theme__missing(config.theme) then M.cache() end
 
-    local _, compiled_file = config.get_cached_info()
-    local f = loadfile(compiled_file)
+    local _, cached_file = config.get_cached_info()
 
-    if not f then
-        M.cache()
-        f = loadfile(compiled_file)
+    local theme = loadfile(cached_file)
+    if not theme then
+        error("Could not load the cache file")
+        return
     end
 
-    if f then
-        return f()
-    end
-
-    error("Could not load the colorscheme")
+    -- Load the theme
+    theme()
 end
 
----Get the color palette for the current theme
+---Return all of the colors in a table for the current theme
 ---@return table
 function M.get_colors()
+    local util = require("onedarkpro.utils")
     local theme = require("onedarkpro.theme").load(config.theme)
-    return require("onedarkpro.utils").deep_extend(theme.palette, theme.generated, theme.meta)
+
+    return util.deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
 return M
