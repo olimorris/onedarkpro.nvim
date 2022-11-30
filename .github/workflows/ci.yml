@@ -24,7 +24,7 @@ jobs:
           [[ -n $(git diff-index HEAD --) ]] && status="commit" || status="skip"
           echo "status=$status" >> $GITHUB_OUTPUT
 
-      - if: ${{ steps.check_fingerprint.outputs.status }} == 'commit'
+      - if: steps.check_fingerprint.outputs.status == 'commit'
         name: Commit fingerprint
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
