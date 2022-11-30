@@ -56,7 +56,7 @@
 
 ## :zap: Requirements
 
-- Neovim 0.5+ (0.8+ for filetype highlights)
+- Neovim 0.8 and above
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 
@@ -232,8 +232,6 @@ highlights = {
 ```
 
 ### Configuring filetype highlighting
-
-> **Note: Filetype highlighting only works in Neovim 0.8 and above**
 
 The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
 
