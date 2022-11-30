@@ -1,1 +1,2 @@
 indent_type = "Spaces"
+collapse_simple_statement = "ConditionalOnly"
