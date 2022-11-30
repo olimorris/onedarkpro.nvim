@@ -21,12 +21,12 @@ jobs:
         id: check_fp
         run: |
           [[ -n $(git diff-index HEAD --) ]] && status="commit" || status="skip"
-          echo "::set-output name=status::$status"
-      - if: steps.check_fp.outputs.status == 'commit'
+          echo "status=$status" >> $GITHUB_ENV
+      - if: ${{ env.status }} == 'commit'
         name: Commit fingerprint
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'chore: update fingerprint'
+          commit_message: "chore: update fingerprint"
           commit_author: Author <actions@github.com>
 
   tests:
