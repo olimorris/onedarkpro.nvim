@@ -15,7 +15,7 @@ function M.groups(theme)
         ["@label.rust"] = { fg = theme.palette.white },
         ["@operator.rust"] = { fg = theme.palette.fg },
         ["@parameter.rust"] = { fg = theme.palette.red, style = config.options.italic },
-        ["@storageclass.rust"] = { link = '@keyword' },
+        ["@storageclass.rust"] = { link = "@keyword" },
     }
 end
 

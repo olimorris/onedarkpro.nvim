@@ -22,9 +22,7 @@ end
 ---@param style string
 ---@return table
 local function parse_style(style)
-    if not style or style == "NONE" then
-        return {}
-    end
+    if not style or style == "NONE" then return {} end
 
     local result = {}
     for token in string.gmatch(style, "([^,]+)") do
@@ -71,9 +69,7 @@ end
 ---@param values table the highlight group values
 ---@return string
 local function vim_highlights(name, values)
-    if should_link(values.link) then
-        return string.format("highlight! link %s %s", name, values.link)
-    end
+    if should_link(values.link) then return string.format("highlight! link %s %s", name, values.link) end
 
     return string.format(
         "highlight %s guifg=%s guibg=%s gui=%s guisp=%s blend=%s",
@@ -121,7 +117,7 @@ vim.o.background = "%s"
     end
 
     for name, values in pairs(groups) do
-        if util.has_nvim_07 then
+        if util.has_neovim then
             table.insert(lines, neovim_highlights(name, values))
         else
             table.insert(lines, vim_highlights(name, values))

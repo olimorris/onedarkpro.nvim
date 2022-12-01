@@ -151,9 +151,7 @@ end
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    if require("onedarkpro.utils").has_nvim_08 then
-        return treesitter_new(theme)
-    end
+    if require("onedarkpro.utils").has_nvim_08 then return treesitter_new(theme) end
 
     return treesitter_old(theme)
 end

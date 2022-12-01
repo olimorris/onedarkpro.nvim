@@ -9,9 +9,7 @@ end
 ---Get the separator for file paths
 ---@return string
 local function get_separator()
-    if M.is_windows then
-        return "\\"
-    end
+    if M.is_windows then return "\\" end
     return "/"
 end
 
@@ -76,9 +74,7 @@ end
 ---@return string|function
 function M.hash(filepath)
     local stat = vim.loop.fs_stat(filepath)
-    if stat then
-        return stat.mtime.sec .. stat.mtime.nsec .. stat.size
-    end
+    if stat then return stat.mtime.sec .. stat.mtime.nsec .. stat.size end
     error("Could not hash " .. filepath)
 end
 

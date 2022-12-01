@@ -1,4 +1,3 @@
-local util = require("onedarkpro.utils")
 local config = require("onedarkpro.config").config
 
 local M = {}
@@ -7,25 +6,17 @@ local M = {}
 ---@param theme table
 ---@return table|nil
 function M.groups(theme)
-    if not util.has_nvim_08 then
-        return
-    end
-
     local groups = {}
 
     local function load_filetype(filetype)
         -- Exclude the "all" key
-        if filetype == "all" then
-            return
-        end
+        if filetype == "all" then return end
         groups =
             vim.tbl_deep_extend("force", groups, require("onedarkpro.highlights.filetypes." .. filetype).groups(theme))
     end
 
     for filetype, enabled in pairs(config.filetypes) do
-        if enabled then
-            load_filetype(filetype)
-        end
+        if enabled then load_filetype(filetype) end
     end
 
     return groups

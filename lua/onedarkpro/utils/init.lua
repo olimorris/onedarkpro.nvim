@@ -1,7 +1,6 @@
 local M = {}
 
-M.has_nvim_07 = vim.fn.has("nvim-0.7") == 1
-M.has_nvim_08 = vim.fn.has("nvim-0.8") == 1
+M.has_neovim = vim.fn.has("nvim-0.8") == 1
 
 ---Merges recursively two or more map-like tables
 ---@param...any Two or more map-like tables
@@ -25,12 +24,8 @@ end
 ---@param seen? table
 ---@return table
 function M.deep_copy(obj, seen)
-    if type(obj) ~= "table" then
-        return obj
-    end
-    if seen and seen[obj] then
-        return seen[obj]
-    end
+    if type(obj) ~= "table" then return obj end
+    if seen and seen[obj] then return seen[obj] end
 
     local s = seen or {}
     local res = {}
@@ -79,13 +74,9 @@ end
 ---@param values table the values to be replaced by the replace_vars strings in the table passed in
 ---@return string|number|table
 function M.replace_vars(tbl, values)
-    if type(tbl) == "string" then
-        return replace_var(tbl, values)
-    end
+    if type(tbl) == "string" then return replace_var(tbl, values) end
 
-    if type(tbl) == "number" then
-        return tbl
-    end
+    if type(tbl) == "number" then return tbl end
 
     for key, value in pairs(tbl) do
         tbl[key] = M.replace_vars(value, values)

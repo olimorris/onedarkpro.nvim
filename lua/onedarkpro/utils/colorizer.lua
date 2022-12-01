@@ -7,9 +7,7 @@ local function get_max_length(tbl)
     local max_length = 0
 
     for key, _ in pairs(tbl) do
-        if #key > max_length then
-            max_length = #key
-        end
+        if #key > max_length then max_length = #key end
     end
 
     return max_length

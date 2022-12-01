@@ -1,6 +1,6 @@
 local meta = {
     name = "onelight",
-    background = "light"
+    background = "light",
 }
 
 local default_colors = {

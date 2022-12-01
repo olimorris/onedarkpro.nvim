@@ -1,4 +1,4 @@
 -- Some comment
 local function some_func()
-    print "This is a Lua file"
+    print("This is a Lua file")
 end
