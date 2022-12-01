@@ -5,7 +5,6 @@ on:
     branches:
       - main
       - dev
-  pull_request: ~
 
 jobs:
   # Taken from the amazing work of:
@@ -29,7 +28,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "chore: update fingerprint"
-          commit_author: Author <actions@github.com>
+          commit_author: olimorris <olimorris@users.noreply.github.com >
 
   tests:
     runs-on: ${{ matrix.os }}
