@@ -96,8 +96,16 @@ vim.o.background = "%s"
         table.insert(lines, highlight(name, values))
     end
 
-    --TODO: Add in window unfocused autocmds
+    -- Autocmds
+    local autocmds = require("onedarkpro.highlights.autocmd").groups(theme)
+    table.insert(lines, [[vim.cmd("augroup Onedarkpro")]])
+    table.insert(lines, [[vim.cmd("au!")]])
+    for _, values in pairs(autocmds) do
+        table.insert(lines, values)
+    end
+    table.insert(lines, [[vim.cmd("augroup END")]])
 
+    -- End the function
     table.insert(lines, [[end)]])
 
     --Use load (or loadstring) to compile the lua code but don't execute it

@@ -129,7 +129,7 @@ require("onedarkpro").setup({
     cursorline = false, -- Use cursorline highlighting?
     transparency = false, -- Use a transparent background?
     terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-    window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+    highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
   }
 })
 
@@ -384,13 +384,13 @@ options = {
 }
 ```
 
-#### Window Focus Color
+#### Highlighting Inactive Windows
 
 The colorscheme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
 options = {
-  window_unfocused_color = true
+  highlight_inactive_windows = true
 }
 ```
 

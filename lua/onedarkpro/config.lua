@@ -79,7 +79,7 @@ local defaults = {
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
         terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-        window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+        highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
     },
 }
 
@@ -102,7 +102,7 @@ local function set_options(opts)
         cursorline = opts.cursorline,
         transparency = opts.transparency,
         terminal_colors = opts.terminal_colors,
-        window_unfocused_color = opts.window_unfocused_color,
+        highlight_inactive_windows = opts.highlight_inactive_windows or opts.window_unfocused_color,
     }
 end
 
