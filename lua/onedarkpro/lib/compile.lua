@@ -2,13 +2,6 @@ local config = require("onedarkpro.config")
 
 local M = {}
 
----Validate the link from the opts table
----@param link string
----@return boolean
-local function should_link(link)
-    return link and link ~= ""
-end
-
 ---Parse a comma separated styles string into a table
 ---For example: "bold,italic" -> {bold = true, italic = true}"
 ---@param style string
@@ -43,9 +36,7 @@ end
 ---@param values table the highlight group values
 ---@return string
 local function highlight(name, values)
-    if should_link(values.link) then
-        return string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, values.link)
-    end
+    if values.link then return string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, values.link) end
 
     local val = parse_style(values.style)
     val.bg = values.bg
@@ -64,11 +55,9 @@ function M.compile(opts)
     local theme = require("onedarkpro.theme").load(opts.theme or config.theme)
     local highlight_groups = require("onedarkpro.highlight").groups(theme)
 
-    --Encase the colorscheme's logic in a function which can then be executed with
-    --the string.dump function, converting it into a binary representation
+    --Encase the colorscheme's logic in a function which can be executed with a
+    --string.dump function call. In turn this converts it into a binary form
     --(source: https://www.gammon.com.au/scripts/doc.php?lua=string.dump)
-    --The binary is then assigned to a compiled property which can be used
-    --for caching to disk later on in the theme's lifecycle
     local lines = {
         string.format(
             [[
@@ -97,19 +86,18 @@ vim.o.background = "%s"
     end
 
     -- Autocmds
-    local autocmds = require("onedarkpro.highlights.autocmd").groups(theme)
-    table.insert(lines, [[vim.cmd("augroup Onedarkpro")]])
-    table.insert(lines, [[vim.cmd("au!")]])
-    for _, values in pairs(autocmds) do
-        table.insert(lines, values)
+    if config.config.options.highlight_inactive_windows or config.config.options.window_unfocused_color then
+        local autocmds = require("onedarkpro.highlights.autocmd").groups(theme)
+        for _, values in pairs(autocmds) do
+            table.insert(lines, values)
+        end
     end
-    table.insert(lines, [[vim.cmd("augroup END")]])
 
     -- End the function
     table.insert(lines, [[end)]])
 
-    --Use load (or loadstring) to compile the lua code but don't execute it
-    --The use of assert ensures that errors in the compiled code bubble up
+    --Compile lua with the load function. The use of assert ensures that errors
+    --in the compilation process bubble up to be handled later in the plugin
     --(source: https://www.lua.org/pil/8.html)
     local ld = load or loadstring
     return assert(ld(table.concat(lines, "\n"), "="))()
