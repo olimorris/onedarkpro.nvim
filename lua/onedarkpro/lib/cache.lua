@@ -19,7 +19,13 @@ end
 ---@param opts table
 ---@return nil
 function M.clean(opts)
-    local _, cache_file = config.get_cached_info(opts)
+    local cache_path, cache_file = config.get_cached_info(opts)
+
+    if opts.file then
+        os.remove(file.join_paths(cache_path, opts.file))
+        return
+    end
+
     os.remove(cache_file)
 end
 

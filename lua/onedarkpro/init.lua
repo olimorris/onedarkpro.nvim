@@ -26,6 +26,9 @@ function M.clean()
     for _, theme in ipairs(themes) do
         cache.clean({ theme = theme })
     end
+
+    cache.clean({ file = "fingerprint" })
+    cache.clean({ file = "user_config_hash" })
 end
 
 ---Reset the colorscheme to the default values
@@ -49,6 +52,7 @@ function M.setup(opts)
     end
 
     local cache_path, _ = config.get_cached_info()
+    file.ensure_dir(cache_path)
 
     --BUG: Have to run hash twice to get consistent hash
     config.hash()
