@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - dev
 
 jobs:
   # Taken from the amazing work of:
