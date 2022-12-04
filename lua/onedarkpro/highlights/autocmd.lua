@@ -5,14 +5,16 @@ local M = {}
 ---@return table
 function M.groups(theme)
     local autocmd = [[vim.cmd("autocmd %s * %s")]]
-    local nc_highlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC"
-    local quickfix_nc_highlights =
-        "CursorLineNr:CursorLineNrNCQuickFix,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC,QuickFixLine:QuickFixLineNC"
 
     local autocmds = { [[
 vim.cmd("augroup Onedarkpro")
 vim.cmd("au!")
     ]] }
+
+    -- Inactive window highlights
+    local nc_highlights = "CursorLineNr:CursorLineNrNC,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC"
+    local quickfix_nc_highlights =
+        "CursorLineNr:CursorLineNrNCQuickFix,SignColumn:SignColumnNC,LineNr:LineNrNC,Folded:FoldedNC,QuickFixLine:QuickFixLineNC"
 
     table.insert(
         autocmds,
@@ -40,7 +42,6 @@ vim.cmd("au!")
     )
 
     table.insert(autocmds, [[vim.cmd("augroup END")]])
-
     return autocmds
 end
 
