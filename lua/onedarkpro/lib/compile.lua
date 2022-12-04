@@ -1,14 +1,6 @@
-local util = require("onedarkpro.utils")
 local config = require("onedarkpro.config")
 
 local M = {}
-
----Validate the input value
----@param input string
----@return string
-local function validate(input)
-    return input and input or "NONE"
-end
 
 ---Validate the link from the opts table
 ---@param link string
@@ -50,7 +42,7 @@ end
 ---@param name string the highlight group name
 ---@param values table the highlight group values
 ---@return string
-local function neovim_highlights(name, values)
+local function highlight(name, values)
     if should_link(values.link) then
         return string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, values.link)
     end
@@ -64,33 +56,15 @@ local function neovim_highlights(name, values)
     return string.format([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(val))
 end
 
----Form highlights using plain 'ol vim commands
----@param name string the highlight group name
----@param values table the highlight group values
----@return string
-local function vim_highlights(name, values)
-    if should_link(values.link) then return string.format("highlight! link %s %s", name, values.link) end
-
-    return string.format(
-        "highlight %s guifg=%s guibg=%s gui=%s guisp=%s blend=%s",
-        name,
-        validate(values.fg),
-        validate(values.bg),
-        validate(values.style),
-        validate(values.sp),
-        validate(values.blend)
-    )
-end
-
 ---Compile the colorscheme
 ---@param opts table
 ---@return function
 function M.compile(opts)
     opts = opts or {}
     local theme = require("onedarkpro.theme").load(opts.theme or config.theme)
-    local groups = require("onedarkpro.highlight").groups(theme)
+    local highlight_groups = require("onedarkpro.highlight").groups(theme)
 
-    --Encase the theme's logic in a function which can then be executed with
+    --Encase the colorscheme's logic in a function which can then be executed with
     --the string.dump function, converting it into a binary representation
     --(source: https://www.gammon.com.au/scripts/doc.php?lua=string.dump)
     --The binary is then assigned to a compiled property which can be used
@@ -109,6 +83,7 @@ vim.o.background = "%s"
         ),
     }
 
+    -- Terminal colors
     if config.config.options.terminal_colors then
         local terminal_colours = require("onedarkpro.highlights.terminal").groups(theme)
         for name, value in pairs(terminal_colours) do
@@ -116,12 +91,9 @@ vim.o.background = "%s"
         end
     end
 
-    for name, values in pairs(groups) do
-        if util.has_neovim then
-            table.insert(lines, neovim_highlights(name, values))
-        else
-            table.insert(lines, vim_highlights(name, values))
-        end
+    -- Colorscheme highlight groups
+    for name, values in pairs(highlight_groups) do
+        table.insert(lines, highlight(name, values))
     end
 
     --TODO: Add in window unfocused autocmds
