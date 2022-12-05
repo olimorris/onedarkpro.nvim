@@ -25,15 +25,24 @@ end
 ---@param alpha number between 0 and 1. 0 results in bg, 1 results in fg
 ---@return string
 function M.blend(fg, bg, alpha)
-    fg = hex_to_rgb(fg)
-    bg = hex_to_rgb(bg)
+    local fg_rgb = hex_to_rgb(fg)
+    local bg_rgb = hex_to_rgb(bg)
 
     local blendChannel = function(i)
-        local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
+        local ret = (alpha * fg_rgb[i] + ((1 - alpha) * bg_rgb[i]))
         return math.floor(math.min(math.max(0, ret), 255) + 0.5)
     end
 
     return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
+end
+
+---Replace a color variable with a hex code equivalent from the current colorscheme
+---@param hex string
+---@return string
+local function replace_hex_var_for_theme_color(hex)
+    local util = require("onedarkpro.utils")
+    local theme = require("onedarkpro.themes." .. require("onedarkpro.config").theme)
+    return tostring(util.replace_vars(hex, theme.palette))
 end
 
 ---Darken a hex color
@@ -42,7 +51,7 @@ end
 ---@param bg? string
 ---@return string
 function M.darken(hex, amount, bg)
-    return M.blend(hex, bg or defaults.bg, math.abs(amount))
+    return M.blend(replace_hex_var_for_theme_color(hex), bg or defaults.bg, math.abs(amount))
 end
 
 ---Lighten a hex color
@@ -51,7 +60,7 @@ end
 ---@param fg? string
 ---@return string
 function M.lighten(hex, amount, fg)
-    return M.blend(hex, fg or defaults.fg, math.abs(amount))
+    return M.blend(replace_hex_var_for_theme_color(hex), fg or defaults.fg, math.abs(amount))
 end
 
 return M

@@ -14,6 +14,7 @@ cache:
 test:
 	nvim --headless --noplugin -u tests/basic_spec.vim +BasicSpec
 	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec
+	nvim --headless --noplugin -u tests/theme_spec.vim +ThemeSpec
 	nvim --headless --noplugin -u tests/link_groups_spec.vim +LinkGroupsSpec
 	nvim --headless --noplugin -u tests/source_spec.vim +SourceSpec
 	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
