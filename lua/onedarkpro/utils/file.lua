@@ -74,7 +74,7 @@ end
 ---@return string|function
 function M.hash(filepath)
     local stat = vim.loop.fs_stat(filepath)
-    if stat then return stat.mtime.sec .. stat.mtime.nsec .. stat.size end
+    if stat then return tostring(stat.mtime.sec .. stat.mtime.nsec .. stat.size) end
     error("Could not hash " .. filepath)
 end
 

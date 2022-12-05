@@ -1,8 +1,25 @@
-local util = require("plenary.async.util")
-local async = require("plenary.async.tests")
+local file = require("onedarkpro.utils.file")
+local cache_path, _ = require("onedarkpro.config").get_cached_info()
 
 local tbl = {}
 local hash = nil
+
+describe("Using the theme", function()
+    before_each(function()
+        vim.cmd(":e tests/stubs/test.txt")
+    end)
+
+    it("it should not regenerate a fingerprint if it doesn't need to", function()
+        assert.equals(vim.g.fingerprint, file.hash(file.join_paths(cache_path, "fingerprint")))
+    end)
+    it("it should not regenerate a user_config_hash if it doesn't need to", function()
+        assert.equals(vim.g.user_config_hash, file.hash(file.join_paths(cache_path, "user_config_hash")))
+    end)
+    it("it should not regenerate colorschemes if it doesn't need to", function()
+        assert.equals(vim.g.onedark_compiled, file.hash(file.join_paths(cache_path, "onedark_compiled")))
+        assert.equals(vim.g.onelight_compiled, file.hash(file.join_paths(cache_path, "onelight_compiled")))
+    end)
+end)
 
 describe("Using the cache", function()
     before_each(function()
@@ -41,10 +58,4 @@ describe("Using the cache", function()
         require("onedarkpro.lib.hash").hash(tbl)
         assert.not_equals(hash, require("onedarkpro.lib.hash").hash(tbl))
     end)
-
-    -- it("the hash should stay the same if the config doesn't change", function()
-    --     -- util.scheduler()
-    --     -- print(require("onedarkpro.lib.hash").generate("COOL"))
-    --     assert.equals(hash, require("onedarkpro.config").hash())
-    -- end)
 end)
