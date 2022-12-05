@@ -176,6 +176,17 @@ colors = {
 }
 ```
 
+Additional colors, based on the colorscheme's default palette, can also be generated at runtime:
+
+```lua
+--local color = require("onedarkpro.lib.color")
+
+colors = {
+  lighter_bg = color.lighten("${bg}", 0.85)
+  darker_red = color.darken("${red}", 0.85)
+}
+```
+
 > **Note:** Custom colors can also be referenced when creating custom highlight group overrides
 
 #### Specifying colors by theme or background
