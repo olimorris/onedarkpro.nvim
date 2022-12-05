@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    Highly customisable Neovim colorscheme. With support for custom colors, styles and highlights by filetype<br>
+    Highly customisable Neovim theme. With support for custom colors, styles and highlights by filetype<br>
     Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 
@@ -48,11 +48,11 @@
 
 - Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - Filetype highlighting to match the original VS Code theme
+- Automatic caching of colorschemes for faster load times
 - Support for many [popular plugins](#electric_plug-supported-plugins)
 - Apply styles to `types`, `keywords` and `function` highlight groups
 - Override everything! Default styles, colors, highlight groups and filetype groups
 - Create custom highlight groups and even highlight groups by filetypes
-- Cache your configuration to improve startup times
 
 ## :zap: Requirements
 
@@ -65,11 +65,13 @@
 Install with your package manager:
 
 ```lua
-use "olimorris/onedarkpro.nvim"       -- Packer
+-- Packer
+use "olimorris/onedarkpro.nvim"
 ```
 
 ```vim
-Plug "olimorris/onedarkpro.nvim"      " Vim-Plug
+" Vim-Plug
+Plug "olimorris/onedarkpro.nvim"
 ```
 
 ## :rocket: Usage
@@ -77,18 +79,20 @@ Plug "olimorris/onedarkpro.nvim"      " Vim-Plug
 Use the built-in `:colorscheme` command to load:
 
 ```lua
-vim.cmd("colorscheme onedark")        -- Lua
+-- Lua
+vim.cmd("colorscheme onedark")
 ```
 
 ```vim
-colorscheme onedark                   " Vimscript
+" Vimscript
+colorscheme onedark
 ```
 
 Additional commands:
 
-- `:OnedarkproCache` generates a fresh cache file for the current colorscheme
-- `:OnedarkproClean` will remove the cache file from disk for the current colorscheme
-- `:OnedarkproColors` will output all of the colors in the current colorscheme to a scratch buffer
+- `:OnedarkproCache` generates new cache files for the colorschemes
+- `:OnedarkproClean` removes existing cache files for the colorschemes
+- `:OnedarkproColors` outputs all of the colors in the current colorscheme to a scratch buffer
 
 ## :wrench: Configuration
 
@@ -98,7 +102,6 @@ A call to the `setup` function is only required if you wish to change the defaul
 
 ```lua
 require("onedarkpro").setup({
-  cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
   colors = {}, -- Override default colors or create your own
   highlights = {}, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
@@ -138,22 +141,22 @@ vim.cmd("colorscheme onedark")
 
 ### Setting a theme
 
-Currently, there are four themes available:
+Currently, there are four colorschemes that come with the theme:
 
 - `onedark`
 - `onelight`
 - `onedark_vivid`
 - `onedark_dark`
 
-A theme can be set with:
+A colorscheme can be set with:
 
 ```lua
-vim.cmd([[colorscheme onedark]])
+vim.cmd("colorscheme onedark")
 ```
 
 ### Overriding colors
 
-The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
+A colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
 The default colors can be changed by specifying the name of the color and a new hex code:
 
@@ -165,7 +168,7 @@ colors = {
 
 #### Specifying new colors
 
-New colors may be created which will then be merged into a theme's color palette:
+New colors may be created which will then be merged into a colorscheme's color palette:
 
 ```lua
 colors = {
@@ -177,7 +180,7 @@ colors = {
 
 #### Specifying colors by theme or background
 
-It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
+It's possible to override default colors within a colorscheme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 
 ```lua
 colors = {
@@ -190,7 +193,7 @@ colors = {
 }
 ```
 
-Alternatively, you can specify colors by the theme's background color:
+Alternatively, you can specify colors by the colorscheme's background color:
 
 ```lua
 colors = {
@@ -233,7 +236,7 @@ highlights = {
 
 ### Configuring filetype highlighting
 
-The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
+The theme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
 - `javascript`
 - `lua`
@@ -279,7 +282,7 @@ filetypes = {
 
 #### Adding or modifying filetype highlights
 
-It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the colorscheme:
+It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the theme:
 
 ```lua
 highlights = {
@@ -291,7 +294,7 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> **Note:** The colorscheme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
+> **Note:** The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
 ### Configuring plugins
 
@@ -327,7 +330,7 @@ plugins = {
 
 ### Configuring styles
 
-Within the colorscheme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of the colorscheme. These styles may be configured as shown in the example below:
+Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of a colorscheme. These styles may be configured as shown in the example below:
 
 ```lua
 styles = {
@@ -351,7 +354,7 @@ styles = {
 
 #### Formatting
 
-Alongside styles, the colorscheme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
+Alongside styles, the theme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
 
 ```lua
 options = {
@@ -364,7 +367,7 @@ options = {
 
 #### Transparency
 
-The colorscheme supports transparent backgrounds:
+The theme supports transparent backgrounds:
 
 ```lua
 options = {
@@ -376,7 +379,7 @@ By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`
 
 #### Terminal Colors
 
-By default, the colorscheme changes the colors for Neovim's `:terminal` to the current theme. This can be turned off if required.
+By default, the theme changes the colors for Neovim's `:terminal` to the current colorscheme. This can be turned off if required.
 
 ```lua
 options = {
@@ -386,7 +389,7 @@ options = {
 
 #### Highlighting Inactive Windows
 
-The colorscheme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
+The theme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
 options = {
@@ -398,7 +401,7 @@ options = {
 
 #### Cursorline
 
-Cursorline highlighting is supported in the colorscheme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
+Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
 
 ```lua
 colors = {
@@ -411,7 +414,7 @@ options = {
 
 ## :electric_plug: Supported Plugins
 
-The colorscheme supports the following plugins:
+The theme supports the following plugins:
 
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim) (`aerial`)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
@@ -469,11 +472,11 @@ The colorscheme supports the following plugins:
 
 ### Lualine
 
-The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
+The theme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
 
 ### Terminal themes
 
-The colorscheme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
+The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) colorschemes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
 ### Helpers
 
@@ -486,25 +489,25 @@ local colors = require("onedarkpro").get_colors()
 print(colors.purple) -- #9a77cf
 ```
 
-You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
+You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded colorscheme. This then allows a colorizer plugin to highlight the colors.
 
 #### Toggling between themes
 
-To enable the easy switching between dark and light themes, the following helper function could be used:
+To enable the easy switching between dark and light colorschemes, the following helper function could be used:
 
 ```lua
 function ToggleTheme()
-  if vim.o.background == "dark" then
-    vim.cmd([[colorscheme onelight]])
+  if vim.o.background == "light" then
+    vim.cmd("colorscheme onelight")
   else
-    vim.cmd([[colorscheme onedark]])
+    vim.cmd("colorscheme onedark")
   end
 end
 ```
 
 #### Configuring styles/colors/highlight groups based on the theme
 
-When configuring the colorscheme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
+When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
 ```lua
 highlights = {
@@ -519,14 +522,6 @@ highlights = {
 #### I want to change X highlight group but I don't know what it is. How do I find out?
 
 If you're using Treesitter then install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
-
-#### I want to automatically generate the cache file. How do I do it?
-
-This can be achieved by creating an autocommand that runs the `:OnedarkproCache` command. This will be dependant on how you have setup your Neovim config.
-
-#### Something in my config isn't working. How can I debug it?
-
-You can set `vim.g.onedarkpro_log_level = "debug"` before the colorscheme loads and view the output logs at `~/.local/state/nvim/onedarkpro.log`. Chances are there is something conflicting with your configuration or a plugin is loading before the colorscheme has.
 
 ## :clap: Credits
 
