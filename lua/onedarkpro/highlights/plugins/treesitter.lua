@@ -3,7 +3,7 @@ local M = {}
 ---Set the highlight groups for the new treesitter groups
 ---@param theme table
 ---@return table
-local function treesitter_new(theme)
+function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     return {
@@ -72,88 +72,6 @@ local function treesitter_new(theme)
         ["@variable"] = { fg = theme.palette.red, style = config.styles.variables }, -- Any variable name that does not have another highlight.
         ["@variable.builtin"] = { fg = theme.palette.yellow }, -- Variable names that are defined by the languages, like `this` or `self`.
     }
-end
-
----Set the highlight groups for the old, `TS*` style treesitter groups
----@param theme table
----@return table
-local function treesitter_old(theme)
-    local config = require("onedarkpro.config").config
-
-    return {
-        TSAnnotation = { fg = theme.palette.red },
-        TSAttribute = { fg = theme.palette.purple },
-        TSBoolean = { link = "Boolean" },
-        TSCharacter = { link = "Character" },
-        TSCharacterSpecial = { fg = theme.palette.purple },
-        TSComment = { link = "Comment" },
-        TSConditional = { fg = theme.palette.purple, style = config.styles.conditionals },
-        TSConstant = { fg = theme.palette.orange, style = config.styles.constants },
-        TSConstBuiltin = { fg = theme.palette.purple, style = config.styles.constants },
-        TSConstMacro = { link = "TSConstant" },
-        TSConstructor = { fg = theme.palette.yellow },
-        TSError = { link = "Error" },
-        TSException = { link = "Exception" },
-        TSField = { fg = theme.palette.fg },
-        TSFloat = { link = "Float" },
-        TSFunction = { fg = theme.palette.blue, style = config.styles.functions },
-        TSFunctionCall = { link = "TSFunction" },
-        TSFuncBuiltin = { fg = theme.palette.yellow },
-        TSFuncMacro = { fg = theme.palette.blue },
-        TSInclude = { fg = theme.palette.purple },
-        TSKeyword = { fg = theme.palette.purple, style = config.styles.keywords },
-        TSKeywordFunction = { fg = theme.palette.purple, style = config.styles.keywords },
-        TSKeywordOperator = { fg = theme.palette.purple },
-        TSKeywordReturn = { link = "TSKeyword" },
-        TSLabel = { fg = theme.palette.purple },
-        TSMethod = { fg = theme.palette.blue },
-        TSMethodCall = { link = "TSMethod" },
-        TSNamespace = { fg = theme.palette.yellow },
-        TSNumber = { fg = theme.palette.orange, style = config.styles.numbers },
-        TSOperator = { fg = theme.palette.cyan, style = config.styles.operators },
-        TSParameter = { fg = theme.palette.red },
-        TSParameterReference = { fg = theme.palette.red },
-        TSProperty = { fg = theme.palette.red },
-        TSPunctDelimiter = { link = "Delimiter" },
-        TSPunctBracket = { fg = theme.palette.fg },
-        TSPunctSpecial = { fg = theme.palette.fg },
-        TSRepeat = { link = "Repeat" },
-        TSString = { fg = theme.palette.green, style = config.styles.strings },
-        TSStringRegex = { fg = theme.palette.green, style = config.styles.strings },
-        TSStringEscape = { fg = theme.palette.cyan, style = config.styles.strings },
-        TSStringSpecial = { link = "Special" },
-        TSSymbol = { fg = theme.palette.red },
-        TSTag = { fg = theme.palette.red },
-        TSTagAttribute = { link = "TSProperty" },
-        TSTagDelimiter = { link = "Delimiter" },
-        TSText = { fg = theme.palette.fg },
-        TSStrong = { link = "Bold" },
-        TSUnderline = { link = "Underlined" },
-        TSStrike = { fg = theme.palette.fg },
-        TSTitle = { fg = theme.palette.fg },
-        TSLiteral = { fg = theme.palette.fg },
-        TSURI = { fg = theme.palette.blue },
-        TSMath = { fg = theme.palette.fg },
-        TSTextReference = { link = "TSText" },
-        TSEnvironment = { link = "Macro" },
-        TSEnvironmentName = { link = "Type" },
-        TSNote = { fg = theme.palette.fg },
-        TSWarning = { fg = theme.palette.yellow },
-        TSDanger = { fg = theme.palette.red },
-        TSType = { fg = theme.palette.yellow, style = config.styles.types },
-        TSTypeBuiltin = { fg = theme.palette.yellow, style = config.styles.types },
-        TSVariable = { fg = theme.palette.red, style = config.styles.variables },
-        TSVariableBuiltin = { fg = theme.palette.yellow },
-    }
-end
-
----Get the highlight groups for the plugin
----@param theme table
----@return table
-function M.groups(theme)
-    if require("onedarkpro.utils").has_nvim_08 then return treesitter_new(theme) end
-
-    return treesitter_old(theme)
 end
 
 return M
