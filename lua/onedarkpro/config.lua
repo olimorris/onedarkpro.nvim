@@ -83,8 +83,6 @@ local defaults = {
     },
 }
 
-M.config = vim.deepcopy(defaults)
-
 ---Set the theme's options
 ---@param opts table
 ---@return table
@@ -136,22 +134,22 @@ end
 ---@param opts? table
 ---@return nil
 function M.setup(opts)
-    opts = opts or {}
-    M.config = util.deep_extend(M.config, opts)
-    M.config.options = set_options(M.config.options)
-
     --TODO: Remove this when we remove dark_theme and light_theme from the config
-    if not M.theme then
+    if opts and (opts.dark_theme or opts.light_theme) then
         if vim.o.background == "dark" then
-            M.theme = M.config.dark_theme or "onedark"
+            M.theme = opts.dark_theme or "onedark"
         else
-            M.theme = M.config.light_theme or "onelight"
+            M.theme = opts.light_theme or "onelight"
         end
     end
     --//------------------------------------------------------------------------
 
-    if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
+    opts = opts or {}
 
+    M.config = util.deep_extend(vim.deepcopy(defaults), opts)
+    M.config.options = set_options(M.config.options)
+
+    if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
     if opts and opts.plugins then M.config.plugins = load_files(M.config.plugins, opts.plugins) end
 
     M.is_setup = true
@@ -173,7 +171,7 @@ function M.get_cached_info(opts)
 end
 
 ---Create a hash from the config
----@return string
+---@return string|number
 function M.hash()
     local hash = require("onedarkpro.lib.hash")(M.config)
     return hash and hash or 0

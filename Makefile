@@ -8,9 +8,6 @@ all: fingerprint test
 fingerprint:
 	echo "return [[$(fp)]]" > $(FP_FILE)
 
-cache:
-	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
-
 test:
 	nvim --headless --noplugin -u tests/basic_spec.vim +BasicSpec
 	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec

@@ -117,12 +117,13 @@ function M.load()
     theme()
 end
 
----Return all of the colors in a table for the current theme
+---Return all of the colors in a table for a given theme or the current theme
+---@param theme_name? string
 ---@return table
-function M.get_colors()
+function M.get_colors(theme_name)
     local util = require("onedarkpro.utils")
-    local theme = require("onedarkpro.theme").load(config.theme)
 
+    local theme = require("onedarkpro.theme").load(theme_name or config.theme)
     return util.deep_extend(theme.palette, theme.generated, theme.meta)
 end
 

@@ -9,14 +9,16 @@ set noundofile
 lua << EOF
 local onedarkpro = require("onedarkpro")
 local color = require("onedarkpro.lib.color")
+
 onedarkpro.setup({
     colors = {
         onedark_vivid = {
-            medium_gray = color.lighten("${bg}", 0.85, nil),
+            -- Choosing a color which is different between onedark and onedark_vivid
+            medium_purple = color.lighten(onedarkpro.get_colors("onedark_vivid").purple, 0.85, nil),
         },
     },
     highlights = {
-        IlluminatedWordText = { bg = "${medium_gray}" },
+        IlluminatedWordText = { bg = "${medium_purple}" },
     },
 })
 vim.cmd [[colorscheme onedark_vivid]]

@@ -16,7 +16,9 @@ function M.load(theme)
     theme = require("onedarkpro.themes." .. theme)
 
     -- Apply user color overrides directly to the theme
-    if config.colors then theme.palette = require("onedarkpro.lib.palette").override(theme.palette, theme.meta) end
+    if config and config.colors then
+        theme.palette = require("onedarkpro.lib.palette").override(theme.palette, theme.meta)
+    end
 
     -- So the generated colors make use of the overrides
     if type(theme.generated) == "function" then theme.generated = theme.generated(theme.palette) end
