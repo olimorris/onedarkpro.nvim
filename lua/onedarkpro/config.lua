@@ -134,14 +134,15 @@ end
 ---@param opts? table
 ---@return nil
 function M.setup(opts)
-    --TODO: Remove this when we remove dark_theme and light_theme from the config
+    --TODO: Deprecate the theme, dark_theme and light_theme config properties
     if opts and (opts.dark_theme or opts.light_theme) then
-        if vim.o.background == "dark" then
-            M.theme = opts.dark_theme or "onedark"
-        else
+        if vim.o.background == "light" then
             M.theme = opts.light_theme or "onelight"
+        else
+            M.theme = opts.dark_theme or "onedark"
         end
     end
+    if opts and opts.theme then M.theme = opts.theme end
     --//------------------------------------------------------------------------
 
     opts = opts or {}
