@@ -11,6 +11,7 @@ describe("Using the theme", function()
     end)
 
     it("it should be able to have variables in the color config table", function()
+        local color = require("onedarkpro.lib.color")
         local output = vim.api.nvim_get_hl_by_name("IlluminatedWordText", true)
         assert.equals("#484c52", hex(output.background))
     end)

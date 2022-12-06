@@ -9,13 +9,13 @@ describe("Using the theme", function()
         vim.cmd(":e tests/stubs/test.txt")
     end)
 
-    it("it should not regenerate a fingerprint if it doesn't need to", function()
+    it("it SHOULD NOT regenerate a fingerprint if it doesn't need to", function()
         assert.equals(vim.g.fingerprint, file.hash(file.join_paths(cache_path, "fingerprint")))
     end)
-    it("it should not regenerate a user_config_hash if it doesn't need to", function()
+    it("it SHOULD NOT regenerate a user_config_hash if it doesn't need to", function()
         assert.equals(vim.g.user_config_hash, file.hash(file.join_paths(cache_path, "user_config_hash")))
     end)
-    it("it should not regenerate colorschemes if it doesn't need to", function()
+    it("it SHOULD NOT regenerate colorschemes if it doesn't need to", function()
         assert.equals(vim.g.onedark_compiled, file.hash(file.join_paths(cache_path, "onedark_compiled")))
         assert.equals(vim.g.onelight_compiled, file.hash(file.join_paths(cache_path, "onelight_compiled")))
     end)
@@ -42,20 +42,17 @@ describe("Using the cache", function()
                 yaml = true,
             },
         }
-        require("onedarkpro.lib.hash").hash(tbl)
-        hash = require("onedarkpro.lib.hash").hash(tbl)
+        hash = require("onedarkpro.lib.hash")(tbl)
     end)
 
     it("the SAME table should always return the SAME hash", function()
-        assert.equals(1031236655, hash)
+        assert.equals(-1727766954, hash)
     end)
 
     it("a MODIFIED table should return a DIFFERENT hash", function()
         tbl.colors = {
             red = "#ff0000",
         }
-        require("onedarkpro.lib.hash").hash(tbl)
-        require("onedarkpro.lib.hash").hash(tbl)
-        assert.not_equals(hash, require("onedarkpro.lib.hash").hash(tbl))
+        assert.not_equals(hash, require("onedarkpro.lib.hash")(tbl))
     end)
 end)

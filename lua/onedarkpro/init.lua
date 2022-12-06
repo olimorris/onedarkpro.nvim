@@ -85,10 +85,6 @@ function M.setup(opts)
     local cache_path, _ = config.get_cached_info()
     file.ensure_dir(cache_path)
 
-    --BUG: Have to run hash twice to get a consistent hash
-    --TODO: Investigate why this is happening
-    config.hash()
-
     if not valid_user_config(cache_path) then should_cache = true end
     if not valid_fingerprint(cache_path) then should_cache = true end
 
@@ -103,8 +99,8 @@ function M.load()
         config.setup()
         local cache_path, _ = config.get_cached_info()
 
-        --Non-setup users still get the benefits of caching so we need to check
-        --that the fingerprint is valid and generate new colorschemes if not
+        -- Non-setup users still get the benefits of caching so we need to check
+        -- that the fingerprint is valid and generate new colorschemes if not
         if not valid_fingerprint(cache_path) then M.cache() end
     end
 
