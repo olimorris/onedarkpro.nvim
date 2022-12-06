@@ -493,7 +493,7 @@ The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Ki
 
 #### Theme color tables
 
-To enable the theme's colors to be extracted and used elsewhere in the Neovim config, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
+To enable the theme's colors to be extracted and used elsewhere in the Neovim config, a helper function, `get_colors()`, has been included. This returns a table of the theme's color palette, including user created colors:
 
 ```lua
 local colors = require("onedarkpro").get_colors()
@@ -501,6 +501,23 @@ print(colors.purple) -- #9a77cf
 ```
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded colorscheme. This then allows a colorizer plugin to highlight the colors.
+
+#### Lightening and darkening colors
+
+When customising a colorscheme, modifying a core color from the palette can help to ensure consistency. The theme allows for lightening and darkening of colors via the `require("onedarkpro.lib.color")` file and its  `lighten()` and `darken()` methods:
+
+```lua
+local color = require("onedarkpro.lib.color")
+print(color.darken("#FF0000", 0.5)) -- #800000
+print(color.lighten("#FF0000", 0.5)) -- #FF8080
+```
+
+You can even include colors from the colorscheme's core palette as a variable:
+
+```lua
+local color = require("onedarkpro.lib.color")
+print(color.darken("${blue}", 0.9)) -- #579ED7
+```
 
 #### Toggling between themes
 
