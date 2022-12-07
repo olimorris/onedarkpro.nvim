@@ -29,7 +29,7 @@ onedarkpro.replace = {
     b = { bg = colors.fg_gutter, fg = colors.red },
 }
 
-local inactive_bg = config.options.highlight_inactive_windows  and colors.color_column or colors.bg
+local inactive_bg = config.options.highlight_inactive_windows and colors.color_column or colors.bg
 onedarkpro.inactive = {
     a = { bg = inactive_bg, fg = colors.blue },
     b = { bg = inactive_bg, fg = colors.fg_gutter_inactive, gui = "bold" },
