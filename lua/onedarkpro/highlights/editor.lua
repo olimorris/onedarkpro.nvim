@@ -55,7 +55,7 @@ function M.groups(theme)
         Normal = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- normal text
         NormalNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocused_color and theme.generated.color_column
+                or config.options.highlight_inactive_windows and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- normal text in non-current windows
@@ -97,7 +97,7 @@ function M.groups(theme)
         }, -- status line of current window
         StatusLineNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocused_color and theme.generated.color_column
+                or config.options.highlight_inactive_windows and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
@@ -113,7 +113,7 @@ function M.groups(theme)
         WinBar = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg },
         WinBarNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocused_color and theme.generated.color_column
+                or config.options.highlight_inactive_windows and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         },
