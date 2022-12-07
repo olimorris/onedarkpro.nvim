@@ -17,7 +17,7 @@ function M.cache()
     end
 end
 
----Clean all the cache files
+---Clean all of the theme's files on the disk
 ---@return nil
 function M.clean()
     local cache = require("onedarkpro.lib.cache")
@@ -72,14 +72,15 @@ local function valid_fingerprint(cache_path)
     return true
 end
 
----Setup the colorscheme
+---Setup the theme
 ---@param opts table
 ---@return nil
 function M.setup(opts)
     local should_cache = false
+
     config.setup(opts)
 
-    -- Allow users to bypass the hashing and generate colorschemes everytime
+    -- Allow users to generate themes at startup
     if not config.config.caching then return M.cache() end
 
     local cache_path, _ = config.get_cached_info()
