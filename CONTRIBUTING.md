@@ -48,9 +48,8 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
     -- Add your filetype highlight groups here
     }
@@ -74,6 +73,8 @@ return {
 - The colorscheme enables users to be able to turn off certain styles like `bold` and `italic`. To match to the styles from VS Code, whilst still enabling the user to apply customisations:
 
 ```lua
+local config = require("onedarkpro.config").config
+
 return {
     ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
 }
@@ -111,9 +112,8 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
     -- Add your highlight groups here
     }
@@ -133,6 +133,8 @@ TelescopeSelection = {
 - To incorporate styles from a user's config:
 
 ```lua
+local config = require("onedarkpro.config").config
+
 return {
     AerialClass = {
         fg = theme.palette.purple,
