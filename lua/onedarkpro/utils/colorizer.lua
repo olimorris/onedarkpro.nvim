@@ -22,7 +22,7 @@ function M.show()
 
     local line = 0
     for color, hex in pairs(colors) do
-        if color ~= "none" and color ~= "name" and color ~= "light" then
+        if color ~= "none" and color ~= "name" and color ~= "background" then
             vim.api.nvim_buf_set_lines(buf, line, (line + 1), false, {
                 color .. string.rep(" ", max_length - #color) .. ' = "' .. tostring(hex) .. '"',
             })
