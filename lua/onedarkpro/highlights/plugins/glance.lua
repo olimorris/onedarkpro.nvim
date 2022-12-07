@@ -28,7 +28,7 @@ function M.groups(theme)
         },
 
         GlanceFoldIcon = {
-            fg = theme.generated.indentline,
+            fg = theme.palette.purple,
             bg = theme.meta.background == "dark" and color.darken(theme.palette.bg, 0.7)
                 or color.darken(theme.palette.bg, 0.95),
         },
