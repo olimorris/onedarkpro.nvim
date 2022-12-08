@@ -2,13 +2,14 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").config
+
     return {
         NeoTreeNormalNC = { -- Color when nvim-tree is no longer in focus
             bg = config.options.transparency and "NONE"
-                or (config.options.window_unfocused_color and theme.generated.color_column or theme.palette.bg),
+                or (config.options.highlight_inactive_windows and theme.generated.color_column or theme.palette.bg),
         },
         NeoTreeSymbolicLinkTarget = { fg = theme.palette.cyan },
         NeoTreeDirectoryName = { fg = theme.palette.blue },

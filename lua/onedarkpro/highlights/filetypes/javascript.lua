@@ -2,9 +2,10 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").config
+
     return {
         ["@constructor.javascript"] = { fg = theme.palette.yellow },
         ["@keyword.javascript"] = { fg = theme.palette.purple, style = config.styles.keywords },

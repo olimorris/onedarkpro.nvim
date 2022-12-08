@@ -7,9 +7,7 @@ local function get_max_length(tbl)
     local max_length = 0
 
     for key, _ in pairs(tbl) do
-        if #key > max_length then
-            max_length = #key
-        end
+        if #key > max_length then max_length = #key end
     end
 
     return max_length
@@ -18,12 +16,13 @@ end
 ---Show the theme's colors in a scratch buffer
 ---@return nil
 function M.show()
+    local colors = require("onedarkpro").get_colors()
     local buf = vim.api.nvim_create_buf(true, true)
-    local max_length = get_max_length(vim.g.onedarkpro_colors)
+    local max_length = get_max_length(colors)
 
     local line = 0
-    for color, hex in pairs(vim.g.onedarkpro_colors) do
-        if color ~= "none" and color ~= "name" and color ~= "light" then
+    for color, hex in pairs(colors) do
+        if color ~= "none" and color ~= "name" and color ~= "background" then
             vim.api.nvim_buf_set_lines(buf, line, (line + 1), false, {
                 color .. string.rep(" ", max_length - #color) .. ' = "' .. tostring(hex) .. '"',
             })

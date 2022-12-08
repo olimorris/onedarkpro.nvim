@@ -2,9 +2,10 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
+    local config = require("onedarkpro.config").config
+
     return {
         ["@constant.builtin.rust"] = { fg = theme.palette.cyan },
         ["@field.rust"] = { fg = theme.palette.red },
@@ -14,7 +15,7 @@ function M.groups(theme, config)
         ["@label.rust"] = { fg = theme.palette.white },
         ["@operator.rust"] = { fg = theme.palette.fg },
         ["@parameter.rust"] = { fg = theme.palette.red, style = config.options.italic },
-        ["@storageclass.rust"] = { link = '@keyword' },
+        ["@storageclass.rust"] = { link = "@keyword" },
     }
 end
 

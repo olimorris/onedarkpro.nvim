@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    Highly customisable Neovim colorscheme. With support for custom colors, styles and highlights by filetype<br>
+    Highly customisable Neovim theme. With support for custom colors, styles and highlights by filetype<br>
     Inspired by VS Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
 
@@ -31,14 +31,13 @@
 - [Usage](#rocket-usage)
 - [Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
-  - [Configuring themes](#configuring-themes)
-  - [Configuring colors](#configuring-colors)
-  - [Configuring highlight groups](#configuring-highlight-groups)
+  - [Setting a theme](#setting-a-theme)
+  - [Overridng colors](#overriding-colors)
+  - [Overriding highlight groups](#overriding-highlight-groups)
   - [Configuring filetype highlighting](#configuring-filetype-highlighting)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
-  - [Configuring caching](#configuring-caching)
 - [Supported Plugins](#electric_plug-supported-plugins)
 - [Screenshots](#camera_flash-screenshots)
 - [Extras](#gift-extras)
@@ -49,15 +48,15 @@
 
 - Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - Filetype highlighting to match the original VS Code theme
+- Automatic caching for faster load times
 - Support for many [popular plugins](#electric_plug-supported-plugins)
 - Apply styles to `types`, `keywords` and `function` highlight groups
 - Override everything! Default styles, colors, highlight groups and filetype groups
 - Create custom highlight groups and even highlight groups by filetypes
-- Cache your configuration to improve startup times
 
 ## :zap: Requirements
 
-- Neovim 0.5+ (0.8+ for filetype highlights)
+- Neovim 0.8 and above
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 
@@ -66,11 +65,13 @@
 Install with your package manager:
 
 ```lua
-use "olimorris/onedarkpro.nvim"    -- Packer
+-- Packer
+use "olimorris/onedarkpro.nvim"
 ```
 
 ```vim
-Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
+" Vim-Plug
+Plug "olimorris/onedarkpro.nvim"
 ```
 
 ## :rocket: Usage
@@ -78,18 +79,20 @@ Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
 Use the built-in `:colorscheme` command to load:
 
 ```lua
-vim.cmd("colorscheme onedarkpro")  -- Lua
+-- Lua
+vim.cmd("colorscheme onedark")
 ```
 
 ```vim
-colorscheme onedarkpro             " Vimscript
+" Vimscript
+colorscheme onedark
 ```
 
 Additional commands:
 
-- `:OnedarkproCache` generates a fresh cache file for the current colorscheme
-- `:OnedarkproClean` will remove the cache file from disk for the current colorscheme
-- `:OnedarkproColors` will output all of the colors in the current colorscheme to a scratch buffer
+- `:OnedarkproCache` generates new cache files for the themes
+- `:OnedarkproClean` removes existing cache files for the themes
+- `:OnedarkproColors` outputs all of the colors in the current theme to a scratch buffer
 
 ## :wrench: Configuration
 
@@ -99,30 +102,15 @@ A call to the `setup` function is only required if you wish to change the defaul
 
 ```lua
 require("onedarkpro").setup({
-  dark_theme = "onedark", -- The default dark theme
-  light_theme = "onelight", -- The default light theme
-  caching = false, -- Use caching for the theme?
-  cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
-  colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  highlights = {}, -- Override default highlight and/or filetype groups
+  colors = {}, -- Override default colors or create your own
+  highlights = {}, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
-    javascript = true,
-    lua = true,
-    markdown = true,
-    php = true,
-    python = true,
-    ruby = true,
-    rust = true,
-    toml = true,
-    typescript = true,
-    typescriptreact = true,
-    vue = true,
-    yaml = true,
+    -- See the 'Configuring filetype highlights' section for the available list
   },
   plugins = { -- Override which plugin highlight groups are loaded
-    -- See the Supported Plugins section for a list of available plugins
+    -- See the 'Supported plugins' section for the available list
   },
-  styles = { -- Choose from "bold,italic,underline"
+  styles = { -- For example, to apply bold and italic, use "bold,italic"
     types = "NONE", -- Style that is applied to types
     numbers = "NONE", -- Style that is applied to numbers
     strings = "NONE", -- Style that is applied to strings
@@ -143,41 +131,32 @@ require("onedarkpro").setup({
 
     cursorline = false, -- Use cursorline highlighting?
     transparency = false, -- Use a transparent background?
-    terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-    window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+    terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+    highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
   }
 })
+
+vim.cmd("colorscheme onedark")
 ```
 
-> **Note:** You only need to include values that you wish to change from the defaults!
+### Setting a theme
 
-### Configuring themes
-
-Currently, there are four themes available:
+Currently, there are four themes that come with the colorscheme:
 
 - `onedark`
 - `onelight`
 - `onedark_vivid`
 - `onedark_dark`
 
-A default theme can be set with:
+A theme can be set with:
 
 ```lua
-theme = "onedark_vivid",
+vim.cmd("colorscheme onedark")
 ```
 
-If no value is specified, the colorscheme will use the value of the `dark_theme` and/or `light_theme` config option; with `vim.o.background` being used to determine whether to use the dark or light theme:
+### Overriding colors
 
-```lua
-dark_theme = "onedark_dark",
-light_theme = "onelight",
-```
-
-For users who wish to have a light theme during daylight hours and a dark theme during the night, it is recommended to _not_ set a value for `theme` and instead use the `dark_theme` and `light_theme` options.
-
-### Configuring colors
-
-The colorscheme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
+A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
 The default colors can be changed by specifying the name of the color and a new hex code:
 
@@ -197,9 +176,20 @@ colors = {
 }
 ```
 
+Additional colors, based on a theme's default palette, may also be generated at runtime:
+
+```lua
+local color = require("onedarkpro.lib.color")
+
+colors = {
+  lighter_bg = color.lighten(onedarkpro.get_colors("onedark").bg, 0.85)
+  darker_red = color.darken(onedarkpro.get_colors("onedark_vivid").red, 0.85)
+}
+```
+
 > **Note:** Custom colors can also be referenced when creating custom highlight group overrides
 
-#### Specifying colors by theme
+#### Specifying colors by theme or background
 
 It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 
@@ -214,7 +204,20 @@ colors = {
 }
 ```
 
-### Configuring highlight groups
+Alternatively, you can specify colors by the theme's background color:
+
+```lua
+colors = {
+  dark = {
+    bg = "#FFFF00" -- yellow
+  },
+  light = {
+    bg = "#00FF00" -- green
+  }
+}
+```
+
+### Overriding highlight groups
 
 The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua), [filetype](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or _override_ them:
 
@@ -244,9 +247,7 @@ highlights = {
 
 ### Configuring filetype highlighting
 
-> **Note: Filetype highlighting only works in Neovim 0.8 and above**
-
-The colorscheme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The colorscheme currently has support for:
+The theme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
 - `javascript`
 - `lua`
@@ -292,7 +293,7 @@ filetypes = {
 
 #### Adding or modifying filetype highlights
 
-It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the colorscheme:
+It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the theme:
 
 ```lua
 highlights = {
@@ -304,7 +305,7 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> **Note:** The colorscheme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
+> **Note:** The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
 ### Configuring plugins
 
@@ -340,7 +341,7 @@ plugins = {
 
 ### Configuring styles
 
-Within the colorscheme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of the colorscheme. These styles may be configured as shown in the example below:
+Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of a theme. These styles may be configured as shown in the example below:
 
 ```lua
 styles = {
@@ -364,7 +365,7 @@ styles = {
 
 #### Formatting
 
-Alongside styles, the colorscheme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
+Alongside styles, the theme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
 
 ```lua
 options = {
@@ -377,7 +378,7 @@ options = {
 
 #### Transparency
 
-The colorscheme supports transparent backgrounds:
+The theme supports transparent backgrounds:
 
 ```lua
 options = {
@@ -389,21 +390,21 @@ By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`
 
 #### Terminal Colors
 
-The colorscheme supports changing the colors for Neovim's `:terminal` to the current theme:
+By default, the colorscheme changes the colors for Neovim's `:terminal` to the current theme. This can be turned off if required.
 
 ```lua
 options = {
-  terminal_colors = true
+  terminal_colors = false
 }
 ```
 
-#### Window Focus Color
+#### Highlighting Inactive Windows
 
-The colorscheme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
+The theme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
 options = {
-  window_unfocused_color = true
+  highlight_inactive_windows = true
 }
 ```
 
@@ -411,7 +412,7 @@ options = {
 
 #### Cursorline
 
-Cursorline highlighting is supported in the colorscheme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
+Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
 
 ```lua
 colors = {
@@ -422,39 +423,16 @@ options = {
 }
 ```
 
-### Configuring caching
-
-To enable a faster load time, the colorscheme supports caching. This works by caching highlight groups to disk instead of setting them when Neovim starts. Initial testing suggests you may see a 3x improvement in the colorscheme's boot time if you have a complex configuration. If you load all filetypes and plugins, you'll likely see a greater impact.
-
-> **Note:** With caching enabled, if you change your theme config you will not see the effect of the new changes unless you re-generate the cache.
-
-To enable caching:
-
-```lua
-require("onedarkpro").setup({
-  caching = true
-})
-```
-
-#### Generating a cache
-
-A cache can be generated by running `:OnedarkproCache`. The colorscheme will then detect if a cache is present when Neovim starts.
-
-To automatically re-generate the cache, an autocommand unique to your configuration should be used.
-
-#### Cleaning a cache
-
-A cache may be cleaned by running `:OnedarkproClean`. This will remove the cache file from disk.
-
 ## :electric_plug: Supported Plugins
 
-The colorscheme supports the following plugins:
+The theme supports the following plugins:
 
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim) (`aerial`)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
+- [Glance](https://github.com/DNLHC/glance.nvim) (`glance`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
 - [leap.nvim](https://github.com/ggandor/leap.nvim) (`leap`)
@@ -505,44 +483,70 @@ The colorscheme supports the following plugins:
 
 ### Lualine
 
-The colorscheme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
+The theme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
 
 ### Terminal themes
 
-The colorscheme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) themes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
+The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) colorschemes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
 ### Helpers
 
-#### Theme color tables
+#### Using theme colors
 
-To enable the theme's colors to be extracted and used elsewhere in the Neovim config, a helper function, `get_colors()`, has been included. This returns a table of the theme's current colors.
+To enable a theme's colors to be extracted and used elsewhere in your Neovim config, a helper function, `get_colors()`, has been included. This returns a table of the current theme's color palette, including user created colors:
 
 ```lua
-local colors = require("onedarkpro").get_colors(vim.g.onedarkpro_theme)
+local colors = require("onedarkpro").get_colors()
+print(colors.purple) -- #c678dd
+```
+
+It is recommended that this is called after `onedarkpro` has been loaded. Using Packer, the `after` attribute can ensure the colorscheme is loaded before the plugin you're trying to configure.
+
+If this is not possible, you can also explicitly get the colors for a specific theme:
+
+```lua
+local colors = require("onedarkpro").get_colors("onelight")
 print(colors.purple) -- #9a77cf
 ```
 
-> **Note:** The global variable `vim.g.onedarkpro_theme` represents the currently loaded theme
-
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
+
+#### Lightening and darkening colors
+
+When customising a theme, modifying a core color from the palette can help to ensure consistency. The theme allows for lightening and darkening of colors via the `require("onedarkpro.lib.color")` file and its  `lighten()` and `darken()` methods:
+
+```lua
+local color = require("onedarkpro.lib.color")
+print(color.darken("#FF0000", 0.5)) -- #800000
+print(color.lighten("#FF0000", 0.5)) -- #FF8080
+```
+
+You can even include colors from the theme's core palette as a variable:
+
+```lua
+local color = require("onedarkpro.lib.color")
+print(color.darken("${blue}", 0.9)) -- #579ED7
+```
+
+> **Note:** If these methods are called before a theme is loaded, the colorscheme will use `onedark` colors. This can be solved by pairing this with the `get_colors("theme_name")` method
 
 #### Toggling between themes
 
-To enable the easy switching between dark and light themes, the following helper function could be used:
+To enable the easy switching between dark and light colorschemes, the following helper function could be used:
 
 ```lua
 function ToggleTheme()
-  if vim.o.background == "dark" then
-    vim.o.background = "light"
+  if vim.o.background == "light" then
+    vim.cmd("colorscheme onelight")
   else
-    vim.o.background = "dark"
+    vim.cmd("colorscheme onedark")
   end
 end
 ```
 
 #### Configuring styles/colors/highlight groups based on the theme
 
-When configuring the colorscheme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
+When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
 ```lua
 highlights = {
@@ -557,14 +561,6 @@ highlights = {
 #### I want to change X highlight group but I don't know what it is. How do I find out?
 
 If you're using Treesitter then install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
-
-#### I want to automatically generate the cache file. How do I do it?
-
-This can be achieved by creating an autocommand that runs the `:OnedarkproCache` command. This will be dependant on how you have setup your Neovim config.
-
-#### Something in my config isn't working. How can I debug it?
-
-You can set `vim.g.onedarkpro_log_level = "debug"` before the colorscheme loads and view the output logs at `~/.local/state/nvim/onedarkpro.log`. Chances are there is something conflicting with your configuration or a plugin is loading before the colorscheme has.
 
 ## :clap: Credits
 

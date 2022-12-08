@@ -1,15 +1,15 @@
 local M = {}
 
----Get the highlight groups for the editor
+---Set the highlight groups for the editor
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     local color = require("onedarkpro.lib.color")
+    local config = require("onedarkpro.config").config
 
     return {
         ColorColumn = { bg = theme.generated.color_column }, -- used for the columns set with 'colorcolumn'
-        -- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
+        Conceal = { fg = theme.palette.fg }, -- placeholder characters substituted for concealed text (see 'conceallevel')
         Cursor = { bg = theme.palette.purple, fg = theme.palette.bg }, -- character under the cursor
         -- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
         -- CursorIM     = {bg = theme.palette.red}, -- like Cursor, but used when in IME mode |CursorIM|
@@ -55,7 +55,7 @@ function M.groups(theme, config)
         Normal = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- normal text
         NormalNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocused_color and theme.generated.color_column
+                or config.options.highlight_inactive_windows and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- normal text in non-current windows
@@ -86,14 +86,18 @@ function M.groups(theme, config)
         Question = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = { bg = config.options.cursorline and theme.generated.cursorline or theme.palette.bg }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
         QuickFixLineNC = { bg = theme.palette.bg }, -- QuickFixLine, for inactive windows
-        Search = { bg = theme.generated.selection, fg = theme.palette.yellow, }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+        Search = { bg = theme.generated.selection, fg = theme.palette.yellow }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
         -- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
         -- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
         IncSearch = { bg = theme.generated.selection, fg = theme.palette.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-        StatusLine = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
+        StatusLine = {
+            bg = config.options.transparency and "NONE" or theme.palette.bg,
+            fg = theme.palette.fg,
+            style = "bold",
+        }, -- status line of current window
         StatusLineNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocused_color and theme.generated.color_column
+                or config.options.highlight_inactive_windows and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
@@ -109,7 +113,7 @@ function M.groups(theme, config)
         WinBar = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg },
         WinBarNC = {
             bg = config.options.transparency and "NONE"
-                or config.options.window_unfocused_color and theme.generated.color_column
+                or config.options.highlight_inactive_windows and theme.generated.color_column
                 or theme.palette.bg,
             fg = theme.palette.fg,
         },

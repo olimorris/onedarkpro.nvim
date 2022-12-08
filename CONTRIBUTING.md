@@ -4,14 +4,14 @@
 - [Adding new filetypes](#adding-new-filetypes)
 - [Adding new plugins](#adding-new-plugins)
 
-By default, the colorscheme aims to stay true to the original [One Dark Pro](https://github.com/Binaryify/OneDark-Pro)
+By default, the theme aims to stay true to the original [One Dark Pro](https://github.com/Binaryify/OneDark-Pro)
 theme (_"the original"_) as much as possible. If you notice any discrepencies, please make a pull request.
 
 ## Guidelines
 
 The following is a set of guidelines for contributing to this project:
 
-- When highlighting discrepencies between the colorscheme and the original, please include screenshots and your settings in both Neovim and VS Code
+- When highlighting discrepencies between the theme and the original, please include screenshots and your settings in both Neovim and VS Code
 - Format code using [stylua](https://github.com/johnnymorganz/stylua) to keep the formatting consistent
 - Make sure that the project's `stylua.toml` file is used for stylua settings
 - Run `make test` prior to submitting a pull request to ensure the tests are passing
@@ -19,12 +19,12 @@ The following is a set of guidelines for contributing to this project:
 
 ### Recommendations
 
-- If you're adding new functionality, it may be worth opening an issue to discuss the design of the new feature
+- If you're adding new functionality, please open an issue to discuss the design of the new feature
 - Also consider how the end user will consume your new feature. It's often easier to start with the API and work backwards
 - Consider the use of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to make your commit messages more descriptive
 
 ## Adding new filetypes
-Filetype highlights are the feature that allows the color scheme to get as close to the original as possible, thanks to Treesitter.
+Filetype highlights are the feature that allows a colorscheme to get as close to the original as possible, thanks to Treesitter.
 
 When adding new filetypes, they must stay as close to the original VS Code theme as possible. Even with the inclusion of opinionated styles (such as bolds and italics).
 
@@ -48,9 +48,8 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
     -- Add your filetype highlight groups here
     }
@@ -74,6 +73,8 @@ return {
 - The colorscheme enables users to be able to turn off certain styles like `bold` and `italic`. To match to the styles from VS Code, whilst still enabling the user to apply customisations:
 
 ```lua
+local config = require("onedarkpro.config").config
+
 return {
     ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
 }
@@ -102,7 +103,7 @@ filetypes = {
 
 ## Adding new plugins
 
-It can be difficult to keep track of all of the amazing new plugins which enter the Neovim ecosystem. To add support for a new plugin in the colorscheme:
+It can be difficult to keep track of all of the amazing new plugins which enter the Neovim ecosystem. To add support for a new plugin in the theme:
 
 - Create the plugin file in `lua/onedarkpro/highlights/plugins/`
 - The plugin should implement the following interface:
@@ -111,9 +112,8 @@ local M = {}
 
 ---Get the highlight groups for the plugin
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
     -- Add your highlight groups here
     }
@@ -128,11 +128,13 @@ TelescopeSelection = {
     fg = theme.palette.purple,
 }
 ```
-> See `lua/onedarkpro/themes/onedark.lua` for the list of available colors in the themes
+> See `lua/onedarkpro/themes/onedark.lua` for the list of available colors in the colorschemes
 
 - To incorporate styles from a user's config:
 
 ```lua
+local config = require("onedarkpro.config").config
+
 return {
     AerialClass = {
         fg = theme.palette.purple,

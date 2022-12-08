@@ -72,7 +72,7 @@ body:
               onedarkpro.setup({
                 -- Your onedarkpro config here
               })
-              vim.cmd("colorscheme onedarkpro")
+              vim.cmd("colorscheme onedark")
           end
           ```
 
@@ -140,13 +140,11 @@ body:
         description: |
           Before you submit, please make sure you have completed the following steps:
         options:
-          - label: I have made sure that the colorscheme's caching is not the issue
-            required: true
-          - label: I have made sure this is not a duplicate issue
-            required: true
           - label: I have made sure this issue exists in the latest version of the plugin
             required: true
           - label: I have tested with the `minimal.lua` config file above and still get the issue
             required: true
           - label: I have confirmed that Treesitter is working correctly by running `:checkhealth treesitter`
+            required: true
+          - label: I have made sure this is not a duplicate issue
             required: true

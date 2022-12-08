@@ -1,111 +1,132 @@
+local config = require("onedarkpro.config")
+local file = require("onedarkpro.utils.file")
+
 local M = {}
 
-local config = require("onedarkpro.config")
-local override = require("onedarkpro.override")
+---Compile all the themes and cache them
+---@return nil
+function M.cache()
+    local cache = require("onedarkpro.lib.cache")
+    local themes = require("onedarkpro.theme").themes
+    local compiler = require("onedarkpro.lib.compile")
 
-vim.g.onedarkpro_log_level = "error"
-local logger = require("onedarkpro.utils.logging")
+    for _, theme in ipairs(themes) do
+        local t = { theme = theme }
+        compiler.compile(t)
+        cache.write(t)
+    end
+end
 
----Allow the user to override the default configuration
----@param opts table  The user's config
+---Clean all of the theme's files on the disk
+---@return nil
+function M.clean()
+    local cache = require("onedarkpro.lib.cache")
+    local themes = require("onedarkpro.theme").themes
+
+    for _, theme in ipairs(themes) do
+        cache.clean({ theme = theme })
+    end
+
+    -- Remove hash files
+    cache.clean({ file = "fingerprint" })
+    cache.clean({ file = "user_config_hash" })
+end
+
+---Reset the colorscheme to the default values
+---@return nil
+function M.reset()
+    --TODO: To be implemented
+    require("onedarkpro.config").reset()
+    require("onedarkpro.override").reset()
+end
+
+---Determine if the current fingerprint is valid, updating it if not
+---@param cache_path string
+---@return boolean
+local function valid_user_config(cache_path)
+    local hash_config_path = file.join_paths(cache_path, "user_config_hash")
+    local current_hash = tostring(config.hash())
+    local stored_hash = tostring(file.read(hash_config_path))
+
+    if not stored_hash or current_hash ~= stored_hash then
+        file.write(hash_config_path, current_hash)
+        return false
+    end
+
+    return true
+end
+
+---Determine if the current fingerprint is valid, updating it if not
+---@param cache_path string
+---@return boolean
+local function valid_fingerprint(cache_path)
+    local fingerprint_path = file.join_paths(cache_path, "fingerprint")
+    local current_fingerprint = require("onedarkpro.fingerprint")
+    local stored_fingerprint = file.read(fingerprint_path)
+
+    if not stored_fingerprint or current_fingerprint ~= stored_fingerprint then
+        file.write(fingerprint_path, current_fingerprint)
+        return false
+    end
+
+    return true
+end
+
+---Setup the theme
+---@param opts table
 ---@return nil
 function M.setup(opts)
-    opts = opts or {}
-    config.user_opts = opts
+    local should_cache = false
 
-    -- Set the log level based on the deprecated config option
-    if opts.log_level then
-        vim.g.onedarkpro_log_level = opts.log_level
-    end
+    config.setup(opts)
 
-    logger:set_level(vim.g.onedarkpro_log_level)
-    logger.debug("CONFIG: Start")
+    -- Allow users to generate themes at startup
+    if not config.config.caching then return M.cache() end
 
-    if opts.colors then
-        logger.debug("CONFIG: Overriding colors")
-        override.colors = opts.colors
-    end
+    local cache_path, _ = config.get_cached_info()
+    file.ensure_dir(cache_path)
 
-    if opts.highlights then
-        logger.debug("CONFIG: Overriding highlight groups")
-        override.highlights = opts.highlights
-    end
+    if not valid_user_config(cache_path) then should_cache = true end
+    if not valid_fingerprint(cache_path) then should_cache = true end
+
+    if should_cache then M.cache() end
 end
 
----Load the theme
----@param cache_loaded? boolean  Has the theme already been loaded from the cache?
+---Load a theme
 ---@return nil
-function M.load(cache_loaded)
-    logger:set_level(vim.g.onedarkpro_log_level)
+function M.load()
+    -- Some users may not call the setup method so we need to account for it
+    if not config.is_setup then
+        config.setup()
+        local cache_path, _ = config.get_cached_info()
 
-    local config = config.setup()
-    logger.debug("CONFIG:", config)
-
-    local theme = require("onedarkpro.theme").load(config.theme)
-    logger.debug("THEME:", theme)
-
-    local cache = require("onedarkpro.lib.cache")
-    local highlights = require("onedarkpro.highlight")
-
-    if config.caching and cache.exists(theme.meta.name) and not cache_loaded then
-        local ok, loaded_cache = pcall(cache.load, theme, config)
-        if ok then
-            logger.debug("CACHE: Completed load")
-            return loaded_cache
-        end
-
-        logger.debug("CACHE: Could not be loaded", loaded_cache)
-        vim.notify(
-            "[OneDarkPro.nvim] Could not load from the cache. It may be corrupted. Please generate the cache again",
-            vim.log.levels.WARN
-        )
+        -- Non-setup users still get the benefits of caching so we need to check
+        -- that the fingerprint is valid and generate new colorschemes if not
+        if not valid_fingerprint(cache_path) then M.cache() end
     end
 
-    highlights.editor = require("onedarkpro.highlights.editor").groups(theme, config)
-    highlights.syntax = require("onedarkpro.highlights.syntax").groups(theme, config)
-    highlights.filetypes = require("onedarkpro.highlights.filetype").groups(theme, config)
-    highlights.plugins = require("onedarkpro.highlights.plugin").groups(theme, config)
+    -- Generate a cache if doesn't already exist
+    local _, cached_theme = config.get_cached_info()
+    if not file.exists(cached_theme) then M.cache() end
 
-    if override.highlights then
-        highlights.custom = require("onedarkpro.utils.variable").replace_vars(
-            vim.deepcopy(override.highlights),
-            require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated)
-        )
+    local ok, theme = pcall(loadfile, cached_theme)
+    if not ok then
+        error("Could not load the cache file")
+        return
     end
 
-    require("onedarkpro.main").load(theme, config)
-
-    -- If a user has set caching to be true but doesn't yet have a cache file, create one
-    if config.caching and not cache.exists(theme.meta.name) then
-        logger.debug("CACHE: Automatically create the cache file")
-        return cache.generate()
-    end
+    -- Load the theme
+    if theme then theme() end
 end
 
----Get the color palette for a specific theme
+---Return all of the colors in a table for a given theme or the current theme
 ---@param theme_name? string
 ---@return table
 function M.get_colors(theme_name)
-    if vim.g.onedarkpro_colors then
-        return vim.g.onedarkpro_colors
-    end
+    local util = require("onedarkpro.utils")
 
-    local theme = require("onedarkpro.theme").load(theme_name)
-    return require("onedarkpro.utils.collect").deep_extend(theme.palette, theme.generated, theme.meta)
-end
-
----Cache a user's config
----@return nil
-function M.cache()
-    require("onedarkpro.lib.cache").generate()
-    return vim.notify("[OneDarkPro] Cache generated!")
-end
-
----Delete a user's cache
----@return nil
-function M.clean()
-    require("onedarkpro.lib.cache").clean()
-    return vim.notify("[OneDarkPro] Cache cleaned!")
+    local theme = require("onedarkpro.theme").load(theme_name or config.theme)
+    return util.deep_extend(theme.palette, theme.generated, theme.meta)
 end
 
 return M

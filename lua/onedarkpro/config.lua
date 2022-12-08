@@ -1,21 +1,13 @@
-local M = {}
-M.user_opts = {}
+local util = require("onedarkpro.utils")
 
--- Default options for the theme
+local M = { theme = "onedark", is_setup = false }
+
 local defaults = {
-    dark_theme = "onedark", -- The default dark theme
-    light_theme = "onelight", -- The default light theme
-    theme = function()
-        if vim.o.background == "dark" then
-            return M.config.dark_theme
-        else
-            return M.config.light_theme
-        end
-    end,
-    caching = false, -- Use caching for the theme?
-    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
-    colors = {}, -- Override default colors
-    highlights = {}, -- Override default highlight groups
+    caching = true, -- Enable caching
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
+    cache_suffix = "_compiled",
+    colors = {}, -- Add and/or override colors
+    highlights = {}, -- Add and/or override highlights
     filetypes = { -- Enable/Disable specific plugins
         javascript = true,
         lua = true,
@@ -36,6 +28,7 @@ local defaults = {
         copilot = true,
         dashboard = true,
         gitsigns = true,
+        glance = true,
         hop = true,
         indentline = true,
         leap = true,
@@ -85,8 +78,8 @@ local defaults = {
 
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
-        terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
-        window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+        terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+        highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
     },
 }
 
@@ -94,9 +87,7 @@ local defaults = {
 ---@param opts table
 ---@return table
 local function set_options(opts)
-    if opts.cursorline then
-        vim.wo.cursorline = true
-    end
+    if opts.cursorline then vim.wo.cursorline = true end
 
     return {
         none = "NONE",
@@ -109,7 +100,7 @@ local function set_options(opts)
         cursorline = opts.cursorline,
         transparency = opts.transparency,
         terminal_colors = opts.terminal_colors,
-        window_unfocused_color = opts.window_unfocused_color,
+        highlight_inactive_windows = opts.highlight_inactive_windows or opts.window_unfocused_color,
     }
 end
 
@@ -118,40 +109,73 @@ end
 ---@param override table
 ---@return table
 local function load_files(files, override)
-    for file, _ in pairs(files) do
-        if override["all"] == false then
-            files[file] = false
-        end
-        if override[file] then
-            files[file] = override[file]
-        end
+    for f, _ in pairs(files) do
+        if override["all"] == false then files[f] = false end
+        if override[f] then files[f] = override[f] end
     end
 
     return files
 end
 
----Setup the theme's as per the configuration
----@return table
-function M.setup()
-    local utils = require("onedarkpro.utils.collect")
-    local logger = require("onedarkpro.utils.logging")
+---Set the theme to use
+---@param theme string
+---@return nil
+function M.set_theme(theme)
+    M.theme = theme
+end
 
-    M.config = utils.deep_extend(vim.deepcopy(defaults), M.user_opts)
+---Reset the config to the default values
+---@return nil
+function M.reset()
+    M.config = util.deep_copy(defaults)
+end
 
+---Setup the configuration for the theme
+---@param opts? table
+---@return nil
+function M.setup(opts)
+    --TODO: Deprecate the theme, dark_theme and light_theme config properties
+    if opts and (opts.dark_theme or opts.light_theme) then
+        if vim.o.background == "light" then
+            M.theme = opts.light_theme or "onelight"
+        else
+            M.theme = opts.dark_theme or "onedark"
+        end
+    end
+    if opts and opts.theme then M.theme = opts.theme end
+    --//------------------------------------------------------------------------
+
+    opts = opts or {}
+
+    M.config = util.deep_extend(vim.deepcopy(defaults), opts)
     M.config.options = set_options(M.config.options)
-    logger.debug("CONFIG: Set options")
 
-    if M.user_opts.filetypes then
-        M.config.filetypes = load_files(M.config.filetypes, M.user_opts.filetypes)
-        logger.debug("CONFIG: Set filetypes")
-    end
+    if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
+    if opts and opts.plugins then M.config.plugins = load_files(M.config.plugins, opts.plugins) end
 
-    if M.user_opts.plugins then
-        M.config.plugins = load_files(M.config.plugins, M.user_opts.plugins)
-        logger.debug("CONFIG: Set plugins")
-    end
+    M.is_setup = true
+end
 
-    return M.config
+---Get information relating to where the cache is stored
+---@param opts? table
+---@return string,string
+function M.get_cached_info(opts)
+    local file = require("onedarkpro.utils.file")
+
+    opts = opts or {}
+
+    local theme = opts.theme or M.theme
+    local cache_path = opts.cache_path or M.config.cache_path
+    local theme_path = file.join_paths(cache_path, theme .. M.config.cache_suffix)
+
+    return cache_path, theme_path
+end
+
+---Create a hash from the config
+---@return string|number
+function M.hash()
+    local hash = require("onedarkpro.lib.hash")(M.config)
+    return hash and hash or 0
 end
 
 return M

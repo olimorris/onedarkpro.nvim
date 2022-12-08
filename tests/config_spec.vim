@@ -1,6 +1,5 @@
 if !isdirectory('plenary.nvim')
   !git clone https://github.com/nvim-lua/plenary.nvim.git plenary.nvim
-  !git -C plenary.nvim reset --hard 1338bbe8ec6503ca1517059c52364ebf95951458
 endif
 
 set runtimepath+=plenary.nvim,.
@@ -8,21 +7,26 @@ set noswapfile
 set noundofile
 
 lua << EOF
-vim.g.onedark_testing = true
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
-    dark_theme = "onedark_vivid", -- The default dark theme
-    light_theme = "onelight", -- The default light theme
+    cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_test/"),
     styles = {
         variables = "bold"
     },
     options = {
         bold = false,
         italic = true,
-        terminal_colors = true
+        terminal_colors = true,
+        cursorline = true,
+        highlight_inactive_windows = true,
+    },
+    filetypes = {
+        all = false,
+        javascript = true,
     },
     plugins = {
         all = false,
+        op_nvim = true,
         treesitter = true,
     },
     colors = {
@@ -48,9 +52,9 @@ onedarkpro.setup({
         TestHighlightGroup2 = { link = "Statement" }
     },
 })
-vim.cmd [[colorscheme onedarkpro]]
+vim.cmd [[colorscheme onedark_vivid]]
 EOF
 
 runtime plugin/plenary.vim
-command Test2 PlenaryBustedFile tests/002_spec.lua
+command ConfigSpec PlenaryBustedFile tests/config_spec.lua
 

@@ -78,7 +78,6 @@ try {
 
 /*
  * Heredoc
- * NOTE: Heredocs don't currently have Treesitter queries
  */
 echo <<<END
       a

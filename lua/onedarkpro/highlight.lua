@@ -1,32 +1,26 @@
-local utils = require("onedarkpro.utils.collect")
+local util = require("onedarkpro.utils")
+local config = require("onedarkpro.config").config
 
-local store = {
-    editor = {},
-    syntax = {},
-    filetypes = {},
-    plugins = {},
-    custom = {},
-}
+local M = {}
 
-local function reset()
-    store.editor = {}
-    store.syntax = {}
-    store.filetypes = {}
-    store.plugins = {}
-    store.custom = {}
+---Form highlight groups based on the theme
+---@param theme table
+---@return table
+function M.groups(theme)
+    local editor = require("onedarkpro.highlights.editor").groups(theme)
+    local syntax = require("onedarkpro.highlights.syntax").groups(theme)
+    local plugins = require("onedarkpro.highlights.plugin").groups(theme)
+    local filetypes = require("onedarkpro.highlights.filetype").groups(theme)
+
+    local groups = util.deep_extend(editor, syntax, plugins, filetypes)
+
+    if config.highlights then
+        local custom =
+            util.replace_vars(vim.deepcopy(config.highlights), util.deep_extend(theme.palette, theme.generated))
+        groups = util.deep_replace(groups, custom)
+    end
+
+    return groups
 end
 
-return setmetatable({ reset = reset }, {
-    __index = function(_, value)
-        if store[value] then
-            return store[value]
-        end
-    end,
-
-    __newindex = function(_, key, value)
-        if store[key] then
-            store[key] = utils.deep_extend(store[key], value or {})
-        end
-    end,
-})
-
+return M

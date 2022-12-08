@@ -1,28 +1,19 @@
 local hex = function(n)
-    if n then
-        return string.format("#%06x", n)
-    end
+    if n then return string.format("#%06x", n) end
 end
 
-local utils = require("onedarkpro.utils")
-
-local function parse_style(style)
-    if not style or style == "NONE" then
-        return {}
-    end
-
-    local result = {}
-    for token in string.gmatch(style, "([^,]+)") do
-        result[token] = true
-    end
-
-    return result
-end
+local util = require("onedarkpro.utils")
 
 describe("Using the theme", function()
     before_each(function()
+        -- Ensure that when we've switched to the light theme, we turn it back to dark
+        vim.cmd([[colorscheme onedark_vivid]])
         vim.cmd(":e tests/stubs/test.txt")
-        vim.o.background = "dark"
+    end)
+
+    after_each(function()
+        -- This is essential to make sure that config changes are properly applied
+        require("onedarkpro").clean()
     end)
 
     it("Neovim should open with no errors", function()
@@ -31,7 +22,7 @@ describe("Using the theme", function()
     end)
 
     it("it should set a global variable", function()
-        assert.equals("onedark_vivid", vim.g.onedarkpro_theme)
+        assert.equals("onedark_vivid", vim.g.colors_name)
     end)
 
     it("it should apply the theme's color palette", function()
@@ -49,21 +40,21 @@ describe("Using the theme", function()
         assert.equals(true, output.bold)
     end)
 
-    if utils.has_nvim_08 then
+    if util.has_nvim_08 then
         it("it should apply options", function()
-            local output = vim.api.nvim_get_hl_by_name("@variable.javascript", true)
-            assert.equals(true, output.italic)
+            local output = vim.api.nvim_get_hl_by_name("CursorLine", true)
+            assert.equals("#2e323a", hex(output.background))
         end)
 
         it("it should not apply options that are false", function()
-            local output = vim.api.nvim_get_hl_by_name("@function.ruby", true)
-            assert.equals(nil, output.bold)
+            local output = vim.api.nvim_get_hl_by_name("VertSplit", true)
+            assert.equals("#282c34", hex(output.background))
         end)
     end
 
     it("it should be able to overwrite existing colors", function()
         local output = vim.api.nvim_get_hl_by_name("Label", true)
-        assert.equals("#e06c75", hex(output.foreground))
+        assert.equals("#d55fde", hex(output.foreground))
     end)
 
     it("it should be able to overwrite generated colors", function()
@@ -86,20 +77,24 @@ describe("Using the theme", function()
         assert.equals("TestHighlightGroup2 xxx links to Statement", output)
     end)
 
-    it("it should only apply highlights for plugins we have enabled", function()
-        -- Treesitter groups should be loaded
-        local ts_group = utils.has_nvim_08 and "@annotation" or "TSAnnotation"
-        output = vim.api.nvim_get_hl_by_name(ts_group, true)
+    it("it should be able to load plugins that we have enabled", function()
+        local output = pcall(vim.api.nvim_exec, "hi OpSidebarHeader", true)
+        assert.equals(true, output)
 
-        assert.equals("#e06c75", hex(output.foreground))
+        output = pcall(vim.api.nvim_exec, "hi AerialClass", true)
+        assert.equals(false, output)
+    end)
 
-        -- Do not set Aerial's highlight groups
-        local output = pcall(vim.api.nvim_exec, "hi AerialClass", true)
+    it("it should be able to load filetypes that we have enabled", function()
+        local output = pcall(vim.api.nvim_exec, "hi @variable.javascript", true)
+        assert.equals(true, output)
+
+        output = pcall(vim.api.nvim_exec, "hi @function.ruby", true)
         assert.equals(false, output)
     end)
 
     it("it should allow a color palette to be extracted", function()
-        local colors = require("onedarkpro").get_colors(vim.g.onedarkpro_theme)
+        local colors = require("onedarkpro").get_colors(vim.g.colors_name)
         assert.equals("#d55fde", colors.purple)
         assert.equals("onedark_vivid", colors.name)
     end)
@@ -109,18 +104,18 @@ describe("Using the theme", function()
     end)
 
     it("it changes the theme when the background changes", function()
-        assert.equals("onedark_vivid", vim.g.onedarkpro_theme)
+        assert.equals("onedark_vivid", vim.g.colors_name)
 
-        vim.o.background = "light"
-        assert.equals("onelight", vim.g.onedarkpro_theme)
+        vim.cmd([[colorscheme onelight]])
+        assert.equals("onelight", vim.g.colors_name)
     end)
 
     it("it changes colors and highlight groups when the background changes", function()
         local output = vim.api.nvim_exec("hi Normal", true)
         assert.equals("Normal         xxx guifg=#abb2bf guibg=#282c34", output)
 
-        vim.o.background = "light"
-        local output = vim.api.nvim_exec("hi Normal", true)
+        vim.cmd([[colorscheme onelight]])
+        output = vim.api.nvim_exec("hi Normal", true)
         assert.equals("Normal         xxx guifg=#6a6a6a guibg=#fafafa", output)
     end)
 
@@ -128,8 +123,26 @@ describe("Using the theme", function()
         local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
         assert.equals("#e06c75", hex(output.foreground))
 
-        vim.o.background = "light"
-        local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
+        vim.cmd([[colorscheme onelight]])
+        output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
         assert.equals("#e05661", hex(output.foreground))
     end)
+
+    it("it creates the autocmds for inactive windows", function()
+        local output = vim.api.nvim_exec("autocmd Onedarkpro", true)
+
+        assert.equals(true, string.find(output, "Onedarkpro") ~= nil)
+        assert.equals(true, string.find(output, "WinEnter") ~= nil)
+        assert.equals(true, string.find(output, "WinLeave") ~= nil)
+        assert.equals(true, string.find(output, "set winhighlight") ~= nil)
+    end)
+
+    -- it("it should brighten and lighten colors", function()
+    --     local Color = require("onedarkpro.lib.color_new")
+    --     local colors = require("onedarkpro").get_colors("onedark")
+    --     local blue = Color.from_hex(colors.blue)
+    --
+    --     assert.equals("#8fc6f4", blue:lighten(10):to_css())
+    --     assert.equals("#67bbff", blue:brighten(10):to_css())
+    -- end)
 end)

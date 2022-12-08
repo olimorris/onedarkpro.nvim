@@ -2,9 +2,8 @@ local M = {}
 
 ---Get the highlight groups for the filetype
 ---@param theme table
----@param config table
 ---@return table
-function M.groups(theme, config)
+function M.groups(theme)
     return {
         -- This only works for the HTML portion of *.vue files
         ["@method.vue"] = { fg = theme.palette.orange },
