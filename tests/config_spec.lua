@@ -54,7 +54,7 @@ describe("Using the theme", function()
 
     it("it should be able to overwrite existing colors", function()
         local output = vim.api.nvim_get_hl_by_name("Label", true)
-        assert.equals("#e06c75", hex(output.foreground))
+        assert.equals("#d55fde", hex(output.foreground))
     end)
 
     it("it should be able to overwrite generated colors", function()

@@ -6,71 +6,131 @@ local M = {}
 function M.groups(theme)
     local config = require("onedarkpro.config").config
 
+    -- Source:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights
     return {
-        ["@annotation"] = { fg = theme.palette.red }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-        ["@attribute"] = { fg = theme.palette.purple }, -- (unstable)
-        ["@boolean"] = { link = "Boolean" }, -- For booleans.
-        ["@character"] = { link = "Character" }, -- For characters.
-        ["@character.special"] = { fg = theme.palette.purple }, -- For characters.
-        ["@comment"] = { link = "Comment" }, -- For comment blocks.
-        ["@conditional"] = { fg = theme.palette.purple, style = config.styles.conditionals }, -- For keywords related to conditionnals.
-        ["@constant"] = { fg = theme.palette.orange, style = config.styles.constants }, -- For constants
-        ["@constant.builtin"] = { fg = theme.palette.purple, style = config.styles.constants }, -- For constant that are built in the language: `nil` in Lua.
-        ["@constant.macro"] = { link = "@constant" }, -- For constants that are defined by macros: `NULL` in theme.config.
-        ["@constructor"] = { fg = theme.palette.yellow }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
-        ["@error"] = { link = "Error" }, -- For syntax/parser errors.
-        ["@exception"] = { link = "Exception" }, -- For exception related keywords.
-        ["@field"] = { fg = theme.palette.fg }, -- For fields (responsible for making YAML files look rubbish!)
-        ["@float"] = { link = "Float" }, -- For floats.
-        ["@function"] = { fg = theme.palette.blue, style = config.styles.functions }, -- For function (calls and definitions).
-        ["@function.call"] = { link = "@function" }, -- For function (calls and definitions).
-        ["@function.builtin"] = { fg = theme.palette.yellow }, -- For builtin functions: `table.insert` in Lua.
-        ["@function.macro"] = { fg = theme.palette.blue }, -- For macro defined functions (calls and definitions): each `macro_rules` in Rust.
-        ["@include"] = { fg = theme.palette.purple }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-        ["@keyword"] = { fg = theme.palette.purple, style = config.styles.keywords }, -- For keywords that don't fall in previous categories.
-        ["@keyword.function"] = { fg = theme.palette.purple, style = config.styles.keywords }, -- For keywords used to define a function.
-        ["@keyword.operator"] = { fg = theme.palette.purple }, -- For operators that are English words, e.g. `and`, `as`, `or`.
+        -- Misc
+        ["@comment"] = { link = "Comment" }, -- line and block comments
+        ["@error"] = { link = "Error" }, -- syntax/parser errors
+        --["@none"] -- completely disable the highlight
+        --["@preproc"] -- various preprocessor directives & shebangs
+        --["@define"] -- preprocessor definition directives
+        ["@operator"] = { fg = theme.palette.cyan, style = config.styles.operators }, -- symbolic operators (e.g. `+` / `*`)
+
+        -- Punctuation
+        ["@punctuation.delimiter"] = { link = "Delimiter" }, -- delimiters (e.g. `;` / `.` / `,`)
+        ["@punctuation.bracket"] = { fg = theme.palette.fg }, -- brackets (e.g. `()` / `{}` / `[]`)
+        ["@punctuation.special"] = { fg = theme.palette.fg }, -- special symbols (e.g. `{}` in string interpolation)
+
+        -- Literals
+        ["@string"] = { fg = theme.palette.green, style = config.styles.strings }, -- string literals
+        ["@string.regex"] = { fg = theme.palette.green, style = config.styles.strings }, -- regular expressions
+        ["@string.escape"] = { fg = theme.palette.cyan, style = config.styles.strings }, -- escape sequences
+        ["@string.special"] = { link = "Special" }, -- other special strings (e.g. dates)
+
+        ["@character"] = { link = "Character" }, -- character literals
+        ["@character.special"] = { fg = theme.palette.purple }, -- special characters (e.g. wildcards)
+
+        ["@boolean"] = { link = "Boolean" }, -- boolean literals
+        ["@number"] = { link = "Number" }, -- numeric literals
+        ["@float"] = { link = "Float" }, -- floating-point number literals
+
+        -- Functions
+        ["@function"] = { fg = theme.palette.blue, style = config.styles.functions }, -- function definitions
+        ["@function.builtin"] = { fg = theme.palette.yellow }, -- built-in functions
+        ["@function.call"] = { link = "@function" }, -- function calls
+        ["@function.macro"] = { fg = theme.palette.blue }, -- preprocessor macros
+
+        ["@method"] = { link = "@function" }, -- method definitions
+        ["@method.call"] = { link = "@method" }, -- method calls
+
+        ["@constructor"] = { fg = theme.palette.yellow }, -- constructor calls and definitions
+        ["@parameter"] = { fg = theme.palette.red, style = config.styles.variables }, -- parameters of a function
+
+        -- Keywords
+        ["@keyword"] = { link = "Keyword" }, -- For keywords that don't fall in previous categories.
+        ["@keyword.function"] = { fg = theme.palette.purple, style = config.styles.functions }, -- For keywords used to define a function.
+        ["@keyword.operator"] = { fg = theme.palette.purple, style = config.styles.operators }, -- For operators that are English words, e.g. `and`, `as`, `or`.
         ["@keyword.return"] = { link = "@keyword" }, -- for the `return` and `yield` keywords.
-        ["@label"] = { fg = theme.palette.purple }, -- For labels: `label:` in C and `:label:` in Lua.
-        ["@method"] = { fg = theme.palette.blue }, -- For method calls and definitions.
-        ["@method.call"] = { link = "@method" }, -- For method calls and definitions.
-        ["@namespace"] = { fg = theme.palette.yellow }, -- For identifiers referring to modules and namespaces.
-        ["@number"] = { fg = theme.palette.orange, style = config.styles.numbers }, -- Numeric literals that don't fit into other categories.
-        ["@operator"] = { fg = theme.palette.cyan, style = config.styles.operators }, -- For any operator: `+`, but also `->` and `*` in theme.config.
-        ["@parameter"] = { fg = theme.palette.red }, -- For parameters of a function.
-        ["@parameter.reference"] = { fg = theme.palette.red }, -- For references to parameters of a function.
-        ["@property"] = { fg = theme.palette.red }, -- Same as `TSField`.
-        ["@punctuation.delimiter"] = { link = "Delimiter" }, -- For delimiters ie: `.`
-        ["@punctuation.bracket"] = { fg = theme.palette.fg }, -- For brackets and parens.
-        ["@punctuation.special"] = { fg = theme.palette.fg }, -- For special punctutation that does not fall in the categories before.
-        ["@repeat"] = { link = "Repeat" }, -- For keywords related to loops.
-        ["@string"] = { fg = theme.palette.green, style = config.styles.strings }, -- For strings.
-        ["@string.regex"] = { fg = theme.palette.green, style = config.styles.strings }, -- For regexes.
-        ["@string.escape"] = { fg = theme.palette.cyan, style = config.styles.strings }, -- For escape characters within a string.
-        ["@string.special"] = { link = "Special" }, -- For strings with special meaning that don't fit into the above categories.
-        ["@symbol"] = { fg = theme.palette.red }, -- For identifiers referring to symbols or atoms.
-        ["@tag"] = { fg = theme.palette.red }, -- Tags like html tag names.
-        ["@tag.attribute"] = { link = "@property" }, -- For html tag attributes.
-        ["@tag.delimiter"] = { link = "Delimiter" }, -- Tag delimiter like `<` `>` `/`
-        ["@text"] = { fg = theme.palette.fg }, -- For strings considered text in a markup language.
-        ["@text.strong"] = { link = "Bold" }, -- For text to be represented with strong.
-        -- ["@text.emphasis"] = { }, -- For text to be represented with emphasis.
-        ["@text.underline"] = { link = "Underlined" }, -- For text to be represented with an underline.
-        ["@text.strike"] = { fg = theme.palette.fg }, -- For strikethrough text.
-        ["@text.title"] = { fg = theme.palette.fg }, -- Text that is part of a title.
-        ["@text.literal"] = { fg = theme.palette.fg }, -- Literal text.
-        ["@text.uri"] = { fg = theme.palette.blue }, -- Any URI like a link or email.
-        ["@text.math"] = { fg = theme.palette.fg }, -- For LaTex-like math environments.
-        ["@text.reference"] = { link = "@text" }, -- For footnotes, text references, citations.
-        ["@text.environment"] = { link = "Macro" }, -- For text environments of markup languages.
-        ["@text.environment.name"] = { link = "Type" }, -- For the name/the string indicating the type of text environment.
-        ["@text.note"] = { fg = theme.palette.fg }, -- Text representation of an informational note.
-        ["@text.warning"] = { fg = theme.palette.yellow }, -- Text representation of a warning note.
-        ["@text.danger"] = { fg = theme.palette.red }, -- Text representation of a danger note.
-        ["@type"] = { fg = theme.palette.yellow, style = config.styles.types }, -- Type (and class) definitions and annotations.
-        ["@type.builtin"] = { fg = theme.palette.yellow, style = config.styles.types }, -- Built-in types: `i32` in Rust.
-        ["@variable"] = { fg = theme.palette.red, style = config.styles.variables }, -- Any variable name that does not have another highlight.
-        ["@variable.builtin"] = { fg = theme.palette.yellow }, -- Variable names that are defined by the languages, like `this` or `self`.
+
+        ["@conditional"] = { fg = theme.palette.purple, style = config.styles.conditionals }, -- keywords related to conditionals (e.g. `if` / `else`)
+        -- ["@conditional.ternary"] -- Ternary operator: condition ? 1 : 2
+        ["@repeat"] = { link = "Repeat" }, -- keywords related to loops (e.g. `for` / `while`)
+        -- ["@debug"] -- keywords related to debugging
+        ["@label"] = { link = "Label" }, -- GOTO and other labels (e.g. `label:` in C)
+        ["@include"] = { link = "Include" }, -- keywords for including modules (e.g. `import` / `from` in Python)
+        ["@exception"] = { link = "Exception" }, -- keywords related to exceptions (e.g. `throw` / `catch`)
+
+        -- Types
+        ["@type"] = { link = "Type" }, -- type or class definitions and annotations
+        ["@type.builtin"] = { link = "@type" }, -- built-in types
+        ["@type.definition"] = { link = "@type" }, -- type definitions (e.g. `typedef` in C)
+        ["@type.qualifier"] = { link = "@type" }, -- type qualifiers (e.g. `const`)
+
+        --["@storageclass"] -- visibility/life-time modifiers
+        ["@attribute"] = { fg = theme.palette.purple }, --attribute annotations (e.g. Python decorators)
+        ["@field"] = { fg = theme.palette.fg }, -- object and struct fields
+        ["@property"] = { fg = theme.palette.red }, -- similar to `@field`
+
+        -- Identifiers
+        ["@variable"] = { fg = theme.palette.red, style = config.styles.variables }, -- various variable names
+        ["@variable.builtin"] = { fg = theme.palette.yellow }, -- built-in variable names (e.g. `this`)
+
+        ["@constant"] = { fg = theme.palette.orange, style = config.styles.constants }, -- constant identifiers
+        ["@constant.builtin"] = { fg = theme.palette.purple, style = config.styles.constants }, -- built-in constant values
+        ["@constant.macro"] = { link = "@constant" }, -- constants defined by the preprocessor
+
+        ["@namespace"] = { fg = theme.palette.yellow }, -- modules or namespaces
+        ["@symbol"] = { fg = theme.palette.red }, -- symbols or atoms
+
+        -- Text
+        ["@text"] = { fg = theme.palette.fg }, -- non-structured text
+        ["@text.strong"] = { link = "Bold" }, -- bold text
+        -- ["@text.emphasis"] = { }, -- text with emphasis
+        ["@text.underline"] = { link = "Underlined" }, -- underlined text
+        ["@text.strike"] = { fg = theme.palette.fg, style = "strikethrough" }, -- strikethrough text
+        ["@text.title"] = { link = "Title" }, -- text that is part of a title
+        ["@text.literal"] = { fg = theme.palette.fg }, -- literal or verbatim text
+        ["@text.uri"] = { fg = theme.palette.blue, style = "italic,underline" }, -- URIs (e.g. hyperlinks)
+        ["@text.math"] = { fg = theme.palette.fg }, -- math environments (e.g. `$ ... $` in LaTeX)
+        ["@text.environment"] = { link = "Macro" }, -- text environments of markup languages
+        ["@text.environment.name"] = { link = "Type" }, -- text indicating the type of an environment
+        ["@text.reference"] = { fg = theme.palette.fg, style = config.options.bold }, -- text references, footnotes, citations, etc.
+
+        --["@text.todo] -- todo notes
+        ["@text.note"] = { fg = theme.palette.fg }, -- info notes
+        ["@text.warning"] = { fg = theme.palette.yellow }, -- warning notes
+        ["@text.danger"] = { fg = theme.palette.red }, -- danger/error notes
+
+        --["@text.diff.add"] -- added text (for diff files)
+        --["@text.diff.delete"] -- deleted text (for diff files)
+
+        -- Tags
+        ["@tag"] = { fg = theme.palette.red }, -- XML tag names
+        ["@tag.attribute"] = { link = "@property" }, -- XML tag attributes
+        ["@tag.delimiter"] = { link = "Delimiter" }, -- XML tag delimiters
+
+        -- Spell
+        -- ["@spell"] -- for defining regions to be spellchecked
+        -- ["@nospell"] -- for defining regions that should NOT be spellchecked
+
+        -- Locals
+        -- ["@definition"] -- various definitions
+        -- ["@definition.constant"] -- constants
+        -- ["@definition.function"] -- functions
+        -- ["@definition.method"] -- methods
+        -- ["@definition.var"] --variables
+        -- ["@definition.parameter"] -- parameters
+        -- ["@definition.macro"] -- preprocessor macros
+        -- ["@definition.type"] -- types or classes
+        -- ["@definition.field"] -- fields or properties
+        -- ["@definition.enum"] -- enumerations
+        -- ["@definition.namespace"] -- modules or namespaces
+        -- ["@definition.import"] -- imported names
+        -- ["@definition.associated"] -- the associated type of a variable
+
+        -- ["@scope"] -- scope block
+        -- ["@reference"] -- identifier reference
     }
 end
 
