@@ -95,7 +95,7 @@ end
 ---Load a theme
 ---@return nil
 function M.load()
-    -- Some users may not call the setup method and we account for that
+    -- Some users may not call the setup method so we need to account for it
     if not config.is_setup then
         config.setup()
         local cache_path, _ = config.get_cached_info()
@@ -105,17 +105,18 @@ function M.load()
         if not valid_fingerprint(cache_path) then M.cache() end
     end
 
+    -- Generate a cache if doesn't already exist
     local _, cached_theme = config.get_cached_info()
     if not file.exists(cached_theme) then M.cache() end
 
-    local theme = loadfile(cached_theme)
-    if not theme then
+    local ok, theme = pcall(loadfile, cached_theme)
+    if not ok then
         error("Could not load the cache file")
         return
     end
 
     -- Load the theme
-    theme()
+    if theme then theme() end
 end
 
 ---Return all of the colors in a table for a given theme or the current theme
