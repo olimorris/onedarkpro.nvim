@@ -6,29 +6,6 @@ on:
       - main
 
 jobs:
-  # Taken from the amazing work of:
-  # https://github.com/EdenEast/nightfox.nvim/blob/main/.github/workflows/ci.yml
-  fingerprint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Generate fingerprint
-        run: make fingerprint
-
-      - name: Check if fingerprint changed
-        id: check_fingerprint
-        run: |
-          [[ -n $(git diff-index HEAD --) ]] && status="commit" || status="skip"
-          echo "status=$status" >> $GITHUB_OUTPUT
-
-      - if: steps.check_fingerprint.outputs.status == 'commit'
-        name: Commit fingerprint
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore: update fingerprint"
-          commit_author: olimorris <olimorris@users.noreply.github.com >
-
   tests:
     runs-on: ${{ matrix.os }}
     strategy:

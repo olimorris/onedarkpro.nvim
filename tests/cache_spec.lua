@@ -1,5 +1,5 @@
 local util = require("onedarkpro.utils")
-local cache_path, _ = require("onedarkpro.config").get_cached_info()
+local cache_path = require("onedarkpro.config").config.cache_path
 
 local tbl = {}
 local hash = nil
@@ -9,11 +9,8 @@ describe("Using the theme", function()
         vim.cmd(":e tests/stubs/test.txt")
     end)
 
-    it("it SHOULD NOT regenerate a fingerprint if it doesn't need to", function()
-        assert.equals(vim.g.fingerprint, util.hash(util.join_paths(cache_path, "fingerprint")))
-    end)
-    it("it SHOULD NOT regenerate a user_config_hash if it doesn't need to", function()
-        assert.equals(vim.g.user_config_hash, util.hash(util.join_paths(cache_path, "user_config_hash")))
+    it("it SHOULD NOT regenerate a hash if it doesn't need to", function()
+        assert.equals(vim.g.onedarkpro_hash, util.hash(util.join_paths(cache_path, "cache")))
     end)
     it("it SHOULD NOT regenerate colorschemes if it doesn't need to", function()
         assert.equals(vim.g.onedark_compiled, util.hash(util.join_paths(cache_path, "onedark_compiled")))

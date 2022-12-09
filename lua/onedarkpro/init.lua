@@ -1,5 +1,5 @@
-local config = require("onedarkpro.config")
 local util = require("onedarkpro.utils")
+local config = require("onedarkpro.config")
 
 local M = {}
 
@@ -28,8 +28,7 @@ function M.clean()
     end
 
     -- Remove hash files
-    cache.clean({ file = "fingerprint" })
-    cache.clean({ file = "user_config_hash" })
+    cache.clean({ file = "cache" })
 end
 
 ---Reset the colorscheme to the default values
@@ -40,69 +39,42 @@ function M.reset()
     require("onedarkpro.override").reset()
 end
 
----Determine if the current fingerprint is valid, updating it if not
----@param cache_path string
----@return boolean
-local function valid_user_config(cache_path)
-    local hash_config_path = util.join_paths(cache_path, "user_config_hash")
-    local current_hash = tostring(config.hash())
-    local stored_hash = tostring(util.read(hash_config_path))
+---Determine if the cache is valid or if it needs to be regenerated
+---@return nil
+local function validate_cache()
+    util.ensure_dir(config.config.cache_path)
 
-    if not stored_hash or current_hash ~= stored_hash then
-        util.write(hash_config_path, current_hash)
-        return false
+    local hash_path = util.join_paths(config.config.cache_path, "cache")
+
+    local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -25), ".git", "ORIG_HEAD")
+    local git = vim.fn.getftime(git_path)
+    local cached_hash = config.hash() .. (git == -1 and git_path or git)
+
+    if cached_hash ~= util.read(hash_path) then
+        M.cache()
+        util.write(hash_path, cached_hash)
     end
-
-    return true
-end
-
----Determine if the current fingerprint is valid, updating it if not
----@param cache_path string
----@return boolean
-local function valid_fingerprint(cache_path)
-    local fingerprint_path = util.join_paths(cache_path, "fingerprint")
-    local current_fingerprint = require("onedarkpro.fingerprint")
-    local stored_fingerprint = util.read(fingerprint_path)
-
-    if not stored_fingerprint or current_fingerprint ~= stored_fingerprint then
-        util.write(fingerprint_path, current_fingerprint)
-        return false
-    end
-
-    return true
 end
 
 ---Setup the theme
 ---@param opts table
 ---@return nil
 function M.setup(opts)
-    local should_cache = false
-
     config.setup(opts)
 
-    -- Allow users to generate themes at startup
+    -- Allow users to force generate themes at startup
     if not config.config.caching then return M.cache() end
 
-    local cache_path, _ = config.get_cached_info()
-    util.ensure_dir(cache_path)
-
-    if not valid_user_config(cache_path) then should_cache = true end
-    if not valid_fingerprint(cache_path) then should_cache = true end
-
-    if should_cache then M.cache() end
+    validate_cache()
 end
 
 ---Load a theme
 ---@return nil
 function M.load()
-    -- Some users may not call the setup method so we need to account for it
+    -- Users may not call the setup method but should still get caching
     if not config.is_setup then
         config.setup()
-        local cache_path, _ = config.get_cached_info()
-
-        -- Non-setup users still get the benefits of caching so we need to check
-        -- that the fingerprint is valid and generate new colorschemes if not
-        if not valid_fingerprint(cache_path) then M.cache() end
+        validate_cache()
     end
 
     -- Generate a cache if doesn't already exist
@@ -123,8 +95,6 @@ end
 ---@param theme_name? string
 ---@return table
 function M.get_colors(theme_name)
-    local util = require("onedarkpro.utils")
-
     local theme = require("onedarkpro.theme").load(theme_name or config.theme)
     return util.deep_extend(theme.palette, theme.generated, theme.meta)
 end
