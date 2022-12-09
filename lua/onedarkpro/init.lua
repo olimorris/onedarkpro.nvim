@@ -1,5 +1,5 @@
 local config = require("onedarkpro.config")
-local file = require("onedarkpro.utils.file")
+local util = require("onedarkpro.utils")
 
 local M = {}
 
@@ -44,12 +44,12 @@ end
 ---@param cache_path string
 ---@return boolean
 local function valid_user_config(cache_path)
-    local hash_config_path = file.join_paths(cache_path, "user_config_hash")
+    local hash_config_path = util.join_paths(cache_path, "user_config_hash")
     local current_hash = tostring(config.hash())
-    local stored_hash = tostring(file.read(hash_config_path))
+    local stored_hash = tostring(util.read(hash_config_path))
 
     if not stored_hash or current_hash ~= stored_hash then
-        file.write(hash_config_path, current_hash)
+        util.write(hash_config_path, current_hash)
         return false
     end
 
@@ -60,12 +60,12 @@ end
 ---@param cache_path string
 ---@return boolean
 local function valid_fingerprint(cache_path)
-    local fingerprint_path = file.join_paths(cache_path, "fingerprint")
+    local fingerprint_path = util.join_paths(cache_path, "fingerprint")
     local current_fingerprint = require("onedarkpro.fingerprint")
-    local stored_fingerprint = file.read(fingerprint_path)
+    local stored_fingerprint = util.read(fingerprint_path)
 
     if not stored_fingerprint or current_fingerprint ~= stored_fingerprint then
-        file.write(fingerprint_path, current_fingerprint)
+        util.write(fingerprint_path, current_fingerprint)
         return false
     end
 
@@ -84,7 +84,7 @@ function M.setup(opts)
     if not config.config.caching then return M.cache() end
 
     local cache_path, _ = config.get_cached_info()
-    file.ensure_dir(cache_path)
+    util.ensure_dir(cache_path)
 
     if not valid_user_config(cache_path) then should_cache = true end
     if not valid_fingerprint(cache_path) then should_cache = true end
@@ -107,7 +107,7 @@ function M.load()
 
     -- Generate a cache if doesn't already exist
     local _, cached_theme = config.get_cached_info()
-    if not file.exists(cached_theme) then M.cache() end
+    if not util.exists(cached_theme) then M.cache() end
 
     local ok, theme = pcall(loadfile, cached_theme)
     if not ok then

@@ -1,4 +1,4 @@
-local file = require("onedarkpro.utils.file")
+local util = require("onedarkpro.utils")
 local cache_path, _ = require("onedarkpro.config").get_cached_info()
 
 local tbl = {}
@@ -10,14 +10,14 @@ describe("Using the theme", function()
     end)
 
     it("it SHOULD NOT regenerate a fingerprint if it doesn't need to", function()
-        assert.equals(vim.g.fingerprint, file.hash(file.join_paths(cache_path, "fingerprint")))
+        assert.equals(vim.g.fingerprint, util.hash(util.join_paths(cache_path, "fingerprint")))
     end)
     it("it SHOULD NOT regenerate a user_config_hash if it doesn't need to", function()
-        assert.equals(vim.g.user_config_hash, file.hash(file.join_paths(cache_path, "user_config_hash")))
+        assert.equals(vim.g.user_config_hash, util.hash(util.join_paths(cache_path, "user_config_hash")))
     end)
     it("it SHOULD NOT regenerate colorschemes if it doesn't need to", function()
-        assert.equals(vim.g.onedark_compiled, file.hash(file.join_paths(cache_path, "onedark_compiled")))
-        assert.equals(vim.g.onelight_compiled, file.hash(file.join_paths(cache_path, "onelight_compiled")))
+        assert.equals(vim.g.onedark_compiled, util.hash(util.join_paths(cache_path, "onedark_compiled")))
+        assert.equals(vim.g.onelight_compiled, util.hash(util.join_paths(cache_path, "onelight_compiled")))
     end)
 end)
 

@@ -160,13 +160,11 @@ end
 ---@param opts? table
 ---@return string,string
 function M.get_cached_info(opts)
-    local file = require("onedarkpro.utils.file")
-
     opts = opts or {}
 
     local theme = opts.theme or M.theme
     local cache_path = opts.cache_path or M.config.cache_path
-    local theme_path = file.join_paths(cache_path, theme .. M.config.cache_suffix)
+    local theme_path = util.join_paths(cache_path, theme .. M.config.cache_suffix)
 
     return cache_path, theme_path
 end
