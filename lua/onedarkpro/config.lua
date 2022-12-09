@@ -83,6 +83,8 @@ local defaults = {
     },
 }
 
+M.config = vim.deepcopy(defaults)
+
 ---Set the theme's options
 ---@param opts table
 ---@return table
@@ -147,7 +149,7 @@ function M.setup(opts)
 
     opts = opts or {}
 
-    M.config = util.deep_extend(vim.deepcopy(defaults), opts)
+    M.config = util.deep_extend(M.config, opts)
     M.config.options = set_options(M.config.options)
 
     if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
