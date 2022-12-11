@@ -3,7 +3,7 @@
 --https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/lib/deprecation.lua
 --]
 local M = {
-    _list = { { "onedarkpro.nvim\n", "Question" }, { "The following have been " }, { "deprecated:\n", "WarningMsg" } },
+    _list = { { "[Onedarkpro.nvim]\n", "Question" }, { "The following have been " }, { "deprecated:\n", "WarningMsg" } },
     _has_registered = false,
 }
 
@@ -15,20 +15,18 @@ function M.write(...)
     M._list[#M._list][1] = M._list[#M._list][1] .. "\n"
 
     if not M._has_registered then
-        local augroup = vim.api.nvim_create_augroup("OnedarkproDeprecations", { clear = true })
-
-        vim.api.nvim_create_autocmd("VimEnter", {
-            group = augroup,
-            once = true,
-            command = [[lua require("onedarkpro.utils.deprecate").flush()]],
-        })
-
+        vim.cmd([[
+            augroup OnedarkproDeprecations
+                au!
+                autocmd VimEnter * ++once lua require("onedarkpro.utils.deprecate").flush()
+            augroup END
+        ]])
         M._has_registered = true
     end
 end
 
 function M.flush()
-    M.write("See ", { "https://github.com/olimorris/onedarkpro.nvim ", "Title" }, "for more information.")
+    M.write("----------\n", "See ", { "https://github.com/olimorris/onedarkpro.nvim ", "Title" }, "for more information.")
     vim.api.nvim_echo(M._list, true, {})
 end
 
