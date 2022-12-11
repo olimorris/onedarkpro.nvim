@@ -26,7 +26,12 @@ function M.write(...)
 end
 
 function M.flush()
-    M.write("----------\n", "See ", { "https://github.com/olimorris/onedarkpro.nvim ", "Title" }, "for more information.")
+    M.write(
+        "----------\n",
+        "See ",
+        { "https://github.com/olimorris/onedarkpro.nvim ", "Title" },
+        "for more information."
+    )
     vim.api.nvim_echo(M._list, true, {})
 end
 
