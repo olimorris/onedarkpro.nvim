@@ -10,4 +10,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
-          args: -f stylua.toml --check $(fd . -t f -e lua | grep -v native_bitops)
+          args: --check .
