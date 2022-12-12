@@ -1,4 +1,4 @@
-name: stylua
+name: Format
 on: [push, pull_request]
 
 jobs:
