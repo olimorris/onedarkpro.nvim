@@ -12,6 +12,7 @@ function M.groups(theme)
         ["@function.builtin.php"] = { fg = theme.palette.cyan },
         ["@namespace.php"] = { fg = theme.palette.yellow, style = config.options.bold },
         ["@constant.builtin.php"] = { fg = theme.palette.orange },
+        ["@type.qualifier.php"] = { link = "@keyword.function.php" },
     }
 end
 
