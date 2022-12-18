@@ -12,6 +12,7 @@ describe("Using the theme", function()
     it("it SHOULD NOT regenerate a hash if it doesn't need to", function()
         assert.equals(vim.g.onedarkpro_hash, util.hash(util.join_paths(cache_path, "cache")))
     end)
+
     it("it SHOULD NOT regenerate colorschemes if it doesn't need to", function()
         assert.equals(vim.g.onedark_compiled, util.hash(util.join_paths(cache_path, "onedark_compiled")))
         assert.equals(vim.g.onelight_compiled, util.hash(util.join_paths(cache_path, "onelight_compiled")))

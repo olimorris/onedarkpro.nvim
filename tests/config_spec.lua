@@ -136,13 +136,4 @@ describe("Using the theme", function()
         assert.equals(true, string.find(output, "WinLeave") ~= nil)
         assert.equals(true, string.find(output, "set winhighlight") ~= nil)
     end)
-
-    -- it("it should brighten and lighten colors", function()
-    --     local Color = require("onedarkpro.lib.color_new")
-    --     local colors = require("onedarkpro").get_colors("onedark")
-    --     local blue = Color.from_hex(colors.blue)
-    --
-    --     assert.equals("#8fc6f4", blue:lighten(10):to_css())
-    --     assert.equals("#67bbff", blue:brighten(10):to_css())
-    -- end)
 end)
