@@ -98,6 +98,8 @@ function M.groups(theme)
         ["@text.reference"] = { fg = theme.palette.fg, style = config.options.bold }, -- text references, footnotes, citations, etc.
 
         --["@text.todo] -- todo notes
+        ["@text.todo.checked"] = { fg = theme.palette.blue },
+        ["@text.todo.unchecked"] = { fg = theme.palette.bg, bg = theme.palette.fg },
         ["@text.note"] = { fg = theme.palette.fg }, -- info notes
         ["@text.warning"] = { fg = theme.palette.yellow }, -- warning notes
         ["@text.danger"] = { fg = theme.palette.red }, -- danger/error notes

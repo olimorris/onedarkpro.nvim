@@ -15,8 +15,6 @@ function M.groups(theme)
         ["@punctuation.special.markdown"] = { fg = theme.palette.red },
         ["@punctuation.delimiter.markdown_inline"] = { fg = theme.palette.orange },
         ["@text.uri.markdown_inline"] = { fg = theme.palette.purple },
-        ["@text.todo.unchecked"] = { fg = theme.palette.bg, bg = theme.palette.fg },
-        ["@text.todo.checked"] = { fg = theme.palette.blue },
     }
 end
 
