@@ -251,6 +251,15 @@ function Color:lighter(v)
     return Color.from_hsl(hsl.hue, hsl.saturation, lightness)
 end
 
+---Syntactic sugar to make a given color, darker
+---@param v number Lightness. Float [-100,100].
+---@return table Color
+function Color:darker(v)
+    local hsl = self:to_hsl()
+    local lightness = clamp(hsl.lightness - v, 0, 100)
+    return Color.from_hsl(hsl.hue, hsl.saturation, lightness)
+end
+
 ---Adds value of `v` to the `saturation` of the current color. This returns
 ---either a more or less saturated version depending of +/- v.
 ---@param v number Saturation. Float [-100,100].
