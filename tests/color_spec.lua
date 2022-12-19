@@ -15,18 +15,26 @@ describe("Using the theme", function()
         assert.equals("#ff8080", string.lower(light_red))
     end)
 
-    it("using the new API, it should BRIGHTEN colors", function()
+    it("with the new color API, it should BRIGHTEN colors", function()
         local Color = require("onedarkpro.lib.color")
         local colors = require("onedarkpro").get_colors("onedark")
 
         assert.equals("#67bbff", Color.from_hex(colors.blue):brighter(10):to_css())
     end)
 
-    it("using the new API, it should LIGHTEN colors", function()
+    it("with the new color API, it should LIGHTEN colors", function()
         local Color = require("onedarkpro.lib.color")
         local colors = require("onedarkpro").get_colors("onedark")
         local red = Color.from_hex(colors.red)
 
         assert.equals("#e9969d", red:lighter(10):to_css())
+    end)
+
+    it("with the new color API, it should DARKEN colors", function()
+        local Color = require("onedarkpro.lib.color")
+        local colors = require("onedarkpro").get_colors("onedark")
+        local red = Color.from_hex(colors.red)
+
+        assert.equals("#d7424d", red:darker(10):to_css())
     end)
 end)
