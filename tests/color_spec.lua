@@ -1,5 +1,9 @@
 local util = require("onedarkpro.lib.color")
 
+local hex = function(n)
+    if n then return string.format("#%06x", n) end
+end
+
 describe("Using the theme", function()
     before_each(function()
         vim.cmd(":e tests/stubs/test.txt")
@@ -36,5 +40,10 @@ describe("Using the theme", function()
         local red = Color.from_hex(colors.red)
 
         assert.equals("#d7424d", red:darker(10):to_css())
+    end)
+
+    it("color overrides which are not a color, should be executed as a function", function()
+        local output = vim.api.nvim_get_hl_by_name("Repeat", true)
+        assert.equals("#df6872", hex(output.foreground))
     end)
 end)

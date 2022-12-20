@@ -18,7 +18,7 @@ local function clamp(value, min, max)
     return value
 end
 
-local bitop = bit or bit32 or require("nightfox.lib.native_bit")
+local bitop = bit or bit32 or require("onedarkpro.lib.native_bit")
 
 local function calc_hue(r, g, b)
     local max = math.max(r, g, b)
