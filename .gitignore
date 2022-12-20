@@ -3,3 +3,4 @@
 .luarc.json
 plenary.nvim
 minimal.lua
+todo.md
