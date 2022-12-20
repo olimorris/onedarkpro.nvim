@@ -1,3 +1,7 @@
+--Color Library
+--Taken from the excellent work of @EdenEast for nightfox.nvim
+--https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/lib/color.lua
+
 ---Round float to nearest int
 ---@param x number Float
 ---@return number
