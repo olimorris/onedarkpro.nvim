@@ -1,21 +1,23 @@
 local M = {}
 
----Check that a color is a hex color
+---Check that a string is actually a hex color
 ---@param color string
 ---@return boolean
 local function is_hex(color)
-    if string.sub(color, 1, 1) == "#" then return true end
+    local s = color:lower():match("#?([a-f0-9]+)")
+
+    if #s == 6 or #s == 3 then return true end
     return false
 end
 
----Load a color from a string
----This enables users to pass a function to determine a color, as a string
----@param color string
+---Resolve a color from a string function
+---This enables users to pass a function in as a string to determine a color
+---@param str string The string to resolve
 ---@return string
-local function load_color(color)
+local function resolve_color(str)
     local ld = load or loadstring
 
-    local loaded, err = ld("return " .. color)
+    local loaded, err = ld("return " .. str)
     assert(loaded, ("Couldn't set `color`: %s"):format(err))
     return loaded()
 end
@@ -26,7 +28,7 @@ end
 ---@param name string
 ---@return nil
 local function set_color(color, palette, name)
-    palette[name] = is_hex(color) and color or load_color(color)
+    palette[name] = is_hex(color) and color or resolve_color(color)
 end
 
 ---Override a theme's default color palette with a user's

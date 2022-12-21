@@ -7,6 +7,13 @@ M.themes = {
     "onedark_dark",
 }
 
+---Get the core color palette for a given theme
+---@param theme string
+---@return table
+function M.colors(theme)
+    return require("onedarkpro.themes." .. theme).palette
+end
+
 ---Load a theme and apply any user color overrides
 ---@param theme string
 ---@return table

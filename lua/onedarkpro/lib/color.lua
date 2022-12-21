@@ -260,8 +260,8 @@ end
 ---@return table Color
 function Color:darker(v)
     local hsl = self:to_hsl()
-    local lightness = clamp(hsl.lightness - v, 0, 100)
-    return Color.from_hsl(hsl.hue, hsl.saturation, lightness)
+    local darkness = clamp(hsl.lightness - v, 0, 100)
+    return Color.from_hsl(hsl.hue, hsl.saturation, darkness)
 end
 
 ---Adds value of `v` to the `saturation` of the current color. This returns

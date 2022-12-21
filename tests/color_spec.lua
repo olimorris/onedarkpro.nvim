@@ -9,6 +9,11 @@ describe("Using the theme", function()
         vim.cmd(":e tests/stubs/test.txt")
     end)
 
+    after_each(function()
+        -- This is essential to make sure that config changes are properly applied
+        require("onedarkpro").clean()
+    end)
+
     it("it should be able to DARKEN colors", function()
         local dark_red = util.darken("#ff0000", 0.5)
         assert.equals("#800000", string.lower(dark_red))
@@ -44,6 +49,6 @@ describe("Using the theme", function()
 
     it("color overrides which are not a color, should be executed as a function", function()
         local output = vim.api.nvim_get_hl_by_name("Repeat", true)
-        assert.equals("#df6872", hex(output.foreground))
+        assert.equals("#df6871", hex(output.foreground))
     end)
 end)
