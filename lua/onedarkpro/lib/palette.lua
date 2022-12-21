@@ -1,6 +1,6 @@
 local M = {}
 
----Is the given value a hex color?
+---Check that a color is a hex color
 ---@param color string
 ---@return boolean
 local function is_hex(color)
@@ -8,15 +8,25 @@ local function is_hex(color)
     return false
 end
 
----The given color is a string that should be executed as a function
+---Load a color from a string
+---This enables users to pass a function to determine a color, as a string
 ---@param color string
 ---@return string
-local function exec_color(color)
+local function load_color(color)
     local ld = load or loadstring
 
     local loaded, err = ld("return " .. color)
     assert(loaded, ("Couldn't set `color`: %s"):format(err))
     return loaded()
+end
+
+---Set a color to the theme's color palette
+---@param color string
+---@param palette table
+---@param name string
+---@return nil
+local function set_color(color, palette, name)
+    palette[name] = is_hex(color) and color or load_color(color)
 end
 
 ---Override a theme's default color palette with a user's
@@ -27,23 +37,10 @@ end
 function M.override(colors, palette, theme)
     for name, color in pairs(colors) do
         if type(color) == "table" then
-            -- Allows a user to specify colors by theme name or background color
-            if name == theme.name or name == theme.background then
-                for k, v in pairs(color) do
-                    if is_hex(v) then
-                        palette[k] = v
-                    else
-                        palette[k] = exec_color(v)
-                    end
-                    palette[k] = v
-                end
-            end
+            -- Only override if the table key is a theme or a background color
+            if name == theme.name or name == theme.background then M.override(color, palette, theme) end
         else
-            if is_hex(color) then
-                palette[name] = color
-            else
-                palette[name] = exec_color(color)
-            end
+            set_color(color, palette, name)
         end
     end
 
