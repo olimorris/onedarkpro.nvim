@@ -38,6 +38,7 @@
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
+- [Helpers](#rainbow-helpers)
 - [Supported Plugins](#electric_plug-supported-plugins)
 - [Screenshots](#camera_flash-screenshots)
 - [Extras](#gift-extras)
@@ -63,7 +64,6 @@
 ## :package: Installation
 
 Install with your package manager:
-
 
 ```lua
 -- Lazy
@@ -165,6 +165,8 @@ vim.cmd("colorscheme onedark")
 
 ### Overriding colors
 
+> **Note:** See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors using the theme's own methods
+
 A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
 The default colors can be changed by specifying the name of the color and a new hex code:
@@ -185,18 +187,15 @@ colors = {
 }
 ```
 
-Additional colors, based on a theme's default palette, may also be generated at runtime:
+These can then be used for custom highlight groups if desired:
 
 ```lua
-local color = require("onedarkpro.lib.color")
-
-colors = {
-  lighter_bg = color.lighten(onedarkpro.get_colors("onedark").bg, 0.85)
-  darker_red = color.darken(onedarkpro.get_colors("onedark_vivid").red, 0.85)
+highlights = {
+  Error = {
+    fg = "${my_new_red}",
+  },
 }
 ```
-
-> **Note:** Custom colors can also be referenced when creating custom highlight group overrides
 
 #### Specifying colors by theme or background
 
@@ -432,6 +431,70 @@ options = {
 }
 ```
 
+## :rainbow: Helpers
+
+The theme comes with a set of helpers which enable you to interact with and modify colors. The helper file can be accessed via `require("onedarkpro.helpers")`.
+
+### Getting theme colors
+
+It can be useful to load a theme's colors into a table for use within other plugins (such as your statusline). For this, the `theme_colors` helper can be used:
+
+```lua
+local color = require("onedarkpro.helpers")
+
+local colors = color.theme_colors()
+print(colors.purple) -- #c678dd (if using the Onedark theme)
+```
+
+Without specifying a theme name, the helper will get the colors for the currently loaded theme. Alternatively, specify a theme name, such as `theme_colors("onelight")`.
+
+You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
+
+### Darken/Lighten/Brighten colors
+
+The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you to modify custom colors or the theme's own. All three helpers follow the same format and take three parameters:
+
+`lighten(color, amount, theme)`:
+
+- color (string) - The name of the color to load (if specifying a theme) or a hex value
+- amount (number) - The amount to darken/lighten/brighten the color by (range from -100 to 100)
+- theme (string) (optional) - The name of the theme to load a color from
+
+To use this in practice:
+
+```lua
+local color = require("onedarkpro.helpers")
+
+-- Load the red color from the onedark theme and lighten it by an amount of 7
+print(color.lighten("red", 7, "onedark")) -- #e68991
+```
+
+Alternatively:
+
+```lua
+local color = require("onedarkpro.helpers")
+
+-- Darken Red1 by an amount of 10
+print(color.darken("#FF0000", 10)) -- #cc0000
+```
+
+Of course, you're likely to wish to modify colors before the colorscheme loads. There are a number of ways to accomplish this and the most efficient is to pass a function (as a string) to the `colors` table in the theme's configuration:
+
+```lua
+require("onedarkpro").setup({
+  colors = {
+    dark_red = "require('onedarkpro.helpers').darken('red', 10, 'onedark')",
+  },
+  highlights = {
+    CustomRedHighlight = {
+      fg = "${dark_red}",
+    },
+  }
+})
+```
+
+This prevents the theme from trying to resolve the color before the whole of the configuration has been parsed. This also ensures that the startup time for the theme remains small too.
+
 ## :electric_plug: Supported Plugins
 
 The theme supports the following plugins:
@@ -498,47 +561,6 @@ The theme has Lualine support out of the box for all of its themes. This can be 
 
 The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) colorschemes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
-### Helpers
-
-#### Using theme colors
-
-To enable a theme's colors to be extracted and used elsewhere in your Neovim config, a helper function, `get_colors()`, has been included. This returns a table of the current theme's color palette, including user created colors:
-
-```lua
-local colors = require("onedarkpro").get_colors()
-print(colors.purple) -- #c678dd
-```
-
-It is recommended that this is called after `onedarkpro` has been loaded. Using Packer, the `after` attribute can ensure the colorscheme is loaded before the plugin you're trying to configure.
-
-If this is not possible, you can also explicitly get the colors for a specific theme:
-
-```lua
-local colors = require("onedarkpro").get_colors("onelight")
-print(colors.purple) -- #9a77cf
-```
-
-You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
-
-#### Lightening and darkening colors
-
-When customising a theme, modifying a core color from the palette can help to ensure consistency. The theme allows for lightening and darkening of colors via the `require("onedarkpro.lib.color")` file and its  `lighten()` and `darken()` methods:
-
-```lua
-local color = require("onedarkpro.lib.color")
-print(color.darken("#FF0000", 0.5)) -- #800000
-print(color.lighten("#FF0000", 0.5)) -- #FF8080
-```
-
-You can even include colors from the theme's core palette as a variable:
-
-```lua
-local color = require("onedarkpro.lib.color")
-print(color.darken("${blue}", 0.9)) -- #579ED7
-```
-
-> **Note:** If these methods are called before a theme is loaded, the colorscheme will use `onedark` colors. This can be solved by pairing this with the `get_colors("theme_name")` method
-
 #### Toggling between themes
 
 To enable the easy switching between dark and light colorschemes, the following helper function could be used:
@@ -570,6 +592,10 @@ highlights = {
 #### I want to change X highlight group but I don't know what it is. How do I find out?
 
 If you're using Treesitter then install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
+
+#### How can I get the theme to match VS Code exactly?
+
+I've tried to ensure that the theme resembles the original VS Code theme as much as possible, however there are some differences. This is mainly due to Neovim not currently supporting semantic tokens. However this will be addressed in Neovim 0.9. Also, differences between how Treesitter applies highlight groups will always create differences.
 
 ## :clap: Credits
 
