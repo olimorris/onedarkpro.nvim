@@ -17,9 +17,7 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.darken(color, v, theme)
-    if theme then
-        return Color.from_hex(M.theme_colors(theme)[color]):darker(v):to_css()
-    end
+    if theme then return Color.from_hex(M.theme_colors(theme)[color]):darker(v):to_css() end
     return Color.from_hex(color):darker(v):to_css()
 end
 
