@@ -25,14 +25,14 @@ local default_colors = {
 ---@param colors table the theme's color palette
 ---@return table
 local function generate(colors)
-    local color = require("onedarkpro.lib.color")
+    local color = require("onedarkpro.helpers")
 
     return {
-        cursorline = colors.cursorline or color.darken(colors.bg, 0.97),
-        color_column = colors.color_column or color.darken(colors.bg, 0.97),
-        indentline = colors.indentline or color.darken(colors.bg, 0.93),
-        selection = colors.selection or color.darken(colors.bg, 0.90),
-        float_bg = colors.float_bg or color.darken(colors.bg, 0.95),
+        cursorline = colors.cursorline or color.darken(colors.bg, 2.5),
+        color_column = colors.color_column or color.darken(colors.bg, 3.2),
+        indentline = colors.indentline or color.darken(colors.bg, 7.3),
+        selection = colors.selection or color.darken(colors.bg, 6.5),
+        float_bg = colors.float_bg or color.darken(colors.bg, 4.5),
 
         -- Git diff
         diff_add = colors.diff_add or "#cae3e8",
@@ -40,15 +40,15 @@ local function generate(colors)
         diff_text = colors.diff_text or "#a6d0d8",
 
         -- Lualine colors
-        bg_statusline = colors.bg_statusline or color.darken(colors.bg, 0.97),
-        fg_gutter = colors.fg_gutter or color.darken(colors.bg, 0.90),
+        bg_statusline = colors.bg_statusline or color.darken(colors.bg, 2.6),
+        fg_gutter = colors.fg_gutter or color.darken(colors.bg, 9.7),
         fg_gutter_inactive = colors.fg_gutter_inactive or colors.fg,
 
         -- Virtual text
-        virtual_text_error = colors.virtual_text_error or color.lighten(colors.red, 0.6),
-        virtual_text_warning = colors.virtual_text_warning or color.lighten(colors.yellow, 0.6),
-        virtual_text_information = colors.virtual_text_information or color.lighten(colors.blue, 0.6),
-        virtual_text_hint = colors.virtual_text_hint or color.lighten(colors.cyan, 0.6),
+        virtual_text_error = colors.virtual_text_error or color.lighten(colors.red, 15),
+        virtual_text_warning = colors.virtual_text_warning or color.lighten(colors.yellow, 15),
+        virtual_text_information = colors.virtual_text_information or color.lighten(colors.blue, 26),
+        virtual_text_hint = colors.virtual_text_hint or color.lighten(colors.cyan, 15),
     }
 end
 
