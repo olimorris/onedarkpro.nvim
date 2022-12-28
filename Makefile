@@ -13,6 +13,7 @@ test:
 	nvim --headless --noplugin -u tests/source_spec.vim +SourceSpec
 	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
 	nvim --headless --noplugin -u tests/color_spec.vim +ColorSpec
+	nvim --headless --noplugin -u tests/helpers_spec.vim +HelpersSpec
 # ifeq ($(NV_VERSION), 0.8)
 # 	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
 # endif

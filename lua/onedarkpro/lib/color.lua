@@ -353,6 +353,7 @@ end
 ---@param bg? string
 ---@return string
 function Color.darken(hex, amount, bg)
+    --TODO: Deprecate this method
     return blend(replace_hex_var_for_theme_color(hex), bg or defaults.bg, math.abs(amount))
 end
 
@@ -362,6 +363,7 @@ end
 ---@param fg? string
 ---@return string
 function Color.lighten(hex, amount, fg)
+    --TODO: Deprecate this method
     return blend(replace_hex_var_for_theme_color(hex), fg or defaults.fg, math.abs(amount))
 end
 
