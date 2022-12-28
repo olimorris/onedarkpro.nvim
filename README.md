@@ -64,6 +64,15 @@
 
 Install with your package manager:
 
+
+```lua
+-- Lazy
+{
+  "olimorris/onedarkpro.nvim",
+  priority = 1000 -- Ensure it loads first
+}
+```
+
 ```lua
 -- Packer
 use "olimorris/onedarkpro.nvim"
