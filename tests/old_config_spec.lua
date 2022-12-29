@@ -1,3 +1,4 @@
+--TODO: DEPRECATE THIS
 local hex = function(n)
     if n then return string.format("#%06x", n) end
 end

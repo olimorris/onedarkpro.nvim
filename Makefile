@@ -6,7 +6,6 @@ format:
 test:
 	nvim --headless --noplugin -u tests/basic_spec.vim +BasicSpec
 	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec
-	nvim --headless --noplugin -u tests/theme_spec.vim +ThemeSpec
 	nvim --headless --noplugin -u tests/old_config_spec.vim +OldConfigSpec
 	nvim --headless --noplugin -u tests/old_config_spec2.vim +OldConfigSpec2
 	nvim --headless --noplugin -u tests/link_groups_spec.vim +LinkGroupsSpec

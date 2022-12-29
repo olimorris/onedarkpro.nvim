@@ -94,7 +94,7 @@ describe("Using the theme", function()
     end)
 
     it("it should allow a color palette to be extracted", function()
-        local colors = require("onedarkpro").get_colors(vim.g.colors_name)
+        local colors = require("onedarkpro.helpers").get_colors(vim.g.colors_name)
         assert.equals("#d55fde", colors.purple)
         assert.equals("onedark_vivid", colors.name)
     end)

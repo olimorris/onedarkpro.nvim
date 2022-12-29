@@ -23,7 +23,7 @@ describe("Using the colorscheme without calling setup,", function()
     end)
 
     it("it should be able to get the theme's colors", function()
-        local colors = require("onedarkpro").get_colors()
+        local colors = require("onedarkpro.helpers").get_colors()
         assert.equals("#c678dd", colors.purple)
     end)
 
