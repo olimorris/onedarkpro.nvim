@@ -1,3 +1,4 @@
+-- TODO: DEPRECATE THIS
 local colors = require("onedarkpro").get_colors()
 local config = require("onedarkpro.config").config
 

@@ -16,7 +16,7 @@ end
 ---Show the theme's colors in a scratch buffer
 ---@return nil
 function M.show()
-    local colors = require("onedarkpro").get_colors()
+    local colors = require("onedarkpro.helpers").get_colors()
     local buf = vim.api.nvim_create_buf(true, true)
     local max_length = get_max_length(colors)
 
