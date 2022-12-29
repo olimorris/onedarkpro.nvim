@@ -62,7 +62,7 @@
 
 ## :package: Installation
 
-Install with your package manager:
+Install with your package manager of choice:
 
 ```lua
 -- Lazy
@@ -100,13 +100,15 @@ Additional commands:
 
 - `:OnedarkproCache` generates new cache files for the themes
 - `:OnedarkproClean` removes existing cache files for the themes
-- `:OnedarkproColors` outputs all of the colors in the current theme to a scratch buffer
+- `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
 
 ## :wrench: Configuration
 
 ### Default configuration
 
-A call to the `setup` function is only required if you wish to change the default values listed below:
+> :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults
+
+The default configuration for the theme:
 
 ```lua
 require("onedarkpro").setup({
@@ -149,7 +151,7 @@ vim.cmd("colorscheme onedark")
 
 ### Setting a theme
 
-Currently, there are four themes that come with the colorscheme:
+Currently, there are four themes in the colorscheme:
 
 - `onedark`
 - `onelight`
@@ -164,7 +166,7 @@ vim.cmd("colorscheme onedark")
 
 ### Overriding colors
 
-> **Note:** See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors using the theme's own methods
+> :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
 
 A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
@@ -312,7 +314,7 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> **Note:** The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
+> :bangbang: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
 ### Configuring plugins
 
@@ -344,7 +346,7 @@ plugins = {
 }
 ```
 
-> **Note:** For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
+> :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
 
 ### Configuring styles
 
@@ -366,7 +368,7 @@ styles = {
 }
 ```
 
-> **Note:** See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
+> :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
 
 ### Configuring options
 
@@ -415,8 +417,6 @@ options = {
 }
 ```
 
-> **Note:** This can be seen in the screenshots above where `nvim-tree` is opened and out of focus
-
 #### Cursorline
 
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
@@ -449,6 +449,8 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
+> :bangbang: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
+
 #### Getting colors before the theme loads
 
 Whilst the `get_colors` method is useful in most cases, it may be neccessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors when configuring the theme. For this the `get_preloaded_colors` method can be used:
@@ -460,7 +462,7 @@ local colors = color.get_preloaded_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-> **Note:** This will only output the theme's core color palette and not any generated colors
+> :bangbang: This will only output the theme's core color palette and not any generated colors
 
 ### Darken/Lighten/Brighten colors
 
@@ -600,7 +602,9 @@ highlights = {
 
 #### I want to change X highlight group but I don't know what it is. How do I find out?
 
-If you're using Treesitter then install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
+If you're using Neovim 0.9, the `:Inspect` command is available.
+
+If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
 
 #### How can I get the theme to match VS Code exactly?
 
