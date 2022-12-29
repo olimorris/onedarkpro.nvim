@@ -353,15 +353,15 @@ end
 ---@param bg? string
 ---@return string
 function Color.darken(hex, amount, bg)
-    -- require("onedarkpro.utils.deprecate").write(
-    --     "----------\n",
-    --     "The use of:\n",
-    --     { "> require('onedarkpro.lib.color').darken()", "ErrorMsg" },
-    --     "\nPlease consult the Helpers section of the readme and replace with:\n",
-    --     { "> require('onedarkpro.helpers').darken()", "Title" },
-    --     "\nThis will be removed from the plugin on ",
-    --     { "2023-01-20", "WarningMsg" }
-    -- )
+    require("onedarkpro.utils.deprecate").write(
+        "----------\n",
+        "The use of:\n",
+        { "> require('onedarkpro.lib.color').darken()", "ErrorMsg" },
+        "\nPlease consult the Helpers section of the readme and replace with:\n",
+        { "> require('onedarkpro.helpers').darken()", "Title" },
+        "\nThis will be removed from the plugin on ",
+        { "2023-01-20", "WarningMsg" }
+    )
     return blend(replace_hex_var_for_theme_color(hex), bg or defaults.bg, math.abs(amount))
 end
 
@@ -371,15 +371,15 @@ end
 ---@param fg? string
 ---@return string
 function Color.lighten(hex, amount, fg)
-    -- require("onedarkpro.utils.deprecate").write(
-    --     "----------\n",
-    --     "The use of:\n",
-    --     { "> require('onedarkpro.lib.color').lighten()", "ErrorMsg" },
-    --     "\nPlease consult the Helpers section of the readme and replace with:\n",
-    --     { "> require('onedarkpro.helpers').lighten()", "Title" },
-    --     "\nThis will be removed from the plugin on ",
-    --     { "2023-01-20", "WarningMsg" }
-    -- )
+    require("onedarkpro.utils.deprecate").write(
+        "----------\n",
+        "The use of:\n",
+        { "> require('onedarkpro.lib.color').lighten()", "ErrorMsg" },
+        "\nPlease consult the Helpers section of the readme and replace with:\n",
+        { "> require('onedarkpro.helpers').lighten()", "Title" },
+        "\nThis will be removed from the plugin on ",
+        { "2023-01-20", "WarningMsg" }
+    )
     return blend(replace_hex_var_for_theme_color(hex), fg or defaults.fg, math.abs(amount))
 end
 
