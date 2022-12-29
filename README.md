@@ -514,7 +514,6 @@ The theme supports the following plugins:
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
-- [Glance](https://github.com/DNLHC/glance.nvim) (`glance`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
 - [leap.nvim](https://github.com/ggandor/leap.nvim) (`leap`)
