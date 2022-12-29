@@ -95,8 +95,7 @@ end
 ---@param theme_name? string
 ---@return table
 function M.get_colors(theme_name)
-    local theme = require("onedarkpro.theme").load(theme_name or config.theme)
-    return util.deep_extend(theme.palette, theme.generated, theme.meta)
+    return require("onedarkpro.helpers").get_colors(theme_name or config.theme)
 end
 
 return M
