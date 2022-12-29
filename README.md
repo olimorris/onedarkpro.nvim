@@ -437,24 +437,35 @@ The theme comes with a set of helpers which enable you to interact with and modi
 
 ### Getting theme colors
 
-It can be useful to load a theme's colors into a table for use within other plugins (such as your statusline). For this, the `theme_colors` helper can be used:
+It can be useful to access a theme's colors for use within other plugins (such as your statusline) after its loaded. For this, the `get_colors` helper can be used:
 
 ```lua
 local color = require("onedarkpro.helpers")
 
-local colors = color.theme_colors()
+local colors = color.get_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-Without specifying a theme name, the helper will get the colors for the currently loaded theme. Alternatively, specify a theme name, such as `theme_colors("onelight")`.
+Without specifying a theme name, the helper will get the colors for the currently loaded theme. Alternatively, specify a theme name, such as `get_colors("onelight")`.
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
+
+#### Getting colors before the theme loads
+
+Whilst the `get_colors` method is useful in most cases, it may be neccessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors when configuring the theme. For this the `get_preloaded_colors` method can be used:
+
+```lua
+local color = require("onedarkpro.helpers")
+
+local colors = color.get_preloaded_colors()
+print(colors.purple) -- #c678dd (if using the Onedark theme)
+```
+
+> **Note:** This will only output the theme's core color palette and not any generated colors
 
 ### Darken/Lighten/Brighten colors
 
 The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you to modify custom colors or the theme's own. All three helpers follow the same format and take three parameters:
-
-`lighten(color, amount, theme)`:
 
 - color (string) - The name of the color to load (if specifying a theme) or a hex value
 - amount (number) - The amount to darken/lighten/brighten the color by (range from -100 to 100)

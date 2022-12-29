@@ -11,7 +11,7 @@ local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_test/"),
     colors = {
-        test_color = "require('onedarkpro.lib.color').from_hex(require('onedarkpro.helpers').theme_colors().red):darker(1):to_css()",
+        test_color = "require('onedarkpro.lib.color').from_hex(require('onedarkpro.helpers').get_preloaded_colors().red):darker(1):to_css()",
     },
     highlights = {
         Repeat = {
