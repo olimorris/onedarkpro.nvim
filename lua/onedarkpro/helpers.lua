@@ -26,7 +26,7 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.darken(color, amount, theme)
-    if theme then return Color.from_hex(M.get_preload_colors(theme)[color]):darker(amount):to_css() end
+    if theme then return Color.from_hex(M.get_preloaded_colors(theme)[color]):darker(amount):to_css() end
     return Color.from_hex(color):darker(amount):to_css()
 end
 
@@ -36,7 +36,7 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.lighten(color, amount, theme)
-    if theme then return Color.from_hex(M.get_preload_colors(theme)[color]):lighter(amount):to_css() end
+    if theme then return Color.from_hex(M.get_preloaded_colors(theme)[color]):lighter(amount):to_css() end
     return Color.from_hex(color):lighter(amount):to_css()
 end
 
@@ -46,7 +46,7 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.brighten(color, amount, theme)
-    if theme then return Color.from_hex(M.get_preload_colors(theme)[color]):brighter(amount):to_css() end
+    if theme then return Color.from_hex(M.get_preloaded_colors(theme)[color]):brighter(amount):to_css() end
     return Color.from_hex(color):brighter(amount):to_css()
 end
 
