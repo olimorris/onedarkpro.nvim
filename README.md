@@ -47,13 +47,12 @@
 
 ## :sparkles: Features
 
-- Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
-- Filetype highlighting to match the original VS Code theme
-- Automatic caching for faster load times
-- Support for many [popular plugins](#electric_plug-supported-plugins)
-- Apply styles to `types`, `keywords` and `function` highlight groups
-- Override everything! Default styles, colors, highlight groups and filetype groups
-- Create custom highlight groups and even highlight groups by filetypes
+- :evergreen_tree: Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- :envelope_with_arrow: Automatic caching for faster load times
+- :electric_plug: Support for many [popular plugins](#electric_plug-supported-plugins)
+- :flashlight: Filetype highlighting to allow for greater customisation across different languages
+- :memo: Override everything - styles, colors, highlight groups and filetype groups
+- :paintbrush: Create custom highlight groups and even highlight groups by filetypes
 
 ## :zap: Requirements
 
