@@ -67,17 +67,17 @@ function M.groups(theme)
         Pmenu = { bg = theme.generated.float_bg }, -- Popup menu: normal item.
         PmenuSel = {
             bg = (
-                theme.meta.light == false and color.lighten(theme.palette.bg, 1) or color.darken(theme.palette.bg, 2)
+                theme.meta.light == false and color.lighten(theme.palette.bg, 3) or color.darken(theme.palette.bg, 5)
             ),
         }, -- Popup menu: selected item.
         PmenuSbar = {
             bg = (
-                theme.meta.light == false and color.lighten(theme.palette.bg, 1) or color.darken(theme.palette.bg, 2)
+                theme.meta.light == false and color.lighten(theme.palette.bg, 3) or color.darken(theme.palette.bg, 5)
             ),
         }, -- Popup menu: scrollbar.
         PmenuThumb = {
             bg = (
-                theme.meta.light == false and color.lighten(theme.palette.bg, 4) or color.darken(theme.palette.bg, 4)
+                theme.meta.light == false and color.lighten(theme.palette.bg, 5) or color.darken(theme.palette.bg, 7)
             ),
         }, -- Popup menu: Thumb of the scrollbar.
         Question = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- |hit-enter| prompt and yes/no questions
