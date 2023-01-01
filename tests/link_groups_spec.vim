@@ -22,7 +22,7 @@ onedarkpro.setup({
         ModeMsg = { bg = "${red}", style = "italic", blend = 100 }
     },
 })
-vim.cmd [[colorscheme onedarkpro]]
+vim.cmd [[colorscheme onedark]]
 EOF
 
 runtime plugin/plenary.vim

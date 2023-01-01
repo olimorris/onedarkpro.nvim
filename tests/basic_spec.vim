@@ -7,7 +7,7 @@ set noswapfile
 set noundofile
 
 lua << EOF
-vim.cmd [[colorscheme onedarkpro]]
+vim.cmd [[colorscheme onedark]]
 EOF
 
 runtime plugin/plenary.vim

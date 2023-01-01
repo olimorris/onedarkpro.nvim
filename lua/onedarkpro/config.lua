@@ -101,7 +101,7 @@ local function set_options(opts)
         cursorline = opts.cursorline,
         transparency = opts.transparency,
         terminal_colors = opts.terminal_colors,
-        highlight_inactive_windows = opts.highlight_inactive_windows or opts.window_unfocused_color,
+        highlight_inactive_windows = opts.highlight_inactive_windows,
     }
 end
 
@@ -136,40 +136,6 @@ end
 ---@return nil
 function M.setup(opts)
     opts = opts or {}
-
-    --TODO: Deprecate the theme, dark_theme and light_theme config properties
-    if opts and (opts.dark_theme or opts.light_theme) then
-        require("onedarkpro.utils.deprecate").write(
-            "----------\n",
-            "The use of: ",
-            { "'light_theme'", "ErrorMsg" },
-            " and ",
-            { "'dark_theme'", "ErrorMsg" },
-            " and can be removed from your config\n",
-            "This will be removed from the plugin on ",
-            { "2022-12-31", "WarningMsg" }
-        )
-
-        if vim.o.background == "light" then
-            M.theme = opts.light_theme or "onelight"
-        else
-            M.theme = opts.dark_theme or "onedark"
-        end
-    end
-    if opts and opts.theme then M.theme = opts.theme end
-    --//------------------------------------------------------------------------
-
-    if opts.options and opts.options.window_unfocused_color then
-        require("onedarkpro.utils.deprecate").write(
-            "----------\n",
-            "The use of: ",
-            { "'window_unfocused_color'", "ErrorMsg" },
-            ". Please replace with ",
-            { "'highlight_inactive_windows'", "Title" },
-            " instead\nThis will be removed from the plugin on ",
-            { "2022-12-31", "WarningMsg" }
-        )
-    end
 
     M.config = util.deep_extend(M.config, opts)
     M.config.options = set_options(M.config.options)
