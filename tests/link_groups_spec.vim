@@ -19,7 +19,6 @@ onedarkpro.setup({
         Pmenu = { fg = p.fg, bg = p.pmenu },
         NormalFloat = { link = 'Pmenu' },
         Normal = { bg = p.pmenu },
-        ModeMsg = { bg = "${red}", style = "italic", blend = 100 }
     },
 })
 vim.cmd [[colorscheme onedark]]

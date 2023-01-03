@@ -64,12 +64,26 @@ describe("Using the theme", function()
 
     it("it should be able to overwrite existing hlgroups", function()
         local output = vim.api.nvim_get_hl_by_name("Repeat", true)
+        -- Was purple, now it's blue
         assert.equals("#61afef", hex(output.foreground))
+    end)
+
+    it("it should be able to append styles to existing hlgroups", function()
+        local output = vim.api.nvim_get_hl_by_name("Directory", true)
+        -- Foreground remains the same
+        assert.equals("#61afef", hex(output.foreground))
+        -- but the style is now bold
+        assert.equals(true, output.bold)
     end)
 
     it("it should be able to create custom hlgroups", function()
         local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
         assert.equals("#e06c75", hex(output.foreground))
+    end)
+
+    it("it should be able to create blends", function()
+        local output = vim.api.nvim_get_hl_by_name("Constant", true)
+        assert.equals(hex(output.blend), "#000064")
     end)
 
     it("it should be able to link to other highlight groups", function()

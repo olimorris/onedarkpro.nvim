@@ -17,7 +17,7 @@ function M.groups(theme)
     if config.highlights then
         local custom =
             util.replace_vars(vim.deepcopy(config.highlights), util.deep_extend(theme.palette, theme.generated))
-        groups = util.deep_replace(groups, custom)
+        groups = util.deep_extend(groups, custom)
     end
 
     return groups
