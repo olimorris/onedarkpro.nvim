@@ -108,17 +108,60 @@ Additional commands:
 
 > :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults
 
-The default configuration for the theme:
+<details>
+  <summary>Click to see the default configuration</summary>
 
 ```lua
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
   highlights = {}, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
-    -- See the 'Configuring filetype highlights' section for the available list
+    javascript = true,
+    lua = true,
+    markdown = true,
+    php = true,
+    python = true,
+    ruby = true,
+    rust = true,
+    toml = true,
+    typescript = true,
+    typescriptreact = true,
+    vue = true,
+    yaml = true,
   },
   plugins = { -- Override which plugin highlight groups are loaded
-    -- See the 'Supported plugins' section for the available list
+    aerial = true,
+    barbar = true,
+    copilot = true,
+    dashboard = true,
+    gitsigns = true,
+    hop = true,
+    indentline = true,
+    leap = true,
+    lsp_saga = true,
+    marks = true,
+    native_lsp = true,
+    neotest = true,
+    neo_tree = true,
+    nvim_cmp = true,
+    nvim_bqf = true,
+    nvim_dap = true,
+    nvim_dap_ui = true,
+    nvim_hlslens = true,
+    nvim_navic = true,
+    nvim_notify = true,
+    nvim_tree = true,
+    nvim_ts_rainbow = true,
+    op_nvim = true,
+    packer = true,
+    polygot = true,
+    startify = true,
+    telescope = true,
+    toggleterm = true,
+    treesitter = true,
+    trouble = true,
+    vim_ultest = true,
+    which_key = true,
   },
   styles = { -- For example, to apply bold and italic, use "bold,italic"
     types = "NONE", -- Style that is applied to types
@@ -145,9 +188,9 @@ require("onedarkpro").setup({
     highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
   }
 })
-
-vim.cmd("colorscheme onedark")
 ```
+
+</details>
 
 ### Setting a theme
 

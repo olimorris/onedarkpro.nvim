@@ -40,6 +40,13 @@ onedarkpro.setup({
         }
     },
     highlights = {
+        Constant = {
+            fg = "${blue}",
+            blend = 100,
+        },
+        Directory = {
+            style = "bold",
+        },
         Repeat = {
             fg = "${blue}"
         },
