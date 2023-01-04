@@ -134,9 +134,9 @@ describe("Using the theme", function()
     end)
 
     it("it creates the autocmds for inactive windows", function()
-        local output = vim.api.nvim_exec("autocmd Onedarkpro", true)
+        local output = vim.api.nvim_exec("autocmd OneDarkPro", true)
 
-        assert.equals(true, string.find(output, "Onedarkpro") ~= nil)
+        assert.equals(true, string.find(output, "OneDarkPro") ~= nil)
         assert.equals(true, string.find(output, "WinEnter") ~= nil)
         assert.equals(true, string.find(output, "WinLeave") ~= nil)
         assert.equals(true, string.find(output, "set winhighlight") ~= nil)

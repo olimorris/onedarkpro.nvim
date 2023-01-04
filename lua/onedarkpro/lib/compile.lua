@@ -66,7 +66,7 @@ if vim.g.colors_name then vim.cmd("hi clear") end
 vim.o.termguicolors = true
 vim.g.colors_name = "%s"
 vim.o.background = "%s"
-    ]],
+    ]]       ,
             theme.meta.name,
             theme.meta.background
         ),
@@ -86,12 +86,7 @@ vim.o.background = "%s"
     end
 
     -- Autocmds
-    if config.config.options.highlight_inactive_windows or config.config.options.window_unfocused_color then
-        local autocmds = require("onedarkpro.highlights.autocmd").groups(theme)
-        for _, values in pairs(autocmds) do
-            table.insert(lines, values)
-        end
-    end
+    table.insert(lines, require("onedarkpro.highlights.autocmd").autocmds(theme))
 
     -- End the function
     table.insert(lines, [[end)]])
