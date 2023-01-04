@@ -66,7 +66,7 @@ if vim.g.colors_name then vim.cmd("hi clear") end
 vim.o.termguicolors = true
 vim.g.colors_name = "%s"
 vim.o.background = "%s"
-    ]]       ,
+    ]],
             theme.meta.name,
             theme.meta.background
         ),
