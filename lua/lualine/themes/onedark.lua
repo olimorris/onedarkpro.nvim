@@ -6,7 +6,7 @@ local onedarkpro = {}
 onedarkpro.normal = {
     a = { bg = colors.green, fg = colors.bg },
     b = { bg = colors.fg_gutter, fg = colors.green },
-    c = { bg = colors.bg_statusline, fg = colors.fg },
+    c = { bg = colors.none, fg = colors.fg },
 }
 
 onedarkpro.insert = {
