@@ -1,5 +1,4 @@
--- TODO: DEPRECATE THIS
-local colors = require("onedarkpro").get_colors()
+local colors = require("onedarkpro.helpers").get_colors()
 local config = require("onedarkpro.config").config
 
 local onedarkpro = {}
