@@ -48,11 +48,12 @@
 
 ## :sparkles: Features
 
-- :evergreen_tree: Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
 - :envelope_with_arrow: Automatic caching for faster load times
+- :evergreen_tree: Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- :tickets: Support for LSP semantic tokens
 - :electric_plug: Support for many [popular plugins](#electric_plug-supported-plugins)
 - :flashlight: Filetype highlighting to allow for greater customisation across different languages
-- :memo: Override everything - styles, colors, highlight groups and filetype groups
+- :memo: Override everything - styles, colors, tokens, highlight groups and filetype groups
 - :paintbrush: Create custom highlight groups and even highlight groups by filetypes
 
 ## :zap: Requirements
