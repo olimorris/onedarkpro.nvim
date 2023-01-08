@@ -636,7 +636,7 @@ The theme supports the following plugins:
 
 ### Lualine
 
-The theme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/blob/main/lua/lualine/themes/onedarkpro.lua).
+The theme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/lualine/themes).
 
 ### Terminal themes
 
@@ -648,7 +648,7 @@ To enable the easy switching between dark and light colorschemes, the following 
 
 ```lua
 function ToggleTheme()
-  if vim.o.background == "light" then
+  if vim.o.background == "dark" then
     vim.cmd("colorscheme onelight")
   else
     vim.cmd("colorscheme onedark")
