@@ -6,9 +6,8 @@ local defaults = {
     caching = true, -- Enable caching
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
     cache_suffix = "_compiled",
-    colors = {}, -- Add and/or override colors
-    highlights = {}, -- Add and/or override highlights
-    filetypes = { -- Enable/Disable specific plugins
+    colors = {}, -- Add/override colors
+    filetypes = { -- Enable/disable specific plugins
         javascript = true,
         lua = true,
         markdown = true,
@@ -22,7 +21,7 @@ local defaults = {
         vue = true,
         yaml = true,
     },
-    plugins = { -- Enable/Disable specific plugins
+    plugins = { -- Enable/disable specific plugins
         aerial = true,
         barbar = true,
         copilot = true,
@@ -56,6 +55,15 @@ local defaults = {
         vim_ultest = true,
         which_key = true,
     },
+    semantic_tokens = { -- Add/override semantic tokens
+        default = {
+            ["@class"] = { fg = "${yellow}" },
+            ["@property"] = { fg = "${red}" },
+            ["@global"] = { fg = "${red}" },
+            ["@defaultLibrary"] = { fg = "${cyan}" },
+        },
+    },
+    highlights = {}, -- Add/override highlights
     styles = {
         types = "NONE", -- Style that is applied to types
         numbers = "NONE", -- Style that is applied to numbers

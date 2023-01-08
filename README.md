@@ -32,8 +32,9 @@
 - [Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
   - [Setting a theme](#setting-a-theme)
-  - [Overridng colors](#overriding-colors)
-  - [Overriding highlight groups](#overriding-highlight-groups)
+  - [Configuring colors](#configuring-colors)
+  - [Configuring highlight groups](#configuring-highlight-groups)
+  - [Configuring semantic tokens](#configuring-semantic-tokens)
   - [Configuring filetype highlighting](#configuring-filetype-highlighting)
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
@@ -114,7 +115,6 @@ Additional commands:
 ```lua
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
-  highlights = {}, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
     javascript = true,
     lua = true,
@@ -163,6 +163,15 @@ require("onedarkpro").setup({
     vim_ultest = true,
     which_key = true,
   },
+  semantic_tokens = { -- Override semantic tokens
+    default = {
+      ["@class"] = { fg = "${yellow}" },
+      ["@property"] = { fg = "${red}" },
+      ["@global"] = { fg = "${red}" },
+      ["@defaultLibrary"] = { fg = "${cyan}" },
+    },
+  },
+  highlights = {}, -- Override default highlight groups or create your own
   styles = { -- For example, to apply bold and italic, use "bold,italic"
     types = "NONE", -- Style that is applied to types
     numbers = "NONE", -- Style that is applied to numbers
@@ -207,7 +216,7 @@ A theme can be set with:
 vim.cmd("colorscheme onedark")
 ```
 
-### Overriding colors
+### Configuring colors
 
 > :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
 
@@ -269,7 +278,7 @@ colors = {
 }
 ```
 
-### Overriding highlight groups
+### Configuring highlight groups
 
 The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua), [filetype](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or _override_ them:
 
@@ -296,6 +305,24 @@ highlights = {
   Comment = { link = "Substitute" }
 }
 ```
+
+### Configuring semantic tokens
+
+> :bangbang: Semantic tokens are only available in Neovim 0.9+ and with LSP servers which support it
+
+In Neovim, semantic tokens are highlight groups which have a priority greater than those of Treesitter and the base vim highlight groups (see `:h lsp-semantic_tokens` for more information). A full list of available semantic tokens can be found [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens).
+
+The colorscheme defines _some_ semantic tokens and applies them by default as per the [default configuration](#default-configuration). If required, tokens can be overriden or new tokens added:
+
+```lua
+semantic_tokens = {
+  default = {
+    ["@class"] = { fg = "${green}" },
+  }
+}
+```
+
+> At present the `default` key is used to define semantic token highlights for all LSP servers
 
 ### Configuring filetype highlighting
 
@@ -645,7 +672,7 @@ highlights = {
 
 #### I want to change X highlight group but I don't know what it is. How do I find out?
 
-If you're using Neovim 0.9, the `:Inspect` command is available.
+If you're using Neovim 0.9+, the `:Inspect` command is available.
 
 If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
 

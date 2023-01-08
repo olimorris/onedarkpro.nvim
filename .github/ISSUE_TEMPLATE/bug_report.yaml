@@ -141,5 +141,7 @@ body:
             required: true
           - label: I have confirmed that Treesitter is working correctly by running `:checkhealth treesitter`
             required: true
+          - label: If related to semantic tokens, I have checked that my LSP server supports them
+            required: true
           - label: I have made sure this is not a duplicate issue
             required: true
