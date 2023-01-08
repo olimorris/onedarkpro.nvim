@@ -2,5 +2,6 @@
 *.cache
 .luarc.json
 plenary.nvim
+lsp_zero.nvim
 minimal.lua
 todo.md
