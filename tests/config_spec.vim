@@ -14,8 +14,6 @@ onedarkpro.setup({
         variables = "bold"
     },
     options = {
-        bold = false,
-        italic = true,
         terminal_colors = true,
         cursorline = true,
         highlight_inactive_windows = true,
