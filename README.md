@@ -25,11 +25,11 @@
 
 ## :book: Table of Contents
 
-- [Features](#sparkles-features)
-- [Requirements](#zap-requirements)
-- [Installation](#package-installation)
-- [Usage](#rocket-usage)
-- [Configuration](#wrench-configuration)
+- :sparkles: [Features](#sparkles-features)
+- :zap: [Requirements](#zap-requirements)
+- :package: [Installation](#package-installation)
+- :rocket: [Usage](#rocket-usage)
+- :wrench: [Configuration](#wrench-configuration)
   - [Default configuration](#default-configuration)
   - [Setting a theme](#setting-a-theme)
   - [Configuring colors](#configuring-colors)
@@ -39,12 +39,12 @@
   - [Configuring plugins](#configuring-plugins)
   - [Configuring styles](#configuring-styles)
   - [Configuring options](#configuring-options)
-- [Helpers](#rainbow-helpers)
-- [Supported Plugins](#electric_plug-supported-plugins)
-- [Screenshots](#camera_flash-screenshots)
-- [Extras](#gift-extras)
-- [FAQs](#question-faqs)
-- [Credits](#clap-credits)
+- :rainbow: [Helpers](#rainbow-helpers)
+- :electric_plug: [Supported Plugins](#electric_plug-supported-plugins)
+- :camera_flash: [Screenshots](#camera_flash-screenshots)
+- :gift: [Extras](#gift-extras)
+- :question: [FAQs](#question-faqs)
+- :clap: [Credits](#clap-credits)
 
 ## :sparkles: Features
 
