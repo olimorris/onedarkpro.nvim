@@ -312,6 +312,9 @@ highlights = {
 
 > :bangbang: Semantic tokens are only available in Neovim 0.9+ and with LSP servers which support it
 
+<img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
+alt="Semantic Tokens" />
+
 In Neovim, semantic tokens are highlight groups which have a priority greater than those of Treesitter and the base vim highlight groups (see `:h lsp-semantic_tokens` for more information). A full list of available semantic tokens can be found [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens).
 
 The colorscheme defines _some_ semantic tokens and applies them by default as per the [default configuration](#default-configuration). If required, tokens can be overriden or new tokens added:
