@@ -66,6 +66,7 @@ local defaults = {
     highlights = {}, -- Add/override highlights
     styles = {
         types = "NONE", -- Style that is applied to types
+        methods = "NONE", -- Style that is applied to methods
         numbers = "NONE", -- Style that is applied to numbers
         strings = "NONE", -- Style that is applied to strings
         comments = "NONE", -- Style that is applied to comments
@@ -74,15 +75,11 @@ local defaults = {
         functions = "NONE", -- Style that is applied to functions
         operators = "NONE", -- Style that is applied to operators
         variables = "NONE", -- Style that is applied to variables
+        parameters = "NONE", -- Style that is applied to operators
         conditionals = "NONE", -- Style that is applied to conditionals
         virtual_text = "NONE", -- Style that is applied to virtual text
     },
     options = {
-        bold = true, -- Use bold styles?
-        italic = true, -- Use italic styles?
-        underline = true, -- Use underline styles?
-        undercurl = true, -- Use undercurl styles?
-
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
         terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
@@ -91,27 +88,6 @@ local defaults = {
 }
 
 M.config = vim.deepcopy(defaults)
-
----Set the theme's options
----@param opts table
----@return table
-local function set_options(opts)
-    if opts.cursorline then vim.wo.cursorline = true end
-
-    return {
-        none = "NONE",
-        bold = opts.bold and "bold" or "NONE",
-        italic = opts.italic and "italic" or "NONE",
-        undercurl = opts.undercurl and "undercurl" or "NONE",
-        underline = opts.underline and "underline" or "NONE",
-        undercurl_underline = (opts.undercurl and opts.underline) and "underline,undercurl" or "NONE",
-        bold_italic = (opts.bold and opts.italic) and "bold,italic" or "NONE",
-        cursorline = opts.cursorline,
-        transparency = opts.transparency,
-        terminal_colors = opts.terminal_colors,
-        highlight_inactive_windows = opts.highlight_inactive_windows,
-    }
-end
 
 ---Determine the filetypes or plugins that should be loaded
 ---@param files table
@@ -146,8 +122,8 @@ function M.setup(opts)
     opts = opts or {}
 
     M.config = util.deep_extend(M.config, opts)
-    M.config.options = set_options(M.config.options)
 
+    if M.config.options.cursorline then vim.wo.cursorline = true end
     if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
     if opts and opts.plugins then M.config.plugins = load_files(M.config.plugins, opts.plugins) end
 

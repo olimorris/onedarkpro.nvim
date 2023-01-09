@@ -188,11 +188,6 @@ require("onedarkpro").setup({
     virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
-    bold = true, -- Use bold styles?
-    italic = true, -- Use italic styles?
-    underline = true, -- Use underline styles?
-    undercurl = true, -- Use undercurl styles?
-
     cursorline = false, -- Use cursorline highlighting?
     transparency = false, -- Use a transparent background?
     terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
@@ -446,19 +441,6 @@ styles = {
 > :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
 
 ### Configuring options
-
-#### Formatting
-
-Alongside styles, the theme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
-
-```lua
-options = {
-  bold = true,
-  italic = false,
-  underline = false,
-  undercurl = true
-}
-```
 
 #### Transparency
 

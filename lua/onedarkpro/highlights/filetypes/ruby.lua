@@ -7,11 +7,11 @@ function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     return {
-        ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
-        ["@function.call.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
-        ["@include.ruby"] = { fg = theme.palette.blue, style = config.options.italic },
+        ["@function.ruby"] = { fg = theme.palette.blue, style = config.styles.functions },
+        ["@function.call.ruby"] = { fg = theme.palette.blue, style = config.styles.functions },
+        ["@include.ruby"] = { fg = theme.palette.blue, style = config.styles.keywords },
         ["@label.ruby"] = { fg = theme.palette.red },
-        ["@parameter.ruby"] = { fg = theme.palette.fg, style = config.options.italic },
+        ["@parameter.ruby"] = { fg = theme.palette.fg, style = config.styles.parameters },
         ["@punctuation.bracket.ruby"] = { fg = theme.palette.yellow },
         ["@symbol.ruby"] = { fg = theme.palette.cyan },
     }

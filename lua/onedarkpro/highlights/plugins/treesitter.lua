@@ -95,7 +95,7 @@ function M.groups(theme)
         ["@text.math"] = { fg = theme.palette.fg }, -- math environments (e.g. `$ ... $` in LaTeX)
         ["@text.environment"] = { link = "Macro" }, -- text environments of markup languages
         ["@text.environment.name"] = { link = "Type" }, -- text indicating the type of an environment
-        ["@text.reference"] = { fg = theme.palette.fg, style = config.options.bold }, -- text references, footnotes, citations, etc.
+        ["@text.reference"] = { fg = theme.palette.fg }, -- text references, footnotes, citations, etc.
 
         --["@text.todo] -- todo notes
         ["@text.todo.checked"] = { fg = theme.palette.blue },

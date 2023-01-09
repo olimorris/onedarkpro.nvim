@@ -10,11 +10,11 @@ function M.groups(theme)
         ["@constructor.javascript"] = { fg = theme.palette.yellow },
         ["@keyword.javascript"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@keyword.return.javascript"] = { fg = theme.palette.purple },
-        ["@method.javascript"] = { fg = theme.palette.blue, style = config.options.bold },
+        ["@method.javascript"] = { fg = theme.palette.blue, style = config.styles.methods },
         ["@method.call.javascript"] = { link = "@method.javascript" },
         ["@punctuation.bracket.javascript"] = { fg = theme.palette.yellow },
-        ["@variable.javascript"] = { fg = theme.palette.red, style = config.options.italic },
-        ["@variable.builtin.javascript"] = { fg = theme.palette.yellow, style = config.options.italic },
+        ["@variable.javascript"] = { fg = theme.palette.red, style = config.styles.variables },
+        ["@variable.builtin.javascript"] = { fg = theme.palette.yellow, style = config.styles.variables },
     }
 end
 
