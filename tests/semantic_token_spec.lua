@@ -17,7 +17,6 @@ async.describe("Semantic tokens", function()
     async.it("are applied", function()
         util.scheduler()
         -- require('pl.pretty').dump(vim.inspect_pos(0, 6, 1))
-        require('pl.pretty').dump(vim.lsp.buf_get_clients(0))
 
         local output = vim.api.nvim_get_hl_by_name("@global", true)
         assert.equals("#e06c75", hex(output.foreground))
