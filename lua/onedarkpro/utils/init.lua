@@ -84,6 +84,7 @@ function M.replace_vars(vars, values)
 
     return vars
 end
+
 --#endregion
 
 --#region File Helpers ---------------------------------------------------------
@@ -103,7 +104,7 @@ end
 ---Check that a given path exists and create it if not
 ---@param filepath string
 function M.ensure_dir(filepath)
-    os.execute(string.format("mkdir %s %s", M.is_windows and "" or "-p", filepath))
+    if vim.fn.isdirectory(filepath) == 0 then vim.fn.mkdir(filepath, "p") end
 end
 
 ---Determine if a given path exists
