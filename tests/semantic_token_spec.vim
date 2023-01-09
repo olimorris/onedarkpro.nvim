@@ -5,25 +5,24 @@ if !isdirectory('lsp_zero.nvim')
   !git clone https://github.com/VonHeikemen/lsp-zero.nvim.git lsp_zero.nvim
 endif
 
-set runtimepath+=plenary.nvim,.
-set runtimepath+=lsp_zero.nvim,.
+set rtp^=plenary.nvim,lsp_zero.nvim,.
 set noswapfile
 set noundofile
+runtime plugin/plenary.vim
+runtime plugin/lsp-zero.vim
 
 lua << EOF
 local lsp = require('lsp-zero')
-lsp.preset('recommended')
+lsp.preset('lsp-only')
 lsp.ensure_installed({
     'sumneko_lua',
 })
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  set_lsp_keymaps = false,
-  configure_diagnostics = false,
-  cmp_capabilities = false,
-  manage_nvim_cmp = false,
-})
+lsp.on_attach(function(client, bufnr)
+    print('LSP attached')
+end)
 lsp.setup()
+
+vim.cmd("LspZeroSetupServers")
 
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
@@ -50,6 +49,5 @@ onedarkpro.setup({
 vim.cmd [[colorscheme onedark]]
 EOF
 
-runtime plugin/plenary.vim
 command SemanticTokenSpec PlenaryBustedFile tests/semantic_token_spec.lua
 
