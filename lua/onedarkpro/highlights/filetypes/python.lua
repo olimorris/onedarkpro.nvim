@@ -7,10 +7,10 @@ function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     return {
-        ["@constructor.python"] = { fg = theme.palette.cyan, style = config.options.bold },
-        ["@conditional.python"] = { fg = theme.palette.purple, style = config.options.italic },
-        ["@method.call.python"] = { fg = theme.palette.blue, style = config.options.bold },
-        ["@variable.builtin.python"] = { fg = theme.palette.yellow, style = config.options.italic },
+        ["@constructor.python"] = { fg = theme.palette.cyan },
+        ["@conditional.python"] = { fg = theme.palette.purple, style = config.styles.conditionals },
+        ["@method.call.python"] = { fg = theme.palette.blue, style = config.styles.methods },
+        ["@variable.builtin.python"] = { fg = theme.palette.yellow, style = config.styles.variables },
     }
 end
 

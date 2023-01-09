@@ -70,16 +70,15 @@ return {
 }
 ```
 
-- The colorscheme enables users to be able to turn off certain styles like `bold` and `italic`. To match to the styles from VS Code, whilst still enabling the user to apply customisations:
+- The colorscheme enables users to be able to [apply styles](https://github.com/olimorris/onedarkpro.nvim#configuring-styles) to match enable a closer match to VS Code, whilst still enabling the user to apply customisations:
 
 ```lua
 local config = require("onedarkpro.config").config
 
 return {
-    ["@function.ruby"] = { fg = theme.palette.blue, style = config.options.bold },
+    ["@function.ruby"] = { fg = theme.palette.blue, style = config.styles.functions },
 }
 ```
-> **Note:** Possible options for `config.options.*` are `bold`, `italic`, `bold_italic`, `undercurl`, `underline`, `none`
 
 - For highlight groups that do not have any styling in VS Code, you should allow for the user to apply their own custom styles (as per the [README](https://github.com/olimorris/onedarkpro.nvim#configuring-styles))
 - This would fallback to `style = config.styles.functions` for a highlight group such as `["@function.ruby]`
@@ -138,7 +137,7 @@ local config = require("onedarkpro.config").config
 return {
     AerialClass = {
         fg = theme.palette.purple,
-        style = config.options.bold_italic,
+        style = config.styles.keywords,
     }
 }
 ```

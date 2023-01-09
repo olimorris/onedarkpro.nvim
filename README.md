@@ -176,6 +176,7 @@ require("onedarkpro").setup({
   highlights = {}, -- Override default highlight groups or create your own
   styles = { -- For example, to apply bold and italic, use "bold,italic"
     types = "NONE", -- Style that is applied to types
+    methods = "NONE", -- Style that is applied to methods
     numbers = "NONE", -- Style that is applied to numbers
     strings = "NONE", -- Style that is applied to strings
     comments = "NONE", -- Style that is applied to comments
@@ -184,15 +185,11 @@ require("onedarkpro").setup({
     functions = "NONE", -- Style that is applied to functions
     operators = "NONE", -- Style that is applied to operators
     variables = "NONE", -- Style that is applied to variables
+    parameters = "NONE", -- Style that is applied to parameters
     conditionals = "NONE", -- Style that is applied to conditionals
     virtual_text = "NONE", -- Style that is applied to virtual text
   },
   options = {
-    bold = true, -- Use bold styles?
-    italic = true, -- Use italic styles?
-    underline = true, -- Use underline styles?
-    undercurl = true, -- Use undercurl styles?
-
     cursorline = false, -- Use cursorline highlighting?
     transparency = false, -- Use a transparent background?
     terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
@@ -430,6 +427,7 @@ Within the theme, collections of highlight groups have been grouped together int
 ```lua
 styles = {
   types = "NONE",
+  methods = "NONE",
   numbers = "NONE",
   strings = "NONE",
   comments = "italic",
@@ -438,6 +436,7 @@ styles = {
   functions = "italic",
   operators = "NONE",
   variables = "NONE",
+  parameters = "NONE",
   conditionals = "italic",
   virtual_text = "NONE",
 }
@@ -447,16 +446,16 @@ styles = {
 
 ### Configuring options
 
-#### Formatting
+#### Cursorline
 
-Alongside styles, the theme enables additional formatting options; often used in combination with filetype highlighting. These can be turned on or off:
+Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
 
 ```lua
+colors = {
+  cursorline = "#FF0000" -- This is optional. The default cursorline color is based on the background
+},
 options = {
-  bold = true,
-  italic = false,
-  underline = false,
-  undercurl = true
+  cursorline = true
 }
 ```
 
@@ -489,19 +488,6 @@ The theme supports changing the color of the main window in Neovim when the focu
 ```lua
 options = {
   highlight_inactive_windows = true
-}
-```
-
-#### Cursorline
-
-Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
-
-```lua
-colors = {
-  cursorline = "#FF0000" -- This is optional. The default cursorline color is based on the background
-},
-options = {
-  cursorline = true
 }
 ```
 

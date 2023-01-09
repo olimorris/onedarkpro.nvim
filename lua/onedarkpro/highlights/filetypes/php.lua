@@ -7,12 +7,12 @@ function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     return {
-        ["@method.php"] = { fg = theme.palette.blue, style = config.options.bold },
+        ["@method.php"] = { fg = theme.palette.blue, style = config.styles.methods },
         ["@method.call.php"] = { link = "@method.php" },
         ["@function.builtin.php"] = { fg = theme.palette.cyan },
-        ["@namespace.php"] = { fg = theme.palette.yellow, style = config.options.bold },
+        ["@namespace.php"] = { fg = theme.palette.yellow },
         ["@constant.builtin.php"] = { fg = theme.palette.orange },
-        ["@type.qualifier.php"] = { link = "@keyword.function.php" },
+        ["@type.qualifier.php"] = { link = "@keyword.function" },
     }
 end
 

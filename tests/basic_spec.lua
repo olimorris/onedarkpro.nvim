@@ -34,6 +34,6 @@ describe("Using the colorscheme without calling setup,", function()
 
     it("it should be able to load filetypes", function()
         local output = vim.api.nvim_exec("hi @variable.javascript", true)
-        assert.equals("@variable.javascript xxx cterm=italic gui=italic guifg=#e06c75", output)
+        assert.equals("@variable.javascript xxx guifg=#e06c75", output)
     end)
 end)

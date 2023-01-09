@@ -41,11 +41,11 @@ function M.groups(theme)
         ["@function.call"] = { link = "@function" }, -- function calls
         ["@function.macro"] = { fg = theme.palette.blue }, -- preprocessor macros
 
-        ["@method"] = { link = "@function" }, -- method definitions
+        ["@method"] = { fg = theme.palette.blue, style = config.styles.methods }, -- method definitions
         ["@method.call"] = { link = "@method" }, -- method calls
 
         ["@constructor"] = { fg = theme.palette.yellow }, -- constructor calls and definitions
-        ["@parameter"] = { fg = theme.palette.red, style = config.styles.variables }, -- parameters of a function
+        ["@parameter"] = { fg = theme.palette.red, style = config.styles.parameters }, -- parameters of a function
 
         -- Keywords
         ["@keyword"] = { link = "Keyword" }, -- For keywords that don't fall in previous categories.
@@ -95,7 +95,7 @@ function M.groups(theme)
         ["@text.math"] = { fg = theme.palette.fg }, -- math environments (e.g. `$ ... $` in LaTeX)
         ["@text.environment"] = { link = "Macro" }, -- text environments of markup languages
         ["@text.environment.name"] = { link = "Type" }, -- text indicating the type of an environment
-        ["@text.reference"] = { fg = theme.palette.fg, style = config.options.bold }, -- text references, footnotes, citations, etc.
+        ["@text.reference"] = { fg = theme.palette.fg, style = "bold" }, -- text references, footnotes, citations, etc.
 
         --["@text.todo] -- todo notes
         ["@text.todo.checked"] = { fg = theme.palette.blue },
