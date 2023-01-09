@@ -75,11 +75,11 @@ alt="onedark dark" />
 :BOOK: TABLE OF CONTENTS            *onedarkpro.nvim-:book:-table-of-contents*
 
 
-- |onedarkpro.nvim-features|
-- |onedarkpro.nvim-requirements|
-- |onedarkpro.nvim-installation|
-- |onedarkpro.nvim-usage|
-- |onedarkpro.nvim-configuration|
+- :sparkles: |onedarkpro.nvim-features|
+- :zap: |onedarkpro.nvim-requirements|
+- :package: |onedarkpro.nvim-installation|
+- :rocket: |onedarkpro.nvim-usage|
+- :wrench: |onedarkpro.nvim-configuration|
     - |onedarkpro.nvim-default-configuration|
     - |onedarkpro.nvim-setting-a-theme|
     - |onedarkpro.nvim-configuring-colors|
@@ -89,12 +89,12 @@ alt="onedark dark" />
     - |onedarkpro.nvim-configuring-plugins|
     - |onedarkpro.nvim-configuring-styles|
     - |onedarkpro.nvim-configuring-options|
-- |onedarkpro.nvim-helpers|
-- |onedarkpro.nvim-supported-plugins|
-- |onedarkpro.nvim-screenshots|
-- |onedarkpro.nvim-extras|
-- |onedarkpro.nvim-faqs|
-- |onedarkpro.nvim-credits|
+- :rainbow: |onedarkpro.nvim-helpers|
+- :electric_plug: |onedarkpro.nvim-supported-plugins|
+- :camera_flash: |onedarkpro.nvim-screenshots|
+- :gift: |onedarkpro.nvim-extras|
+- :question: |onedarkpro.nvim-faqs|
+- :clap: |onedarkpro.nvim-credits|
 
 
 :SPARKLES: FEATURES                      *onedarkpro.nvim-:sparkles:-features*
