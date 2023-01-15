@@ -101,7 +101,7 @@ colorscheme onedark
 
 Additional commands:
 
-- `:OnedarkproCache` generates new cache files for the themes
+- `:OnedarkproCache` force generate a new cache files for the themes (you won't often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
 
@@ -224,9 +224,11 @@ A theme has a palette of 13 core colors alongside many additional ones which are
 The default colors can be changed by specifying the name of the color and a new hex code:
 
 ```lua
-colors = {
-  red = "#FF0000"
-}
+require("onedarkpro").setup({
+  colors = {
+    red = "#FF0000"
+  }
+})
 ```
 
 #### Specifying new colors
@@ -234,19 +236,23 @@ colors = {
 New colors may be created which will then be merged into a theme's color palette:
 
 ```lua
-colors = {
-  my_new_red = "#f44336"
-}
+require("onedarkpro").setup({
+  colors = {
+    my_new_red = "#f44336"
+  }
+})
 ```
 
 These can then be used for custom highlight groups if desired:
 
 ```lua
-highlights = {
-  Error = {
-    fg = "${my_new_red}",
-  },
-}
+require("onedarkpro").setup({
+  highlights = {
+    Error = {
+      fg = "${my_new_red}",
+    },
+  }
+})
 ```
 
 #### Specifying colors by theme or background
@@ -254,27 +260,31 @@ highlights = {
 It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 
 ```lua
-colors = {
-  onedark = {
-    bg = "#FFFF00" -- yellow
-  },
-  onelight = {
-    bg = "#00FF00" -- green
+require("onedarkpro").setup({
+  colors = {
+    onedark = {
+      bg = "#FFFF00" -- yellow
+    },
+    onelight = {
+      bg = "#00FF00" -- green
+    }
   }
-}
+})
 ```
 
 Alternatively, you can specify colors by the theme's background color:
 
 ```lua
-colors = {
-  dark = {
-    bg = "#FFFF00" -- yellow
-  },
-  light = {
-    bg = "#00FF00" -- green
+require("onedarkpro").setup({
+  colors = {
+    dark = {
+      bg = "#FFFF00" -- yellow
+    },
+    light = {
+      bg = "#00FF00" -- green
+    }
   }
-}
+})
 ```
 
 ### Configuring highlight groups
@@ -284,25 +294,31 @@ The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkp
 1. Using specific hex colors:
 
 ```lua
-highlights = {
-  Comment = { fg = "#FF0000", bg = "#FFFF00" }
-}
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { fg = "#FF0000", bg = "#FFFF00" }
+  }
+})
 ```
 
 2. Referencing the name of colors:
 
 ```lua
-highlights = {
-  Comment = { fg = "${my_new_red}" bg = "${yellow}" }
-}
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { fg = "${my_new_red}" bg = "${yellow}" }
+  }
+})
 ```
 
 3. Linking to other highlight groups:
 
 ```lua
-highlights = {
-  Comment = { link = "Substitute" }
-}
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { link = "Substitute" }
+  }
+})
 ```
 
 ### Configuring semantic tokens
@@ -317,11 +333,13 @@ In Neovim, semantic tokens are highlight groups which have a priority greater th
 The colorscheme defines _some_ semantic tokens and applies them by default as per the [default configuration](#default-configuration). If required, tokens can be overriden or new tokens added:
 
 ```lua
-semantic_tokens = {
-  default = {
-    ["@class"] = { fg = "${green}" },
+require("onedarkpro").setup({
+  semantic_tokens = {
+    default = {
+      ["@class"] = { fg = "${green}" },
+    }
   }
-}
+})
 ```
 
 > At present the `default` key is used to define semantic token highlights for all LSP servers
@@ -348,28 +366,34 @@ Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/
 Specific filetypes can be disabled as follows:
 
 ```lua
-filetypes = {
-  markdown = false,
-  ruby = false,
-}
+require("onedarkpro").setup({
+  filetypes = {
+    markdown = false,
+    ruby = false,
+  }
+})
 ```
 
 Alternatively, all of the filetypes can be disabled:
 
 ```lua
-filetypes = {
-  all = false
-}
+require("onedarkpro").setup({
+  filetypes = {
+    all = false
+  }
+})
 ```
 
 Or, all of the filetypes can be disabled with a select few enabled:
 
 ```lua
-filetypes = {
-  all = false
-  markdown = true
-  ruby = true,
-}
+require("onedarkpro").setup({
+  filetypes = {
+    all = false
+    markdown = true
+    ruby = true,
+  }
+})
 ```
 
 #### Adding or modifying filetype highlights
@@ -377,9 +401,11 @@ filetypes = {
 It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the theme:
 
 ```lua
-highlights = {
-  ["@field.yaml"] = { fg = "${blue}", style = "italic" }
-}
+require("onedarkpro").setup({
+  highlights = {
+    ["@field.yaml"] = { fg = "${blue}", style = "italic" }
+  }
+})
 ```
 
 In the example above, we have set the `field` treesitter highlight group to be blue, but only when the filetype is `yaml`. More information can be found via `:h treesitter-highlight-groups`.
@@ -393,29 +419,35 @@ To determine which highlight group to add or modify, see the [FAQ](#question-faq
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
 ```lua
-plugins = {
-  native_lsp = false,
-  polygot = false,
-  treesitter = false
-}
+require("onedarkpro").setup({
+  plugins = {
+    native_lsp = false,
+    polygot = false,
+    treesitter = false
+  }
+})
 ```
 
 Alternatively, all of the plugins can be disabled:
 
 ```lua
-plugins = {
-  all = false
-}
+require("onedarkpro").setup({
+  plugins = {
+    all = false
+  }
+})
 ```
 
 Or, all of the plugins can be disabled with a select few enabled:
 
 ```lua
-plugins = {
-  all = false
-  native_lsp = true,
-  treesitter = true
-}
+require("onedarkpro").setup({
+  plugins = {
+    all = false
+    native_lsp = true,
+    treesitter = true
+  }
+})
 ```
 
 > :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
@@ -425,21 +457,23 @@ plugins = {
 Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of a theme. These styles may be configured as shown in the example below:
 
 ```lua
-styles = {
-  types = "NONE",
-  methods = "NONE",
-  numbers = "NONE",
-  strings = "NONE",
-  comments = "italic",
-  keywords = "bold,italc",
-  constants = "NONE",
-  functions = "italic",
-  operators = "NONE",
-  variables = "NONE",
-  parameters = "NONE",
-  conditionals = "italic",
-  virtual_text = "NONE",
-}
+require("onedarkpro").setup({
+  styles = {
+    types = "NONE",
+    methods = "NONE",
+    numbers = "NONE",
+    strings = "NONE",
+    comments = "italic",
+    keywords = "bold,italc",
+    constants = "NONE",
+    functions = "italic",
+    operators = "NONE",
+    variables = "NONE",
+    parameters = "NONE",
+    conditionals = "italic",
+    virtual_text = "NONE",
+  }
+})
 ```
 
 > :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
@@ -451,12 +485,14 @@ styles = {
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
 
 ```lua
-colors = {
-  cursorline = "#FF0000" -- This is optional. The default cursorline color is based on the background
-},
-options = {
-  cursorline = true
-}
+require("onedarkpro").setup({
+  colors = {
+    cursorline = "#FF0000" -- This is optional. The default cursorline color is based on the background
+  },
+  options = {
+    cursorline = true
+  }
+})
 ```
 
 #### Transparency
@@ -464,9 +500,11 @@ options = {
 The theme supports transparent backgrounds:
 
 ```lua
-options = {
-  transparency = true
-}
+require("onedarkpro").setup({
+  options = {
+    transparency = true
+  }
+})
 ```
 
 By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline` groups will have `NONE` as the background color. Additional transparency may be achieved by overriding more highlight groups.
@@ -476,9 +514,11 @@ By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`
 By default, the colorscheme changes the colors for Neovim's `:terminal` to the current theme. This can be turned off if required.
 
 ```lua
-options = {
-  terminal_colors = false
-}
+require("onedarkpro").setup({
+  options = {
+    terminal_colors = false
+  }
+})
 ```
 
 #### Highlighting Inactive Windows
@@ -486,9 +526,11 @@ options = {
 The theme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
 
 ```lua
-options = {
-  highlight_inactive_windows = true
-}
+require("onedarkpro").setup({
+  options = {
+    highlight_inactive_windows = true
+  }
+})
 ```
 
 ## :rainbow: Helpers
@@ -652,11 +694,13 @@ end
 When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
 ```lua
-highlights = {
-  TSField = {
-    fg = (vim.o.background == "dark" and "${red}" or "${green}")
+require("onedarkpro").setup({
+  highlights = {
+    TSField = {
+      fg = (vim.o.background == "dark" and "${red}" or "${green}")
+    }
   }
-}
+})
 ```
 
 ## :question: FAQs
