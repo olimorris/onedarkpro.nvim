@@ -19,10 +19,10 @@
 </p>
 
 <div align="center">
-  <h3>Onedark</h3><img src="https://user-images.githubusercontent.com/9512444/197142107-e7ae293b-1afa-499d-87c9-71531eb59930.png" alt="onedark" />
-  <h3>Onelight</h3><img src="https://user-images.githubusercontent.com/9512444/197142172-3466567e-650c-4ffa-af0d-50d29a789575.png" alt="onelight" />
-  <h3>Onedark Vivid</h3><img src="https://user-images.githubusercontent.com/9512444/197142228-3baacc62-dc43-4600-8c4f-224639e1e635.png" alt="onedark vivid" />
-  <h3>Onedark Dark</h3><img src="https://user-images.githubusercontent.com/9512444/197142302-e1de9d96-7e7e-474b-a318-870417e2741b.png" alt="onedark dark" />
+  <strong>Onedark</strong><img src="https://user-images.githubusercontent.com/9512444/197142107-e7ae293b-1afa-499d-87c9-71531eb59930.png" alt="onedark" />
+  <strong>Onelight</strong><img src="https://user-images.githubusercontent.com/9512444/197142172-3466567e-650c-4ffa-af0d-50d29a789575.png" alt="onelight" />
+  <strong>Onedark Vivid</strong><img src="https://user-images.githubusercontent.com/9512444/197142228-3baacc62-dc43-4600-8c4f-224639e1e635.png" alt="onedark vivid" />
+  <strong>Onedark Dark</strong><img src="https://user-images.githubusercontent.com/9512444/197142302-e1de9d96-7e7e-474b-a318-870417e2741b.png" alt="onedark dark" />
 </div>
 
 <!-- panvimdoc-ignore-end -->
@@ -212,7 +212,7 @@ require("onedarkpro").setup({
 })
 ```
 
-#### Specifying new colors
+**Specifying new colors**
 
 New colors may be created which will then be merged into a theme's color palette:
 
@@ -236,7 +236,7 @@ require("onedarkpro").setup({
 })
 ```
 
-#### Specifying colors by theme or background
+**Specifying colors by theme or background**
 
 It's possible to override default colors within a theme such as the `bg` color. This is a common question for those who wish to have a darker background than the default. Of course it would make sense to have different `bg` colors for the `onedark` and `onelight` themes. This can be achieved by specifying the theme name as a table, followed by the color:
 
@@ -377,7 +377,7 @@ require("onedarkpro").setup({
 })
 ```
 
-#### Adding or modifying filetype highlights
+**Adding or modifying filetype highlights**
 
 It's likely that you'll wish to add additional filetype highlights or even change the defaults. This can be achieved by adding them as custom highlight groups in the theme:
 
@@ -461,7 +461,7 @@ require("onedarkpro").setup({
 
 ### Configuring options
 
-#### Cursorline
+**Cursorline**
 
 Cursorline highlighting is supported in the theme using a `cursorline` color (which may of course be overridden). This can be enabled with the following:
 
@@ -476,7 +476,7 @@ require("onedarkpro").setup({
 })
 ```
 
-#### Transparency
+**Transparency**
 
 The theme supports transparent backgrounds:
 
@@ -490,7 +490,7 @@ require("onedarkpro").setup({
 
 By setting the transparency option to true, the `Normal`, `Folded`, `SignColumn`, `Statusline` and `Tabline` groups will have `NONE` as the background color. Additional transparency may be achieved by overriding more highlight groups.
 
-#### Terminal Colors
+**Terminal Colors**
 
 By default, the colorscheme changes the colors for Neovim's `:terminal` to the current theme. This can be turned off if required.
 
@@ -502,7 +502,7 @@ require("onedarkpro").setup({
 })
 ```
 
-#### Highlighting Inactive Windows
+**Highlighting Inactive Windows**
 
 The theme supports changing the color of the main window in Neovim when the focus is lost. For example, when a `telescope` or `packer` pop up appears:
 
@@ -518,7 +518,7 @@ require("onedarkpro").setup({
 
 The theme comes with a set of helpers which enable you to interact with and modify colors. The helper file can be accessed via `require("onedarkpro.helpers")`.
 
-### Getting theme colors
+**Getting theme colors**
 
 It can be useful to access a theme's colors for use within other plugins (such as your statusline) after its loaded. For this, the `get_colors` helper can be used:
 
@@ -535,7 +535,7 @@ You can also use the command `:OnedarkproColors` to open a scratch buffer with t
 
 > ‼️ Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
 
-#### Getting colors before the theme loads
+**Getting colors before the theme loads**
 
 Whilst the `get_colors` method is useful in most cases, it may be neccessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors when configuring the theme. For this the `get_preloaded_colors` method can be used:
 
@@ -548,7 +548,7 @@ print(colors.purple) -- #c678dd (if using the Onedark theme)
 
 > ‼️ This will only output the theme's core color palette and not any generated colors
 
-### Darken/Lighten/Brighten colors
+**Darken/Lighten/Brighten colors**
 
 The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you to modify custom colors or the theme's own. All three helpers follow the same format and take three parameters:
 
@@ -628,35 +628,39 @@ The theme supports the following plugins:
 - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
 - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
 
+<!-- panvimdoc-ignore-start -->
+
 ## 📸 Screenshots
 
-### Lua
+**Lua**
 
 <img src="https://user-images.githubusercontent.com/9512444/196185422-3f0bfe75-772e-40ff-9ca8-b26e1eff13dc.png" alt="Lua" />
 
-### Python
+**Python**
 
 <img src="https://user-images.githubusercontent.com/9512444/196185335-8fb99002-227d-42e2-a2d4-b3cf9fc21a17.png" alt="Python" />
 
-### Javascript/React
+**Javascript/React**
 
 <img src="https://user-images.githubusercontent.com/9512444/196185397-a963a7b7-c7e3-45ff-b1bd-bd9344e9616a.png" alt="Javascript/React" />
 
-### Ruby
+**Ruby**
 
 <img src="https://user-images.githubusercontent.com/9512444/196185441-6cba7191-63d0-4dd3-abde-12b99ed4bec6.png" alt="Ruby" />
 
+<!-- panvimdoc-ignore-end -->
+
 ## 🎁 Extras
 
-### Lualine
+**Lualine**
 
 The theme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/lualine/themes).
 
-### Terminal themes
+**Terminal themes**
 
 The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) colorschemes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
 
-#### Toggling between themes
+**Toggling between themes**
 
 To enable the easy switching between dark and light colorschemes, the following helper function could be used:
 
@@ -670,7 +674,7 @@ function ToggleTheme()
 end
 ```
 
-#### Configuring styles/colors/highlight groups based on the theme
+**Configuring styles/colors/highlight groups based on the theme**
 
 When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
 
@@ -686,26 +690,26 @@ require("onedarkpro").setup({
 
 ## ❓ FAQs
 
-#### I want to change X highlight group but I don't know what it is. How do I find out?
+**I want to change X highlight group but I don't know what it is. How do I find out?**
 
 If you're using Neovim 0.9+, the `:Inspect` command is available.
 
 If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
 
-#### How can I get the theme to match VS Code exactly?
+**How can I get the theme to match VS Code exactly?**
 
 I've tried to ensure that the theme resembles the original VS Code theme as much as possible, however there are some differences. This is mainly due to Neovim not currently supporting semantic tokens. However this will be addressed in Neovim 0.9. Also, differences between how Treesitter applies highlight groups will always create differences.
 
 ## 👏 Credits
 
-### Contributors
+**Contributors**
 
 Thanks to the following contributors for their work on the colorscheme:
 
 - [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
 - [mrjones2014](https://github.com/mrjones2014) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mrjones2014)
 
-### Inspiration
+**Inspiration**
 
 The following colorschemes were used as an inspiration:
 
