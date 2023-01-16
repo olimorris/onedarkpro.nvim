@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*     For Neovim >= 0.8.0     Last change: 2023 January 10
+*onedarkpro.nvim.txt*     For Neovim >= 0.8.0     Last change: 2023 January 16
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
@@ -162,7 +162,7 @@ Use the built-in `:colorscheme` command to load:
 Additional commands:
 
 
-- `:OnedarkproCache` generates new cache files for the themes
+- `:OnedarkproCache` force generate a new cache files for the themes (you won’t often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
 
@@ -297,9 +297,11 @@ The default colors can be changed by specifying the name of the color and a new
 hex code:
 
 >lua
-    colors = {
-      red = "FF0000"
-    }
+    require("onedarkpro").setup({
+      colors = {
+        red = "FF0000"
+      }
+    })
 <
 
 
@@ -311,20 +313,24 @@ Specifying new colors                  New colors may be created which will
 
 
 >lua
-    colors = {
-      my_new_red = "f44336"
-    }
+    require("onedarkpro").setup({
+      colors = {
+        my_new_red = "f44336"
+      }
+    })
 <
 
 
 These can then be used for custom highlight groups if desired:
 
 >lua
-    highlights = {
-      Error = {
-        fg = "${my_new_red}",
-      },
-    }
+    require("onedarkpro").setup({
+      highlights = {
+        Error = {
+          fg = "${my_new_red}",
+        },
+      }
+    })
 <
 
 
@@ -343,28 +349,32 @@ Specifying colors by theme or background It’s possible to override default
 
 
 >lua
-    colors = {
-      onedark = {
-        bg = "FFFF00" -- yellow
-      },
-      onelight = {
-        bg = "00FF00" -- green
+    require("onedarkpro").setup({
+      colors = {
+        onedark = {
+          bg = "FFFF00" -- yellow
+        },
+        onelight = {
+          bg = "00FF00" -- green
+        }
       }
-    }
+    })
 <
 
 
 Alternatively, you can specify colors by the theme’s background color:
 
 >lua
-    colors = {
-      dark = {
-        bg = "FFFF00" -- yellow
-      },
-      light = {
-        bg = "00FF00" -- green
+    require("onedarkpro").setup({
+      colors = {
+        dark = {
+          bg = "FFFF00" -- yellow
+        },
+        light = {
+          bg = "00FF00" -- green
+        }
       }
-    }
+    })
 <
 
 
@@ -386,9 +396,11 @@ or _override_ them:
 
 
 >lua
-    highlights = {
-      Comment = { fg = "FF0000", bg = "FFFF00" }
-    }
+    require("onedarkpro").setup({
+      highlights = {
+        Comment = { fg = "FF0000", bg = "FFFF00" }
+      }
+    })
 <
 
 
@@ -397,9 +409,11 @@ or _override_ them:
 
 
 >lua
-    highlights = {
-      Comment = { fg = "${my_new_red}" bg = "${yellow}" }
-    }
+    require("onedarkpro").setup({
+      highlights = {
+        Comment = { fg = "${my_new_red}" bg = "${yellow}" }
+      }
+    })
 <
 
 
@@ -408,9 +422,11 @@ or _override_ them:
 
 
 >lua
-    highlights = {
-      Comment = { link = "Substitute" }
-    }
+    require("onedarkpro").setup({
+      highlights = {
+        Comment = { link = "Substitute" }
+      }
+    })
 <
 
 
@@ -436,11 +452,13 @@ per the |onedarkpro.nvim-default-configuration|. If required, tokens can be
 overriden or new tokens added:
 
 >lua
-    semantic_tokens = {
-      default = {
-        ["@class"] = { fg = "${green}" },
+    require("onedarkpro").setup({
+      semantic_tokens = {
+        default = {
+          ["@class"] = { fg = "${green}" },
+        }
       }
-    }
+    })
 <
 
 
@@ -477,30 +495,36 @@ if you would like add support for new filetypes.
 Specific filetypes can be disabled as follows:
 
 >lua
-    filetypes = {
-      markdown = false,
-      ruby = false,
-    }
+    require("onedarkpro").setup({
+      filetypes = {
+        markdown = false,
+        ruby = false,
+      }
+    })
 <
 
 
 Alternatively, all of the filetypes can be disabled:
 
 >lua
-    filetypes = {
-      all = false
-    }
+    require("onedarkpro").setup({
+      filetypes = {
+        all = false
+      }
+    })
 <
 
 
 Or, all of the filetypes can be disabled with a select few enabled:
 
 >lua
-    filetypes = {
-      all = false
-      markdown = true
-      ruby = true,
-    }
+    require("onedarkpro").setup({
+      filetypes = {
+        all = false
+        markdown = true
+        ruby = true,
+      }
+    })
 <
 
 
@@ -514,9 +538,11 @@ Adding or modifying filetype highlights It’s likely that you’ll wish to add
 
 
 >lua
-    highlights = {
-      ["@field.yaml"] = { fg = "${blue}", style = "italic" }
-    }
+    require("onedarkpro").setup({
+      highlights = {
+        ["@field.yaml"] = { fg = "${blue}", style = "italic" }
+      }
+    })
 <
 
 
@@ -538,31 +564,37 @@ By default, all of the plugins supported by the theme are loaded at runtime.
 Specific plugins can be disabled as follows:
 
 >lua
-    plugins = {
-      native_lsp = false,
-      polygot = false,
-      treesitter = false
-    }
+    require("onedarkpro").setup({
+      plugins = {
+        native_lsp = false,
+        polygot = false,
+        treesitter = false
+      }
+    })
 <
 
 
 Alternatively, all of the plugins can be disabled:
 
 >lua
-    plugins = {
-      all = false
-    }
+    require("onedarkpro").setup({
+      plugins = {
+        all = false
+      }
+    })
 <
 
 
 Or, all of the plugins can be disabled with a select few enabled:
 
 >lua
-    plugins = {
-      all = false
-      native_lsp = true,
-      treesitter = true
-    }
+    require("onedarkpro").setup({
+      plugins = {
+        all = false
+        native_lsp = true,
+        treesitter = true
+      }
+    })
 <
 
 
@@ -579,21 +611,23 @@ go someway to enhancing the aesthetic of a theme. These styles may be
 configured as shown in the example below:
 
 >lua
-    styles = {
-      types = "NONE",
-      methods = "NONE",
-      numbers = "NONE",
-      strings = "NONE",
-      comments = "italic",
-      keywords = "bold,italc",
-      constants = "NONE",
-      functions = "italic",
-      operators = "NONE",
-      variables = "NONE",
-      parameters = "NONE",
-      conditionals = "italic",
-      virtual_text = "NONE",
-    }
+    require("onedarkpro").setup({
+      styles = {
+        types = "NONE",
+        methods = "NONE",
+        numbers = "NONE",
+        strings = "NONE",
+        comments = "italic",
+        keywords = "bold,italc",
+        constants = "NONE",
+        functions = "italic",
+        operators = "NONE",
+        variables = "NONE",
+        parameters = "NONE",
+        conditionals = "italic",
+        virtual_text = "NONE",
+      }
+    })
 <
 
 
@@ -612,12 +646,14 @@ Cursorline                             Cursorline highlighting is supported in
 
 
 >lua
-    colors = {
-      cursorline = "FF0000" -- This is optional. The default cursorline color is based on the background
-    },
-    options = {
-      cursorline = true
-    }
+    require("onedarkpro").setup({
+      colors = {
+        cursorline = "FF0000" -- This is optional. The default cursorline color is based on the background
+      },
+      options = {
+        cursorline = true
+      }
+    })
 <
 
 
@@ -628,9 +664,11 @@ Transparency                           The theme supports transparent
 
 
 >lua
-    options = {
-      transparency = true
-    }
+    require("onedarkpro").setup({
+      options = {
+        transparency = true
+      }
+    })
 <
 
 
@@ -648,9 +686,11 @@ Terminal Colors                        By default, the colorscheme changes the
 
 
 >lua
-    options = {
-      terminal_colors = false
-    }
+    require("onedarkpro").setup({
+      options = {
+        terminal_colors = false
+      }
+    })
 <
 
 
@@ -663,9 +703,11 @@ Highlighting Inactive Windows          The theme supports changing the color of
 
 
 >lua
-    options = {
-      highlight_inactive_windows = true
-    }
+    require("onedarkpro").setup({
+      options = {
+        highlight_inactive_windows = true
+      }
+    })
 <
 
 
@@ -891,11 +933,13 @@ Configuring styles/colors/highlight groups based on the theme When configuring
 
 
 >lua
-    highlights = {
-      TSField = {
-        fg = (vim.o.background == "dark" and "${red}" or "${green}")
+    require("onedarkpro").setup({
+      highlights = {
+        TSField = {
+          fg = (vim.o.background == "dark" and "${red}" or "${green}")
+        }
       }
-    }
+    })
 <
 
 
