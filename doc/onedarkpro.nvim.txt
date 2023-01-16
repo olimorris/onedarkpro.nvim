@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*     For Neovim >= 0.8.0     Last change: 2023 January 09
+*onedarkpro.nvim.txt*     For Neovim >= 0.8.0     Last change: 2023 January 10
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
@@ -80,15 +80,15 @@ alt="onedark dark" />
 - :package: |onedarkpro.nvim-installation|
 - :rocket: |onedarkpro.nvim-usage|
 - :wrench: |onedarkpro.nvim-configuration|
-    - |onedarkpro.nvim-default-configuration|
-    - |onedarkpro.nvim-setting-a-theme|
-    - |onedarkpro.nvim-configuring-colors|
-    - |onedarkpro.nvim-configuring-highlight-groups|
-    - |onedarkpro.nvim-configuring-semantic-tokens|
-    - |onedarkpro.nvim-configuring-filetype-highlighting|
-    - |onedarkpro.nvim-configuring-plugins|
-    - |onedarkpro.nvim-configuring-styles|
-    - |onedarkpro.nvim-configuring-options|
+    - :wrench: |onedarkpro.nvim-default-configuration|
+    - :wrench: |onedarkpro.nvim-setting-a-theme|
+    - :wrench: |onedarkpro.nvim-configuring-colors|
+    - :wrench: |onedarkpro.nvim-configuring-highlight-groups|
+    - :wrench: |onedarkpro.nvim-configuring-semantic-tokens|
+    - :wrench: |onedarkpro.nvim-configuring-filetype-highlighting|
+    - :wrench: |onedarkpro.nvim-configuring-plugins|
+    - :wrench: |onedarkpro.nvim-configuring-styles|
+    - :wrench: |onedarkpro.nvim-configuring-options|
 - :rainbow: |onedarkpro.nvim-helpers|
 - :electric_plug: |onedarkpro.nvim-supported-plugins|
 - :camera_flash: |onedarkpro.nvim-screenshots|
