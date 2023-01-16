@@ -1,3 +1,5 @@
+<!-- panvimdoc-ignore-start -->
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/9512444/197140436-6617b2b7-1b03-4b4f-b81e-38a8ac27ef98.png" alt="OneDarkPro.nvim" />
 </p>
@@ -23,47 +25,26 @@
   <h3>Onedark Dark</h3><img src="https://user-images.githubusercontent.com/9512444/197142302-e1de9d96-7e7e-474b-a318-870417e2741b.png" alt="onedark dark" />
 </div>
 
-## :book: Table of Contents
+<!-- panvimdoc-ignore-end -->
 
-- :sparkles: [Features](#sparkles-features)
-- :zap: [Requirements](#zap-requirements)
-- :package: [Installation](#package-installation)
-- :rocket: [Usage](#rocket-usage)
-- :wrench: [Configuration](#wrench-configuration)
-  - :wrench: [Default configuration](#default-configuration)
-  - :wrench: [Setting a theme](#setting-a-theme)
-  - :wrench: [Configuring colors](#configuring-colors)
-  - :wrench: [Configuring highlight groups](#configuring-highlight-groups)
-  - :wrench: [Configuring semantic tokens](#configuring-semantic-tokens)
-  - :wrench: [Configuring filetype highlighting](#configuring-filetype-highlighting)
-  - :wrench: [Configuring plugins](#configuring-plugins)
-  - :wrench: [Configuring styles](#configuring-styles)
-  - :wrench: [Configuring options](#configuring-options)
-- :rainbow: [Helpers](#rainbow-helpers)
-- :electric_plug: [Supported Plugins](#electric_plug-supported-plugins)
-- :camera_flash: [Screenshots](#camera_flash-screenshots)
-- :gift: [Extras](#gift-extras)
-- :question: [FAQs](#question-faqs)
-- :clap: [Credits](#clap-credits)
+## ✨ Features
 
-## :sparkles: Features
+- 📩 Automatic caching for faster load times
+- 🌲 Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- 🎟️ Support for LSP semantic tokens
+- 🔌 Support for many [popular plugins](#electric_plug-supported-plugins)
+- 🔦 Filetype highlighting to allow for greater customisation across different languages
+- 📝 Override everything - styles, colors, tokens, highlight groups and filetype groups
+- 🖌️ Create custom highlight groups and even highlight groups by filetypes
 
-- :envelope_with_arrow: Automatic caching for faster load times
-- :evergreen_tree: Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
-- :tickets: Support for LSP semantic tokens
-- :electric_plug: Support for many [popular plugins](#electric_plug-supported-plugins)
-- :flashlight: Filetype highlighting to allow for greater customisation across different languages
-- :memo: Override everything - styles, colors, tokens, highlight groups and filetype groups
-- :paintbrush: Create custom highlight groups and even highlight groups by filetypes
-
-## :zap: Requirements
+## ⚡ Requirements
 
 - Neovim 0.8+
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 - For semantic tokens, Neovim 0.9+ and an LSP server that supports them
 
-## :package: Installation
+## 📦 Installation
 
 Install with your package manager of choice:
 
@@ -85,7 +66,7 @@ use "olimorris/onedarkpro.nvim"
 Plug "olimorris/onedarkpro.nvim"
 ```
 
-## :rocket: Usage
+## 🚀 Usage
 
 Use the built-in `:colorscheme` command to load:
 
@@ -105,11 +86,11 @@ Additional commands:
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
 
-## :wrench: Configuration
+## 🔧 Configuration
 
 ### Default configuration
 
-> :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults
+> ‼️ You only need to the call the `setup` function if you wish to change any of the defaults
 
 <details>
   <summary>Click to see the default configuration</summary>
@@ -217,7 +198,7 @@ vim.cmd("colorscheme onedark")
 
 ### Configuring colors
 
-> :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
+> ‼️ See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
 
 A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
@@ -323,7 +304,7 @@ require("onedarkpro").setup({
 
 ### Configuring semantic tokens
 
-> :bangbang: Semantic tokens are only available in Neovim 0.9+ and with LSP servers which support it
+> ‼️ Semantic tokens are only available in Neovim 0.9+ and with LSP servers which support it
 
 <img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
 alt="Semantic Tokens" />
@@ -412,7 +393,7 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> :bangbang: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
+> ‼️ The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
 ### Configuring plugins
 
@@ -450,7 +431,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
+> ‼️ For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
 
 ### Configuring styles
 
@@ -476,7 +457,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
+> ‼️ See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
 
 ### Configuring options
 
@@ -533,7 +514,7 @@ require("onedarkpro").setup({
 })
 ```
 
-## :rainbow: Helpers
+## 🌈 Helpers
 
 The theme comes with a set of helpers which enable you to interact with and modify colors. The helper file can be accessed via `require("onedarkpro.helpers")`.
 
@@ -552,7 +533,7 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
-> :bangbang: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
+> ‼️ Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
 
 #### Getting colors before the theme loads
 
@@ -565,7 +546,7 @@ local colors = color.get_preloaded_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-> :bangbang: This will only output the theme's core color palette and not any generated colors
+> ‼️ This will only output the theme's core color palette and not any generated colors
 
 ### Darken/Lighten/Brighten colors
 
@@ -610,7 +591,7 @@ require("onedarkpro").setup({
 
 This prevents the theme from trying to resolve the color before the whole of the configuration has been parsed. This also ensures that the startup time for the theme remains small too.
 
-## :electric_plug: Supported Plugins
+## 🔌 Supported Plugins
 
 The theme supports the following plugins:
 
@@ -647,7 +628,7 @@ The theme supports the following plugins:
 - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
 - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
 
-## :camera_flash: Screenshots
+## 📸 Screenshots
 
 ### Lua
 
@@ -665,7 +646,7 @@ The theme supports the following plugins:
 
 <img src="https://user-images.githubusercontent.com/9512444/196185441-6cba7191-63d0-4dd3-abde-12b99ed4bec6.png" alt="Ruby" />
 
-## :gift: Extras
+## 🎁 Extras
 
 ### Lualine
 
@@ -703,7 +684,7 @@ require("onedarkpro").setup({
 })
 ```
 
-## :question: FAQs
+## ❓ FAQs
 
 #### I want to change X highlight group but I don't know what it is. How do I find out?
 
@@ -715,7 +696,7 @@ If you're on an earlier version of Neovim and are using Treesitter, install [Pla
 
 I've tried to ensure that the theme resembles the original VS Code theme as much as possible, however there are some differences. This is mainly due to Neovim not currently supporting semantic tokens. However this will be addressed in Neovim 0.9. Also, differences between how Treesitter applies highlight groups will always create differences.
 
-## :clap: Credits
+## 👏 Credits
 
 ### Contributors
 
