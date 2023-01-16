@@ -3,113 +3,31 @@
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
 
-  - :book: Table of Contents        |onedarkpro.nvim-:book:-table-of-contents|
-  - :sparkles: Features                  |onedarkpro.nvim-:sparkles:-features|
-  - :zap: Requirements                    |onedarkpro.nvim-:zap:-requirements|
-  - :package: Installation            |onedarkpro.nvim-:package:-installation|
-  - :rocket: Usage                            |onedarkpro.nvim-:rocket:-usage|
-  - :wrench: Configuration            |onedarkpro.nvim-:wrench:-configuration|
-  - :rainbow: Helpers                      |onedarkpro.nvim-:rainbow:-helpers|
-  - :electric_plug: Supported Plugins|onedarkpro.nvim-:electric_plug:-supported-plugins|
-  - :camera_flash: Screenshots    |onedarkpro.nvim-:camera_flash:-screenshots|
-  - :gift: Extras                              |onedarkpro.nvim-:gift:-extras|
-  - :question: FAQs                          |onedarkpro.nvim-:question:-faqs|
-  - :clap: Credits                            |onedarkpro.nvim-:clap:-credits|
+  - Features                                        |onedarkpro.nvim-features|
+  - Requirements                                |onedarkpro.nvim-requirements|
+  - Installation                                |onedarkpro.nvim-installation|
+  - Usage                                              |onedarkpro.nvim-usage|
+  - Configuration                              |onedarkpro.nvim-configuration|
+  - Helpers                                          |onedarkpro.nvim-helpers|
+  - Supported Plugins                      |onedarkpro.nvim-supported-plugins|
+  - Screenshots                                  |onedarkpro.nvim-screenshots|
+  - Extras                                            |onedarkpro.nvim-extras|
+  - FAQs                                                |onedarkpro.nvim-faqs|
+  - Credits                                          |onedarkpro.nvim-credits|
 
-<p align="center">
-
-<img src="https://user-images.githubusercontent.com/9512444/197140436-6617b2b7-1b03-4b4f-b81e-38a8ac27ef98.png" alt="OneDarkPro.nvim" />
-
-<h1 align="center">
-
-OneDarkPro.nvim
-
-</h1>
-
-<p align="center">
-
-<a href="https://github.com/olimorris/onedarkpro.nvim/stargazers"><img src="https://img.shields.io/github/stars/olimorris/onedarkpro.nvim?color=c678dd&logoColor=e06c75&style=for-the-badge"></a>
-<a href="https://github.com/olimorris/onedarkpro.nvim/issues"><img src="https://img.shields.io/github/issues/olimorris/onedarkpro.nvim?color=%23d19a66&style=for-the-badge"></a>
-<a href="https://github.com/olimorris/onedarkpro.nvim/blob/main/LICENSE"><img src="https://img.shields.io/github/license/olimorris/onedarkpro.nvim?color=%2361afef&style=for-the-badge"></a>
-<a href="https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/olimorris/onedarkpro.nvim/ci.yml?branch=main&label=tests&style=for-the-badge"></a>
-
-<p align="center">
-
-Highly customisable Neovim theme. With support for custom colors, styles and highlights by filetype<br>
-Inspired by VS Code’s <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
-
-<h3>
-
-Onedark
-
-</h3>
-
-<img src="https://user-images.githubusercontent.com/9512444/197142107-e7ae293b-1afa-499d-87c9-71531eb59930.png" alt="onedark" />
-
-<h3>
-
-Onelight
-
-</h3>
-
-<img src="https://user-images.githubusercontent.com/9512444/197142172-3466567e-650c-4ffa-af0d-50d29a789575.png" alt="onelight" />
-
-<h3>
-
-Onedark Vivid
-
-</h3>
-
-<img src="https://user-images.githubusercontent.com/9512444/197142228-3baacc62-dc43-4600-8c4f-224639e1e635.png" alt="onedark vivid" />
-
-<h3>
-
-Onedark Dark
-
-</h3>
-
-<img
-src="https://user-images.githubusercontent.com/9512444/197142302-e1de9d96-7e7e-474b-a318-870417e2741b.png"
-alt="onedark dark" />
-
-:BOOK: TABLE OF CONTENTS            *onedarkpro.nvim-:book:-table-of-contents*
+FEATURES                                            *onedarkpro.nvim-features*
 
 
-- :sparkles: |onedarkpro.nvim-features|
-- :zap: |onedarkpro.nvim-requirements|
-- :package: |onedarkpro.nvim-installation|
-- :rocket: |onedarkpro.nvim-usage|
-- :wrench: |onedarkpro.nvim-configuration|
-    - :wrench: |onedarkpro.nvim-default-configuration|
-    - :wrench: |onedarkpro.nvim-setting-a-theme|
-    - :wrench: |onedarkpro.nvim-configuring-colors|
-    - :wrench: |onedarkpro.nvim-configuring-highlight-groups|
-    - :wrench: |onedarkpro.nvim-configuring-semantic-tokens|
-    - :wrench: |onedarkpro.nvim-configuring-filetype-highlighting|
-    - :wrench: |onedarkpro.nvim-configuring-plugins|
-    - :wrench: |onedarkpro.nvim-configuring-styles|
-    - :wrench: |onedarkpro.nvim-configuring-options|
-- :rainbow: |onedarkpro.nvim-helpers|
-- :electric_plug: |onedarkpro.nvim-supported-plugins|
-- :camera_flash: |onedarkpro.nvim-screenshots|
-- :gift: |onedarkpro.nvim-extras|
-- :question: |onedarkpro.nvim-faqs|
-- :clap: |onedarkpro.nvim-credits|
+- Automatic caching for faster load times
+- Full Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> support
+- Support for LSP semantic tokens
+- Support for many |onedarkpro.nvim-popular-plugins|
+- Filetype highlighting to allow for greater customisation across different languages
+- Override everything - styles, colors, tokens, highlight groups and filetype groups
+- Create custom highlight groups and even highlight groups by filetypes
 
 
-:SPARKLES: FEATURES                      *onedarkpro.nvim-:sparkles:-features*
-
-
-- :envelope_with_arrow: Automatic caching for faster load times
-- :evergreen_tree: Full Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> support
-- :tickets: Support for LSP semantic tokens
-- :electric_plug: Support for many |onedarkpro.nvim-popular-plugins|
-- :flashlight: Filetype highlighting to allow for greater customisation across different languages
-- :memo: Override everything - styles, colors, tokens, highlight groups and filetype groups
-- :paintbrush: Create custom highlight groups and even highlight groups by filetypes
-
-
-:ZAP: REQUIREMENTS                        *onedarkpro.nvim-:zap:-requirements*
+REQUIREMENTS                                    *onedarkpro.nvim-requirements*
 
 
 - Neovim 0.8+
@@ -118,7 +36,7 @@ alt="onedark dark" />
 - For semantic tokens, Neovim 0.9+ and an LSP server that supports them
 
 
-:PACKAGE: INSTALLATION                *onedarkpro.nvim-:package:-installation*
+INSTALLATION                                    *onedarkpro.nvim-installation*
 
 Install with your package manager of choice:
 
@@ -143,7 +61,7 @@ Install with your package manager of choice:
 <
 
 
-:ROCKET: USAGE                                *onedarkpro.nvim-:rocket:-usage*
+USAGE                                                  *onedarkpro.nvim-usage*
 
 Use the built-in `:colorscheme` command to load:
 
@@ -167,13 +85,13 @@ Additional commands:
 - `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
 
 
-:WRENCH: CONFIGURATION                *onedarkpro.nvim-:wrench:-configuration*
+CONFIGURATION                                  *onedarkpro.nvim-configuration*
 
 DEFAULT CONFIGURATION ~
 
 
-  :bangbang: You only need to the call the `setup` function if you wish to change
-  any of the defaults
+  You only need to the call the `setup` function if you wish to change any of the
+  defaults
 
 
 Click to see the default configuration
@@ -284,8 +202,8 @@ A theme can be set with:
 CONFIGURING COLORS ~
 
 
-  :bangbang: See the |onedarkpro.nvim-helpers| section for information on how to
-  darken, lighten and brighten colors
+  See the |onedarkpro.nvim-helpers| section for information on how to darken,
+  lighten and brighten colors
 
 
 A theme has a palette of 13 core colors alongside many additional ones which
@@ -433,8 +351,8 @@ or _override_ them:
 CONFIGURING SEMANTIC TOKENS ~
 
 
-  :bangbang: Semantic tokens are only available in Neovim 0.9+ and with LSP
-  servers which support it
+  Semantic tokens are only available in Neovim 0.9+ and with LSP servers which
+  support it
 
 
 <img
@@ -554,7 +472,7 @@ To determine which highlight group to add or modify, see the
 |onedarkpro.nvim-faq| section for instructions on using Treesitter Playground.
 
 
-  :bangbang: The theme’s defaults can be found in the
+  The theme’s defaults can be found in the
   `/lua/onedarkpro/highlights/filetypes` directory
 
 
@@ -599,8 +517,8 @@ Or, all of the plugins can be disabled with a select few enabled:
 
 
 
-  :bangbang: For a full list of plugins supported, and their names, see the
-  plugins |onedarkpro.nvim-section|
+  For a full list of plugins supported, and their names, see the plugins
+  |onedarkpro.nvim-section|
 
 
 CONFIGURING STYLES ~
@@ -632,7 +550,7 @@ configured as shown in the example below:
 
 
 
-  :bangbang: See the |Neovim help| for a full list of styles
+  See the |Neovim help| for a full list of styles
 
 
 CONFIGURING OPTIONS ~
@@ -711,7 +629,7 @@ Highlighting Inactive Windows          The theme supports changing the color of
 <
 
 
-:RAINBOW: HELPERS                          *onedarkpro.nvim-:rainbow:-helpers*
+HELPERS                                              *onedarkpro.nvim-helpers*
 
 The theme comes with a set of helpers which enable you to interact with and
 modify colors. The helper file can be accessed via
@@ -740,8 +658,8 @@ the colors from the currently loaded theme. This then allows a colorizer plugin
 to highlight the colors.
 
 
-  :bangbang: Please ensure that the colorscheme loads ahead of any plugins which
-  may wish to use the colors
+  Please ensure that the colorscheme loads ahead of any plugins which may wish to
+  use the colors
 
 
                        *onedarkpro.nvim-Getting-colors-before-the-theme-loads*
@@ -765,8 +683,8 @@ Getting colors before the theme loads  Whilst the `get_colors` method is useful
 
 
 
-  :bangbang: This will only output the theme’s core color palette and not any
-  generated colors
+  This will only output the theme’s core color palette and not any generated
+  colors
 
 
 DARKEN/LIGHTEN/BRIGHTEN COLORS ~
@@ -824,7 +742,7 @@ This prevents the theme from trying to resolve the color before the whole of
 the configuration has been parsed. This also ensures that the startup time for
 the theme remains small too.
 
-:ELECTRIC_PLUG: SUPPORTED PLUGINS*onedarkpro.nvim-:electric_plug:-supported-plugins*
+SUPPORTED PLUGINS                          *onedarkpro.nvim-supported-plugins*
 
 The theme supports the following plugins:
 
@@ -863,7 +781,7 @@ The theme supports the following plugins:
 - Which Key <https://github.com/folke/which-key.nvim> (`which_key`)
 
 
-:CAMERA_FLASH: SCREENSHOTS        *onedarkpro.nvim-:camera_flash:-screenshots*
+SCREENSHOTS                                      *onedarkpro.nvim-screenshots*
 
 LUA ~
 
@@ -889,7 +807,7 @@ RUBY ~
 src="https://user-images.githubusercontent.com/9512444/196185441-6cba7191-63d0-4dd3-abde-12b99ed4bec6.png"
 alt="Ruby" />
 
-:GIFT: EXTRAS                                  *onedarkpro.nvim-:gift:-extras*
+EXTRAS                                                *onedarkpro.nvim-extras*
 
 LUALINE ~
 
@@ -943,7 +861,7 @@ Configuring styles/colors/highlight groups based on the theme When configuring
 <
 
 
-:QUESTION: FAQS                              *onedarkpro.nvim-:question:-faqs*
+FAQS                                                    *onedarkpro.nvim-faqs*
 
 *onedarkpro.nvim-I-want-to-change-X-highlight-group-but-I-don’t-know-what-it-is.-How-do-I-find-out?*
 
@@ -971,7 +889,7 @@ How can I get the theme to match VS Code exactly? I’ve tried to ensure that
                                        create differences.
 
 
-:CLAP: CREDITS                                *onedarkpro.nvim-:clap:-credits*
+CREDITS                                              *onedarkpro.nvim-credits*
 
 CONTRIBUTORS ~
 
