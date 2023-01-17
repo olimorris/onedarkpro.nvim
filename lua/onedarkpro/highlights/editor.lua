@@ -29,7 +29,7 @@ function M.groups(theme)
         EndOfBuffer = { fg = theme.palette.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
         ErrorMsg = { fg = theme.palette.red }, -- error messages on the command line
         VertSplit = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- the column separating vertically split windows
-        Folded = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- line used for closed folds
+        Folded = { bg = config.options.transparency and "NONE" or theme.generated.fold, fg = theme.palette.gray }, -- line used for closed folds
         FoldedNC = {
             bg = config.options.transparency and "NONE" or theme.generated.color_column,
             fg = theme.palette.gray,

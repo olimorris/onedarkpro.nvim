@@ -30,6 +30,7 @@ local function generate(colors)
     return {
         cursorline = colors.cursorline or color.darken(colors.bg, 2.5),
         color_column = colors.color_column or color.darken(colors.bg, 3.2),
+        fold = colors.fold or color.darken(colors.bg, 3),
         indentline = colors.indentline or color.darken(colors.bg, 7.3),
         selection = colors.selection or color.darken(colors.bg, 6.5),
         float_bg = colors.float_bg or color.darken(colors.bg, 4.5),
