@@ -3,9 +3,6 @@ NV_VERSION := $(shell nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 format:
 	stylua --check .
 
-token:
-	nvim --headless -u tests/semantic_token_spec.vim +SemanticTokenSpec
-
 test:
 	nvim --headless --noplugin -u tests/basic_spec.vim +BasicSpec
 	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec

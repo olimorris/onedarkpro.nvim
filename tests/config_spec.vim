@@ -54,7 +54,10 @@ onedarkpro.setup({
         TestHighlightGroup = {
             fg = "${red}"
         },
-        TestHighlightGroup2 = { link = "Statement" }
+        TestHighlightGroup2 = { link = "Statement" },
+        ConditionalByBackground = { fg = { dark = "#FF0000", light = "#FFFFFF" } },
+        ConditionalByBackgroundByVariable = { bg = { dark = "${red}", light = "${blue}" } },
+        ConditionalByTheme = { bg = { onedark_vivid = "${red}", onelight = "${blue}" } },
     },
 })
 vim.cmd [[colorscheme onedark_vivid]]

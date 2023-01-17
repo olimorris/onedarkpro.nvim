@@ -31,16 +31,31 @@ local function expand_values(tbl)
     return string.format([[{ %s }]], table.concat(values, ", "))
 end
 
+--- Resolve a highlight group's value from a table
+---@param value table|string highlight group values
+---@param theme table the theme
+---@return table|string|nil
+local function resolve_value(value, theme)
+    if type(value) == "table" then
+        if value[theme.meta.background] then return value[theme.meta.background] end
+        if value[theme.meta.name] then return value[theme.meta.name] end
+        return
+    end
+
+    return value
+end
+
 ---Form highlights using the Neovim API
 ---@param name string the highlight group name
 ---@param values table the highlight group values
+---@param theme table the theme
 ---@return string
-local function highlight(name, values)
+local function highlight(name, values, theme)
     if values.link then return string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, values.link) end
 
     local val = parse_style(values.style)
-    val.bg = values.bg
-    val.fg = values.fg
+    val.bg = resolve_value(values.bg, theme)
+    val.fg = resolve_value(values.fg, theme)
     val.sp = values.sp
     val.blend = values.blend
 
@@ -82,7 +97,7 @@ vim.o.background = "%s"
 
     -- Colorscheme highlight groups
     for name, values in pairs(highlight_groups) do
-        table.insert(lines, highlight(name, values))
+        table.insert(lines, highlight(name, values, theme))
     end
 
     -- Autocmds

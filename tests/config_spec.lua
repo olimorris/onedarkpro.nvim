@@ -82,6 +82,38 @@ describe("Using the theme", function()
         assert.equals("TestHighlightGroup2 xxx links to Statement", output)
     end)
 
+    it("it should be able to use bg color as a conditional", function()
+        local output = vim.api.nvim_get_hl_by_name("ConditionalByBackground", true)
+        assert.equals(hex(output.foreground), "#ff0000")
+
+        vim.cmd([[colorscheme onelight]])
+
+        output = vim.api.nvim_get_hl_by_name("ConditionalByBackground", true)
+        assert.equals(hex(output.foreground), "#ffffff")
+    end)
+
+    it("it should be able to use bg color as a conditional with variables", function()
+        local output = vim.api.nvim_get_hl_by_name("ConditionalByBackgroundByVariable", true)
+        -- Remember we've overwritten red!
+        assert.equals(hex(output.background), "#e06c75")
+
+        vim.cmd([[colorscheme onelight]])
+
+        output = vim.api.nvim_get_hl_by_name("ConditionalByBackgroundByVariable", true)
+        assert.equals(hex(output.background), "#118dc3")
+    end)
+
+    it("it should be able to use a theme as a conditional with variables", function()
+        local output = vim.api.nvim_get_hl_by_name("ConditionalByTheme", true)
+        -- Remember we've overwritten red!
+        assert.equals(hex(output.background), "#e06c75")
+
+        vim.cmd([[colorscheme onelight]])
+
+        output = vim.api.nvim_get_hl_by_name("ConditionalByTheme", true)
+        assert.equals(hex(output.background), "#118dc3")
+    end)
+
     it("it should be able to load plugins that we have enabled", function()
         local output = pcall(vim.api.nvim_exec, "hi OpSidebarHeader", true)
         assert.equals(true, output)

@@ -302,9 +302,31 @@ require("onedarkpro").setup({
 })
 ```
 
+**Specifying highlight attributes by theme or background**
+
+As with colors, highlight attributes may be specified by using the theme name or the background color. For example:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { fg = { onedark = "${yellow}", onelight = "${my_new_red}" } }
+  }
+})
+```
+
+Alternatively, by background color:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { fg = { dark = "${yellow}", light = "${my_new_red}" } }
+  }
+})
+```
+
 ### Configuring semantic tokens
 
-> ‼️ Semantic tokens are only available in Neovim 0.9+ and with LSP servers which support it
+> ‼️ Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers
 
 <img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
 alt="Semantic Tokens" />
@@ -445,7 +467,7 @@ require("onedarkpro").setup({
     numbers = "NONE",
     strings = "NONE",
     comments = "italic",
-    keywords = "bold,italc",
+    keywords = "bold,italic",
     constants = "NONE",
     functions = "italic",
     operators = "NONE",
@@ -537,7 +559,7 @@ You can also use the command `:OnedarkproColors` to open a scratch buffer with t
 
 **Getting colors before the theme loads**
 
-Whilst the `get_colors` method is useful in most cases, it may be neccessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors when configuring the theme. For this the `get_preloaded_colors` method can be used:
+Whilst the `get_colors` method is useful in most cases, it may be necessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors which are based on the theme's own palette. For this the `get_preloaded_colors` method can be used:
 
 ```lua
 local color = require("onedarkpro.helpers")
@@ -674,31 +696,19 @@ function ToggleTheme()
 end
 ```
 
-**Configuring styles/colors/highlight groups based on the theme**
-
-When configuring the theme, it may be useful to apply different colors or styles depending on whether `onedark` or `onelight` is active. This can be achieved by applying a conditional in the configuration:
-
-```lua
-require("onedarkpro").setup({
-  highlights = {
-    TSField = {
-      fg = (vim.o.background == "dark" and "${red}" or "${green}")
-    }
-  }
-})
-```
-
 ## ❓ FAQs
 
 **I want to change X highlight group but I don't know what it is. How do I find out?**
 
 If you're using Neovim 0.9+, the `:Inspect` command is available.
 
-If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any treesitter or syntax highlight groups under the cursor.
+If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any Treesitter or syntax highlight groups under the cursor.
 
-**How can I get the theme to match VS Code exactly?**
+**I've noticed some differences between the theme and VS Code. Why is this?**
 
-I've tried to ensure that the theme resembles the original VS Code theme as much as possible, however there are some differences. This is mainly due to Neovim not currently supporting semantic tokens. However this will be addressed in Neovim 0.9. Also, differences between how Treesitter applies highlight groups will always create differences.
+I've tried to ensure that the theme resembles the original VS Code theme as much as possible, however there are some differences. This is mainly due to Neovim not currently supporting modifiers. Also, differences between how Treesitter and VS Code classify highlight groups will always create variances.
+
+Please open up an issue or a discussion if you notice any discrepencies.
 
 ## 👏 Credits
 
@@ -714,5 +724,5 @@ Thanks to the following contributors for their work on the colorscheme:
 The following colorschemes were used as an inspiration:
 
 - [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this colorscheme
-- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the initial structure of the code base
+- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the genius idea of caching and general code structure
 - [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration
