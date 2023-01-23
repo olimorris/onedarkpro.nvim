@@ -34,17 +34,20 @@ function M.groups(theme)
             bg = config.options.transparency and "NONE" or theme.generated.color_column,
             fg = theme.palette.gray,
         }, -- Folded for inactive windows
-        FoldColumn = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- 'foldcolumn'
+        FoldColumn = {
+            bg = config.options.transparency and "NONE" or theme.palette.bg,
+            fg = theme.generated.line_number,
+        }, -- 'foldcolumn'
         SignColumn = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- column where |signs| are displayed
         SignColumnNC = {
             bg = config.options.transparency and "NONE" or theme.generated.color_column,
             fg = theme.palette.gray,
         }, -- SignColumn for inactive windows
         Substitute = { bg = theme.palette.yellow, fg = theme.palette.bg }, -- |:substitute| replacement text highlighting
-        LineNr = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+        LineNr = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.generated.line_number }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         LineNrNC = {
             bg = config.options.transparency and "NONE" or theme.generated.color_column,
-            fg = theme.palette.gray,
+            fg = theme.generated.line_number,
         }, -- LineNr for inactive windows
         MatchParen = { fg = theme.palette.cyan }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
         ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")

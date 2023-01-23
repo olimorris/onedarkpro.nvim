@@ -31,6 +31,7 @@ local function generate(colors)
         cursorline = colors.cursorline or color.lighten(colors.bg, 2.8),
         color_column = colors.color_column or color.lighten(colors.bg, 2.4),
         fold = colors.fold or color.lighten(colors.bg, 3),
+        line_number = colors.line_number or "#495162",
         indentline = colors.indentline or "#3b4048",
         selection = colors.selection or color.lighten(colors.bg, 8.2),
         float_bg = colors.float_bg or color.darken(colors.bg, 2.8),
