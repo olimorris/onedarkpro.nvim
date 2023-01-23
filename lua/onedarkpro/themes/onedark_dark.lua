@@ -35,6 +35,11 @@ local function generate(colors)
         selection = colors.selection or color.lighten(colors.bg, 13),
         float_bg = colors.float_bg or color.darken(colors.bg, 3),
 
+        -- Git colors
+        git_add = colors.git_add or "#109868",
+        git_modify = colors.git_modify or "#948b60",
+        git_delete = colors.git_delete or "#9a353d",
+
         -- Git diff
         diff_add = colors.diff_add or "#003e4a",
         diff_delete = colors.diff_delete or "#501b20",
