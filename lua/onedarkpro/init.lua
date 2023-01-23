@@ -91,20 +91,4 @@ function M.load()
     if theme then theme() end
 end
 
----Return all of the colors in a table for a given theme or the current theme
----@param theme_name? string
----@return table
-function M.get_colors(theme_name)
-    require("onedarkpro.utils.deprecate").write(
-        "----------\n",
-        "The use of: ",
-        { "require('onedarkpro').get_colors()", "ErrorMsg" },
-        ". Please replace with ",
-        { "require('onedarkpro.helpers').get_colors()", "Title" },
-        " instead\nThis will be removed from the plugin on ",
-        { "2023-01-20", "WarningMsg" }
-    )
-    return require("onedarkpro.helpers").get_colors(theme_name or config.theme)
-end
-
 return M
