@@ -18,7 +18,7 @@ Example of template :
 ---@param colorTable table color table to process
 ---@return table color table with the new colors
 function M.preRender(colorTable)
-  return colorTable
+    return colorTable
 end
 
 ---Render the template
