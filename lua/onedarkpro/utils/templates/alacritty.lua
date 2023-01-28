@@ -6,6 +6,7 @@ colors:
   primary:
     background: '{bg}'
     foreground: '{fg}'
+
   normal:
     black:      '{black}'
     red:        '{red}'
@@ -15,6 +16,24 @@ colors:
     magenta:    '{purple}'
     cyan:       '{cyan}'
     white:      '{white}'
+
+  bright:
+    black:      '{brightBlack}'
+    red:        '{brightRed}'
+    green:      '{brightGreen}'
+    yellow:     '{brightYellow}'
+    blue:       '{brightBlue}'
+    magenta:    '{brightPurple}'
+    cyan:       '{brightCyan}'
+    white:      '{brightWhite}'
+
+  cursor:
+    text: CellBackground
+    cursor: CellForeground # syntax-cursor-color
+
+  selection:
+    text: CellForeground
+    background: "{gray}"
 ]]
 
 return M
