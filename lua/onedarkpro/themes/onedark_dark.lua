@@ -38,8 +38,14 @@ local function generate(colors)
 
         -- Git colors
         git_add = colors.git_add or "#109868",
-        git_modify = colors.git_modify or "#948b60",
+        git_change = colors.git_change or "#948B60",
         git_delete = colors.git_delete or "#9a353d",
+
+        git_hunk_add = colors.git_hunk_add or "#43554d",
+        git_hunk_delete = colors.git_hunk_delete or "#502d30",
+        git_hunk_add_inline = colors.git_hunk_add_inline or "#3f534f",
+        git_hunk_change_inline = colors.git_hunk_change_inline or "#41483d",
+        git_hunk_delete_inline = colors.git_hunk_delete_inline or "#6f2e2d",
 
         -- Git diff
         diff_add = colors.diff_add or "#003e4a",

@@ -7,16 +7,18 @@ function M.groups(theme)
     return {
         GitSignsAdd = { fg = theme.generated.git_add },
         GitSignsAddCursorLine = { fg = theme.generated.git_add, bg = theme.palette.cursorline },
-        GitSignsChange = { fg = theme.generated.git_modify },
-        GitSignsChangeCursorLine = { fg = theme.generated.git_modify, bg = theme.palette.cursorline },
+        GitSignsChange = { fg = theme.generated.git_change },
+        GitSignsChangeCursorLine = { fg = theme.generated.git_change, bg = theme.palette.cursorline },
         GitSignsDelete = { fg = theme.generated.git_delete },
         GitSignsDeleteCursorLine = { fg = theme.generated.git_delete, bg = theme.palette.cursorline },
         GitSignsUntracked = { fg = theme.palette.blue },
         GitSignsUntrackedCursorLine = { fg = theme.palette.blue, bg = theme.palette.cursorline },
 
-        GitSignsAddInline = { bg = theme.generated.git_add },
-        GitSignsDeleteInline = { bg = theme.generated.git_delete },
-        GitSignsChangeInline = { bg = theme.generated.git_modify },
+        GitSignsAddPreview = { bg = theme.generated.git_hunk_add },
+        GitSignsDeletePreview = { bg = theme.generated.git_hunk_delete },
+        GitSignsAddInline = { bg = theme.generated.git_hunk_add_inline },
+        GitSignsChangeInline = { bg = theme.generated.git_hunk_change_inline },
+        GitSignsDeleteInline = { bg = theme.generated.git_hunk_delete_inline },
     }
 end
 
