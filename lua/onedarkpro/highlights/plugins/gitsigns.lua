@@ -13,6 +13,10 @@ function M.groups(theme)
         GitSignsDeleteCursorLine = { fg = theme.generated.git_delete, bg = theme.palette.cursorline },
         GitSignsUntracked = { fg = theme.palette.blue },
         GitSignsUntrackedCursorLine = { fg = theme.palette.blue, bg = theme.palette.cursorline },
+
+        GitSignsAddInline = { bg = theme.generated.git_add },
+        GitSignsDeleteInline = { bg = theme.generated.git_delete },
+        GitSignsChangeInline = { bg = theme.generated.git_modify },
     }
 end
 
