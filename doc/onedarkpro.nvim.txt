@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 02
+*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 06
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
@@ -644,7 +644,7 @@ can be used:
 
 >lua
     local color = require("onedarkpro.helpers")
-
+    
     local colors = color.get_colors()
     print(colors.purple) -- c678dd (if using the Onedark theme)
 <
@@ -672,7 +672,7 @@ the `get_preloaded_colors` method can be used:
 
 >lua
     local color = require("onedarkpro.helpers")
-
+    
     local colors = color.get_preloaded_colors()
     print(colors.purple) -- c678dd (if using the Onedark theme)
 <
@@ -699,7 +699,7 @@ To use this in practice:
 
 >lua
     local color = require("onedarkpro.helpers")
-
+    
     -- Load the red color from the onedark theme and lighten it by an amount of 7
     print(color.lighten("red", 7, "onedark")) -- e68991
 <
@@ -709,7 +709,7 @@ Alternatively:
 
 >lua
     local color = require("onedarkpro.helpers")
-
+    
     -- Darken Red1 by an amount of 10
     print(color.darken("FF0000", 10)) -- cc0000
 <
@@ -787,9 +787,17 @@ found in the Lualine folder
 
 **Terminal themes**
 
-The theme comes with Alacritty <https://github.com/alacritty/alacritty> and
-Kitty <https://github.com/kovidgoyal/kitty> colorschemes. These can be found in
-the extras <https://github.com/olimorris/onedarkpro.nvim/tree/main/extras>
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and
+_Windows Terminal_ using the following commands:
+
+
+- `:OnedarkproExportToKitty`
+- `:OnedarkproExportToAlacritty`
+- `:OnedarkproExportToWindowsTerminal`
+
+
+The templates for these themes can be found in the extra
+<https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra>
 folder.
 
 **Toggling between themes**
@@ -830,15 +838,6 @@ Treesitter and VS Code classify highlight groups will always create variances.
 Please open up an issue or a discussion if you notice any discrepencies.
 
 CREDITS                                              *onedarkpro.nvim-credits*
-
-**Contributors**
-
-Thanks to the following contributors for their work on the colorscheme:
-
-
-- mmirus <https://github.com/mmirus> - contributions <https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus>
-- mrjones2014 <https://github.com/mrjones2014> - contributions <https://github.com/olimorris/onedarkpro.nvim/commits?author=mrjones2014>
-
 
 **Inspiration**
 
