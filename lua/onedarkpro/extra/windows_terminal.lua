@@ -1,4 +1,4 @@
-local M = require("onedarkpro.utils.colortemplate")
+local M = require("onedarkpro.utils.template")
 
 M.template = [[
 {
@@ -11,14 +11,14 @@ M.template = [[
             "background": "{bg}",
             "black": "{black}",
             "blue": "{blue}",
-            "brightBlack": "{brightBlack}",
-            "brightBlue": "{brightBlue}",
-            "brightCyan": "{brightCyan}",
-            "brightGreen": "{brightGreen}",
-            "brightPurple": "{brightPurple}",
-            "brightRed": "{brightRed}",
-            "brightWhite": "{brightWhite}",
-            "brightYellow": "{brightYellow}",
+            "brightBlack": "{bright_black}",
+            "brightBlue": "{bright_blue}",
+            "brightCyan": "{bright_cyan}",
+            "brightGreen": "{bright_green}",
+            "brightPurple": "{bright_purple}",
+            "brightRed": "{bright_red}",
+            "brightWhite": "{bright_white}",
+            "brightYellow": "{bright_yellow}",
             "cyan": "{cyan}",
             "foreground": "{fg}",
             "green": "{green}",

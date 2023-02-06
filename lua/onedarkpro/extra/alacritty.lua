@@ -1,4 +1,4 @@
-local M = require("onedarkpro.utils.colortemplate")
+local M = require("onedarkpro.utils.template")
 
 M.template = [[
 # Colors - https://github.com/olimorris/onedarkpro.nvim
@@ -18,14 +18,14 @@ colors:
     white:      '{white}'
 
   bright:
-    black:      '{brightBlack}'
-    red:        '{brightRed}'
-    green:      '{brightGreen}'
-    yellow:     '{brightYellow}'
-    blue:       '{brightBlue}'
-    magenta:    '{brightPurple}'
-    cyan:       '{brightCyan}'
-    white:      '{brightWhite}'
+    black:      '{bright_black}'
+    red:        '{bright_red}'
+    green:      '{bright_green}'
+    yellow:     '{bright_yellow}'
+    blue:       '{bright_blue}'
+    magenta:    '{bright_purple}'
+    cyan:       '{bright_cyan}'
+    white:      '{bright_white}'
 
   cursor:
     text: CellBackground
