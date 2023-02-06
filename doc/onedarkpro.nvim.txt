@@ -644,7 +644,7 @@ can be used:
 
 >lua
     local color = require("onedarkpro.helpers")
-    
+
     local colors = color.get_colors()
     print(colors.purple) -- c678dd (if using the Onedark theme)
 <
@@ -672,7 +672,7 @@ the `get_preloaded_colors` method can be used:
 
 >lua
     local color = require("onedarkpro.helpers")
-    
+
     local colors = color.get_preloaded_colors()
     print(colors.purple) -- c678dd (if using the Onedark theme)
 <
@@ -699,7 +699,7 @@ To use this in practice:
 
 >lua
     local color = require("onedarkpro.helpers")
-    
+
     -- Load the red color from the onedark theme and lighten it by an amount of 7
     print(color.lighten("red", 7, "onedark")) -- e68991
 <
@@ -709,7 +709,7 @@ Alternatively:
 
 >lua
     local color = require("onedarkpro.helpers")
-    
+
     -- Darken Red1 by an amount of 10
     print(color.darken("FF0000", 10)) -- cc0000
 <
