@@ -680,7 +680,7 @@ The theme has Lualine support out of the box for all of its themes. This can be 
 
 **Terminal themes**
 
-The theme comes with the ability to export colors to Kitty, Alacritty and Windows Terminal using the following commands:
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and _Windows Terminal_ using the following commands:
 
 - `:OnedarkproExportToKitty`
 - `:OnedarkproExportToAlacritty`
