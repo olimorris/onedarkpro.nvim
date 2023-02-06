@@ -82,8 +82,6 @@ Additional commands:
 - `:OnedarkproCache` force generate a new cache files for the themes (you won’t often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
-- :OnedarkproExportToAlacritty exports the loaded theme to Alacritty configuration file
-- :OnedarkproExportToWindowsTerminal exports the loaded theme to Windows Terminal configuration file
 
 
 CONFIGURATION                                  *onedarkpro.nvim-configuration*

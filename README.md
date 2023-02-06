@@ -680,7 +680,13 @@ The theme has Lualine support out of the box for all of its themes. This can be 
 
 **Terminal themes**
 
-The theme comes with [Alacritty](https://github.com/alacritty/alacritty) and [Kitty](https://github.com/kovidgoyal/kitty) colorschemes. These can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder.
+The theme comes with the ability to export colors to Kitty, Alacritty and Windows Terminal using the following commands:
+
+- `:OnedarkproExportToKitty`
+- `:OnedarkproExportToAlacritty`
+- `:OnedarkproExportToWindowsTerminal`
+
+The templates for these themes can be found in the [extra](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra) folder.
 
 **Toggling between themes**
 
@@ -711,13 +717,6 @@ I've tried to ensure that the theme resembles the original VS Code theme as much
 Please open up an issue or a discussion if you notice any discrepencies.
 
 ## 👏 Credits
-
-**Contributors**
-
-Thanks to the following contributors for their work on the colorscheme:
-
-- [mmirus](https://github.com/mmirus) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mmirus)
-- [mrjones2014](https://github.com/mrjones2014) - [contributions](https://github.com/olimorris/onedarkpro.nvim/commits?author=mrjones2014)
 
 **Inspiration**
 
