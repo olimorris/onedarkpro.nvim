@@ -24,11 +24,11 @@ function M.groups(theme)
             bg = config.options.transparency and "NONE" or theme.generated.float_bg,
             fg = theme.palette.gray,
         },
+        TelescopePromptNormal = { link = "TelescopeNormal" },
         TelescopePromptBorder = { link = "TelescopeBorder" },
         TelescopePreviewBorder = { link = "TelescopeBorder" },
-        TelescopeMatching = { fg = theme.palette.green },
         TelescopePromptPrefix = { fg = theme.palette.purple },
-        TelescopePrompt = { link = "TelescopeNormal" },
+        TelescopeMatching = { fg = theme.palette.green },
     }
 end
 
