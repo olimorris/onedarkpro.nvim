@@ -8,6 +8,7 @@ local defaults = {
     cache_suffix = "_compiled",
     colors = {}, -- Add/override colors
     filetypes = { -- Enable/disable specific plugins
+        java = true,
         javascript = true,
         lua = true,
         markdown = true,
@@ -61,6 +62,7 @@ local defaults = {
             ["@property"] = { fg = "${red}" },
             ["@global"] = { fg = "${red}" },
             ["@defaultLibrary"] = { fg = "${cyan}" },
+            ["@modifier"] = { fg = "${purple}" },
         },
     },
     highlights = {}, -- Add/override highlights

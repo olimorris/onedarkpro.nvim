@@ -99,6 +99,7 @@ Additional commands:
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
+    java = true,
     javascript = true,
     lua = true,
     markdown = true,
@@ -351,6 +352,7 @@ require("onedarkpro").setup({
 
 The theme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
+- `java`
 - `javascript`
 - `lua`
 - `markdown`
