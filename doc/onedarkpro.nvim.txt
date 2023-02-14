@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 10
+*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 14
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
@@ -99,6 +99,7 @@ Click to see the default configuration
     require("onedarkpro").setup({
       colors = {}, -- Override default colors or create your own
       filetypes = { -- Override which filetype highlight groups are loaded
+        java = true,
         javascript = true,
         lua = true,
         markdown = true,
@@ -407,6 +408,7 @@ original VS Code theme. By default, all of the filetypes supported are loaded
 at runtime. The theme currently has support for:
 
 
+- `java`
 - `javascript`
 - `lua`
 - `markdown`
