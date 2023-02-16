@@ -51,7 +51,7 @@ end
 ---@param theme table the theme
 ---@return string
 local function highlight(name, values, theme)
-    if values.link then return string.format([[vim.api.nvim_set_hl(0, "%s", { link = "%s" })]], name, values.link) end
+    if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
 
     local val = parse_style(values.style)
     val.bg = resolve_value(values.bg, theme)
@@ -59,7 +59,7 @@ local function highlight(name, values, theme)
     val.sp = values.sp
     val.blend = values.blend
 
-    return string.format([[vim.api.nvim_set_hl(0, "%s", %s)]], name, expand_values(val))
+    return string.format([[set_hl(0, "%s", %s)]], name, expand_values(val))
 end
 
 ---Compile the colorscheme
@@ -77,6 +77,7 @@ function M.compile(opts)
         string.format(
             [[
 require("onedarkpro").compiled = string.dump(function()
+local set_hl = vim.api.nvim_set_hl
 if vim.g.colors_name then vim.cmd("hi clear") end
 vim.o.termguicolors = true
 vim.g.colors_name = "%s"
