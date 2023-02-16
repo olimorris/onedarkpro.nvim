@@ -63,11 +63,10 @@ local function highlight(name, values, theme)
 end
 
 ---Compile the colorscheme
----@param opts table
+---@param theme string
 ---@return function
-function M.compile(opts)
-    opts = opts or {}
-    local theme = require("onedarkpro.theme").load(opts.theme or config.theme)
+function M.compile(theme)
+    theme = require("onedarkpro.theme").load(theme or config.theme)
     local highlight_groups = require("onedarkpro.highlight").groups(theme)
 
     --Encase the colorscheme's logic in a function which can be executed with a
@@ -76,7 +75,7 @@ function M.compile(opts)
     local lines = {
         string.format(
             [[
-require("onedarkpro").compiled = string.dump(function()
+return string.dump(function()
 local set_hl = vim.api.nvim_set_hl
 if vim.g.colors_name then vim.cmd("hi clear") end
 vim.o.termguicolors = true

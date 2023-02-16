@@ -11,9 +11,10 @@ function M.cache()
     local compiler = require("onedarkpro.lib.compile")
 
     for _, theme in ipairs(themes) do
-        local t = { theme = theme }
-        compiler.compile(t)
-        cache.write(t)
+        cache.write({
+            theme = theme,
+            cache = compiler.compile(theme),
+        })
     end
 end
 
