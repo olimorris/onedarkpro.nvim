@@ -720,10 +720,9 @@ Please open up an issue or a discussion if you notice any discrepencies.
 
 ## 👏 Credits
 
-**Inspiration**
-
-The following colorschemes were used as an inspiration:
+The following colorschemes serve as inspiration:
 
 - [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this colorscheme
-- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the genius idea of caching and general code structure
+- [Catppuccin/nvim](https://github.com/catppuccin/nvim) - For the genius idea of hashing and caching and pushing the envelope of neovim colorschemes
+- [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the original code structure and generally great ideas
 - [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration
