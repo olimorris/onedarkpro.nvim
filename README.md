@@ -220,10 +220,13 @@ New colors may be created which will then be merged into a theme's color palette
 ```lua
 require("onedarkpro").setup({
   colors = {
-    my_new_red = "#f44336"
+    my_new_red = "#f44336",
+    my_new_green = "require('onedarkpro.helpers').darken('green', 10, 'onedark')"
   }
 })
 ```
+
+> ‼️ See the [helpers](#-helpers) section to understand how to use the color helpers
 
 These can then be used for custom highlight groups if desired:
 
@@ -232,6 +235,7 @@ require("onedarkpro").setup({
   highlights = {
     Error = {
       fg = "${my_new_red}",
+      bg = "${my_new_green}"
     },
   }
 })
