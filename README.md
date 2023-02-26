@@ -90,7 +90,7 @@ Additional commands:
 
 ### Default configuration
 
-> :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults
+> :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults.
 
 <details>
   <summary>Click to see the default configuration</summary>
@@ -199,8 +199,6 @@ vim.cmd("colorscheme onedark")
 
 ### Configuring colors
 
-> :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
-
 A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
 The default colors can be changed by specifying the name of the color and a new hex code:
@@ -212,6 +210,8 @@ require("onedarkpro").setup({
   }
 })
 ```
+
+> :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors.
 
 **Specifying new colors**
 
@@ -226,7 +226,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: See the [helpers](#-helpers) section to understand how to use the color helpers
+> :bangbang: See the [helpers](#-helpers) section to understand how to use the color helpers.
 
 These can then be used for custom highlight groups if desired:
 
@@ -331,7 +331,7 @@ require("onedarkpro").setup({
 
 ### Configuring semantic tokens
 
-> :bangbang: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers
+> :bangbang: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
 
 <img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
 alt="Semantic Tokens" />
@@ -421,7 +421,7 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> :bangbang: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
+> :bangbang: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory.
 
 ### Configuring plugins
 
@@ -459,7 +459,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
+> :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins).
 
 ### Configuring styles
 
@@ -485,7 +485,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
+> :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles.
 
 ### Configuring options
 
@@ -561,7 +561,7 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
-> :bangbang: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
+> :bangbang: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors.
 
 **Getting colors before the theme loads**
 
@@ -574,7 +574,7 @@ local colors = color.get_preloaded_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-> :bangbang: This will only output the theme's core color palette and not any generated colors
+> :bangbang: This will only output the theme's core color palette and not any generated colors.
 
 **Darken/Lighten/Brighten colors**
 
