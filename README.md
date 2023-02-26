@@ -27,24 +27,24 @@
 
 <!-- panvimdoc-ignore-end -->
 
-## ✨ Features
+## :sparkles: Features
 
-- 📩 Automatic caching for faster load times
-- 🌲 Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
-- 🎟️ Support for LSP semantic tokens
-- 🔌 Support for many [popular plugins](#electric_plug-supported-plugins)
-- 🔦 Filetype highlighting to allow for greater customisation across different languages
-- 📝 Override everything - styles, colors, tokens, highlight groups and filetype groups
-- 🖌️ Create custom highlight groups and even highlight groups by filetypes
+- :envelope_with_arrow: Automatic caching for faster load times
+- :evergreen_tree: Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support
+- :tickets: Support for LSP semantic tokens
+- :electric_plug: Support for many [popular plugins](#electric_plug-supported-plugins)
+- :flashlight: Filetype highlighting to allow for greater customisation across different languages
+- :memo: Override everything - styles, colors, tokens, highlight groups and filetype groups
+- :paintbrush: Create custom highlight groups and even highlight groups by filetypes
 
-## ⚡ Requirements
+## :zap: Requirements
 
 - Neovim 0.8+
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 - For semantic tokens, Neovim 0.9+ and an LSP server that supports them
 
-## 📦 Installation
+## :package: Installation
 
 Install with your package manager of choice:
 
@@ -66,7 +66,7 @@ use "olimorris/onedarkpro.nvim"
 Plug "olimorris/onedarkpro.nvim"
 ```
 
-## 🚀 Usage
+## :rocket: Usage
 
 Use the built-in `:colorscheme` command to load:
 
@@ -86,11 +86,11 @@ Additional commands:
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
 
-## 🔧 Configuration
+## :wrench: Configuration
 
 ### Default configuration
 
-> ‼️ You only need to the call the `setup` function if you wish to change any of the defaults
+> :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults
 
 <details>
   <summary>Click to see the default configuration</summary>
@@ -199,7 +199,7 @@ vim.cmd("colorscheme onedark")
 
 ### Configuring colors
 
-> ‼️ See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
+> :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors
 
 A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
@@ -226,7 +226,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> ‼️ See the [helpers](#-helpers) section to understand how to use the color helpers
+> :bangbang: See the [helpers](#-helpers) section to understand how to use the color helpers
 
 These can then be used for custom highlight groups if desired:
 
@@ -331,7 +331,7 @@ require("onedarkpro").setup({
 
 ### Configuring semantic tokens
 
-> ‼️ Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers
+> :bangbang: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers
 
 <img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
 alt="Semantic Tokens" />
@@ -421,7 +421,7 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> ‼️ The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
+> :bangbang: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory
 
 ### Configuring plugins
 
@@ -459,7 +459,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> ‼️ For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
+> :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins)
 
 ### Configuring styles
 
@@ -485,7 +485,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> ‼️ See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
+> :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles
 
 ### Configuring options
 
@@ -542,7 +542,7 @@ require("onedarkpro").setup({
 })
 ```
 
-## 🌈 Helpers
+## :rainbow: Helpers
 
 The theme comes with a set of helpers which enable you to interact with and modify colors. The helper file can be accessed via `require("onedarkpro.helpers")`.
 
@@ -561,7 +561,7 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
-> ‼️ Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
+> :bangbang: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors
 
 **Getting colors before the theme loads**
 
@@ -574,7 +574,7 @@ local colors = color.get_preloaded_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-> ‼️ This will only output the theme's core color palette and not any generated colors
+> :bangbang: This will only output the theme's core color palette and not any generated colors
 
 **Darken/Lighten/Brighten colors**
 
@@ -619,7 +619,7 @@ require("onedarkpro").setup({
 
 This prevents the theme from trying to resolve the color before the whole of the configuration has been parsed. This also ensures that the startup time for the theme remains small too.
 
-## 🔌 Supported Plugins
+## :electric_plug: Supported Plugins
 
 The theme supports the following plugins:
 
@@ -658,7 +658,7 @@ The theme supports the following plugins:
 
 <!-- panvimdoc-ignore-start -->
 
-## 📸 Screenshots
+## :camera_flash: Screenshots
 
 **Lua**
 
@@ -678,7 +678,7 @@ The theme supports the following plugins:
 
 <!-- panvimdoc-ignore-end -->
 
-## 🎁 Extras
+## :gift: Extras
 
 **Lualine**
 
@@ -708,7 +708,7 @@ function ToggleTheme()
 end
 ```
 
-## ❓ FAQs
+## :question: FAQs
 
 **I want to change X highlight group but I don't know what it is. How do I find out?**
 
@@ -722,7 +722,7 @@ I've tried to ensure that the theme resembles the original VS Code theme as much
 
 Please open up an issue or a discussion if you notice any discrepencies.
 
-## 👏 Credits
+## :clap: Credits
 
 The following colorschemes serve as inspiration:
 
