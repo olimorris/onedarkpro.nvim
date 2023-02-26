@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 17
+*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 26
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
@@ -47,12 +47,10 @@ Install with your package manager of choice:
     }
 <
 
-
 >lua
     -- Packer
     use "olimorris/onedarkpro.nvim"
 <
-
 
 >vim
     " Vim-Plug
@@ -69,12 +67,10 @@ Use the built-in `:colorscheme` command to load:
     vim.cmd("colorscheme onedark")
 <
 
-
 >vim
     " Vimscript
     colorscheme onedark
 <
-
 
 Additional commands:
 
@@ -86,14 +82,13 @@ Additional commands:
 
 CONFIGURATION                                  *onedarkpro.nvim-configuration*
 
+
 DEFAULT CONFIGURATION ~
 
 
   You only need to the call the `setup` function if you wish to change any of the
   defaults
-
-
-Click to see the default configuration
+Click to see the default configuration ~
 
 >lua
     require("onedarkpro").setup({
@@ -191,7 +186,6 @@ Currently, there are four themes in the colorscheme:
 - `onedark_vivid`
 - `onedark_dark`
 
-
 A theme can be set with:
 
 >lua
@@ -204,8 +198,6 @@ CONFIGURING COLORS ~
 
   See the |onedarkpro.nvim-helpers| section for information on how to darken,
   lighten and brighten colors
-
-
 A theme has a palette of 13 core colors alongside many additional ones which
 are used for menus and git diffs for example. These colors can be found in the
 themes
@@ -222,7 +214,6 @@ hex code:
     })
 <
 
-
 **Specifying new colors**
 
 New colors may be created which will then be merged into a theme’s color
@@ -238,11 +229,8 @@ palette:
 <
 
 
-
   See the |onedarkpro.nvim-helpers| section to understand how to use the color
   helpers
-
-
 These can then be used for custom highlight groups if desired:
 
 >lua
@@ -255,7 +243,6 @@ These can then be used for custom highlight groups if desired:
       }
     })
 <
-
 
 **Specifying colors by theme or background**
 
@@ -277,7 +264,6 @@ theme name as a table, followed by the color:
       }
     })
 <
-
 
 Alternatively, you can specify colors by the theme’s background color:
 
@@ -311,7 +297,6 @@ or _override_ them:
 
 1. Using specific hex colors:
 
-
 >lua
     require("onedarkpro").setup({
       highlights = {
@@ -321,9 +306,7 @@ or _override_ them:
 <
 
 
-
 1. Referencing the name of colors:
-
 
 >lua
     require("onedarkpro").setup({
@@ -334,9 +317,7 @@ or _override_ them:
 <
 
 
-
 1. Linking to other highlight groups:
-
 
 >lua
     require("onedarkpro").setup({
@@ -345,7 +326,6 @@ or _override_ them:
       }
     })
 <
-
 
 **Specifying highlight attributes by theme or background**
 
@@ -359,7 +339,6 @@ or the background color. For example:
       }
     })
 <
-
 
 Alternatively, by background color:
 
@@ -377,10 +356,6 @@ CONFIGURING SEMANTIC TOKENS ~
 
   Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers
 
-
-<img
-src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
-alt="Semantic Tokens" />
 
 In Neovim, semantic tokens are highlight groups which have a priority greater
 than those of Treesitter and the base vim highlight groups (see `:h
@@ -403,10 +378,8 @@ overriden or new tokens added:
 <
 
 
-
   At present the `default` key is used to define semantic token highlights for
   all LSP servers
-
 
 CONFIGURING FILETYPE HIGHLIGHTING ~
 
@@ -429,7 +402,6 @@ at runtime. The theme currently has support for:
 - `vue`
 - `yaml`
 
-
 Please see the Contributing
 <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
 if you would like add support for new filetypes.
@@ -445,7 +417,6 @@ Specific filetypes can be disabled as follows:
     })
 <
 
-
 Alternatively, all of the filetypes can be disabled:
 
 >lua
@@ -455,7 +426,6 @@ Alternatively, all of the filetypes can be disabled:
       }
     })
 <
-
 
 Or, all of the filetypes can be disabled with a select few enabled:
 
@@ -468,7 +438,6 @@ Or, all of the filetypes can be disabled with a select few enabled:
       }
     })
 <
-
 
 **Adding or modifying filetype highlights**
 
@@ -484,7 +453,6 @@ groups in the theme:
     })
 <
 
-
 In the example above, we have set the `field` treesitter highlight group to be
 blue, but only when the filetype is `yaml`. More information can be found via
 `:h treesitter-highlight-groups`.
@@ -495,7 +463,6 @@ To determine which highlight group to add or modify, see the
 
   The theme’s defaults can be found in the
   `/lua/onedarkpro/highlights/filetypes` directory
-
 
 CONFIGURING PLUGINS ~
 
@@ -512,7 +479,6 @@ Specific plugins can be disabled as follows:
     })
 <
 
-
 Alternatively, all of the plugins can be disabled:
 
 >lua
@@ -522,7 +488,6 @@ Alternatively, all of the plugins can be disabled:
       }
     })
 <
-
 
 Or, all of the plugins can be disabled with a select few enabled:
 
@@ -537,10 +502,8 @@ Or, all of the plugins can be disabled with a select few enabled:
 <
 
 
-
   For a full list of plugins supported, and their names, see the plugins
   |onedarkpro.nvim-section|
-
 
 CONFIGURING STYLES ~
 
@@ -570,9 +533,7 @@ configured as shown in the example below:
 <
 
 
-
   See the |Neovim help| for a full list of styles
-
 
 CONFIGURING OPTIONS ~
 
@@ -592,7 +553,6 @@ Cursorline highlighting is supported in the theme using a `cursorline` color
     })
 <
 
-
 **Transparency**
 
 The theme supports transparent backgrounds:
@@ -604,7 +564,6 @@ The theme supports transparent backgrounds:
       }
     })
 <
-
 
 By setting the transparency option to true, the `Normal`, `Folded`,
 `SignColumn`, `Statusline` and `Tabline` groups will have `NONE` as the
@@ -623,7 +582,6 @@ the current theme. This can be turned off if required.
       }
     })
 <
-
 
 **Highlighting Inactive Windows**
 
@@ -658,7 +616,6 @@ can be used:
     print(colors.purple) -- c678dd (if using the Onedark theme)
 <
 
-
 Without specifying a theme name, the helper will get the colors for the
 currently loaded theme. Alternatively, specify a theme name, such as
 `get_colors("onelight")`.
@@ -670,8 +627,6 @@ to highlight the colors.
 
   Please ensure that the colorscheme loads ahead of any plugins which may wish to
   use the colors
-
-
 **Getting colors before the theme loads**
 
 Whilst the `get_colors` method is useful in most cases, it may be necessary to
@@ -687,11 +642,8 @@ the `get_preloaded_colors` method can be used:
 <
 
 
-
   This will only output the theme’s core color palette and not any generated
   colors
-
-
 **Darken/Lighten/Brighten colors**
 
 The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you
@@ -703,7 +655,6 @@ format and take three parameters:
 - amount (number) - The amount to darken/lighten/brighten the color by (range from -100 to 100)
 - theme (string) (optional) - The name of the theme to load a color from
 
-
 To use this in practice:
 
 >lua
@@ -713,7 +664,6 @@ To use this in practice:
     print(color.lighten("red", 7, "onedark")) -- e68991
 <
 
-
 Alternatively:
 
 >lua
@@ -722,7 +672,6 @@ Alternatively:
     -- Darken Red1 by an amount of 10
     print(color.darken("FF0000", 10)) -- cc0000
 <
-
 
 Of course, you’re likely to wish to modify colors before the colorscheme
 loads. There are a number of ways to accomplish this and the most efficient is
@@ -742,10 +691,10 @@ configuration:
     })
 <
 
-
 This prevents the theme from trying to resolve the color before the whole of
 the configuration has been parsed. This also ensures that the startup time for
 the theme remains small too.
+
 
 SUPPORTED PLUGINS                          *onedarkpro.nvim-supported-plugins*
 
@@ -804,7 +753,6 @@ _Windows Terminal_ using the following commands:
 - `:OnedarkproExportToAlacritty`
 - `:OnedarkproExportToWindowsTerminal`
 
-
 The templates for these themes can be found in the extra
 <https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra>
 folder.
@@ -846,6 +794,7 @@ Treesitter and VS Code classify highlight groups will always create variances.
 
 Please open up an issue or a discussion if you notice any discrepencies.
 
+
 CREDITS                                              *onedarkpro.nvim-credits*
 
 The following colorschemes serve as inspiration:
@@ -855,7 +804,6 @@ The following colorschemes serve as inspiration:
 - Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of neovim colorschemes
 - Nightfox <https://github.com/EdenEast/nightfox.nvim> - For the original code structure and generally great ideas
 - GitHub nvim theme <https://github.com/projekt0n/github-nvim-theme> - For the logo inspiration
-
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
