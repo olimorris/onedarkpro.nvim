@@ -87,7 +87,7 @@ DEFAULT CONFIGURATION ~
 
 
   You only need to the call the `setup` function if you wish to change any of the
-  defaults
+  defaults.
 Click to see the default configuration ~
 
 >lua
@@ -195,9 +195,6 @@ A theme can be set with:
 
 CONFIGURING COLORS ~
 
-
-  See the |onedarkpro.nvim-helpers| section for information on how to darken,
-  lighten and brighten colors
 A theme has a palette of 13 core colors alongside many additional ones which
 are used for menus and git diffs for example. These colors can be found in the
 themes
@@ -214,6 +211,9 @@ hex code:
     })
 <
 
+
+  See the |onedarkpro.nvim-helpers| section for information on how to darken,
+  lighten and brighten colors.
 **Specifying new colors**
 
 New colors may be created which will then be merged into a theme’s color
@@ -230,7 +230,7 @@ palette:
 
 
   See the |onedarkpro.nvim-helpers| section to understand how to use the color
-  helpers
+  helpers.
 These can then be used for custom highlight groups if desired:
 
 >lua
@@ -354,7 +354,8 @@ Alternatively, by background color:
 CONFIGURING SEMANTIC TOKENS ~
 
 
-  Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers
+  Semantic tokens are only available in Neovim 0.9+ and with selected LSP
+  servers.
 
 
 In Neovim, semantic tokens are highlight groups which have a priority greater
@@ -462,7 +463,7 @@ To determine which highlight group to add or modify, see the
 
 
   The theme’s defaults can be found in the
-  `/lua/onedarkpro/highlights/filetypes` directory
+  `/lua/onedarkpro/highlights/filetypes` directory.
 
 CONFIGURING PLUGINS ~
 
@@ -503,7 +504,7 @@ Or, all of the plugins can be disabled with a select few enabled:
 
 
   For a full list of plugins supported, and their names, see the plugins
-  |onedarkpro.nvim-section|
+  |onedarkpro.nvim-section|.
 
 CONFIGURING STYLES ~
 
@@ -533,7 +534,7 @@ configured as shown in the example below:
 <
 
 
-  See the |Neovim help| for a full list of styles
+  See the |Neovim help| for a full list of styles.
 
 CONFIGURING OPTIONS ~
 
@@ -626,7 +627,7 @@ to highlight the colors.
 
 
   Please ensure that the colorscheme loads ahead of any plugins which may wish to
-  use the colors
+  use the colors.
 **Getting colors before the theme loads**
 
 Whilst the `get_colors` method is useful in most cases, it may be necessary to
@@ -643,7 +644,7 @@ the `get_preloaded_colors` method can be used:
 
 
   This will only output the theme’s core color palette and not any generated
-  colors
+  colors.
 **Darken/Lighten/Brighten colors**
 
 The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you
