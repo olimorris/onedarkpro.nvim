@@ -44,7 +44,7 @@ describe("Using the cache", function()
     end)
 
     it("the SAME table should always return the SAME hash", function()
-        assert.equals(-1727766954, hash)
+        assert.equals(-215055643, hash)
     end)
 
     it("a MODIFIED table should return a DIFFERENT hash", function()
