@@ -13,7 +13,7 @@ function M.groups(theme)
         ["@method.call.typescript"] = { fg = theme.palette.blue, style = config.styles.methods },
         ["@operator.fat_arrow.typescript"] = { fg = theme.palette.purple },
         ["@parameter.typescript"] = { fg = theme.palette.red, style = config.styles.parameters },
-        ["@property.enum.typescript"] = { fg = theme.palette.cyan, },
+        ["@property.enum.typescript"] = { fg = theme.palette.cyan },
         ["@property.function.typescript"] = { link = "@function.typescript" },
         ["@punctuation.bracket.typescript"] = { fg = theme.palette.orange },
         ["@variable.typescript"] = { fg = theme.palette.red, style = config.styles.variables },
