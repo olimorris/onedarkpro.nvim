@@ -1,3 +1,6 @@
+let someVariable = "Hello World!";
+const someConstant = "Hello World!";
+
 enum AnEnum {
   One,
   Two,
