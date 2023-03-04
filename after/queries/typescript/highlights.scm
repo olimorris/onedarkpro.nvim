@@ -1,10 +1,11 @@
 ;; extends
 [
-("=>" @operator.fat_arrow (#set! "priority" 1000))
+("=>" @operator.fat_arrow)
 ]
 
 [
-(enum_declaration (enum_body (property_identifier) @property.enum) (#set! "priority" 1000))
+(enum_body
+  (property_identifier) @enum.member (#set! "priority" 1000))
 ]
 
 [
