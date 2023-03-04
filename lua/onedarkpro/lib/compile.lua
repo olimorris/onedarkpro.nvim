@@ -95,7 +95,7 @@ vim.o.background = "%s"
         end
     end
 
-    -- Colorscheme highlight groups
+    -- Highlight groups
     for name, values in pairs(highlight_groups) do
         table.insert(lines, highlight(name, values, theme))
     end
