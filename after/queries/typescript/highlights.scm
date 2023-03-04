@@ -1,9 +1,5 @@
 ;; extends
 [
-("const" (variable_declarator name: (identifier) @variable.const) (#set! "priority" 1000))
-]
-
-[
 ("=>" @operator.fat_arrow (#set! "priority" 1000))
 ]
 

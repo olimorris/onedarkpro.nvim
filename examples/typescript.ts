@@ -1,6 +1,9 @@
 let someVariable = "Hello World!";
 const someConstant = "Hello World!";
 
+console.log(someConstant);
+console.log(someVariable);
+
 enum AnEnum {
   One,
   Two,

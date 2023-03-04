@@ -63,6 +63,7 @@ local defaults = {
             ["@global"] = { fg = "${red}" },
             ["@defaultLibrary"] = { fg = "${cyan}" },
             ["@modifier"] = { fg = "${purple}" },
+            ["@readonly"] = { fg = "${yellow}" },
         },
     },
     highlights = {}, -- Add/override highlights
