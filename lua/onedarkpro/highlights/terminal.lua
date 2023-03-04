@@ -28,8 +28,8 @@ function M.groups(theme)
         terminal_color_6 = theme.palette.cyan,
         terminal_color_14 = color.brighten(theme.palette.cyan, 15),
 
-        terminal_color_7 = theme.palette.white,
-        terminal_color_15 = color.brighten(theme.palette.white, 15),
+        terminal_color_7 = theme.palette.fg,
+        terminal_color_15 = theme.palette.fg,
     }
 end
 
