@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*     For Neovim >= 0.8.0    Last change: 2023 February 27
+*onedarkpro.nvim.txt*      For Neovim >= 0.8.0      Last change: 2023 March 04
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
