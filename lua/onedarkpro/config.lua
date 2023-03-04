@@ -61,9 +61,10 @@ local defaults = {
             ["@class"] = { fg = "${yellow}" },
             ["@property"] = { fg = "${red}" },
             ["@global"] = { fg = "${red}" },
-            ["@defaultLibrary"] = { fg = "${cyan}" },
             ["@modifier"] = { fg = "${purple}" },
+            ["@enumMember"] = { fg = "${cyan}" },
             ["@readonly"] = { fg = "${yellow}" },
+            ["@interface"] = { fg = "${yellow}" },
         },
     },
     highlights = {}, -- Add/override highlights
