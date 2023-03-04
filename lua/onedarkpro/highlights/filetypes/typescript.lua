@@ -18,6 +18,7 @@ function M.groups(theme)
         ["@property.function.typescript"] = { link = "@function.typescript" },
         ["@punctuation.bracket.typescript"] = { fg = theme.palette.orange },
         ["@variable.typescript"] = { fg = theme.palette.red, style = config.styles.variables },
+        ["@variable.builtin.typescript"] = { fg = theme.palette.yellow, style = config.styles.variables },
     }
 end
 
