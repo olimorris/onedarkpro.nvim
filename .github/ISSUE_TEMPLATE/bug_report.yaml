@@ -1,5 +1,5 @@
-name: Bugs or configuration issues
-description: For any potential bugs or issues with configuring the plugin
+name: Bug Report
+description: If you've already asked for help with a problem and confirmed something is broken with the plugin itself, create a bug report.
 title: "[Bug]: "
 labels: ["bug"]
 assignees: olimorris
