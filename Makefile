@@ -10,7 +10,6 @@ docs: $(PANVIMDOC_DIR)
 	@cd $(PANVIMDOC_DIR) && \
 	pandoc \
 		--metadata="project:onedarkpro.nvim" \
-		--metadata="vimversion:Neovim >= 0.8" \
 		--metadata="description:Onedarkpro theme for neovim" \
 		--metadata="toc:true" \
 		--metadata="incrementheadinglevelby:0" \
