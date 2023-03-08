@@ -1,7 +1,6 @@
 *.code-workspace
 *.cache
 .luarc.json
-plenary.nvim
-lsp_zero.nvim
+misc/**/*
 minimal.lua
 todo.md

@@ -79,6 +79,7 @@ function M.groups(theme)
         ["@constant"] = { fg = theme.palette.orange, style = config.styles.constants }, -- constant identifiers
         ["@constant.builtin"] = { fg = theme.palette.purple, style = config.styles.constants }, -- built-in constant values
         ["@constant.macro"] = { link = "@constant" }, -- constants defined by the preprocessor
+        ["@constant.comment"] = { fg = theme.palette.purple },
 
         ["@namespace"] = { fg = theme.palette.yellow }, -- modules or namespaces
         ["@symbol"] = { fg = theme.palette.red }, -- symbols or atoms

@@ -13,10 +13,8 @@ function M.groups(theme)
     local syntax = require("onedarkpro.highlights.syntax").groups(theme)
     local plugins = require("onedarkpro.highlights.plugin").groups(theme)
     local filetypes = require("onedarkpro.highlights.filetype").groups(theme)
-    local semantic_tokens = util.replace_vars(config.semantic_tokens.default, palette)
 
-    -- Semantic tokens take priority over plugins and filetypes
-    local groups = util.deep_replace(util.deep_extend(editor, syntax, plugins, filetypes), semantic_tokens)
+    local groups = util.deep_replace(util.deep_extend(editor, syntax, plugins), filetypes)
 
     -- But highlight groups take priority over everything
     if config.highlights then

@@ -56,17 +56,6 @@ local defaults = {
         vim_ultest = true,
         which_key = true,
     },
-    semantic_tokens = { -- Add/override semantic tokens
-        default = {
-            ["@class"] = { fg = "${yellow}" },
-            ["@property"] = { fg = "${red}" },
-            ["@global"] = { fg = "${red}" },
-            ["@modifier"] = { fg = "${purple}" },
-            ["@enumMember"] = { fg = "${cyan}" },
-            ["@readonly"] = { fg = "${yellow}" },
-            ["@interface"] = { fg = "${yellow}" },
-        },
-    },
     highlights = {}, -- Add/override highlights
     styles = {
         types = "NONE", -- Style that is applied to types

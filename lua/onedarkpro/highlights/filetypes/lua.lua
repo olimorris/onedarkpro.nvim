@@ -17,6 +17,11 @@ function M.groups(theme)
         ["@operator.lua"] = { fg = theme.palette.fg, style = config.styles.operators },
         ["@parameter.lua"] = { fg = theme.palette.fg, style = config.styles.parameters },
         ["@punctuation.bracket.lua"] = { fg = theme.palette.orange },
+
+        -- LSP Semantic Tokens
+        ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = theme.palette.cyan },
+        ["@lsp.type.class.lua"] = { fg = theme.palette.yellow },
+        ["@lsp.typemod.variable.defaultLibrary.lua"] = { fg = theme.palette.yellow },
     }
 end
 

@@ -90,7 +90,7 @@ Additional commands:
 
 ### Default configuration
 
-> :bangbang: You only need to the call the `setup` function if you wish to change any of the defaults.
+> **Note**: You only need to the call the `setup` function if you wish to change any of the defaults.
 
 <details>
   <summary>Click to see the default configuration</summary>
@@ -146,14 +146,6 @@ require("onedarkpro").setup({
     trouble = true,
     vim_ultest = true,
     which_key = true,
-  },
-  semantic_tokens = { -- Override semantic tokens
-    default = {
-      ["@class"] = { fg = "${yellow}" },
-      ["@property"] = { fg = "${red}" },
-      ["@global"] = { fg = "${red}" },
-      ["@defaultLibrary"] = { fg = "${cyan}" },
-    },
   },
   highlights = {}, -- Override default highlight groups or create your own
   styles = { -- For example, to apply bold and italic, use "bold,italic"
@@ -211,7 +203,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors.
+> **Note**: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors.
 
 **Specifying new colors**
 
@@ -226,7 +218,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: See the [helpers](#-helpers) section to understand how to use the color helpers.
+> **Note**: See the [helpers](#-helpers) section to understand how to use the color helpers.
 
 These can then be used for custom highlight groups if desired:
 
@@ -329,29 +321,6 @@ require("onedarkpro").setup({
 })
 ```
 
-### Configuring semantic tokens
-
-> :bangbang: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
-
-<img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
-alt="Semantic Tokens" />
-
-In Neovim, semantic tokens are highlight groups which have a priority greater than those of Treesitter and the base vim highlight groups (see `:h lsp-semantic_tokens` for more information). A full list of available semantic tokens can be found [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens).
-
-The colorscheme defines _some_ semantic tokens and applies them by default as per the [default configuration](#default-configuration). If required, tokens can be overriden or new tokens added:
-
-```lua
-require("onedarkpro").setup({
-  semantic_tokens = {
-    default = {
-      ["@class"] = { fg = "${green}" },
-    }
-  }
-})
-```
-
-> At present the `default` key is used to define semantic token highlights for all LSP servers
-
 ### Configuring filetype highlighting
 
 The theme supports opinionated highlighting for filetypes, just like the original VS Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
@@ -421,7 +390,20 @@ In the example above, we have set the `field` treesitter highlight group to be b
 
 To determine which highlight group to add or modify, see the [FAQ](#question-faqs) section for instructions on using Treesitter Playground.
 
-> :bangbang: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory.
+> **Note**: The theme's defaults can be found in the `/lua/onedarkpro/highlights/filetypes` directory.
+
+#### Configuring LSP semantic tokens
+
+> **Note**: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
+
+<img src="https://user-images.githubusercontent.com/9512444/211270743-98db1a1c-43c7-4a2d-b231-de18d9385eff.png"
+alt="Semantic Tokens" />
+
+In Neovim, some LSP servers may send tokens to the editor to allow for more intelligent highlighting such as variable scope; a feature which is impossible with Treesitter alone.
+
+Semantic highlighting in Neovim sees highlight groups set which have a priority greater than those of Treesitter and the base vim highlight groups (see `:h lsp-semantic_tokens` for more information). A full list of available semantic tokens can be found [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens).
+
+The colorscheme has defined _some_ semantic tokens (to match the VS Code theme as closely as possible) and applies them as part of the filetype highlighting. To determine what tokens are available to set or override, use the `:Inspect` command.
 
 ### Configuring plugins
 
@@ -459,7 +441,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins).
+> **Note**: For a full list of plugins supported, and their names, see the plugins [section](#electric_plug-supported-plugins).
 
 ### Configuring styles
 
@@ -485,7 +467,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> :bangbang: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles.
+> **Note**: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles.
 
 ### Configuring options
 
@@ -561,7 +543,7 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
-> :bangbang: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors.
+> **Note**: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors.
 
 **Getting colors before the theme loads**
 
@@ -574,7 +556,7 @@ local colors = color.get_preloaded_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-> :bangbang: This will only output the theme's core color palette and not any generated colors.
+> **Note**: This will only output the theme's core color palette and not any generated colors.
 
 **Darken/Lighten/Brighten colors**
 
