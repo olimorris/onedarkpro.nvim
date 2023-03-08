@@ -1,10 +1,5 @@
-if !isdirectory('plenary.nvim')
-  !git clone https://github.com/nvim-lua/plenary.nvim.git plenary.nvim
-endif
-
-set runtimepath+=plenary.nvim,.
-set noswapfile
-set noundofile
+set rtp+=.
+set rtp+=./misc/plenary
 
 lua << EOF
 local onedarkpro = require("onedarkpro")
@@ -23,6 +18,6 @@ vim.g.onelight_compiled = util.hash(util.join_paths(cache_path, "onelight_compil
 vim.cmd [[colorscheme onedark]]
 EOF
 
-runtime plugin/plenary.vim
+runtime! plugin/plenary.vim
 command CacheSpec PlenaryBustedFile tests/cache_spec.lua
 

@@ -1,10 +1,5 @@
-if !isdirectory('plenary.nvim')
-  !git clone https://github.com/nvim-lua/plenary.nvim.git plenary.nvim
-endif
-
-set runtimepath+=plenary.nvim,.
-set noswapfile
-set noundofile
+set rtp+=.
+set rtp+=./misc/plenary
 
 lua << EOF
 local onedarkpro = require("onedarkpro")
@@ -40,6 +35,6 @@ onedarkpro.setup({
 vim.cmd [[colorscheme onedark]]
 EOF
 
-runtime plugin/plenary.vim
+runtime! plugin/plenary.vim
 command HelpersSpec PlenaryBustedFile tests/helpers_spec.lua
 
