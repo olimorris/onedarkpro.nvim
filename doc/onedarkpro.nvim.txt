@@ -1,4 +1,4 @@
-*onedarkpro.nvim.txt*                              Onedarkpro theme for neovim
+*onedarkpro.nvim.txt*                  Atom's iconic One Dark theme for Neovim
 
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
