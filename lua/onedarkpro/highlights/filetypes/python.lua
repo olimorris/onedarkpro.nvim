@@ -13,6 +13,7 @@ function M.groups(theme)
         ["@include.python"] = { fg = theme.palette.fg, style = config.styles.keywords },
         ["@import_from.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@keyword.python"] = { style = config.styles.keywords },
+        ["@keyword.class.python"] = { link = "@keyword.function.python" },
         ["@method.call.python"] = { fg = theme.palette.blue, style = config.styles.methods },
         ["@operator.splat.python"] = { fg = theme.palette.fg },
         ["@punctuation.brace.python"] = { fg = theme.palette.purple },

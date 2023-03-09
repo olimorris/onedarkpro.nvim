@@ -8,6 +8,7 @@
 (#any-of? @base_constructor "__new__" "__init__"))
 
 ((identifier) @keyword (#vim-match? @keyword "^(kwargs|self)$"))
+(class_definition "class" @keyword.class)
 
 "{" @punctuation.brace
 "}" @punctuation.brace
