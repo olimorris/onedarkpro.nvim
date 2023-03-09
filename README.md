@@ -13,10 +13,10 @@
 <a href="https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/olimorris/onedarkpro.nvim/ci.yml?branch=main&label=tests&style=for-the-badge"></a>
 </p>
 
-<p>
-    Highly customisable Neovim theme. With filetype highlights, LSP semantic token support, custom Treesitter
-    queries.<br><br>
-    Based on by Visual Studio Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
+<p align="center">
+    Atom's iconic One Dark theme for Neovim.<br><br>
+    With filetype highlights, LSP semantic token support and custom Treesitter queries.<br><br>
+    Based on the amazing Visual Studio Code <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a> theme.
 </p>
 
 ## :icecream: Themes
@@ -639,21 +639,21 @@ The theme supports the following plugins:
 
 ## :camera_flash: Comparison Screenshots
 
-**Lua**
-
-<img src="https://user-images.githubusercontent.com/9512444/196185422-3f0bfe75-772e-40ff-9ca8-b26e1eff13dc.png" alt="Lua" />
-
 **Python**
 
-<img src="https://user-images.githubusercontent.com/9512444/196185335-8fb99002-227d-42e2-a2d4-b3cf9fc21a17.png" alt="Python" />
+<img src="https://user-images.githubusercontent.com/9512444/224164983-de8f1d99-effc-40a1-a99e-6938689305ba.png" alt="Python" />
+
+**Lua**
+
+<img src="https://user-images.githubusercontent.com/9512444/224165492-6bb57a85-0706-49da-b0dc-f59d52c20295.png" alt="Lua" />
+
+**TypeScript**
+
+<img src="https://user-images.githubusercontent.com/9512444/224165172-857b7f02-2493-43ec-9986-b38568ecc63a.png" alt="TypeScript" />
 
 **Javascript/React**
 
-<img src="https://user-images.githubusercontent.com/9512444/196185397-a963a7b7-c7e3-45ff-b1bd-bd9344e9616a.png" alt="Javascript/React" />
-
-**Ruby**
-
-<img src="https://user-images.githubusercontent.com/9512444/196185441-6cba7191-63d0-4dd3-abde-12b99ed4bec6.png" alt="Ruby" />
+<img src="https://user-images.githubusercontent.com/9512444/224165554-0abd7dab-3b09-4c4a-a77e-39549bca8a6d.png" alt="Javascript/React" />
 
 <!-- panvimdoc-ignore-end -->
 
