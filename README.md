@@ -124,7 +124,6 @@ require("onedarkpro").setup({
     leap = true,
     lsp_saga = true,
     marks = true,
-    native_lsp = true,
     neotest = true,
     neo_tree = true,
     nvim_cmp = true,
@@ -132,6 +131,7 @@ require("onedarkpro").setup({
     nvim_dap = true,
     nvim_dap_ui = true,
     nvim_hlslens = true,
+    nvim_lsp = true,
     nvim_navic = true,
     nvim_notify = true,
     nvim_tree = true,
@@ -622,7 +622,7 @@ The theme supports the following plugins:
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap) (`nvim_dap`)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) (`nvim_dap_ui`)
 - [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) (`nvim_hlslens`)
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) (`native_lsp`)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) (`nvim_lsp`)
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (`nvim_navic`)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify) (`nvim_notify`)
 - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) (`nvim_tree`)
