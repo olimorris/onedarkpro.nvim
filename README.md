@@ -218,7 +218,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note**: See the [helpers](#-helpers) section to understand how to use the color helpers.
+> **Note**: See the [helpers](#rainbow-helpers) section to understand how to use the color helpers.
 
 These can then be used for custom highlight groups if desired:
 
