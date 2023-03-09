@@ -13,8 +13,8 @@
 <a href="https://github.com/olimorris/onedarkpro.nvim/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/olimorris/onedarkpro.nvim/ci.yml?branch=main&label=tests&style=for-the-badge"></a>
 </p>
 
-<p align="center">
-    Highly customisable Neovim theme. With filetype highlights, LSP semantic token support and custom Treesitter
+<p>
+    Highly customisable Neovim theme. With filetype highlights, LSP semantic token support, custom Treesitter
     queries.<br><br>
     Based on by Visual Studio Code's <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a>
 </p>
@@ -22,10 +22,10 @@
 ## :icecream: Themes
 
 <div align="center">
-  <p><strong>Onedark</strong><img src="https://user-images.githubusercontent.com/9512444/223988039-a8db4fb2-2a53-4157-aa12-d49bd3f8b8cf.png" alt="onedark" /></p>
-  <p><strong>Onelight</strong><img src="https://user-images.githubusercontent.com/9512444/223988200-c1eaf0e3-bba8-4a59-b27e-268173c29455.png" alt="onelight" /></p>
-  <p><strong>Onedark Vivid</strong><img src="https://user-images.githubusercontent.com/9512444/223988825-456e69c6-af8b-43ca-9276-e527b39d4400.png" alt="onedark vivid" /></p>
-  <p><strong>Onedark Dark</strong><img src="https://user-images.githubusercontent.com/9512444/223988973-ade20820-04b8-43c7-adab-a4b043eb52e0.png" alt="onedark dark" /></p>
+  <p><strong>Onedark</strong><img src="https://user-images.githubusercontent.com/9512444/224157592-eba872f0-320b-4e80-9bc6-b2d9b4291f09.png" alt="onedark" /></p>
+  <p><strong>Onelight</strong><img src="https://user-images.githubusercontent.com/9512444/224157771-a4e306fc-d555-4263-a323-40fbd332901f.png" alt="onelight" /></p>
+  <p><strong>Onedark Vivid</strong><img src="https://user-images.githubusercontent.com/9512444/224157957-a7c32cd8-67e8-46d0-bb23-6ea8f4923367.png" alt="onedark vivid" /></p>
+  <p><strong>Onedark Dark</strong><img src="https://user-images.githubusercontent.com/9512444/224158093-b9a2b449-43e9-4f3d-8061-140c00f68a8d.png" alt="onedark dark" /></p>
 </div>
 
 <!-- panvimdoc-ignore-end -->
@@ -637,7 +637,7 @@ The theme supports the following plugins:
 
 <!-- panvimdoc-ignore-start -->
 
-## :camera_flash: Screenshots
+## :camera_flash: Comparison Screenshots
 
 **Lua**
 
