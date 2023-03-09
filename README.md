@@ -1,7 +1,7 @@
 <!-- panvimdoc-ignore-start -->
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/9512444/197140436-6617b2b7-1b03-4b4f-b81e-38a8ac27ef98.png" alt="OneDarkPro.nvim" />
+<img src="https://user-images.githubusercontent.com/9512444/224169058-12b65186-dbad-4d16-8269-67eb7ba560c5.png" alt="OneDarkPro.nvim" />
 </p>
 
 <h1 align="center">OneDarkPro.nvim</h1>
@@ -645,15 +645,15 @@ The theme supports the following plugins:
 
 **Lua**
 
-<img src="https://user-images.githubusercontent.com/9512444/224165492-6bb57a85-0706-49da-b0dc-f59d52c20295.png" alt="Lua" />
+<img src="https://user-images.githubusercontent.com/9512444/224166128-a4343812-6e06-4676-9c30-48c2364ad468.png" alt="Lua" />
 
 **TypeScript**
 
-<img src="https://user-images.githubusercontent.com/9512444/224165172-857b7f02-2493-43ec-9986-b38568ecc63a.png" alt="TypeScript" />
+<img src="https://user-images.githubusercontent.com/9512444/224166332-563916de-cf03-4930-9174-557a0fd829e8.png" alt="TypeScript" />
 
 **Javascript/React**
 
-<img src="https://user-images.githubusercontent.com/9512444/224165554-0abd7dab-3b09-4c4a-a77e-39549bca8a6d.png" alt="Javascript/React" />
+<img src="https://user-images.githubusercontent.com/9512444/224166584-888678e0-8db5-41d9-b478-b613f0f8e8a3.png" alt="Javascript/React" />
 
 <!-- panvimdoc-ignore-end -->
 
