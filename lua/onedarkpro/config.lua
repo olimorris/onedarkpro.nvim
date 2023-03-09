@@ -48,6 +48,7 @@ local defaults = {
         op_nvim = true,
         packer = true,
         polygot = true,
+        semantic_tokens = true,
         startify = true,
         telescope = true,
         toggleterm = true,
