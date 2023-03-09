@@ -18,7 +18,7 @@ FEATURES                                            *onedarkpro.nvim-features*
 
 
 - Automatic caching for faster load times
-- Full Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> support
+- Full Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> support and bespoke queries
 - Support for LSP semantic tokens
 - Support for many |onedarkpro.nvim-popular-plugins|
 - Filetype highlighting to allow for greater customisation across different languages
@@ -75,9 +75,9 @@ Use the built-in `:colorscheme` command to load:
 Additional commands:
 
 
-- `:OnedarkproCache` force generate a new cache files for the themes (you won’t often need this)
+- `:OnedarkproCache` force generate new cache files for the themes (you won’t often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
-- `:OnedarkproColors` outputs all of the colors in the currently loaded theme to a scratch buffer
+- `:OnedarkproColors` output all of the current themes colors to a scratch buffer
 
 
 CONFIGURATION                                  *onedarkpro.nvim-configuration*
@@ -119,7 +119,6 @@ Click to see the default configuration ~
         leap = true,
         lsp_saga = true,
         marks = true,
-        native_lsp = true,
         neotest = true,
         neo_tree = true,
         nvim_cmp = true,
@@ -127,6 +126,7 @@ Click to see the default configuration ~
         nvim_dap = true,
         nvim_dap_ui = true,
         nvim_hlslens = true,
+        nvim_lsp = true,
         nvim_navic = true,
         nvim_notify = true,
         nvim_tree = true,
@@ -346,8 +346,8 @@ Alternatively, by background color:
 CONFIGURING FILETYPE HIGHLIGHTING ~
 
 The theme supports opinionated highlighting for filetypes, just like the
-original VS Code theme. By default, all of the filetypes supported are loaded
-at runtime. The theme currently has support for:
+original Visual Studio Code theme. By default, all of the filetypes supported
+are loaded at runtime. The theme currently has support for:
 
 
 - `java`
@@ -364,10 +364,10 @@ at runtime. The theme currently has support for:
 - `vue`
 - `yaml`
 
-Please see the Contributing
-<https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
-if you would like add support for new filetypes.
 
+  **Note**Please see the Contributing
+  <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
+  if you would like add support for new filetypes.
 Specific filetypes can be disabled as follows:
 
 >lua
@@ -419,20 +419,15 @@ In the example above, we have set the `field` treesitter highlight group to be
 blue, but only when the filetype is `yaml`. More information can be found via
 `:h treesitter-highlight-groups`.
 
-To determine which highlight group to add or modify, see the
-|onedarkpro.nvim-faq| section for instructions on using Treesitter Playground.
+To determine which highlight group is being applied in Neovim, see the
+|onedarkpro.nvim-faq| section.
 
-
-  **Note**The theme’s defaults can be found in the
-  `/lua/onedarkpro/highlights/filetypes` directory.
 
 CONFIGURING LSP SEMANTIC TOKENS
 
 
   **Note**Semantic tokens are only available in Neovim 0.9+ and with selected LSP
   servers.
-
-
 In Neovim, some LSP servers may send tokens to the editor to allow for more
 intelligent highlighting such as variable scope; a feature which is impossible
 with Treesitter alone.
@@ -443,10 +438,10 @@ lsp-semantic_tokens` for more information). A full list of available semantic
 tokens can be found here
 <https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens>.
 
-The colorscheme has defined _some_ semantic tokens (to match the VS Code theme
-as closely as possible) and applies them as part of the filetype highlighting.
-To determine what tokens are available to set or override, use the `:Inspect`
-command.
+The colorscheme has defined _some_ semantic tokens (to match the Visual Studio
+Code theme as closely as possible) and applies them as part of the filetype
+highlighting. To determine what tokens are available to set or override, use
+the `:Inspect` command.
 
 
 CONFIGURING PLUGINS ~
@@ -457,7 +452,7 @@ Specific plugins can be disabled as follows:
 >lua
     require("onedarkpro").setup({
       plugins = {
-        native_lsp = false,
+        nvim_lsp = false,
         polygot = false,
         treesitter = false
       }
@@ -480,15 +475,12 @@ Or, all of the plugins can be disabled with a select few enabled:
     require("onedarkpro").setup({
       plugins = {
         all = false
-        native_lsp = true,
+        nvim_lsp = true,
         treesitter = true
       }
     })
 <
 
-
-  **Note**For a full list of plugins supported, and their names, see the plugins
-  |onedarkpro.nvim-section|.
 
 CONFIGURING STYLES ~
 
@@ -616,8 +608,9 @@ to highlight the colors.
 
 Whilst the `get_colors` method is useful in most cases, it may be necessary to
 get a theme’s colors before it has fully loaded. The common use case is for
-creating custom colors which are based on the theme’s own palette. For this
-the `get_preloaded_colors` method can be used:
+creating custom colors which are based on the theme’s own palette and
+incorporating pback into the theme. For this the `get_preloaded_colors` method
+can be used:
 
 >lua
     local color = require("onedarkpro.helpers")
@@ -703,7 +696,7 @@ The theme supports the following plugins:
 - nvim-dap <https://github.com/mfussenegger/nvim-dap> (`nvim_dap`)
 - nvim-dap-ui <https://github.com/rcarriga/nvim-dap-ui> (`nvim_dap_ui`)
 - nvim-hlslens <https://github.com/kevinhwang91/nvim-hlslens> (`nvim_hlslens`)
-- nvim-lspconfig <https://github.com/neovim/nvim-lspconfig> (`native_lsp`)
+- nvim-lspconfig <https://github.com/neovim/nvim-lspconfig> (`nvim_lsp`)
 - nvim-navic <https://github.com/SmiteshP/nvim-navic> (`nvim_navic`)
 - nvim-notify <https://github.com/rcarriga/nvim-notify> (`nvim_notify`)
 - nvim-tree <https://github.com/kyazdani42/nvim-tree.lua> (`nvim_tree`)
@@ -711,6 +704,7 @@ The theme supports the following plugins:
 - op.nvim <https://github.com/mrjones2014/op.nvim> (`op_nvim`)
 - packer.nvim <https://github.com/wbthomason/packer.nvim> (`packer`)
 - polygot <https://github.com/sheerun/vim-polyglot> (`polygot`)
+- Semantic tokens (`semantic_tokens`)
 - startify <https://github.com/mhinz/vim-startify> (`startify`)
 - telescope.nvim <https://github.com/nvim-telescope/telescope.nvim> (`telescope`)
 - toggleterm.nvim <https://github.com/akinsho/toggleterm.nvim> (`toggleterm`)
@@ -770,12 +764,13 @@ Playground <https://github.com/nvim-treesitter/playground> as this gives you
 access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows
 any Treesitter or syntax highlight groups under the cursor.
 
-**I’ve noticed some differences between the theme and VS Code. Why is this?**
+**I’ve noticed some differences between the theme and Visual Studio Code. Why
+is this?**
 
-I’ve tried to ensure that the theme resembles the original VS Code theme as
-much as possible, however there are some differences. This is mainly due to
-Neovim not currently supporting modifiers. Also, differences between how
-Treesitter and VS Code classify highlight groups will always create variances.
+I’ve tried to ensure that the theme resembles the original Visual Studio Code
+theme as much as possible. To that end we have carefully applied custom
+Treesitter queries to certain filetypes as well as mapped LSP semantic token
+colors too. However, there will likely be some differences.
 
 Please open up an issue or a discussion if you notice any discrepencies.
 
@@ -786,8 +781,8 @@ The following colorschemes serve as inspiration:
 
 
 - One Dark Pro <https://github.com/Binaryify/OneDark-Pro> - The inspiration for this colorscheme
-- Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of neovim colorschemes
-- Nightfox <https://github.com/EdenEast/nightfox.nvim> - For the original code structure and generally great ideas
+- Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes
+- Nightfox <https://github.com/EdenEast/nightfox.nvim> - For the original code structure
 - GitHub nvim theme <https://github.com/projekt0n/github-nvim-theme> - For the logo inspiration
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
