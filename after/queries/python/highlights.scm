@@ -1,14 +1,14 @@
 ; extends
-(list_splat_pattern ("*" @operator.splat))
-(dictionary_splat_pattern ("**" @operator.splat))
+(list_splat_pattern ("*" @odp.operator.splat))
+(dictionary_splat_pattern ("**" @odp.operator.splat))
 
-(import_from_statement) "from" @import_from
+(import_from_statement) "from" @odp.import_from
 
-((function_definition name: (identifier) @base_constructor)
-(#any-of? @base_constructor "__new__" "__init__"))
+((function_definition name: (identifier) @odp.base_constructor)
+(#any-of? @odp.base_constructor "__new__" "__init__"))
 
-((identifier) @keyword (#vim-match? @keyword "^(kwargs|self)$"))
-(class_definition "class" @keyword.class)
+((identifier) @odp.keyword (#vim-match? @odp.keyword "^(kwargs|self)$"))
+(class_definition "class" @odp.keyword.class)
 
-"{" @punctuation.brace
-"}" @punctuation.brace
+"{" @odp.punctuation.brace
+"}" @odp.punctuation.brace
