@@ -117,6 +117,7 @@ require("onedarkpro").setup({
     typescript = true,
     typescriptreact = true,
     vue = true,
+    xml = true,
     yaml = true,
   },
   plugins = { -- Override which plugin highlight groups are loaded
@@ -345,6 +346,7 @@ The theme supports opinionated highlighting for filetypes, just like the origina
 - `typescript`
 - `typescriptreact`
 - `vue`
+- `xml`
 - `yaml`
 
 > **Note**: Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.

@@ -107,6 +107,7 @@ Click to see the default configuration ~
         typescript = true,
         typescriptreact = true,
         vue = true,
+        xml = true,
         yaml = true,
       },
       plugins = { -- Override which plugin highlight groups are loaded
@@ -365,6 +366,7 @@ are loaded at runtime. The theme currently has support for:
 - `typescript`
 - `typescriptreact`
 - `vue`
+- `xml`
 - `yaml`
 
 

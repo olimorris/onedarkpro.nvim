@@ -21,6 +21,7 @@ local defaults = {
         typescript = true,
         typescriptreact = true,
         vue = true,
+        xml = true,
         yaml = true,
     },
     plugins = { -- Enable/disable specific plugins
