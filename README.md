@@ -14,12 +14,14 @@
 </p>
 
 <p align="center">
-    Atom's iconic One Dark theme for Neovim.<br><br>
-    With filetype highlights, LSP semantic token support and custom Treesitter queries.<br><br>
-    Based on the amazing Visual Studio Code <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a> theme.
+    Atom's iconic One Dark theme for Neovim.<br>
+    Fully customisable, with Treesitter, LSP semantic tokens and support for many common plugins.<br><br>
+    Based on the amazing <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a> theme for Visual Studio Code.
 </p>
 
 ## :icecream: Themes
+
+> **Note**: All bolds and italics in the screenshots below are [completely customisable](#configuring-styles)
 
 <div align="center">
   <p><strong>Onedark</strong><img src="https://user-images.githubusercontent.com/9512444/224157592-eba872f0-320b-4e80-9bc6-b2d9b4291f09.png" alt="onedark" /></p>
@@ -102,6 +104,7 @@ Additional commands:
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
+    html = true,
     java = true,
     javascript = true,
     lua = true,
@@ -142,6 +145,7 @@ require("onedarkpro").setup({
     op_nvim = true,
     packer = true,
     polygot = true,
+    semantic_tokens = true,
     startify = true,
     telescope = true,
     toggleterm = true,
@@ -328,6 +332,7 @@ require("onedarkpro").setup({
 
 The theme supports opinionated highlighting for filetypes, just like the original Visual Studio Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
+- `html`
 - `java`
 - `javascript`
 - `lua`

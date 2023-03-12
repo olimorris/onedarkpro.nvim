@@ -8,6 +8,7 @@ local defaults = {
     cache_suffix = "_compiled",
     colors = {}, -- Add/override colors
     filetypes = { -- Enable/disable specific plugins
+        html = true,
         java = true,
         javascript = true,
         lua = true,
@@ -59,6 +60,7 @@ local defaults = {
     },
     highlights = {}, -- Add/override highlights
     styles = {
+        tags = "NONE", -- Style that is applied to tags
         types = "NONE", -- Style that is applied to types
         methods = "NONE", -- Style that is applied to methods
         numbers = "NONE", -- Style that is applied to numbers

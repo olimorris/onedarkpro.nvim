@@ -94,6 +94,7 @@ Click to see the default configuration ~
     require("onedarkpro").setup({
       colors = {}, -- Override default colors or create your own
       filetypes = { -- Override which filetype highlight groups are loaded
+        html = true,
         java = true,
         javascript = true,
         lua = true,
@@ -134,6 +135,7 @@ Click to see the default configuration ~
         op_nvim = true,
         packer = true,
         polygot = true,
+        semantic_tokens = true,
         startify = true,
         telescope = true,
         toggleterm = true,
@@ -350,6 +352,7 @@ original Visual Studio Code theme. By default, all of the filetypes supported
 are loaded at runtime. The theme currently has support for:
 
 
+- `html`
 - `java`
 - `javascript`
 - `lua`
