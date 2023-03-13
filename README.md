@@ -130,6 +130,7 @@ require("onedarkpro").setup({
     indentline = true,
     leap = true,
     lsp_saga = true,
+    lsp_semantic_tokens = true,
     marks = true,
     neotest = true,
     neo_tree = true,
@@ -146,7 +147,6 @@ require("onedarkpro").setup({
     op_nvim = true,
     packer = true,
     polygot = true,
-    semantic_tokens = true,
     startify = true,
     telescope = true,
     toggleterm = true,
@@ -410,6 +410,8 @@ Semantic highlighting in Neovim sees highlight groups set which have a priority 
 
 The colorscheme has defined _some_ semantic tokens (to match the Visual Studio Code theme as closely as possible) and applies them as part of the filetype highlighting. To determine what tokens are available to set or override, use the `:Inspect` command.
 
+Finally, the colorscheme has defined some non-filetype tokens as a plugin, named `lsp_semantic_tokens`. See the section below for how to disable this.
+
 ### Configuring plugins
 
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
@@ -617,6 +619,7 @@ The theme supports the following plugins:
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
 - [leap.nvim](https://github.com/ggandor/leap.nvim) (`leap`)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
+- LSP Semantic tokens (`lsp_semantic_tokens`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
@@ -633,7 +636,6 @@ The theme supports the following plugins:
 - [op.nvim](https://github.com/mrjones2014/op.nvim) (`op_nvim`)
 - [packer.nvim](https://github.com/wbthomason/packer.nvim) (`packer`)
 - [polygot](https://github.com/sheerun/vim-polyglot) (`polygot`)
-- Semantic tokens (`semantic_tokens`)
 - [startify](https://github.com/mhinz/vim-startify) (`startify`)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (`telescope`)
 - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (`toggleterm`)

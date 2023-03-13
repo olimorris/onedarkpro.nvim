@@ -16,7 +16,9 @@ function M.groups(theme)
         ["@lsp.type.parameter"] = { link = "@parameter" },
         ["@lsp.type.property"] = { link = "@property" },
         ["@lsp.type.variable"] = { link = "@variable" },
-        ["@lsp.typemod.function.defaultLibrary"] = { link = "Special" },
+        ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
         ["@lsp.typemod.variable.readonly"] = { link = "@constant" },
     }
 end
