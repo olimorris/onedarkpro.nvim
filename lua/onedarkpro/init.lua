@@ -47,7 +47,7 @@ local function validate_cache()
 
     local hash_path = util.join_paths(config.config.cache_path, "cache")
 
-    local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -25), ".git", "ORIG_HEAD")
+    local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -25), ".git")
     local git = vim.fn.getftime(git_path)
     local cached_hash = config.hash() .. (git == -1 and git_path or git)
 
