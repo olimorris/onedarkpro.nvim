@@ -377,8 +377,8 @@ Or, all of the filetypes can be disabled with a select few enabled:
 ```lua
 require("onedarkpro").setup({
   filetypes = {
-    all = false
-    markdown = true
+    all = false,
+    markdown = true,
     ruby = true,
   }
 })
@@ -439,7 +439,7 @@ Or, all of the plugins can be disabled with a select few enabled:
 ```lua
 require("onedarkpro").setup({
   plugins = {
-    all = false
+    all = false,
     nvim_lsp = true,
     treesitter = true
   }
