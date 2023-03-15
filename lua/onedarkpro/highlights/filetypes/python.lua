@@ -14,6 +14,7 @@ function M.groups(theme)
         ["@variable.builtin.python"] = { fg = theme.palette.yellow, style = config.styles.variables },
 
         ["@odp.base_constructor.python"] = { fg = theme.palette.cyan },
+        ["@odp.constructor.python"] = { link = "@constructor" },
         ["@odp.import_from.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@odp.keyword.python"] = { style = config.styles.keywords },
         ["@odp.keyword.class.python"] = { link = "@keyword.function.python" },
