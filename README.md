@@ -49,9 +49,9 @@
 - `treesitter` for full syntax highlighting
 - For semantic tokens, Neovim 0.9+ and an LSP server that supports them
 
-## :package: Installation
+## :package: Installation and usage
 
-Install with your package manager of choice:
+Install with your package manager of choice use with `colorscheme`:
 
 ```lua
 -- Lazy
@@ -59,37 +59,42 @@ Install with your package manager of choice:
   "olimorris/onedarkpro.nvim",
   priority = 1000 -- Ensure it loads first
 }
+
+-- somewhere in your config:
+vim.cmd("colorscheme onedark")
 ```
 
 ```lua
 -- Packer
 use "olimorris/onedarkpro.nvim"
+
+-- somewhere in your config:
+vim.cmd("colorscheme onedark")
 ```
 
 ```vim
 " Vim-Plug
 Plug "olimorris/onedarkpro.nvim"
-```
 
-## :rocket: Usage
-
-Use the built-in `:colorscheme` command to load:
-
-```lua
--- Lua
-vim.cmd("colorscheme onedark")
-```
-
-```vim
-" Vimscript
+" somewhere in your config:
 colorscheme onedark
 ```
 
-Additional commands:
+## :rocket: Commands
+
+The colorscheme comes with some useful commands:
 
 - `:OnedarkproCache` force generate new cache files for the themes (you won't often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` output all of the current themes colors to a scratch buffer
+
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and _Windows Terminal_ using the following commands:
+
+- `:OnedarkproExportToKitty`
+- `:OnedarkproExportToAlacritty`
+- `:OnedarkproExportToWindowsTerminal`
+
+The templates for these themes can be found in the [extra](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra) folder.
 
 ## :wrench: Configuration
 
@@ -210,8 +215,6 @@ require("onedarkpro").setup({
   }
 })
 ```
-
-> **Note**: See the [helpers](#rainbow-helpers) section for information on how to darken, lighten and brighten colors.
 
 **Specifying new colors**
 
@@ -671,16 +674,6 @@ The theme supports the following plugins:
 **Lualine**
 
 The theme has Lualine support out of the box for all of its themes. This can be found in the [Lualine folder](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/lualine/themes).
-
-**Terminal themes**
-
-The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and _Windows Terminal_ using the following commands:
-
-- `:OnedarkproExportToKitty`
-- `:OnedarkproExportToAlacritty`
-- `:OnedarkproExportToWindowsTerminal`
-
-The templates for these themes can be found in the [extra](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra) folder.
 
 **Toggling between themes**
 

@@ -5,8 +5,8 @@ Table of Contents                          *onedarkpro.nvim-table-of-contents*
 
   - Features                                        |onedarkpro.nvim-features|
   - Requirements                                |onedarkpro.nvim-requirements|
-  - Installation                                |onedarkpro.nvim-installation|
-  - Usage                                              |onedarkpro.nvim-usage|
+  - Installation and usage            |onedarkpro.nvim-installation-and-usage|
+  - Commands                                        |onedarkpro.nvim-commands|
   - Configuration                              |onedarkpro.nvim-configuration|
   - Helpers                                          |onedarkpro.nvim-helpers|
   - Supported Plugins                      |onedarkpro.nvim-supported-plugins|
@@ -35,9 +35,9 @@ REQUIREMENTS                                    *onedarkpro.nvim-requirements*
 - For semantic tokens, Neovim 0.9+ and an LSP server that supports them
 
 
-INSTALLATION                                    *onedarkpro.nvim-installation*
+INSTALLATION AND USAGE                *onedarkpro.nvim-installation-and-usage*
 
-Install with your package manager of choice:
+Install with your package manager of choice use with `colorscheme`
 
 >lua
     -- Lazy
@@ -45,39 +45,48 @@ Install with your package manager of choice:
       "olimorris/onedarkpro.nvim",
       priority = 1000 -- Ensure it loads first
     }
+    
+    -- somewhere in your config:
+    vim.cmd("colorscheme onedark")
 <
 
 >lua
     -- Packer
     use "olimorris/onedarkpro.nvim"
+    
+    -- somewhere in your config:
+    vim.cmd("colorscheme onedark")
 <
 
 >vim
     " Vim-Plug
     Plug "olimorris/onedarkpro.nvim"
-<
-
-
-USAGE                                                  *onedarkpro.nvim-usage*
-
-Use the built-in `:colorscheme` command to load:
-
->lua
-    -- Lua
-    vim.cmd("colorscheme onedark")
-<
-
->vim
-    " Vimscript
+    
+    " somewhere in your config:
     colorscheme onedark
 <
 
-Additional commands:
+
+COMMANDS                                            *onedarkpro.nvim-commands*
+
+The colorscheme comes with some useful commands:
 
 
 - `:OnedarkproCache` force generate new cache files for the themes (you won’t often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` output all of the current themes colors to a scratch buffer
+
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and
+_Windows Terminal_ using the following commands:
+
+
+- `:OnedarkproExportToKitty`
+- `:OnedarkproExportToAlacritty`
+- `:OnedarkproExportToWindowsTerminal`
+
+The templates for these themes can be found in the extra
+<https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra>
+folder.
 
 
 CONFIGURATION                                  *onedarkpro.nvim-configuration*
@@ -206,9 +215,6 @@ hex code:
     })
 <
 
-
-  **Note**See the |onedarkpro.nvim-helpers| section for information on how to
-  darken, lighten and brighten colors.
 **Specifying new colors**
 
 New colors may be created which will then be merged into a theme’s color
@@ -729,20 +735,6 @@ EXTRAS                                                *onedarkpro.nvim-extras*
 The theme has Lualine support out of the box for all of its themes. This can be
 found in the Lualine folder
 <https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/lualine/themes>.
-
-**Terminal themes**
-
-The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and
-_Windows Terminal_ using the following commands:
-
-
-- `:OnedarkproExportToKitty`
-- `:OnedarkproExportToAlacritty`
-- `:OnedarkproExportToWindowsTerminal`
-
-The templates for these themes can be found in the extra
-<https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra>
-folder.
 
 **Toggling between themes**
 
