@@ -7,18 +7,17 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local palette = util.deep_extend(theme.palette, theme.generated)
-
     local editor = require("onedarkpro.highlights.editor").groups(theme)
     local syntax = require("onedarkpro.highlights.syntax").groups(theme)
     local plugins = require("onedarkpro.highlights.plugin").groups(theme)
     local filetypes = require("onedarkpro.highlights.filetype").groups(theme)
 
-    local groups = util.deep_replace(util.deep_extend(editor, syntax, plugins), filetypes)
+    local groups = util.deep_extend(editor, syntax, plugins, filetypes)
 
     -- But highlight groups take priority over everything
     if config.highlights then
-        local custom = util.replace_vars(vim.deepcopy(config.highlights), palette)
+        local custom =
+            util.replace_vars(vim.deepcopy(config.highlights), util.deep_extend(theme.palette, theme.generated))
         groups = util.deep_replace(groups, custom)
     end
 
