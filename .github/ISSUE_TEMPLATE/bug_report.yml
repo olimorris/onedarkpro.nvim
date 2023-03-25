@@ -17,8 +17,7 @@ body:
 
           Firstly, test and run Neovim with the minimal config below. Be sure to add your OneDarkPro config, saving to a `minimal.lua` file and adding any additional plugins you may need:
           ```lua
-          local test_dir = "/tmp/onedarkpro"
-          local root = vim.fn.fnamemodify(test_dir, ":p")
+          local root = vim.fn.fnamemodify("./.repro", ":p")
 
           -- set stdpaths to use .repro
           for _, name in ipairs({ "config", "data", "state", "cache" }) do
@@ -41,7 +40,14 @@ body:
 
           -- install plugins
           local plugins = {
-            "olimorris/onedarkpro.nvim",
+            {
+              "olimorris/onedarkpro.nvim"
+              opts = {
+                -- Your OneDarkPro config goes here
+              },
+              config = true
+            },
+
             { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
             -- add any other plugins here
@@ -61,14 +67,7 @@ body:
             })
           end
 
-          -- setup onedarkpro
-          local ok, onedarkpro = pcall(require, "onedarkpro")
-          if ok then
-            onedarkpro.setup({
-              -- Your onedarkpro config here
-            })
-            vim.cmd("colorscheme onedark")
-          end
+          vim.cmd("colorscheme onedark")
           ```
 
           Once you've updated for your config, run Neovim with this command:
