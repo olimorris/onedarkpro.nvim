@@ -17,6 +17,7 @@ local defaults = {
         python = true,
         ruby = true,
         rust = true,
+        scss = true,
         toml = true,
         typescript = true,
         typescriptreact = true,

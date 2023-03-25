@@ -118,6 +118,7 @@ require("onedarkpro").setup({
     python = true,
     ruby = true,
     rust = true,
+    scss = true,
     toml = true,
     typescript = true,
     typescriptreact = true,
@@ -345,6 +346,7 @@ The theme supports opinionated highlighting for filetypes, just like the origina
 - `python`
 - `ruby`
 - `rust`
+- `scss`
 - `toml`
 - `typescript`
 - `typescriptreact`

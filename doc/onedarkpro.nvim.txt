@@ -112,6 +112,7 @@ Click to see the default configuration ~
         python = true,
         ruby = true,
         rust = true,
+        scss = true,
         toml = true,
         typescript = true,
         typescriptreact = true,
@@ -368,6 +369,7 @@ are loaded at runtime. The theme currently has support for:
 - `python`
 - `ruby`
 - `rust`
+- `scss`
 - `toml`
 - `typescript`
 - `typescriptreact`
