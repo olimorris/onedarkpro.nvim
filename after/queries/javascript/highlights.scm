@@ -3,16 +3,10 @@
 
 (jsx_opening_element (jsx_attribute (property_identifier) @odp.jsxtag))
 
-(statement_block "{" @odp.statement.punctuation.bracket)
-(statement_block "}" @odp.statement.punctuation.bracket)
-(return_statement (object "{" @odp.statement.punctuation.bracket))
-(return_statement (object "}" @odp.statement.punctuation.bracket))
-
-(assignment_expression (object "{" @odp.expression.punctuation.bracket))
-(assignment_expression (object "}" @odp.expression.punctuation.bracket))
-
-(function_declaration (statement_block "{" @odp.punctuation.bracket))
-(function_declaration (statement_block "}" @odp.punctuation.bracket))
+(statement_block ["{" "}"] @odp.statement.punctuation.bracket)
+(return_statement (object ["{" "}"] @odp.statement.punctuation.bracket))
+(assignment_expression (object ["{" "}"] @odp.expression.punctuation.bracket))
+(function_declaration (statement_block ["{" "}"] @odp.punctuation.bracket))
 
 ; (arrow_function (formal_parameters "(" @odp.function.punctuation.bracket))
 ; (arrow_function (formal_parameters ")" @odp.function.punctuation.bracket))
