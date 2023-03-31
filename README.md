@@ -638,6 +638,7 @@ The theme supports the following plugins:
 - [nvim-notify](https://github.com/rcarriga/nvim-notify) (`nvim_notify`)
 - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) (`nvim_tree`)
 - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow) (`nvim_ts_rainbow`)
+- [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2) (`nvim_ts_rainbow2`)
 - [op.nvim](https://github.com/mrjones2014/op.nvim) (`op_nvim`)
 - [packer.nvim](https://github.com/wbthomason/packer.nvim) (`packer`)
 - [polygot](https://github.com/sheerun/vim-polyglot) (`polygot`)
