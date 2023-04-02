@@ -335,6 +335,8 @@ require("onedarkpro").setup({
 
 ### Configuring filetype highlighting
 
+> **Note**: Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
+
 The theme supports opinionated highlighting for filetypes, just like the original Visual Studio Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
 - `html`
@@ -354,7 +356,6 @@ The theme supports opinionated highlighting for filetypes, just like the origina
 - `xml`
 - `yaml`
 
-> **Note**: Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
 
 Specific filetypes can be disabled as follows:
 
@@ -419,6 +420,8 @@ Finally, the colorscheme has defined some non-filetype tokens as a plugin, named
 
 ### Configuring plugins
 
+> **Note**: Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new plugins.
+
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
 ```lua
@@ -455,6 +458,8 @@ require("onedarkpro").setup({
 
 ### Configuring styles
 
+> **Note**: See the [Neovim help](https://neovim.io/doc/user/api.html#nvim_set_hl()) for a full list of styles.
+
 Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of a theme. These styles may be configured as shown in the example below:
 
 ```lua
@@ -476,8 +481,6 @@ require("onedarkpro").setup({
   }
 })
 ```
-
-> **Note**: See the [Neovim help](<https://neovim.io/doc/user/api.html#nvim_set_hl()>) for a full list of styles.
 
 ### Configuring options
 
@@ -538,7 +541,7 @@ require("onedarkpro").setup({
 
 The theme comes with a set of helpers which enable you to interact with and modify colors. The helper file can be accessed via `require("onedarkpro.helpers")`.
 
-**Getting theme colors**
+**Using colors from a theme**
 
 It can be useful to access a theme's colors for use within other plugins (such as your statusline) after its loaded. For this, the `get_colors` helper can be used:
 
@@ -553,9 +556,9 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
-> **Note**: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the colors.
+> **Note**: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the theme's colors.
 
-**Getting colors before the theme loads**
+**Using colors _before_ a theme loads**
 
 Whilst the `get_colors` method is useful in most cases, it may be necessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors which are based on the theme's own palette and incorporating pback into the theme. For this the `get_preloaded_colors` method can be used:
 
@@ -654,6 +657,8 @@ The theme supports the following plugins:
 
 ## :camera_flash: Comparison Screenshots
 
+> **Note**: Every effort has been made to get the colorscheme as close to the original as possible. If you notice any discrepencies, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match).
+
 **Python**
 
 <img src="https://user-images.githubusercontent.com/9512444/224164983-de8f1d99-effc-40a1-a99e-6938689305ba.png" alt="Python" />
@@ -702,15 +707,13 @@ If you're on an earlier version of Neovim and are using Treesitter, install [Pla
 
 **I've noticed some differences between the theme and Visual Studio Code. Why is this?**
 
-I've tried to ensure that the theme resembles the original Visual Studio Code theme as much as possible. To that end we have carefully applied custom Treesitter queries to certain filetypes as well as mapped LSP semantic token colors too. However, there will likely be some differences.
-
-Please open up an issue or a discussion if you notice any discrepencies.
+I've tried to ensure that the theme resembles the original Visual Studio Code theme as much as possible. To that end we have carefully applied custom Treesitter queries to certain filetypes as well as mapped LSP semantic token colors. If you notice any differences, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match) with supporting screenshots.
 
 ## :clap: Credits
 
 The following colorschemes serve as inspiration:
 
 - [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) - The inspiration for this colorscheme
-- [Catppuccin/nvim](https://github.com/catppuccin/nvim) - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes
+- [Catppuccin/nvim](https://github.com/catppuccin/nvim) - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes and the kind PRs
 - [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the original code structure
 - [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration
