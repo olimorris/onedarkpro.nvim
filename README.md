@@ -339,6 +339,7 @@ require("onedarkpro").setup({
 
 The theme supports opinionated highlighting for filetypes, just like the original Visual Studio Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
+- `go`
 - `html`
 - `java`
 - `javascript`

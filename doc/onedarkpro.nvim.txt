@@ -355,11 +355,16 @@ Alternatively, by background color:
 
 CONFIGURING FILETYPE HIGHLIGHTING ~
 
+
+  **Note**Please see the Contributing
+  <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
+  if you would like add support for new filetypes.
 The theme supports opinionated highlighting for filetypes, just like the
 original Visual Studio Code theme. By default, all of the filetypes supported
 are loaded at runtime. The theme currently has support for:
 
 
+- `go`
 - `html`
 - `java`
 - `javascript`
@@ -377,10 +382,6 @@ are loaded at runtime. The theme currently has support for:
 - `xml`
 - `yaml`
 
-
-  **Note**Please see the Contributing
-  <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
-  if you would like add support for new filetypes.
 Specific filetypes can be disabled as follows:
 
 >lua
@@ -462,6 +463,10 @@ named `lsp_semantic_tokens`. See the section below for how to disable this.
 
 CONFIGURING PLUGINS ~
 
+
+  **Note**Please see the Contributing
+  <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
+  if you would like add support for new plugins.
 By default, all of the plugins supported by the theme are loaded at runtime.
 Specific plugins can be disabled as follows:
 
@@ -500,6 +505,8 @@ Or, all of the plugins can be disabled with a select few enabled:
 
 CONFIGURING STYLES ~
 
+
+  **Note**See the |Neovim help| for a full list of styles.
 Within the theme, collections of highlight groups have been grouped together
 into `styles`. For users who use monospaced fonts with nice italics, this can
 go someway to enhancing the aesthetic of a theme. These styles may be
@@ -525,8 +532,6 @@ configured as shown in the example below:
     })
 <
 
-
-  **Note**See the |Neovim help| for a full list of styles.
 
 CONFIGURING OPTIONS ~
 
@@ -596,7 +601,7 @@ The theme comes with a set of helpers which enable you to interact with and
 modify colors. The helper file can be accessed via
 `require("onedarkpro.helpers")`.
 
-**Getting theme colors**
+**Using colors from a theme**
 
 It can be useful to access a theme’s colors for use within other plugins
 (such as your statusline) after its loaded. For this, the `get_colors` helper
@@ -619,8 +624,8 @@ to highlight the colors.
 
 
   **Note**Please ensure that the colorscheme loads ahead of any plugins which may
-  wish to use the colors.
-**Getting colors before the theme loads**
+  wish to use the theme’s colors.
+**Using colors before a theme loads**
 
 Whilst the `get_colors` method is useful in most cases, it may be necessary to
 get a theme’s colors before it has fully loaded. The common use case is for
@@ -718,6 +723,7 @@ The theme supports the following plugins:
 - nvim-notify <https://github.com/rcarriga/nvim-notify> (`nvim_notify`)
 - nvim-tree <https://github.com/kyazdani42/nvim-tree.lua> (`nvim_tree`)
 - nvim-ts-rainbow <https://github.com/p00f/nvim-ts-rainbow> (`nvim_ts_rainbow`)
+- nvim-ts-rainbow2 <https://github.com/HiPhish/nvim-ts-rainbow2> (`nvim_ts_rainbow2`)
 - op.nvim <https://github.com/mrjones2014/op.nvim> (`op_nvim`)
 - packer.nvim <https://github.com/wbthomason/packer.nvim> (`packer`)
 - polygot <https://github.com/sheerun/vim-polyglot> (`polygot`)
@@ -772,9 +778,9 @@ is this?**
 I’ve tried to ensure that the theme resembles the original Visual Studio Code
 theme as much as possible. To that end we have carefully applied custom
 Treesitter queries to certain filetypes as well as mapped LSP semantic token
-colors too. However, there will likely be some differences.
-
-Please open up an issue or a discussion if you notice any discrepencies.
+colors. If you notice any differences, please raise a discussion
+<https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match>
+with supporting screenshots.
 
 
 CREDITS                                              *onedarkpro.nvim-credits*
@@ -783,7 +789,7 @@ The following colorschemes serve as inspiration:
 
 
 - One Dark Pro <https://github.com/Binaryify/OneDark-Pro> - The inspiration for this colorscheme
-- Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes
+- Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes and the kind PRs
 - Nightfox <https://github.com/EdenEast/nightfox.nvim> - For the original code structure
 - GitHub nvim theme <https://github.com/projekt0n/github-nvim-theme> - For the logo inspiration
 
