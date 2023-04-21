@@ -8,11 +8,16 @@ function M.groups(theme)
 
     return {
         ["@constant.go"] = { fg = theme.palette.red },
-        ["@function.call.go"] = { fg = theme.palette.cyan },
-        ["@method.call.go"] = { fg = theme.palette.cyan },
-        ["@operator.go"] = { fg = theme.palette.yellow },
-        ["@type.go"] = { fg = theme.palette.fg },
+        ["@function.call.go"] = { fg = theme.palette.blue },
+        ["@method.call.go"] = { fg = theme.palette.blue },
+        ["@function.builtin.go"] = { fg = theme.palette.cyan },
+        ["@operator.go"] = { fg = theme.palette.cyan },
+        ["@type.go"] = { fg = theme.palette.yellow },
         ["@type.builtin.go"] = { fg = theme.palette.purple },
+        ["@field.go"] = { fg = theme.palette.red },
+        ["@property.go"] = { fg = theme.palette.red },
+        ["@variable.go"] = { fg = theme.palette.red },
+        ["@parameter.go"] = { fg = theme.palette.red },
     }
 end
 
