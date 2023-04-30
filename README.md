@@ -623,6 +623,7 @@ The theme supports the following plugins:
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim) (`diffview_nvim`)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)

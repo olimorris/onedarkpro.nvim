@@ -32,6 +32,7 @@ local defaults = {
         copilot = true,
         dashboard = true,
         gitsigns = true,
+        diffview_nvim = true,
         hop = true,
         indentline = true,
         leap = true,
