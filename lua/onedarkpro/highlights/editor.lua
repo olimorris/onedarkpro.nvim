@@ -124,9 +124,6 @@ function M.groups(theme)
         -- Syntax groups
 
         -- Git
-        diffAdded = { fg = theme.generated.git_add },
-        diffChanged = { fg = theme.generated.git_change },
-        diffRemoved = { fg = theme.generated.git_delete },
         diffFile = { fg = theme.generated.git_change },
         diffNewFile = { fg = theme.generated.git_change },
         diffLine = { fg = theme.palette.blue },
