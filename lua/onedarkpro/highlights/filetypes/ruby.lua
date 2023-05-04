@@ -10,6 +10,7 @@ function M.groups(theme)
         ["@function.ruby"] = { fg = theme.palette.blue, style = config.styles.functions },
         ["@function.call.ruby"] = { fg = theme.palette.blue, style = config.styles.functions },
         ["@include.ruby"] = { fg = theme.palette.blue, style = config.styles.keywords },
+        ["@keyword.function.ruby"] = { link = "@keyword.ruby" },
         ["@label.ruby"] = { fg = theme.palette.red },
         ["@parameter.ruby"] = { fg = theme.palette.fg, style = config.styles.parameters },
         ["@punctuation.bracket.ruby"] = { fg = theme.palette.yellow },
