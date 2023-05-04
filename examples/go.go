@@ -43,7 +43,4 @@ func main() {
 
 	printArea(circle)
 	printArea(rectangle)
-
-	ctx := &context.Context{}
-	ctx.Config = service.Config
 }
