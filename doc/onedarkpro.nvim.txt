@@ -82,6 +82,7 @@ _Windows Terminal_ using the following commands:
 
 - `:OnedarkproExportToKitty`
 - `:OnedarkproExportToAlacritty`
+- `:OnedarkproExportToWezterm`
 - `:OnedarkproExportToWindowsTerminal`
 
 The templates for these themes can be found in the extra

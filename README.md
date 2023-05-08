@@ -92,6 +92,7 @@ The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and _W
 
 - `:OnedarkproExportToKitty`
 - `:OnedarkproExportToAlacritty`
+- `:OnedarkproExportToWezterm`
 - `:OnedarkproExportToWindowsTerminal`
 
 The templates for these themes can be found in the [extra](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra) folder.
