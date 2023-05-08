@@ -88,7 +88,7 @@ The colorscheme comes with some useful commands:
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` output all of the current themes colors to a scratch buffer
 
-The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and _Windows Terminal_ using the following commands:
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_, _Wezterm_ and _Windows Terminal_ using the following commands:
 
 - `:OnedarkproExportToKitty`
 - `:OnedarkproExportToAlacritty`
