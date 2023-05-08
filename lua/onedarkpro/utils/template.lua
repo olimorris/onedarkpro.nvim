@@ -2,28 +2,30 @@ local M = {}
 
 local helpers = require("onedarkpro.helpers")
 
+M.filetype = "onedarkpro"
+
 M.template = [[
 Example of template :
-  black                    = "{black}"
-  blue                     = "{blue}"
-  cyan                     = "{cyan}"
-  gray                     = "{gray}"
-  green                    = "{green}"
-  orange                   = "{orange}"
-  purple                   = "{purple}"
-  red                      = "{red}"
-  white                    = "{white}"
-  yellow                   = "{yellow}"
-  bright_black              = "{bright_black}"
-  bright_blue               = "{bright_blue}"
-  bright_cyan               = "{bright_cyan}"
-  bright_gray               = "{bright_gray}"
-  bright_green              = "{bright_green}"
-  bright_orange             = "{bright_orange}"
-  bright_purple             = "{bright_purple}"
-  bright_red                = "{bright_red}"
-  bright_white              = "{bright_white}"
-  bright_yellow             = "{bright_yellow}"
+  black                     = "${black}"
+  blue                      = "${blue}"
+  cyan                      = "${cyan}"
+  gray                      = "${gray}"
+  green                     = "${green}"
+  orange                    = "${orange}"
+  purple                    = "${purple}"
+  red                       = "${red}"
+  white                     = "${white}"
+  yellow                    = "${yellow}"
+  bright_black              = "${bright_black}"
+  bright_blue               = "${bright_blue}"
+  bright_cyan               = "${bright_cyan}"
+  bright_gray               = "${bright_gray}"
+  bright_green              = "${bright_green}"
+  bright_orange             = "${bright_orange}"
+  bright_purple             = "${bright_purple}"
+  bright_red                = "${bright_red}"
+  bright_white              = "${bright_white}"
+  bright_yellow             = "${bright_yellow}"
 ]]
 
 --- Pre process the color table before rendering the template (useful for adding new colors like the bright colors)
@@ -52,7 +54,7 @@ function M.render()
     local rendered_template = M.template
 
     for color, hex in pairs(colors) do
-        rendered_template = string.gsub(rendered_template, "{" .. color .. "}", tostring(hex))
+        rendered_template = string.gsub(rendered_template, "${" .. color .. "}", tostring(hex))
     end
 
     return rendered_template
@@ -71,7 +73,7 @@ function M.show_in_buffer(buf_name)
     end
 
     vim.api.nvim_buf_set_option(buf, "modifiable", false)
-    vim.api.nvim_buf_set_option(buf, "filetype", "Onedarkpro")
+    vim.api.nvim_buf_set_option(buf, "filetype", M.filetype)
     vim.api.nvim_buf_set_name(buf, buf_name)
     vim.api.nvim_win_set_buf(0, buf)
 end
