@@ -40,6 +40,16 @@ describe("Using the theme", function()
         assert.equals(true, output.bold)
     end)
 
+    it("it should apply styles via custom highlights", function()
+        local output = vim.api.nvim_get_hl_by_name("Directory", true)
+        assert.equals(true, output.bold)
+    end)
+
+    it("it should apply styles via custom highlights", function()
+        local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
+        assert.equals(true, output.italic)
+    end)
+
     if util.has_nvim_08 then
         it("it should apply options", function()
             local output = vim.api.nvim_get_hl_by_name("CursorLine", true)

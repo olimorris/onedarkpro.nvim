@@ -47,7 +47,8 @@ onedarkpro.setup({
             fg = "${oli_color}"
         },
         TestHighlightGroup = {
-            fg = "${red}"
+            fg = "${red}",
+            style = "italic"
         },
         TestHighlightGroup2 = { link = "Statement" },
         ConditionalByBackground = { fg = { dark = "#FF0000", light = "#FFFFFF" } },
