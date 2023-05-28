@@ -31,59 +31,59 @@ describe("Using the theme", function()
     end)
 
     it("it should create new colors", function()
-        local output = vim.api.nvim_get_hl_by_name("Statement", true)
-        assert.equals("#ff00ff", hex(output.foreground))
+        local output = vim.api.nvim_get_hl(0, { name = "Statement" })
+        assert.equals("#ff00ff", hex(output.fg))
     end)
 
     it("it should apply styles", function()
-        local output = vim.api.nvim_get_hl_by_name("Identifier", true)
+        local output = vim.api.nvim_get_hl(0, { name = "Identifier" })
         assert.equals(true, output.bold)
     end)
 
     it("it should apply styles via custom highlights", function()
-        local output = vim.api.nvim_get_hl_by_name("Directory", true)
+        local output = vim.api.nvim_get_hl(0, { name = "Directory" })
         assert.equals(true, output.bold)
     end)
 
     it("it should apply styles via custom highlights", function()
-        local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
+        local output = vim.api.nvim_get_hl(0, { name = "TestHighlightGroup" })
         assert.equals(true, output.italic)
     end)
 
     if util.has_nvim_08 then
         it("it should apply options", function()
-            local output = vim.api.nvim_get_hl_by_name("CursorLine", true)
-            assert.equals("#2e323a", hex(output.background))
+            local output = vim.api.nvim_get_hl(0, { name = "CursorLine" })
+            assert.equals("#2e323a", hex(output.bg))
         end)
 
         it("it should not apply options that are false", function()
-            local output = vim.api.nvim_get_hl_by_name("VertSplit", true)
-            assert.equals("#282c34", hex(output.background))
+            local output = vim.api.nvim_get_hl(0, { name = "VertSplit" })
+            assert.equals("#282c34", hex(output.bg))
         end)
     end
 
     it("it should be able to overwrite existing colors", function()
-        local output = vim.api.nvim_get_hl_by_name("Label", true)
-        assert.equals("#d55fde", hex(output.foreground))
+        local output = vim.api.nvim_get_hl(0, { name = "Label" })
+        assert.equals("#d55fde", hex(output.fg))
     end)
 
     it("it should be able to overwrite generated colors", function()
-        local output = vim.api.nvim_get_hl_by_name("DiffAdd", true)
-        assert.equals("#ff0000", hex(output.background))
+        local output = vim.api.nvim_get_hl(0, { name = "DiffAdd" })
+        assert.equals("#ff0000", hex(output.bg))
     end)
 
     it("it should be able to overwrite existing hlgroups", function()
-        local output = vim.api.nvim_get_hl_by_name("Repeat", true)
-        assert.equals("#61afef", hex(output.foreground))
+        local output = vim.api.nvim_get_hl(0, { name = "Repeat" })
+        assert.equals("#61afef", hex(output.fg))
     end)
 
     it("it should be able to create custom hlgroups", function()
-        local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
-        assert.equals("#e06c75", hex(output.foreground))
+        local output = vim.api.nvim_get_hl(0, { name = "TestHighlightGroup" })
+        assert.equals("#e06c75", hex(output.fg))
     end)
 
     it("it should be able to create blends", function()
-        local output = vim.api.nvim_get_hl_by_name("Constant", true)
+        local output = vim.api.nvim_get_hl(0, { name = "Constant" })
         assert.equals(hex(output.blend), "#000064")
     end)
 
@@ -93,35 +93,35 @@ describe("Using the theme", function()
     end)
 
     it("it should be able to use bg color as a conditional", function()
-        local output = vim.api.nvim_get_hl_by_name("ConditionalByBackground", true)
-        assert.equals(hex(output.foreground), "#ff0000")
+        local output = vim.api.nvim_get_hl(0, { name = "ConditionalByBackground" })
+        assert.equals(hex(output.fg), "#ff0000")
 
         vim.cmd([[colorscheme onelight]])
 
-        output = vim.api.nvim_get_hl_by_name("ConditionalByBackground", true)
-        assert.equals(hex(output.foreground), "#ffffff")
+        output = vim.api.nvim_get_hl(0, { name = "ConditionalByBackground" })
+        assert.equals(hex(output.fg), "#ffffff")
     end)
 
     it("it should be able to use bg color as a conditional with variables", function()
-        local output = vim.api.nvim_get_hl_by_name("ConditionalByBackgroundByVariable", true)
+        local output = vim.api.nvim_get_hl(0, { name = "ConditionalByBackgroundByVariable" })
         -- Remember we've overwritten red!
-        assert.equals(hex(output.background), "#e06c75")
+        assert.equals(hex(output.bg), "#e06c75")
 
         vim.cmd([[colorscheme onelight]])
 
-        output = vim.api.nvim_get_hl_by_name("ConditionalByBackgroundByVariable", true)
-        assert.equals(hex(output.background), "#118dc3")
+        output = vim.api.nvim_get_hl(0, { name = "ConditionalByBackgroundByVariable" })
+        assert.equals(hex(output.bg), "#118dc3")
     end)
 
     it("it should be able to use a theme as a conditional with variables", function()
-        local output = vim.api.nvim_get_hl_by_name("ConditionalByTheme", true)
+        local output = vim.api.nvim_get_hl(0, { name = "ConditionalByTheme" })
         -- Remember we've overwritten red!
-        assert.equals(hex(output.background), "#e06c75")
+        assert.equals(hex(output.bg), "#e06c75")
 
         vim.cmd([[colorscheme onelight]])
 
-        output = vim.api.nvim_get_hl_by_name("ConditionalByTheme", true)
-        assert.equals(hex(output.background), "#118dc3")
+        output = vim.api.nvim_get_hl(0, { name = "ConditionalByTheme" })
+        assert.equals(hex(output.bg), "#118dc3")
     end)
 
     it("it should be able to load plugins that we have enabled", function()
@@ -167,12 +167,12 @@ describe("Using the theme", function()
     end)
 
     it("it changes custom highlight groups when the background changes", function()
-        local output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
-        assert.equals("#e06c75", hex(output.foreground))
+        local output = vim.api.nvim_get_hl(0, { name = "TestHighlightGroup" })
+        assert.equals("#e06c75", hex(output.fg))
 
         vim.cmd([[colorscheme onelight]])
-        output = vim.api.nvim_get_hl_by_name("TestHighlightGroup", true)
-        assert.equals("#e05661", hex(output.foreground))
+        output = vim.api.nvim_get_hl(0, { name = "TestHighlightGroup" })
+        assert.equals("#e05661", hex(output.fg))
     end)
 
     it("it creates the autocmds for inactive windows", function()
