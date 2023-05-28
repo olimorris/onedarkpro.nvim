@@ -72,6 +72,17 @@ end
 ---Load a theme
 ---@return nil
 function M.load()
+    --Warn users that Neovim 0.9.0 or greater will be needed in the future
+    if vim.fn.has("nvim-0.9") == 0 then
+        require("onedarkpro.utils.deprecate").write(
+            "This plugin will soon require your ",
+            { "Neovim version to be at least 0.9.0\n", "ErrorMsg" },
+            "This will become active on ",
+            { "9th June, 2023\n", "WarningMsg" },
+            "You can pin the plugin to the `0.8.0` tag if required"
+        )
+    end
+
     -- Users may not call the setup method but should still get caching
     if not config.is_setup then
         config.setup()
