@@ -44,10 +44,10 @@
 
 ## :zap: Requirements
 
-- Neovim 0.8+
+- Neovim 0.9.0+
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
-- For semantic tokens, Neovim 0.9+ and an LSP server that supports them
+- For semantic tokens, an LSP server that supports them
 
 ## :package: Installation and usage
 
