@@ -86,7 +86,7 @@ function M.groups(theme)
         jsonBoolean = { link = "Boolean" },
         jsonNumber = { link = "Number" },
         jsonQuote = { fg = theme.palette.fg },
-        jsonMissingCommaError = { fg = theme.palette.red, style = "reverse" },
+        jsonMissingCommaError = { fg = theme.palette.red, reverse = true },
         jsonNoQuotesError = { link = "jsonMissingCommaError" },
         jsonNumError = { link = "jsonMissingCommaError" },
         jsonString = { fg = theme.palette.green },

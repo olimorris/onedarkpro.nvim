@@ -89,14 +89,14 @@ function M.groups(theme)
         ["@text.strong"] = { link = "Bold" }, -- bold text
         -- ["@text.emphasis"] = { }, -- text with emphasis
         ["@text.underline"] = { link = "Underlined" }, -- underlined text
-        ["@text.strike"] = { fg = theme.palette.fg, style = "strikethrough" }, -- strikethrough text
+        ["@text.strike"] = { fg = theme.palette.fg, strikethrough = true }, -- strikethrough text
         ["@text.title"] = { link = "Title" }, -- text that is part of a title
         ["@text.literal"] = { fg = theme.palette.fg }, -- literal or verbatim text
-        ["@text.uri"] = { fg = theme.palette.blue, style = "italic,underline" }, -- URIs (e.g. hyperlinks)
+        ["@text.uri"] = { fg = theme.palette.blue, italic = true, underline = true }, -- URIs (e.g. hyperlinks)
         ["@text.math"] = { fg = theme.palette.fg }, -- math environments (e.g. `$ ... $` in LaTeX)
         ["@text.environment"] = { link = "Macro" }, -- text environments of markup languages
         ["@text.environment.name"] = { link = "Type" }, -- text indicating the type of an environment
-        ["@text.reference"] = { fg = theme.palette.fg, style = "bold" }, -- text references, footnotes, citations, etc.
+        ["@text.reference"] = { fg = theme.palette.fg, bold = true }, -- text references, footnotes, citations, etc.
 
         --["@text.todo] -- todo notes
         ["@text.todo.checked"] = { fg = theme.palette.blue },

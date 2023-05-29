@@ -9,7 +9,7 @@ function M.groups(theme)
     return {
         ["@operator.html"] = { fg = theme.palette.fg },
         ["@tag.attribute.html"] = { fg = theme.palette.orange, style = config.styles.tags },
-        ["@text.uri.html"] = { fg = theme.palette.green, style = "underline" },
+        ["@text.uri.html"] = { fg = theme.palette.green, underline = true },
     }
 end
 

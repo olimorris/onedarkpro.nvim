@@ -11,7 +11,7 @@ function M.groups(theme)
         IndentBlanklineSpaceChar = { link = "IndentLine" },
         IndentBlanklineSpaceCharBlankline = { link = "IndentLine" },
         IndentBlanklineContextChar = { fg = theme.palette.purple },
-        IndentBlanklineContextStart = { style = "underline" },
+        IndentBlanklineContextStart = { underline = true },
     }
 end
 

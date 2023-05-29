@@ -45,10 +45,10 @@ function M.groups(theme)
         SpecialComment = { fg = theme.palette.comment }, -- special things inside a comment
         -- Debug = {}, -- debugging statements
 
-        Underlined = { style = "underline" }, -- (preferred) text that stands out, HTML links
-        Bold = { style = "bold" },
+        Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
+        Bold = { bold = true },
         -- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
-        Italic = { style = "italic" },
+        Italic = { italic = true },
 
         Error = { fg = theme.palette.red }, -- (preferred) any erroneous construct
         Todo = { fg = theme.palette.purple }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
