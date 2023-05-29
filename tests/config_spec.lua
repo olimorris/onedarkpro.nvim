@@ -55,7 +55,7 @@ describe("Using the theme", function()
         assert.equals(true, output.reverse)
     end)
 
-    it("it should apply styles via custom highlights without loosing foreground color", function()
+    it("it should apply styles via custom highlights without losing the fg color", function()
         local output = vim.api.nvim_get_hl(0, { name = "Title" })
 
         assert.equals(true, output.underline)
