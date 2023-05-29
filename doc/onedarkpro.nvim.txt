@@ -16,7 +16,6 @@ Table of Contents                          *onedarkpro.nvim-table-of-contents*
 
 FEATURES                                            *onedarkpro.nvim-features*
 
-
 - Automatic caching for faster load times
 - Full Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> support and bespoke queries
 - Support for LSP semantic tokens
@@ -27,7 +26,6 @@ FEATURES                                            *onedarkpro.nvim-features*
 
 
 REQUIREMENTS                                    *onedarkpro.nvim-requirements*
-
 
 - Neovim 0.8+
 - `termguicolors` enabled for true color support
@@ -71,14 +69,12 @@ COMMANDS                                            *onedarkpro.nvim-commands*
 
 The colorscheme comes with some useful commands:
 
-
 - `:OnedarkproCache` force generate new cache files for the themes (you won’t often need this)
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` output all of the current themes colors to a scratch buffer
 
-The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and
-_Windows Terminal_ using the following commands:
-
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_,
+_Wezterm_ and _Windows Terminal_ using the following commands:
 
 - `:OnedarkproExportToKitty`
 - `:OnedarkproExportToAlacritty`
@@ -185,7 +181,6 @@ Click to see the default configuration ~
 SETTING A THEME ~
 
 Currently, there are four themes in the colorscheme:
-
 
 - `onedark`
 - `onelight`
@@ -297,7 +292,6 @@ and plugin
 files use a large array of highlight groups. There are three ways to customize
 or _override_ them:
 
-
 1. Using specific hex colors:
 
 >lua
@@ -308,7 +302,6 @@ or _override_ them:
     })
 <
 
-
 1. Referencing the name of colors:
 
 >lua
@@ -318,7 +311,6 @@ or _override_ them:
       }
     })
 <
-
 
 1. Linking to other highlight groups:
 
@@ -363,7 +355,6 @@ CONFIGURING FILETYPE HIGHLIGHTING ~
 The theme supports opinionated highlighting for filetypes, just like the
 original Visual Studio Code theme. By default, all of the filetypes supported
 are loaded at runtime. The theme currently has support for:
-
 
 - `go`
 - `html`
@@ -650,7 +641,6 @@ The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you
 to modify custom colors or the theme’s own. All three helpers follow the same
 format and take three parameters:
 
-
 - color (string) - The name of the color to load (if specifying a theme) or a hex value
 - amount (number) - The amount to darken/lighten/brighten the color by (range from -100 to 100)
 - theme (string) (optional) - The name of the theme to load a color from
@@ -699,7 +689,6 @@ the theme remains small too.
 SUPPORTED PLUGINS                          *onedarkpro.nvim-supported-plugins*
 
 The theme supports the following plugins:
-
 
 - aerial.nvim <https://github.com/stevearc/aerial.nvim> (`aerial`)
 - barbar.nvim <https://github.com/romgrk/barbar.nvim> (`barbar`)
@@ -788,7 +777,6 @@ with supporting screenshots.
 CREDITS                                              *onedarkpro.nvim-credits*
 
 The following colorschemes serve as inspiration:
-
 
 - One Dark Pro <https://github.com/Binaryify/OneDark-Pro> - The inspiration for this colorscheme
 - Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes and the kind PRs

@@ -70,13 +70,13 @@ local function replace_var(str, tbl)
 end
 
 ---Replace variables in a table recursively
----@param vars string|number|table the table to be replaced
+---@param vars string|number|boolean|table the table to be replaced
 ---@param values table the values to be replaced by the replace_vars strings in the table passed in
----@return string|number|table
+---@return string|number|table|boolean
 function M.replace_vars(vars, values)
     if type(vars) == "string" then return replace_var(vars, values) end
 
-    if type(vars) == "number" then return vars end
+    if type(vars) == "number" or type(vars) == "boolean" then return vars end
 
     for key, value in pairs(vars) do
         vars[key] = M.replace_vars(value, values)
