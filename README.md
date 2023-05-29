@@ -399,7 +399,7 @@ It's likely that you'll wish to add additional filetype highlights or even chang
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    ["@field.yaml"] = { fg = "${blue}", style = "italic" }
+    ["@field.yaml"] = { fg = "${blue}", italic = true }
   }
 })
 ```
@@ -483,6 +483,20 @@ require("onedarkpro").setup({
   }
 })
 ```
+
+Styles can also be applied manually to highlight groups:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { italic = true },
+    Directory = { bold = true },
+    ErrorMsg = { italic = true, bold = true }
+  }
+})
+```
+
+> **Note**: For a list of available styles, please refer to the [Neovim documentation](https://neovim.io/doc/user/api.html#nvim_set_hl())
 
 ### Configuring options
 
