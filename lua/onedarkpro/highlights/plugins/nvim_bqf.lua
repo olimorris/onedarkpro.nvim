@@ -9,7 +9,7 @@ function M.groups(theme)
     return {
         BqfPreviewBorder = { fg = theme.palette.gray },
         BqfPreviewRange = { fg = theme.palette.green },
-        BqfSign = { fg = theme.palette.purple, style = "bold" },
+        BqfSign = { fg = theme.palette.purple, bold = true },
     }
 end
 

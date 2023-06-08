@@ -76,8 +76,8 @@ The colorscheme comes with some useful commands:
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` output all of the current themes colors to a scratch buffer
 
-The theme comes with the ability to export colors to _Kitty_, _Alacritty_ and
-_Windows Terminal_ using the following commands:
+The theme comes with the ability to export colors to _Kitty_, _Alacritty_,
+_Wezterm_ and _Windows Terminal_ using the following commands:
 
 
 - `:OnedarkproExportToKitty`
@@ -425,7 +425,7 @@ groups in the theme:
 >lua
     require("onedarkpro").setup({
       highlights = {
-        ["@field.yaml"] = { fg = "${blue}", style = "italic" }
+        ["@field.yaml"] = { fg = "${blue}", italic = true }
       }
     })
 <
@@ -529,6 +529,18 @@ configured as shown in the example below:
         parameters = "NONE",
         conditionals = "italic",
         virtual_text = "NONE",
+      }
+    })
+<
+
+Styles can also be applied manually to highlight groups:
+
+>lua
+    require("onedarkpro").setup({
+      highlights = {
+        Comment = { italic = true },
+        Directory = { bold = true },
+        ErrorMsg = { italic = true, bold = true }
       }
     })
 <

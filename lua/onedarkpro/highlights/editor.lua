@@ -93,7 +93,7 @@ function M.groups(theme)
         StatusLine = {
             bg = config.options.transparency and "NONE" or theme.palette.bg,
             fg = theme.palette.fg,
-            style = "bold",
+            bold = true,
         }, -- status line of current window
         StatusLineNC = {
             bg = config.options.transparency and "NONE"
@@ -129,10 +129,10 @@ function M.groups(theme)
         diffLine = { fg = theme.palette.blue },
 
         -- Spelling
-        SpellBad = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
-        SpellCap = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
-        SpellLocal = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
-        SpellRare = { fg = theme.palette.red, sp = theme.palette.red, style = "undercurl" },
+        SpellBad = { fg = theme.palette.red, sp = theme.palette.red, undercurl = true },
+        SpellCap = { fg = theme.palette.red, sp = theme.palette.red, undercurl = true },
+        SpellLocal = { fg = theme.palette.red, sp = theme.palette.red, undercurl = true },
+        SpellRare = { fg = theme.palette.red, sp = theme.palette.red, undercurl = true },
     }
 end
 

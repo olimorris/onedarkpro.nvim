@@ -4,17 +4,23 @@ local M = {}
 
 ---Parse a comma separated styles string into a table
 ---For example: "bold,italic" -> {bold = true, italic = true}"
----@param style string
+---@param tbl table
 ---@return table
-local function parse_style(style)
-    if not style or style == "NONE" then return {} end
-
-    local result = {}
-    for token in string.gmatch(style, "([^,]+)") do
-        result[token] = true
+local function parse_style(tbl)
+    if not tbl.style then
+        return tbl
+    elseif tbl.style == "NONE" then
+        tbl.style = nil
+        return tbl
     end
 
-    return result
+    for token in string.gmatch(tbl.style, "([^,]+)") do
+        tbl[token] = true
+    end
+
+    tbl.style = nil
+
+    return tbl
 end
 
 ---Expand the highlight group's values into a string from a table
@@ -53,7 +59,7 @@ end
 local function highlight(name, values, theme)
     if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
 
-    local val = parse_style(values.style)
+    local val = parse_style(values)
     val.bg = resolve_value(values.bg, theme)
     val.fg = resolve_value(values.fg, theme)
     val.sp = values.sp
@@ -62,12 +68,26 @@ local function highlight(name, values, theme)
     return string.format([[set_hl(0, "%s", %s)]], name, expand_values(val))
 end
 
+local function custom_highlight(name, values, theme)
+    if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
+
+    values = parse_style(values)
+    values.bg = resolve_value(values.bg, theme)
+    values.fg = resolve_value(values.fg, theme)
+
+    local highlight_group = string.format([[custom_group = get_hl(0, { name = "%s", link = false })]], name)
+    local extends_values =
+        string.format([[custom_group_val = vim.tbl_extend("force", custom_group, %s)]], expand_values(values))
+
+    return string.format([[%s; %s; set_hl(0, "%s", custom_group_val)]], highlight_group, extends_values, name)
+end
+
 ---Compile the colorscheme
 ---@param theme string
 ---@return function
 function M.compile(theme)
     theme = require("onedarkpro.theme").load(theme or config.theme)
-    local highlight_groups = require("onedarkpro.highlight").groups(theme)
+    local highlight_groups, custom_groups = require("onedarkpro.highlight").groups(theme)
 
     --Encase the colorscheme's logic in a function which can be executed with a
     --string.dump function call. In turn this converts it into a binary form
@@ -77,6 +97,9 @@ function M.compile(theme)
             [[
 return string.dump(function()
 local set_hl = vim.api.nvim_set_hl
+local get_hl = vim.api.nvim_get_hl
+local custom_group = {}
+local custom_group_val = {}
 if vim.g.colors_name then vim.cmd("hi clear") end
 vim.o.termguicolors = true
 vim.g.colors_name = "%s"
@@ -98,6 +121,13 @@ vim.o.background = "%s"
     -- Highlight groups
     for name, values in pairs(highlight_groups) do
         table.insert(lines, highlight(name, values, theme))
+    end
+
+    -- User Highlight groups
+    if type(custom_groups) == "table" and not vim.tbl_isempty(custom_groups) then
+        for name, values in pairs(custom_groups) do
+            table.insert(lines, custom_highlight(name, values, theme))
+        end
     end
 
     -- Autocmds

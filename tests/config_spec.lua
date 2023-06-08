@@ -50,6 +50,18 @@ describe("Using the theme", function()
         assert.equals(true, output.italic)
     end)
 
+    it("it should apply reverse via custom highlights", function()
+        local output = vim.api.nvim_get_hl(0, { name = "TestHighlightGroup3" })
+        assert.equals(true, output.reverse)
+    end)
+
+    it("it should apply styles via custom highlights without losing the fg color", function()
+        local output = vim.api.nvim_get_hl(0, { name = "Title" })
+
+        assert.equals(true, output.underline)
+        assert.equals("#89ca78", hex(output.fg))
+    end)
+
     if util.has_nvim_08 then
         it("it should apply options", function()
             local output = vim.api.nvim_get_hl(0, { name = "CursorLine" })
