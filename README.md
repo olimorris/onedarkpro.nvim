@@ -110,6 +110,8 @@ The templates for these themes can be found in the [extra](https://github.com/ol
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
+    comment = true,
+    go = true,
     html = true,
     java = true,
     javascript = true,
@@ -340,6 +342,7 @@ require("onedarkpro").setup({
 
 The theme supports opinionated highlighting for filetypes, just like the original Visual Studio Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
+- `comment`
 - `go`
 - `html`
 - `java`

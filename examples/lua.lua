@@ -3,6 +3,8 @@ local lib = require("neotest.lib")
 local logger = require("neotest.logging")
 local utils = require("neotest-rspec.utils")
 
+--- A comment with a url https://www.github.com/olimorris
+
 ---@class neotest.Adapter
 ---@field name string
 local NeotestAdapter = { name = "neotest-rspec" }

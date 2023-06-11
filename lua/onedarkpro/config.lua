@@ -8,6 +8,7 @@ local defaults = {
     cache_suffix = "_compiled",
     colors = {}, -- Add/override colors
     filetypes = { -- Enable/disable specific plugins
+        comment = true,
         go = true,
         html = true,
         java = true,

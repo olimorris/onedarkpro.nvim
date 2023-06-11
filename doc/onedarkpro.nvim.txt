@@ -29,10 +29,10 @@ FEATURES                                            *onedarkpro.nvim-features*
 REQUIREMENTS                                    *onedarkpro.nvim-requirements*
 
 
-- Neovim 0.8+
+- Neovim 0.9.0+
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
-- For semantic tokens, Neovim 0.9+ and an LSP server that supports them
+- For semantic tokens, an LSP server that supports them
 
 
 INSTALLATION AND USAGE                *onedarkpro.nvim-installation-and-usage*
@@ -104,6 +104,8 @@ Click to see the default configuration ~
     require("onedarkpro").setup({
       colors = {}, -- Override default colors or create your own
       filetypes = { -- Override which filetype highlight groups are loaded
+        comment = true,
+        go = true,
         html = true,
         java = true,
         javascript = true,
@@ -365,6 +367,7 @@ original Visual Studio Code theme. By default, all of the filetypes supported
 are loaded at runtime. The theme currently has support for:
 
 
+- `comment`
 - `go`
 - `html`
 - `java`
@@ -545,6 +548,9 @@ Styles can also be applied manually to highlight groups:
     })
 <
 
+
+  **Note**For a list of available styles, please refer to the |Neovim
+  documentation|
 
 CONFIGURING OPTIONS ~
 
