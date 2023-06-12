@@ -18,7 +18,6 @@ function M.groups(theme)
         ["@punctuation.bracket.lua"] = { fg = theme.palette.orange },
 
         -- LSP Semantic Tokens
-        ["@lsp.type.comment.lua"] = { link = "Comment" },
         ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = theme.palette.cyan },
         ["@lsp.type.class.lua"] = { fg = theme.palette.yellow },
         ["@lsp.typemod.variable.defaultLibrary.lua"] = { fg = theme.palette.yellow },
