@@ -314,7 +314,7 @@ require("onedarkpro").setup({
 })
 ```
 
-**Creating highlight groups**
+#### Creating highlight groups
 
 You can also create your own highlight groups:
 
@@ -338,14 +338,19 @@ require("onedarkpro").setup({
 
 > **Note**: This can be useful to prevent LSP servers from applying groups with semantic highlights
 
-**Specifying highlight attributes by theme or background**
+#### Specifying highlight attributes by theme or background
 
 As with colors, highlight attributes may be specified by using the theme name or the background color. For example:
 
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    Comment = { fg = { onedark = "${yellow}", onelight = "${my_new_red}" } }
+    Comment = {
+      fg = {
+        onedark = "${yellow}",
+        onelight = "${my_new_red}"
+      }
+    }
   }
 })
 ```
@@ -355,7 +360,12 @@ Alternatively, by background color:
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    Comment = { fg = { dark = "${yellow}", light = "${my_new_red}" } }
+    Comment = {
+      fg = {
+        dark = "${yellow}",
+        light = "${my_new_red}"
+      }
+    }
   }
 })
 ```
