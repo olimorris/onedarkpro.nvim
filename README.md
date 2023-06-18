@@ -331,7 +331,7 @@ or, if you'd like to disable certain highlight groups:
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    "[@lsp.type.comment]" = {}
+    ["@lsp.type.comment"] = {}
   }
 })
 ```
