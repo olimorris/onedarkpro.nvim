@@ -314,6 +314,30 @@ require("onedarkpro").setup({
 })
 ```
 
+**Creating highlight groups**
+
+You can also create your own highlight groups:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    MyNewHighlightGroup = { fg = "${red}" }
+  }
+})
+```
+
+or, if you'd like to disable certain highlight groups:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    "[@lsp.type.comment]" = {}
+  }
+})
+```
+
+> **Note**: This can be useful to prevent LSP servers from applying groups with semantic highlights
+
 **Specifying highlight attributes by theme or background**
 
 As with colors, highlight attributes may be specified by using the theme name or the background color. For example:
