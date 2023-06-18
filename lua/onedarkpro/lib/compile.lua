@@ -70,6 +70,7 @@ end
 
 local function custom_highlight(name, values, theme)
     if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
+    if next(values) == nil then return string.format([[set_hl(0, "%s", {})]], name) end
 
     values = parse_style(values)
     values.bg = resolve_value(values.bg, theme)
