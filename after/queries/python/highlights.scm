@@ -3,6 +3,7 @@
 (dictionary_splat_pattern ("**" @odp.operator.splat))
 
 (import_from_statement) "from" @odp.import_from
+((dotted_name) @odp.import_module (#set! "priority" 126))
 
 ((function_definition name: (identifier) @odp.base_constructor)
 (#any-of? @odp.base_constructor "__new__" "__init__"))
