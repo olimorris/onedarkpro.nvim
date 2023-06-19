@@ -187,6 +187,11 @@ describe("Using the theme", function()
         assert.equals("#e05661", hex(output.fg))
     end)
 
+    it("allows for highlight groups to be unset", function()
+        local output = vim.api.nvim_get_hl(0, { name = "Cursor" })
+        assert.equals(nil, next(output))
+    end)
+
     it("it creates the autocmds for inactive windows", function()
         local output = vim.api.nvim_exec("autocmd Onedarkpro", true)
 

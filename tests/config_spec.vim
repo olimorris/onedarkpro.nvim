@@ -33,6 +33,7 @@ onedarkpro.setup({
         }
     },
     highlights = {
+        Cursor = {},
         Constant = {
             fg = "${blue}",
             blend = 100,

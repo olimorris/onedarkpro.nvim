@@ -2,8 +2,9 @@ local config = require("onedarkpro.config")
 
 local M = {}
 
----Parse a comma separated styles string into a table
----For example: "bold,italic" -> {bold = true, italic = true}"
+---Parse a comma separated styles or table values into a table
+---For example: "bold,italic" or "{ bold = true, italic = true }"
+---will yield: "{bold = true, italic = true}"
 ---@param tbl table
 ---@return table
 local function parse_style(tbl)
@@ -37,7 +38,7 @@ local function expand_values(tbl)
     return string.format([[{ %s }]], table.concat(values, ", "))
 end
 
---- Resolve a highlight group's value from a table
+---Resolve a color in a highlight group by the theme background or name
 ---@param value table|string highlight group values
 ---@param theme table the theme
 ---@return table|string|nil
@@ -51,39 +52,33 @@ local function resolve_value(value, theme)
     return value
 end
 
----Form highlights using the Neovim API
+---Create highlight groups using the Neovim API
 ---@param name string the highlight group name
 ---@param values table the highlight group values
 ---@param theme table the theme
+---@param custom? boolean whether the highlight group is custom
 ---@return string
-local function highlight(name, values, theme)
+local function highlight(name, values, theme, custom)
     if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
+    if next(values) == nil then return string.format([[set_hl(0, "%s", {})]], name) end
 
     local val = parse_style(values)
     val.bg = resolve_value(values.bg, theme)
     val.fg = resolve_value(values.fg, theme)
-    val.sp = values.sp
-    val.blend = values.blend
+
+    if custom then
+        return string.format(
+            [[set_hl(0, "%s", vim.tbl_extend("force", get_hl(0, { name = "%s" }), %s))]],
+            name,
+            name,
+            expand_values(val)
+        )
+    end
 
     return string.format([[set_hl(0, "%s", %s)]], name, expand_values(val))
 end
 
-local function custom_highlight(name, values, theme)
-    if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
-    if next(values) == nil then return string.format([[set_hl(0, "%s", {})]], name) end
-
-    values = parse_style(values)
-    values.bg = resolve_value(values.bg, theme)
-    values.fg = resolve_value(values.fg, theme)
-
-    local highlight_group = string.format([[custom_group = get_hl(0, { name = "%s", link = false })]], name)
-    local extends_values =
-        string.format([[custom_group_val = vim.tbl_extend("force", custom_group, %s)]], expand_values(values))
-
-    return string.format([[%s; %s; set_hl(0, "%s", custom_group_val)]], highlight_group, extends_values, name)
-end
-
----Compile the colorscheme
+---Compile the theme
 ---@param theme string
 ---@return function
 function M.compile(theme)
@@ -99,19 +94,19 @@ function M.compile(theme)
 return string.dump(function()
 local set_hl = vim.api.nvim_set_hl
 local get_hl = vim.api.nvim_get_hl
-local custom_group = {}
-local custom_group_val = {}
+
 if vim.g.colors_name then vim.cmd("hi clear") end
+
 vim.o.termguicolors = true
 vim.g.colors_name = "%s"
-vim.o.background = "%s"
-    ]],
+vim.o.background = "%s"]],
             theme.meta.name,
             theme.meta.background
         ),
     }
 
     -- Terminal colors
+    table.insert(lines, "\n-- Terminal colors\n")
     if config.config.options.terminal_colors then
         local terminal_colours = require("onedarkpro.highlights.terminal").groups(theme)
         for name, value in pairs(terminal_colours) do
@@ -120,19 +115,22 @@ vim.o.background = "%s"
     end
 
     -- Highlight groups
+    table.insert(lines, "\n-- Highlight groups\n")
     for name, values in pairs(highlight_groups) do
         table.insert(lines, highlight(name, values, theme))
     end
 
-    -- User Highlight groups
+    -- Custom highlight groups
+    table.insert(lines, "\n-- Custom highlight groups\n")
     if type(custom_groups) == "table" and not vim.tbl_isempty(custom_groups) then
         for name, values in pairs(custom_groups) do
-            table.insert(lines, custom_highlight(name, values, theme))
+            table.insert(lines, highlight(name, values, theme, true))
         end
     end
 
     -- Autocmds
     if config.config.options.highlight_inactive_windows or config.config.options.window_unfocused_color then
+        table.insert(lines, "\n-- Autocmds\n")
         local autocmds = require("onedarkpro.highlights.autocmd").groups(theme)
         for _, values in pairs(autocmds) do
             table.insert(lines, values)
@@ -147,6 +145,9 @@ vim.o.background = "%s"
     --(source: https://www.lua.org/pil/8.html)
     local ld = load or loadstring
     return assert(ld(table.concat(lines, "\n"), "="))()
+
+    --NOTE: Use this return statement to debug the compiled lua
+    -- return table.concat(lines, "\n")
 end
 
 return M
