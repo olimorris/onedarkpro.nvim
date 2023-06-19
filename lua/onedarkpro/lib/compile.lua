@@ -80,8 +80,9 @@ end
 
 ---Compile the theme
 ---@param theme string
----@return function
-function M.compile(theme)
+---@param opts? table
+---@return function|string
+function M.compile(theme, opts)
     theme = require("onedarkpro.theme").load(theme or config.theme)
     local highlight_groups, custom_groups = require("onedarkpro.highlight").groups(theme)
 
@@ -140,14 +141,13 @@ vim.o.background = "%s"]],
     -- End the function
     table.insert(lines, [[end)]])
 
+    if opts and opts.debug then return table.concat(lines, "\n") end
+
     --Compile lua with the load function. The use of assert ensures that errors
     --in the compilation process bubble up to be handled later in the plugin
     --(source: https://www.lua.org/pil/8.html)
     local ld = load or loadstring
     return assert(ld(table.concat(lines, "\n"), "="))()
-
-    --NOTE: Use this return statement to debug the compiled lua
-    -- return table.concat(lines, "\n")
 end
 
 return M

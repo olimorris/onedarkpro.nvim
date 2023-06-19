@@ -6,6 +6,7 @@ local defaults = {
     caching = true, -- Enable caching
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
     cache_suffix = "_compiled",
+    debug = false,
     colors = {}, -- Add/override colors
     highlights = {}, -- Add/override highlights
     styles = {

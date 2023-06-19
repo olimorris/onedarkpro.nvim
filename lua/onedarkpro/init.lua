@@ -15,6 +15,14 @@ function M.cache()
             theme = theme,
             cache = compiler.compile(theme),
         })
+
+        if config.config.debug then
+            cache.write({
+                theme = theme,
+                cache = compiler.compile(theme, { debug = true }),
+                suffix = "_debug",
+            })
+        end
     end
 end
 
@@ -63,8 +71,8 @@ end
 function M.setup(opts)
     config.setup(opts)
 
-    -- Allow users to force generate themes at startup
-    if not config.config.caching then return M.cache() end
+    -- Allow users to forcefully generate themes, every time they launch Neovim
+    if not config.config.caching or config.config.debug then return M.cache() end
 
     validate_cache()
 end

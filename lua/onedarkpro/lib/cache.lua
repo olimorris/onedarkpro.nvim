@@ -9,6 +9,9 @@ local M = {}
 function M.write(opts)
     local cache_path, cache_file = config.get_cached_info(opts)
 
+    if opts.prefix then cache_file = opts.prefix .. cache_file end
+    if opts.suffix then cache_file = cache_file .. opts.suffix end
+
     util.ensure_dir(cache_path)
     local f = util.write(cache_file, opts.cache)
 
