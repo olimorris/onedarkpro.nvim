@@ -103,6 +103,22 @@ Click to see the default configuration ~
 >lua
     require("onedarkpro").setup({
       colors = {}, -- Override default colors or create your own
+      highlights = {}, -- Override default highlight groups or create your own
+      styles = { -- For example, to apply bold and italic, use "bold,italic"
+        types = "NONE", -- Style that is applied to types
+        methods = "NONE", -- Style that is applied to methods
+        numbers = "NONE", -- Style that is applied to numbers
+        strings = "NONE", -- Style that is applied to strings
+        comments = "NONE", -- Style that is applied to comments
+        keywords = "NONE", -- Style that is applied to keywords
+        constants = "NONE", -- Style that is applied to constants
+        functions = "NONE", -- Style that is applied to functions
+        operators = "NONE", -- Style that is applied to operators
+        variables = "NONE", -- Style that is applied to variables
+        parameters = "NONE", -- Style that is applied to parameters
+        conditionals = "NONE", -- Style that is applied to conditionals
+        virtual_text = "NONE", -- Style that is applied to virtual text
+      },
       filetypes = { -- Override which filetype highlight groups are loaded
         comment = true,
         go = true,
@@ -158,22 +174,7 @@ Click to see the default configuration ~
         vim_ultest = true,
         which_key = true,
       },
-      highlights = {}, -- Override default highlight groups or create your own
-      styles = { -- For example, to apply bold and italic, use "bold,italic"
-        types = "NONE", -- Style that is applied to types
-        methods = "NONE", -- Style that is applied to methods
-        numbers = "NONE", -- Style that is applied to numbers
-        strings = "NONE", -- Style that is applied to strings
-        comments = "NONE", -- Style that is applied to comments
-        keywords = "NONE", -- Style that is applied to keywords
-        constants = "NONE", -- Style that is applied to constants
-        functions = "NONE", -- Style that is applied to functions
-        operators = "NONE", -- Style that is applied to operators
-        variables = "NONE", -- Style that is applied to variables
-        parameters = "NONE", -- Style that is applied to parameters
-        conditionals = "NONE", -- Style that is applied to conditionals
-        virtual_text = "NONE", -- Style that is applied to virtual text
-      },
+    
       options = {
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
@@ -332,7 +333,8 @@ or _override_ them:
     })
 <
 
-**Creating highlight groups**
+
+CREATING HIGHLIGHT GROUPS
 
 You can also create your own highlight groups:
 
@@ -349,7 +351,7 @@ or, if you’d like to disable certain highlight groups:
 >lua
     require("onedarkpro").setup({
       highlights = {
-        "[@lsp.type.comment]" = {}
+        ["@lsp.type.comment"] = {}
       }
     })
 <
@@ -357,7 +359,8 @@ or, if you’d like to disable certain highlight groups:
 
   **Note**This can be useful to prevent LSP servers from applying groups with
   semantic highlights
-**Specifying highlight attributes by theme or background**
+
+SPECIFYING HIGHLIGHT ATTRIBUTES BY THEME OR BACKGROUND
 
 As with colors, highlight attributes may be specified by using the theme name
 or the background color. For example:
@@ -365,7 +368,12 @@ or the background color. For example:
 >lua
     require("onedarkpro").setup({
       highlights = {
-        Comment = { fg = { onedark = "${yellow}", onelight = "${my_new_red}" } }
+        Comment = {
+          fg = {
+            onedark = "${yellow}",
+            onelight = "${my_new_red}"
+          }
+        }
       }
     })
 <
@@ -375,7 +383,12 @@ Alternatively, by background color:
 >lua
     require("onedarkpro").setup({
       highlights = {
-        Comment = { fg = { dark = "${yellow}", light = "${my_new_red}" } }
+        Comment = {
+          fg = {
+            dark = "${yellow}",
+            light = "${my_new_red}"
+          }
+        }
       }
     })
 <

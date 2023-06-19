@@ -109,6 +109,22 @@ The templates for these themes can be found in the [extra](https://github.com/ol
 ```lua
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
+  highlights = {}, -- Override default highlight groups or create your own
+  styles = { -- For example, to apply bold and italic, use "bold,italic"
+    types = "NONE", -- Style that is applied to types
+    methods = "NONE", -- Style that is applied to methods
+    numbers = "NONE", -- Style that is applied to numbers
+    strings = "NONE", -- Style that is applied to strings
+    comments = "NONE", -- Style that is applied to comments
+    keywords = "NONE", -- Style that is applied to keywords
+    constants = "NONE", -- Style that is applied to constants
+    functions = "NONE", -- Style that is applied to functions
+    operators = "NONE", -- Style that is applied to operators
+    variables = "NONE", -- Style that is applied to variables
+    parameters = "NONE", -- Style that is applied to parameters
+    conditionals = "NONE", -- Style that is applied to conditionals
+    virtual_text = "NONE", -- Style that is applied to virtual text
+  },
   filetypes = { -- Override which filetype highlight groups are loaded
     comment = true,
     go = true,
@@ -164,22 +180,7 @@ require("onedarkpro").setup({
     vim_ultest = true,
     which_key = true,
   },
-  highlights = {}, -- Override default highlight groups or create your own
-  styles = { -- For example, to apply bold and italic, use "bold,italic"
-    types = "NONE", -- Style that is applied to types
-    methods = "NONE", -- Style that is applied to methods
-    numbers = "NONE", -- Style that is applied to numbers
-    strings = "NONE", -- Style that is applied to strings
-    comments = "NONE", -- Style that is applied to comments
-    keywords = "NONE", -- Style that is applied to keywords
-    constants = "NONE", -- Style that is applied to constants
-    functions = "NONE", -- Style that is applied to functions
-    operators = "NONE", -- Style that is applied to operators
-    variables = "NONE", -- Style that is applied to variables
-    parameters = "NONE", -- Style that is applied to parameters
-    conditionals = "NONE", -- Style that is applied to conditionals
-    virtual_text = "NONE", -- Style that is applied to virtual text
-  },
+
   options = {
     cursorline = false, -- Use cursorline highlighting?
     transparency = false, -- Use a transparent background?
