@@ -370,8 +370,8 @@ or, if you’d like to disable certain highlight groups:
 <
 
 
-  **Note**This can be useful to prevent LSP servers from applying groups with
-  semantic highlights
+  **Note**This can be useful to prevent LSP servers from applying semantic
+  highlights
 
 SPECIFYING HIGHLIGHT ATTRIBUTES BY THEME OR BACKGROUND
 
