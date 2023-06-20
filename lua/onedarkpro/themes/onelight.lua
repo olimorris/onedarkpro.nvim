@@ -35,6 +35,7 @@ local function generate(colors)
         indentline = colors.indentline or color.darken(colors.bg, 7.3),
         selection = colors.selection or color.darken(colors.bg, 6.5),
         float_bg = colors.float_bg or color.darken(colors.bg, 4.5),
+        inlay_hint = colors.inlay_hint or color.lighten(colors.gray, 10),
 
         -- Git colors
         git_add = colors.git_add or "#c5e6c7",

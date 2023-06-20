@@ -52,6 +52,8 @@ function M.groups(theme)
         LspDiagnosticsVirtualTextInformation = { link = "DiagnosticVirtualTextInfo" },
         LspDiagnosticsVirtualTextHint = { link = "DiagnosticVirtualTextHint" },
 
+        LspInlayHint = { fg = theme.generated.inlay_hint },
+
         LspReferenceText = { bg = theme.generated.selection }, -- used for highlighting "text" references
         LspReferenceRead = { link = "LspReferenceText" }, -- used for highlighting "read" references
         LspReferenceWrite = { link = "LspReferenceText" }, -- used for highlighting "write" references
