@@ -121,6 +121,9 @@ function M.groups(theme)
         Whitespace = { fg = theme.palette.gray }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
         WildMenu = { bg = theme.palette.blue, fg = theme.palette.black }, -- current match in 'wildmenu' completion
 
+        -- Lsp
+        LspInlayHint = { fg = theme.palette.comment, style = config.styles.comment },
+
         -- Syntax groups
 
         -- Git
