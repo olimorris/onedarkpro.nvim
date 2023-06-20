@@ -8,6 +8,7 @@ function M.groups(theme)
 
     return {
         Comment = { fg = theme.palette.comment, style = config.styles.comments }, -- Comments
+        LspInlayHint = { link = "Comment" }, -- Highlight for built in inlay hint in the latest nightly version
         Constant = { fg = theme.palette.orange, style = config.styles.constants }, -- (preferred) any constant
         String = { fg = theme.palette.green, style = config.styles.strings }, --   a string constant: "this is a string"
         Character = { fg = theme.palette.green }, -- a character constant: 'c', '\n'
