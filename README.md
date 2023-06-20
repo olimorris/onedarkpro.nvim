@@ -349,7 +349,7 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note**: This can be useful to prevent LSP servers from applying groups with semantic highlights
+> **Note**: This can be useful to prevent LSP servers from applying semantic highlights
 
 #### Specifying highlight attributes by theme or background
 
