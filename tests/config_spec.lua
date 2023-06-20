@@ -30,15 +30,34 @@ describe("Using the theme", function()
         assert.equals("Normal         xxx guifg=#abb2bf guibg=#282c34", output)
     end)
 
+    it("it should apply styles", function()
+        local output = vim.api.nvim_get_hl(0, { name = "Identifier" })
+        assert.equals(true, output.bold)
+    end)
+
+    it("it should be able to create blends", function()
+        local output = vim.api.nvim_get_hl(0, { name = "Constant" })
+        assert.equals(hex(output.blend), "#000064")
+    end)
+
+    -- Overwrite colors
+
     it("it should create new colors", function()
         local output = vim.api.nvim_get_hl(0, { name = "Statement" })
         assert.equals("#ff00ff", hex(output.fg))
     end)
 
-    it("it should apply styles", function()
-        local output = vim.api.nvim_get_hl(0, { name = "Identifier" })
-        assert.equals(true, output.bold)
+    it("it should be able to overwrite existing colors", function()
+        local output = vim.api.nvim_get_hl(0, { name = "Label" })
+        assert.equals("#d55fde", hex(output.fg))
     end)
+
+    it("it should be able to overwrite generated colors", function()
+        local output = vim.api.nvim_get_hl(0, { name = "DiffAdd" })
+        assert.equals("#ff0000", hex(output.bg))
+    end)
+
+    -- Custom highlights
 
     it("it should apply styles via custom highlights", function()
         local output = vim.api.nvim_get_hl(0, { name = "Directory" })
@@ -55,38 +74,17 @@ describe("Using the theme", function()
         assert.equals(true, output.reverse)
     end)
 
-    it("it should apply styles via custom highlights without losing the fg color", function()
+    it("it should be able to extend highlights and apply styles", function()
         local output = vim.api.nvim_get_hl(0, { name = "Title" })
 
         assert.equals(true, output.underline)
         assert.equals("#89ca78", hex(output.fg))
     end)
 
-    if util.has_nvim_08 then
-        it("it should apply options", function()
-            local output = vim.api.nvim_get_hl(0, { name = "CursorLine" })
-            assert.equals("#2e323a", hex(output.bg))
-        end)
-
-        it("it should not apply options that are false", function()
-            local output = vim.api.nvim_get_hl(0, { name = "VertSplit" })
-            assert.equals("#282c34", hex(output.bg))
-        end)
-    end
-
-    it("it should be able to overwrite existing colors", function()
-        local output = vim.api.nvim_get_hl(0, { name = "Label" })
-        assert.equals("#d55fde", hex(output.fg))
-    end)
-
-    it("it should be able to overwrite generated colors", function()
-        local output = vim.api.nvim_get_hl(0, { name = "DiffAdd" })
-        assert.equals("#ff0000", hex(output.bg))
-    end)
-
     it("it should be able to overwrite existing hlgroups", function()
-        local output = vim.api.nvim_get_hl(0, { name = "Repeat" })
-        assert.equals("#61afef", hex(output.fg))
+        local output = vim.api.nvim_get_hl(0, { name = "@keyword" })
+        assert.equals("#d55fde", hex(output.fg))
+        assert.equals(nil, output.link)
     end)
 
     it("it should be able to create custom hlgroups", function()
@@ -94,15 +92,12 @@ describe("Using the theme", function()
         assert.equals("#e06c75", hex(output.fg))
     end)
 
-    it("it should be able to create blends", function()
-        local output = vim.api.nvim_get_hl(0, { name = "Constant" })
-        assert.equals(hex(output.blend), "#000064")
-    end)
-
     it("it should be able to link to other highlight groups", function()
         local output = vim.api.nvim_exec("hi TestHighlightGroup2", true)
         assert.equals("TestHighlightGroup2 xxx links to Statement", output)
     end)
+
+    -- Others
 
     it("it should be able to use bg color as a conditional", function()
         local output = vim.api.nvim_get_hl(0, { name = "ConditionalByBackground" })
@@ -160,6 +155,16 @@ describe("Using the theme", function()
 
     it("it should set terminal colors if the option is enabled", function()
         assert.equals(vim.g.terminal_color_0, "#282c34")
+    end)
+
+    it("it should apply options", function()
+        local output = vim.api.nvim_get_hl(0, { name = "CursorLine" })
+        assert.equals("#2e333c", hex(output.bg))
+    end)
+
+    it("it should not apply options that are false", function()
+        local output = vim.api.nvim_get_hl(0, { name = "VertSplit" })
+        assert.equals("#282c34", hex(output.bg))
     end)
 
     it("it changes the theme when the background changes", function()

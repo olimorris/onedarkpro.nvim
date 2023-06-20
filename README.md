@@ -283,14 +283,14 @@ require("onedarkpro").setup({
 
 ### Configuring highlight groups
 
-The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua), [filetype](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. There are three ways to customize or _override_ them:
+The [editor](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/editor.lua), [syntax](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/syntax.lua), [filetype](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes) and [plugin](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins) files use a large array of highlight groups. Some examples of how you can customize or _override_ them:
 
-1. Using specific hex colors:
+1. Using specific hex colors and styles:
 
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    Comment = { fg = "#FF0000", bg = "#FFFF00" }
+    Comment = { fg = "#FF0000", bg = "#FFFF00", italic = true }
   }
 })
 ```
@@ -300,7 +300,7 @@ require("onedarkpro").setup({
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    Comment = { fg = "${my_new_red}" bg = "${yellow}" }
+    Comment = { fg = "${my_new_red}" bg = "${yellow}", italic = true }
   }
 })
 ```
@@ -314,6 +314,18 @@ require("onedarkpro").setup({
   }
 })
 ```
+
+Existing highlight groups can also be extended:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { underline = true, extend = true }
+  }
+})
+```
+
+In the example above, an underline style has been applied to the existing `Comment` highlight group.
 
 #### Creating highlight groups
 
@@ -367,6 +379,44 @@ require("onedarkpro").setup({
         light = "${my_new_red}"
       }
     }
+  }
+})
+```
+
+### Configuring styles
+
+> **Note**: For a list of available styles, please refer to the [Neovim documentation](https://neovim.io/doc/user/api.html#nvim_set_hl())
+
+Styles can be applied to highlight groups:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { italic = true },
+    Directory = { bold = true },
+    ErrorMsg = { italic = true, bold = true }
+  }
+})
+```
+
+Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of a theme with minimal effort. These styles may be configured as shown in the example below:
+
+```lua
+require("onedarkpro").setup({
+  styles = {
+    types = "NONE",
+    methods = "NONE",
+    numbers = "NONE",
+    strings = "NONE",
+    comments = "italic",
+    keywords = "bold,italic",
+    constants = "NONE",
+    functions = "italic",
+    operators = "NONE",
+    variables = "NONE",
+    parameters = "NONE",
+    conditionals = "italic",
+    virtual_text = "NONE",
   }
 })
 ```
@@ -495,46 +545,6 @@ require("onedarkpro").setup({
   }
 })
 ```
-
-### Configuring styles
-
-> **Note**: See the [Neovim help](https://neovim.io/doc/user/api.html#nvim_set_hl()) for a full list of styles.
-
-Within the theme, collections of highlight groups have been grouped together into `styles`. For users who use monospaced fonts with nice italics, this can go someway to enhancing the aesthetic of a theme. These styles may be configured as shown in the example below:
-
-```lua
-require("onedarkpro").setup({
-  styles = {
-    types = "NONE",
-    methods = "NONE",
-    numbers = "NONE",
-    strings = "NONE",
-    comments = "italic",
-    keywords = "bold,italic",
-    constants = "NONE",
-    functions = "italic",
-    operators = "NONE",
-    variables = "NONE",
-    parameters = "NONE",
-    conditionals = "italic",
-    virtual_text = "NONE",
-  }
-})
-```
-
-Styles can also be applied manually to highlight groups:
-
-```lua
-require("onedarkpro").setup({
-  highlights = {
-    Comment = { italic = true },
-    Directory = { bold = true },
-    ErrorMsg = { italic = true, bold = true }
-  }
-})
-```
-
-> **Note**: For a list of available styles, please refer to the [Neovim documentation](https://neovim.io/doc/user/api.html#nvim_set_hl())
 
 ### Configuring options
 

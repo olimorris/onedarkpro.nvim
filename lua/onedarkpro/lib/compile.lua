@@ -56,9 +56,9 @@ end
 ---@param name string the highlight group name
 ---@param values table the highlight group values
 ---@param theme table the theme
----@param custom? boolean whether the highlight group is custom
+---@param opts? table
 ---@return string
-local function highlight(name, values, theme, custom)
+local function highlight(name, values, theme, opts)
     if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
     if next(values) == nil then return string.format([[set_hl(0, "%s", {})]], name) end
 
@@ -66,7 +66,8 @@ local function highlight(name, values, theme, custom)
     val.bg = resolve_value(values.bg, theme)
     val.fg = resolve_value(values.fg, theme)
 
-    if custom then
+    if opts and opts.custom and opts.extend then
+        val.extend = nil
         return string.format(
             [[set_hl(0, "%s", vim.tbl_extend("force", get_hl(0, { name = "%s" }), %s))]],
             name,
@@ -125,7 +126,7 @@ vim.o.background = "%s"]],
     table.insert(lines, "\n-- Custom highlight groups\n")
     if type(custom_groups) == "table" and not vim.tbl_isempty(custom_groups) then
         for name, values in pairs(custom_groups) do
-            table.insert(lines, highlight(name, values, theme, true))
+            table.insert(lines, highlight(name, values, theme, { custom = true, extend = values.extend }))
         end
     end
 

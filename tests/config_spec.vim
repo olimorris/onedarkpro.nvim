@@ -41,6 +41,9 @@ onedarkpro.setup({
         Directory = {
             style = "bold",
         },
+        ["@keyword"] = {
+            fg = "${purple}"
+        },
         Repeat = {
             fg = "${blue}"
         },
@@ -60,6 +63,7 @@ onedarkpro.setup({
         },
         Title = {
           underline = true,
+          extend = true
         }
     },
 })

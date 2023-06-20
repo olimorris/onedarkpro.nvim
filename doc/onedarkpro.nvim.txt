@@ -297,16 +297,16 @@ filetype
 <https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/filetypes>
 and plugin
 <https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/highlights/plugins>
-files use a large array of highlight groups. There are three ways to customize
-or _override_ them:
+files use a large array of highlight groups. Some examples of how you can
+customize or _override_ them:
 
 
-1. Using specific hex colors:
+1. Using specific hex colors and styles:
 
 >lua
     require("onedarkpro").setup({
       highlights = {
-        Comment = { fg = "FF0000", bg = "FFFF00" }
+        Comment = { fg = "FF0000", bg = "FFFF00", italic = true }
       }
     })
 <
@@ -317,7 +317,7 @@ or _override_ them:
 >lua
     require("onedarkpro").setup({
       highlights = {
-        Comment = { fg = "${my_new_red}" bg = "${yellow}" }
+        Comment = { fg = "${my_new_red}" bg = "${yellow}", italic = true }
       }
     })
 <
@@ -329,6 +329,16 @@ or _override_ them:
     require("onedarkpro").setup({
       highlights = {
         Comment = { link = "Substitute" }
+      }
+    })
+<
+
+You may also wish to extend existing highlight groups:
+
+>lua
+    require("onedarkpro").setup({
+      highlights = {
+        Comment = { underline = true, extend = true }
       }
     })
 <
