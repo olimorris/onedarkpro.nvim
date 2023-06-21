@@ -150,6 +150,7 @@ require("onedarkpro").setup({
     barbar = true,
     copilot = true,
     dashboard = true,
+    flash_nvim = true,
     gitsigns = true,
     hop = true,
     indentline = true,
@@ -687,6 +688,7 @@ The theme supports the following plugins:
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim) (`diffview`)
+- [flash.nvim](https://github.com/folke/flash.nvim) (`flash.nvim`)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
