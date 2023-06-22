@@ -2,7 +2,10 @@
 (list_splat_pattern ("*" @odp.operator.splat))
 (dictionary_splat_pattern ("**" @odp.operator.splat))
 
-((dotted_name) @odp.import_module (#set! "priority" 126))
+(import_statement name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
+(import_from_statement name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
+(import_from_statement module_name: (relative_import (dotted_name (identifier) @odp.import_module (#set! "priority" 126))))
+(import_from_statement module_name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
 
 ((function_definition name: (identifier) @odp.base_constructor)
 (#any-of? @odp.base_constructor "__new__" "__init__"))
