@@ -51,7 +51,7 @@
 
 ## :package: Installation and usage
 
-Install with your package manager of choice use with `colorscheme`:
+Install with your package manager of choice:
 
 ```lua
 -- Lazy
