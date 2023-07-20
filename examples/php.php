@@ -11,7 +11,7 @@ namespace OneDarkPro;
  */
 class ThingHelper
 {
-    private $thing = null;
+private $thing = null;
 
     /**
      * @param string $thing

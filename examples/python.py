@@ -5,6 +5,7 @@ from django import forms
 from .models import Profile
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
+
 class ProfileForm(forms.ModelForm):
     """
     A form for editing user profiles.

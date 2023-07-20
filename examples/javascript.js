@@ -92,4 +92,3 @@ while (i < 100) {
   i *= 2; // increment to avoid infinite loop
   document.write(i + ", "); // output
 }
-
