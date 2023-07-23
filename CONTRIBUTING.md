@@ -155,5 +155,5 @@ plugins = {
 ```
 > **Note**: The name of the plugin should be its filename without the `.lua` extension
 
-- Update the `README.md` file to include the new plugin. Please follow the existing format
+- Update the `README.md` file to include the new plugin; This should include the `Default Configuration` and `Supported Plugins` sections
 - Finally, create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
