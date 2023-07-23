@@ -159,6 +159,7 @@ require("onedarkpro").setup({
     lsp_saga = true,
     lsp_semantic_tokens = true,
     marks = true,
+    mini_indentscope = true,
     neotest = true,
     neo_tree = true,
     nvim_cmp = true,
