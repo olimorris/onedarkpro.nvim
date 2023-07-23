@@ -4,15 +4,16 @@
 - [Adding new filetypes](#adding-new-filetypes)
 - [Adding new plugins](#adding-new-plugins)
 
-By default, the theme aims to stay true to the original [One Dark Pro](https://github.com/Binaryify/OneDark-Pro)
-theme (_"the original"_) as much as possible. If you notice any discrepencies, please make a pull request.
+By default, the theme aims to stay true to the original [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) theme (_"the original"_). Any new functionality, colors or design decisions will always be reconciled back to the original. If you notice any discrepencies, please submit a PR.
 
 ## Guidelines
 
 The following is a set of guidelines for contributing to this project:
 
 - When highlighting discrepencies between the theme and the original, please include screenshots and your settings in both Neovim and Visual Studio Code
-- Format code using [stylua](https://github.com/johnnymorganz/stylua) to keep the formatting consistent
+- When adding any new highlight groups (which are not plugin related), please include screenshots for both Neovim and
+  Visual Studio Code
+- Format your code using [stylua](https://github.com/johnnymorganz/stylua) to keep the formatting consistent
 - Make sure that the project's `stylua.toml` file is used for stylua settings
 - Run `make all` prior to submitting a pull request to ensure the tests are passing
 - If you're adding functionality, please ensure you have written [plenary](https://github.com/nvim-lua/plenary.nvim/blob/master/TESTS_README.md) tests for it
@@ -24,6 +25,7 @@ The following is a set of guidelines for contributing to this project:
 - Consider the use of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to make your commit messages more descriptive
 
 ## Adding new filetypes
+
 Filetype highlights are the feature that allows a colorscheme to get as close to the original as possible, thanks to Treesitter and support for LSP semantic tokens.
 
 When adding new filetypes, they must stay as close to the original Visual Studio Code theme as possible. Even with the inclusion of opinionated styles (such as bolds and italics).
@@ -95,6 +97,7 @@ filetypes = {
     typescript = true,
 },
 ```
+
 > **Note**: The name of the filetype should be its filename without the `.lua` extension
 
 - Update the `README.md` file to list the new filetype. Please follow the existing format
@@ -106,6 +109,7 @@ It can be difficult to keep track of all of the amazing new plugins which enter 
 
 - Create the plugin file in `lua/onedarkpro/highlights/plugins/`
 - The plugin should implement the following interface:
+
 ```lua
 local M = {}
 
@@ -120,13 +124,16 @@ end
 
 return M
 ```
+
 - Highlight groups can be added like so:
+
 ```lua
 TelescopeSelection = {
     bg = theme.palette.bg,
     fg = theme.palette.purple,
 }
 ```
+
 > See `lua/onedarkpro/themes/onedark.lua` for the list of available colors in the colorschemes
 
 - To incorporate styles from a user's config:
@@ -141,6 +148,7 @@ return {
     }
 }
 ```
+
 > Reference the `editor.lua` and `syntax.lua` files to see how to add highlight groups and styles from a user's config
 
 - To load the plugin by default, go to `lua/onedarkpro/config.lua` and add the plugin to the `plugins` table and set it to `true` by default:
@@ -153,7 +161,8 @@ plugins = {
     my_new_plugin = true,
 },
 ```
+
 > **Note**: The name of the plugin should be its filename without the `.lua` extension
 
-- Update the `README.md` file to include the new plugin. Please follow the existing format
+- Update the `README.md` file to include the new plugin; This should include the `Default Configuration` and `Supported Plugins` sections
 - Finally, create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
