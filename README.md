@@ -318,7 +318,7 @@ require("onedarkpro").setup({
 })
 ```
 
-Existing highlight groups can also be extended:
+4. Extending existing highlight groups:
 
 ```lua
 require("onedarkpro").setup({
@@ -328,7 +328,7 @@ require("onedarkpro").setup({
 })
 ```
 
-In the example above, an underline style has been applied to the existing `Comment` highlight group.
+> **Note**: In the example above, an underline style has been applied to the existing `Comment` highlight group.
 
 #### Creating highlight groups
 

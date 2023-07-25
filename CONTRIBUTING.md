@@ -11,8 +11,7 @@ By default, the theme aims to stay true to the original [One Dark Pro](https://g
 The following is a set of guidelines for contributing to this project:
 
 - When highlighting discrepencies between the theme and the original, please include screenshots and your settings in both Neovim and Visual Studio Code
-- When adding any new highlight groups (which are not plugin related), please include screenshots for both Neovim and
-  Visual Studio Code
+- When adding any new highlight groups (which are not plugin related), please include screenshots for both Neovim and Visual Studio Code
 - Format your code using [stylua](https://github.com/johnnymorganz/stylua) to keep the formatting consistent
 - Make sure that the project's `stylua.toml` file is used for stylua settings
 - Run `make all` prior to submitting a pull request to ensure the tests are passing
