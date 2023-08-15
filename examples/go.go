@@ -1,3 +1,5 @@
+import "image/draw"
+
 package main
 
 import (

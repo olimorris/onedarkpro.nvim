@@ -1,9 +1,9 @@
 import os.path
 
 from django import forms
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 from .models import Profile
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 
 class ProfileForm(forms.ModelForm):

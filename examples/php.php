@@ -67,15 +67,6 @@ if ($sum !== 3) {
 }
 
 
-/**
- * Try/catch
- */
-try {
-    add('NaN', 1);
-} catch (\TypeError $e) {
-    echo 'You done goofed';
-}
-
 /*
  * Heredoc
  */
