@@ -37,7 +37,7 @@ REQUIREMENTS                                    *onedarkpro.nvim-requirements*
 
 INSTALLATION AND USAGE                *onedarkpro.nvim-installation-and-usage*
 
-Install with your package manager of choice use with `colorscheme`
+Install with your package manager of choice:
 
 >lua
     -- Lazy
@@ -153,6 +153,7 @@ Click to see the default configuration ~
         lsp_saga = true,
         lsp_semantic_tokens = true,
         marks = true,
+        mini_indentscope = true,
         neotest = true,
         neo_tree = true,
         nvim_cmp = true,
@@ -335,7 +336,8 @@ customize or _override_ them:
     })
 <
 
-Existing highlight groups can also be extended:
+
+1. Extending existing highlight groups:
 
 >lua
     require("onedarkpro").setup({
@@ -345,9 +347,9 @@ Existing highlight groups can also be extended:
     })
 <
 
-In the example above, an underline style has been applied to the existing
-`Comment` highlight group.
 
+  **Note**In the example above, an underline style has been applied to the
+  existing `Comment` highlight group.
 
 CREATING HIGHLIGHT GROUPS
 
@@ -783,6 +785,7 @@ The theme supports the following plugins:
 - lspsaga.nvim <https://github.com/glepnir/lspsaga.nvim> (`lsp_saga`)
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - marks.nvim <https://github.com/chentau/marks.nvim> (`marks`)
+- mini.indentscope <https://github.com/echasnovski/mini.indentscope> (`mini_indentscope`)
 - Neotest <https://github.com/nvim-neotest/neotest> (`neotest`)
 - neo-tree <https://github.com/nvim-neo-tree/neo-tree.nvim> (`neo_tree`)
 - nvim-cmp <https://github.com/hrsh7th/nvim-cmp> (`nvim_cmp`)
