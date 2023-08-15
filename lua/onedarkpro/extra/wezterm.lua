@@ -29,6 +29,8 @@ background = '${bg}'
 foreground = '${fg}'
 selection_bg = '${purple}'
 selection_fg = '${white}'
+cursor_bg = '${purple}'
+cursor_fg = '${bg}'
 
 [colors.indexed]
 
