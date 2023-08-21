@@ -259,12 +259,8 @@ It's possible to override default colors within a theme such as the `bg` color. 
 ```lua
 require("onedarkpro").setup({
   colors = {
-    onedark = {
-      bg = "#FFFF00" -- yellow
-    },
-    onelight = {
-      bg = "#00FF00" -- green
-    }
+    onedark = { bg = "#FFFF00" }, -- yellow
+    onelight = { bg = "#00FF00" }, -- green
   }
 })
 ```
@@ -274,12 +270,8 @@ Alternatively, you can specify colors by the theme's background color:
 ```lua
 require("onedarkpro").setup({
   colors = {
-    dark = {
-      bg = "#FFFF00" -- yellow
-    },
-    light = {
-      bg = "#00FF00" -- green
-    }
+    dark = { bg = "#FFFF00" }, -- yellow
+    light = { bg = "#00FF00" }, -- green
   }
 })
 ```
@@ -303,7 +295,7 @@ require("onedarkpro").setup({
 ```lua
 require("onedarkpro").setup({
   highlights = {
-    Comment = { fg = "${my_new_red}" bg = "${yellow}", italic = true }
+    Comment = { fg = "${my_new_red}", bg = "${yellow}", italic = true }
   }
 })
 ```
@@ -362,10 +354,7 @@ As with colors, highlight attributes may be specified by using the theme name or
 require("onedarkpro").setup({
   highlights = {
     Comment = {
-      fg = {
-        onedark = "${yellow}",
-        onelight = "${my_new_red}"
-      }
+      fg = { onedark = "${yellow}", onelight = "${my_new_red}" }
     }
   }
 })
@@ -377,11 +366,20 @@ Alternatively, by background color:
 require("onedarkpro").setup({
   highlights = {
     Comment = {
-      fg = {
-        dark = "${yellow}",
-        light = "${my_new_red}"
-      }
+      fg = { dark = "${yellow}", light = "${my_new_red}" }
     }
+  }
+})
+```
+
+#### Namespacing highlight groups
+
+Neovim supports the application of highlights to specific buffers via [namespaces](https://neovim.io/doc/user/api.html#api-extmark). To apply highlight groups to a specific namespace, use the `ns_id` key:
+
+```lua
+require("onedarkpro").setup({
+  highlights = {
+    Comment = { ns_id = 1, fg = "${light_gray}" }
   }
 })
 ```

@@ -31,7 +31,8 @@ local function expand_values(tbl)
     local values = {}
     for k, v in pairs(tbl) do
         local q = type(v) == "string" and [["]] or ""
-        table.insert(values, string.format([[%s = %s%s%s]], k, q, v, q))
+        -- Strip out the namespace key
+        if k ~= "ns_id" then table.insert(values, string.format([[%s = %s%s%s]], k, q, v, q)) end
     end
 
     table.sort(values)
@@ -60,7 +61,7 @@ end
 ---@return string
 local function highlight(name, values, theme, opts)
     if values.link then return string.format([[set_hl(0, "%s", { link = "%s" })]], name, values.link) end
-    if next(values) == nil then return string.format([[set_hl(0, "%s", {})]], name) end
+    if next(values) == nil then return string.format([[set_hl(%s, "%s", {})]], values.ns_id or 0, name) end
 
     local val = parse_style(values)
     val.bg = resolve_value(values.bg, theme)
@@ -69,14 +70,15 @@ local function highlight(name, values, theme, opts)
     if opts and opts.custom and opts.extend then
         val.extend = nil
         return string.format(
-            [[set_hl(0, "%s", vim.tbl_extend("force", get_hl(0, { name = "%s" }), %s))]],
+            [[set_hl(%s, "%s", vim.tbl_extend("force", get_hl(0, { name = "%s" }), %s))]],
+            values.ns_id or 0,
             name,
             name,
             expand_values(val)
         )
     end
 
-    return string.format([[set_hl(0, "%s", %s)]], name, expand_values(val))
+    return string.format([[set_hl(%s, "%s", %s)]], values.ns_id or 0, name, expand_values(val))
 end
 
 ---Compile the theme

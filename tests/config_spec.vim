@@ -54,6 +54,7 @@ onedarkpro.setup({
             fg = "${red}",
             style = "italic"
         },
+        NamespacedHighlightGroup = { ns_id = 23, fg = "${red}" },
         TestHighlightGroup2 = { link = "Statement" },
         ConditionalByBackground = { fg = { dark = "#FF0000", light = "#FFFFFF" } },
         ConditionalByBackgroundByVariable = { bg = { dark = "${red}", light = "${blue}" } },
