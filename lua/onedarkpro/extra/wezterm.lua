@@ -14,6 +14,7 @@ ansi = [
   '${cyan}',
   '${white}',
 ]
+background = '${bg}'
 brights = [
   '${gray}',
   '${bright_red}',
@@ -24,13 +25,11 @@ brights = [
   '${bright_cyan}',
   '${bright_white}',
 ]
-
-background = '${bg}'
+cursor_bg = '${purple}'
+cursor_fg = '${bg}'
 foreground = '${fg}'
 selection_bg = '${purple}'
 selection_fg = '${white}'
-cursor_bg = '${purple}'
-cursor_fg = '${bg}'
 
 [colors.indexed]
 
