@@ -29,7 +29,7 @@ cursor_bg = '${purple}'
 cursor_fg = '${bg}'
 foreground = '${fg}'
 selection_bg = '${purple}'
-selection_fg = '${white}'
+selection_fg = '${fg}'
 
 [colors.indexed]
 
