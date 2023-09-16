@@ -42,6 +42,19 @@ function M.pre_render(colors)
     colors["bright_red"] = helpers.lighten("red", 10, vim.g.colors_name)
     colors["bright_white"] = helpers.lighten("white", 10, vim.g.colors_name)
     colors["bright_yellow"] = helpers.lighten("yellow", 10, vim.g.colors_name)
+    colors["bright_fg"] = helpers.lighten("yellow", 10, vim.g.colors_name)
+
+    colors["dim_black"] = helpers.darken("black", 10, vim.g.colors_name)
+    colors["dim_blue"] = helpers.darken("blue", 10, vim.g.colors_name)
+    colors["dim_cyan"] = helpers.darken("cyan", 10, vim.g.colors_name)
+    colors["dim_gray"] = helpers.darken("gray", 10, vim.g.colors_name)
+    colors["dim_green"] = helpers.darken("green", 10, vim.g.colors_name)
+    colors["dim_orange"] = helpers.darken("orange", 10, vim.g.colors_name)
+    colors["dim_purple"] = helpers.darken("purple", 10, vim.g.colors_name)
+    colors["dim_red"] = helpers.darken("red", 10, vim.g.colors_name)
+    colors["dim_white"] = helpers.darken("white", 10, vim.g.colors_name)
+    colors["dim_yellow"] = helpers.darken("yellow", 10, vim.g.colors_name)
+    colors["dim_fg"] = helpers.darken("fg", 10, vim.g.colors_name)
 
     return colors
 end

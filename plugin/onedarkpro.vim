@@ -8,5 +8,6 @@ command! OnedarkproExportToKitty lua require("onedarkpro.extra.kitty").show_in_b
 command! OnedarkproExportToWezterm lua require("onedarkpro.extra.wezterm").show_in_buffer('OneDarkPro Wezterm')
 command! OnedarkproExportToWindowsTerminal lua require("onedarkpro.extra.windows_terminal").show_in_buffer('OneDarkPro Windows Terminal')
 command! OnedarkproExportToFoot lua require("onedarkpro.extra.foot").show_in_buffer('OneDarkPro Foot')
+command! OnedarkproExportToRio lua require("onedarkpro.extra.rio").show_in_buffer('OneDarkPro Rio')
 
 let g:loaded_onedarkpro = 1
