@@ -42,5 +42,5 @@ test: $(PLENARY_DIR)
 # endif
 
 $(PLENARY_DIR):
-	git clone --depth=1 --no-single-branch $(PLENARY_URL) $(PLENARY_DIR)
+	git clone --depth=1 --branch v0.1.3 $(PLENARY_URL) $(PLENARY_DIR)
 	@rm -rf $(PLENARY_DIR)/.git
