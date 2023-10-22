@@ -115,11 +115,11 @@ body:
     - type: textarea
       id: onedarkpro-config
       attributes:
-        label: Your OneDarkPro config
-        description: Please paste your specific OneDarkPro config
+        label: Your `minimal.lua` config
+        description: Please paste your minimal.lua config here
         placeholder: |
           ```lua
-          -- Your onedarkpro config here
+          -- Your minimal.lua config here
           ```
       validations:
         required: true
