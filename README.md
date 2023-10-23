@@ -176,6 +176,7 @@ require("onedarkpro").setup({
     op_nvim = true,
     packer = true,
     polygot = true,
+    rainbow_delimiters = true,
     startify = true,
     telescope = true,
     toggleterm = true,
