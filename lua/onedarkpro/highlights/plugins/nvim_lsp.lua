@@ -12,6 +12,7 @@ function M.groups(theme)
         DiagnosticWarn = { fg = theme.palette.yellow },
         DiagnosticInfo = { fg = theme.palette.blue },
         DiagnosticHint = { fg = theme.palette.cyan },
+        DiagnosticOk = { fg = theme.palette.green },
 
         DiagnosticSignError = { fg = theme.palette.red },
         DiagnosticSignWarn = { fg = theme.palette.yellow },
