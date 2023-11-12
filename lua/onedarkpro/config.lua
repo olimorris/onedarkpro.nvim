@@ -31,6 +31,7 @@ local defaults = {
         html = true,
         java = true,
         javascript = true,
+        json = true,
         lua = true,
         markdown = true,
         php = true,

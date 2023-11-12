@@ -133,6 +133,7 @@ require("onedarkpro").setup({
     html = true,
     java = true,
     javascript = true,
+    json = true,
     lua = true,
     markdown = true,
     php = true,
@@ -435,6 +436,7 @@ The theme supports opinionated highlighting for filetypes, just like the origina
 - `html`
 - `java`
 - `javascript`
+- `json`
 - `lua`
 - `markdown`
 - `php`
