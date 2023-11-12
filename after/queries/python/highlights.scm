@@ -26,6 +26,7 @@
 (dictionary ["{" "}"] @odp.punctuation.special)
 
 ("@" @odp.decorator (#set! "priority" 126))
+(decorator (call function: (attribute attribute: (identifier) @odp.decorator.function (#set! "priority" 126))))
 
 (string (interpolation (identifier) @odp.interpolation))
 

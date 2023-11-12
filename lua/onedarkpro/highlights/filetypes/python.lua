@@ -16,8 +16,9 @@ function M.groups(theme)
 
         ["@odp.base_constructor.python"] = { fg = theme.palette.cyan },
         ["@odp.constructor.python"] = { link = "@constructor" },
-        ["@odp.decorator.python"] = { fg = theme.palette.blue, style = config.styles.functions },
-        ["@odp.function.builtin.python"] = { fg = theme.palette.blue, style = config.styles.functions },
+        ["@odp.decorator.python"] = { link = "@function" },
+        ["@odp.decorator.function.python"] = { link = "@function" },
+        ["@odp.function.builtin.python"] = { link = "@function" },
         ["@odp.import_from.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@odp.import_module.python"] = { fg = theme.palette.fg },
         ["@odp.interpolation.python"] = { fg = theme.palette.red, style = config.styles.parameters },
