@@ -12,15 +12,20 @@ function M.groups(theme)
         ["@include.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@method.call.python"] = { fg = theme.palette.blue, style = config.styles.methods },
         ["@variable.builtin.python"] = { fg = theme.palette.yellow, style = config.styles.variables },
+        ["@punctuation.bracket.python"] = { fg = theme.palette.orange },
 
         ["@odp.base_constructor.python"] = { fg = theme.palette.cyan },
         ["@odp.constructor.python"] = { link = "@constructor" },
+        ["@odp.decorator.python"] = { fg = theme.palette.blue, style = config.styles.functions },
+        ["@odp.function.builtin.python"] = { fg = theme.palette.blue, style = config.styles.functions },
         ["@odp.import_from.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@odp.import_module.python"] = { fg = theme.palette.fg },
+        ["@odp.interpolation.python"] = { fg = theme.palette.red, style = config.styles.parameters },
         ["@odp.keyword.python"] = { style = config.styles.keywords },
         ["@odp.keyword.class.python"] = { link = "@keyword.function.python" },
         ["@odp.operator.splat.python"] = { fg = theme.palette.fg },
-        ["@odp.punctuation.brace.python"] = { fg = theme.palette.purple },
+        ["@odp.punctuation.bracket.python"] = { fg = theme.palette.orange },
+        ["@odp.punctuation.special.python"] = { fg = theme.palette.purple },
     }
 end
 
