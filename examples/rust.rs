@@ -1,7 +1,7 @@
 // Import necessary modules from the standard library
-use std::io;
 use std::cmp::Ordering;
 use std::fmt;
+use std::io;
 
 // Define a custom struct
 struct Point {
@@ -21,7 +21,9 @@ fn main() {
 
     // Read user input
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Failed to read line");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
 
     // Convert user input to a number
     let input: i32 = match input.trim().parse() {

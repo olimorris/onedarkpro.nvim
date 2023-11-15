@@ -18,6 +18,11 @@ function M.groups(theme)
 
         ["@odp.punctuation_arguments_brackets.rust"] = { fg = theme.palette.purple },
         ["@odp.punctuation_token_bracket.rust"] = { fg = theme.palette.cyan },
+
+        -- LSP Semantic Tokens
+        ["@lsp.type.builtinAttribute.rust"] = { link = "Function" },
+        ["@lsp.type.attributeBracket.rust"] = { link = "@punctuation.bracket.rust" },
+        ["@lsp.type.generic.rust"] = { fg = theme.palette.red, style = config.styles.variables },
     }
 end
 
