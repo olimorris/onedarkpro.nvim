@@ -1,5 +1,5 @@
 ; extends
 ((field
-  name: (identifier) @odp.field_name
+  name: (identifier) @odp.function_assignment
   value: (function_definition)
 ) (#set! "priority" 126))

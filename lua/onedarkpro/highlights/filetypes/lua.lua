@@ -17,7 +17,7 @@ function M.groups(theme)
         ["@parameter.lua"] = { fg = theme.palette.fg, style = config.styles.parameters },
         ["@punctuation.bracket.lua"] = { fg = theme.palette.orange },
 
-        ["@odp.field_name.lua"] = { link = "@function" },
+        ["@odp.function_assignment.lua"] = { link = "@function" },
 
         -- LSP Semantic Tokens
         ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = theme.palette.cyan },
