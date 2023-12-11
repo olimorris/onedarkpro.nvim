@@ -771,13 +771,17 @@ end
 
 ## :question: FAQs
 
-**I want to change X highlight group but I don't know what it is. How do I find out?**
+**I want to change a highlight group but I don't know what it is. How do I find out?**
 
 If you're using Neovim 0.9+, the `:Inspect` command is available.
 
 If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any Treesitter or syntax highlight groups under the cursor.
 
-**I've noticed some differences between the theme and Visual Studio Code. Why is this?**
+**I think the theme would look better if we changed the highlight group of X. Would you accept a PR?**
+
+As mentioned at the top of this readme, the theme is based on the [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) theme for Visual Studio Code. Where possible, I will always reconcile back to that. Unless something looks terrible or the readability can be signficantly improved, I'll nearly always default what the original theme has done. Remember that you can apply your own modifications by [configuring highlight groups](#configuring-highlight-groups) in your own configuration.
+
+**Ok then, but I've noticed some differences between the theme and Visual Studio Code. Why is this?**
 
 I've tried to ensure that the theme resembles the original Visual Studio Code theme as much as possible. To that end we have carefully applied custom Treesitter queries to certain filetypes as well as mapped LSP semantic token colors. If you notice any differences, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match) with supporting screenshots.
 
