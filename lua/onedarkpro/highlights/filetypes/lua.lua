@@ -19,11 +19,11 @@ function M.groups(theme)
         ["@punctuation.bracket.lua"] = { fg = theme.palette.orange },
         ["@punctuation.bracket.luadoc"] = { fg = theme.palette.comment },
 
+        ["@odp.class.lua"] = { fg = theme.palette.yellow, style = config.styles.functions },
         ["@odp.function_assignment.lua"] = { link = "@function" },
 
         -- LSP Semantic Tokens
         ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = theme.palette.cyan },
-        ["@lsp.type.class.lua"] = { fg = theme.palette.yellow, style = config.styles.functions },
         ["@lsp.typemod.variable.defaultLibrary.lua"] = { fg = theme.palette.yellow },
     }
 end
