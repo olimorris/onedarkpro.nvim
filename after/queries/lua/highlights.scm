@@ -12,3 +12,8 @@
   name: (dot_index_expression
     table: (identifier) @odp.class)
 )
+
+((
+ (function_call (identifier) @odp.plenary_function)
+ (#match? @odp.plenary_function "describe|it")
+) (#set! "priority" 126))

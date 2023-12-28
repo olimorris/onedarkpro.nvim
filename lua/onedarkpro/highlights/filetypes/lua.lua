@@ -21,6 +21,7 @@ function M.groups(theme)
 
         ["@odp.class.lua"] = { fg = theme.palette.yellow, style = config.styles.functions },
         ["@odp.function_assignment.lua"] = { link = "@function" },
+        ["@odp.plenary_function.lua"] = { link = "@function" },
 
         -- LSP Semantic Tokens
         ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = theme.palette.cyan },
