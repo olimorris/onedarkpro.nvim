@@ -6,7 +6,7 @@ local onedarkpro = {}
 onedarkpro.normal = {
     a = { bg = colors.green, fg = colors.bg },
     b = { bg = colors.fg_gutter, fg = colors.green },
-    c = { bg = colors.bg_statusline, fg = colors.fg },
+    c = { bg = config.lualine.transparent and colors.none or colors.bg_statusline, fg = colors.fg },
 }
 
 onedarkpro.insert = {
@@ -33,7 +33,7 @@ local inactive_bg = config.options.highlight_inactive_windows and colors.color_c
 onedarkpro.inactive = {
     a = { bg = inactive_bg, fg = colors.blue },
     b = { bg = inactive_bg, fg = colors.fg_gutter_inactive, gui = "bold" },
-    c = { bg = inactive_bg, fg = colors.fg_gutter_inactive },
+    c = { bg = config.lualine.transparent and colors.none or inactive_bg, fg = colors.fg_gutter_inactive },
 }
 
 return onedarkpro
