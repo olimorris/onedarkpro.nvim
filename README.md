@@ -726,30 +726,6 @@ The theme supports the following plugins:
 - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
 - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
 
-<!-- panvimdoc-ignore-start -->
-
-## :camera_flash: Comparison Screenshots
-
-> **Note**: Every effort has been made to get the colorscheme as close to the original as possible. If you notice any discrepencies, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match).
-
-**Python**
-
-<img src="https://user-images.githubusercontent.com/9512444/224164983-de8f1d99-effc-40a1-a99e-6938689305ba.png" alt="Python" />
-
-**Lua**
-
-<img src="https://user-images.githubusercontent.com/9512444/224166128-a4343812-6e06-4676-9c30-48c2364ad468.png" alt="Lua" />
-
-**TypeScript**
-
-<img src="https://user-images.githubusercontent.com/9512444/224166332-563916de-cf03-4930-9174-557a0fd829e8.png" alt="TypeScript" />
-
-**Javascript/React**
-
-<img src="https://user-images.githubusercontent.com/9512444/224166584-888678e0-8db5-41d9-b478-b613f0f8e8a3.png" alt="Javascript/React" />
-
-<!-- panvimdoc-ignore-end -->
-
 ## :gift: Extras
 
 **Lualine**
