@@ -107,6 +107,24 @@ function M.groups(theme)
 
         --["@text.diff.add"] -- added text (for diff files)
         --["@text.diff.delete"] -- deleted text (for diff files)
+        -- Markup
+        ["@markup.strong"] = { fg = theme.palette.yellow, bold = true }, -- bold text
+        ["@markup.italic"] = { italic = true }, -- italic text
+        ["@markup.strikethrough"] = { strikethrough = true }, -- struck-through text
+        ["@markup.underline"] = { underline = true }, -- underlined text (only for literal underline markup!)
+
+        ["@markup.heading"] = { link = "Title" }, -- headings, titles (including markers)
+
+        ["@markup.math"] = { link = "Special" }, -- math environments (e.g. `$ ... $` in LaTeX)
+
+        ["@markup.link.label"] = { fg = theme.palette.purple }, -- link, reference descriptions
+        ["@markup.link.url"] = { fg = theme.palette.blue }, -- URL-style links
+
+        ["@markup.raw"] = { fg = theme.palette.green }, -- literal or verbatim text (e.g. inline code)
+
+        ["@markup.list"] = { fg = theme.palette.red }, -- list markers
+        ["@markup.list.checked"] = { bg = theme.palette.purple, fg = theme.palette.bg }, -- checked todo-style list markers
+        ["@markup.list.unchecked"] = { fg = theme.palette.fg }, -- unchecked todo-style list markers
 
         -- Tags
         ["@tag"] = { fg = theme.palette.red }, -- XML tag names
