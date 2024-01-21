@@ -58,6 +58,8 @@ function M.groups(theme)
         LspReferenceText = { bg = theme.generated.selection }, -- used for highlighting "text" references
         LspReferenceRead = { link = "LspReferenceText" }, -- used for highlighting "read" references
         LspReferenceWrite = { link = "LspReferenceText" }, -- used for highlighting "write" references
+
+        LspInfoBorder = { link = "FloatBorder" }, -- used for highlighting the LspInfo box
     }
 end
 
