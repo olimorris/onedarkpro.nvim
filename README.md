@@ -44,7 +44,7 @@
 
 ## :zap: Requirements
 
-- Neovim 0.9.0+
+- Neovim 0.9.2+
 - `termguicolors` enabled for true color support
 - `treesitter` for full syntax highlighting
 - For semantic tokens, an LSP server that supports them
