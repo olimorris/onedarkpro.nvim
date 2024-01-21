@@ -4,6 +4,12 @@
   value: (function_definition)
 ) (#set! "priority" 126))
 
+((expression_list
+  (function_call
+    (identifier) @odp.function_assignment
+  )
+) (#set! "priority" 126))
+
 (function_declaration
   name: (method_index_expression
     table: (identifier) @odp.class)
