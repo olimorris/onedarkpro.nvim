@@ -43,7 +43,7 @@ Install with your package manager of choice:
     -- Lazy
     {
       "olimorris/onedarkpro.nvim",
-      priority = 1000 -- Ensure it loads first
+      priority = 1000, -- Ensure it loads first
     }
     
     -- somewhere in your config:
@@ -185,7 +185,7 @@ Click to see the default configuration ~
         cursorline = false, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
         terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-        lualine_transparency = true, -- Center bar transparency?
+        lualine_transparency = false, -- Center bar transparency?
         highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
       }
     })
@@ -708,8 +708,8 @@ to highlight the colors.
 Whilst the `get_colors` method is useful in most cases, it may be necessary to
 get a theme’s colors before it has fully loaded. The common use case is for
 creating custom colors which are based on the theme’s own palette and
-incorporating pback into the theme. For this the `get_preloaded_colors` method
-can be used:
+incorporating them back into the theme. For this, the `get_preloaded_colors`
+method can be used:
 
 >lua
     local color = require("onedarkpro.helpers")
@@ -750,10 +750,9 @@ Alternatively:
     print(color.darken("FF0000", 10)) -- cc0000
 <
 
-Of course, you’re likely to wish to modify colors before the colorscheme
-loads. There are a number of ways to accomplish this and the most efficient is
-to pass a function (as a string) to the `colors` table in the theme’s
-configuration:
+A common use case is to modify colors and incorporate them into theme. There
+are a number of ways to accomplish this and the most efficient is to pass a
+function (as a string) to the `colors` table in the theme’s configuration:
 
 >lua
     require("onedarkpro").setup({
@@ -770,7 +769,7 @@ configuration:
 
 This prevents the theme from trying to resolve the color before the whole of
 the configuration has been parsed. This also ensures that the startup time for
-the theme remains small too.
+the theme remains small.
 
 
 SUPPORTED PLUGINS                          *onedarkpro.nvim-supported-plugins*
@@ -860,12 +859,11 @@ As mentioned at the top of this readme, the theme is based on the One Dark Pro
 <https://github.com/Binaryify/OneDark-Pro> theme for Visual Studio Code. Where
 possible, I will always reconcile back to that. Unless something looks terrible
 or the readability can be signficantly improved, I’ll nearly always default
-what the original theme has done. Remember that you can apply your own
-modifications by |onedarkpro.nvim-configuring-highlight-groups| in your own
-configuration.
+to what the original theme has done. Remember that you can apply your own
+customisations to the theme by |onedarkpro.nvim-configuring-highlight-groups|.
 
-**Ok then, but I’ve noticed some differences between the theme and Visual
-Studio Code. Why is this?**
+**Ok then, but I’ve noticed some differences between the theme and the
+original Visual Studio Code theme. Why is this?**
 
 I’ve tried to ensure that the theme resembles the original Visual Studio Code
 theme as much as possible. To that end we have carefully applied custom
