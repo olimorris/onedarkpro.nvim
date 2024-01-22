@@ -87,14 +87,15 @@ function M.groups(theme)
         ["@markup.strikethrough"] = { strikethrough = true }, -- struck-through text
         ["@markup.underline"] = { underline = true }, -- underlined text (only for literal underline markup!)
 
-        ["@markup.heading"] = { link = "Title" }, -- headings, titles (including markers)
+        ["@markup.heading"] = { fg = theme.palette.green, bold = true }, -- headings, titles (including markers)
 
         ["@markup.math"] = { link = "Special" }, -- math environments (e.g. `$ ... $` in LaTeX)
 
-        ["@markup.link.label"] = { fg = theme.palette.purple }, -- link, reference descriptions
-        ["@markup.link.url"] = { fg = theme.palette.blue }, -- URL-style links
+        ["@markup.link.label"] = { fg = theme.palette.blue }, -- link, reference descriptions
+        ["@markup.link.url"] = { fg = theme.palette.purple }, -- URL-style links
 
         ["@markup.raw"] = { fg = theme.palette.green }, -- literal or verbatim text (e.g. inline code)
+        ["@markup.raw.delimiter"] = { fg = theme.palette.gray },
 
         ["@markup.list"] = { fg = theme.palette.red }, -- list markers
         ["@markup.list.checked"] = { bg = theme.palette.purple, fg = theme.palette.bg }, -- checked todo-style list markers
