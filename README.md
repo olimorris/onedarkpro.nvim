@@ -630,7 +630,7 @@ You can also use the command `:OnedarkproColors` to open a scratch buffer with t
 
 **Using colors _before_ a theme loads**
 
-Whilst the `get_colors` method is useful in most cases, it may be necessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors which are based on the theme's own palette and incorporating pback into the theme. For this the `get_preloaded_colors` method can be used:
+Whilst the `get_colors` method is useful in most cases, it may be necessary to get a theme's colors before it has fully loaded. The common use case is for creating custom colors which are based on the theme's own palette and incorporating them back into the theme. For this, the `get_preloaded_colors` method can be used:
 
 ```lua
 local color = require("onedarkpro.helpers")
@@ -667,7 +667,7 @@ local color = require("onedarkpro.helpers")
 print(color.darken("#FF0000", 10)) -- #cc0000
 ```
 
-Of course, you're likely to wish to modify colors before the colorscheme loads. There are a number of ways to accomplish this and the most efficient is to pass a function (as a string) to the `colors` table in the theme's configuration:
+A common use case is to modify colors and incorporate them into theme. There are a number of ways to accomplish this and the most efficient is to pass a function (as a string) to the `colors` table in the theme's configuration:
 
 ```lua
 require("onedarkpro").setup({
@@ -682,7 +682,7 @@ require("onedarkpro").setup({
 })
 ```
 
-This prevents the theme from trying to resolve the color before the whole of the configuration has been parsed. This also ensures that the startup time for the theme remains small too.
+This prevents the theme from trying to resolve the color before the whole of the configuration has been parsed. This also ensures that the startup time for the theme remains small.
 
 ## :electric_plug: Supported Plugins
 
@@ -756,9 +756,9 @@ If you're on an earlier version of Neovim and are using Treesitter, install [Pla
 
 **I think the theme would look better if we changed the highlight group of X. Would you accept a PR?**
 
-As mentioned at the top of this readme, the theme is based on the [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) theme for Visual Studio Code. Where possible, I will always reconcile back to that. Unless something looks terrible or the readability can be signficantly improved, I'll nearly always default what the original theme has done. Remember that you can apply your own modifications by [configuring highlight groups](#configuring-highlight-groups) in your own configuration.
+As mentioned at the top of this readme, the theme is based on the [One Dark Pro](https://github.com/Binaryify/OneDark-Pro) theme for Visual Studio Code. Where possible, I will always reconcile back to that. Unless something looks terrible or the readability can be signficantly improved, I'll nearly always default to what the original theme has done. Remember that you can apply your own customisations to the theme by [configuring highlight groups](#configuring-highlight-groups).
 
-**Ok then, but I've noticed some differences between the theme and Visual Studio Code. Why is this?**
+**Ok then, but I've noticed some differences between the theme and the original Visual Studio Code theme. Why is this?**
 
 I've tried to ensure that the theme resembles the original Visual Studio Code theme as much as possible. To that end we have carefully applied custom Treesitter queries to certain filetypes as well as mapped LSP semantic token colors. If you notice any differences, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match) with supporting screenshots.
 
