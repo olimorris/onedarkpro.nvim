@@ -13,7 +13,7 @@ function M.groups(theme)
         ["@variable"] = { fg = theme.palette.red, style = config.styles.variables }, -- various variable names
         ["@variable.builtin"] = { fg = theme.palette.yellow }, -- built-in variable names (e.g. `this`)
         ["@variable.parameter"] = { fg = theme.palette.red, style = config.styles.parameters }, -- parameters of a function
-        ["@variable.member"] = { fg = theme.palette.fg }, -- object and struct fields
+        ["@variable.member"] = { fg = theme.palette.red }, -- object and struct fields
 
         ["@constant"] = { fg = theme.palette.orange, style = config.styles.constants }, -- constant identifiers
         ["@constant.builtin"] = { fg = theme.palette.purple, style = config.styles.constants }, -- built-in constant values
@@ -71,7 +71,7 @@ function M.groups(theme)
 
         -- Punctuation
         ["@punctuation.delimiter"] = { link = "Delimiter" }, -- delimiters (e.g. `;` / `.` / `,`)
-        ["@punctuation.bracket"] = { fg = theme.palette.fg }, -- brackets (e.g. `()` / `{}` / `[]`)
+        ["@punctuation.bracket"] = { fg = theme.palette.purple }, -- brackets (e.g. `()` / `{}` / `[]`)
         ["@punctuation.special"] = { fg = theme.palette.fg }, -- special symbols (e.g. `{}` in string interpolation)
 
         -- Comments
