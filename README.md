@@ -88,7 +88,7 @@ The colorscheme comes with some useful commands:
 - `:OnedarkproClean` removes existing cache files for the themes
 - `:OnedarkproColors` output all of the current themes colors to a scratch buffer
 
-The theme comes with the ability to export colors to _Alacritty_, _Kitty_, _Foot_, _Wezterm_, _Rio_ and _Windows Terminal_ using the following commands:
+The theme comes with the ability to export colors to _Alacritty_, _Kitty_, _Foot_, _Wezterm_, _Rio_, _Windows Terminal_ and _Zellij_ using the following commands:
 
 - `:OnedarkproExportToAlacritty`
 - `:OnedarkproExportToFoot`
@@ -96,6 +96,7 @@ The theme comes with the ability to export colors to _Alacritty_, _Kitty_, _Foot
 - `:OnedarkproExportToWezterm`
 - `:OnedarkproExportToWindowsTerminal`
 - `:OnedarkproExportToRio`
+- `:OnedarkproExportToZellij`
 
 The templates for these themes can be found in the [extra](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra) folder.
 
