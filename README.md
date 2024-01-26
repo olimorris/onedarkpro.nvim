@@ -129,6 +129,7 @@ require("onedarkpro").setup({
     virtual_text = "NONE", -- Style that is applied to virtual text
   },
   filetypes = { -- Override which filetype highlight groups are loaded
+    c = true,
     comment = true,
     go = true,
     html = true,
