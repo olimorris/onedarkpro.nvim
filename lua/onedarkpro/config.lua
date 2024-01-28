@@ -26,6 +26,7 @@ local defaults = {
         virtual_text = "NONE", -- Style that is applied to virtual text
     },
     filetypes = { -- Enable/disable specific plugins
+        c = true,
         comment = true,
         go = true,
         html = true,
