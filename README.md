@@ -15,7 +15,7 @@
 
 <p align="center">
     Atom's iconic One Dark theme for Neovim.<br>
-    Fully customisable, with Treesitter, LSP semantic tokens and support for many common plugins.<br><br>
+    Fully customisable, with Tree-sitter, LSP semantic tokens and support for many common plugins.<br><br>
     Based on the amazing <a href="https://github.com/Binaryify/OneDark-Pro">One Dark Pro</a> theme for Visual Studio Code.
 </p>
 
@@ -35,7 +35,7 @@
 ## :sparkles: Features
 
 - :envelope_with_arrow: Automatic caching for faster load times
-- :evergreen_tree: Full [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support and bespoke queries
+- :evergreen_tree: Full [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) support and bespoke queries
 - :tickets: Support for LSP semantic tokens
 - :electric_plug: Support for many [popular plugins](#electric_plug-supported-plugins)
 - :flashlight: Filetype highlighting to allow for greater customisation across different languages
@@ -46,7 +46,7 @@
 
 - Neovim 0.9.2+
 - `termguicolors` enabled for true color support
-- `treesitter` for full syntax highlighting
+- `tree-sitter` for full syntax highlighting
 - For semantic tokens, an LSP server that supports them
 
 ## :package: Installation and usage
@@ -500,7 +500,7 @@ require("onedarkpro").setup({
 })
 ```
 
-In the example above, we have set the `field` treesitter highlight group to be blue, but only when the filetype is `yaml`. More information can be found via `:h treesitter-highlight-groups`.
+In the example above, we have set the `field` tree-sitter highlight group to be blue, but only when the filetype is `yaml`. More information can be found via `:h treesitter-highlight-groups`.
 
 To determine which highlight group is being applied in Neovim, see the [FAQ](#question-faqs) section.
 
@@ -508,9 +508,9 @@ To determine which highlight group is being applied in Neovim, see the [FAQ](#qu
 
 > **Note**: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
 
-In Neovim, some LSP servers may send tokens to the editor to allow for more intelligent highlighting such as variable scope; a feature which is impossible with Treesitter alone.
+In Neovim, some LSP servers may send tokens to the editor to allow for more intelligent highlighting such as variable scope; a feature which is impossible with tree-sitter alone.
 
-Semantic highlighting in Neovim sees highlight groups set which have a priority greater than those of Treesitter and the base vim highlight groups (see `:h lsp-semantic_tokens` for more information). A full list of available semantic tokens can be found [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens).
+Semantic highlighting in Neovim sees highlight groups set which have a priority greater than those of tree-sitter and the base vim highlight groups (see `:h lsp-semantic_tokens` for more information). A full list of available semantic tokens can be found [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens).
 
 The colorscheme has defined _some_ semantic tokens (to match the Visual Studio Code theme as closely as possible) and applies them as part of the filetype highlighting. To determine what tokens are available to set or override, use the `:Inspect` command.
 
@@ -754,7 +754,7 @@ end
 
 If you're using Neovim 0.9+, the `:Inspect` command is available.
 
-If you're on an earlier version of Neovim and are using Treesitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any Treesitter or syntax highlight groups under the cursor.
+If you're on an earlier version of Neovim and are using Tree-sitter, install [Playground](https://github.com/nvim-treesitter/playground) as this gives you access to the powerful `:TSHighlightCapturesUnderCursor` command. This shows any Tree-sitter or syntax highlight groups under the cursor.
 
 **I think the theme would look better if we changed the highlight group of X. Would you accept a PR?**
 
@@ -762,7 +762,7 @@ As mentioned at the top of this readme, the theme is based on the [One Dark Pro]
 
 **Ok then, but I've noticed some differences between the theme and the original Visual Studio Code theme. Why is this?**
 
-I've tried to ensure that the theme resembles the original Visual Studio Code theme as much as possible. To that end we have carefully applied custom Treesitter queries to certain filetypes as well as mapped LSP semantic token colors. If you notice any differences, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match) with supporting screenshots.
+I've tried to ensure that the theme resembles the original Visual Studio Code theme as much as possible. To that end we have carefully applied custom Tree-sitter queries to certain filetypes as well as mapped LSP semantic token colors. If you notice any differences, please raise a [discussion](https://github.com/olimorris/onedarkpro.nvim/discussions/new?category=color-match) with supporting screenshots.
 
 ## :clap: Credits
 
