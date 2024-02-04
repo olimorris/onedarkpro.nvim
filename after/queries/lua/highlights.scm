@@ -21,5 +21,5 @@
 
 ((
  (function_call (identifier) @odp.plenary_function)
- (#match? @odp.plenary_function "describe|it")
+ (#match? @odp.plenary_function "describe|it|before_each|after_each")
 ) (#set! "priority" 126))
