@@ -24,10 +24,10 @@
 > **Note**: All bolds and italics in the screenshots below are [completely customisable](#configuring-styles)
 
 <div align="center">
-  <p><strong>Onedark</strong><img src="https://user-images.githubusercontent.com/9512444/224157592-eba872f0-320b-4e80-9bc6-b2d9b4291f09.png" alt="onedark" /></p>
-  <p><strong>Onelight</strong><img src="https://user-images.githubusercontent.com/9512444/224157771-a4e306fc-d555-4263-a323-40fbd332901f.png" alt="onelight" /></p>
-  <p><strong>Onedark Vivid</strong><img src="https://user-images.githubusercontent.com/9512444/224157957-a7c32cd8-67e8-46d0-bb23-6ea8f4923367.png" alt="onedark vivid" /></p>
-  <p><strong>Onedark Dark</strong><img src="https://user-images.githubusercontent.com/9512444/224158093-b9a2b449-43e9-4f3d-8061-140c00f68a8d.png" alt="onedark dark" /></p>
+  <p><strong>Onedark</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/6605856f-50cd-4cb3-a2af-a0253f4c5a93" alt="onedark" /></p>
+  <p><strong>Onelight</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/accdb4e4-a1aa-414f-9e68-c48c2762765e" alt="onelight" /></p>
+  <p><strong>Onedark Vivid</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/cb08678a-4a08-45b3-8cab-b352d9e0ac53" alt="onedark vivid" /></p>
+  <p><strong>Onedark Dark</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/f6535183-9717-427f-a0ce-6c1de887314c" alt="onedark dark" /></p>
 </div>
 
 <!-- panvimdoc-ignore-end -->
