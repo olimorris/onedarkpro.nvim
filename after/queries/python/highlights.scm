@@ -46,4 +46,5 @@
     "set" "setattr" "slice" "sorted" "str" "sum" "super"
     "tuple" "type" "vars" "zip" "__import__"
   )
+(#set! "priority" 126)
 )
