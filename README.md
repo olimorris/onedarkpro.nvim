@@ -21,7 +21,7 @@
 
 ## :icecream: Themes
 
-> **Note**: All bolds and italics in the screenshots below are [completely customisable](#configuring-styles)
+> **Note**: All bolds and italics in the screenshots below are [completely customisable](#configuring-styles). Additional screenshots of more languages can be found [here](https://github.com/olimorris/onedarkpro.nvim/issues/2#issuecomment-1937345197).
 
 <div align="center">
   <p><strong>Onedark</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/d1e15b89-0cec-4d5b-88b8-4a0246665cb4" alt="onedark" /></p>
