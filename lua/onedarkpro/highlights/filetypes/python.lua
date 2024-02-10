@@ -9,6 +9,7 @@ function M.groups(theme)
     return {
         ["@conditional.python"] = { fg = theme.palette.purple, style = config.styles.conditionals },
         ["@constant.builtin.python"] = { fg = theme.palette.orange, style = config.styles.constants },
+        ["@keyword.function.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@include.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@method.call.python"] = { fg = theme.palette.blue, style = config.styles.methods },
         ["@variable.builtin.python"] = { fg = theme.palette.yellow, style = config.styles.variables },
