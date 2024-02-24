@@ -21,7 +21,8 @@
 
 ## :icecream: Themes
 
-> **Note**: All bolds and italics in the screenshots below are [completely customisable](#configuring-styles). Additional screenshots of more languages can be found [here](https://github.com/olimorris/onedarkpro.nvim/issues/2#issuecomment-1937345197).
+> [!NOTE]
+> All bolds and italics in the screenshots below are [completely customisable](#configuring-styles). Additional screenshots of more languages can be found [here](https://github.com/olimorris/onedarkpro.nvim/issues/2#issuecomment-1937345197).
 
 <div align="center">
   <p><strong>Onedark</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/d1e15b89-0cec-4d5b-88b8-4a0246665cb4" alt="onedark" /></p>
@@ -104,7 +105,8 @@ The templates for these themes can be found in the [extra](https://github.com/ol
 
 ### Default configuration
 
-> **Note**: You only need to the call the `setup` function if you wish to change any of the defaults.
+> [!NOTE]
+> You only need to the call the `setup` function if you wish to change any of the defaults.
 
 <details>
   <summary>Click to see the default configuration</summary>
@@ -243,7 +245,8 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note**: See the [helpers](#rainbow-helpers) section to understand how to use the color helpers.
+> [!NOTE]
+> See the [helpers](#rainbow-helpers) section to understand how to use the color helpers.
 
 These can then be used for custom highlight groups if desired:
 
@@ -326,7 +329,8 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note**: In the example above, an underline style has been applied to the existing `Comment` highlight group.
+> [!NOTE]
+> In the example above, an underline style has been applied to the existing `Comment` highlight group.
 
 #### Creating highlight groups
 
@@ -350,7 +354,8 @@ require("onedarkpro").setup({
 })
 ```
 
-> **Note**: This can be useful to prevent LSP servers from applying semantic highlights
+> [!NOTE]
+> This can be useful to prevent LSP servers from applying semantic highlights
 
 #### Specifying highlight attributes by theme or background
 
@@ -392,7 +397,8 @@ require("onedarkpro").setup({
 
 ### Configuring styles
 
-> **Note**: For a list of available styles, please refer to the [Neovim documentation](https://neovim.io/doc/user/api.html#nvim_set_hl())
+> [!NOTE]
+> For a list of available styles, please refer to the [Neovim documentation](https://neovim.io/doc/user/api.html#nvim_set_hl())
 
 Styles can be applied to highlight groups:
 
@@ -430,7 +436,8 @@ require("onedarkpro").setup({
 
 ### Configuring filetype highlighting
 
-> **Note**: Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
+> [!NOTE]
+> Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new filetypes.
 
 The theme supports opinionated highlighting for filetypes, just like the original Visual Studio Code theme. By default, all of the filetypes supported are loaded at runtime. The theme currently has support for:
 
@@ -506,7 +513,8 @@ To determine which highlight group is being applied in Neovim, see the [FAQ](#qu
 
 #### Configuring LSP semantic tokens
 
-> **Note**: Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
+> [!NOTE]
+> Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
 
 In Neovim, some LSP servers may send tokens to the editor to allow for more intelligent highlighting such as variable scope; a feature which is impossible with tree-sitter alone.
 
@@ -518,7 +526,8 @@ Finally, the colorscheme has defined some non-filetype tokens as a plugin, named
 
 ### Configuring plugins
 
-> **Note**: Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new plugins.
+> [!NOTE]
+> Please see the [Contributing](https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md) guide if you would like add support for new plugins.
 
 By default, all of the plugins supported by the theme are loaded at runtime. Specific plugins can be disabled as follows:
 
@@ -628,7 +637,8 @@ Without specifying a theme name, the helper will get the colors for the currentl
 
 You can also use the command `:OnedarkproColors` to open a scratch buffer with the colors from the currently loaded theme. This then allows a colorizer plugin to highlight the colors.
 
-> **Note**: Please ensure that the colorscheme loads ahead of any plugins which may wish to use the theme's colors.
+> [!NOTE]
+> Please ensure that the colorscheme loads ahead of any plugins which may wish to use the theme's colors.
 
 **Using colors _before_ a theme loads**
 
@@ -641,7 +651,8 @@ local colors = color.get_preloaded_colors()
 print(colors.purple) -- #c678dd (if using the Onedark theme)
 ```
 
-> **Note**: This will only output the theme's core color palette and not any generated colors.
+> [!NOTE]
+> This will only output the theme's core color palette and not any generated colors.
 
 **Darken/Lighten/Brighten colors**
 

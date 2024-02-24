@@ -100,7 +100,7 @@ CONFIGURATION                                  *onedarkpro.nvim-configuration*
 DEFAULT CONFIGURATION ~
 
 
-  **Note**You only need to the call the `setup` function if you wish to change
+  [!NOTE] You only need to the call the `setup` function if you wish to change
   any of the defaults.
 Click to see the default configuration ~
 
@@ -245,7 +245,7 @@ palette:
 <
 
 
-  **Note**See the |onedarkpro.nvim-helpers| section to understand how to use the
+  [!NOTE] See the |onedarkpro.nvim-helpers| section to understand how to use the
   color helpers.
 These can then be used for custom highlight groups if desired:
 
@@ -347,7 +347,7 @@ customize or _override_ them:
 <
 
 
-  **Note**In the example above, an underline style has been applied to the
+  [!NOTE] In the example above, an underline style has been applied to the
   existing `Comment` highlight group.
 
 CREATING HIGHLIGHT GROUPS
@@ -373,7 +373,7 @@ or, if you’d like to disable certain highlight groups:
 <
 
 
-  **Note**This can be useful to prevent LSP servers from applying semantic
+  [!NOTE] This can be useful to prevent LSP servers from applying semantic
   highlights
 
 SPECIFYING HIGHLIGHT ATTRIBUTES BY THEME OR BACKGROUND
@@ -422,7 +422,7 @@ Neovim supports the application of highlights to specific buffers via
 CONFIGURING STYLES ~
 
 
-  **Note**For a list of available styles, please refer to the |Neovim
+  [!NOTE] For a list of available styles, please refer to the |Neovim
   documentation|
 Styles can be applied to highlight groups:
 
@@ -465,7 +465,7 @@ styles may be configured as shown in the example below:
 CONFIGURING FILETYPE HIGHLIGHTING ~
 
 
-  **Note**Please see the Contributing
+  [!NOTE] Please see the Contributing
   <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
   if you would like add support for new filetypes.
 The theme supports opinionated highlighting for filetypes, just like the
@@ -551,7 +551,7 @@ To determine which highlight group is being applied in Neovim, see the
 CONFIGURING LSP SEMANTIC TOKENS
 
 
-  **Note**Semantic tokens are only available in Neovim 0.9+ and with selected LSP
+  [!NOTE] Semantic tokens are only available in Neovim 0.9+ and with selected LSP
   servers.
 In Neovim, some LSP servers may send tokens to the editor to allow for more
 intelligent highlighting such as variable scope; a feature which is impossible
@@ -575,7 +575,7 @@ named `lsp_semantic_tokens`. See the section below for how to disable this.
 CONFIGURING PLUGINS ~
 
 
-  **Note**Please see the Contributing
+  [!NOTE] Please see the Contributing
   <https://github.com/olimorris/onedarkpro.nvim/blob/main/CONTRIBUTING.md> guide
   if you would like add support for new plugins.
 By default, all of the plugins supported by the theme are loaded at runtime.
@@ -704,7 +704,7 @@ the colors from the currently loaded theme. This then allows a colorizer plugin
 to highlight the colors.
 
 
-  **Note**Please ensure that the colorscheme loads ahead of any plugins which may
+  [!NOTE] Please ensure that the colorscheme loads ahead of any plugins which may
   wish to use the theme’s colors.
 **Using colors before a theme loads**
 
@@ -722,7 +722,7 @@ method can be used:
 <
 
 
-  **Note**This will only output the theme’s core color palette and not any
+  [!NOTE] This will only output the theme’s core color palette and not any
   generated colors.
 **Darken/Lighten/Brighten colors**
 
