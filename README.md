@@ -4,8 +4,6 @@
 <img src="https://user-images.githubusercontent.com/9512444/224169058-12b65186-dbad-4d16-8269-67eb7ba560c5.png" alt="OneDarkPro.nvim" />
 </p>
 
-<h1 align="center">OneDarkPro.nvim</h1>
-
 <p align="center">
 <a href="https://github.com/olimorris/onedarkpro.nvim/stargazers"><img src="https://img.shields.io/github/stars/olimorris/onedarkpro.nvim?color=c678dd&logoColor=e06c75&style=for-the-badge"></a>
 <a href="https://github.com/olimorris/onedarkpro.nvim/issues"><img src="https://img.shields.io/github/issues/olimorris/onedarkpro.nvim?color=%23d19a66&style=for-the-badge"></a>
