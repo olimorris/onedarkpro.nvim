@@ -48,6 +48,7 @@ local defaults = {
         yaml = true,
     },
     plugins = { -- Enable/disable specific plugins
+        illuminate = true,
         aerial = true,
         barbar = true,
         copilot = true,
