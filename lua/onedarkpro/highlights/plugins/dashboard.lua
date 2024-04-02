@@ -5,7 +5,7 @@ local M = {}
 ---@return table
 function M.groups(theme)
     return {
-        -- dashboardHeader = {},
+        dashboardHeader = { fg = theme.palette.purple },
         dashboardCenter = { fg = theme.palette.purple },
         dashboardFooter = { fg = theme.palette.blue },
         -- dashboardShortCut = {},
