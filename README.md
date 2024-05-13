@@ -187,6 +187,7 @@ require("onedarkpro").setup({
     trouble = true,
     vim_ultest = true,
     which_key = true,
+    vim_dadbod_ui = true,
   },
 
   options = {
@@ -736,6 +737,7 @@ The theme supports the following plugins:
 - [Trouble](https://github.com/folke/trouble.nvim) (`trouble`)
 - [Vim Ultest](https://github.com/rcarriga/vim-ultest) (`vim_ultest`)
 - [Which Key](https://github.com/folke/which-key.nvim) (`which_key`)
+- [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui) (`vim_dadbod_ui`)
 
 ## :gift: Extras
 
