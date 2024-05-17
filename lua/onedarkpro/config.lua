@@ -86,6 +86,7 @@ local defaults = {
         trouble = true,
         vim_ultest = true,
         which_key = true,
+        vim_dadbod_ui = true,
     },
     options = {
         cursorline = false, -- Use cursorline highlighting?
