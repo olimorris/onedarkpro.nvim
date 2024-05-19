@@ -182,6 +182,7 @@ Click to see the default configuration ~
         trouble = true,
         vim_ultest = true,
         which_key = true,
+        vim_dadbod_ui = true,
       },
     
       options = {
@@ -793,6 +794,7 @@ The theme supports the following plugins:
 - lspsaga.nvim <https://github.com/glepnir/lspsaga.nvim> (`lsp_saga`)
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - marks.nvim <https://github.com/chentau/marks.nvim> (`marks`)
+- mason.nvim <https://github.com/williamboman/mason.nvim> (`mason`)
 - mini.indentscope <https://github.com/echasnovski/mini.indentscope> (`mini_indentscope`)
 - Neotest <https://github.com/nvim-neotest/neotest> (`neotest`)
 - neo-tree <https://github.com/nvim-neo-tree/neo-tree.nvim> (`neo_tree`)
@@ -817,6 +819,7 @@ The theme supports the following plugins:
 - Trouble <https://github.com/folke/trouble.nvim> (`trouble`)
 - Vim Ultest <https://github.com/rcarriga/vim-ultest> (`vim_ultest`)
 - Which Key <https://github.com/folke/which-key.nvim> (`which_key`)
+- vim-dadbod-ui <https://github.com/kristijanhusak/vim-dadbod-ui> (`vim_dadbod_ui`)
 
 
 EXTRAS                                                *onedarkpro.nvim-extras*

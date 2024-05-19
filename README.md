@@ -713,6 +713,7 @@ The theme supports the following plugins:
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
+- [mason.nvim](https://github.com/williamboman/mason.nvim) (`mason`)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
