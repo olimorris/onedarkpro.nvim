@@ -708,7 +708,7 @@ The theme supports the following plugins:
 - [flash.nvim](https://github.com/folke/flash.nvim) (`flash.nvim`)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
-- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
+- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim) (`indentline`)
 - [leap.nvim](https://github.com/ggandor/leap.nvim) (`leap`)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
 - LSP Semantic tokens (`lsp_semantic_tokens`)
