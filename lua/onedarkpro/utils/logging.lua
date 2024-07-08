@@ -34,8 +34,16 @@ function Logger.new(filename, opts)
         end
     end)()
 
+    local flatten = function(t)
+        if vim.fn.has("nvim-0.11") == 1 then
+            return vim.iter(t):flatten():totable()
+        else
+            return vim.tbl_flatten(t)
+        end
+    end
+
     local function path_join(...)
-        return table.concat(vim.tbl_flatten({ ... }), path_sep)
+        return table.concat(flatten({ ... }), path_sep)
     end
 
     logger._level = opts.level or vim.g.onedarkpro_log_level

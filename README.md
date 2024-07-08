@@ -101,7 +101,7 @@ The templates for these themes can be found in the [extra](https://github.com/ol
 
 ## :wrench: Configuration
 
-### Default configuration
+**Default configuration**
 
 > [!NOTE]
 > You only need to the call the `setup` function if you wish to change any of the defaults.
@@ -202,7 +202,7 @@ require("onedarkpro").setup({
 
 </details>
 
-### Setting a theme
+**Setting a theme**
 
 Currently, there are four themes in the colorscheme:
 
@@ -217,7 +217,7 @@ A theme can be set with:
 vim.cmd("colorscheme onedark")
 ```
 
-### Configuring colors
+**Configuring colors**
 
 A theme has a palette of 13 core colors alongside many additional ones which are used for menus and git diffs for example. These colors can be found in the [themes](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes).
 
@@ -331,7 +331,7 @@ require("onedarkpro").setup({
 > [!NOTE]
 > In the example above, an underline style has been applied to the existing `Comment` highlight group.
 
-#### Creating highlight groups
+**Creating highlight groups**
 
 You can also create your own highlight groups:
 
@@ -356,7 +356,7 @@ require("onedarkpro").setup({
 > [!NOTE]
 > This can be useful to prevent LSP servers from applying semantic highlights
 
-#### Specifying highlight attributes by theme or background
+**Specifying highlight attributes by theme or background**
 
 As with colors, highlight attributes may be specified by using the theme name or the background color. For example:
 
@@ -382,7 +382,7 @@ require("onedarkpro").setup({
 })
 ```
 
-#### Namespacing highlight groups
+**Namespacing highlight groups**
 
 Neovim supports the application of highlights to specific buffers via [namespaces](https://neovim.io/doc/user/api.html#api-extmark). To apply highlight groups to a specific namespace, use the `ns_id` key:
 
@@ -510,7 +510,7 @@ In the example above, we have set the `field` tree-sitter highlight group to be 
 
 To determine which highlight group is being applied in Neovim, see the [FAQ](#question-faqs) section.
 
-#### Configuring LSP semantic tokens
+**Configuring LSP semantic tokens**
 
 > [!NOTE]
 > Semantic tokens are only available in Neovim 0.9+ and with selected LSP servers.
@@ -708,11 +708,12 @@ The theme supports the following plugins:
 - [flash.nvim](https://github.com/folke/flash.nvim) (`flash.nvim`)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns`)
 - [Hop.nvim](https://github.com/phaazon/hop.nvim) (`hop`)
-- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua) (`indentline`)
+- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim) (`indentline`)
 - [leap.nvim](https://github.com/ggandor/leap.nvim) (`leap`)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) (`lsp_saga`)
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
+- [mason.nvim](https://github.com/williamboman/mason.nvim) (`mason`)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
