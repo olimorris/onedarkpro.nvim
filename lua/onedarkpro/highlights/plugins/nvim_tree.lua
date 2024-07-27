@@ -23,6 +23,7 @@ function M.groups(theme)
         -- NvimTreeImageFile = {},
         NvimTreeMarkdownFile = { fg = theme.palette.red },
         NvimTreeIndentMarker = { fg = theme.palette.gray },
+        NvimTreeCursorLine = { bg = theme.palette.gray },
 
         NvimTreeLicenseIcon = { fg = theme.palette.yellow },
         NvimTreeYamlIcon = { fg = theme.palette.yellow },
