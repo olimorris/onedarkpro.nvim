@@ -153,6 +153,7 @@ require("onedarkpro").setup({
   plugins = { -- Override which plugin highlight groups are loaded
     aerial = true,
     barbar = true,
+    codecompanion = true,
     copilot = true,
     dashboard = true,
     flash_nvim = true,
@@ -702,6 +703,7 @@ The theme supports the following plugins:
 
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim) (`aerial`)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
+- [CodeCompanion.nvim](https://github.com/olimorris/codecompanion.nvim) (`codecompanion`)
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim) (`diffview`)
