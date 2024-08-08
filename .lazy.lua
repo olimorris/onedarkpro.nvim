@@ -6,7 +6,7 @@ local M = {
     themes = { "onedark", "onelight", "onedark_vivid", "onedark_dark" },
     opts = {
         caching = false,
-        cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_dotfiles"),
+        cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_testing"),
     },
     globals = { vim = vim },
     cache = {}, ---@type table<string, boolean>
