@@ -179,6 +179,7 @@ require("onedarkpro").setup({
     nvim_ts_rainbow = true,
     op_nvim = true,
     packer = true,
+    persisted = true,
     polygot = true,
     rainbow_delimiters = true,
     startify = true,
@@ -732,6 +733,7 @@ The theme supports the following plugins:
 - [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2) (`nvim_ts_rainbow2`)
 - [op.nvim](https://github.com/mrjones2014/op.nvim) (`op_nvim`)
 - [packer.nvim](https://github.com/wbthomason/packer.nvim) (`packer`)
+- [persisted.nvim](https://github.com/olimorris/persisted.nvim) (`persisted`)
 - [polygot](https://github.com/sheerun/vim-polyglot) (`polygot`)
 - [startify](https://github.com/mhinz/vim-startify) (`startify`)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (`telescope`)

@@ -79,6 +79,7 @@ local defaults = {
         nvim_ts_rainbow2 = true,
         op_nvim = true,
         packer = true,
+        persisted = true,
         polygot = true,
         rainbow_delimiters = true,
         startify = true,
