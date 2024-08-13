@@ -22,6 +22,7 @@ The following is a set of guidelines for contributing to this project:
 - If you're adding new functionality, please open an issue to discuss the design of the new feature
 - Also consider how the end user will consume your new feature. It's often easier to start with the API and work backwards
 - Consider the use of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to make your commit messages more descriptive
+- Finally, a [.lazy.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/.lazy.lua) file has been added to the theme, which allows you to see the realtime impact of your editing. You'll be prompted to load the file when you clone the repository
 
 ## Adding new filetypes
 
