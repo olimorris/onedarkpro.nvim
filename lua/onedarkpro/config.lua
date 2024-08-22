@@ -159,7 +159,7 @@ end
 ---Create a hash from the config
 ---@return string|number
 function M.hash()
-    local hash = require("onedarkpro.lib.hash")(M.config)
+    local hash = require("onedarkpro.lib.hash").hash(M.config)
     return hash and hash or 0
 end
 

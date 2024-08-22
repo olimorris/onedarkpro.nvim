@@ -40,7 +40,7 @@ describe("Using the cache", function()
                 yaml = true,
             },
         }
-        hash = require("onedarkpro.lib.hash")(tbl)
+        hash = require("onedarkpro.lib.hash").hash(tbl)
     end)
 
     it("the SAME table should always return the SAME hash", function()
@@ -51,6 +51,6 @@ describe("Using the cache", function()
         tbl.colors = {
             red = "#ff0000",
         }
-        assert.not_equals(hash, require("onedarkpro.lib.hash")(tbl))
+        assert.not_equals(hash, require("onedarkpro.lib.hash").hash(tbl))
     end)
 end)
