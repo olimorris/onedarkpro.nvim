@@ -81,6 +81,7 @@ local defaults = {
         packer = true,
         persisted = true,
         polygot = true,
+        render_markdown = true,
         rainbow_delimiters = true,
         startify = true,
         telescope = true,
