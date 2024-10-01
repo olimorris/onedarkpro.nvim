@@ -13,7 +13,7 @@ function M.groups(theme)
 		    -- RenderMarkdownTableRow = { fg = C.lavender },
         -- Headings
 	-- markup.heading = { fg = theme.palette.white, bg = "#FFFF00", italic = true }
-	["@markup.heading"] = {},
+	["@markup.heading"] = { fg = theme.palette.white, bg = "#FFFF00", italic = true },
         RenderMarkdownH1 = { fg = theme.palette.red },
         RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 30) },
         RenderMarkdownH2 = { fg = theme.palette.orange },
