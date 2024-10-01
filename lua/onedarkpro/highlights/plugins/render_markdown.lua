@@ -13,17 +13,17 @@ function M.groups(theme)
 		    -- RenderMarkdownTableRow = { fg = C.lavender },
         -- Headings
         RenderMarkdownH1 = { fg = theme.palette.red },
-        RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 10) },
+        RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 3) },
         RenderMarkdownH2 = { fg = theme.palette.orange },
-        RenderMarkdownH2Bg = { bg = color.darken(theme.palette.orange, 10) },
+        RenderMarkdownH2Bg = { bg = color.darken(theme.palette.orange, 3) },
         RenderMarkdownH3 = { fg = theme.palette.yellow },
-        RenderMarkdownH3Bg = { bg = color.darken(theme.palette.yellow, 10) },
+        RenderMarkdownH3Bg = { bg = color.darken(theme.palette.yellow, 3) },
         RenderMarkdownH4 = { fg = theme.palette.green },
-        RenderMarkdownH4Bg = { bg = color.darken(theme.palette.green, 10) },
+        RenderMarkdownH4Bg = { bg = color.darken(theme.palette.green, 3) },
         RenderMarkdownH5 = { fg = theme.palette.cyan },
-        RenderMarkdownH5Bg = { bg = color.darken(theme.palette.cyan, 10) },
+        RenderMarkdownH5Bg = { bg = color.darken(theme.palette.cyan, 3) },
         RenderMarkdownH6 = { fg = theme.palette.purple },
-        RenderMarkdownH6Bg = { bg = color.darken(theme.palette.purple, 10) },
+        RenderMarkdownH6Bg = { bg = color.darken(theme.palette.purple, 3) },
 
     }
 end
