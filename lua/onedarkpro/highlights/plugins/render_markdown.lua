@@ -12,6 +12,8 @@ function M.groups(theme)
 		    -- RenderMarkdownTableHead = { fg = C.blue },
 		    -- RenderMarkdownTableRow = { fg = C.lavender },
         -- Headings
+	-- markup.heading = { fg = theme.palette.white, bg = "#FFFF00", italic = true }
+	["@markup.heading"] = { fg = theme.palette.red },
         RenderMarkdownH1 = { fg = theme.palette.red },
         RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 30) },
         RenderMarkdownH2 = { fg = theme.palette.orange },
