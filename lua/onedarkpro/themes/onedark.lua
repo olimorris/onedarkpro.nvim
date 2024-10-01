@@ -4,7 +4,7 @@ local meta = {
 }
 
 local default_colors = {
-    bg = "#679788",
+    bg = "#282c34",
     fg = "#abb2bf",
     red = "#e06c75",
     orange = "#d19a66",
