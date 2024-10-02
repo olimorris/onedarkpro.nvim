@@ -10,8 +10,9 @@ local M = {}
 function M.groups(theme)
     local editor = require("onedarkpro.highlights.editor").groups(theme)
     local syntax = require("onedarkpro.highlights.syntax").groups(theme)
-    local plugins = require("onedarkpro.highlights.plugin").groups(theme)
     local filetypes = require("onedarkpro.highlights.filetype").groups(theme)
+    local plugins = require("onedarkpro.highlights.plugin").groups(theme)
+
 
     local groups = util.deep_extend(editor, syntax, plugins, filetypes)
     local custom_groups = vim.empty_dict()
