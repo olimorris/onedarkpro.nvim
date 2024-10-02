@@ -8,7 +8,7 @@ function M.groups(theme)
     return {
         -- Headings
         RenderMarkdownH1 = { fg = theme.palette.red },
-        RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 60) },
+        RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 30) },
         RenderMarkdownH2 = { fg = theme.palette.orange },
         RenderMarkdownH2Bg = { bg = color.darken(theme.palette.orange, 30) },
         RenderMarkdownH3 = { fg = theme.palette.yellow },
