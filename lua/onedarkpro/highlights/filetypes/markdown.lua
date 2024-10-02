@@ -7,7 +7,7 @@ function M.groups(theme)
     local config = require("onedarkpro.config").config
 
     return {
-        ["@markup.heading"] = { fg = theme.palette.bg },
+        ["@markup.heading"] = { fg = theme.palette.red },
         ["@markup.quote.markdown"] = { fg = theme.palette.comment },
         ["@text.title.markdown"] = { fg = theme.palette.red, bold = true },
         ["@markup.list.markdown"] = { fg = theme.palette.yellow },
