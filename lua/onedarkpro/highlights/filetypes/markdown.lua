@@ -8,6 +8,13 @@ function M.groups(theme)
 
     return {
         ["@markup.heading"] = { fg = theme.palette.red },
+        ["@markup.heading.1.markdown"] = { fg = theme.palette.red },
+        ["@markup.heading.2.markdown"] = { fg = theme.palette.orange },
+        ["@markup.heading.3.markdown"] = { fg = theme.palette.yellow },
+        ["@markup.heading.4.markdown"] = { fg = theme.palette.green },
+        ["@markup.heading.5.markdown"] = { fg = theme.palette.cyan },
+        ["@markup.heading.6.markdown"] = { fg = theme.palette.purple },
+        
         ["@markup.quote.markdown"] = { fg = theme.palette.comment },
         ["@text.title.markdown"] = { fg = theme.palette.red, bold = true },
         ["@markup.list.markdown"] = { fg = theme.palette.yellow },
