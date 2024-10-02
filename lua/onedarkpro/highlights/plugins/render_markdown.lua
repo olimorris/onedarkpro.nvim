@@ -7,7 +7,7 @@ function M.groups(theme)
     local color = require("onedarkpro.helpers")
     return {
         -- Headings
-	["@markup.heading"] = { fg = theme.palette.bg, bold = true },
+	["@markup.heading"] = { fg = theme.palette.green, bold = true },
         RenderMarkdownH1 = { fg = theme.palette.red },
         RenderMarkdownH1Bg = { bg = color.darken(theme.palette.red, 30) },
         RenderMarkdownH2 = { fg = theme.palette.orange },
