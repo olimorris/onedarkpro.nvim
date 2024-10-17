@@ -63,7 +63,7 @@ end
 ---@param str string replace_vars string
 ---@param tbl table key value pairs to replace in the string
 ---@return string
-local function replace_var(str, tbl)
+function M.replace_var(str, tbl)
     return (str:gsub("($%b{})", function(w)
         return tbl[w:sub(3, -2)] or w
     end))
@@ -74,7 +74,7 @@ end
 ---@param values table the values to be replaced by the replace_vars strings in the table passed in
 ---@return string|number|table|boolean
 function M.replace_vars(vars, values)
-    if type(vars) == "string" then return replace_var(vars, values) end
+    if type(vars) == "string" then return M.replace_var(vars, values) end
 
     if type(vars) == "number" or type(vars) == "boolean" then return vars end
 
@@ -131,6 +131,7 @@ end
 ---@param data string
 ---@return boolean
 function M.write(filepath, data)
+    vim.fn.mkdir(vim.fn.fnamemodify(filepath, ":h"), "p")
     local file = io.open(filepath, "wb")
     if file then
         file:write(data)

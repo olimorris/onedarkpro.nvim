@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config")
 
     return {
         BqfPreviewBorder = { fg = theme.palette.gray },

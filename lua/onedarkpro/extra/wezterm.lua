@@ -1,6 +1,4 @@
-local M = require("onedarkpro.utils.template")
-
-M.filetype = "toml"
+local M = {}
 
 M.template = [[
 [colors]

@@ -1,6 +1,4 @@
-local M = require("onedarkpro.utils.template")
-
-M.filetype = "kdl"
+local M = {}
 
 M.template = [[
 // Colors - https://github.com/olimorris/onedarkpro.nvim

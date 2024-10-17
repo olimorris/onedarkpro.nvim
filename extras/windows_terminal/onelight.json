@@ -1,0 +1,43 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "schemes":
+    [
+        {
+            "name": "onedarkpro_onelight",
+            "background": "#fafafa",
+            "black": "#6a6a6a",
+            "blue": "#118dc3",
+            "brightBlack": "#848484",
+            "brightBlue": "#1caceb",
+            "brightCyan": "#7bc6d0",
+            "brightGreen": "#25d717",
+            "brightPurple": "#b69ddc",
+            "brightRed": "#e88189",
+            "brightWhite": "#ffffff",
+            "brightYellow": "#f2bb54",
+            "cyan": "#56b6c2",
+            "foreground": "#6a6a6a",
+            "green": "#1da912",
+            "purple": "#9a77cf",
+            "red": "#e05661",
+            "white": "#fafafa",
+            "yellow": "#eea825"
+        }
+    ],
+    "themes":
+    [
+        {
+            "name": "onedarkpro_onelight",
+            "tab":
+            {
+                "background": "#f4f4f4",
+            },
+            "tabRow":
+            {
+                "background": "#e9e9e9",
+                "unfocusedBackground": "#6a6a6a"
+            }
+        }
+    ]
+}

@@ -111,7 +111,7 @@ vim.o.background = "%s"]],
 
     -- Terminal colors
     table.insert(lines, "\n-- Terminal colors\n")
-    if config.config.options.terminal_colors then
+    if config.options.terminal_colors then
         local terminal_colours = require("onedarkpro.highlights.terminal").groups(theme)
         for name, value in pairs(terminal_colours) do
             table.insert(lines, string.format([[vim.g.%s = "%s"]], name, value))
@@ -133,7 +133,7 @@ vim.o.background = "%s"]],
     end
 
     -- Autocmds
-    if config.config.options.highlight_inactive_windows or config.config.options.window_unfocused_color then
+    if config.options.highlight_inactive_windows or config.options.window_unfocused_color then
         table.insert(lines, "\n-- Autocmds\n")
         local autocmds = require("onedarkpro.highlights.autocmd").groups(theme)
         for _, values in pairs(autocmds) do

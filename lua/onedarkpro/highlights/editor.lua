@@ -5,7 +5,7 @@ local M = {}
 ---@return table
 function M.groups(theme)
     local color = require("onedarkpro.helpers")
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config")
 
     return {
         ColorColumn = { bg = theme.generated.color_column }, -- used for the columns set with 'colorcolumn'
@@ -22,10 +22,10 @@ function M.groups(theme)
         CursorLineNrNC = { bg = theme.generated.color_column, fg = theme.palette.gray }, -- CursorLineNr for inactive windows
         CursorLineNrNCQuickFix = { bg = theme.palette.bg, fg = theme.palette.purple }, -- CursorLineNr for inactive quickfix windows
         Directory = { fg = theme.palette.blue }, -- directory names (and other special names in listings)
-        DiffAdd = { bg = theme.generated.diff_add }, -- diff mode: Added line |diff.txt|
-        DiffChange = { bg = "NONE" }, -- diff mode: Changed line |diff.txt|
-        DiffDelete = { bg = theme.generated.diff_delete },
-        DiffText = { bg = theme.generated.diff_text }, -- diff mode: Changed text within a changed line |diff.txt|
+        DiffAdd = { bg = theme.generated.diff_add, fg = "NONE" }, -- diff mode: Added line |diff.txt|
+        DiffChange = { bg = "NONE", fg = "NONE" }, -- diff mode: Changed line |diff.txt|
+        DiffDelete = { bg = theme.generated.diff_delete, fg = "NONE" },
+        DiffText = { bg = theme.generated.diff_text, fg = "NONE" }, -- diff mode: Changed text within a changed line |diff.txt|
         EndOfBuffer = { fg = theme.palette.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
         ErrorMsg = { fg = theme.palette.red }, -- error messages on the command line
         VertSplit = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- the column separating vertically split windows

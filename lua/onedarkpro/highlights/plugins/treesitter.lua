@@ -4,7 +4,7 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config")
 
     -- Source:
     -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights

@@ -75,7 +75,7 @@ return {
 - The colorscheme enables users to be able to [apply styles](https://github.com/olimorris/onedarkpro.nvim#configuring-styles) to match enable a closer match to Visual Studio Code, whilst still enabling the user to apply customisations:
 
 ```lua
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config")
 
 return {
     ["@method.call.typescript"] = { fg = theme.palette.blue, style = config.styles.methods },
@@ -139,7 +139,7 @@ TelescopeSelection = {
 - To incorporate styles from a user's config:
 
 ```lua
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config")
 
 return {
     AerialClass = {

@@ -1,5 +1,5 @@
 local util = require("onedarkpro.utils")
-local cache_path = require("onedarkpro.config").config.cache_path
+local cache_path = require("onedarkpro.config").cache_path
 
 local tbl = {}
 local hash = nil

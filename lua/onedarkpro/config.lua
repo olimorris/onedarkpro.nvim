@@ -1,7 +1,5 @@
 local util = require("onedarkpro.utils")
 
-local M = { theme = "onedark", is_setup = false }
-
 local defaults = {
     caching = true, -- Enable caching
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
@@ -100,7 +98,7 @@ local defaults = {
     },
 }
 
-M.config = vim.deepcopy(defaults)
+local M = { theme = "onedark", config = vim.deepcopy(defaults), is_setup = false }
 
 ---Determine the filetypes or plugins that should be loaded
 ---@param files table
@@ -128,21 +126,6 @@ function M.reset()
     M.config = util.deep_copy(defaults)
 end
 
----Setup the configuration for the theme
----@param opts? table
----@return nil
-function M.setup(opts)
-    opts = opts or {}
-
-    M.config = util.deep_extend(M.config, opts)
-
-    if M.config.options.cursorline then vim.wo.cursorline = true end
-    if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
-    if opts and opts.plugins then M.config.plugins = load_files(M.config.plugins, opts.plugins) end
-
-    M.is_setup = true
-end
-
 ---Get information relating to where the cache is stored
 ---@param opts? table
 ---@return string,string
@@ -163,4 +146,24 @@ function M.hash()
     return hash and hash or 0
 end
 
-return M
+---Setup the configuration for the theme
+---@param opts? table
+---@return nil
+function M.setup(opts)
+    opts = opts or {}
+
+    M.config = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts)
+
+    if M.config.options.cursorline then vim.wo.cursorline = true end
+    if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end
+    if opts and opts.plugins then M.config.plugins = load_files(M.config.plugins, opts.plugins) end
+
+    M.is_setup = true
+end
+
+return setmetatable(M, {
+    __index = function(_, key)
+        if key == "setup" then return M.setup end
+        return rawget(M.config, key)
+    end,
+})

@@ -82,21 +82,9 @@ colorscheme onedark
 
 The colorscheme comes with some useful commands:
 
-- `:OnedarkproCache` force generate new cache files for the themes (you won't often need this)
-- `:OnedarkproClean` removes existing cache files for the themes
-- `:OnedarkproColors` output all of the current themes colors to a scratch buffer
-
-The theme comes with the ability to export colors to _Alacritty_, _Kitty_, _Foot_, _Wezterm_, _Rio_, _Windows Terminal_ and _Zellij_ using the following commands:
-
-- `:OnedarkproExportToAlacritty`
-- `:OnedarkproExportToFoot`
-- `:OnedarkproExportToKitty`
-- `:OnedarkproExportToWezterm`
-- `:OnedarkproExportToWindowsTerminal`
-- `:OnedarkproExportToRio`
-- `:OnedarkproExportToZellij`
-
-The templates for these themes can be found in the [extra](https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra) folder.
+- `:OneDarkProCache` force generate new cache files for the themes (you won't often need this)
+- `:OneDarkProClean` removes existing cache files for the themes
+- `:OneDarkProColors` output all of the current themes colors to a scratch buffer
 
 ## :wrench: Configuration
 
@@ -744,6 +732,10 @@ The theme supports the following plugins:
 - [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui) (`vim_dadbod_ui`)
 
 ## :gift: Extras
+
+**Color Configs**
+
+The theme comes with the colors for Alacritty, Kitty, Foot, Wezterm, Rio, Windows Terminal and Zellij and these can be found in the [extras](https://github.com/olimorris/onedarkpro.nvim/tree/main/extras) folder. To use them, refer to their respective documentation.
 
 **Lualine**
 

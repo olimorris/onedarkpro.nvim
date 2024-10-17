@@ -18,7 +18,7 @@ end
 ---@param theme string
 ---@return table
 function M.load(theme)
-    local config = require("onedarkpro.config").config
+    local config = require("onedarkpro.config")
 
     theme = require("onedarkpro.themes." .. theme)
 
