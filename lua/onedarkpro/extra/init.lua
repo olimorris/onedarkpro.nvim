@@ -72,7 +72,7 @@ function M.setup()
             add_bright_colors(colors, theme)
             add_dim_colors(colors, theme)
             utils.write(
-                "extras/" .. extra .. "/" .. theme .. "." .. M.extras[extra].ft,
+                "extras/" .. extra .. "/onedarkpro_" .. theme .. "." .. M.extras[extra].ft,
                 replace(extra_template, colors)
             )
         end
