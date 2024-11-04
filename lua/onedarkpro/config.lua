@@ -80,6 +80,7 @@ local defaults = {
         persisted = true,
         polygot = true,
         rainbow_delimiters = true,
+        render_markdown = true,
         startify = true,
         telescope = true,
         toggleterm = true,
