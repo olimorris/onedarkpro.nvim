@@ -1,5 +1,5 @@
 local config = require("onedarkpro.config")
-local Color = require("onedarkpro.lib.color")
+local C = require("onedarkpro.lib.color")
 
 local M = {}
 
@@ -26,8 +26,8 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.darken(color, amount, theme)
-    if theme then return Color.from_hex(M.get_preloaded_colors(theme)[color]):darker(amount):to_css() end
-    return Color.from_hex(color):darker(amount):to_css()
+    if theme then return C(M.get_preloaded_colors(theme)[color]):darker(amount):to_css() end
+    return C(color):darker(amount):to_css()
 end
 
 ---Make a color lighter by an amount amount (Float [-100,100])
@@ -36,8 +36,8 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.lighten(color, amount, theme)
-    if theme then return Color.from_hex(M.get_preloaded_colors(theme)[color]):lighter(amount):to_css() end
-    return Color.from_hex(color):lighter(amount):to_css()
+    if theme then return C(M.get_preloaded_colors(theme)[color]):lighter(amount):to_css() end
+    return C(color):lighter(amount):to_css()
 end
 
 ---Make a color brigher by an amount amount (Float [-100,100])
@@ -46,8 +46,8 @@ end
 ---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight etc)
 ---@return string
 function M.brighten(color, amount, theme)
-    if theme then return Color.from_hex(M.get_preloaded_colors(theme)[color]):brighter(amount):to_css() end
-    return Color.from_hex(color):brighter(amount):to_css()
+    if theme then return C(M.get_preloaded_colors(theme)[color]):brighter(amount):to_css() end
+    return C(color):brighter(amount):to_css()
 end
 
 return M

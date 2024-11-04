@@ -1,6 +1,27 @@
 --Color Library
 --Taken from the excellent work of @EdenEast for nightfox.nvim
 --https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/lib/color.lua
+--
+--#region Types ----------------------------------------------------------------
+
+---RGBA color representation stored in float [0,1]
+---@class RGBA
+---@field red number [0,255]
+---@field green number [0,255]
+---@field blue number [0,255]
+---@field alpha number [0,1]
+
+---@class HSL
+---@field hue number Float [0,360)
+---@field saturation number Float [0,100]
+---@field lightness number Float [0,100]
+
+---@class HSV
+---@field hue number Float [0,360)
+---@field saturation number Float [0,100]
+---@field value number Float [0,100]
+
+--#endregion
 
 ---Round float to nearest int
 ---@param x number Float
