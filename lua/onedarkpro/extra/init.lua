@@ -7,6 +7,7 @@ M.extras = {
     alacritty = { ft = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty" },
     foot = { ft = "dosini", url = "https://codeberg.org/dnkl/foot", label = "Foot" },
     kitty = { ft = "conf", url = "https://github.com/kovidgoyal/kitty", label = "Kitty" },
+    lazygit = { ft = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
     rio = { ft = "toml", url = "https://github.com/raphamorim/rio", label = "Rio" },
     wezterm = { ft = "toml", url = "https://github.com/wez/wezterm", label = "Wezterm" },
     windows_terminal = {
