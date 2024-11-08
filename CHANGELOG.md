@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.1.0...v2.2.0) (2024-11-08)
+
+
+### Features
+
+* add lazygit extras theme ([7279e93](https://github.com/olimorris/onedarkpro.nvim/commit/7279e933bc5900dca1c0c77133a45a5d71e4f578))
+
 ## [2.1.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.0.1...v2.1.0) (2024-11-04)
 
 
