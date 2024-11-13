@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.3.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.2.0...v2.3.0) (2024-11-13)
+
+
+### Features
+
+* allow users to implement custom themes ([02888be](https://github.com/olimorris/onedarkpro.nvim/commit/02888be08d10b3d34a482ddcf6b31bde48ad3b4b))
+* can generate extras using custom colors and themes ([b7acdc9](https://github.com/olimorris/onedarkpro.nvim/commit/b7acdc9e74074b5e64b93ab8869ee36089d72177))
+* improve helpers ([7dc3e82](https://github.com/olimorris/onedarkpro.nvim/commit/7dc3e82a86486a1e753fb9f5190b5ed92e627a4e))
+
 ## [2.2.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.1.0...v2.2.0) (2024-11-08)
 
 
