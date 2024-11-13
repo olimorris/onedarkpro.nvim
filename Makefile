@@ -42,7 +42,7 @@ test: $(PLENARY_DIR)
 # endif
 
 extra:
-	nvim --headless +"lua require('onedarkpro.extra').setup()" +qa
+	nvim --headless -u tests/basic_spec.vim +"lua require('onedarkpro.extra').setup()" +qa
 
 $(PLENARY_DIR):
 	git clone --depth=1 --branch v0.1.3 $(PLENARY_URL) $(PLENARY_DIR)

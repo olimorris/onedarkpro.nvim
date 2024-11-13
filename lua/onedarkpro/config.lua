@@ -7,6 +7,12 @@ local defaults = {
     debug = false,
     colors = {}, -- Add/override colors
     highlights = {}, -- Add/override highlights
+    themes = {
+        onedark = "onedark",
+        onelight = "onelight",
+        onedark_vivid = "onedark_vivid",
+        onedark_dark = "onedark_dark",
+    },
     styles = {
         tags = "NONE", -- Style that is applied to tags
         types = "NONE", -- Style that is applied to types
@@ -154,6 +160,13 @@ function M.setup(opts)
     opts = opts or {}
 
     M.config = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts)
+
+    if opts.themes then
+        M.config.themes = defaults.themes
+        vim.iter(opts.themes):each(function(name, theme)
+            M.config.themes[name] = theme
+        end)
+    end
 
     if M.config.options.cursorline then vim.wo.cursorline = true end
     if opts and opts.filetypes then M.config.filetypes = load_files(M.config.filetypes, opts.filetypes) end

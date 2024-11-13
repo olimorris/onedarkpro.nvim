@@ -7,19 +7,19 @@ local M = {}
 ---@return nil
 function M.cache()
     local cache = require("onedarkpro.lib.cache")
-    local themes = require("onedarkpro.theme").themes
+    local themes = config.themes
     local compiler = require("onedarkpro.lib.compile")
 
-    for _, theme in ipairs(themes) do
+    for name, _ in pairs(themes) do
         cache.write({
-            theme = theme,
-            cache = compiler.compile(theme),
+            theme = name,
+            cache = compiler.compile(name),
         })
 
         if config.debug then
             cache.write({
-                theme = theme,
-                cache = compiler.compile(theme, { debug = true }),
+                theme = name,
+                cache = compiler.compile(name, { debug = true }),
                 suffix = "_debug",
             })
         end
@@ -30,7 +30,7 @@ end
 ---@return nil
 function M.clean()
     local cache = require("onedarkpro.lib.cache")
-    local themes = require("onedarkpro.theme").themes
+    local themes = config.themes
 
     for _, theme in ipairs(themes) do
         cache.clean({ theme = theme })

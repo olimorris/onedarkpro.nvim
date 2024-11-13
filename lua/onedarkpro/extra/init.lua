@@ -50,30 +50,29 @@ local function add_dim_colors(colors, theme)
     colors["dim_fg"] = helpers.darken("fg", 10, theme)
 end
 
-function M.setup()
+---Generate extras
+---@param opts? table
+function M.setup(opts)
     local config = require("onedarkpro.config")
-
-    local themes = {
-        "onedark",
-        "onelight",
-        "onedark_vivid",
-        "onedark_dark",
-    }
+    local themes = config.themes
 
     local extras = vim.tbl_keys(M.extras)
     table.sort(extras)
 
+    local path = "extras/"
+    if opts and opts.user_config then path = config.cache_path .. "/extras/" end
+
     print("Generating extras:")
     for _, extra in ipairs(extras) do
         local extra_template = require("onedarkpro.extra." .. extra).template
-        for _, theme in ipairs(themes) do
+        for theme, _ in pairs(themes) do
             print("  " .. M.extras[extra].label .. " " .. theme)
             config.set_theme(theme)
             local colors = require("onedarkpro.helpers").get_colors(theme)
             add_bright_colors(colors, theme)
             add_dim_colors(colors, theme)
             utils.write(
-                "extras/" .. extra .. "/onedarkpro_" .. theme .. "." .. M.extras[extra].ft,
+                path .. extra .. "/onedarkpro_" .. theme .. "." .. M.extras[extra].ft,
                 replace(extra_template, colors)
             )
         end
