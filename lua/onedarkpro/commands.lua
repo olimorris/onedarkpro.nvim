@@ -29,4 +29,14 @@ return {
             range = false,
         },
     },
+    {
+        cmd = "OneDarkProExtras",
+        callback = function()
+            require("onedarkpro.extra").setup({ user_config = true })
+        end,
+        opts = {
+            desc = "Export the extra themes based on a user's config",
+            range = false,
+        },
+    },
 }

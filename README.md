@@ -85,6 +85,7 @@ The colorscheme comes with some useful commands:
 - `:OneDarkProCache` force generate new cache files for the themes (you won't often need this)
 - `:OneDarkProClean` removes existing cache files for the themes
 - `:OneDarkProColors` output all of the current themes colors to a scratch buffer
+- `:OneDarkProExtras` generates the extras files from the `/extras` folder using your config
 
 ## :wrench: Configuration
 
