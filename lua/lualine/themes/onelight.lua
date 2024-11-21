@@ -1,5 +1,5 @@
 local colors = require("onedarkpro.helpers").get_colors("onelight")
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config")
 
 local onedarkpro = {}
 

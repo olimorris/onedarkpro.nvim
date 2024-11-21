@@ -1,6 +1,4 @@
-local M = require("onedarkpro.utils.template")
-
-M.filetype = "json"
+local M = {}
 
 M.template = [[
 {

@@ -1,6 +1,7 @@
 # Contributing
 
 - [Guidelines](#guidelines)
+- [Adding new extras](#adding-new-extras)
 - [Adding new filetypes](#adding-new-filetypes)
 - [Adding new plugins](#adding-new-plugins)
 
@@ -23,6 +24,17 @@ The following is a set of guidelines for contributing to this project:
 - Also consider how the end user will consume your new feature. It's often easier to start with the API and work backwards
 - Consider the use of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to make your commit messages more descriptive
 - Finally, a [.lazy.lua](https://github.com/olimorris/onedarkpro.nvim/blob/main/.lazy.lua) file has been added to the theme, which allows you to see the realtime impact of your editing. You'll be prompted to load the file when you clone the repository
+
+## Adding new extras
+
+Making the theme's colors accessible to other applications helps to create a unified development setup for users. As of `v2.0.0`, the theme makes it much easier to add support for new applications:
+
+1. Fork the repository
+2. Add your new application to `lua/onedarkpro/extra/new_app.lua`
+3. Ensure it returns a module with a `template` string which contains all of the colors required for your new application. Take inspiration from the pre-existing ones we've created
+4. Add your new app to `lua/onedarkpro/extra/init.lua`, specifying the label and the required filetype of the output
+5. Then run `make extra` from the cmdline
+6. Make a PR
 
 ## Adding new filetypes
 
@@ -75,7 +87,7 @@ return {
 - The colorscheme enables users to be able to [apply styles](https://github.com/olimorris/onedarkpro.nvim#configuring-styles) to match enable a closer match to Visual Studio Code, whilst still enabling the user to apply customisations:
 
 ```lua
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config")
 
 return {
     ["@method.call.typescript"] = { fg = theme.palette.blue, style = config.styles.methods },
@@ -139,7 +151,7 @@ TelescopeSelection = {
 - To incorporate styles from a user's config:
 
 ```lua
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config")
 
 return {
     AerialClass = {

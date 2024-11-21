@@ -33,7 +33,7 @@ end
 
 ---Override a theme's default color palette with a user's
 ---@param colors table  The colors to override the palette with
----@param palette table  The colord to be overriden
+---@param palette table  The color to be overriden
 ---@param theme table  The theme's meta data
 ---@return table
 function M.override(colors, palette, theme)

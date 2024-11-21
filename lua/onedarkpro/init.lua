@@ -7,19 +7,19 @@ local M = {}
 ---@return nil
 function M.cache()
     local cache = require("onedarkpro.lib.cache")
-    local themes = require("onedarkpro.theme").themes
+    local themes = config.themes
     local compiler = require("onedarkpro.lib.compile")
 
-    for _, theme in ipairs(themes) do
+    for name, _ in pairs(themes) do
         cache.write({
-            theme = theme,
-            cache = compiler.compile(theme),
+            theme = name,
+            cache = compiler.compile(name),
         })
 
-        if config.config.debug then
+        if config.debug then
             cache.write({
-                theme = theme,
-                cache = compiler.compile(theme, { debug = true }),
+                theme = name,
+                cache = compiler.compile(name, { debug = true }),
                 suffix = "_debug",
             })
         end
@@ -30,7 +30,7 @@ end
 ---@return nil
 function M.clean()
     local cache = require("onedarkpro.lib.cache")
-    local themes = require("onedarkpro.theme").themes
+    local themes = config.themes
 
     for _, theme in ipairs(themes) do
         cache.clean({ theme = theme })
@@ -51,9 +51,9 @@ end
 ---Determine if the cache is valid or if it needs to be regenerated
 ---@return nil
 local function validate_cache()
-    util.ensure_dir(config.config.cache_path)
+    util.ensure_dir(config.cache_path)
 
-    local hash_path = util.join_paths(config.config.cache_path, "cache")
+    local hash_path = util.join_paths(config.cache_path, "cache")
 
     local git_path = util.join_paths(debug.getinfo(1).source:sub(2, -25), ".git")
     local git = vim.fn.getftime(git_path)
@@ -72,7 +72,7 @@ function M.setup(opts)
     config.setup(opts)
 
     -- Allow users to forcefully generate themes, every time they launch Neovim
-    if not config.config.caching or config.config.debug then return M.cache() end
+    if not config.caching or config.debug then return M.cache() end
 
     validate_cache()
 end

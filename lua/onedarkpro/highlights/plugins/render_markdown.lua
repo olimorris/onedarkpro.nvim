@@ -19,7 +19,6 @@ function M.groups(theme)
         RenderMarkdownH5Bg = { bg = color.darken(theme.palette.cyan, 30) },
         RenderMarkdownH6 = { fg = theme.palette.purple },
         RenderMarkdownH6Bg = { bg = color.darken(theme.palette.purple, 30) },
-
     }
 end
 

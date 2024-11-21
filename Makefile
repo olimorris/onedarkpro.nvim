@@ -4,7 +4,7 @@ PLENARY_DIR = misc/plenary
 PLENARY_URL = https://github.com/nvim-lua/plenary.nvim
 NV_VERSION := $(shell nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 
-all: format test docs
+all: format test docs extra
 
 docs: $(PANVIMDOC_DIR)
 	@cd $(PANVIMDOC_DIR) && \
@@ -40,6 +40,9 @@ test: $(PLENARY_DIR)
 # ifeq ($(NV_VERSION), 0.9)
 # 	nvim --headless -u tests/semantic_token_spec.vim +SemanticTokenSpec
 # endif
+
+extra:
+	nvim --headless -u tests/basic_spec.vim +"lua require('onedarkpro.extra').setup()" +qa
 
 $(PLENARY_DIR):
 	git clone --depth=1 --branch v0.1.3 $(PLENARY_URL) $(PLENARY_DIR)

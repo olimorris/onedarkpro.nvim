@@ -8,7 +8,7 @@ onedarkpro.setup({
 })
 
 local util = require("onedarkpro.utils")
-local cache_path = require("onedarkpro.config").config.cache_path
+local cache_path = require("onedarkpro.config").cache_path
 
 -- Create timestamp hashes to compare to
 vim.g.onedarkpro_hash = util.hash(util.join_paths(cache_path, "cache"))

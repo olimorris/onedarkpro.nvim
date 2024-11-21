@@ -1,5 +1,5 @@
 local util = require("onedarkpro.utils")
-local config = require("onedarkpro.config").config
+local config = require("onedarkpro.config")
 
 local M = {}
 
