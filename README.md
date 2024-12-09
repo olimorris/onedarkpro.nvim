@@ -152,6 +152,8 @@ require("onedarkpro").setup({
     lsp_saga = true,
     lsp_semantic_tokens = true,
     marks = true,
+    mini_diff = true,
+    mini_icons = true,
     mini_indentscope = true,
     neotest = true,
     neo_tree = true,
@@ -727,6 +729,8 @@ The theme supports the following plugins:
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) (`mason`)
+- [mini.diff](https://github.com/echasnovski/mini.diff)(`mini_diff`)
+- [mini.icons](https://github.com/echasnovski/mini.icons)('mini_icons')
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
