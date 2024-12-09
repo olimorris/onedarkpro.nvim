@@ -95,6 +95,8 @@ local defaults = {
         vim_ultest = true,
         which_key = true,
         vim_dadbod_ui = true,
+        mini_diff = true,
+        mini_icons = true,
     },
     options = {
         cursorline = false, -- Use cursorline highlighting?

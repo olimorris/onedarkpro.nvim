@@ -153,6 +153,8 @@ require("onedarkpro").setup({
     lsp_semantic_tokens = true,
     marks = true,
     mini_indentscope = true,
+    mini_diff = true,
+    mini_icons = true,
     neotest = true,
     neo_tree = true,
     nvim_cmp = true,
@@ -388,7 +390,7 @@ require("onedarkpro").setup({
 ### Configuring styles
 
 > [!NOTE]
-> For a list of available styles, please refer to the [Neovim documentation](https://neovim.io/doc/user/api.html#nvim_set_hl())
+> For a list of available styles, please refer to the [Neovim documentation](<https://neovim.io/doc/user/api.html#nvim_set_hl()>)
 
 Styles can be applied to highlight groups:
 
@@ -450,7 +452,6 @@ The theme supports opinionated highlighting for filetypes, just like the origina
 - `vue`
 - `xml`
 - `yaml`
-
 
 Specific filetypes can be disabled as follows:
 
@@ -728,6 +729,8 @@ The theme supports the following plugins:
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) (`mason`)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)
+- [mini.diff](https://github.com/echasnovski/mini.diff)(`mini_diff`)
+- [mini.icons](https://github.com/echasnovski/mini.icons)('mini_icons')
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) (`nvim_cmp`)
