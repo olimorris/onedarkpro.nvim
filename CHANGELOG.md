@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.3.0...v2.4.0) (2024-12-09)
+
+
+### Features
+
+* add mini.diff and mini.icons plugins support ([#265](https://github.com/olimorris/onedarkpro.nvim/issues/265)) ([5833616](https://github.com/olimorris/onedarkpro.nvim/commit/583361616403e05f499fdc19e105047f99f06289))
+
 ## [2.3.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.2.0...v2.3.0) (2024-11-13)
 
 
