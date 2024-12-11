@@ -142,6 +142,8 @@ Click to see the default configuration ~
         lsp_saga = true,
         lsp_semantic_tokens = true,
         marks = true,
+        mini_diff = true,
+        mini_icons = true,
         mini_indentscope = true,
         neotest = true,
         neo_tree = true,
@@ -803,6 +805,8 @@ The theme supports the following plugins:
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - marks.nvim <https://github.com/chentau/marks.nvim> (`marks`)
 - mason.nvim <https://github.com/williamboman/mason.nvim> (`mason`)
+- mini.diff <https://github.com/echasnovski/mini.diff>(`mini_diff`)
+- mini.icons <https://github.com/echasnovski/mini.icons>('mini_icons')
 - mini.indentscope <https://github.com/echasnovski/mini.indentscope> (`mini_indentscope`)
 - Neotest <https://github.com/nvim-neotest/neotest> (`neotest`)
 - neo-tree <https://github.com/nvim-neo-tree/neo-tree.nvim> (`neo_tree`)
@@ -822,6 +826,7 @@ The theme supports the following plugins:
 - persisted.nvim <https://github.com/olimorris/persisted.nvim> (`persisted`)
 - polygot <https://github.com/sheerun/vim-polyglot> (`polygot`)
 - startify <https://github.com/mhinz/vim-startify> (`startify`)
+- snacks.nvim <https://github.com/folke/snacks.nvim> (`snacks`)
 - telescope.nvim <https://github.com/nvim-telescope/telescope.nvim> (`telescope`)
 - toggleterm.nvim <https://github.com/akinsho/toggleterm.nvim> (`toggleterm`)
 - Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> (`treesitter`)

@@ -89,6 +89,7 @@ local defaults = {
         polygot = true,
         rainbow_delimiters = true,
         render_markdown = true,
+        snacks = true,
         startify = true,
         telescope = true,
         toggleterm = true,

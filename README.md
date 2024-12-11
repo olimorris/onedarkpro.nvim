@@ -750,6 +750,7 @@ The theme supports the following plugins:
 - [persisted.nvim](https://github.com/olimorris/persisted.nvim) (`persisted`)
 - [polygot](https://github.com/sheerun/vim-polyglot) (`polygot`)
 - [startify](https://github.com/mhinz/vim-startify) (`startify`)
+- [snacks.nvim](https://github.com/folke/snacks.nvim) (`snacks`)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (`telescope`)
 - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (`toggleterm`)
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (`treesitter`)
