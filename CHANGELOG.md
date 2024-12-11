@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.4.0...v2.5.0) (2024-12-11)
+
+
+### Features
+
+* :sparkles: add support for `snacks.nvim` ([0020b4a](https://github.com/olimorris/onedarkpro.nvim/commit/0020b4af7a012dd75651ad98542f338a93d13be5))
+
 ## [2.4.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.3.0...v2.4.0) (2024-12-09)
 
 
