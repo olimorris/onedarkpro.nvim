@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.5.0...v2.6.0) (2024-12-29)
+
+
+### Features
+
+* **extras:** Add Ghostty theme ([#269](https://github.com/olimorris/onedarkpro.nvim/issues/269)) ([3c25f33](https://github.com/olimorris/onedarkpro.nvim/commit/3c25f33c6440ffae2329ed6f473f41c73752d038))
+
 ## [2.5.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.4.0...v2.5.0) (2024-12-11)
 
 
