@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.6.0...v2.7.0) (2025-01-11)
+
+
+### Features
+
+* :sparkles: add `blink.cmp` ([#272](https://github.com/olimorris/onedarkpro.nvim/issues/272)) ([1aee95a](https://github.com/olimorris/onedarkpro.nvim/commit/1aee95a7ac74d4a18e4a882681b50928ce3f9580))
+
 ## [2.6.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.5.0...v2.6.0) (2024-12-29)
 
 
