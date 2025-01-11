@@ -54,6 +54,7 @@ local defaults = {
     plugins = { -- Enable/disable specific plugins
         aerial = true,
         barbar = true,
+        blink_cmp = true,
         codecompanion = true,
         copilot = true,
         dashboard = true,

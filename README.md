@@ -141,6 +141,7 @@ require("onedarkpro").setup({
   plugins = { -- Override which plugin highlight groups are loaded
     aerial = true,
     barbar = true,
+    blink_cmp = true,
     codecompanion = true,
     copilot = true,
     dashboard = true,
@@ -716,6 +717,7 @@ The theme supports the following plugins:
 
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim) (`aerial`)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
+- [blink.cmp](https://github.com/saghen/blink.cmp) (`blink_cmp`)
 - [CodeCompanion.nvim](https://github.com/olimorris/codecompanion.nvim) (`codecompanion`)
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
@@ -729,8 +731,8 @@ The theme supports the following plugins:
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) (`mason`)
-- [mini.diff](https://github.com/echasnovski/mini.diff)(`mini_diff`)
-- [mini.icons](https://github.com/echasnovski/mini.icons)('mini_icons')
+- [mini.diff](https://github.com/echasnovski/mini.diff) (`mini_diff`)
+- [mini.icons](https://github.com/echasnovski/mini.icons) (`mini_icons`)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
