@@ -60,6 +60,7 @@ local defaults = {
         dashboard = true,
         diffview = true,
         flash_nvim = true,
+        gitgraph_nvim = true,
         gitsigns = true,
         hop = true,
         indentline = true,
