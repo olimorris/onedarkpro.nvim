@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.7.0...v2.8.0) (2025-01-19)
+
+
+### Features
+
+* **plugins:** add gitgraph.nvim ([#274](https://github.com/olimorris/onedarkpro.nvim/issues/274)) ([87cd9b7](https://github.com/olimorris/onedarkpro.nvim/commit/87cd9b72d34304f76530619ef41dc951dbe8bbce))
+
 ## [2.7.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.6.0...v2.7.0) (2025-01-11)
 
 
