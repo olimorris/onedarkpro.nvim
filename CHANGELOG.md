@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.8.0...v2.9.0) (2025-02-14)
+
+
+### Features
+
+* **extras:** add tmux theme ([#278](https://github.com/olimorris/onedarkpro.nvim/issues/278)) ([ef80709](https://github.com/olimorris/onedarkpro.nvim/commit/ef80709063d193fac7af9ff0f847bef7319f2124))
+
 ## [2.8.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.7.0...v2.8.0) (2025-01-19)
 
 
