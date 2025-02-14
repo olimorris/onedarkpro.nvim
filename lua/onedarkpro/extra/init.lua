@@ -10,6 +10,7 @@ M.extras = {
     kitty = { ft = "conf", url = "https://github.com/kovidgoyal/kitty", label = "Kitty" },
     lazygit = { ft = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
     rio = { ft = "toml", url = "https://github.com/raphamorim/rio", label = "Rio" },
+    tmux = { ft = "tmux", url = "https://github.com/tmux/tmux", label = "tmux" },
     wezterm = { ft = "toml", url = "https://github.com/wez/wezterm", label = "Wezterm" },
     windows_terminal = {
         ft = "json",

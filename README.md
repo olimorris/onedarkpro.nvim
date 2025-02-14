@@ -811,3 +811,4 @@ The following colorschemes serve as inspiration:
 - [Catppuccin/nvim](https://github.com/catppuccin/nvim) - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes and the kind PRs
 - [Nightfox](https://github.com/EdenEast/nightfox.nvim) - For the original code structure
 - [GitHub nvim theme](https://github.com/projekt0n/github-nvim-theme) - For the logo inspiration
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - For the tmux theme design
