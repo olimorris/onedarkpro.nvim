@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.9.0...v2.10.0) (2025-02-15)
+
+
+### Features
+
+* **snacks:** add more picker highlights ([7ce1475](https://github.com/olimorris/onedarkpro.nvim/commit/7ce1475c70261977626f0c6b703750e7afc8d47f))
+
 ## [2.9.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.8.0...v2.9.0) (2025-02-14)
 
 
