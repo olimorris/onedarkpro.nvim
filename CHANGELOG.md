@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.10.0...v2.10.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* **treesitter:** Markdown checkbox highlight fix ([#285](https://github.com/olimorris/onedarkpro.nvim/issues/285)) ([7903733](https://github.com/olimorris/onedarkpro.nvim/commit/7903733c8358041b8e9139525522e593b583f2a1))
+
 ## [2.10.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.9.0...v2.10.0) (2025-02-15)
 
 
