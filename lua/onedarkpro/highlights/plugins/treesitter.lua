@@ -98,7 +98,7 @@ function M.groups(theme)
         ["@markup.raw.delimiter"] = { fg = theme.palette.gray },
 
         ["@markup.list"] = { fg = theme.palette.red }, -- list markers
-        ["@markup.list.checked"] = { fg = theme.palette.purple, bg = theme.palette.bg }, -- checked todo-style list markers
+        ["@markup.list.checked"] = { fg = theme.palette.purple }, -- checked todo-style list markers
         ["@markup.list.unchecked"] = { fg = theme.palette.fg }, -- unchecked todo-style list markers
 
         -- Tags
