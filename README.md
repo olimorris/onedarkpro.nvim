@@ -157,6 +157,7 @@ require("onedarkpro").setup({
     mini_diff = true,
     mini_icons = true,
     mini_indentscope = true,
+    mini_test = true,
     neotest = true,
     neo_tree = true,
     nvim_cmp = true,
@@ -736,6 +737,7 @@ The theme supports the following plugins:
 - [mini.diff](https://github.com/echasnovski/mini.diff) (`mini_diff`)
 - [mini.icons](https://github.com/echasnovski/mini.icons) (`mini_icons`)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)
+- [mini.test](https://github.com/echasnovski/mini.test) (`mini_test`)
 - [Neotest](https://github.com/nvim-neotest/neotest) (`neotest`)
 - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) (`neo_tree`)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) (`nvim_cmp`)

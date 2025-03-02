@@ -72,6 +72,7 @@ local defaults = {
         mini_diff = true,
         mini_icons = true,
         mini_indentscope = true,
+        mini_test = true,
         neotest = true,
         neo_tree = true,
         nvim_cmp = true,
