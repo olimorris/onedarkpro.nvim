@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.11.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.10.1...v2.11.0) (2025-03-02)
+
+
+### Features
+
+* **mini.test:** add support for mini.test ([c2421a7](https://github.com/olimorris/onedarkpro.nvim/commit/c2421a7dcd946629eed680846829aa2a26f137a4))
+
 ## [2.10.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.10.0...v2.10.1) (2025-02-18)
 
 
