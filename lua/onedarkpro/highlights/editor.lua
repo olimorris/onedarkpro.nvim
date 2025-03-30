@@ -69,10 +69,10 @@ function M.groups(theme)
         },
         Pmenu = { bg = theme.generated.float_bg }, -- Popup menu: normal item.
         PmenuSel = {
-            bg = (theme.meta.background == "dark" and color.lighten(theme.palette.bg, 3) or color.darken(
+            bg = (theme.meta.background == "dark" and (theme.meta.name == "onedark_dark" and color.lighten(
                 theme.palette.bg,
-                8
-            )),
+                10
+            ) or color.lighten(theme.palette.bg, 3)) or color.darken(theme.palette.bg, 8)),
         }, -- Popup menu: selected item.
         PmenuSbar = {
             bg = (theme.meta.background == "dark" and color.lighten(theme.palette.bg, 3) or color.darken(
