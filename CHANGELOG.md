@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.12.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.11.0...v2.12.0) (2025-03-30)
+
+
+### Features
+
+* **codecompanion:** add tool group colors ([#292](https://github.com/olimorris/onedarkpro.nvim/issues/292)) ([2baab1e](https://github.com/olimorris/onedarkpro.nvim/commit/2baab1e204c0bd72ff2821676597ce146d7af479))
+
+
+### Bug Fixes
+
+* onedark_dark pmenu bg color closes [#290](https://github.com/olimorris/onedarkpro.nvim/issues/290) ([#291](https://github.com/olimorris/onedarkpro.nvim/issues/291)) ([3df57dd](https://github.com/olimorris/onedarkpro.nvim/commit/3df57dd294a5f3301ec736ed30ae93ebc1f1a28c))
+
 ## [2.11.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.10.1...v2.11.0) (2025-03-02)
 
 
