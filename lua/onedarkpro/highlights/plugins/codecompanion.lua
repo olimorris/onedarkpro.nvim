@@ -9,8 +9,8 @@ function M.groups(theme)
     return {
         CodeCompanionChatHeader = { fg = theme.palette.purple, bold = true },
         CodeCompanionChatSeparator = { fg = theme.palette.gray },
-        CodeCompanionChatAgent = { fg = theme.palette.bg, bg = theme.palette.orange },
         CodeCompanionChatTool = { fg = theme.palette.bg, bg = theme.palette.green },
+        CodeCompanionChatToolGroup = { fg = theme.palette.bg, bg = theme.palette.orange },
         CodeCompanionChatVariable = { fg = theme.palette.bg, bg = theme.palette.blue },
     }
 end
