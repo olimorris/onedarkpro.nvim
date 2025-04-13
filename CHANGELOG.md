@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.12.0...v2.13.0) (2025-04-13)
+
+
+### Features
+
+* **snacks:** add new snacks hl group ([fda7e89](https://github.com/olimorris/onedarkpro.nvim/commit/fda7e896b98790474eed58c142d22bccd310dba9))
+
 ## [2.12.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.11.0...v2.12.0) (2025-03-30)
 
 
