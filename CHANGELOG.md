@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.14.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.13.0...v2.14.0) (2025-04-16)
+
+
+### Features
+
+* **snacks:** add highlights for SnacksIndentScope ([#296](https://github.com/olimorris/onedarkpro.nvim/issues/296)) ([2169ffa](https://github.com/olimorris/onedarkpro.nvim/commit/2169ffaa0d1cb38849ef3481598c624c436bd242))
+
 ## [2.13.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.12.0...v2.13.0) (2025-04-13)
 
 
