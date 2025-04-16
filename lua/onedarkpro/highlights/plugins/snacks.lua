@@ -4,14 +4,19 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
+    local highlights = {
         -- https://github.com/folke/snacks.nvim
         SnacksIndent = { fg = theme.generated.indentline },
+        SnacksIndentScope = { fg = theme.palette.blue },
         SnacksPickerCol = { fg = theme.generated.line_number },
         SnacksPickerDir = { link = "Text" },
         SnacksPickerBufFlags = { link = "SnacksPickerDir" },
-        SnacksIndentScope = { fg = theme.palette.blue },
     }
+    for i, color in ipairs(theme.rainbow) do
+        highlights["SnacksIndentScope" .. i] = { fg = color }
+    end
+
+    return highlights
 end
 
 return M
