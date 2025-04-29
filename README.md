@@ -22,6 +22,7 @@
 > All bolds and italics in the screenshots below are [completely customisable](#configuring-styles). Additional screenshots of more languages can be found [here](https://github.com/olimorris/onedarkpro.nvim/issues/2#issuecomment-1937345197).
 
 <div align="center">
+  <p><strong>:new: Vaporwave</strong><img src="https://github.com/user-attachments/assets/37df30fa-e79d-44d2-af58-91d15152856c" alt="vaporwave" /></p>
   <p><strong>Onedark</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/d1e15b89-0cec-4d5b-88b8-4a0246665cb4" alt="onedark" /></p>
   <p><strong>Onelight</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/74736b59-f104-4d7f-b385-f8002f9c90d1" alt="onelight" /></p>
   <p><strong>Onedark Vivid</strong><img src="https://github.com/olimorris/onedarkpro.nvim/assets/9512444/8146401c-21cf-413b-bb18-85e39faea565" alt="onedark vivid" /></p>
@@ -206,6 +207,7 @@ Currently, there are four themes in the colorscheme:
 - `onelight`
 - `onedark_vivid`
 - `onedark_dark`
+- `vaporwave`
 
 A theme can be set with:
 

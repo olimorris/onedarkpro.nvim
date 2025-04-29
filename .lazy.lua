@@ -2,8 +2,8 @@ local uv = vim.uv or vim.loop
 
 local M = {
     module = "onedarkpro",
-    colorscheme = "onedark",
-    themes = { "onedark", "onelight", "onedark_vivid", "onedark_dark" },
+    colorscheme = "vaporwave",
+    themes = { "onedark", "onelight", "onedark_vivid", "onedark_dark", "vaporwave" },
     opts = {
         caching = false,
         cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro_testing"),
