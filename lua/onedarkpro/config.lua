@@ -12,6 +12,7 @@ local defaults = {
         onelight = "onelight",
         onedark_vivid = "onedark_vivid",
         onedark_dark = "onedark_dark",
+        vaporwave = "vaporwave",
     },
     styles = {
         tags = "NONE", -- Style that is applied to tags

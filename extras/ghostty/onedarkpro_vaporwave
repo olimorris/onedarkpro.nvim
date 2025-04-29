@@ -1,0 +1,23 @@
+# Colors - https://github.com/olimorris/onedarkpro.nvim
+
+palette = 0=#222435
+palette = 1=#E16765
+palette = 2=#75BE78
+palette = 3=#EAE852
+palette = 4=#25ABE4
+palette = 5=#c678dd
+palette = 6=#46A3AF
+palette = 7=#B4B7CF
+palette = 8=#585B89
+palette = 9=#e99190
+palette = 10=#98ce9a
+palette = 11=#f0ee7f
+palette = 12=#52bcea
+palette = 13=#d7a1e7
+palette = 14=#66b7c2
+palette = 15=#d3d5e3
+background = #222435
+foreground = #B4B7CF
+cursor-color = #c678dd
+selection-background = #c678dd
+selection-foreground = #B4B7CF
