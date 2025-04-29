@@ -201,7 +201,7 @@ require("onedarkpro").setup({
 
 **Setting a theme**
 
-Currently, there are four themes in the colorscheme:
+Currently, there are five themes in the colorscheme:
 
 - `onedark`
 - `onelight`

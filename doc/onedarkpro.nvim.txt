@@ -188,13 +188,14 @@ Click to see the default configuration ~
 
 **Setting a theme**
 
-Currently, there are four themes in the colorscheme:
+Currently, there are five themes in the colorscheme:
 
 
 - `onedark`
 - `onelight`
 - `onedark_vivid`
 - `onedark_dark`
+- `vaporwave`
 
 A theme can be set with:
 
