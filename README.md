@@ -736,6 +736,7 @@ The theme supports the following plugins:
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - [marks.nvim](https://github.com/chentau/marks.nvim) (`marks`)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) (`mason`)
+- [mcphub.nvim](https://github.com/ravitemer/mcphub.nvim) (`mcphub`)
 - [mini.diff](https://github.com/echasnovski/mini.diff) (`mini_diff`)
 - [mini.icons](https://github.com/echasnovski/mini.icons) (`mini_icons`)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`mini_indentscope`)

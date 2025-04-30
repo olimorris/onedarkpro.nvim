@@ -70,6 +70,7 @@ local defaults = {
         lsp_semantic_tokens = true,
         marks = true,
         mason = true,
+        mcphub = true,
         mini_diff = true,
         mini_icons = true,
         mini_indentscope = true,
