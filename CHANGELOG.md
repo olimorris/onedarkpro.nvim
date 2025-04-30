@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.16.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.15.0...v2.16.0) (2025-04-30)
+
+
+### Features
+
+* :sparkles: add support for MCPHub.nvim ([#301](https://github.com/olimorris/onedarkpro.nvim/issues/301)) ([ebcbf60](https://github.com/olimorris/onedarkpro.nvim/commit/ebcbf6039ae0b2a33da7abe8371857d870dcdbdc))
+
 ## [2.15.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.14.0...v2.15.0) (2025-04-29)
 
 
