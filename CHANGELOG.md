@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.16.0...v2.17.0) (2025-05-03)
+
+
+### Features
+
+* **plugin:** add support for csvview.nvim ([#303](https://github.com/olimorris/onedarkpro.nvim/issues/303)) ([bf2abd2](https://github.com/olimorris/onedarkpro.nvim/commit/bf2abd24efb30e59c9842d3a880df84b2a463c9e))
+
 ## [2.16.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.15.0...v2.16.0) (2025-04-30)
 
 
