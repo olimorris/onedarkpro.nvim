@@ -724,6 +724,7 @@ The theme supports the following plugins:
 - [blink.cmp](https://github.com/saghen/blink.cmp) (`blink_cmp`)
 - [CodeCompanion.nvim](https://github.com/olimorris/codecompanion.nvim) (`codecompanion`)
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
+- [csvview.nvim](https://github.com/hat0uma/csvview.nvim) (`csvview`)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim) (`dashboard`)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim) (`diffview`)
 - [flash.nvim](https://github.com/folke/flash.nvim) (`flash.nvim`)
