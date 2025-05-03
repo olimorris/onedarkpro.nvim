@@ -58,6 +58,7 @@ local defaults = {
         blink_cmp = true,
         codecompanion = true,
         copilot = true,
+        csvview = true,
         dashboard = true,
         diffview = true,
         flash_nvim = true,
