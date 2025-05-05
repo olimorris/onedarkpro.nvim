@@ -211,3 +211,32 @@ describe("Using the theme", function()
         assert.equals("fg", next(output))
     end)
 end)
+
+describe("loading respects vim.o.background", function()
+    before_each(function()
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("default")
+        require("onedarkpro").setup()
+    end)
+
+    it("= dark", function()
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("onedark")
+        assert.same("dark", vim.o.background)
+        assert.same("onedark", vim.g.colors_name)
+    end)
+
+    it("= light", function()
+        vim.o.background = "light"
+        vim.cmd.colorscheme("onelight")
+        assert.same("light", vim.o.background)
+        assert.same("onelight", vim.g.colors_name)
+    end)
+
+    it("= dark with onelight", function()
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("onelight")
+        assert.same("dark", vim.o.background)
+        assert.same("onelight", vim.g.colors_name)
+    end)
+end)
