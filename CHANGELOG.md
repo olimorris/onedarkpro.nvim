@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.17.0...v2.17.1) (2025-05-05)
+
+
+### Bug Fixes
+
+* respect vim.o.background ([#306](https://github.com/olimorris/onedarkpro.nvim/issues/306)) ([ad57f98](https://github.com/olimorris/onedarkpro.nvim/commit/ad57f989b81422f95fd0dd4fd970d66d1370821d))
+
 ## [2.17.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.16.0...v2.17.0) (2025-05-03)
 
 
