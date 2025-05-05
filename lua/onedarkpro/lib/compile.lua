@@ -102,8 +102,7 @@ local get_hl = vim.api.nvim_get_hl
 if vim.g.colors_name then vim.cmd("hi clear") end
 
 vim.o.termguicolors = true
-vim.g.colors_name = "%s"
-vim.o.background = "%s"]],
+vim.g.colors_name = "%s"]],
             theme.meta.name,
             theme.meta.background
         ),
