@@ -1,6 +1,10 @@
+local utils = require("onedarkpro.utils")
+
 local M = {}
 
-M.template = [[
+function M.generate(colors)
+    return utils.replace_vars(
+        [[
 # Original layout from https://github.com/folke/tokyonight.nvim
 
 set -g mode-style "fg=${green},bg=${fg_gutter}"
@@ -37,6 +41,9 @@ setw -g window-status-current-format "#[fg=${bg_statusline},bg=${fg_gutter},nobo
 # Requires tmux-plugins/tmux-prefix-highlight
 set -g @prefix_highlight_output_prefix "#[fg=${blue}]#[bg=${bg_statusline}]#[fg=${bg_statusline}]#[bg=${blue}]"
 set -g @prefix_highlight_output_suffix ""
-]]
+]],
+        colors
+    )
+end
 
 return M

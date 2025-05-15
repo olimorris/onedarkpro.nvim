@@ -5,6 +5,7 @@ local M = {}
 
 M.extras = {
     alacritty = { ft = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty" },
+    fish = { ft = "fish", url = "https://github.com/fish-shell/fish-shell", label = "Fish" },
     foot = { ft = "dosini", url = "https://codeberg.org/dnkl/foot", label = "Foot" },
     ghostty = { ft = "", url = "https://github.com/ghostty-org/ghostty", label = "Ghostty" },
     kitty = { ft = "conf", url = "https://github.com/kovidgoyal/kitty", label = "Kitty" },
@@ -20,10 +21,8 @@ M.extras = {
     zellij = { ft = "kdl", url = "https://github.com/zellij-org/zellij", label = "Zellij" },
 }
 
-local function replace(str, tbl)
-    return str:gsub("${(.-)}", tbl)
-end
-
+---Brighten the default colors
+---@return nil
 local function add_bright_colors(colors, theme)
     colors["bright_black"] = helpers.lighten("black", 10, theme)
     colors["bright_blue"] = helpers.lighten("blue", 10, theme)
@@ -38,6 +37,8 @@ local function add_bright_colors(colors, theme)
     colors["bright_fg"] = helpers.lighten("yellow", 10, theme)
 end
 
+---Dim the default colors
+---@return nil
 local function add_dim_colors(colors, theme)
     colors["dim_black"] = helpers.darken("black", 10, theme)
     colors["dim_blue"] = helpers.darken("blue", 10, theme)
@@ -66,20 +67,23 @@ function M.setup(opts)
 
     print("Generating extras:")
     for _, extra in ipairs(extras) do
-        local extra_template = require("onedarkpro.extra." .. extra).template
+        local template = require("onedarkpro.extra." .. extra)
+
         for theme, _ in pairs(themes) do
             print("  " .. M.extras[extra].label .. " " .. theme)
             config.set_theme(theme)
+
             local colors = require("onedarkpro.helpers").get_colors(theme)
             add_bright_colors(colors, theme)
             add_dim_colors(colors, theme)
+
             utils.write(
                 path
                     .. extra
                     .. "/onedarkpro_"
                     .. theme
                     .. (M.extras[extra].ft ~= "" and ("." .. M.extras[extra].ft) or ""),
-                replace(extra_template, colors)
+                template.generate(colors)
             )
         end
     end

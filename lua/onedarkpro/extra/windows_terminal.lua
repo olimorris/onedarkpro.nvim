@@ -1,6 +1,10 @@
+local utils = require("onedarkpro.utils")
+
 local M = {}
 
-M.template = [[
+function M.generate(colors)
+    return utils.replace_vars(
+        [[
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
@@ -44,6 +48,9 @@ M.template = [[
         }
     ]
 }
-]]
+]],
+        colors
+    )
+end
 
 return M

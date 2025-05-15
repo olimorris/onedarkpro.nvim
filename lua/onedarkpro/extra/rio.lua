@@ -1,6 +1,10 @@
+local utils = require("onedarkpro.utils")
+
 local M = {}
 
-M.template = [[
+function M.generate(colors)
+    return utils.replace_vars(
+        [[
 # Colors - https://github.com/olimorris/onedarkpro.nvim
 
 [colors]
@@ -44,6 +48,9 @@ light-magenta            = '${bright_purple}'
 light-red                = '${bright_red}'
 light-white              = '${bright_white}'
 light-yellow             = '${bright_yellow}'
-]]
+]],
+        colors
+    )
+end
 
 return M

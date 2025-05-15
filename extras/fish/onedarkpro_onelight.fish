@@ -1,0 +1,43 @@
+# Colors - https://github.com/olimorris/onedarkpro.nvim
+set -l foreground 6a6a6a
+set -l selection e9e9e9
+set -l comment bebebe
+set -l red e05661
+set -l orange ee9025
+set -l yellow eea825
+set -l green 1da912
+set -l blue 118dc3
+set -l purple 9a77cf
+set -l cyan 56b6c2
+
+# Syntax highlighting
+set -g fish_color_normal $foreground
+set -g fish_color_command $cyan
+set -g fish_color_keyword $purple
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_option $yellow
+set -g fish_color_error $red
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $purple
+set -g fish_color_autosuggestion $comment
+set -g fish_color_cwd $cyan
+set -g fish_color_user $purple
+set -g fish_color_host $orange
+set -g fish_color_valid_path $green
+set -g fish_color_prefix $blue
+set -g fish_color_history_current_command $yellow
+set -g fish_color_history_duration $comment
+set -g fish_color_error_background --background=$red
+
+ # Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment
+set -g fish_pager_color_selected_background --background=$selection
