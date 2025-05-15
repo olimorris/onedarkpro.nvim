@@ -1,6 +1,10 @@
+local utils = require("onedarkpro.utils")
+
 local M = {}
 
-M.template = [[
+function M.generate(colors)
+    return utils.replace_vars(
+        [[
 # Colors - https://github.com/olimorris/onedarkpro.nvim
 
 background ${bg}
@@ -36,6 +40,9 @@ active_tab_foreground   ${bright_purple}
 active_tab_background   ${bg}
 inactive_tab_foreground ${gray}
 inactive_tab_background ${bright_black}
-]]
+]],
+        colors
+    )
+end
 
 return M

@@ -1,6 +1,10 @@
+local utils = require("onedarkpro.utils")
+
 local M = {}
 
-M.template = [[
+function M.generate(colors)
+    return utils.replace_vars(
+        [[
 [colors]
 ansi = [
   "${black}",
@@ -63,6 +67,9 @@ bg_color = "${purple}"
 [metadata]
 name = "onedarkpro_${name}"
 origin_url = "https://github.com/olimorris/onedarkpro.nvim"
-]]
+]],
+        colors
+    )
+end
 
 return M
