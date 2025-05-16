@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.17.1...v2.18.0) (2025-05-15)
+
+
+### Features
+
+* add fish extras ([#308](https://github.com/olimorris/onedarkpro.nvim/issues/308)) ([7f48f47](https://github.com/olimorris/onedarkpro.nvim/commit/7f48f471e1fa3e4711c690ab20767794df3a886b))
+
 ## [2.17.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.17.0...v2.17.1) (2025-05-05)
 
 
