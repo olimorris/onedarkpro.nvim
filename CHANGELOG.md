@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.18.0...v2.18.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* **Telescope:** Properly highlight lines in preview ([#310](https://github.com/olimorris/onedarkpro.nvim/issues/310)) ([712fa83](https://github.com/olimorris/onedarkpro.nvim/commit/712fa832aae9237efb6f419317e61a343a84dbc0))
+
 ## [2.18.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.17.1...v2.18.0) (2025-05-15)
 
 
