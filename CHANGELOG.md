@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.2](https://github.com/olimorris/onedarkpro.nvim/compare/v2.18.1...v2.18.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* change DiagnosticUnderline from fg to sp ([#314](https://github.com/olimorris/onedarkpro.nvim/issues/314)) ([5ffd45b](https://github.com/olimorris/onedarkpro.nvim/commit/5ffd45b3602bc1ed75f0b2be6c5c1f6ba5c6b796))
+
 ## [2.18.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.18.0...v2.18.1) (2025-05-21)
 
 
