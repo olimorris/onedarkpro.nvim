@@ -5,6 +5,7 @@
 (dictionary_splat ("**" @odp.operator.splat))
 
 (import_statement name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
+(import_statement name: (aliased_import name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126))))
 (import_from_statement name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
 (import_from_statement module_name: (relative_import (dotted_name (identifier) @odp.import_module (#set! "priority" 126))))
 (import_from_statement module_name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
