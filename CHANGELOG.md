@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.19.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.18.1...v2.19.0) (2025-07-31)
+
+
+### Features
+
+* **python:** add highlight for aliased imports in highlights.scm ([#319](https://github.com/olimorris/onedarkpro.nvim/issues/319)) ([fa98f7f](https://github.com/olimorris/onedarkpro.nvim/commit/fa98f7fb40a7b6e9558ad2509496e27487baf65f))
+
+
+### Bug Fixes
+
+* change DiagnosticUnderline from fg to sp ([#314](https://github.com/olimorris/onedarkpro.nvim/issues/314)) ([5ffd45b](https://github.com/olimorris/onedarkpro.nvim/commit/5ffd45b3602bc1ed75f0b2be6c5c1f6ba5c6b796))
+
 ## [2.18.1](https://github.com/olimorris/onedarkpro.nvim/compare/v2.18.0...v2.18.1) (2025-05-21)
 
 
