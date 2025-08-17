@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.20.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.19.0...v2.20.0) (2025-08-17)
+
+
+### Features
+
+* add cache events ([#320](https://github.com/olimorris/onedarkpro.nvim/issues/320)) ([e498284](https://github.com/olimorris/onedarkpro.nvim/commit/e4982840cd87add53a1d13899ad5a8f9537c6234))
+* add latex filetype ([#322](https://github.com/olimorris/onedarkpro.nvim/issues/322)) ([12b2037](https://github.com/olimorris/onedarkpro.nvim/commit/12b2037cb0757d010b87ce403069bd990007c5ab))
+
 ## [2.19.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.18.1...v2.19.0) (2025-07-31)
 
 
