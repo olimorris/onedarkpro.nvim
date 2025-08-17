@@ -24,6 +24,7 @@ function M.cache()
             })
         end
     end
+    util.fire("RefreshedCache")
 end
 
 ---Clean all of the theme's files on the disk
@@ -38,6 +39,7 @@ function M.clean()
 
     -- Remove hash files
     cache.clean({ file = "cache" })
+    util.fire("CleanedCached")
 end
 
 ---Reset the colorscheme to the default values

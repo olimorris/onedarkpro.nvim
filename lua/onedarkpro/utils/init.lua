@@ -1,5 +1,13 @@
 local M = {}
 
+---Fire an event
+---@param event string
+---@param opts? table
+function M.fire(event, opts)
+    opts = opts or {}
+    vim.api.nvim_exec_autocmds("User", { pattern = "OneDarkPro" .. event, data = opts })
+end
+
 --#region Table Helpers --------------------------------------------------------
 
 ---Merges recursively two or more map-like tables
