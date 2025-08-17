@@ -125,6 +125,7 @@ require("onedarkpro").setup({
     java = true,
     javascript = true,
     json = true,
+    latex = true,
     lua = true,
     markdown = true,
     php = true,
