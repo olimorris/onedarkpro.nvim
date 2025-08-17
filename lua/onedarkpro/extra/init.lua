@@ -54,7 +54,7 @@ local function add_dim_colors(colors, theme)
 end
 
 ---Generate extras
----@param opts? table
+---@param opts? {silent: boolean, user_config: boolean}
 function M.setup(opts)
     local config = require("onedarkpro.config")
     local themes = config.themes
@@ -65,12 +65,13 @@ function M.setup(opts)
     local path = "extras/"
     if opts and opts.user_config then path = config.cache_path .. "/extras/" end
 
-    print("Generating extras:")
+    if opts and not opts.silent then print("Generating extras:") end
+
     for _, extra in ipairs(extras) do
         local template = require("onedarkpro.extra." .. extra)
 
         for theme, _ in pairs(themes) do
-            print("  " .. M.extras[extra].label .. " " .. theme)
+            if opts and not opts.silent then print("  " .. M.extras[extra].label .. " " .. theme) end
             config.set_theme(theme)
 
             local colors = require("onedarkpro.helpers").get_colors(theme)
