@@ -19,7 +19,7 @@ function M.groups(theme)
         ["@odp.constructor.python"] = { link = "@constructor" },
         ["@odp.decorator.python"] = { link = "@function" },
         ["@odp.decorator.function.python"] = { link = "@function" },
-        ["@odp.function.builtin.python"] = { link = "@function.builtin" },
+        ["@odp.function.builtin.python"] = { link = "@function" },
         ["@odp.import_from.python"] = { fg = theme.palette.purple, style = config.styles.keywords },
         ["@odp.import_module.python"] = { fg = theme.palette.fg },
         ["@odp.interpolation.python"] = { fg = theme.palette.red, style = config.styles.parameters },
@@ -27,7 +27,10 @@ function M.groups(theme)
         ["@odp.keyword.class.python"] = { link = "@keyword.function.python" },
         ["@odp.operator.splat.python"] = { fg = theme.palette.fg },
         ["@odp.punctuation.bracket.python"] = { fg = theme.palette.orange },
+        ["@odp.bracket.subscript.open.python"] = { fg = theme.palette.purple },
+        ["@odp.bracket.subscript.close.python"] = { fg = theme.palette.purple },
         ["@odp.punctuation.special.python"] = { fg = theme.palette.purple },
+        ["@odp.variable.parameter.python"] = { link = "@variable.parameter.python" },
     }
 end
 

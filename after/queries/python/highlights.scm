@@ -33,6 +33,24 @@
 
 (
   (call
+    arguments: [
+      (_ (identifier) @odp.variable.parameter)
+      (argument_list (_ (identifier) @odp.variable.parameter))
+    ]
+  )
+  (#set! "priority" 126)
+)
+(
+  (call
+    arguments: (argument_list
+                 (subscript
+                   "[" @odp.bracket.subscript.open
+                   "]" @odp.bracket.subscript.close)))
+  (#set! "priority" 126)
+)
+
+(
+  (call
     function: (identifier) @odp.function.builtin
   )
   (#any-of? @odp.function.builtin
