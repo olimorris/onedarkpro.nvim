@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.21.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.20.0...v2.21.0) (2025-09-03)
+
+
+### Features
+
+* **python:** improve ts queries ([#324](https://github.com/olimorris/onedarkpro.nvim/issues/324)) ([094ae99](https://github.com/olimorris/onedarkpro.nvim/commit/094ae99110a0f04517865ac4228dd593a67c2333))
+
 ## [2.20.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.19.0...v2.20.0) (2025-08-17)
 
 
