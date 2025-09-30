@@ -9,6 +9,8 @@ function M.groups(theme)
 
     return {
         ColorColumn = { bg = theme.generated.color_column }, -- used for the columns set with 'colorcolumn'
+        ComplHint = { fg = theme.palette.gray, style = config.styles.virtual_text }, -- completion hint
+        ComplHintMore = { fg = theme.palette.gray, style = config.styles.virtual_text }, -- completion hint
         Conceal = { fg = theme.palette.fg }, -- placeholder characters substituted for concealed text (see 'conceallevel')
         Cursor = { bg = theme.palette.purple, fg = theme.palette.bg }, -- character under the cursor
         -- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
