@@ -38,7 +38,7 @@
       (argument_list (_ (identifier) @odp.variable.parameter))
     ]
   )
-  (#set! "priority" 126)
+  (#set! "priority" 99)
 )
 (
   (call
@@ -46,7 +46,7 @@
                  (subscript
                    "[" @odp.bracket.subscript.open
                    "]" @odp.bracket.subscript.close)))
-  (#set! "priority" 126)
+  (#set! "priority" 100)
 )
 
 (
@@ -67,3 +67,4 @@
   )
 (#set! "priority" 126)
 )
+
