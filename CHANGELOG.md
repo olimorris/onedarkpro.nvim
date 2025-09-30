@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.22.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.21.0...v2.22.0) (2025-09-30)
+
+
+### Features
+
+* add completion hint groups ([#326](https://github.com/olimorris/onedarkpro.nvim/issues/326)) ([497e73e](https://github.com/olimorris/onedarkpro.nvim/commit/497e73e148ffc11b31f0989ab49838c3b102f150))
+
 ## [2.21.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.20.0...v2.21.0) (2025-09-03)
 
 
