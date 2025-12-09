@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.23.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.22.0...v2.23.0) (2025-12-09)
+
+
+### Features
+
+* **extras:** add fzf ([#330](https://github.com/olimorris/onedarkpro.nvim/issues/330)) ([2d5b604](https://github.com/olimorris/onedarkpro.nvim/commit/2d5b604549773ea881dd218b7411e232fc882778))
+
 ## [2.22.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.21.0...v2.22.0) (2025-09-30)
 
 
