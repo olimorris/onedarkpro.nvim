@@ -8,6 +8,7 @@ function M.groups(theme)
     local config = require("onedarkpro.config")
 
     return {
+        Added = { fg = theme.palette.green }, -- For added plugins via vim.pack.add
         ColorColumn = { bg = theme.generated.color_column }, -- used for the columns set with 'colorcolumn'
         ComplHint = { fg = theme.palette.gray, style = config.styles.virtual_text }, -- completion hint
         ComplHintMore = { fg = theme.palette.gray, style = config.styles.virtual_text }, -- completion hint
