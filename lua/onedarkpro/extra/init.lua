@@ -7,6 +7,8 @@ M.extras = {
     alacritty = { ft = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty" },
     fish = { ft = "fish", url = "https://github.com/fish-shell/fish-shell", label = "Fish" },
     foot = { ft = "dosini", url = "https://codeberg.org/dnkl/foot", label = "Foot" },
+    fzf = { ft = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf" },
+    fzf_fish = { ft = "fish", url = "https://github.com/junegunn/fzf", label = "Fzf_Fish" },
     ghostty = { ft = "", url = "https://github.com/ghostty-org/ghostty", label = "Ghostty" },
     kitty = { ft = "conf", url = "https://github.com/kovidgoyal/kitty", label = "Kitty" },
     lazygit = { ft = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },

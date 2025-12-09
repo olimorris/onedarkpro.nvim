@@ -9,9 +9,9 @@ local defaults = {
     highlights = {}, -- Add/override highlights
     themes = {
         onedark = "onedark",
-        onelight = "onelight",
         onedark_vivid = "onedark_vivid",
         onedark_dark = "onedark_dark",
+        onelight = "onelight",
         vaporwave = "vaporwave",
     },
     styles = {
