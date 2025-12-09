@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.24.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.23.0...v2.24.0) (2025-12-09)
+
+
+### Features
+
+* add `Added` highlight group ([#332](https://github.com/olimorris/onedarkpro.nvim/issues/332)) ([a58c1fe](https://github.com/olimorris/onedarkpro.nvim/commit/a58c1fecee4c4bfdf4c116468da8821696cebf28))
+
 ## [2.23.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.22.0...v2.23.0) (2025-12-09)
 
 
