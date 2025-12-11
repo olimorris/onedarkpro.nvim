@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.25.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.24.0...v2.25.0) (2025-12-11)
+
+
+### Features
+
+* add `blink.pairs` plugin ([#334](https://github.com/olimorris/onedarkpro.nvim/issues/334)) ([c60982a](https://github.com/olimorris/onedarkpro.nvim/commit/c60982a0551e6572f58c4bdb6a17444cd096dd39))
+* add blink.indent ([#336](https://github.com/olimorris/onedarkpro.nvim/issues/336)) ([4e66970](https://github.com/olimorris/onedarkpro.nvim/commit/4e6697066cf90cc0167af0324a0dd1237dd36297))
+
 ## [2.24.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.23.0...v2.24.0) (2025-12-09)
 
 
