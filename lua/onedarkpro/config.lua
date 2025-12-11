@@ -57,6 +57,7 @@ local defaults = {
         aerial = true,
         barbar = true,
         blink_cmp = true,
+        blink_pairs = true,
         codecompanion = true,
         copilot = true,
         csvview = true,
