@@ -144,6 +144,7 @@ require("onedarkpro").setup({
     aerial = true,
     barbar = true,
     blink_cmp = true,
+    blink_pairs = true,
     codecompanion = true,
     copilot = true,
     csvview = true,
@@ -727,6 +728,7 @@ The theme supports the following plugins:
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim) (`aerial`)
 - [barbar.nvim](https://github.com/romgrk/barbar.nvim) (`barbar`)
 - [blink.cmp](https://github.com/saghen/blink.cmp) (`blink_cmp`)
+- [blink.pairs](https://github.com/saghen/blink.pairs) (`blink_pairs`)
 - [CodeCompanion.nvim](https://github.com/olimorris/codecompanion.nvim) (`codecompanion`)
 - [Copilot.vim](https://github.com/github/copilot.vim) (`copilot`)
 - [csvview.nvim](https://github.com/hat0uma/csvview.nvim) (`csvview`)
