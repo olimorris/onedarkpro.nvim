@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.26.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.25.0...v2.26.0) (2025-12-12)
+
+
+### Features
+
+* add DiffChange highlight groups ([#337](https://github.com/olimorris/onedarkpro.nvim/issues/337)) ([c3b585c](https://github.com/olimorris/onedarkpro.nvim/commit/c3b585cb295f610b8283bde5219aff1e9854cc82))
+
 ## [2.25.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.24.0...v2.25.0) (2025-12-11)
 
 
