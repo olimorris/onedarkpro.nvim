@@ -50,6 +50,7 @@ local function generate(colors)
 
         -- Git diff
         diff_add = colors.diff_add or "#003e4a",
+        diff_change = colors.diff_change or "#1f4662",
         diff_delete = colors.diff_delete or "#501b20",
         diff_text = colors.diff_text or "#005869",
 
