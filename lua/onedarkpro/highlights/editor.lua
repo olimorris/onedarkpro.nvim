@@ -26,7 +26,7 @@ function M.groups(theme)
         CursorLineNrNCQuickFix = { bg = theme.palette.bg, fg = theme.palette.purple }, -- CursorLineNr for inactive quickfix windows
         Directory = { fg = theme.palette.blue }, -- directory names (and other special names in listings)
         DiffAdd = { bg = theme.generated.diff_add, fg = "NONE" }, -- diff mode: Added line |diff.txt|
-        DiffChange = { bg = "NONE", fg = "NONE" }, -- diff mode: Changed line |diff.txt|
+        DiffChange = { bg = theme.generated.diff_change, fg = "NONE" }, -- diff mode: Changed line |diff.txt|
         DiffDelete = { bg = theme.generated.diff_delete, fg = "NONE" },
         DiffText = { bg = theme.generated.diff_text, fg = "NONE" }, -- diff mode: Changed text within a changed line |diff.txt|
         EndOfBuffer = { fg = theme.palette.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
