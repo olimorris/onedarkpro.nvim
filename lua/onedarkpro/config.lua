@@ -195,10 +195,10 @@ function M.setup(opts)
   if M.config.options.cursorline then
     vim.wo.cursorline = true
   end
-  if opts and opts.filetypes then
+  if opts.filetypes then
     M.config.filetypes = load_files(M.config.filetypes, opts.filetypes)
   end
-  if opts and opts.plugins then
+  if opts.plugins then
     M.config.plugins = load_files(M.config.plugins, opts.plugins)
   end
 

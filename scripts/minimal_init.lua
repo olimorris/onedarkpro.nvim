@@ -8,12 +8,12 @@ require("mini.test").setup()
 
 -- Install and setup Tree-sitter
 require("nvim-treesitter").setup({
-    install_dir = "deps/parsers",
+  install_dir = "deps/parsers",
 })
 
 require("nvim-treesitter")
-    .install({
-        "lua",
-        "python",
-    }, { force = true, summary = true, generate = true })
-    :pwait(300000)
+  .install({
+    "lua",
+    "python",
+  }, { force = true, summary = true, generate = true })
+  :pwait(300000)
