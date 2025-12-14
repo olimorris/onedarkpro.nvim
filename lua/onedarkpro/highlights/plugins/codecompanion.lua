@@ -4,15 +4,15 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config")
+  local config = require("onedarkpro.config")
 
-    return {
-        CodeCompanionChatHeader = { fg = theme.palette.purple, bold = true },
-        CodeCompanionChatSeparator = { fg = theme.palette.gray },
-        CodeCompanionChatTool = { fg = theme.palette.bg, bg = theme.palette.green },
-        CodeCompanionChatToolGroup = { fg = theme.palette.bg, bg = theme.palette.orange },
-        CodeCompanionChatVariable = { fg = theme.palette.bg, bg = theme.palette.blue },
-    }
+  return {
+    CodeCompanionChatHeader = { fg = theme.palette.purple, bold = true },
+    CodeCompanionChatSeparator = { fg = theme.palette.gray },
+    CodeCompanionChatTool = { fg = theme.palette.bg, bg = theme.palette.green },
+    CodeCompanionChatToolGroup = { fg = theme.palette.bg, bg = theme.palette.orange },
+    CodeCompanionChatVariable = { fg = theme.palette.bg, bg = theme.palette.blue },
+  }
 end
 
 return M

@@ -4,11 +4,11 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        PersistedTelescopeSelected = { fg = theme.palette.purple },
-        PersistedTelescopeDir = { link = "Directory" },
-        PersistedTelescopeBranch = { fg = theme.palette.purple },
-    }
+  return {
+    PersistedTelescopeSelected = { fg = theme.palette.purple },
+    PersistedTelescopeDir = { link = "Directory" },
+    PersistedTelescopeBranch = { fg = theme.palette.purple },
+  }
 end
 
 return M

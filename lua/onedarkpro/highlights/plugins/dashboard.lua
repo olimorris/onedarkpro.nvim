@@ -4,12 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        -- dashboardHeader = {},
-        dashboardCenter = { fg = theme.palette.purple },
-        dashboardFooter = { fg = theme.palette.blue },
-        -- dashboardShortCut = {},
-    }
+  return {
+    -- dashboardHeader = {},
+    dashboardCenter = { fg = theme.palette.purple },
+    dashboardFooter = { fg = theme.palette.blue },
+    -- dashboardShortCut = {},
+  }
 end
 
 return M
