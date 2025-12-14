@@ -15,7 +15,5 @@ require("nvim-treesitter")
     .install({
         "lua",
         "python",
-    })
-    :wait(300000)
-
-vim.treesitter.language.register("markdown", "codecompanion")
+    }, { force = true, summary = true, generate = true })
+    :pwait(300000)
