@@ -80,8 +80,9 @@ function M.setup(opts)
 end
 
 ---Load a theme
+---@param opts { theme?: string }
 ---@return nil
-function M.load()
+function M.load(opts)
     --Force minimum version of Neovim 0.9.0
     if vim.fn.has("nvim-0.9") == 0 then
         return require("onedarkpro.utils.deprecate").write(
@@ -93,19 +94,16 @@ function M.load()
 
     -- Users may not call the setup method but should still get caching
     if not config.is_setup then
-        config.setup()
+        config.setup(opts)
         validate_cache()
     end
 
     -- Generate a cache if doesn't already exist
-    local _, cached_theme = config.get_cached_info()
+    local _, cached_theme = config.get_cached_info(opts)
     if not util.exists(cached_theme) then M.cache() end
 
     local ok, theme = pcall(loadfile, cached_theme)
-    if not ok then
-        error("Could not load the cache file")
-        return
-    end
+    if not ok then return error("[OneDarkPro] Could not load the cache file") end
 
     -- Load the theme
     if theme then theme() end
