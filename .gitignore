@@ -1,6 +1,6 @@
 *.code-workspace
 *.cache
 .luarc.json
-misc/**/*
+deps/**/*
 minimal.lua
 todo.md
