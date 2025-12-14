@@ -4,8 +4,8 @@ local defaults = {
     caching = true, -- Enable caching
     cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro"), -- The path to the cache directory
     cache_suffix = "_compiled",
-    debug = false,
     colors = {}, -- Add/override colors
+    debug = false,
     highlights = {}, -- Add/override highlights
     themes = {
         onedark = "onedark",
@@ -151,7 +151,8 @@ end
 function M.get_cached_info(opts)
     opts = opts or {}
 
-    local theme = opts.theme or M.theme
+    if opts.theme then M.set_theme(opts.theme) end
+    local theme = M.theme
     local cache_path = opts.cache_path or M.config.cache_path
     local theme_path = util.join_paths(cache_path, theme .. M.config.cache_suffix)
 
@@ -172,6 +173,8 @@ function M.setup(opts)
     opts = opts or {}
 
     M.config = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts)
+
+    if opts.theme then M.set_theme(opts.theme) end
 
     if opts.themes then
         M.config.themes = defaults.themes
