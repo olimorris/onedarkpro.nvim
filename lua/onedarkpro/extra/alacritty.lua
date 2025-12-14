@@ -3,8 +3,8 @@ local utils = require("onedarkpro.utils")
 local M = {}
 
 function M.generate(colors)
-    return utils.replace_vars(
-        [[
+  return utils.replace_vars(
+    [[
 # Colors - https://github.com/olimorris/onedarkpro.nvim
 [colors.primary]
 background  = "${bg}"
@@ -38,8 +38,8 @@ cursor      = "CellForeground" # syntax-cursor-color
 text        = "CellForeground"
 background  = "${gray}"
 ]],
-        colors
-    )
+    colors
+  )
 end
 
 return M

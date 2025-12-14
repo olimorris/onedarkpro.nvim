@@ -4,12 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        HlSearchNear = { bg = theme.palette.highlight, fg = theme.palette.bg },
-        HlSearchLens = { bg = theme.palette.gray },
-        HlSearchLensNear = { link = "HlSearchNear" },
-        HlSearchFloat = { link = "HlSearchNear" },
-    }
+  return {
+    HlSearchNear = { bg = theme.palette.highlight, fg = theme.palette.bg },
+    HlSearchLens = { bg = theme.palette.gray },
+    HlSearchLensNear = { link = "HlSearchNear" },
+    HlSearchFloat = { link = "HlSearchNear" },
+  }
 end
 
 return M

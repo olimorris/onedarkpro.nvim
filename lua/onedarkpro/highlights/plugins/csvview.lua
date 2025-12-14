@@ -4,17 +4,17 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config")
+  local config = require("onedarkpro.config")
 
-    local ret = {
-        CsvViewHeaderLine = { fg = theme.palette.blue, style = "bold" },
-    }
+  local ret = {
+    CsvViewHeaderLine = { fg = theme.palette.blue, style = "bold" },
+  }
 
-    for i, color in ipairs(theme.rainbow) do
-        ret["CsvViewCol" .. (i - 1)] = { fg = color }
-    end
+  for i, color in ipairs(theme.rainbow) do
+    ret["CsvViewCol" .. (i - 1)] = { fg = color }
+  end
 
-    return ret
+  return ret
 end
 
 return M

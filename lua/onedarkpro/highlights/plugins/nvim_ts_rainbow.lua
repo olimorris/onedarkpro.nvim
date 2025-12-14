@@ -4,13 +4,13 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local ret = {}
+  local ret = {}
 
-    for i, color in ipairs(theme.rainbow) do
-        ret["rainbowcol" .. i] = { fg = color }
-    end
+  for i, color in ipairs(theme.rainbow) do
+    ret["rainbowcol" .. i] = { fg = color }
+  end
 
-    return ret
+  return ret
 end
 
 return M

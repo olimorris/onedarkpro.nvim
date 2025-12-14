@@ -4,11 +4,11 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config")
+  local config = require("onedarkpro.config")
 
-    return {
-        ["@odp.uri.comment"] = { link = "@text.uri.comment" },
-    }
+  return {
+    ["@odp.uri.comment"] = { link = "@text.uri.comment" },
+  }
 end
 
 return M
