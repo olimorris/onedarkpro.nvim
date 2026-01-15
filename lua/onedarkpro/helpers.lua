@@ -84,4 +84,30 @@ function M.brighten(color, amount, theme)
   return C(color):brighter(amount):to_css()
 end
 
+---Blend two colors together
+---@param color1 string  The first color (name or hex)
+---@param color2 string  The second color (name or hex)
+---@param factor number  Blend factor. Float [0,1]. 0 = color1, 1 = color2
+---@param theme? string  The name of theme to load from (e.g. "onedark", "onelight" etc)
+---@return string
+function M.blend(color1, color2, factor, theme)
+  if theme then
+    local colors = M.get_preloaded_colors(theme)
+    return C(colors[color1]):blend(C(colors[color2]), factor):to_css()
+  end
+
+  -- Resolve colors from the theme's palette
+  local resolved_color1 = M.get_preloaded_colors()[color1]
+  if resolved_color1 then
+    color1 = resolved_color1
+  end
+
+  local resolved_color2 = M.get_preloaded_colors()[color2]
+  if resolved_color2 then
+    color2 = resolved_color2
+  end
+
+  return C(color1):blend(C(color2), factor):to_css()
+end
+
 return M

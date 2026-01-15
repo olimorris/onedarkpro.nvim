@@ -7,7 +7,7 @@ function M.groups(theme)
   local config = require("onedarkpro.config")
 
   -- Source:
-  -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights
+  -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/CONTRIBUTING.md#highlights
   return {
     -- Identifiers
     ["@variable"] = { fg = theme.palette.red, style = config.styles.variables }, -- various variable names

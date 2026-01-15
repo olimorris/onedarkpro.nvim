@@ -14,11 +14,11 @@ function M.groups(theme)
     GitSignsUntracked = { fg = theme.palette.blue },
     GitSignsUntrackedCursorLine = { fg = theme.palette.blue, bg = theme.palette.cursorline },
 
-    GitSignsAddPreview = { bg = theme.generated.git_hunk_add },
-    GitSignsDeletePreview = { bg = theme.generated.git_hunk_delete },
-    GitSignsAddInline = { bg = theme.generated.git_hunk_add_inline },
-    GitSignsChangeInline = { bg = theme.generated.git_hunk_change_inline },
-    GitSignsDeleteInline = { bg = theme.generated.git_hunk_delete_inline },
+    GitSignsAddPreview = { bg = theme.generated.diff_add },
+    GitSignsDeletePreview = { bg = theme.generated.diff_delete },
+    GitSignsAddInline = { bg = theme.generated.diff_text },
+    GitSignsChangeInline = { bg = theme.generated.diff_change },
+    GitSignsDeleteInline = { bg = theme.generated.diff_delete },
   }
 end
 
