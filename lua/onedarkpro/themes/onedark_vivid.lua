@@ -37,22 +37,17 @@ local function generate(colors)
     float_bg = colors.float_bg or color.darken(colors.bg, 2.8),
     inlay_hint = colors.inlay_hint or color.darken(colors.gray, 7),
 
-    -- Git colors
-    git_add = colors.git_add or "#109868",
-    git_change = colors.git_change or "#948B60",
-    git_delete = colors.git_delete or "#9a353d",
+    -- Git colors (for sign column)
+    git_add = colors.git_add or color.darken(colors.green, 35),
+    git_change = colors.git_change or color.darken(colors.yellow, 30),
+    git_delete = colors.git_delete or color.darken(colors.red, 35),
 
-    git_hunk_add = colors.git_hunk_add or "#43554d",
-    git_hunk_delete = colors.git_hunk_delete or "#502d30",
-    git_hunk_add_inline = colors.git_hunk_add_inline or "#3f534f",
-    git_hunk_change_inline = colors.git_hunk_change_inline or "#41483d",
-    git_hunk_delete_inline = colors.git_hunk_delete_inline or "#6f2e2d",
-
-    -- Git diff
-    diff_add = colors.diff_add or "#003e4a",
-    diff_change = colors.diff_change or "#1f4662",
-    diff_delete = colors.diff_delete or "#501b20",
-    diff_text = colors.diff_text or "#005869",
+    -- Diff colors (for diff mode backgrounds)
+    diff_add = colors.diff_add or color.blend(colors.bg, colors.green, 0.12),
+    diff_change = colors.diff_change or color.blend(colors.bg, colors.yellow, 0.10),
+    diff_delete = colors.diff_delete or color.blend(colors.bg, colors.red, 0.12),
+    diff_text = colors.diff_text or color.blend(colors.bg, colors.cyan, 0.25),
+    diff_text_delete = colors.diff_text_delete or color.blend(colors.bg, colors.red, 0.25),
 
     -- Lualine colors
     bg_statusline = colors.bg_statusline or color.darken(colors.bg, 2.8),

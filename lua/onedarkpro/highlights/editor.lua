@@ -25,10 +25,13 @@ function M.groups(theme)
     CursorLineNrNC = { bg = theme.generated.color_column, fg = theme.palette.gray }, -- CursorLineNr for inactive windows
     CursorLineNrNCQuickFix = { bg = theme.palette.bg, fg = theme.palette.purple }, -- CursorLineNr for inactive quickfix windows
     Directory = { fg = theme.palette.blue }, -- directory names (and other special names in listings)
-    DiffAdd = { bg = theme.generated.diff_add, fg = "NONE" }, -- diff mode: Added line |diff.txt|
-    DiffChange = { bg = theme.generated.diff_change, fg = "NONE" }, -- diff mode: Changed line |diff.txt|
-    DiffDelete = { bg = theme.generated.diff_delete, fg = "NONE" },
-    DiffText = { bg = theme.generated.diff_text, fg = "NONE" }, -- diff mode: Changed text within a changed line |diff.txt|
+
+    DiffAdd = { bg = theme.generated.diff_add }, -- Added (inserted) lines |diff.txt|
+    DiffChange = { bg = theme.generated.diff_change }, -- Changed lines |diff.txt|
+    DiffDelete = { bg = theme.generated.diff_delete }, -- Deleted lines |diff.txt|
+    DiffText = { bg = theme.generated.diff_text }, -- Changed text inside a Changed line |diff.txt|
+    DiffTextDelete = { bg = theme.generated.diff_text_delete }, -- Deleted text inside a Deleted line (custom extension)
+
     EndOfBuffer = { fg = theme.palette.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     ErrorMsg = { fg = theme.palette.red }, -- error messages on the command line
     VertSplit = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.gray }, -- the column separating vertically split windows
