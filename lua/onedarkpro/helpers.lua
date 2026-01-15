@@ -88,11 +88,17 @@ end
 ---@param color1 string  The first color (name or hex)
 ---@param color2 string  The second color (name or hex)
 ---@param factor number  Blend factor. Float [0,1]. 0 = color1, 1 = color2
----@param theme? string  The name of theme to load from (e.g. "onedark", "onelight" etc)
+---@param theme? string  The name of theme to load from if the color is a name (e.g. "onedark", "onelight" etc)
 ---@return string
 function M.blend(color1, color2, factor, theme)
   if theme then
-    local colors = M.get_preloaded_colors(theme)
+    local ok, colors
+    pcall(function()
+      M.get_preloaded_colors(theme)
+    end)
+    if not ok then
+      error("Theme '" .. theme .. "' not found. You might be calling this too early.")
+    end
     return C(colors[color1]):blend(C(colors[color2]), factor):to_css()
   end
 
