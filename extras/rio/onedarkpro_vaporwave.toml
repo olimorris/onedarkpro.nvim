@@ -1,0 +1,43 @@
+# Colors - https://github.com/olimorris/onedarkpro.nvim
+
+[colors]
+# Regular colors
+background               = '#222435'
+black                    = '#222435'
+blue                     = '#25ABE4'
+cursor                   = '#c678dd'
+cyan                     = '#46A3AF'
+foreground               = '#B4B7CF'
+green                    = '#75BE78'
+magenta                  = '#c678dd'
+red                      = '#E16765'
+white                    = '#B4B7CF'
+yellow                   = '#EAE852'
+
+# UI colors
+tabs                     = '#B4B7CF'
+tabs-active              = '#d7a1e7'
+selection-foreground     = '#d7a1e7'
+selection-background     = '#585B89'
+
+# Dim colors
+dim-black                = '#0e0f16'
+dim-blue                 = '#188dbe'
+dim-cyan                 = '#37818b'
+dim-foreground           = '#9599bb'
+dim-green                = '#52ae56'
+dim-magenta              = '#b54fd3'
+dim-red                  = '#d93d3a'
+dim-white                = '#9599bb'
+dim-yellow               = '#e4e225'
+
+# Light colors
+light-black              = '#363954'
+light-blue               = '#52bcea'
+light-cyan               = '#66b7c2'
+light-foreground         = '#f0ee7f'
+light-green              = '#98ce9a'
+light-magenta            = '#d7a1e7'
+light-red                = '#e99190'
+light-white              = '#d3d5e3'
+light-yellow             = '#f0ee7f'

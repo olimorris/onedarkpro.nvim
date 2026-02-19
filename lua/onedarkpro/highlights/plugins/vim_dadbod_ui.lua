@@ -4,11 +4,11 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        NotificationInfo = { fg = theme.palette.gray },
-        NotificationError = { fg = theme.palette.gray },
-        NotificationWarning = { fg = theme.palette.gray },
-    }
+  return {
+    NotificationInfo = { fg = theme.palette.gray },
+    NotificationError = { fg = theme.palette.gray },
+    NotificationWarning = { fg = theme.palette.gray },
+  }
 end
 
 return M

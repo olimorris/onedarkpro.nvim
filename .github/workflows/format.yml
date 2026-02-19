@@ -1,5 +1,5 @@
 name: Format
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   stylua:
@@ -10,4 +10,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
-          args: --check .
+          args: tests/ lua/ --check .

@@ -1,8 +1,10 @@
-local M = require("onedarkpro.utils.template")
+local utils = require("onedarkpro.utils")
 
-M.filetype = "kdl"
+local M = {}
 
-M.template = [[
+function M.generate(colors)
+  return utils.replace_vars(
+    [[
 // Colors - https://github.com/olimorris/onedarkpro.nvim
 
 themes {
@@ -20,6 +22,9 @@ themes {
         orange "${orange}"
     }
 }
-]]
+]],
+    colors
+  )
+end
 
 return M

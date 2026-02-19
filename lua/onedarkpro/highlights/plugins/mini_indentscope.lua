@@ -4,9 +4,9 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        MiniIndentscopeSymbol = { fg = theme.palette.purple },
-    }
+  return {
+    MiniIndentscopeSymbol = { fg = theme.palette.purple },
+  }
 end
 
 return M

@@ -1,35 +1,29 @@
 ---This library allows us to hash the contents of a file. This gives us a ref
 ---point in deciding if the theme should be re-compiled.
 ---(Source: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/lib/hashing.lua)
----(Source: https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/lib/hash.lua)
-local bitop = bit or bit32 or require("onedarkpro.lib.native_bit")
+local M = {}
+local B = bit or bit32 or require("onedarkpro.lib.native_bit")
 
--- https://theartincode.stanis.me/008-djb2/
----@param s string
----@return number
-local function djb2(s)
-    local h = 5381
-    for i = 1, #s do
-        h = bitop.lshift(h, 5) + h + string.byte(s, i) -- h * 33 + c
-    end
-    return h
+local hash_str = function(str) -- djb2, https://theartincode.stanis.me/008-djb2/
+  local hash = 5381
+  for i = 1, #str do
+    hash = B.lshift(hash, 5) + hash + string.byte(str, i)
+  end
+  return hash
 end
 
--- Reference: https://github.com/catppuccin/nvim/blob/bad9c23f12944683cd11484d9570560849efc101/lua/catppuccin/lib/hashing.lua
----@param x table|function|number|string
----@return string|number
-local function hash(x)
-    local t = type(x)
-    if t == "table" then
-        local h = 0
-        for k, v in next, x do
-            h = bitop.bxor(h, djb2(k .. hash(v)))
-        end
-        return h
-    elseif t == "function" then
-        return djb2(string.dump(x))
+function M.hash(v) -- Xor hashing: https://codeforces.com/blog/entry/85900
+  local t = type(v)
+  if t == "table" then
+    local hash = 0
+    for p, u in next, v do
+      hash = B.bxor(hash, hash_str(p .. M.hash(u)))
     end
-    return tostring(x)
+    return hash
+  elseif t == "function" then
+    return M.hash(string.dump(v))
+  end
+  return tostring(v)
 end
 
-return hash
+return M

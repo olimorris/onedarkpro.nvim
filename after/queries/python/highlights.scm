@@ -5,6 +5,7 @@
 (dictionary_splat ("**" @odp.operator.splat))
 
 (import_statement name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
+(import_statement name: (aliased_import name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126))))
 (import_from_statement name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
 (import_from_statement module_name: (relative_import (dotted_name (identifier) @odp.import_module (#set! "priority" 126))))
 (import_from_statement module_name: (dotted_name (identifier) @odp.import_module (#set! "priority" 126)))
@@ -32,6 +33,24 @@
 
 (
   (call
+    arguments: [
+      (_ (identifier) @odp.variable.parameter)
+      (argument_list (_ (identifier) @odp.variable.parameter))
+    ]
+  )
+  (#set! "priority" 99)
+)
+(
+  (call
+    arguments: (argument_list
+                 (subscript
+                   "[" @odp.bracket.subscript.open
+                   "]" @odp.bracket.subscript.close)))
+  (#set! "priority" 100)
+)
+
+(
+  (call
     function: (identifier) @odp.function.builtin
   )
   (#any-of? @odp.function.builtin
@@ -48,3 +67,4 @@
   )
 (#set! "priority" 126)
 )
+

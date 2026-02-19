@@ -4,12 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    local config = require("onedarkpro.config").config
+  local config = require("onedarkpro.config")
 
-    return {
-        ToggleTerm = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg },
-        ToggleTermBorder = { fg = theme.palette.gray },
-    }
+  return {
+    ToggleTerm = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg },
+    ToggleTermBorder = { fg = theme.palette.gray },
+  }
 end
 
 return M

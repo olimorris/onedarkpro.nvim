@@ -3,31 +3,29 @@
 ==============================================================================
 Table of Contents                          *onedarkpro.nvim-table-of-contents*
 
-  - Features                                        |onedarkpro.nvim-features|
-  - Requirements                                |onedarkpro.nvim-requirements|
-  - Installation and usage            |onedarkpro.nvim-installation-and-usage|
-  - Commands                                        |onedarkpro.nvim-commands|
-  - Configuration                              |onedarkpro.nvim-configuration|
-  - Helpers                                          |onedarkpro.nvim-helpers|
-  - Supported Plugins                      |onedarkpro.nvim-supported-plugins|
-  - Extras                                            |onedarkpro.nvim-extras|
-  - FAQs                                                |onedarkpro.nvim-faqs|
-  - Credits                                          |onedarkpro.nvim-credits|
+  - :sparkles: Features                  |onedarkpro.nvim-:sparkles:-features|
+  - :zap: Requirements                    |onedarkpro.nvim-:zap:-requirements|
+  - :package: Installation and usage|onedarkpro.nvim-:package:-installation-and-usage|
+  - :rocket: Commands                      |onedarkpro.nvim-:rocket:-commands|
+  - :wrench: Configuration            |onedarkpro.nvim-:wrench:-configuration|
+  - :rainbow: Helpers                      |onedarkpro.nvim-:rainbow:-helpers|
+  - :electric_plug: Supported Plugins|onedarkpro.nvim-:electric_plug:-supported-plugins|
+  - :gift: Extras                              |onedarkpro.nvim-:gift:-extras|
+  - :question: FAQs                          |onedarkpro.nvim-:question:-faqs|
+  - :clap: Credits                            |onedarkpro.nvim-:clap:-credits|
 
-FEATURES                                            *onedarkpro.nvim-features*
+:SPARKLES: FEATURES                      *onedarkpro.nvim-:sparkles:-features*
+
+- :envelope_with_arrow: Automatic caching for faster load times
+- :evergreen_tree: Full Tree-sitter <https://github.com/nvim-treesitter/nvim-treesitter> support and bespoke queries
+- :tickets: Support for LSP semantic tokens
+- :electric_plug: Support for many |onedarkpro.nvim-popular-plugins|
+- :flashlight: Filetype highlighting to allow for greater customisation across different languages
+- :memo: Override everything - styles, colors, tokens, highlight groups and filetype groups
+- :paintbrush: Create custom highlight groups and even highlight groups by filetypes
 
 
-- Automatic caching for faster load times
-- Full Tree-sitter <https://github.com/nvim-treesitter/nvim-treesitter> support and bespoke queries
-- Support for LSP semantic tokens
-- Support for many |onedarkpro.nvim-popular-plugins|
-- Filetype highlighting to allow for greater customisation across different languages
-- Override everything - styles, colors, tokens, highlight groups and filetype groups
-- Create custom highlight groups and even highlight groups by filetypes
-
-
-REQUIREMENTS                                    *onedarkpro.nvim-requirements*
-
+:ZAP: REQUIREMENTS                        *onedarkpro.nvim-:zap:-requirements*
 
 - Neovim 0.9.2+
 - `termguicolors` enabled for true color support
@@ -35,7 +33,7 @@ REQUIREMENTS                                    *onedarkpro.nvim-requirements*
 - For semantic tokens, an LSP server that supports them
 
 
-INSTALLATION AND USAGE                *onedarkpro.nvim-installation-and-usage*
+:PACKAGE: INSTALLATION AND USAGE*onedarkpro.nvim-:package:-installation-and-usage*
 
 Install with your package manager of choice:
 
@@ -67,34 +65,17 @@ Install with your package manager of choice:
 <
 
 
-COMMANDS                                            *onedarkpro.nvim-commands*
+:ROCKET: COMMANDS                          *onedarkpro.nvim-:rocket:-commands*
 
 The colorscheme comes with some useful commands:
 
-
-- `:OnedarkproCache` force generate new cache files for the themes (you won’t often need this)
-- `:OnedarkproClean` removes existing cache files for the themes
-- `:OnedarkproColors` output all of the current themes colors to a scratch buffer
-
-The theme comes with the ability to export colors to _Alacritty_, _Kitty_,
-_Foot_, _Wezterm_, _Rio_, _Windows Terminal_ and _Zellij_ using the following
-commands:
+- `:OneDarkProCache` force generate new cache files for the themes (you won’t often need this)
+- `:OneDarkProClean` removes existing cache files for the themes
+- `:OneDarkProColors` output all of the current themes colors to a scratch buffer
+- `:OneDarkProExtras` generates the extras files from the `/extras` folder using your config
 
 
-- `:OnedarkproExportToAlacritty`
-- `:OnedarkproExportToFoot`
-- `:OnedarkproExportToKitty`
-- `:OnedarkproExportToWezterm`
-- `:OnedarkproExportToWindowsTerminal`
-- `:OnedarkproExportToRio`
-- `:OnedarkproExportToZellij`
-
-The templates for these themes can be found in the extra
-<https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/extra>
-folder.
-
-
-CONFIGURATION                                  *onedarkpro.nvim-configuration*
+:WRENCH: CONFIGURATION                *onedarkpro.nvim-:wrench:-configuration*
 
 **Default configuration**
 
@@ -130,6 +111,7 @@ Click to see the default configuration ~
         java = true,
         javascript = true,
         json = true,
+        latex = true,
         lua = true,
         markdown = true,
         php = true,
@@ -147,9 +129,15 @@ Click to see the default configuration ~
       plugins = { -- Override which plugin highlight groups are loaded
         aerial = true,
         barbar = true,
+        blink_cmp = true,
+        blink_indent = true,
+        blink_pairs = true,
+        codecompanion = true,
         copilot = true,
+        csvview = true,
         dashboard = true,
         flash_nvim = true,
+        gitgraph_nvim = true,
         gitsigns = true,
         hop = true,
         indentline = true,
@@ -157,7 +145,11 @@ Click to see the default configuration ~
         lsp_saga = true,
         lsp_semantic_tokens = true,
         marks = true,
+        mason = true,
+        mini_diff = true,
+        mini_icons = true,
         mini_indentscope = true,
+        mini_test = true,
         neotest = true,
         neo_tree = true,
         nvim_cmp = true,
@@ -170,10 +162,14 @@ Click to see the default configuration ~
         nvim_notify = true,
         nvim_tree = true,
         nvim_ts_rainbow = true,
+        nvim_ts_rainbow2 = true,
         op_nvim = true,
         packer = true,
+        persisted = true,
         polygot = true,
         rainbow_delimiters = true,
+        render_markdown = true,
+        snacks = true,
         startify = true,
         telescope = true,
         toggleterm = true,
@@ -196,13 +192,13 @@ Click to see the default configuration ~
 
 **Setting a theme**
 
-Currently, there are four themes in the colorscheme:
-
+Currently, there are five themes in the colorscheme:
 
 - `onedark`
 - `onelight`
 - `onedark_vivid`
 - `onedark_dark`
+- `vaporwave`
 
 A theme can be set with:
 
@@ -223,7 +219,7 @@ hex code:
 >lua
     require("onedarkpro").setup({
       colors = {
-        red = "FF0000"
+        red = "#FF0000"
       }
     })
 <
@@ -236,7 +232,7 @@ palette:
 >lua
     require("onedarkpro").setup({
       colors = {
-        my_new_red = "f44336",
+        my_new_red = "#f44336",
         my_new_green = "require('onedarkpro.helpers').darken('green', 10, 'onedark')"
       }
     })
@@ -269,8 +265,8 @@ theme name as a table, followed by the color:
 >lua
     require("onedarkpro").setup({
       colors = {
-        onedark = { bg = "FFFF00" }, -- yellow
-        onelight = { bg = "00FF00" }, -- green
+        onedark = { bg = "#FFFF00" }, -- yellow
+        onelight = { bg = "#00FF00" }, -- green
       }
     })
 <
@@ -280,8 +276,8 @@ Alternatively, you can specify colors by the theme’s background color:
 >lua
     require("onedarkpro").setup({
       colors = {
-        dark = { bg = "FFFF00" }, -- yellow
-        light = { bg = "00FF00" }, -- green
+        dark = { bg = "#FFFF00" }, -- yellow
+        light = { bg = "#00FF00" }, -- green
       }
     })
 <
@@ -300,17 +296,15 @@ and plugin
 files use a large array of highlight groups. Some examples of how you can
 customize or _override_ them:
 
-
 1. Using specific hex colors and styles:
 
 >lua
     require("onedarkpro").setup({
       highlights = {
-        Comment = { fg = "FF0000", bg = "FFFF00", italic = true }
+        Comment = { fg = "#FF0000", bg = "#FFFF00", italic = true }
       }
     })
 <
-
 
 1. Referencing the name of colors:
 
@@ -322,7 +316,6 @@ customize or _override_ them:
     })
 <
 
-
 1. Linking to other highlight groups:
 
 >lua
@@ -332,7 +325,6 @@ customize or _override_ them:
       }
     })
 <
-
 
 1. Extending existing highlight groups:
 
@@ -467,7 +459,6 @@ The theme supports opinionated highlighting for filetypes, just like the
 original Visual Studio Code theme. By default, all of the filetypes supported
 are loaded at runtime. The theme currently has support for:
 
-
 - `comment`
 - `go`
 - `html`
@@ -537,7 +528,7 @@ groups in the theme:
 
 In the example above, we have set the `field` tree-sitter highlight group to be
 blue, but only when the filetype is `yaml`. More information can be found via
-`:h treesitter-highlight-groups`.
+|treesitter-highlight-groups|.
 
 To determine which highlight group is being applied in Neovim, see the
 |onedarkpro.nvim-faq| section.
@@ -552,8 +543,8 @@ intelligent highlighting such as variable scope; a feature which is impossible
 with tree-sitter alone.
 
 Semantic highlighting in Neovim sees highlight groups set which have a priority
-greater than those of tree-sitter and the base vim highlight groups (see `:h
-lsp-semantic_tokens` for more information). A full list of available semantic
+greater than those of tree-sitter and the base vim highlight groups (see
+|lsp-semantic_tokens| for more information). A full list of available semantic
 tokens can be found here
 <https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens>.
 
@@ -618,7 +609,7 @@ Cursorline highlighting is supported in the theme using a `cursorline` color
 >lua
     require("onedarkpro").setup({
       colors = {
-        cursorline = "FF0000" -- This is optional. The default cursorline color is based on the background
+        cursorline = "#FF0000" -- This is optional. The default cursorline color is based on the background
       },
       options = {
         cursorline = true
@@ -670,7 +661,34 @@ focus is lost. For example, when a `telescope` or `packer` pop up appears:
 <
 
 
-HELPERS                                              *onedarkpro.nvim-helpers*
+CONFIGURING ADDITIONAL THEMES ~
+
+Users can define their own themes by creating a local file and referencing it
+in their configuration:
+
+>lua
+    -- Your configuration
+    require("onedarkpro").setup({
+      themes = {
+        vaporwave = "~/.config/nvim/lua/plugins/colors/vaporwave.lua",
+      },
+    })
+    vim.cmd([[colorscheme vaporwave]])
+    
+    -- ~/.config/nvim/colors/vaporwave.lua
+    require("onedarkpro.config").set_theme("vaporwave")
+    require("onedarkpro").load()
+<
+
+In the example above, we’ve setup our custom theme in our configuration and
+pointed it to a file which implements the required colors. Please see the
+existing themes
+<https://github.com/olimorris/onedarkpro.nvim/tree/main/lua/onedarkpro/themes>
+in the plugin for the correct structure. We’ve then created another file in
+the `colors` directory of our config which points to the onedarkpro setup.
+
+
+:RAINBOW: HELPERS                          *onedarkpro.nvim-:rainbow:-helpers*
 
 The theme comes with a set of helpers which enable you to interact with and
 modify colors. The helper file can be accessed via
@@ -686,7 +704,7 @@ can be used:
     local color = require("onedarkpro.helpers")
     
     local colors = color.get_colors()
-    print(colors.purple) -- c678dd (if using the Onedark theme)
+    print(colors.purple) -- #c678dd (if using the Onedark theme)
 <
 
 Without specifying a theme name, the helper will get the colors for the
@@ -712,7 +730,7 @@ method can be used:
     local color = require("onedarkpro.helpers")
     
     local colors = color.get_preloaded_colors()
-    print(colors.purple) -- c678dd (if using the Onedark theme)
+    print(colors.purple) -- #c678dd (if using the Onedark theme)
 <
 
 
@@ -724,7 +742,6 @@ The theme also contain helpers `darken`, `lighten` and `brighten`, to allow you
 to modify custom colors or the theme’s own. All three helpers follow the same
 format and take three parameters:
 
-
 - color (string) - The name of the color to load (if specifying a theme) or a hex value
 - amount (number) - The amount to darken/lighten/brighten the color by (range from -100 to 100)
 - theme (string) (optional) - The name of the theme to load a color from
@@ -735,7 +752,7 @@ To use this in practice:
     local color = require("onedarkpro.helpers")
     
     -- Load the red color from the onedark theme and lighten it by an amount of 7
-    print(color.lighten("red", 7, "onedark")) -- e68991
+    print(color.lighten("red", 7, "onedark")) -- #e68991
 <
 
 Alternatively:
@@ -744,7 +761,7 @@ Alternatively:
     local color = require("onedarkpro.helpers")
     
     -- Darken Red1 by an amount of 10
-    print(color.darken("FF0000", 10)) -- cc0000
+    print(color.darken("#FF0000", 10)) -- #cc0000
 <
 
 A common use case is to modify colors and incorporate them into theme. There
@@ -769,26 +786,35 @@ the configuration has been parsed. This also ensures that the startup time for
 the theme remains small.
 
 
-SUPPORTED PLUGINS                          *onedarkpro.nvim-supported-plugins*
+:ELECTRIC_PLUG: SUPPORTED PLUGINS*onedarkpro.nvim-:electric_plug:-supported-plugins*
 
 The theme supports the following plugins:
 
-
 - aerial.nvim <https://github.com/stevearc/aerial.nvim> (`aerial`)
 - barbar.nvim <https://github.com/romgrk/barbar.nvim> (`barbar`)
+- blink.cmp <https://github.com/saghen/blink.cmp> (`blink_cmp`)
+- blink.indent <https://github.com/saghen/blink.indent> (`blink_indent`)
+- blink.pairs <https://github.com/saghen/blink.pairs> (`blink_pairs`)
+- CodeCompanion.nvim <https://github.com/olimorris/codecompanion.nvim> (`codecompanion`)
 - Copilot.vim <https://github.com/github/copilot.vim> (`copilot`)
+- csvview.nvim <https://github.com/hat0uma/csvview.nvim> (`csvview`)
 - Dashboard <https://github.com/glepnir/dashboard-nvim> (`dashboard`)
 - diffview.nvim <https://github.com/sindrets/diffview.nvim> (`diffview`)
 - flash.nvim <https://github.com/folke/flash.nvim> (`flash.nvim`)
+- gitgraph.nvim <https://github.com/isakbm/gitgraph.nvim> (`gitgraph.nvim`)
 - gitsigns.nvim <https://github.com/lewis6991/gitsigns.nvim> (`gitsigns`)
 - Hop.nvim <https://github.com/phaazon/hop.nvim> (`hop`)
-- Indent Blankline <https://github.com/lukas-reineke/indent-blankline.nvim/tree/lua> (`indentline`)
+- Indent Blankline <https://github.com/lukas-reineke/indent-blankline.nvim> (`indentline`)
 - leap.nvim <https://github.com/ggandor/leap.nvim> (`leap`)
 - lspsaga.nvim <https://github.com/glepnir/lspsaga.nvim> (`lsp_saga`)
 - LSP Semantic tokens (`lsp_semantic_tokens`)
 - marks.nvim <https://github.com/chentau/marks.nvim> (`marks`)
 - mason.nvim <https://github.com/williamboman/mason.nvim> (`mason`)
+- mcphub.nvim <https://github.com/ravitemer/mcphub.nvim> (`mcphub`)
+- mini.diff <https://github.com/echasnovski/mini.diff> (`mini_diff`)
+- mini.icons <https://github.com/echasnovski/mini.icons> (`mini_icons`)
 - mini.indentscope <https://github.com/echasnovski/mini.indentscope> (`mini_indentscope`)
+- mini.test <https://github.com/echasnovski/mini.test> (`mini_test`)
 - Neotest <https://github.com/nvim-neotest/neotest> (`neotest`)
 - neo-tree <https://github.com/nvim-neo-tree/neo-tree.nvim> (`neo_tree`)
 - nvim-cmp <https://github.com/hrsh7th/nvim-cmp> (`nvim_cmp`)
@@ -804,8 +830,10 @@ The theme supports the following plugins:
 - nvim-ts-rainbow2 <https://github.com/HiPhish/nvim-ts-rainbow2> (`nvim_ts_rainbow2`)
 - op.nvim <https://github.com/mrjones2014/op.nvim> (`op_nvim`)
 - packer.nvim <https://github.com/wbthomason/packer.nvim> (`packer`)
+- persisted.nvim <https://github.com/olimorris/persisted.nvim> (`persisted`)
 - polygot <https://github.com/sheerun/vim-polyglot> (`polygot`)
 - startify <https://github.com/mhinz/vim-startify> (`startify`)
+- snacks.nvim <https://github.com/folke/snacks.nvim> (`snacks`)
 - telescope.nvim <https://github.com/nvim-telescope/telescope.nvim> (`telescope`)
 - toggleterm.nvim <https://github.com/akinsho/toggleterm.nvim> (`toggleterm`)
 - Treesitter <https://github.com/nvim-treesitter/nvim-treesitter> (`treesitter`)
@@ -815,7 +843,14 @@ The theme supports the following plugins:
 - vim-dadbod-ui <https://github.com/kristijanhusak/vim-dadbod-ui> (`vim_dadbod_ui`)
 
 
-EXTRAS                                                *onedarkpro.nvim-extras*
+:GIFT: EXTRAS                                  *onedarkpro.nvim-:gift:-extras*
+
+**Color Configs**
+
+The theme comes with the colors for Alacritty, Kitty, Foot, Wezterm, Rio,
+Windows Terminal and Zellij and these can be found in the extras
+<https://github.com/olimorris/onedarkpro.nvim/tree/main/extras> folder. To use
+them, refer to their respective documentation.
 
 **Lualine**
 
@@ -839,7 +874,7 @@ helper function could be used:
 <
 
 
-FAQS                                                    *onedarkpro.nvim-faqs*
+:QUESTION: FAQS                              *onedarkpro.nvim-:question:-faqs*
 
 **I want to change a highlight group but I don’t know what it is. How do I
 find out?**
@@ -872,15 +907,15 @@ colors. If you notice any differences, please raise a discussion
 with supporting screenshots.
 
 
-CREDITS                                              *onedarkpro.nvim-credits*
+:CLAP: CREDITS                                *onedarkpro.nvim-:clap:-credits*
 
 The following colorschemes serve as inspiration:
-
 
 - One Dark Pro <https://github.com/Binaryify/OneDark-Pro> - The inspiration for this colorscheme
 - Catppuccin/nvim <https://github.com/catppuccin/nvim> - For the genius idea of hashing and caching and pushing the envelope of Neovim colorschemes and the kind PRs
 - Nightfox <https://github.com/EdenEast/nightfox.nvim> - For the original code structure
 - GitHub nvim theme <https://github.com/projekt0n/github-nvim-theme> - For the logo inspiration
+- folke/tokyonight.nvim <https://github.com/folke/tokyonight.nvim> - For the tmux theme design
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 

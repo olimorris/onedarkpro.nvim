@@ -1,8 +1,10 @@
-local M = require("onedarkpro.utils.template")
+local utils = require("onedarkpro.utils")
 
-M.filetype = "toml"
+local M = {}
 
-M.template = [[
+function M.generate(colors)
+  return utils.replace_vars(
+    [[
 # Colors - https://github.com/olimorris/onedarkpro.nvim
 [colors.primary]
 background  = "${bg}"
@@ -35,6 +37,9 @@ cursor      = "CellForeground" # syntax-cursor-color
 [colors.selection]
 text        = "CellForeground"
 background  = "${gray}"
-]]
+]],
+    colors
+  )
+end
 
 return M

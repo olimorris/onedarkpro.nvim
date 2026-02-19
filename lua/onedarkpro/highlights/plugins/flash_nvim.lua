@@ -4,10 +4,10 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        FlashBackdrop = { fg = theme.palette.comment },
-        FlashLabel = { fg = theme.palette.bg, bg = theme.palette.purple, bold = true },
-    }
+  return {
+    FlashBackdrop = { fg = theme.palette.comment },
+    FlashLabel = { fg = theme.palette.bg, bg = theme.palette.purple, bold = true },
+  }
 end
 
 return M

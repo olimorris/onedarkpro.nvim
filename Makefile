@@ -4,43 +4,59 @@ PLENARY_DIR = misc/plenary
 PLENARY_URL = https://github.com/nvim-lua/plenary.nvim
 NV_VERSION := $(shell nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 
-all: format test docs
+all: format test docs extra
 
-docs: $(PANVIMDOC_DIR)
-	@cd $(PANVIMDOC_DIR) && \
-	pandoc \
+docs: deps/panvimdoc
+	@echo Generating Docs...
+	@pandoc \
 		--metadata="project:onedarkpro.nvim" \
 		--metadata="description:Atom's iconic One Dark theme for Neovim" \
 		--metadata="toc:true" \
 		--metadata="incrementheadinglevelby:0" \
 		--metadata="treesitter:true" \
-		--lua-filter scripts/skip-blocks.lua \
-		--lua-filter scripts/include-files.lua \
-		--lua-filter scripts/remove-emojis.lua \
-		-t scripts/panvimdoc.lua \
-		../../README.md \
-		-o ../../doc/onedarkpro.nvim.txt
+		--lua-filter deps/panvimdoc/scripts/include-files.lua \
+		--lua-filter deps/panvimdoc/scripts/skip-blocks.lua \
+		-t deps/panvimdoc/scripts/panvimdoc.lua \
+		README.md \
+		-o doc/onedarkpro.nvim.txt
 
-$(PANVIMDOC_DIR):
-	git clone --depth=1 --no-single-branch $(PANVIMDOC_URL) $(PANVIMDOC_DIR)
-	@rm -rf doc/panvimdoc/.git
 
 check:
+	@echo Checking...
 	stylua --check lua/ tests/ -f ./stylua.toml
 
 format:
-	stylua lua/ tests/ -f ./stylua.toml
+	@echo Formatting...
+	@stylua tests/ lua/ -f ./stylua.toml
 
-test: $(PLENARY_DIR)
-	nvim --headless --noplugin -u tests/basic_spec.vim +BasicSpec
-	nvim --headless --noplugin -u tests/config_spec.vim +ConfigSpec
-	nvim --headless --noplugin -u tests/source_spec.vim +SourceSpec
-	nvim --headless --noplugin -u tests/cache_spec.vim +CacheSpec
-	nvim --headless --noplugin -u tests/helpers_spec.vim +HelpersSpec
-# ifeq ($(NV_VERSION), 0.9)
-# 	nvim --headless -u tests/semantic_token_spec.vim +SemanticTokenSpec
-# endif
+test: deps
+	@echo Testing...
+	nvim --headless --noplugin -u ./scripts/minimal_init.lua -c "lua MiniTest.run()"
 
-$(PLENARY_DIR):
-	git clone --depth=1 --branch v0.1.3 $(PLENARY_URL) $(PLENARY_DIR)
-	@rm -rf $(PLENARY_DIR)/.git
+test_file: deps
+	@echo Testing File...
+	nvim --headless --noplugin -u ./scripts/minimal_init.lua -c "lua MiniTest.run_file('$(FILE)')"
+
+extra:
+	@echo Generating Extras...
+	nvim --headless -u tests/basic_spec.vim +"lua require('onedarkpro.extra').setup()" +qa
+
+
+deps: deps/plenary.nvim deps/nvim-treesitter deps/mini.nvim deps/panvimdoc
+	@echo Pulling...
+
+deps/plenary.nvim:
+	@mkdir -p deps
+	git clone --filter=blob:none https://github.com/nvim-lua/plenary.nvim.git $@
+
+deps/nvim-treesitter:
+	@mkdir -p deps
+	git clone --filter=blob:none https://github.com/nvim-treesitter/nvim-treesitter.git $@
+
+deps/mini.nvim:
+	@mkdir -p deps
+	git clone --filter=blob:none https://github.com/echasnovski/mini.nvim $@
+
+deps/panvimdoc:
+	@mkdir -p deps
+	git clone --filter=blob:none https://github.com/kdheepak/panvimdoc $@

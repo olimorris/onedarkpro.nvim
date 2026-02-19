@@ -1,0 +1,17 @@
+// Colors - https://github.com/olimorris/onedarkpro.nvim
+
+themes {
+    onedarkpro {
+        fg "#6a6a6a"
+        bg "#fafafa"
+        black "#6a6a6a"
+        red "#e05661"
+        green "#1da912"
+        yellow "#eea825"
+        blue "#118dc3"
+        magenta "#9a77cf"
+        cyan "#56b6c2"
+        white "#fafafa"
+        orange "#ee9025"
+    }
+}

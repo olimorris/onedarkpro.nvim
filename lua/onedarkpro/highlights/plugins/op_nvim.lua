@@ -4,12 +4,12 @@ local M = {}
 ---@param theme table
 ---@return table
 function M.groups(theme)
-    return {
-        OpSidebarHeader = { fg = theme.palette.fg },
-        OpSidebarItem = { fg = theme.palette.fg },
-        OpSidebarFavoriteIcon = { fg = theme.palette.orange },
-        OpSidebarIconDefault = { fg = theme.palette.blue },
-    }
+  return {
+    OpSidebarHeader = { fg = theme.palette.fg },
+    OpSidebarItem = { fg = theme.palette.fg },
+    OpSidebarFavoriteIcon = { fg = theme.palette.orange },
+    OpSidebarIconDefault = { fg = theme.palette.blue },
+  }
 end
 
 return M

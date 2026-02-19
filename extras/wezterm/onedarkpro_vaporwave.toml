@@ -1,0 +1,62 @@
+[colors]
+ansi = [
+  "#222435",
+  "#E16765",
+  "#75BE78",
+  "#EAE852",
+  "#25ABE4",
+  "#c678dd",
+  "#46A3AF",
+  "#B4B7CF",
+]
+background = "#222435"
+brights = [
+  "#585B89",
+  "#e99190",
+  "#98ce9a",
+  "#f0ee7f",
+  "#52bcea",
+  "#d7a1e7",
+  "#66b7c2",
+  "#d3d5e3",
+]
+cursor_bg = "#c678dd"
+cursor_fg = "#222435"
+foreground = "#B4B7CF"
+selection_bg = "#c678dd"
+selection_fg = "#B4B7CF"
+
+[colors.tab_bar]
+inactive_tab_edge = "#222435"
+background = "#222435"
+
+[colors.tab_bar.active_tab]
+fg_color = "#c678dd"
+bg_color = "#222435"
+intensity = "Bold"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#585B89"
+bg_color = "#222435"
+intensity = "Bold"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#c678dd"
+bg_color = "#222435"
+
+[colors.tab_bar.new_tab]
+fg_color = "#c678dd"
+bg_color = "#222435"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#222435"
+bg_color = "#c678dd"
+
+[colors.indexed]
+59 = "#585B89"
+100 = "#e2be7d"
+214 = "#EAA041"
+
+[metadata]
+name = "onedarkpro_vaporwave"
+origin_url = "https://github.com/olimorris/onedarkpro.nvim"
