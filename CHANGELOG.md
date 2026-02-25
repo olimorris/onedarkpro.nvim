@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.27.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.26.0...v2.27.0) (2026-02-25)
+
+
+### Features
+
+* update codecompanion hl groups ([#347](https://github.com/olimorris/onedarkpro.nvim/issues/347)) ([ef97fa7](https://github.com/olimorris/onedarkpro.nvim/commit/ef97fa7eb19edaa9d803ec3ed45d6b9374e199f4))
+
 ## [2.26.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.25.0...v2.26.0) (2026-01-15)
 
 
