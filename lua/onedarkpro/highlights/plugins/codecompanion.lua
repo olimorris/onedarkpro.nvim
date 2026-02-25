@@ -11,6 +11,7 @@ function M.groups(theme)
     CodeCompanionChatSeparator = { fg = theme.palette.gray },
     CodeCompanionChatTool = { fg = theme.palette.bg, bg = theme.palette.green },
     CodeCompanionChatToolGroup = { fg = theme.palette.bg, bg = theme.palette.orange },
+    CodeCompanionChatEditorContext = { fg = theme.palette.bg, bg = theme.palette.blue },
     CodeCompanionChatVariable = { fg = theme.palette.bg, bg = theme.palette.blue },
   }
 end
