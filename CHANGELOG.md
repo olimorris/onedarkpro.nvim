@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.28.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.27.0...v2.28.0) (2026-03-10)
+
+
+### Features
+
+* **extras:** add Opencode ([#349](https://github.com/olimorris/onedarkpro.nvim/issues/349)) ([3ae52cc](https://github.com/olimorris/onedarkpro.nvim/commit/3ae52ccce19dbe7a38eeabe475000edb71487900))
+
 ## [2.27.0](https://github.com/olimorris/onedarkpro.nvim/compare/v2.26.0...v2.27.0) (2026-02-25)
 
 
