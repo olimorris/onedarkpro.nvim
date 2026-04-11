@@ -1,6 +1,5 @@
 vim.cmd([[let &rtp.=','.getcwd()]])
 vim.cmd("set rtp+=deps/mini.nvim")
-vim.cmd("set rtp+=deps/plenary.nvim")
 vim.cmd("set rtp+=deps/nvim-treesitter")
 
 -- Ensure mini.test is available

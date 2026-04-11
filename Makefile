@@ -1,7 +1,5 @@
 PANVIMDOC_DIR = misc/panvimdoc
 PANVIMDOC_URL = https://github.com/kdheepak/panvimdoc
-PLENARY_DIR = misc/plenary
-PLENARY_URL = https://github.com/nvim-lua/plenary.nvim
 NV_VERSION := $(shell nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 
 all: format test docs extra
@@ -42,12 +40,8 @@ extra:
 	nvim --headless -u tests/basic_spec.vim +"lua require('onedarkpro.extra').setup()" +qa
 
 
-deps: deps/plenary.nvim deps/nvim-treesitter deps/mini.nvim deps/panvimdoc
+deps: deps/nvim-treesitter deps/mini.nvim deps/panvimdoc
 	@echo Pulling...
-
-deps/plenary.nvim:
-	@mkdir -p deps
-	git clone --filter=blob:none https://github.com/nvim-lua/plenary.nvim.git $@
 
 deps/nvim-treesitter:
 	@mkdir -p deps
