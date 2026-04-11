@@ -6,7 +6,7 @@ local M = {}
 function M.groups(theme)
   return {
     FlashBackdrop = { fg = theme.palette.comment },
-    FlashLabel = { fg = theme.palette.bg, bg = theme.palette.purple, bold = true },
+    FlashLabel = { fg = theme.palette.bg, bg = theme.palette.yellow },
   }
 end
 
