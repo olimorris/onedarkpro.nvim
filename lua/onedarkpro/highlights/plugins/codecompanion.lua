@@ -13,6 +13,7 @@ function M.groups(theme)
     CodeCompanionChatToolGroup = { fg = theme.palette.bg, bg = theme.palette.orange },
     CodeCompanionChatEditorContext = { fg = theme.palette.bg, bg = theme.palette.blue },
     CodeCompanionChatVariable = { fg = theme.palette.bg, bg = theme.palette.blue },
+    CodeCompanionCodeReviewComment = { fg = theme.palette.cyan },
   }
 end
 

@@ -4,3 +4,4 @@
 deps/**/*
 minimal.lua
 todo.md
+media/**/*
