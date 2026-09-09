@@ -56,6 +56,7 @@ function M.groups(theme)
       fg = theme.generated.line_number,
     }, -- LineNr for inactive windows
     MatchParen = { fg = theme.palette.cyan }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MCursorVisual = { bg = theme.palette.purple, fg = theme.palette.bg }, -- multi cursor in visual mode
     ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
     MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
